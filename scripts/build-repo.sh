@@ -109,10 +109,13 @@ fetch_repo() {
   log "== $pkg  ($repo) =="
 
   local json
-  json="$(curl -fsSL -H "Accept: application/vnd.github+json" "$api")"
+  json="$(curl -fsSL -H "Accept: application/vnd.github+json" "$api" 2>/dev/null)" || {
+    log "   skip: no latest release yet (repo may be empty)"
+    return 0
+  }
   local tag
   tag="$(jq -r '.tag_name' <<<"$json")"
-  [[ -n "$tag" && "$tag" != "null" ]] || die "no latest release for $pkg"
+  [[ -n "$tag" && "$tag" != "null" ]] || { log "   skip: no latest release for $pkg"; return 0; }
   log "   tag: $tag"
 
   # One download URL per asset (already absolute; survives tag renames).
