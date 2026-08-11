@@ -1,0 +1,24 @@
+# Registry of tools tracked by the latest-debs apt repository.
+#
+# Each entry maps a package name to the GitHub repository that publishes
+# the multi-architecture .deb release assets for it. The build-repo.sh
+# script reads this file, downloads the latest release from each repo,
+# and folds the assets into the aggregate pool/ + dists/ layout.
+#
+# The target repos are expected to publish assets named like:
+#   <package>_<version>-<build>.<suite>_<arch>.deb
+#   <package>_<version>-<build>.<suite>.dsc
+#   <package>_<version>-<build>.<suite>.debian.tar.xz
+# (the "<suite>" component is how a single release carries all dists).
+
+uv:
+  source: https://github.com/latest-debs/uv-debian
+  homepage: https://github.com/astral-sh/uv
+
+eza:
+  source: https://github.com/latest-debs/eza-debian
+  homepage: https://github.com/eza-community/eza
+
+lazygit:
+  source: https://github.com/latest-debs/lazygit-debian
+  homepage: https://github.com/jesseduffield/lazygit

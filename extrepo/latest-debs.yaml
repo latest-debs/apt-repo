@@ -1,0 +1,37 @@
+---
+# extrepo metadata for the latest-debs aggregate repository.
+#
+# This file is intended to be contributed upstream to
+# https://salsa.debian.org/extrepo-team/extrepo-data as
+# repos/debian/latest-debs.yaml so that users can run:
+#
+#     sudo extrepo enable latest-debs
+#
+# See https://salsa.debian.org/extrepo-team/extrepo-data for the full
+# metadata format and the rules external repositories must follow.
+
+latest-debs:
+  description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
+  source:
+    Types: deb deb-src
+    URIs: https://latest-debs.github.io/apt/
+    Suites: <SUITE>
+    Components: <COMPONENTS>
+    Architectures: amd64 arm64 armel armhf i386 ppc64el s390x riscv64
+  suites:
+    - bookworm
+    - trixie
+    - forky
+    - sid
+  components:
+    - main
+  policies:
+    main: main
+  contact: latest-debs@users.noreply.github.com
+  bugs: https://github.com/latest-debs/apt-repo/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    (paste the contents of latest-debs.asc here once the repository is signed)
+
+    -----END PGP PUBLIC KEY BLOCK-----
