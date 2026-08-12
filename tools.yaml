@@ -69,3 +69,46 @@ just:
 hyperfine:
   source: https://github.com/latest-debs/hyperfine-debian
   homepage: https://github.com/sharkdp/hyperfine
+
+k9s:
+  source: https://github.com/latest-debs/k9s-debian
+  homepage: https://github.com/derailed/k9s
+
+atuin:
+  source: https://github.com/latest-debs/atuin-debian
+  homepage: https://github.com/atuinsh/atuin
+
+xh:
+  source: https://github.com/latest-debs/xh-debian
+  homepage: https://github.com/ducaale/xh
+
+yq-go:
+  source: https://github.com/latest-debs/yq-debian
+  homepage: https://github.com/mikefarah/yq
+  # Debian's own "yq" package is an unrelated, older Python-based tool
+  # (kislyuk/yq); this one is packaged there under no equivalent name, so
+  # no debian_name override - it should correctly show as "not packaged".
+
+du-dust:
+  source: https://github.com/latest-debs/du-dust-debian
+  homepage: https://github.com/bootandy/dust
+
+procs:
+  source: https://github.com/latest-debs/procs-debian
+  homepage: https://github.com/dalance/procs
+
+bottom:
+  source: https://github.com/latest-debs/bottom-debian
+  homepage: https://github.com/ClementTsang/bottom
+
+bat:
+  source: https://github.com/latest-debs/bat-debian
+  homepage: https://github.com/sharkdp/bat
+
+zoxide:
+  source: https://github.com/latest-debs/zoxide-debian
+  homepage: https://github.com/ajeetdsouza/zoxide
+
+git-delta:
+  source: https://github.com/latest-debs/git-delta-debian
+  homepage: https://github.com/dandavison/delta
