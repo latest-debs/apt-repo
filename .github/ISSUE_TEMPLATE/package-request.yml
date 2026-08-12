@@ -1,0 +1,68 @@
+name: Package request
+description: Ask us to package a developer tool as a .deb
+title: "[Request] "
+labels: ["package-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a tool! Fill this in and we'll take a look.
+        Please check first that it isn't
+        [already packaged](https://github.com/latest-debs/apt-repo/blob/main/tools.yaml).
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      description: The upstream project name.
+      placeholder: e.g. ripgrep
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream repository or homepage
+      placeholder: e.g. https://github.com/BurntSushi/ripgrep
+    validations:
+      required: true
+  - type: textarea
+    id: about
+    attributes:
+      label: What does it do?
+      description: One or two sentences — why is this tool useful to developers?
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: Must be open source (OSI-approved) so we can redistribute packages.
+      placeholder: e.g. MIT, Apache-2.0
+    validations:
+      required: true
+  - type: dropdown
+    id: build
+    attributes:
+      label: How is it built?
+      description: Best guess is fine — it helps us pick the right build path.
+      options:
+        - Rust (cargo)
+        - Go
+        - Python
+        - Node.js
+        - C / C++
+        - Other / not sure
+  - type: input
+    id: in-debian
+    attributes:
+      label: Already in Debian?
+      description: If it's packaged in Debian but outdated, note the Debian version vs latest upstream.
+      placeholder: e.g. not in Debian / in Debian at 13.0.0, upstream at 14.1.0
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: The project publishes tagged releases (not just a rolling main branch)
+          required: true
+        - label: I checked this tool isn't already in latest-debs
+          required: true
