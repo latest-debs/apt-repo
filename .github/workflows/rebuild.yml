@@ -27,6 +27,9 @@ jobs:
       - name: Regenerate repository
         run: bash scripts/build-repo.sh
 
+      - name: Snapshot Debian archive versions
+        run: bash scripts/fetch-debian-versions.sh
+
       - name: Sign repository
         env:
           APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}

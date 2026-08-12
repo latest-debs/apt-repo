@@ -50,6 +50,9 @@ ripgrep:
 fd:
   source: https://github.com/latest-debs/fd-debian
   homepage: https://github.com/sharkdp/fd
+  # Debian's own "fd" binary package is an unrelated older tool; this one
+  # is packaged there as "fd-find".
+  debian_name: fd-find
 
 fzf:
   source: https://github.com/latest-debs/fzf-debian
