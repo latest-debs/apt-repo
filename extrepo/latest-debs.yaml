@@ -16,7 +16,7 @@ latest-debs:
     Types: deb
     URIs: https://latest-debs.github.io/apt-repo/
     Suites: <SUITE>
-    Components: <COMPONENTS>
+    Components: main
     # armel isn't listed: no currently-tracked package publishes a real
     # soft-float ARM build (only hard-float armhf), so there is never an
     # armel Packages file to list here. i386 is bookworm/trixie only -
@@ -31,8 +31,7 @@ latest-debs:
     - sid
   components:
     - main
-  policies:
-    main: main
+  policy: main
   contact: latest-debs@users.noreply.github.com
   bugs: https://github.com/latest-debs/apt-repo/issues
   gpg-key: |
