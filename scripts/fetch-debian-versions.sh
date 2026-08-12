@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # fetch-debian-versions.sh - snapshot each tracked tool's current Debian
-# stable (bookworm) package version via Debian's madison service, and
-# publish as debian-versions.json alongside the repo.
+# stable package version via Debian's madison service, and publish as
+# debian-versions.json alongside the repo.
 #
 # Debian's madison/sources APIs don't send CORS headers, so this can't be
 # fetched live from client-side site JS - it's done here, at rebuild time,
@@ -12,6 +12,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_YAML="$ROOT/tools.yaml"
 OUT="$ROOT/debian-versions.json"
+
+# Debian's current stable release. Trixie became stable in August 2025
+# (bookworm is now oldstable) - update this, and the matching "trixie"
+# references in latest-debs.github.io/index.html, whenever Debian's next
+# stable release ships.
+STABLE_SUITE="trixie"
 
 log() { printf '[debian-versions] %s\n' "$*"; }
 
@@ -42,14 +48,14 @@ while IFS=$'\t' read -r pkg dname; do
   log "checking $pkg (debian package: $dname)..."
 
   madison_out=$(curl -fsSL "https://qa.debian.org/madison.php?package=${dname}&text=on" 2>/dev/null || echo "")
-  bookworm_line=$(echo "$madison_out" | awk -F'|' '$3 ~ /^ *bookworm *$/ {print; exit}')
+  stable_line=$(echo "$madison_out" | awk -F'|' -v suite="$STABLE_SUITE" '$3 ~ "^ *" suite " *$" {print; exit}')
 
-  if [[ -n "$bookworm_line" ]]; then
-    version=$(echo "$bookworm_line" | awk -F'|' '{gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2}')
-    log "  -> $version (bookworm)"
+  if [[ -n "$stable_line" ]]; then
+    version=$(echo "$stable_line" | awk -F'|' '{gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2}')
+    log "  -> $version ($STABLE_SUITE)"
     jq --arg pkg "$pkg" --arg ver "$version" '. + {($pkg): $ver}' "$tmp_json" > "${tmp_json}.new"
   else
-    log "  -> not packaged in bookworm"
+    log "  -> not packaged in $STABLE_SUITE"
     jq --arg pkg "$pkg" '. + {($pkg): null}' "$tmp_json" > "${tmp_json}.new"
   fi
   mv "${tmp_json}.new" "$tmp_json"
@@ -57,7 +63,7 @@ while IFS=$'\t' read -r pkg dname; do
   sleep 0.5 # be polite to qa.debian.org across ~14 sequential requests
 done < <(parse_tools)
 
-jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg suite "bookworm" \
+jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg suite "$STABLE_SUITE" \
    --slurpfile packages "$tmp_json" \
    '{generated_at: $generated_at, suite: $suite, packages: $packages[0]}' > "$OUT"
 
