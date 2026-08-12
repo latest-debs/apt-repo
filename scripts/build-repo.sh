@@ -108,8 +108,15 @@ fetch_repo() {
   local api="https://api.github.com/repos/$repo/releases/latest"
   log "== $pkg  ($repo) =="
 
+  # Authenticate when a token is available - anonymous calls share a
+  # 60/hour rate limit across every workflow on the runner's IP, which
+  # this org's build volume (14+ tool repos, each rebuilding on its own
+  # schedule) exhausts easily, silently degrading every fetch to "skip:
+  # no latest release yet" and shipping an apt repo with zero packages.
   local json
-  json="$(curl -fsSL -H "Accept: application/vnd.github+json" "$api" 2>/dev/null)" || {
+  json="$(curl -fsSL -H "Accept: application/vnd.github+json" \
+      ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
+      "$api" 2>/dev/null)" || {
     log "   skip: no latest release yet (repo may be empty)"
     return 0
   }

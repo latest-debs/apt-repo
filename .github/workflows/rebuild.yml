@@ -25,6 +25,8 @@ jobs:
           sudo apt-get install -y curl jq dpkg-dev apt-utils gnupg
 
       - name: Regenerate repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/build-repo.sh
 
       - name: Snapshot Debian archive versions
