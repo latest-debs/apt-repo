@@ -5,7 +5,6 @@ over `apt`.
 
 - **Debian:** Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
 - **Architectures:** amd64, arm64, armel, armhf, i386, ppc64el, s390x, riscv64
-- **Source packages:** available (`.dsc`) for all supported suites
 - **Updates:** every ~6 hours, automatically
 
 All packages are built from upstream releases using the

@@ -13,7 +13,7 @@
 latest-debs:
   description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
   source:
-    Types: deb deb-src
+    Types: deb
     URIs: https://latest-debs.github.io/apt-repo/
     Suites: <SUITE>
     Components: <COMPONENTS>
