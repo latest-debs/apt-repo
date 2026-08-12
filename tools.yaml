@@ -42,3 +42,27 @@ duckdb:
 lazydocker:
   source: https://github.com/latest-debs/lazydocker-debian
   homepage: https://github.com/jesseduffield/lazydocker
+
+ripgrep:
+  source: https://github.com/latest-debs/ripgrep-debian
+  homepage: https://github.com/BurntSushi/ripgrep
+
+fd:
+  source: https://github.com/latest-debs/fd-debian
+  homepage: https://github.com/sharkdp/fd
+
+fzf:
+  source: https://github.com/latest-debs/fzf-debian
+  homepage: https://github.com/junegunn/fzf
+
+starship:
+  source: https://github.com/latest-debs/starship-debian
+  homepage: https://github.com/starship/starship
+
+just:
+  source: https://github.com/latest-debs/just-debian
+  homepage: https://github.com/casey/just
+
+hyperfine:
+  source: https://github.com/latest-debs/hyperfine-debian
+  homepage: https://github.com/sharkdp/hyperfine
