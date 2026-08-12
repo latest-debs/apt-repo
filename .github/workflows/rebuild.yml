@@ -27,6 +27,14 @@ jobs:
       - name: Regenerate repository
         run: bash scripts/build-repo.sh
 
+      - name: Unignore generated pool/dists for the Pages publish
+        # .gitignore keeps pool/ and dists/ (build artifacts) out of the
+        # main branch's history, but peaceiris/actions-gh-pages publishes
+        # this same working directory verbatim - so the same .gitignore
+        # was silently excluding them from every gh-pages deploy, meaning
+        # the site never actually served any packages.
+        run: rm -f .gitignore
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
