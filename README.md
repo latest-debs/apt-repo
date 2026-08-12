@@ -38,9 +38,15 @@ sudo apt update
 
 ## Adding or updating a tool
 
-1. Add an entry to `tools.yaml` pointing at the tool's package repo
-   (e.g. `https://github.com/latest-debs/uv-debian`).
-2. The scheduled workflow picks it up automatically on the next run.
+- **Request a package:** open a
+  [package request](https://github.com/latest-debs/apt-repo/issues/new?template=package-request.yml)
+  — tool name, upstream URL, and license is all we need. Open requests are
+  tracked under the
+  [`package-request` label](https://github.com/latest-debs/apt-repo/labels/package-request).
+- **Do it yourself:**
+  1. Add an entry to `tools.yaml` pointing at the tool's package repo
+     (e.g. `https://github.com/latest-debs/uv-debian`).
+  2. The scheduled workflow picks it up automatically on the next run.
 
 Package repo releases must be named so the suite is embedded, e.g.:
 
