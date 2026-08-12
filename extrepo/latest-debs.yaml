@@ -14,7 +14,7 @@ latest-debs:
   description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
   source:
     Types: deb deb-src
-    URIs: https://latest-debs.github.io/apt/
+    URIs: https://latest-debs.github.io/apt-repo/
     Suites: <SUITE>
     Components: <COMPONENTS>
     Architectures: amd64 arm64 armel armhf i386 ppc64el s390x riscv64
@@ -32,6 +32,14 @@ latest-debs:
   gpg-key: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-    (paste the contents of latest-debs.asc here once the repository is signed)
-
+    mDMEanxCLxYJKwYBBAHaRw8BAQdAX7ic9BXE14qAcAhDEEVi32fU6cVzP9hbpAho
+    ZlKEnaG0MmxhdGVzdC1kZWJzIDxsYXRlc3QtZGVic0B1c2Vycy5ub3JlcGx5Lmdp
+    dGh1Yi5jb20+iJAEExYKADgWIQSTKcSOrsACSVYZUNTDTUIpUYq5agUCanxCLwIb
+    IwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRDDTUIpUYq5akTQAQCceSEO3xUi
+    WitrFSztU7Mq1zuRXcAO5qNPIDeCRYfEMwD9EJdAYXHmr2IZV76UTUboDloTKrbV
+    8qlDztaK/76A2Qi4OARqfEIvEgorBgEEAZdVAQUBAQdAIN8HzDZnjLoJc1NtKgqj
+    XXrhHsGE6P8ZW1OA8AoOlXMDAQgHiHgEGBYKACAWIQSTKcSOrsACSVYZUNTDTUIp
+    UYq5agUCanxCLwIbDAAKCRDDTUIpUYq5au8rAP9/yach6k+wkA1eSKpdOH++lu51
+    bGSkcO6zxTIs4E+7wQEA3YnbF1I9QWDbVYHiXWOcSOiNpQ2gemcI1Jk9QkE/LAc=
+    =KFsD
     -----END PGP PUBLIC KEY BLOCK-----

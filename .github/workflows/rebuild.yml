@@ -22,10 +22,16 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl jq dpkg-dev apt-utils
+          sudo apt-get install -y curl jq dpkg-dev apt-utils gnupg
 
       - name: Regenerate repository
         run: bash scripts/build-repo.sh
+
+      - name: Sign repository
+        env:
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+          APT_SIGNING_KEY_PASS: ${{ secrets.APT_SIGNING_KEY_PASS }}
+        run: bash scripts/sign-repo.sh
 
       - name: Unignore generated pool/dists for the Pages publish
         # .gitignore keeps pool/ and dists/ (build artifacts) out of the

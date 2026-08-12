@@ -32,9 +32,9 @@ echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.gith
 sudo apt update
 ```
 
-> **Note:** The repository indexes are unsigned until the GPG signing step
-> (scripts/sign-repo.sh) is completed. Use `[trusted=yes]` in the meantime if
-> you want to test.
+> **Note:** The repository indexes are GPG-signed (`scripts/sign-repo.sh` runs
+> automatically on every rebuild). `apt` verifies signatures against the key
+> imported above via `signed-by=`.
 
 ## Adding or updating a tool
 
