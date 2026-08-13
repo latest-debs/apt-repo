@@ -14,6 +14,17 @@ All packages are built from upstream releases using the
 GitHub Action. Each tool's packaging lives in its own repo under this
 organization.
 
+Every release is gated by **lintian** (Debian's package policy checker) and a
+**smoke test** that runs the packaged binaries in a container and verifies
+they report the expected version before the release is published — so the
+channel only ever carries packages that both pass policy and actually run.
+
+## Why "latest" is different from Debian's cadence
+
+Debian stable freezes versions for years between releases; this channel
+repackages upstream GitHub releases within hours of publication, so you get
+current tools on a stable base without waiting for the next Debian release.
+
 ## Install
 
 Via [extrepo](https://salsa.debian.org/extrepo-team/extrepo) (Debian):
@@ -58,10 +69,14 @@ runs on every `package-request` issue. With no extra setup it validates the
 request (upstream exists, publishes a Linux `.tar.gz`/`.tgz`/`.zip` release
 asset) and leaves a comment on the issue.
 
-To let it fully deploy, create a fine-grained PAT with **Administration:
-write** and **Contents: write** on the `latest-debs` org (or a classic PAT with
-`repo` + `workflow` + `admin:org` scopes) and store it as the
-**`ORG_ADMIN_TOKEN`** secret in this repo. Once set, the workflow will:
+To let it fully deploy, create a fine-grained PAT restricted to the
+`latest-debs` org with **Administration: write**, **Contents: write**, and
+**Workflows: write** (never a classic PAT with `admin:org`), set a short
+expiry, and store it as the **`ORG_ADMIN_TOKEN`** secret in this repo. It is
+only ever used to create org repos and dispatch their first build; everything
+else in the workflow (issue comments, `tools.yaml` pushes) runs on the
+repo-scoped `GITHUB_TOKEN`. Rotate it periodically. Once set, the workflow
+will:
 
 1. scaffold a `<tool>-debian` repo from
    [`templates/package-scaffold`](templates/package-scaffold),
@@ -82,6 +97,32 @@ uv_0.12.3-1.trixie_amd64.deb
 ```
 
 See [tools.yaml](tools.yaml) and `scripts/build-repo.sh`.
+
+## Supply chain & provenance
+
+The pipeline defends against upstream supply-chain attacks with two layers:
+
+- **Draft-before-publish** — every `*-debian` build produces a *draft* GitHub
+  release. Only a human publishing the draft makes the packages visible to
+  the apt repo's rebuild, so nothing we ship was ever auto-published.
+- **Vet-time provenance pin** — when a package request is vetted
+  (`scripts/vet-release.sh`, via `add-package.sh scaffold`), the upstream
+  asset is downloaded, its SHA-256 is cross-checked against the release's
+  published checksum file, and the release identity plus digest are captured
+  in `.github/release-metadata.json` inside the scaffolded repo. The
+  [debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder)
+  re-verifies the exact bytes it downloads against that pin when building the
+  vetted version, so a release altered *after* vetting fails the build
+  instead of being silently packaged. Releases that appear later (via the
+  auto-watch) have no pin yet, so they are verified against the release's own
+  checksum file and still gated by draft-before-publish until a maintainer
+  vets them.
+
+Access is scoped to the minimum: repo-scoped `GITHUB_TOKEN` wherever possible
+(issue handling, `tools.yaml`), and a fine-grained, org-restricted
+`ORG_ADMIN_TOKEN` only for creating org repos and dispatching their first
+build. GitHub API calls are authenticated everywhere to avoid the shared
+60/hour anonymous rate limit silently starving every fetch.
 
 ## Packages
 
@@ -124,7 +165,8 @@ See [tools.yaml](tools.yaml) and `scripts/build-repo.sh`.
 ```
 tools.yaml                  registry of tracked tools
 templates/package-scaffold  template for new <tool>-debian repos
-scripts/add-package.sh      validate + scaffold + deploy + register tool
+scripts/add-package.sh      validate + vet (checksum) + scaffold + deploy + register tool
+scripts/vet-release.sh      vet-time checksum verification + release metadata capture
 scripts/build-repo.sh       fetch releases + generate pool/ and dists/
 scripts/sync-readme.sh      regenerate the package table in README.md
 scripts/run-in-debian.sh    run build-repo.sh in a Debian container
