@@ -29,5 +29,14 @@ sudo dpkg -i __PKG_NAME___*.deb
 
 ## Disclaimer
 
-Unofficial packaging only. For issues with __PKG_NAME__ itself, see
+Unofficial, volunteer-run packaging — **best-effort, no SLA**.
+
+- **Update cadence:** new upstream releases are watched and built
+  automatically, then land in the apt repo on its next rebuild (roughly every
+  6 hours). GitHub outages, rate limits, or upstream archive changes can delay
+  or skip an update; there is no freshness guarantee.
+- **Draft releases:** every build is published as a *draft* that a maintainer
+  reviews before promoting, so a new version can lag its build.
+
+For issues with __PKG_NAME__ itself, see
 [__GITHUB_REPO__](https://github.com/__GITHUB_REPO__).

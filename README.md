@@ -7,7 +7,8 @@ over `apt`.
 
 - **Debian:** Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
 - **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64 (plus i386 on bookworm/trixie)
-- **Updates:** every ~6 hours, automatically
+- **Updates:** best-effort, roughly every 6 hours — no SLA (see
+  [Support & expectations](#support--expectations-best-effort-no-sla))
 
 All packages are built from upstream releases using the
 [debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder)
@@ -22,8 +23,39 @@ channel only ever carries packages that both pass policy and actually run.
 ## Why "latest" is different from Debian's cadence
 
 Debian stable freezes versions for years between releases; this channel
-repackages upstream GitHub releases within hours of publication, so you get
-current tools on a stable base without waiting for the next Debian release.
+repackages upstream GitHub releases on a best-effort cadence — typically
+within hours, but with no SLA (see below) — so you get current tools on a
+stable base without waiting for the next Debian release.
+
+## Support & expectations (best-effort, no SLA)
+
+This is a volunteer-run project, not a commercial service. Everything runs on
+free GitHub Actions and manual review, so treat the channel as **best-effort
+with no SLA**:
+
+- **Rebuild cadence.** The apt index is regenerated on a schedule (roughly
+  every 6 hours) and new tool versions are picked up on the next run. GitHub
+  can defer or fail scheduled workflows under load, runners occasionally go
+  offline, and API rate limits bite. A freshly published upstream release can
+  therefore appear within minutes or take much longer — and if an upstream
+  archive becomes unavailable, that version may be skipped entirely. Don't
+  build a pipeline that depends on a package appearing by a deadline.
+- **Draft release promotion.** Packages are never auto-published. Every build
+  lands as a *draft* GitHub release that a maintainer reviews and publishes by
+  hand (see [Supply chain & provenance](#supply-chain--provenance)). That
+  human gate is deliberate — it keeps tampered or broken releases out of the
+  channel — but it means promotion lags the build, and if a maintainer is
+  away, newer versions wait.
+- **Upstream dependency.** We repackage upstream GitHub releases as they
+  publish them. If an upstream changes its release layout, removes old
+  archives, or goes away, the corresponding tool silently stops updating until
+  someone fixes the packaging.
+
+What we do guarantee: the channel stays internally consistent. Indexes are
+always GPG-signed, every package is lintian-checked, smoke-tested, and
+checksum-verified before publication, and nothing ships that a human hasn't
+reviewed. Rely on it for convenience — not for security-critical or
+time-critical patch delivery.
 
 ## Install
 
