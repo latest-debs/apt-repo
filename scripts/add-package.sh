@@ -58,7 +58,16 @@ scaffold() {
   repo_json="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo" || true)"
   [ -n "$repo_json" ] || die "upstream repo $repo not found (or API rate-limited)"
   description="${description:-$(printf '%s' "$repo_json" | jq -r '.description // empty')}"
-  echo "→ Upstream: $repo — $(printf '%s' "$repo_json" | jq -r '.full_name')"
+  # Canonicalize renamed/redirected upstreams (e.g. extrawurst/gitui →
+  # gitui-org/gitui). The API follows the redirect and reports the current
+  # full_name, which the scaffold, version detection, and the builder must all
+  # use — the redirect (301) breaks the builder's non-following release check.
+  repo="$(printf '%s' "$repo_json" | jq -r '.full_name' || true)"
+  case "$repo" in
+    */*) : ;;
+    *) die "could not canonicalize upstream repo name from: $repo_json";;
+  esac
+  echo "→ Upstream: $repo — $(printf '%s' "$repo_json" | jq -r '.description // empty')"
 
   # Detect a Linux binary asset + archive format from the latest release.
   local release assets asset fmt
