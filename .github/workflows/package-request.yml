@@ -43,7 +43,7 @@ jobs:
           RUNNER_TEMP: ${{ runner.temp }}
 
       - name: Comment on failure
-        if: failure() && steps.scaffold.conclusion == 'failure'
+        if: always() && steps.scaffold.outcome == 'failure'
         run: gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,6 +51,7 @@ jobs:
           REPO: ${{ github.repository }}
 
       - name: Deploy package repo
+        id: deploy
         if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
         run: |
           bash scripts/add-package.sh deploy-repo \
@@ -61,6 +62,7 @@ jobs:
           RUNNER_TEMP: ${{ runner.temp }}
 
       - name: Register in tools.yaml
+        id: register
         if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
         run: |
           bash scripts/add-package.sh register-tools \
@@ -72,7 +74,7 @@ jobs:
           GITHUB_WORKSPACE: ${{ github.workspace }}
 
       - name: Comment on success
-        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        if: always() && steps.deploy.outcome == 'success' && steps.register.outcome == 'success'
         run: |
           gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Scaffolded and deployed **${{ steps.fields.outputs.name }}** → https://github.com/latest-debs/${{ steps.fields.outputs.name }}-debian
 
@@ -83,8 +85,17 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
 
+      - name: Comment on deployment failure
+        if: always() && steps.scaffold.outcome == 'success' && (steps.deploy.outcome == 'failure' || steps.register.outcome == 'failure')
+        run: |
+          gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Validation passed, but deployment failed. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) — the scaffold is ready, so a maintainer can deploy it manually with \`bash scripts/add-package.sh deploy-repo --name ${{ steps.fields.outputs.name }} --dir <scaffold>\`."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
       - name: Comment when admin token is missing
-        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN == ''
+        if: always() && steps.scaffold.outcome == 'success' && steps.deploy.outcome == 'skipped'
         run: |
           gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then re-run this workflow."
         env:

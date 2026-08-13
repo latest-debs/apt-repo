@@ -152,9 +152,13 @@ register_tools() {
 
   printf '\n%s:\n  source: https://github.com/latest-debs/%s-debian\n  homepage: https://github.com/%s\n' \
     "$name" "$name" "$repo" >> "$tools_yaml"
-  ( cd "$(dirname "$tools_yaml")" && git add "$(basename "$tools_yaml")" && \
+  local dir branch refspec
+  dir="$(dirname "$tools_yaml")"
+  branch="$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null || echo HEAD)"
+  if [ "$branch" = "HEAD" ]; then refspec="HEAD:main"; else refspec="HEAD"; fi
+  ( cd "$dir" && git add "$(basename "$tools_yaml")" && \
     git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-      commit -q -m "register $name package" && git push -q )
+      commit -q -m "register $name package" && git push -q origin "$refspec" )
   echo "→ Registered $name in tools.yaml"
 }
 
