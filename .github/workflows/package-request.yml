@@ -3,15 +3,21 @@ name: Process package request
 on:
   issues:
     types: [opened, reopened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Issue number to fulfil (after admin approval)
+        required: true
+        type: number
 
 permissions:
   contents: write
   issues: write
 
 jobs:
-  process:
-    name: Package request
-    if: contains(github.event.issue.labels.*.name, 'package-request')
+  vet:
+    name: Vet package request
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'package-request')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout apt-repo
@@ -44,6 +50,71 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
+      - name: Comment on failure
+        if: always() && steps.scaffold.outcome == 'failure'
+        run: |
+          gh issue edit "$NUMBER" --repo "$REPO" --remove-label "processing"
+          gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Await admin approval
+        if: always() && steps.scaffold.outcome == 'success'
+        run: |
+          gh label create awaiting-approval --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "awaiting-approval" --remove-label "processing"
+          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+  fulfil:
+    name: Fulfil approved package request
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout apt-repo
+        uses: actions/checkout@v4
+
+      - name: Extract request fields
+        id: fields
+        run: |
+          body="$(gh issue view "$NUMBER" --repo "$REPO" --json body --jq .body)"
+          labels="$(gh issue view "$NUMBER" --repo "$REPO" --json labels --jq '.labels[].name' | tr '\n' ',')"
+          case ",$labels," in
+            *,package-request,*) ;;
+            *) echo "::error::issue no longer has the package-request label"; exit 1;;
+          esac
+          ISSUE_BODY="$body" bash .github/workflows/extract-request.sh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
+          REPO: ${{ github.repository }}
+
+      - name: Label as processing
+        run: |
+          gh label create processing --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "processing"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
+          REPO: ${{ github.repository }}
+
+      - name: Validate and scaffold package repo
+        id: scaffold
+        run: |
+          bash scripts/add-package.sh scaffold \
+            --name "${{ steps.fields.outputs.name }}" \
+            --repo "${{ steps.fields.outputs.repo }}" \
+            --description "${{ steps.fields.outputs.about }}" \
+            --out "$RUNNER_TEMP"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUNNER_TEMP: ${{ runner.temp }}
+
       - name: Check ORG_ADMIN_TOKEN
         id: check-token
         env:
@@ -57,10 +128,12 @@ jobs:
 
       - name: Comment on failure
         if: always() && steps.scaffold.outcome == 'failure'
-        run: gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
+        run: |
+          gh issue edit "$NUMBER" --repo "$REPO" --remove-label "processing" --remove-label "awaiting-approval"
+          gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}
 
       - name: Deploy package repo
@@ -70,13 +143,19 @@ jobs:
           bash scripts/add-package.sh deploy-repo \
             --name "${{ steps.fields.outputs.name }}" \
             --dir "$RUNNER_TEMP"
+          for i in $(seq 1 30); do
+            run_id="$(gh run list --repo "latest-debs/${{ steps.fields.outputs.name }}-debian" --workflow release.yml --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)"
+            [ -n "$run_id" ] && [ "$run_id" != "null" ] && break
+            sleep 2
+          done
+          echo "build_run_id=$run_id" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
       - name: Register in tools.yaml
         id: register
-        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
+        if: always() && steps.deploy.outcome == 'success'
         run: |
           bash scripts/add-package.sh register-tools \
             --name "${{ steps.fields.outputs.name }}" \
@@ -86,33 +165,66 @@ jobs:
           GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
 
-      - name: Comment on success
+      - name: Wait for the first build
+        id: build
         if: always() && steps.deploy.outcome == 'success' && steps.register.outcome == 'success'
         run: |
-          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Scaffolded and deployed **${{ steps.fields.outputs.name }}** → https://github.com/latest-debs/${{ steps.fields.outputs.name }}-debian
+          run_id="${{ steps.deploy.outputs.build_run_id }}"
+          repo="latest-debs/${{ steps.fields.outputs.name }}-debian"
+          status=""
+          for i in $(seq 1 120); do
+            status="$(gh run view "$run_id" --repo "$repo" --json status --jq .status 2>/dev/null || true)"
+            [ "$status" = "completed" ] && break
+            sleep 20
+          done
+          conclusion="$(gh run view "$run_id" --repo "$repo" --json conclusion --jq .conclusion 2>/dev/null || true)"
+          echo "conclusion=$conclusion" >> "$GITHUB_OUTPUT"
+          echo "run_url=https://github.com/$repo/actions/runs/$run_id" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
 
-          The first build is running automatically; the apt repo will pick it up within ~6h of a successful build."
+      - name: Comment and close on build success
+        if: always() && steps.build.outcome == 'success' && steps.build.outputs.conclusion == 'success'
+        run: |
+          tag="$(gh release list --repo "latest-debs/${{ steps.fields.outputs.name }}-debian" --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)"
+          version="${tag#v}"; version="${version%+*}"
+          printf -v body '✅ **%s** %s built and published.\n\nRepo: https://github.com/latest-debs/%s-debian\nBuild: %s\n\nThe apt repo picks it up on the next rebuild (~6h).' "${{ steps.fields.outputs.name }}" "${version:+v${version}}" "${{ steps.fields.outputs.name }}" "${{ steps.build.outputs.run_url }}"
           gh label create automated --force 2>/dev/null || true
-          gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing"
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing" --remove-label "awaiting-approval"
+          gh issue close "$NUMBER" --repo "$REPO" --comment "$body"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
+          REPO: ${{ github.repository }}
+
+      - name: Comment on build failure
+        if: always() && steps.build.outcome == 'success' && steps.build.outputs.conclusion != 'success'
+        run: |
+          gh label create build-failed --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" \
+            --add-label "build-failed" \
+            --remove-label "processing" --remove-label "awaiting-approval"
+          gh issue comment "$NUMBER" --repo "$REPO" --body $'❌ The first build failed: ${{ steps.build.outputs.run_url }}.\n\nThe repo and scaffold are in place, so a maintainer can re-run the build and investigate. This issue stays open until a build succeeds.'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}
 
       - name: Comment on deployment failure
         if: always() && steps.scaffold.outcome == 'success' && (steps.deploy.outcome == 'failure' || steps.register.outcome == 'failure')
         run: |
+          gh issue edit "$NUMBER" --repo "$REPO" --remove-label "processing"
           gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Validation passed, but deployment failed. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) — the scaffold is ready, so a maintainer can deploy it manually with \`bash scripts/add-package.sh deploy-repo --name ${{ steps.fields.outputs.name }} --dir <scaffold>\`."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}
 
       - name: Comment when admin token is missing
         if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'false'
         run: |
-          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then re-run this workflow."
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then reply \`/approve\` again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}

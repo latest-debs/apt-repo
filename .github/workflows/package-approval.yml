@@ -1,0 +1,87 @@
+name: Package request approval
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  approval:
+    name: Handle approval comment
+    if: github.event.issue.pull_request == null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse command
+        id: cmd
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          cmd="$(printf '%s' "$BODY" | tr '[:upper:]' '[:lower:]' | awk '{print $1}')"
+          case "$cmd" in
+            /approve|/deny) echo "command=$cmd" >> "$GITHUB_OUTPUT";;
+            *) echo "command=none" >> "$GITHUB_OUTPUT";;
+          esac
+
+      - name: Check the request is a package request
+        id: request
+        if: steps.cmd.outputs.command != 'none'
+        run: |
+          labels="$(gh issue view "$NUMBER" --repo "$REPO" --json labels --jq '.labels[].name' | tr '\n' ',')"
+          case ",$labels," in
+            *,package-request,*) echo "valid=true" >> "$GITHUB_OUTPUT";;
+            *) echo "valid=false" >> "$GITHUB_OUTPUT";;
+          esac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Verify commenter is an org admin
+        id: admin
+        if: steps.cmd.outputs.command != 'none' && steps.request.outputs.valid == 'true'
+        run: |
+          is_admin=false
+          role="$(gh api "orgs/$ORG/memberships/$LOGIN" --jq '.role // empty' 2>/dev/null || true)"
+          case "$role" in admin|owner) is_admin=true;; esac
+          case ",$ADMINS," in *",$LOGIN,"*) is_admin=true;; esac
+          echo "is_admin=$is_admin" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG: ${{ github.repository_owner }}
+          LOGIN: ${{ github.event.comment.user.login }}
+          ADMINS: ${{ vars.ORG_ADMINS }}
+
+      - name: Approve request
+        if: steps.admin.outputs.is_admin == 'true' && steps.cmd.outputs.command == '/approve'
+        run: |
+          gh label create approved --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "approved"
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Approved by **${{ github.event.comment.user.login }}** — starting deployment and build."
+          gh workflow run "Process package request" --repo "$REPO" -f issue_number="$NUMBER"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Deny request
+        if: steps.admin.outputs.is_admin == 'true' && steps.cmd.outputs.command == '/deny'
+        run: |
+          gh label create denied --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" --remove-label "awaiting-approval" --remove-label "processing"
+          gh issue close "$NUMBER" --repo "$REPO" --reason "not planned" --comment "❌ Request denied by **${{ github.event.comment.user.login }}**. See the request discussion for details."
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "denied"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Notify non-admin
+        if: steps.cmd.outputs.command != 'none' && steps.request.outputs.valid == 'true' && steps.admin.outputs.is_admin == 'false'
+        run: |
+          gh issue comment "$NUMBER" --repo "$REPO" --body "ℹ️ Only org admins can approve or deny package requests — command from @${{ github.event.comment.user.login }} was ignored."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
