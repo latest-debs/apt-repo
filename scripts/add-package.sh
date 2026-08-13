@@ -55,14 +55,14 @@ scaffold() {
   esac
 
   # Validate upstream repo exists.
-  repo_json="$(curl -sf "${AUTH[@]}" "$API/repos/$repo" || true)"
+  repo_json="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo" || true)"
   [ -n "$repo_json" ] || die "upstream repo $repo not found (or API rate-limited)"
   description="${description:-$(printf '%s' "$repo_json" | jq -r '.description // empty')}"
   echo "→ Upstream: $repo — $(printf '%s' "$repo_json" | jq -r '.full_name')"
 
   # Detect a Linux binary asset + archive format from the latest release.
   local release assets asset fmt
-  release="$(curl -sf "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
+  release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
   [ -n "$release" ] || die "upstream $repo has no (non-prerelease) release — nothing to package"
   assets="$(printf '%s' "$release" | jq -r '.assets[]?.name' || true)"
   # Prefer a Linux build; fall back to any non-mac/windows archive.
