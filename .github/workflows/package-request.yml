@@ -190,7 +190,7 @@ jobs:
           version="${tag#v}"; version="${version%+*}"
           printf -v body '✅ **%s** %s built and published.\n\nRepo: https://github.com/latest-debs/%s-debian\nBuild: %s\n\nThe apt repo picks it up on the next rebuild (~6h).' "${{ steps.fields.outputs.name }}" "${version:+v${version}}" "${{ steps.fields.outputs.name }}" "${{ steps.build.outputs.run_url }}"
           gh label create automated --force 2>/dev/null || true
-          gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing" --remove-label "awaiting-approval"
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing" --remove-label "awaiting-approval" --remove-label "build-failed"
           gh issue close "$NUMBER" --repo "$REPO" --comment "$body"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
