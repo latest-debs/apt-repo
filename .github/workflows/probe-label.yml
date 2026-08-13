@@ -10,6 +10,9 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - run: gh label create probelabel --force --repo latest-debs/apt-repo
+      - run: |
+          gh label create probelabel --force --repo latest-debs/apt-repo
+          gh label create probe2 --force --repo latest-debs/apt-repo
+          echo "--- exit codes ok ---"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
