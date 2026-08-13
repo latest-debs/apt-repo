@@ -110,6 +110,17 @@ jobs:
           # silently packaged.
           pinned-metadata: ${{ github.workspace }}/.github/release-metadata.json
 
+      - name: Upload builder summary on failure
+        # The builder writes build-summary.json (structured failure data) on
+        # both success and failure; persist it so the failure reporter can
+        # fold it into the notification instead of anyone scraping logs.
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-summary
+          path: build-summary.json
+          if-no-files-found: ignore
+
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:

@@ -12,8 +12,10 @@
 # substituted from the repo's package.yaml) and pushed if they differ:
 #   .github/workflows/release.yml          (builder version pin, globs, gates)
 #   .github/workflows/notify-apt-repo.yml  (release-published rebuild webhook)
+#   .github/workflows/notify-failure.yml   (structured failure notifications)
 #   .github/scripts/detect-version.sh      (auto-watch version detection)
 #   .github/scripts/license-check.sh       (license recheck / warn gate)
+#   .github/scripts/collect-failure-report.sh (structured failure report)
 # package.yaml is only touched to BACKFILL a missing license: pin (never
 # regenerated - it carries per-repo config). README.md is not rolled out:
 # child READMEs carry per-repo customizations the template cannot encode.
@@ -111,8 +113,10 @@ apply_to_dir() {
 
   local wf="$dir/.github/workflows/release.yml"
   local nf="$dir/.github/workflows/notify-apt-repo.yml"
+  local ff="$dir/.github/workflows/notify-failure.yml"
   local dt="$dir/.github/scripts/detect-version.sh"
   local lc="$dir/.github/scripts/license-check.sh"
+  local fr="$dir/.github/scripts/collect-failure-report.sh"
 
   mkdir -p "$(dirname "$wf")" "$(dirname "$nf")" "$(dirname "$dt")"
   sed "${subst[@]}" "$TPL/.github/workflows/release.yml" > "$wf.tmp"
@@ -121,12 +125,19 @@ apply_to_dir() {
     cp "$TPL/.github/workflows/notify-apt-repo.yml" "$nf.tmp"
     stage_file "$nf" "$nf.tmp" ".github/workflows/notify-apt-repo.yml"
   fi
+  if [ -f "$TPL/.github/workflows/notify-failure.yml" ]; then
+    cp "$TPL/.github/workflows/notify-failure.yml" "$ff.tmp"
+    stage_file "$ff" "$ff.tmp" ".github/workflows/notify-failure.yml"
+  fi
   cp "$TPL/.github/scripts/detect-version.sh" "$dt.tmp"
   chmod +x "$dt.tmp"
   stage_file "$dt" "$dt.tmp" ".github/scripts/detect-version.sh"
   cp "$TPL/.github/scripts/license-check.sh" "$lc.tmp"
   chmod +x "$lc.tmp"
   stage_file "$lc" "$lc.tmp" ".github/scripts/license-check.sh"
+  cp "$TPL/.github/scripts/collect-failure-report.sh" "$fr.tmp"
+  chmod +x "$fr.tmp"
+  stage_file "$fr" "$fr.tmp" ".github/scripts/collect-failure-report.sh"
 
   # Backfill a license: pin when package.yaml lacks one, using the upstream's
   # live SPDX id. New scaffolds already carry it; this covers repos created
