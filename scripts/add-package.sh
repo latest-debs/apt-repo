@@ -3,12 +3,17 @@
 # package repo, driven by GitHub issue package requests.
 #
 # Subcommands:
-#   scaffold        Validate the upstream repo + detect release format, then
-#                   scaffold a <name>-debian repo from the template.
+#   scaffold        Validate the upstream repo + detect release format, verify
+#                   the asset checksum, then scaffold a <name>-debian repo
+#                   from the template (embedding the vet-time provenance pin).
+#                   Add --version <tag> to vet a specific release instead of
+#                   latest (also used by CI's deterministic template dry-run).
 #   deploy-repo     Create the GitHub repo, push the scaffold, dispatch the
-#                   first auto build. Requires GH_TOKEN (org admin PAT).
-#   register-tools  Append the package to tools.yaml, commit, push.
-#                   Requires GH_TOKEN.
+#                   first auto build. Requires GH_TOKEN (org-restricted
+#                   fine-grained PAT with Administration/Contents/Workflows
+#                   write on latest-debs only).
+#   register-tools  Append the package to tools.yaml, commit, push. Only
+#                   needs a repo-scoped GITHUB_TOKEN.
 #
 # Requirements: curl, jq, gh, git.
 
@@ -29,12 +34,13 @@ die() { echo "ERROR: $*" >&2; exit 1; }
 # scaffold
 # ---------------------------------------------------------------------------
 scaffold() {
-  local name="" repo="" description="" out="."
+  local name="" repo="" description="" out="." version=""
   while [ $# -gt 0 ]; do
     case "$1" in
       --name) name="$2"; shift 2;;
       --repo) repo="$2"; shift 2;;
       --description) description="$2"; shift 2;;
+      --version) version="$2"; shift 2;;
       --out) out="$2"; shift 2;;
       *) die "unknown scaffold arg: $1";;
     esac
@@ -69,10 +75,19 @@ scaffold() {
   esac
   echo "→ Upstream: $repo — $(printf '%s' "$repo_json" | jq -r '.description // empty')"
 
-  # Detect a Linux binary asset + archive format from the latest release.
+  # Detect a Linux binary asset + archive format from the upstream release
+  # (a specific tag when --version is given, otherwise latest). vet-release.sh
+  # is told the same tag so the asset it downloads is the one we detected.
   local release assets asset fmt
-  release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
-  [ -n "$release" ] || die "upstream $repo has no (non-prerelease) release — nothing to package"
+  if [ -n "$version" ]; then
+    release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/tags/$version" || true)"
+    [ -n "$release" ] || die "upstream $repo has no release tagged $version"
+  else
+    release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
+    [ -n "$release" ] || die "upstream $repo has no (non-prerelease) release — nothing to package"
+  fi
+  local release_tag
+  release_tag="$(printf '%s' "$release" | jq -r '.tag_name // empty')"
   assets="$(printf '%s' "$release" | jq -r '.assets[]?.name' || true)"
   # Prefer a Linux build; fall back to any non-mac/windows archive.
   asset="$(printf '%s' "$assets" \
@@ -94,6 +109,21 @@ scaffold() {
   esac
   echo "→ Asset: $asset (format: $fmt)"
 
+  # VET TIME: verify the upstream asset's SHA-256 against the release's
+  # published checksum file and capture the release identity + digest as a
+  # provenance pin. The builder re-verifies against this pin when building
+  # the vetted version, so a release altered after this point is caught.
+  echo "→ Verifying upstream asset checksum and capturing release metadata"
+  local vet_dir="$out/vet-release"
+  mkdir -p "$vet_dir"
+  bash "$(dirname "$0")/vet-release.sh" \
+    --repo "$repo" --name "$name" --asset "$asset" --version "$release_tag" \
+    --out "$vet_dir"
+  # A failed cross-check is a warning, not a scaffold blocker: the digest is
+  # still pinned from the bytes we downloaded, and the admin reviews the
+  # summary before approving. A mismatch is called out above in the log.
+  [ -f "$vet_dir/release-metadata.json" ] || die "vet-release.sh produced no release-metadata.json"
+
   # Scaffold from template.
   local dest="$out/$name-debian"
   rm -rf "$dest"
@@ -106,6 +136,11 @@ scaffold() {
       -e "s/__DESCRIPTION__/${description//\//\\/}/g" \
       "$f"
   done
+
+  # Embed the vet-time provenance pin in the scaffolded repo. The build
+  # workflow hands this file to the builder, which verifies the downloaded
+  # upstream bytes against the pinned SHA-256 for the vetted version.
+  cp "$vet_dir/release-metadata.json" "$dest/.github/release-metadata.json"
 
   ( cd "$dest" && git init -q -b main && git add -A && \
     git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
@@ -130,10 +165,14 @@ deploy_repo() {
   [ -d "$dir/$name-debian" ] || die "scaffold not found at $dir/$name-debian"
 
   echo "→ Deploying latest-debs/$name-debian"
+  # Push with the token inline so it is never persisted into the scaffold's
+  # .git/config (a credential helper could otherwise cache it); disable any
+  # credential helper for this push. Only the deploy step uses the org
+  # token - it must create repos in the org, which GITHUB_TOKEN cannot.
   local remote="https://x-access-token:${GH_TOKEN}@github.com/latest-debs/$name-debian.git"
   if gh repo view "latest-debs/$name-debian" >/dev/null 2>&1; then
     echo "→ Repo already exists; pushing updated scaffold"
-    ( cd "$dir/$name-debian" && git remote add origin "$remote" 2>/dev/null; git push -q --force origin main )
+    ( cd "$dir/$name-debian" && git -c credential.helper= push -q --force "$remote" main )
   else
     echo "→ Creating latest-debs/$name-debian"
     GH_TOKEN="$GH_TOKEN" gh repo create "latest-debs/$name-debian" --public --source "$dir/$name-debian" --push >/dev/null
@@ -158,7 +197,9 @@ register_tools() {
     esac
   done
   [ -n "$name" ] && [ -n "$repo" ] && [ -n "$tools_yaml" ] || die "register-tools requires --name, --repo, --tools-yaml"
-  [ -n "${GH_TOKEN:-}" ] || die "GH_TOKEN is required to update tools.yaml"
+  # Repo-scoped GITHUB_TOKEN is enough here (this only ever pushes to the
+  # current repo); GH_TOKEN is accepted for local/back-compat.
+  [ -n "${GITHUB_TOKEN:-}${GH_TOKEN:-}" ] || die "GITHUB_TOKEN (or GH_TOKEN) is required to update tools.yaml"
   [ -f "$tools_yaml" ] || die "tools.yaml not found at $tools_yaml"
 
   if grep -q "^$name:" "$tools_yaml"; then

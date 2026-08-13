@@ -10,15 +10,24 @@ on:
         required: true
         type: number
 
-permissions:
-  contents: write
-  issues: write
+# Least-privilege tokens:
+#   * GITHUB_TOKEN is auto-scoped to this repo with the per-job permissions
+#     declared below - it is what pushes to apt-repo and edits issues.
+#   * secrets.ORG_ADMIN_TOKEN is ONLY used by the deploy step, which must
+#     create repos in the latest-debs org and dispatch their workflows. It
+#     should be a fine-grained PAT restricted to this org with only
+#     Administration:write + Contents:write + Workflows:write (never a
+#     classic PAT with admin:org), short-lived and rotated.
+permissions: {}
 
 jobs:
   vet:
     name: Vet package request
     if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'package-request')
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout apt-repo
         uses: actions/checkout@v4
@@ -65,7 +74,7 @@ jobs:
         run: |
           gh label create awaiting-approval --force 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "awaiting-approval" --remove-label "processing"
-          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
+          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\nThe upstream release identity and the asset\'s SHA-256 were recorded at vet time (`.github/release-metadata.json` in the scaffold) and the builder verifies the downloaded bytes against that pin, so a release altered after this point fails the build.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.issue.number }}
@@ -75,6 +84,9 @@ jobs:
     name: Fulfil approved package request
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - name: Checkout apt-repo
         uses: actions/checkout@v4
@@ -118,6 +130,11 @@ jobs:
       - name: Check ORG_ADMIN_TOKEN
         id: check-token
         env:
+          # Fine-grained PAT, org-restricted (Administration:write +
+          # Contents:write + Workflows:write on latest-debs only). Used ONLY
+          # by the deploy step to create the org repo and dispatch its first
+          # build - everything else in this job uses the repo-scoped
+          # GITHUB_TOKEN.
           ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
         run: |
           if [ -n "$ADMIN_TOKEN" ]; then
@@ -143,7 +160,7 @@ jobs:
           bash scripts/add-package.sh deploy-repo \
             --name "${{ steps.fields.outputs.name }}" \
             --dir "$RUNNER_TEMP"
-          for i in $(seq 1 30); do
+          for _ in $(seq 1 30); do
             run_id="$(gh run list --repo "latest-debs/${{ steps.fields.outputs.name }}-debian" --workflow release.yml --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)"
             [ -n "$run_id" ] && [ "$run_id" != "null" ] && break
             sleep 2
@@ -162,7 +179,9 @@ jobs:
             --repo "${{ steps.fields.outputs.repo }}" \
             --tools-yaml "$GITHUB_WORKSPACE/tools.yaml"
         env:
-          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          # Pushes only to this repo (apt-repo), so the repo-scoped token is
+          # sufficient - no org admin credentials needed here.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
 
       - name: Wait for the first build
@@ -172,7 +191,7 @@ jobs:
           run_id="${{ steps.deploy.outputs.build_run_id }}"
           repo="latest-debs/${{ steps.fields.outputs.name }}-debian"
           status=""
-          for i in $(seq 1 120); do
+          for _ in $(seq 1 120); do
             status="$(gh run view "$run_id" --repo "$repo" --json status --jq .status 2>/dev/null || true)"
             [ "$status" = "completed" ] && break
             sleep 20
