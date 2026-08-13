@@ -81,7 +81,11 @@ jobs:
     name: Build
     needs: prepare
     if: needs.prepare.outputs.should_build == 'true'
-    runs-on: ubuntu-latest
+    # Native arm64 runner: arm64 is the Raspberry Pi audience's architecture
+    # and the bulk of this channel's consumers. Building on arm64 hardware
+    # (instead of cross-packaging on x64) is faster and validates arm64
+    # natively; the builder packages every architecture either way.
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -121,7 +125,10 @@ jobs:
     name: Smoke Test
     needs: [prepare, build]
     if: needs.build.result == 'success'
-    runs-on: ubuntu-latest
+    # Runs the packaged arm64 binaries on native arm64 hardware (same
+    # architecture as Raspberry Pi), so the smoke gate exercises exactly what
+    # the Pi audience runs - no emulation, real runtime coverage.
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Download packages
         uses: actions/download-artifact@v4
@@ -137,7 +144,7 @@ jobs:
           # runtime coverage on the oldest suite they do build.
           DEB="" SUITE=""
           for suite in bookworm trixie forky sid; do
-            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_amd64.deb")
+            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_arm64.deb")
             if [ -n "${debs[0]:-}" ]; then
               DEB="${debs[0]}"
               SUITE="$suite"
@@ -145,7 +152,7 @@ jobs:
             fi
           done
           if [ -z "$DEB" ]; then
-            echo "::notice::No amd64 package available to smoke test; skipping"
+            echo "::notice::No arm64 package available to smoke test; skipping"
             exit 0
           fi
           EXPECTED="${{ needs.prepare.outputs.version }}"
