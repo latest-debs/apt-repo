@@ -1,0 +1,150 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Read-only: none of these jobs push or create anything. The dry-run job
+# only talks to the public GitHub API/asset hosts, and actionlint only
+# resolves remote action metadata.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    name: Lint workflows (actionlint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pinned actionlint (checksum-verified)
+        # Pin the binary by tag + sha256 and verify it before running - the
+        # same provenance discipline the pipeline applies to upstream builds.
+        # sha256 is the published digest of actionlint_1.7.12_linux_amd64.tar.gz.
+        run: |
+          set -euo pipefail
+          version="v1.7.12"
+          expected="8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+          curl -fsSL -o actionlint.tar.gz \
+            "https://github.com/rhysd/actionlint/releases/download/${version}/actionlint_${version#v}_linux_amd64.tar.gz"
+          printf '%s  actionlint.tar.gz\n' "$expected" | sha256sum -c -
+          tar xzf actionlint.tar.gz actionlint
+          install -m755 actionlint /usr/local/bin/actionlint
+
+      - name: Run actionlint
+        # Lint the live workflows AND the scaffold template's workflow, so a
+        # change to the template that would break every future package repo
+        # fails here.
+        run: |
+          actionlint \
+            .github/workflows/*.yml \
+            templates/package-scaffold/.github/workflows/*.yml
+        env:
+          # Lets actionlint resolve remote actions (e.g. the builder) so it
+          # can validate their inputs; read-only repo scope is enough.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  shellcheck:
+    name: Lint shell scripts (shellcheck)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck
+        run: |
+          shellcheck -S warning \
+            scripts/*.sh \
+            .github/workflows/*.sh \
+            templates/package-scaffold/.github/scripts/*.sh
+
+  dry-run:
+    name: Template dry-run (scaffold a package end-to-end)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Scaffold an upstream with checksums (verified pin path)
+        run: |
+          bash scripts/add-package.sh scaffold \
+            --name yq-citest \
+            --repo mikefarah/yq \
+            --version v4.48.1 \
+            --out "$RUNNER_TEMP"
+        env:
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      - name: Scaffold an upstream without checksums (warn path)
+        run: |
+          bash scripts/add-package.sh scaffold \
+            --name hyperfine-citest \
+            --repo sharkdp/hyperfine \
+            --version v1.20.0 \
+            --out "$RUNNER_TEMP"
+        env:
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      - name: Validate scaffolds
+        run: |
+          set -euo pipefail
+          for d in "$RUNNER_TEMP"/yq-citest-debian "$RUNNER_TEMP"/hyperfine-citest-debian; do
+            test -d "$d" || { echo "::error::missing scaffold $d"; exit 1; }
+            if grep -rn '__PKG_NAME__\|__GITHUB_REPO__\|__ARTIFACT_FORMAT__\|__DESCRIPTION__' \
+                  "$d/package.yaml" "$d/README.md" "$d/.github/workflows/release.yml"; then
+              echo "::error::unsubstituted template placeholder"; exit 1
+            fi
+            python3 -c "import yaml;[yaml.safe_load(open(f)) for f in ['$d/package.yaml','$d/.github/workflows/release.yml']]" \
+              || { echo "::error::scaffold YAML does not parse"; exit 1; }
+            bash -n "$d/.github/scripts/detect-version.sh"
+            git -C "$d" status --porcelain | grep -q . && { echo "::error::scaffold git repo is dirty"; exit 1; }
+            git -C "$d" log --oneline -1 | grep -q 'scaffold' || { echo "::error::scaffold commit missing"; exit 1; }
+            grep -q 'debian-multiarch-builder@v.0.1a13' "$d/.github/workflows/release.yml" \
+              || { echo "::error::template builder pin drifted from v.0.1a13"; exit 1; }
+            grep -q 'pinned-metadata' "$d/.github/workflows/release.yml" \
+              || { echo "::error::pinned-metadata wiring missing from template"; exit 1; }
+            python3 -c 'import json,sys;m=json.load(open(sys.argv[1]));assert m["asset"] and len(m["sha256"])==64 and m["checksum_verified"] in (True,False)' \
+              "$d/.github/release-metadata.json" \
+              || { echo "::error::provenance pin is not valid/self-consistent"; exit 1; }
+          done
+          # The checksummed upstream's pin must actually have cross-checked
+          # against the release's published checksum file.
+          jq -e '.checksum_verified == true and .expected_sha256 == .sha256' \
+            "$RUNNER_TEMP/yq-citest-debian/.github/release-metadata.json" \
+            || { echo "::error::yq pin was not verified against upstream checksums"; exit 1; }
+
+      - name: Parse a sample package-request issue body
+        run: |
+          set -euo pipefail
+          out="$(mktemp -d)"
+          ISSUE_BODY=$'### Tool name\n\nfzf\n\n### Upstream repository or homepage\n\nhttps://github.com/junegunn/fzf\n\n### What does it do?\n\nA command-line fuzzy finder.\n\n### License\n\nMIT' \
+          GITHUB_OUTPUT="$out/outputs" bash .github/workflows/extract-request.sh
+          grep -q '^name=fzf$' "$out/outputs"
+          grep -q '^repo=junegunn/fzf$' "$out/outputs"
+          grep -q '^about=A command-line fuzzy finder.$' "$out/outputs"
+          grep -q '^license=MIT$' "$out/outputs"
+
+      - name: Validate tools.yaml registry
+        run: |
+          python3 - <<'PY'
+          import yaml
+          data = yaml.safe_load(open("tools.yaml"))
+          assert data, "tools.yaml is empty"
+          for name, entry in data.items():
+              assert "source" in entry, f"{name} lacks source"
+              assert entry["source"].startswith(
+                  "https://github.com/latest-debs/"), f"{name} source invalid: {entry['source']}"
+          PY

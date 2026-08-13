@@ -22,7 +22,8 @@ command -v gpg >/dev/null || die "gpg is required"
 [[ -n "${APT_SIGNING_KEY:-}" ]] || die "APT_SIGNING_KEY is not set"
 [[ -d "$DISTS" ]] || die "no dists/ found; run build-repo.sh first"
 
-export GNUPGHOME="$(mktemp -d)"
+GNUPGHOME="$(mktemp -d)"
+export GNUPGHOME
 trap 'rm -rf "$GNUPGHOME"' EXIT
 chmod 700 "$GNUPGHOME"
 
