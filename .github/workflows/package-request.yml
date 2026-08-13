@@ -75,11 +75,24 @@ jobs:
         run: |
           gh label create awaiting-approval --force 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "awaiting-approval" --remove-label "processing"
-          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\nThe upstream release identity and the asset\'s SHA-256 were recorded at vet time (`.github/release-metadata.json` in the scaffold) and the builder verifies the downloaded bytes against that pin, so a release altered after this point fails the build.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
+          report="$RUNNER_TEMP/${{ steps.fields.outputs.name }}-debian/.github/vet-report.json"
+          gate="$(jq -r '.gate // "unknown"' "$report" 2>/dev/null || echo unknown)"
+          covered="$(jq -c '.architectures.covered // []' "$report" 2>/dev/null || echo '[]')"
+          missing="$(jq -c '.architectures.missing // []' "$report" 2>/dev/null || echo '[]')"
+          lic="$(jq -r '.license.status // "unknown"' "$report" 2>/dev/null || echo unknown)"
+          aset="$(jq -r '.asset.status // "unknown"' "$report" 2>/dev/null || echo unknown)"
+          case "$gate" in
+            pass) gate_emoji="✅";;
+            warn) gate_emoji="⚠️";;
+            fail) gate_emoji="❌";;
+            *) gate_emoji="❓";;
+          esac
+          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\n**Automated pre-checks: '"$gate_emoji"' gate=`'"$gate"'`**\n- **License/SPDX:** `'"$lic"'`\n- **Asset:** `'"$aset"'`\n- **Architectures covered:** `'"$covered"'`\n- **Architectures missing:** `'"$missing"'`\n\nPre-checks pass → the request is eligible for lower-friction approval. The upstream release identity and every per-arch asset\'s SHA-256 were recorded at vet time (`.github/release-metadata.json`) and the builder verifies downloaded bytes against that pin, so a release altered after this point fails the build.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
+          RUNNER_TEMP: ${{ runner.temp }}
 
   fulfil:
     name: Fulfil approved package request

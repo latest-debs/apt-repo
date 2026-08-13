@@ -126,11 +126,34 @@ scaffold() {
   mkdir -p "$vet_dir"
   bash "$(dirname "$0")/vet-release.sh" \
     --repo "$repo" --name "$name" --asset "$asset" --version "$release_tag" \
-    --out "$vet_dir"
+    --license "$license" --out "$vet_dir"
   # A failed cross-check is a warning, not a scaffold blocker: the digest is
   # still pinned from the bytes we downloaded, and the admin reviews the
   # summary before approving. A mismatch is called out above in the log.
   [ -f "$vet_dir/release-metadata.json" ] || die "vet-release.sh produced no release-metadata.json"
+
+  # VET PRE-CHECKS: license/SPDX scan + asset validation against the exact
+  # vetted bytes, plus a per-arch asset-map check that yields the PRECISE
+  # architecture set this release covers (instead of the coarse "all"). The
+  # gate (pass/warn/fail) is the prerequisite to widening the approval
+  # funnel: gate==pass requests are eligible for lower-friction approval.
+  echo "→ Running vet pre-checks (license/SPDX scan, asset validation, arch coverage)"
+  local precheck_out="$out/vet-prechecks"
+  mkdir -p "$precheck_out"
+  local pri_ext="$fmt"
+  bash "$(dirname "$0")/vet-prechecks.sh" \
+    --asset "$vet_dir/primary.$pri_ext" --format "$fmt" \
+    --license "$license" \
+    --release-json "$vet_dir/release.json" --out "$precheck_out" \
+    || die "vet-prechecks.sh failed"
+  [ -f "$precheck_out/vet-report.json" ] || die "vet-prechecks.sh produced no vet-report.json"
+  local vet_gate
+  vet_gate="$(jq -r '.gate' "$precheck_out/vet-report.json")"
+  case "$vet_gate" in
+    pass) echo "→ ✅ Pre-checks PASSED — request is eligible for lower-friction approval";;
+    warn) echo "→ ⚠ Pre-checks WARNED — admin review recommended (see vet-report.json)";;
+    fail) echo "→ ❌ Pre-checks FAILED — needs human review before any approval";;
+  esac
 
   # Scaffold from template.
   local dest="$out/$name-debian"
@@ -150,6 +173,9 @@ scaffold() {
   # workflow hands this file to the builder, which verifies the downloaded
   # upstream bytes against the pinned SHA-256 for the vetted version.
   cp "$vet_dir/release-metadata.json" "$dest/.github/release-metadata.json"
+  # Embed the vet pre-check report (license/SPDX + asset + arch coverage) so
+  # approvers and the build can inspect what was validated at vet time.
+  cp "$precheck_out/vet-report.json" "$dest/.github/vet-report.json"
 
   ( cd "$dest" && git init -q -b main && git add -A && \
     git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \

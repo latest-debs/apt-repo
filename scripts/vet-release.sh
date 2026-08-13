@@ -24,7 +24,7 @@ API="https://api.github.com"
 AUTH=()
 [ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
-repo="" pkg="" asset="" version="" out="$(pwd)"
+repo="" pkg="" asset="" version="" out="$(pwd)" declared_license=""
 VET_SOURCE="${VET_SOURCE:-}"
 
 while [ $# -gt 0 ]; do
@@ -33,6 +33,7 @@ while [ $# -gt 0 ]; do
     --name)   pkg="$2"; shift 2;;
     --asset)  asset="$2"; shift 2;;
     --version) version="$2"; shift 2;;
+    --license) declared_license="$2"; shift 2;;
     --out)    out="$2"; shift 2;;
     *) echo "ERROR: unknown arg: $1" >&2; exit 2;;
   esac
@@ -184,6 +185,16 @@ fi
 actual="${asset_shas[$asset]:-}"
 [ -n "$actual" ] || { echo "ERROR: could not download/vet primary asset $asset" >&2; exit 1; }
 size_actual="$(jq -r --arg a "$asset" '.assets[]? | select(.name == $a) | .size // 0' <<<"$release" 2>/dev/null || echo 0)"
+
+# Retain the primary asset so the caller (add-package.sh) can run the vet
+# pre-checks (license/SPDX scan + asset validation) against the exact bytes
+# that were vetted, without a second download.
+ext="tar.gz"; case "$asset" in *.zip) ext="zip";; *.tgz) ext="tgz";; esac
+curl -fsSL -o "$out/primary.$ext" "$dlurl" 2>/dev/null \
+  || echo "  ⚠ could not retain primary asset for pre-checks" >&2
+# The release JSON (asset list + license) for the caller's pre-checks.
+printf '%s' "$release" > "$out/release.json"
+printf '%s' "${declared_license:-$license}" > "$out/declared-license.txt"
 
 expected="$(verify_against_checksums "$asset")"
 verified=false

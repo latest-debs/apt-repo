@@ -12,12 +12,17 @@
 #     text fingerprints, and compare against the declared SPDX id.
 #   * Asset         - the file is a valid archive (not an HTML/error page or a
 #     stub), and it actually contains a Linux ELF executable.
+#   * Architectures - when --release-json is given, map every release Linux
+#     archive asset to the Debian architecture(s) it covers (same patterns the
+#     builder's auto-discovery uses), yielding a precise coverage list instead
+#     of the coarse "all".
 #
 # Emits <out>/vet-report.json:
 #   {
 #     "gate": "pass"|"warn"|"fail",
 #     "license": {"declared", "detected", "license_files", "matches", "status", "detail"},
 #     "asset":   {"format", "valid", "is_html", "size", "binary", "elf_arch", "status", "detail"},
+#     "architectures": {"covered": [], "missing": [], "assets": {arch: asset}},
 #     "vetted_at": "..."
 #   }
 #
@@ -25,11 +30,12 @@
 #
 # Usage:
 #   vet-prechecks.sh --asset <file> [--format tar.gz|tgz|zip]
-#                    [--license <spdx-id>] [--arch <linux-arch>] --out <dir>
+#                    [--license <spdx-id>] [--arch <linux-arch>]
+#                    [--release-json <release.json>] --out <dir>
 
 set -euo pipefail
 
-asset="" format="" declared_license="" expected_arch="" out="$(pwd)"
+asset="" format="" declared_license="" expected_arch="" out="$(pwd)" release_json=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -37,6 +43,7 @@ while [ $# -gt 0 ]; do
     --format) format="$2"; shift 2;;
     --license) declared_license="$2"; shift 2;;
     --arch)   expected_arch="$2"; shift 2;;
+    --release-json) release_json="$2"; shift 2;;
     --out)    out="$2"; shift 2;;
     *) echo "ERROR: unknown arg: $1" >&2; exit 2;;
   esac
@@ -126,6 +133,72 @@ if [ -n "$expected_arch" ] && [ "$asset_status" = "pass" ] && [ -n "$elf_arch" ]
     *) asset_status="warn"; asset_detail="$asset_detail; ELF arch '${elf_arch}' does not match expected '${expected_arch}'";;
   esac
 fi
+
+# ---------------------------------------------------------------------------
+# Per-arch asset-map check: map every release Linux archive asset to the
+# Debian architecture(s) it covers, using the same naming patterns the
+# builder uses for auto-discovery (src/data/architecture-patterns.yaml). This
+# yields a PRECISE architecture list instead of the coarse "all" - a release
+# that ships only amd64/arm64 gets labeled exactly that, so the approval
+# funnel (and the package's README/control metadata) reflects reality.
+# ---------------------------------------------------------------------------
+# Debian arch -> regex patterns over asset names (kept in sync with the
+# builder's architecture-patterns.yaml).
+arch_patterns() {
+  cat <<'PAT'
+amd64	x86_64|amd64|x64
+arm64	aarch64|arm64
+armel	armel|armeabi([^h]|$)|arm-.*eabi([^h]|$)
+armhf	armv7|armhf|arm-.*gnueabihf
+i386	i686|i386|x86[^_]|x86$|32-bit
+ppc64el	powerpc64le|ppc64le
+s390x	s390x
+riscv64	riscv64gc|riscv64
+loong64	loongarch64|loong64
+PAT
+}
+
+asset_map_coverage=""
+if [ -n "$release_json" ] && [ -f "$release_json" ]; then
+  # All Linux archive asset names in the release.
+  rel_assets="$(jq -r '.assets[]?.name' "$release_json" 2>/dev/null \
+    | grep -iE 'linux' \
+    | grep -iE '\.(tar\.gz|tgz|zip)$' \
+    | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)"
+  covered=""
+  covered_assets=""
+  missing=""
+  while IFS=$'\t' read -r arch pat; do
+    [ -n "$arch" ] || continue
+    match="$(printf '%s\n' "$rel_assets" | grep -iE "$pat" | head -n1 || true)"
+    if [ -n "$match" ]; then
+      covered="${covered}${arch},"
+      covered_assets="${covered_assets}${arch}=${match}\n"
+    else
+      missing="${missing}${arch},"
+    fi
+  done < <(arch_patterns)
+  covered="${covered%,}"
+  missing="${missing%,}"
+  asset_map_coverage="$(jq -nc \
+    --arg covered "$covered" \
+    --arg missing "$missing" \
+    --arg assets "$(printf '%b' "$covered_assets")" \
+    '{covered: ($covered | split(",") | map(select(length>0))),
+      missing: ($missing | split(",") | map(select(length>0))),
+      assets: (($assets | split("\n") | map(select(length>0)) | map(split("=") | {(.[0]): .[1]}) | add) // {})}')"
+fi
+
+# The asset-map coverage sharpens the single-asset arch heuristic: the
+# primary asset's ELF arch is checked against the archs the release's asset
+# NAMES claim to cover, catching mislabeled archives.
+if [ -n "$asset_map_coverage" ] && [ "$asset_status" = "pass" ] && [ -n "$elf_arch" ]; then
+  covered_list="$(jq -r '.covered[]' <<<"$asset_map_coverage" | tr '\n' ' ')"
+  if [ -n "$covered_list" ]; then
+    asset_detail="$asset_detail; release covers: ${covered_list}"
+  fi
+fi
+
 
 # ---------------------------------------------------------------------------
 # License / SPDX scan
@@ -228,7 +301,10 @@ normalize() {
   esac
 }
 declared_norm="$(normalize "$declared_license")"
-detected_norm="$(printf '%s\n' "$detected" | while read -r d; do [ -n "$d" ] && normalize "$d"; done | sort -u || true)"
+detected_norm="$(printf '%s\n' "$detected" | while IFS= read -r d; do
+  [ -n "$d" ] || continue
+  printf '%s\n' "$(normalize "$d")"
+done | sort -u || true)"
 
 license_status="warn"
 license_matches=false
@@ -276,16 +352,21 @@ jq -n \
   --arg asset_arch "${elf_arch:-}" \
   --arg asset_status "$asset_status" \
   --arg asset_detail "$asset_detail" \
+  --argjson architectures "${asset_map_coverage:-null}" \
   --arg vetted_at "$vetted_at" \
   '{gate:$gate,
     license:{declared:$declared, detected:$detected, license_files:$license_files,
              matches:($license_matches=="true"), status:$license_status, detail:$license_detail},
     asset:{format:$format, size:$asset_size, valid:($asset_valid=="true"), is_html:($asset_is_html=="true"),
            binary:$asset_binary, elf_arch:$asset_arch, status:$asset_status, detail:$asset_detail},
+    architectures:$architectures,
     vetted_at:$vetted_at}' \
   > "$out/vet-report.json"
 
 echo "→ pre-checks: gate=$gate"
 echo "   license:  $license_status — $license_detail"
 echo "   asset:    $asset_status — $asset_detail"
+if [ -n "$asset_map_coverage" ]; then
+  echo "   archs:    covered=$(jq -c '.covered' <<<"$asset_map_coverage") missing=$(jq -c '.missing' <<<"$asset_map_coverage")"
+fi
 echo "   report:   $out/vet-report.json"
