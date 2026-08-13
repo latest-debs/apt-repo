@@ -63,14 +63,19 @@ license="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
   "$API/repos/$repo" 2>/dev/null | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
 
 # ---------------------------------------------------------------------------
-# Select the asset: an explicit override, or the first Linux archive.
+# Enumerate every Linux archive asset in the release. The builder downloads
+# per-architecture assets (one per arch), so the provenance pin must cover
+# ALL of them - not just the primary - or a swapped non-primary asset would
+# slip through. Selection mirrors the builder's auto-discovery filter.
 # ---------------------------------------------------------------------------
-if [ -z "$asset" ]; then
-  asset="$(jq -r '.assets[]?.name' <<<"$release" \
+mapfile -t linux_assets < <(jq -r '.assets[]?.name' <<<"$release" \
     | grep -iE 'linux' \
     | grep -iE '\.(tar\.gz|tgz|zip)$' \
-    | grep -viE 'sha256|checksum|\.asc$|source|sums' \
-    | head -n1 || true)"
+    | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)
+
+# Select the asset: an explicit override, or the first Linux archive.
+if [ -z "$asset" ]; then
+  asset="${linux_assets[0]:-}"
 fi
 [ -n "$asset" ] || { echo "ERROR: could not determine a release asset to vet for $repo" >&2; exit 1; }
 
@@ -115,38 +120,92 @@ resolve_expected_sha256() {
 }
 
 names="$(jq -r '.assets[]?.name' <<<"$release")"
+
+# Prefer an aggregate checksum file that covers every asset, falling back to
+# per-asset checksum files. For each asset, cross-check its digest against
+# the checksum file when the file actually contains that asset.
 cs_file=""
-for cand in "$asset.sha256" "$asset.sha256sum" "SHA256SUMS" "checksums.txt"; do
+for cand in "SHA256SUMS" "sha256.sum" "sha256sums" "checksums.txt" "$asset.sha256" "$asset.sha256sum"; do
   if grep -Fxq "$cand" <<<"$names"; then cs_file="$cand"; break; fi
 done
 if [ -z "$cs_file" ]; then
   cs_file="$(grep -iE 'sha256|checksum|sums' <<<"$names" | grep -viE '\.sig$' | head -n1 || true)"
 fi
 
-expected=""
 cs_source=""
 if [ -n "$cs_file" ]; then
   cs_url="https://github.com/$repo/releases/download/$tag/$cs_file"
   if curl -fsSL -o "$TMP/checksums" "$cs_url" 2>/dev/null; then
     cs_source="$cs_file"
-    expected="$(resolve_expected_sha256 "$TMP/checksums" "$cs_file" "$asset" "$repo" "$tag")"
   fi
 fi
 
 # ---------------------------------------------------------------------------
-# Download the asset and compute its digest.
+# Download every Linux archive asset and compute its SHA-256. The primary
+# asset keeps the legacy top-level fields (asset/sha256/asset_size/...);
+# every asset - including the primary - is also recorded in the "assets"
+# map so the builder can pin all per-architecture downloads.
 # ---------------------------------------------------------------------------
-curl -fsSL -o "$TMP/asset" "$dlurl"
-actual="$(sha256sum "$TMP/asset" | awk '{print $1}')"
-size_actual="$(stat -c%s "$TMP/asset" 2>/dev/null || echo 0)"
+verify_against_checksums() {
+  local asset_name="$1"
+  [ -n "$cs_file" ] && [ -f "$TMP/checksums" ] || { echo ""; return 0; }
+  local expected_sha
+  expected_sha="$(resolve_expected_sha256 "$TMP/checksums" "$cs_file" "$asset_name" "$repo" "$tag")"
+  [ -n "$expected_sha" ] || { echo ""; return 0; }
+  echo "$expected_sha"
+}
 
+declare -A asset_shas
+asset_shas["$asset"]=""
+for a in "${linux_assets[@]:-}"; do
+  [ -n "$a" ] || continue
+  a_json="$(jq -r --arg a "$a" '.assets[]? | select(.name == $a)' <<<"$release")"
+  a_url="$(jq -r '.browser_download_url // ""' <<<"$a_json")"
+  [ -n "$a_url" ] || continue
+  if ! curl -fsSL -o "$TMP/dl" "$a_url" 2>/dev/null; then
+    echo "  ⚠ could not download $a; excluding from pin" >&2
+    continue
+  fi
+  asset_shas["$a"]="$(sha256sum "$TMP/dl" | awk '{print $1}')"
+  rm -f "$TMP/dl"
+done
+
+# The primary asset may be an explicit --asset override that is not a Linux
+# archive (add-package.sh falls back to any non-mac/windows archive when no
+# Linux build exists). Download it too so it is always pinned.
+if [ -z "${asset_shas[$asset]:-}" ]; then
+  if curl -fsSL -o "$TMP/dl" "$dlurl" 2>/dev/null; then
+    asset_shas["$asset"]="$(sha256sum "$TMP/dl" | awk '{print $1}')"
+    rm -f "$TMP/dl"
+  fi
+fi
+
+# Primary asset digest (must be present; the asset was validated above).
+actual="${asset_shas[$asset]:-}"
+[ -n "$actual" ] || { echo "ERROR: could not download/vet primary asset $asset" >&2; exit 1; }
+size_actual="$(jq -r --arg a "$asset" '.assets[]? | select(.name == $a) | .size // 0' <<<"$release" 2>/dev/null || echo 0)"
+
+expected="$(verify_against_checksums "$asset")"
 verified=false
 if [ -n "$expected" ] && [ "$expected" = "$actual" ]; then verified=true; fi
+
+# Per-asset pin map: every Linux archive asset the builder may download.
+assets_json="{}"
+for a in "${!asset_shas[@]}"; do
+  [ -n "$a" ] && [ -n "${asset_shas[$a]}" ] || continue
+  assets_json="$(jq -nc \
+    --arg name "$a" \
+    --arg sha "${asset_shas[$a]}" \
+    --argjson size "$(jq -r --arg a "$a" '.assets[]? | select(.name == $a) | .size // 0' <<<"$release" 2>/dev/null || echo 0)" \
+    --argjson obj "$assets_json" \
+    '$obj + {($name): {sha256: $sha, size: $size}}')"
+done
 
 # ---------------------------------------------------------------------------
 # Emit the provenance pin + report.
 # ---------------------------------------------------------------------------
 version_out="${version:-$tag}"
+asset_count="$(printf '%s\n' "${!asset_shas[@]}" | grep -vc '^$' || true)"
 jq -n \
   --arg package "$pkg" \
   --arg upstream_repo "$repo" \
@@ -160,16 +219,20 @@ jq -n \
   --arg expected_sha256 "${expected:-}" \
   --arg checksum_source "${cs_source:-}" \
   --argjson checksum_verified "$verified" \
+  --argjson assets "$assets_json" \
+  --argjson asset_count "$asset_count" \
   --arg vetted_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
   --arg vetted_by "${VET_SOURCE:-}" \
   '{package:$package, upstream_repo:$upstream_repo, version:$version, tag:$tag,
     published_at:$published_at, license:$license, asset:$asset, asset_size:$asset_size,
     sha256:$sha256, expected_sha256:$expected_sha256,
     checksum_source:$checksum_source, checksum_verified:$checksum_verified,
+    assets:$assets, asset_count:$asset_count,
     vetted_at:$vetted_at, vetted_by:$vetted_by}' \
   > "$out/release-metadata.json"
 
 echo "→ vetted $repo@$tag ($pkg)"
+echo "   assets:   $asset_count Linux archive asset(s)"
 echo "   asset:    $asset ($((size_actual / 1024 / 1024)) MB)"
 echo "   license:  ${license:-unknown}"
 echo "   sha256:   $actual"

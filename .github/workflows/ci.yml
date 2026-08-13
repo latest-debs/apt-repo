@@ -116,7 +116,7 @@ jobs:
               || { echo "::error::template builder pin drifted from v.0.1a13"; exit 1; }
             grep -q 'pinned-metadata' "$d/.github/workflows/release.yml" \
               || { echo "::error::pinned-metadata wiring missing from template"; exit 1; }
-            python3 -c 'import json,sys;m=json.load(open(sys.argv[1]));assert m["asset"] and len(m["sha256"])==64 and m["checksum_verified"] in (True,False) and isinstance(m.get("license"), str) and len(m["license"])>0' \
+            python3 -c 'import json,sys;m=json.load(open(sys.argv[1]));assert m["asset"] and len(m["sha256"])==64 and m["checksum_verified"] in (True,False) and isinstance(m.get("license"), str) and len(m["license"])>0;assert isinstance(m.get("assets"), dict) and len(m["assets"])>0;assert m["asset"] in m["assets"];assert all(len(v["sha256"])==64 for v in m["assets"].values());assert m.get("asset_count")==len(m["assets"]);assert m["sha256"]==m["assets"][m["asset"]]["sha256"]' \
               "$d/.github/release-metadata.json" \
               || { echo "::error::provenance pin is not valid/self-consistent"; exit 1; }
           done
