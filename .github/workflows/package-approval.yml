@@ -56,7 +56,7 @@ jobs:
       - name: Approve request
         if: steps.admin.outputs.is_admin == 'true' && steps.cmd.outputs.command == '/approve'
         run: |
-          gh label create approved --force 2>/dev/null || true
+          gh label create approved --force --repo "$REPO" 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "approved"
           gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Approved by **${{ github.event.comment.user.login }}** — starting deployment and build."
           gh workflow run "Process package request" --repo "$REPO" -f issue_number="$NUMBER"
@@ -68,7 +68,7 @@ jobs:
       - name: Deny request
         if: steps.admin.outputs.is_admin == 'true' && steps.cmd.outputs.command == '/deny'
         run: |
-          gh label create denied --force 2>/dev/null || true
+          gh label create denied --force --repo "$REPO" 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --remove-label "awaiting-approval" --remove-label "processing"
           gh issue close "$NUMBER" --repo "$REPO" --reason "not planned" --comment "❌ Request denied by **${{ github.event.comment.user.login }}**. See the request discussion for details."
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "denied"

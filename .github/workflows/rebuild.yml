@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl jq dpkg-dev apt-utils gnupg
+          sudo apt-get install -y curl jq dpkg-dev apt-utils gnupg python3-yaml
 
       - name: Regenerate repository
         env:
@@ -31,6 +31,9 @@ jobs:
 
       - name: Snapshot Debian archive versions
         run: bash scripts/fetch-debian-versions.sh
+
+      - name: Sync package table in README from tools.yaml
+        run: bash scripts/sync-readme.sh
 
       - name: Sign repository
         env:
