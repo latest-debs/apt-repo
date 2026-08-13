@@ -246,7 +246,6 @@ build. GitHub API calls are authenticated everywhere to avoid the shared
 
 | Package | Install | Upstream |
 |---------|---------|----------|
-| `uv` | `apt install uv` | [astral-sh/uv](https://github.com/astral-sh/uv) |
 | `vite-plus` | `apt install vite-plus` | [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus) |
 | `eza` | `apt install eza` | [eza-community/eza](https://github.com/eza-community/eza) |
 | `lazygit` | `apt install lazygit` | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) |
@@ -261,7 +260,6 @@ build. GitHub API calls are authenticated everywhere to avoid the shared
 | `starship` | `apt install starship` | [starship/starship](https://github.com/starship/starship) |
 | `just` | `apt install just` | [casey/just](https://github.com/casey/just) |
 | `hyperfine` | `apt install hyperfine` | [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine) |
-| `k9s` | `apt install k9s` | [derailed/k9s](https://github.com/derailed/k9s) |
 | `atuin` | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
 | `xh` | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
 | `yq-go` | `apt install yq-go` | [mikefarah/yq](https://github.com/mikefarah/yq) |
@@ -273,6 +271,7 @@ build. GitHub API calls are authenticated everywhere to avoid the shared
 | `git-delta` | `apt install git-delta` | [dandavison/delta](https://github.com/dandavison/delta) |
 | `jj` | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
 | `gitui` | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
+| `fresh-editor` | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
 
 <!-- packages:end -->
 
