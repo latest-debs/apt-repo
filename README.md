@@ -144,6 +144,26 @@ uv_0.12.3-1.trixie_amd64.deb
 
 See [tools.yaml](tools.yaml) and `scripts/build-repo.sh`.
 
+### Shipping a template change (the feature channel)
+
+`templates/package-scaffold` is the single source of truth for every
+`*-debian` repo's packaging workflow. To ship a change — a new
+[debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder)
+version pin, a glob fix, a smoke-test improvement — edit the template,
+commit it, then run:
+
+```sh
+scripts/rollout-autowatch.sh --dry-run   # preview: what would change per repo
+scripts/rollout-autowatch.sh             # real run: 1 commit pushed per repo
+```
+
+It regenerates `.github/workflows/release.yml`, `.github/workflows/notify-apt-repo.yml`,
+and `.github/scripts/detect-version.sh` in every repo (placeholders
+substituted from each repo's `package.yaml`) and pushes one commit per repo
+to `main`. Idempotent: repos already at the template are skipped. Use
+`--repo owner/repo` to target a single repo. `README.md` is intentionally
+not rolled out — child READMEs carry per-repo customizations.
+
 ## Supply chain & provenance
 
 The pipeline defends against upstream supply-chain attacks with two layers:
@@ -218,7 +238,7 @@ scripts/sync-readme.sh      regenerate the package table in README.md
 scripts/run-in-debian.sh    run build-repo.sh in a Debian container
 scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
-scripts/rollout-autowatch.sh   roll template workflows out to local repos
+scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 pool/                       downloaded .deb + source files (generated)
