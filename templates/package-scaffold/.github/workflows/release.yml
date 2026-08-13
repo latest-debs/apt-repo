@@ -68,6 +68,15 @@ jobs:
           BUILD_VERSION: ${{ inputs.build_version }}
           AUTO: ${{ github.event_name == 'schedule' || inputs.auto }}
 
+      - name: Recheck upstream license
+        # License gate (warn-only): recheck the live upstream SPDX license
+        # against the pin in package.yaml on every run, so a license change
+        # upstream can't slip new builds through the auto-watch silently.
+        id: license
+        run: bash .github/scripts/license-check.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     name: Build
     needs: prepare
@@ -172,7 +181,23 @@ jobs:
         with:
           name: __PKG_NAME__-debian-packages
 
+      - name: Gate duplicate release tags
+        # Refuse to (re)publish a release tag that already exists - published
+        # or draft - so a retry or double-dispatch can't clobber or fork it.
+        id: dup-gate
+        run: |
+          TAG="${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}"
+          if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '.id' >/dev/null 2>&1; then
+            echo "::warning::Release tag $TAG already exists (published or draft); skipping publish"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish release
+        if: steps.dup-gate.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
           draft: ${{ inputs.release_mode == 'draft' }}

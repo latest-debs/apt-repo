@@ -36,13 +36,14 @@ die() { echo "ERROR: $*" >&2; exit 1; }
 # scaffold
 # ---------------------------------------------------------------------------
 scaffold() {
-  local name="" repo="" description="" out="." version=""
+  local name="" repo="" description="" out="." version="" license=""
   while [ $# -gt 0 ]; do
     case "$1" in
       --name) name="$2"; shift 2;;
       --repo) repo="$2"; shift 2;;
       --description) description="$2"; shift 2;;
       --version) version="$2"; shift 2;;
+      --license) license="$2"; shift 2;;
       --out) out="$2"; shift 2;;
       *) die "unknown scaffold arg: $1";;
     esac
@@ -66,6 +67,11 @@ scaffold() {
   repo_json="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo" || true)"
   [ -n "$repo_json" ] || die "upstream repo $repo not found (or API rate-limited)"
   description="${description:-$(printf '%s' "$repo_json" | jq -r '.description // empty')}"
+  # License: prefer the request's explicit license, else the upstream repo's
+  # current SPDX id from the API. Pinned into package.yaml so every build
+  # rechecks the live license against it (license-check.sh, warn-only).
+  license="${license:-$(printf '%s' "$repo_json" | jq -r '.license.spdx_id // empty')}"
+  [ -n "$license" ] || license="unknown"
   # Canonicalize renamed/redirected upstreams (e.g. extrawurst/gitui →
   # gitui-org/gitui). The API follows the redirect and reports the current
   # full_name, which the scaffold, version detection, and the builder must all
@@ -135,6 +141,7 @@ scaffold() {
       -e "s/__PKG_NAME__/$name/g" \
       -e "s|__GITHUB_REPO__|$repo|g" \
       -e "s/__ARTIFACT_FORMAT__/$fmt/g" \
+      -e "s|__LICENSE__|$license|g" \
       -e "s/__DESCRIPTION__/${description//\//\\/}/g" \
       "$f"
   done

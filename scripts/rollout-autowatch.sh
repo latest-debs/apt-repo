@@ -13,8 +13,10 @@
 #   .github/workflows/release.yml          (builder version pin, globs, gates)
 #   .github/workflows/notify-apt-repo.yml  (release-published rebuild webhook)
 #   .github/scripts/detect-version.sh      (auto-watch version detection)
-# README.md is NOT rolled out: child READMEs carry per-repo customizations
-# (descriptions, extra sections) that the template cannot encode.
+#   .github/scripts/license-check.sh       (license recheck / warn gate)
+# package.yaml is only touched to BACKFILL a missing license: pin (never
+# regenerated - it carries per-repo config). README.md is not rolled out:
+# child READMEs carry per-repo customizations the template cannot encode.
 #
 # Usage:
 #   rollout-autowatch.sh                        # all repos in tools.yaml (remote)
@@ -29,6 +31,7 @@ set -euo pipefail
 APT_REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TPL="$APT_REPO_DIR/templates/package-scaffold"
 TOOLS_YAML="$APT_REPO_DIR/tools.yaml"
+API="https://api.github.com"
 
 DRY_RUN=false
 TARGETS=()
@@ -109,6 +112,7 @@ apply_to_dir() {
   local wf="$dir/.github/workflows/release.yml"
   local nf="$dir/.github/workflows/notify-apt-repo.yml"
   local dt="$dir/.github/scripts/detect-version.sh"
+  local lc="$dir/.github/scripts/license-check.sh"
 
   mkdir -p "$(dirname "$wf")" "$(dirname "$nf")" "$(dirname "$dt")"
   sed "${subst[@]}" "$TPL/.github/workflows/release.yml" > "$wf.tmp"
@@ -120,6 +124,23 @@ apply_to_dir() {
   cp "$TPL/.github/scripts/detect-version.sh" "$dt.tmp"
   chmod +x "$dt.tmp"
   stage_file "$dt" "$dt.tmp" ".github/scripts/detect-version.sh"
+  cp "$TPL/.github/scripts/license-check.sh" "$lc.tmp"
+  chmod +x "$lc.tmp"
+  stage_file "$lc" "$lc.tmp" ".github/scripts/license-check.sh"
+
+  # Backfill a license: pin when package.yaml lacks one, using the upstream's
+  # live SPDX id. New scaffolds already carry it; this covers repos created
+  # before the license field existed. Targeted insert - package.yaml is never
+  # regenerated wholesale (it carries per-repo config).
+  if [ -n "$upstream" ] && ! grep -q '^license:' "$pkg_yaml"; then
+    local spdx
+    spdx="$(curl -fsSL -H "Authorization: token ${TOKEN:?}" "$API/repos/$upstream" 2>/dev/null | jq -r '.license.spdx_id // empty' 2>/dev/null || true)"
+    if [ -n "$spdx" ]; then
+      cp "$pkg_yaml" "$pkg_yaml.tmp"
+      sed -i "/^github_repo:/a license: $spdx" "$pkg_yaml.tmp"
+      stage_file "$pkg_yaml" "$pkg_yaml.tmp" "package.yaml"
+    fi
+  fi
 }
 
 commit_and_push() {

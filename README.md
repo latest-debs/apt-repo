@@ -22,12 +22,38 @@ Every release is gated by **lintian** (Debian's package policy checker) and a
 they report the expected version before the release is published — so the
 channel only ever carries packages that both pass policy and actually run.
 
-## Why "latest" is different from Debian's cadence
+## Why this channel exists
 
-Debian stable freezes versions for years between releases; this channel
-repackages upstream GitHub releases on a best-effort cadence — typically
-within hours, but with no SLA (see below) — so you get current tools on a
-stable base without waiting for the next Debian release.
+An **auditable, signed, test-gated latest channel** — that's the differentiator.
+It sits between two unsatisfying extremes: Debian's frozen cadence and ad-hoc
+"download the tarball from GitHub" installs.
+
+**vs. Debian stable** — Debian freezes versions for years; you wait for
+backports or the next release. Here, the moment a `*-debian` repo publishes a
+release, a webhook (`repository_dispatch`) fires an **immediate** apt-repo
+rebuild — with a ~6h scheduled run as the catch-up backstop — so you get
+current tools on a stable base, through the same `apt` you already trust.
+
+**vs. ad-hoc release downloads** — a raw GitHub binary is trust-on-download:
+no policy check, no run test, no signature chain, no record of what you got.
+Every package in this channel instead carries:
+
+- **Signed** — the apt indexes are GPG-signed on every rebuild
+  (`scripts/sign-repo.sh`) and `apt` verifies them via `signed-by=`, so the
+  metadata describing every package is authentic, not just the download.
+- **Test-gated** — lintian (Debian's packaging policy checker) plus a smoke
+  test that actually runs the packaged binaries in a container and confirms
+  they report the expected version. Nothing is released that fails policy or
+  doesn't run.
+- **Auditable** — each package carries a provenance pin (upstream release
+  identity + SHA-256, cross-checked against the vendor's published checksum at
+  vet time), every build lands as a *draft* that a maintainer reviews before
+  promotion, and the whole chain — packaging repos, builder action, rebuild
+  pipeline — runs in public repos with full history (see
+  [Supply chain & provenance](#supply-chain--provenance)).
+
+That combination is what ad-hoc downloads can't offer (no signing, no policy,
+no audit trail) and what Debian's cadence can't offer (currency).
 
 ## Support & expectations (best-effort, no SLA)
 

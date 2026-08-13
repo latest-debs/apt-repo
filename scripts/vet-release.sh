@@ -57,6 +57,11 @@ tag="$(jq -r '.tag_name' <<<"$release")"
 [ -n "$tag" ] && [ "$tag" != "null" ] || { echo "ERROR: no release found for $repo" >&2; exit 1; }
 published_at="$(jq -r '.published_at // ""' <<<"$release")"
 
+# Upstream's current SPDX license (also captured at scaffold time into
+# package.yaml; license-check.sh rechecks it on every build).
+license="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
+  "$API/repos/$repo" 2>/dev/null | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
+
 # ---------------------------------------------------------------------------
 # Select the asset: an explicit override, or the first Linux archive.
 # ---------------------------------------------------------------------------
@@ -148,6 +153,7 @@ jq -n \
   --arg version "$version_out" \
   --arg tag "$tag" \
   --arg published_at "$published_at" \
+  --arg license "$license" \
   --arg asset "$asset" \
   --argjson asset_size "$size_actual" \
   --arg sha256 "$actual" \
@@ -157,7 +163,7 @@ jq -n \
   --arg vetted_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
   --arg vetted_by "${VET_SOURCE:-}" \
   '{package:$package, upstream_repo:$upstream_repo, version:$version, tag:$tag,
-    published_at:$published_at, asset:$asset, asset_size:$asset_size,
+    published_at:$published_at, license:$license, asset:$asset, asset_size:$asset_size,
     sha256:$sha256, expected_sha256:$expected_sha256,
     checksum_source:$checksum_source, checksum_verified:$checksum_verified,
     vetted_at:$vetted_at, vetted_by:$vetted_by}' \
@@ -165,6 +171,7 @@ jq -n \
 
 echo "→ vetted $repo@$tag ($pkg)"
 echo "   asset:    $asset ($((size_actual / 1024 / 1024)) MB)"
+echo "   license:  ${license:-unknown}"
 echo "   sha256:   $actual"
 if [ "$verified" = "true" ]; then
   echo "   checksum: verified against $cs_source"

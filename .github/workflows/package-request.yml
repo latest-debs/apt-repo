@@ -54,6 +54,7 @@ jobs:
             --name "${{ steps.fields.outputs.name }}" \
             --repo "${{ steps.fields.outputs.repo }}" \
             --description "${{ steps.fields.outputs.about }}" \
+            --license "${{ steps.fields.outputs.license }}" \
             --out "$RUNNER_TEMP"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -122,6 +123,7 @@ jobs:
             --name "${{ steps.fields.outputs.name }}" \
             --repo "${{ steps.fields.outputs.repo }}" \
             --description "${{ steps.fields.outputs.about }}" \
+            --license "${{ steps.fields.outputs.license }}" \
             --out "$RUNNER_TEMP"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
