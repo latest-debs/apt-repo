@@ -1,0 +1,112 @@
+name: Build __PKG_NAME__ for Debian
+
+on:
+  schedule:
+    # Auto-watch upstream every 3 hours and build new releases.
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version of __GITHUB_REPO__ to build (e.g. v1.0.0)
+        type: string
+        required: false
+      build_version:
+        description: Debian build revision (e.g. 1)
+        type: string
+        required: true
+        default: '1'
+      auto:
+        description: 'Auto-detect the latest upstream release'
+        type: boolean
+        default: true
+      architecture:
+        description: Architecture to build (or 'all')
+        type: choice
+        default: 'all'
+        options:
+          - 'all'
+          - 'amd64'
+          - 'arm64'
+          - 'armel'
+          - 'armhf'
+          - 'ppc64el'
+          - 's390x'
+          - 'riscv64'
+      enable_lintian:
+        description: Enable lintian validation
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    name: Determine version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.detect.outputs.version }}
+      build_version: ${{ steps.detect.outputs.build_version }}
+      should_build: ${{ steps.detect.outputs.should_build }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect version
+        id: detect
+        run: bash .github/scripts/detect-version.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MANUAL_VERSION: ${{ inputs.version }}
+          BUILD_VERSION: ${{ inputs.build_version }}
+          AUTO: ${{ github.event_name == 'schedule' || inputs.auto }}
+
+  build:
+    name: Build
+    needs: prepare
+    if: needs.prepare.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build __PKG_NAME__
+        uses: ranjithrajv/debian-multiarch-builder@v.0.1a8
+        env:
+          # Authenticate GitHub API calls from the builder; anonymous calls
+          # from shared runner IPs are rate-limited (60/h) and caused
+          # architecture detection to find zero release assets.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-file: 'package.yaml'
+          version: ${{ needs.prepare.outputs.version }}
+          build-version: ${{ needs.prepare.outputs.build_version }}
+          architecture: ${{ inputs.architecture }}
+          lintian-check: ${{ inputs.enable_lintian }}
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: __PKG_NAME__-debian-packages
+          path: __PKG_NAME___*.deb
+          if-no-files-found: error
+
+  release:
+    name: Draft Release
+    if: github.ref == 'refs/heads/main' && needs.build.result == 'success'
+    needs: [prepare, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          name: __PKG_NAME__-debian-packages
+
+      - name: Publish draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          tag_name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
+          name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
+          files: __PKG_NAME___*.deb
+          fail_on_unmatched_files: true

@@ -1,0 +1,93 @@
+name: Process package request
+
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    name: Package request
+    if: contains(github.event.issue.labels.*.name, 'package-request')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout apt-repo
+        uses: actions/checkout@v4
+
+      - name: Extract request fields
+        id: fields
+        run: bash .github/workflows/extract-request.sh
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+
+      - name: Label as processing
+        run: gh issue edit "$NUMBER" --repo "$REPO" --add-label "processing"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Validate and scaffold package repo
+        id: scaffold
+        run: |
+          bash scripts/add-package.sh scaffold \
+            --name "${{ steps.fields.outputs.name }}" \
+            --repo "${{ steps.fields.outputs.repo }}" \
+            --description "${{ steps.fields.outputs.about }}" \
+            --out "$RUNNER_TEMP"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      - name: Comment on failure
+        if: failure() && steps.scaffold.conclusion == 'failure'
+        run: gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Deploy package repo
+        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        run: |
+          bash scripts/add-package.sh deploy-repo \
+            --name "${{ steps.fields.outputs.name }}" \
+            --dir "$RUNNER_TEMP"
+        env:
+          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      - name: Register in tools.yaml
+        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        run: |
+          bash scripts/add-package.sh register-tools \
+            --name "${{ steps.fields.outputs.name }}" \
+            --repo "${{ steps.fields.outputs.repo }}" \
+            --tools-yaml "$GITHUB_WORKSPACE/tools.yaml"
+        env:
+          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+
+      - name: Comment on success
+        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        run: |
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Scaffolded and deployed **${{ steps.fields.outputs.name }}** → https://github.com/latest-debs/${{ steps.fields.outputs.name }}-debian
+
+          The first build is running automatically; the apt repo will pick it up within ~6h of a successful build."
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+
+      - name: Comment when admin token is missing
+        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN == ''
+        run: |
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then re-run this workflow."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}

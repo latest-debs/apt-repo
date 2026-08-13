@@ -7,6 +7,8 @@ body:
     attributes:
       value: |
         Thanks for suggesting a tool! Fill this in and we'll take a look.
+        Valid requests are validated and scaffolded automatically; maintainers
+        approve deployment.
         Please check first that it isn't
         [already packaged](https://github.com/latest-debs/apt-repo/blob/main/tools.yaml).
   - type: input
