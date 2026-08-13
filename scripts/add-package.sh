@@ -70,12 +70,12 @@ scaffold() {
     | grep -iE 'linux' \
     | grep -iE '\.(tar\.gz|tgz|zip)$' \
     | grep -viE 'sha256|checksum|\.asc$|source|sums' \
-    | head -n1)"
+    | head -n1 || true)"
   if [ -z "$asset" ]; then
     asset="$(printf '%s' "$assets" \
       | grep -iE '\.(tar\.gz|tgz|zip)$' \
       | grep -viE 'darwin|macos|windows|win32|msvc|apple|sha256|checksum|\.asc$|source|sums' \
-      | head -n1)"
+      | head -n1 || true)"
   fi
   [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.zip asset found in the latest release of $repo"
   case "$asset" in
