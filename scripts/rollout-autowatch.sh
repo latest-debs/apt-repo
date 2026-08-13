@@ -112,14 +112,14 @@ apply_to_dir() {
 
   mkdir -p "$(dirname "$wf")" "$(dirname "$nf")" "$(dirname "$dt")"
   sed "${subst[@]}" "$TPL/.github/workflows/release.yml" > "$wf.tmp"
-  stage_file "$wf" "$wf.tmp" "release.yml"
+  stage_file "$wf" "$wf.tmp" ".github/workflows/release.yml"
   if [ -f "$TPL/.github/workflows/notify-apt-repo.yml" ]; then
     cp "$TPL/.github/workflows/notify-apt-repo.yml" "$nf.tmp"
-    stage_file "$nf" "$nf.tmp" "notify-apt-repo.yml"
+    stage_file "$nf" "$nf.tmp" ".github/workflows/notify-apt-repo.yml"
   fi
   cp "$TPL/.github/scripts/detect-version.sh" "$dt.tmp"
   chmod +x "$dt.tmp"
-  stage_file "$dt" "$dt.tmp" "detect-version.sh"
+  stage_file "$dt" "$dt.tmp" ".github/scripts/detect-version.sh"
 }
 
 commit_and_push() {
