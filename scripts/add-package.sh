@@ -120,8 +120,15 @@ deploy_repo() {
   [ -n "${GH_TOKEN:-}" ] || die "GH_TOKEN (org admin token) is required to create the repository"
   [ -d "$dir/$name-debian" ] || die "scaffold not found at $dir/$name-debian"
 
-  echo "→ Creating latest-debs/$name-debian"
-  GH_TOKEN="$GH_TOKEN" gh repo create "latest-debs/$name-debian" --public --source "$dir/$name-debian" --push >/dev/null
+  echo "→ Deploying latest-debs/$name-debian"
+  local remote="https://x-access-token:${GH_TOKEN}@github.com/latest-debs/$name-debian.git"
+  if gh repo view "latest-debs/$name-debian" >/dev/null 2>&1; then
+    echo "→ Repo already exists; pushing updated scaffold"
+    ( cd "$dir/$name-debian" && git remote add origin "$remote" 2>/dev/null; git push -q --force origin main )
+  else
+    echo "→ Creating latest-debs/$name-debian"
+    GH_TOKEN="$GH_TOKEN" gh repo create "latest-debs/$name-debian" --public --source "$dir/$name-debian" --push >/dev/null
+  fi
 
   echo "→ Dispatching first auto build"
   GH_TOKEN="$GH_TOKEN" gh workflow run release.yml --repo "latest-debs/$name-debian" -f auto=true -f enable_lintian=true >/dev/null
