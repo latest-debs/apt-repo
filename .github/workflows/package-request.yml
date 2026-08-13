@@ -87,7 +87,21 @@ jobs:
             fail) gate_emoji="❌";;
             *) gate_emoji="❓";;
           esac
-          gh issue comment "$NUMBER" --repo "$REPO" --body $'✅ Vetted and ready for admin approval.\n\n**Automated pre-checks: '"$gate_emoji"' gate=`'"$gate"'`**\n- **License/SPDX:** `'"$lic"'`\n- **Asset:** `'"$aset"'`\n- **Architectures covered:** `'"$covered"'`\n- **Architectures missing:** `'"$missing"'`\n\nPre-checks pass → the request is eligible for lower-friction approval. The upstream release identity and every per-arch asset\'s SHA-256 were recorded at vet time (`.github/release-metadata.json`) and the builder verifies downloaded bytes against that pin, so a release altered after this point fails the build.\n\nAn org admin can reply with **`/approve`** to deploy and build it, or **`/deny`** to reject this request.'
+          body_file="$RUNNER_TEMP/approval-comment.md"
+          cat > "$body_file" <<EOF
+          ✅ Vetted and ready for admin approval.
+
+          **Automated pre-checks:** ${gate_emoji} gate=\`${gate}\`
+          - **License/SPDX:** \`${lic}\`
+          - **Asset:** \`${aset}\`
+          - **Architectures covered:** \`${covered}\`
+          - **Architectures missing:** \`${missing}\`
+
+          Pre-checks pass → the request is eligible for lower-friction approval. The upstream release identity and every per-arch asset's SHA-256 were recorded at vet time (\`.github/release-metadata.json\`) and the builder verifies downloaded bytes against that pin, so a release altered after this point fails the build.
+
+          An org admin can reply with **\`/approve\`** to deploy and build it, or **\`/deny\`** to reject this request.
+          EOF
+          gh issue comment "$NUMBER" --repo "$REPO" --body-file "$body_file"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.issue.number }}
