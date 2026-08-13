@@ -5,6 +5,9 @@
 [__GITHUB_REPO__](https://github.com/__GITHUB_REPO__) — __DESCRIPTION__ —
 packaged for Debian as part of [latest-debs](https://github.com/latest-debs).
 
+Want your own project packaged and maintained this way? See the
+[latest-debs packaging service](https://github.com/latest-debs/apt-repo/blob/main/SERVICE.md).
+
 ## Install
 
 Via the latest-debs apt repository:

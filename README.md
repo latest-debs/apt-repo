@@ -55,6 +55,30 @@ Every package in this channel instead carries:
 That combination is what ad-hoc downloads can't offer (no signing, no policy,
 no audit trail) and what Debian's cadence can't offer (currency).
 
+## For project maintainers: package your tool as a signed `.deb`
+
+Have a project that publishes a Linux binary on GitHub? We can package it for
+Debian the same way the tools above are — signed, test-gated, provenance-pinned,
+and kept current automatically. The `<tool>-debian` repo is yours: public,
+forkable, and maintained via the feature channel (a template change rolls out
+to every package repo in one operation, so improvements land everywhere at
+once).
+
+What you get, concretely:
+
+- A public packaging repo scaffolded from one template, with CI and full history.
+- Auto-watch: new upstream releases are built automatically, no per-version work.
+- All four Debian suites × every architecture your release actually publishes
+  a Linux binary for (verified precisely at vet time), plus source packages.
+- GPG-signed apt indexes, lintian + smoke-test gates, a vet-time SHA-256
+  provenance pin, and automated license/SPDX + asset pre-checks at intake.
+- Near-instant updates via webhook-triggered rebuilds.
+
+It's volunteer-run and best-effort (no SLA), but the packaging is yours to
+fork and take anywhere. See **[SERVICE.md](SERVICE.md)** for the full pitch,
+the offer, and how to get started (or just open a
+[package request](https://github.com/latest-debs/apt-repo/issues/new?template=package-request.yml)).
+
 ## Support & expectations (best-effort, no SLA)
 
 This is a volunteer-run project, not a commercial service. Everything runs on
