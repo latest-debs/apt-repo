@@ -167,7 +167,10 @@ jobs:
           done
           echo "build_run_id=$run_id" >> "$GITHUB_OUTPUT"
         env:
+          # Deploy needs the org token to create the repo; TRIGGER_TOKEN is
+          # copied onto the new repo so its releases can dispatch rebuilds.
           GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          TRIGGER_TOKEN: ${{ secrets.TRIGGER_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
       - name: Register in tools.yaml

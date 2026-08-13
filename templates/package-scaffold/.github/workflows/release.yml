@@ -122,14 +122,13 @@ jobs:
       - name: Run binaries from the built package
         run: |
           set -euo pipefail
-          shopt -s nullglob
           # Smoke-test the oldest available suite (bookworm first, then
           # trixie, forky, sid) so packages that intentionally skip a suite
           # (e.g. atuin requiring a newer glibc than bookworm ships) still get
           # runtime coverage on the oldest suite they do build.
           DEB="" SUITE=""
           for suite in bookworm trixie forky sid; do
-            debs=(__PKG_NAME___*+${suite}_amd64.deb)
+            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_amd64.deb")
             if [ -n "${debs[0]:-}" ]; then
               DEB="${debs[0]}"
               SUITE="$suite"

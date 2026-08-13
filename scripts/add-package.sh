@@ -11,7 +11,9 @@
 #   deploy-repo     Create the GitHub repo, push the scaffold, dispatch the
 #                   first auto build. Requires GH_TOKEN (org-restricted
 #                   fine-grained PAT with Administration/Contents/Workflows
-#                   write on latest-debs only).
+#                   write on latest-debs only). Also copies TRIGGER_TOKEN
+#                   (apt-repo-scoped PAT for rebuild dispatch) to the new
+#                   repo's secrets when provided.
 #   register-tools  Append the package to tools.yaml, commit, push. Only
 #                   needs a repo-scoped GITHUB_TOKEN.
 #
@@ -176,6 +178,19 @@ deploy_repo() {
   else
     echo "→ Creating latest-debs/$name-debian"
     GH_TOKEN="$GH_TOKEN" gh repo create "latest-debs/$name-debian" --public --source "$dir/$name-debian" --push >/dev/null
+  fi
+
+  # Provision the apt-repo rebuild trigger token so this repo's
+  # release-published webhook can dispatch an immediate rebuild. Best-effort:
+  # if it can't be set (the org token lacks Secrets permission), the ~6h
+  # scheduled rebuild still catches releases.
+  if [ -n "${TRIGGER_TOKEN:-}" ]; then
+    if printf '%s' "$TRIGGER_TOKEN" \
+        | GH_TOKEN="$GH_TOKEN" gh secret set TRIGGER_TOKEN --repo "latest-debs/$name-debian" >/dev/null 2>&1; then
+      echo "→ Set TRIGGER_TOKEN secret on latest-debs/$name-debian"
+    else
+      echo "  ⚠ could not set TRIGGER_TOKEN secret (schedule will still catch releases)"
+    fi
   fi
 
   echo "→ Dispatching first auto build"

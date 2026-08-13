@@ -1,21 +1,80 @@
 name: Rebuild apt repository
 
 on:
+  # Primary trigger: a *-debian repo fires this via repository_dispatch the
+  # moment a release is published (see notify-apt-repo.yml in the template).
+  repository_dispatch:
+    types: [release-published]
+  # Fallback: guaranteed catch-up if a webhook is lost, the TRIGGER_TOKEN is
+  # missing on a repo, or GitHub defers scheduled/dispatch events.
   schedule:
     - cron: '17 */6 * * *'   # every 6 hours at :17
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Queue, don't cancel: a webhook-triggered rebuild that gets superseded a
+  # minute before its gh-pages deploy could leave a half-pushed index.
+  cancel-in-progress: false
 
 jobs:
+  # Coalesce webhook bursts: several *-debian repos can publish releases
+  # within seconds of each other, each firing a repository_dispatch. Allow
+  # at most one rebuild per 10-minute window so a release stampede doesn't
+  # turn into a queue of full rebuilds (each re-downloads every tool). Every
+  # rebuild is full-state, so a skipped trigger's release is picked up by the
+  # next rebuild after the window - the 6h schedule is the final backstop.
+  # Schedule and manual runs are never skipped (they reset the window).
+  debounce:
+    name: Debounce (min 10 min between rebuilds)
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.gate.outputs.skip }}
+    steps:
+      - name: Gate webhook triggers on a 10-minute minimum interval
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          skip=false
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            now="$(date +%s)"
+            last="$(gh api \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/rebuild.yml/runs?branch=${GITHUB_REF_NAME}&per_page=20" \
+                --jq "[.workflow_runs[] | select(.id != ${GITHUB_RUN_ID}) | .run_started_at] | max // empty" \
+                2>/dev/null || true)"
+            if [ -n "$last" ]; then
+              if last_epoch="$(date -d "$last" +%s 2>/dev/null)"; then
+                age="$(( now - last_epoch ))"
+                if [ "$age" -lt 600 ]; then
+                  skip=true
+                  echo "::notice::A rebuild started ${age}s ago (<10 min); skipping this webhook trigger to avoid a burst of concurrent rebuilds."
+                fi
+              fi
+            fi
+          fi
+          echo "skip=$skip" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: debounce
+    if: needs.debounce.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
+      - name: Log trigger
+        run: |
+          case "${{ github.event_name }}" in
+            repository_dispatch)
+              echo "Triggered by release-published from ${{ github.event.client_payload.repo }} @ ${{ github.event.client_payload.tag }}"
+              ;;
+            schedule) echo "Triggered by schedule (fallback)" ;;
+            workflow_dispatch) echo "Triggered manually" ;;
+          esac
+
       - name: Checkout
         uses: actions/checkout@v4
 

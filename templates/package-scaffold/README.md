@@ -31,10 +31,10 @@ sudo dpkg -i __PKG_NAME___*.deb
 
 Unofficial, volunteer-run packaging — **best-effort, no SLA**.
 
-- **Update cadence:** new upstream releases are watched and built
-  automatically, then land in the apt repo on its next rebuild (roughly every
-  6 hours). GitHub outages, rate limits, or upstream archive changes can delay
-  or skip an update; there is no freshness guarantee.
+- **Update cadence:** publishing a release normally triggers an immediate
+  apt-repo rebuild via webhook; the ~6h scheduled run is the fallback. GitHub
+  outages, a missing trigger token, rate limits, or upstream archive changes
+  can delay or skip an update; there is no freshness guarantee.
 - **Draft releases:** every build is published as a *draft* that a maintainer
   reviews before promoting, so a new version can lag its build.
 

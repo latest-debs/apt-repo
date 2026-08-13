@@ -7,7 +7,9 @@ over `apt`.
 
 - **Debian:** Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
 - **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64 (plus i386 on bookworm/trixie)
-- **Updates:** best-effort, roughly every 6 hours — no SLA (see
+- **Updates:** near-instant — publishing a release in a `*-debian` repo
+  triggers an immediate rebuild via webhook, with a ~6h scheduled run as the
+  fallback. Best-effort, no SLA (see
   [Support & expectations](#support--expectations-best-effort-no-sla))
 
 All packages are built from upstream releases using the
@@ -33,13 +35,14 @@ This is a volunteer-run project, not a commercial service. Everything runs on
 free GitHub Actions and manual review, so treat the channel as **best-effort
 with no SLA**:
 
-- **Rebuild cadence.** The apt index is regenerated on a schedule (roughly
-  every 6 hours) and new tool versions are picked up on the next run. GitHub
-  can defer or fail scheduled workflows under load, runners occasionally go
-  offline, and API rate limits bite. A freshly published upstream release can
-  therefore appear within minutes or take much longer — and if an upstream
-  archive becomes unavailable, that version may be skipped entirely. Don't
-  build a pipeline that depends on a package appearing by a deadline.
+- **Rebuild cadence.** Publishing a release normally rebuilds the apt index
+  within minutes (a webhook from the `*-debian` repo triggers it). If that
+  webhook is missed — lost dispatch, a missing `TRIGGER_TOKEN`, a runner
+  outage, or GitHub deferring scheduled/dispatch events under load — the ~6h
+  scheduled run is the guaranteed catch-up. A freshly published upstream
+  release can therefore appear within minutes or take longer, and if an
+  upstream archive becomes unavailable, that version may be skipped entirely.
+  Don't build a pipeline that depends on a package appearing by a deadline.
 - **Draft release promotion.** Packages are never auto-published. Every build
   lands as a *draft* GitHub release that a maintainer reviews and publishes by
   hand (see [Supply chain & provenance](#supply-chain--provenance)). That
@@ -119,6 +122,17 @@ will:
 All package repos use the auto-watching workflow: a scheduled job compares the
 latest upstream release against what's already built and rebuilds new versions
 automatically (see `scripts/detect-version.sh` in any `*-debian` repo).
+
+When a `*-debian` release is **published**, its
+[`notify-apt-repo` workflow](templates/package-scaffold/.github/workflows/notify-apt-repo.yml)
+dispatches an immediate apt-repo rebuild via `repository_dispatch` — so a new
+package version lands in the apt index within minutes, not at the next ~6h
+schedule. This needs a **`TRIGGER_TOKEN`** Actions secret on the package repo:
+a fine-grained PAT scoped to *apt-repo only* with **Contents: write** (the
+minimum for `repository_dispatch`). New repos get it copied at deploy time
+(best-effort); run `scripts/set-trigger-secret.sh` to backfill existing repos
+and to rotate. A repo without the secret falls back to the scheduled rebuild —
+the webhook is an optimization, never a correctness dependency.
 
 Package repo releases must be named so the suite is embedded, e.g.:
 
@@ -203,6 +217,8 @@ scripts/build-repo.sh       fetch releases + generate pool/ and dists/
 scripts/sync-readme.sh      regenerate the package table in README.md
 scripts/run-in-debian.sh    run build-repo.sh in a Debian container
 scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
+scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
+scripts/rollout-autowatch.sh   roll template workflows out to local repos
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 pool/                       downloaded .deb + source files (generated)
