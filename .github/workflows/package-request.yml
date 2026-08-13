@@ -42,6 +42,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
+      - name: Check ORG_ADMIN_TOKEN
+        id: check-token
+        env:
+          ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+        run: |
+          if [ -n "$ADMIN_TOKEN" ]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Comment on failure
         if: always() && steps.scaffold.outcome == 'failure'
         run: gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Could not auto-package this request. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) for details, or ask a maintainer to look at it manually."
@@ -52,7 +63,7 @@ jobs:
 
       - name: Deploy package repo
         id: deploy
-        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
         run: |
           bash scripts/add-package.sh deploy-repo \
             --name "${{ steps.fields.outputs.name }}" \
@@ -63,7 +74,7 @@ jobs:
 
       - name: Register in tools.yaml
         id: register
-        if: always() && steps.scaffold.outcome == 'success' && secrets.ORG_ADMIN_TOKEN != ''
+        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
         run: |
           bash scripts/add-package.sh register-tools \
             --name "${{ steps.fields.outputs.name }}" \
@@ -95,7 +106,7 @@ jobs:
           REPO: ${{ github.repository }}
 
       - name: Comment when admin token is missing
-        if: always() && steps.scaffold.outcome == 'success' && steps.deploy.outcome == 'skipped'
+        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'false'
         run: |
           gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then re-run this workflow."
         env:
