@@ -24,7 +24,9 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Label as processing
-        run: gh issue edit "$NUMBER" --repo "$REPO" --add-label "processing"
+        run: |
+          gh label create processing --force 2>/dev/null || true
+          gh issue edit "$NUMBER" --repo "$REPO" --add-label "processing"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.issue.number }}
@@ -90,6 +92,7 @@ jobs:
           gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Scaffolded and deployed **${{ steps.fields.outputs.name }}** → https://github.com/latest-debs/${{ steps.fields.outputs.name }}-debian
 
           The first build is running automatically; the apt repo will pick it up within ~6h of a successful build."
+          gh label create automated --force 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
