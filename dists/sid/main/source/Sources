@@ -172,6 +172,35 @@ Checksums-Sha512:
  13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
  d4d48f91238ce8a7cdddf10d9a6c2c7c4addc9ccc9eaf4e5347276d1826f290bb40e1c48e776908826e3fdb208863fbbc9796319c0b7cd6060b4963725e7c2ca 1496 gitui_0.28.1-1+sid.debian.tar.xz
 
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.115.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/sid/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ f67fee9c1f0cf34bbddf6934af0ddb90 878 nushell_0.115.0-1+sid.dsc
+ 85ee001bce8135b1a35af0b05b489b9c 50555240 nushell_0.115.0.orig.tar.xz
+ 1441b86e8dd16648f20eb193cb144313 1504 nushell_0.115.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 7e2a333e468fc2d6e0669be4d687517cef8db405 878 nushell_0.115.0-1+sid.dsc
+ 5ef683a8b24def338433ec443749c2b96177cb29 50555240 nushell_0.115.0.orig.tar.xz
+ 4d93fb5b14a99131c60647075578cb1f5af1c8e2 1504 nushell_0.115.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 766358bf99b288fd22c38b6eb470db80ff69fbf26e7ba3e42f843d472f46483b 878 nushell_0.115.0-1+sid.dsc
+ 1ce1c020c5ad433bff1fc847cfa9ae73446a5106f31732e166a2c3c82a08aeeb 50555240 nushell_0.115.0.orig.tar.xz
+ 02a53e2abb9b2324430404b438e87075588c83a7b73edb748f97b86f54ef80c0 1504 nushell_0.115.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ ce83bccc6969f2414ea79cd4fb77ad5d6675113bdb020f1c4c3a8532b9662dbb935bfdbb8d4c40df1c60f255a0b0fff5e9dc5c0271ea02a57a61eb20cebfb8c4 878 nushell_0.115.0-1+sid.dsc
+ 54f6711bc25259e71d55e71127a5394610a771e9a6945098bc535c68e3b420176c3b147eb561dd2551913151f1e7d3adaf18b7388f471311dc5cf352a6e6113c 50555240 nushell_0.115.0.orig.tar.xz
+ 2251e2ed704f8a91802deed59ba51ef32d8378481c491d7b6da4c4ecc592e588f3236fff2ec4f54e8f5b6919e9ff140856e87ceb610753cf65f8912d5a0e999d 1504 nushell_0.115.0-1+sid.debian.tar.xz
+
 Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff

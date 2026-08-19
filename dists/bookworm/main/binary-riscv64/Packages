@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: riscv64
+Version: 0.115.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/nushell/nushell_0.115.0-1+bookworm_riscv64.deb
+Size: 52052648
+MD5sum: 33f675468e7f3e67f05f1ae352d495c0
+SHA1: 6a809e993ebcaba45c6d7ad9c3013eb8c0f0c493
+SHA256: 098b46173ac9220fa99f6016ffdc26522702016833426dce7a856c42e25efad7
+SHA512: cac064e3e041c20a485254b325a8db6e65dfbc28315cc8dedc8e15393785812a7bfd03e973cec09255fe22677ba8d3785c99157d04fb1f0d2db9f50d753cbf1a
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ruff
 Architecture: riscv64
 Version: 0.16.3-1+bookworm

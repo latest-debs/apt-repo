@@ -286,6 +286,22 @@ Homepage: https://github.com/jesseduffield/lazygit
 Description: simple terminal UI for git commands
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: amd64
+Version: 0.115.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/nushell/nushell_0.115.0-1+bookworm_amd64.deb
+Size: 50824536
+MD5sum: 929844b430ebbc3f1f5bbddc8a2f9730
+SHA1: fab671933e59fcd996fc8bb1f92c5d90a5e271a0
+SHA256: cf19275db66b0f11a1f8793a63014618d732c5537f0113e0b188c680945a1763
+SHA512: b27007335c15312d89a7578bfbca364099eea448addd189b9094a9f1b53fd3c4d0fe01e79d66cc7401d4f8db3e9b68f528fba443080a26e83839a54978368da4
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: procs
 Architecture: amd64
 Version: 0.14.12-1+bookworm

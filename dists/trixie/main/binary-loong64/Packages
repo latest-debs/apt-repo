@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: loong64
+Version: 0.115.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/nushell/nushell_0.115.0-1+trixie_loong64.deb
+Size: 42112760
+MD5sum: 8728e0b0d77d676881de1314130daf9b
+SHA1: 64b466d7ebca109c7250e46c1f9a59f7f0fd323a
+SHA256: 21021bbc48c8fcfd268896cc88827a6af0fe406b0e6a1d6d4627a23c8d2b1c83
+SHA512: bd114b409cf92de946b4692c115cfae370ee94baa2b03c958bba6c03f6e8eaa9ff33df3a874b657473696537da2fdd7f2675257b13c035ad5704999a4f8993cd
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: yq-go
 Architecture: loong64
 Version: 4.53.4-1+trixie

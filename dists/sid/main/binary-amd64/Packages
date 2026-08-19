@@ -302,6 +302,22 @@ Homepage: https://github.com/jesseduffield/lazygit
 Description: simple terminal UI for git commands
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: amd64
+Version: 0.115.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/nushell/nushell_0.115.0-1+sid_amd64.deb
+Size: 50843980
+MD5sum: 240fc64e9c7a723a531f20e461cb97c5
+SHA1: b0aa75d20fa731bf811d7fb4fced7fbbecd5709b
+SHA256: b71392a581047179aadc13574d4983dda1aa1670734ddd838d998c1b1d2d0e2d
+SHA512: feb9391df08aa4f4ea1aebfb2997fd1143709e27485b50b10ba81c5a41bfc6365aaa9bc96b6c090dfcbdb889d6450164fdd888876b0e013b7064973ea9e5c85d
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: procs
 Architecture: amd64
 Version: 0.14.12-1+sid

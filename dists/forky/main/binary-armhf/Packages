@@ -190,6 +190,22 @@ Homepage: https://github.com/jesseduffield/lazydocker
 Description: The lazier way to manage everything docker
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: armhf
+Version: 0.115.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/nushell/nushell_0.115.0-1+forky_armhf.deb
+Size: 46229932
+MD5sum: ea79f281528445429aedfb7fd19b1dd9
+SHA1: 55ed7aea87e99bf27a194bb02c097e929176b277
+SHA256: efb356cd7d31bced26c5d2a989a7127466b20cb3d66c0b852a22d915ef3e3629
+SHA512: d6bbc266e06e4dcad88036a2d86f8dc6a04732dffc9e52833afd81df7fec51e24cd02e02990f6f2d12a2c193ac1a1235a44ea013700acd45a23ff484feef9e89
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ripgrep
 Architecture: armhf
 Version: 15.2.0-1+forky

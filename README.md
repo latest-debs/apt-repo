@@ -289,6 +289,8 @@ appear in the **License** column of the [Packages](#packages) table below;
 | `jj` | Apache-2.0 | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
 | `gitui` | MIT | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
 | `fresh-editor` | GPL-2.0 | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
+| `nushell` | MIT | `apt install nushell` | [nushell/nushell](https://github.com/nushell/nushell) |
+| `neovim` | Apache-2.0 | `apt install neovim` | [neovim/neovim](https://github.com/neovim/neovim) |
 
 <!-- packages:end -->
 

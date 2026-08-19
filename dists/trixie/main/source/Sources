@@ -172,6 +172,35 @@ Checksums-Sha512:
  13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
  fdc1c6ecb0a4c091ef6c04cdc90ea339a0d77bcb10b3f215813dae4b9ad86fe544f1eccdbb11979705b3fc0044d57d4f0692e42c8bdf6a10059beebe9ced8bf2 1500 gitui_0.28.1-1+trixie.debian.tar.xz
 
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.115.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/trixie/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ f73369832ccfc1189333864e9aa9c69d 890 nushell_0.115.0-1+trixie.dsc
+ 85ee001bce8135b1a35af0b05b489b9c 50555240 nushell_0.115.0.orig.tar.xz
+ 15b14a646cfb8bbc5da369f044425fdc 1504 nushell_0.115.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ e29a4bae62b427cf788684a01776c843a23c2424 890 nushell_0.115.0-1+trixie.dsc
+ 5ef683a8b24def338433ec443749c2b96177cb29 50555240 nushell_0.115.0.orig.tar.xz
+ df42c4826c1dc1e55ad2d81c511901fee2420c03 1504 nushell_0.115.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ a240f9c287e33359c1f4a04d24417438d556f565fd0e556a481fb0503c1d4c89 890 nushell_0.115.0-1+trixie.dsc
+ 1ce1c020c5ad433bff1fc847cfa9ae73446a5106f31732e166a2c3c82a08aeeb 50555240 nushell_0.115.0.orig.tar.xz
+ 8e00acf8297c95f4ec6cee7dccc55f64fa7120f844977ffae59c9cf3bd3e2d7e 1504 nushell_0.115.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ c4fd3c06b2ace1d2597ab2f303cafde8188183657370f0214bc4e2b7bb16f6dce5272e4f0e039ba106631a2d55b7a948386cd86de7b5d7caa59ec764cc360fb6 890 nushell_0.115.0-1+trixie.dsc
+ 54f6711bc25259e71d55e71127a5394610a771e9a6945098bc535c68e3b420176c3b147eb561dd2551913151f1e7d3adaf18b7388f471311dc5cf352a6e6113c 50555240 nushell_0.115.0.orig.tar.xz
+ d85e4dba56d11b714a948a8bb3ca8cb0175137048136ea53354d9d15db6592dbd9f8f8fec947fefdc18e44f4965f5338be35fdbcfdbfbe4f5cd41906ef13b7f9 1504 nushell_0.115.0-1+trixie.debian.tar.xz
+
 Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff

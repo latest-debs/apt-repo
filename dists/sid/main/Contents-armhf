@@ -10,6 +10,15 @@ usr/bin/hyperfine					    utils/hyperfine
 usr/bin/just						    utils/just
 usr/bin/k9s						    utils/k9s
 usr/bin/lazydocker					    utils/lazydocker
+usr/bin/nu						    utils/nushell
+usr/bin/nu_plugin_custom_values				    utils/nushell
+usr/bin/nu_plugin_example				    utils/nushell
+usr/bin/nu_plugin_formats				    utils/nushell
+usr/bin/nu_plugin_gstat					    utils/nushell
+usr/bin/nu_plugin_inc					    utils/nushell
+usr/bin/nu_plugin_polars				    utils/nushell
+usr/bin/nu_plugin_query					    utils/nushell
+usr/bin/nu_plugin_stress_internals			    utils/nushell
 usr/bin/rg						    utils/ripgrep
 usr/bin/ruff						    utils/ruff
 usr/bin/uv						    utils/uv
@@ -40,6 +49,8 @@ usr/share/doc/k9s/changelog.Debian.gz			    utils/k9s
 usr/share/doc/k9s/copyright				    utils/k9s
 usr/share/doc/lazydocker/changelog.Debian.gz		    utils/lazydocker
 usr/share/doc/lazydocker/copyright			    utils/lazydocker
+usr/share/doc/nushell/changelog.Debian.gz		    utils/nushell
+usr/share/doc/nushell/copyright				    utils/nushell
 usr/share/doc/ripgrep/changelog.Debian.gz		    utils/ripgrep
 usr/share/doc/ripgrep/copyright				    utils/ripgrep
 usr/share/doc/ruff/changelog.Debian.gz			    utils/ruff

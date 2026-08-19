@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: loong64
+Version: 0.115.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/nushell/nushell_0.115.0-1+bookworm_loong64.deb
+Size: 42109852
+MD5sum: 18a0f13c7e8875dea5986f6a1b49f838
+SHA1: 7ea9e9a8ab107b60d8ec13883c524f53eb63391f
+SHA256: 2514e5d754ed4af53041e61ae6f433f787e511dde7cb7423d714b896d9f965a5
+SHA512: 023c6248369014a65859ab1025233fe5cc6bd07e4ac93ec7cefb018f80e89697f776344010a7a753032e2b501378404f69ddd656048b1a08ebf139bf607ff938
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: yq-go
 Architecture: loong64
 Version: 4.53.4-1+bookworm

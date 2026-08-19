@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: riscv64
+Version: 0.115.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/nushell/nushell_0.115.0-1+forky_riscv64.deb
+Size: 52058156
+MD5sum: 4c8ed0b23f76776431b27994759b543c
+SHA1: ad3b26e0d28953b313907d092e8d91bd4d34617e
+SHA256: 2c1b0d0c778452f005643ee7a6116d74ce83fea6bf49121b50a82c5c39d6da9d
+SHA512: 0911def625f0599b65accb1373e636c7c07bda2c3abecb60f72640ea1f5ab9288fe739396033c2e3844cb7d7cb61559c12c91b00352ec221cacaea8c3bd7a3bf
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ruff
 Architecture: riscv64
 Version: 0.16.3-1+forky

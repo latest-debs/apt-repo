@@ -190,6 +190,22 @@ Homepage: https://github.com/jesseduffield/lazydocker
 Description: The lazier way to manage everything docker
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: armhf
+Version: 0.115.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/nushell/nushell_0.115.0-1+trixie_armhf.deb
+Size: 46222580
+MD5sum: df08840ae0edd05fa58c72705f6fa493
+SHA1: e3b4450085a4524f6e34676efe35ed36b24c2006
+SHA256: 6997e67b2554be87093812fd2aeb4689e0066ef78c4fd776ed21140838935d42
+SHA512: 9a949775c53a3fd0ca45f259b4d999191bade8045dba2cb104b53eccfafec75ba4b90ef77f2c85a6a1e0a04f73333a9b7b1f092f591808dd19617784da16da73
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ripgrep
 Architecture: armhf
 Version: 15.2.0-1+trixie

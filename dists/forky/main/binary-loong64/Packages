@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: loong64
+Version: 0.115.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/nushell/nushell_0.115.0-1+forky_loong64.deb
+Size: 42113724
+MD5sum: 2cedec60e44c598da151f69ef5205f69
+SHA1: 48fae24a1657005c618f90d21f68c7237ff7bbc4
+SHA256: 1cafee528612ed1da23e76f318dec8ee5b322e1cdee082a9647a3118c4301f56
+SHA512: b7b279cdc5c9ac96e39afe140c917cc37643f746c865dd1292578094ec9ae12a5644f5dc5e52f77751e6630d37e64942bac6caad808c56b8af2dbcc27ced3a30
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: yq-go
 Architecture: loong64
 Version: 4.53.4-1+forky

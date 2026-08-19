@@ -46,6 +46,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: riscv64
+Version: 0.115.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/nushell/nushell_0.115.0-1+trixie_riscv64.deb
+Size: 52047052
+MD5sum: 436c32602cb0eaf69a086f43499c6c36
+SHA1: 1f7f9a11a1a3957f87963c633f62c71cbeff0b0e
+SHA256: b7c35ef2e64db3cbad4ea33ecae2b971a11a1301864dfeeb32b7b54498987072
+SHA512: 483ee15026f1fe9c00857b677ffc03202bcda2ac24ac2515c7af5f9ffb651005cf737fc50d63b45ee1ac654b74f36a2a8dc25e512716d2a807733fe9fdf667a4
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ruff
 Architecture: riscv64
 Version: 0.16.3-1+trixie

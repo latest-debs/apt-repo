@@ -143,6 +143,35 @@ Checksums-Sha512:
  13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
  ddaeb98c654f953eedfab37d64a0d62daad597e0209074a7ca6f30cef739cde88e33a13a5d3fe51a1f3d9bed17890d39cdf43dbfaf2f1d3809c2ade87b6f937d 1496 gitui_0.28.1-1+bookworm.debian.tar.xz
 
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.115.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/bookworm/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ f0b9a16b85b3af016d5924eca8b5c99a 898 nushell_0.115.0-1+bookworm.dsc
+ 85ee001bce8135b1a35af0b05b489b9c 50555240 nushell_0.115.0.orig.tar.xz
+ a4dcd2eef65305e1e697e1f05d3b28f0 1512 nushell_0.115.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ e997268a2611b3ed2f78d6add0806a43cdc70755 898 nushell_0.115.0-1+bookworm.dsc
+ 5ef683a8b24def338433ec443749c2b96177cb29 50555240 nushell_0.115.0.orig.tar.xz
+ 66281d03c4e7b91aef341f459993ca40b36096c2 1512 nushell_0.115.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 177cf53d8d35935dd56d648bf3958574faaffc6bf1042bfe8fd84d5b1e0bc485 898 nushell_0.115.0-1+bookworm.dsc
+ 1ce1c020c5ad433bff1fc847cfa9ae73446a5106f31732e166a2c3c82a08aeeb 50555240 nushell_0.115.0.orig.tar.xz
+ aa937e0c8bbd29662925cb5450b30692c993317962476c0ca176cab9f213c235 1512 nushell_0.115.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ c8d6b37bf5a05b30c3d9cbf35c93f4360583b432222059408eb3fd62209bcb9e916182250b22ee1c43eeacd4ae1c7c75c43cdf9999ea17e99238f3349fae013e 898 nushell_0.115.0-1+bookworm.dsc
+ 54f6711bc25259e71d55e71127a5394610a771e9a6945098bc535c68e3b420176c3b147eb561dd2551913151f1e7d3adaf18b7388f471311dc5cf352a6e6113c 50555240 nushell_0.115.0.orig.tar.xz
+ 87f9ae5558821e7b26c5750ca5694c8e23792b5b3253981113fadea7860b3e20150901d90b9f2d86a22a68cf01aac8127c7bcbfb4c31cd56a9661a32f3ce332a 1512 nushell_0.115.0-1+bookworm.debian.tar.xz
+
 Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff

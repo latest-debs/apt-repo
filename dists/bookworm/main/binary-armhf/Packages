@@ -190,6 +190,22 @@ Homepage: https://github.com/jesseduffield/lazydocker
 Description: The lazier way to manage everything docker
  Packaged from the upstream GitHub release for Debian.
 
+Package: nushell
+Architecture: armhf
+Version: 0.115.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/nushell/nushell_0.115.0-1+bookworm_armhf.deb
+Size: 46230212
+MD5sum: c737c4b201c2779cf8147f65c22f47ba
+SHA1: bddefe08d4320a0e66fc5cc7a3ffb92a090a3880
+SHA256: a36e5648c5a891fe7bc3ee28425f158792da2b8212cafd6e7df4c16c7a859079
+SHA512: aabe238de4282afd1dd9882a5a19947aa7d9c5c92886548a64b673e474fa33cf6c43f955f2e0bb47231d486b0dc221fcae5b80da0cc764231aacb690e7c1806c
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ripgrep
 Architecture: armhf
 Version: 15.2.0-1+bookworm
