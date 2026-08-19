@@ -19,7 +19,14 @@ jobs:
         env:
           BODY: ${{ github.event.comment.body }}
         run: |
-          cmd="$(printf '%s' "$BODY" | tr '[:upper:]' '[:lower:]' | awk '{print $1}')"
+          # awk with no line restriction runs {print $1} on EVERY line, not
+          # just the first - a comment with /approve followed by a
+          # justification on later lines (a natural way to override a
+          # warn/fail gate) turned $cmd into a multi-line string that never
+          # matched the case pattern below, silently no-opping the approval.
+          # head -1 takes only the first line before extracting its first
+          # word.
+          cmd="$(printf '%s' "$BODY" | head -1 | tr '[:upper:]' '[:lower:]' | awk '{print $1}')"
           case "$cmd" in
             /approve|/deny) echo "command=$cmd" >> "$GITHUB_OUTPUT";;
             *) echo "command=none" >> "$GITHUB_OUTPUT";;
