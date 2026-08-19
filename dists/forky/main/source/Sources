@@ -201,12 +201,41 @@ Checksums-Sha512:
  d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
  bbbdbdf62141e8b0a6f62157fa136d2f2e534639b8255775010a2e150e62c1d94b3a99c32c1754459246f1573f212368a4547671b08d317014ea4fecbb4c332b 2620 ruff_0.16.3-1+forky.debian.tar.xz
 
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.12.5-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/forky/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ 04a674fb3105f12d7d87211d9a444ab3 831 uv_0.12.5-1+forky.dsc
+ 9722a778f100fe5b75b496f3a8da18f1 14635424 uv_0.12.5.orig.tar.xz
+ d5f477e284c15bf0b1a07cc1b4e7f6d0 5096 uv_0.12.5-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 11aa0db264902ee2a35e321bcdbc01ed6201ee95 831 uv_0.12.5-1+forky.dsc
+ a4947d78bee91c0267e83bfcdde9fd1fbde27b24 14635424 uv_0.12.5.orig.tar.xz
+ 468b6a4b174742388733466c4bfb26dee9e85001 5096 uv_0.12.5-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 165e2ffb88e9a5e8c22fc7271e34a0630c17680feebc6ad9881dae7406ea7c0e 831 uv_0.12.5-1+forky.dsc
+ 85e48216509a123b85a8b71e8e79b1dc1238cd3fc200fda2cb2ff212f8cbf88c 14635424 uv_0.12.5.orig.tar.xz
+ 9e8a4f0e53fb13a140a4478ef75599e7ff0bed5723dc4124d7e20e5aa56c730e 5096 uv_0.12.5-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 45d7f67c6928941ccf8a30ebf7fa611d4a7e7a1fdc50707f53171f9af597803c2f4255ed6749109077d56a5bf49b21d1fb0ca4b973bfbe18b468f338147aaab8 831 uv_0.12.5-1+forky.dsc
+ 5b74ed41472b2e25f328a0c4a58880a980961b89e1ee0f7ea403a534907c2a3551b47ff3004ff89251e7cc64e10ed8f896323be61692b745587c3b22a9e161a4 14635424 uv_0.12.5.orig.tar.xz
+ 02e1f396968cbb0cffcb34eeee7568bd7801f4c62643cd37a59c3ed04e0045c02e12b9fe3059a795d205419b7bc70e6090d05b4f37ac82ce0cb62b3d8e986db7 5096 uv_0.12.5-1+forky.debian.tar.xz
+
 Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.3-2+forky
-Maintainer: Your Name <your.email@example.com>
+Version: 4.53.4-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
 Homepage: https://github.com/mikefarah/yq
@@ -214,19 +243,19 @@ Directory: pool/forky/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- 64e84871f57d68506c9dc113d58bea49 836 yq-go_4.53.3-2+forky.dsc
- 613fcffe0eb7061505ff45ffb4098189 4153780 yq-go_4.53.3.orig.tar.xz
- cd14d0f147614fb745a0c5b1cb36f9b2 1540 yq-go_4.53.3-2+forky.debian.tar.xz
+ 007985aab99b0b7580a808f03e8f9749 855 yq-go_4.53.4-1+forky.dsc
+ 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
+ 69f0f3f2db50a708b35b3dd32ca8c3a2 1532 yq-go_4.53.4-1+forky.debian.tar.xz
 Checksums-Sha1:
- ee4c8b2529b81913f7511f2e06b2e59838554fe5 836 yq-go_4.53.3-2+forky.dsc
- ced7fb628a2f8258080c0ead0b5c553d496b634a 4153780 yq-go_4.53.3.orig.tar.xz
- 41aba7b4d7d45d1c80c17d0fa344bd928801c8f9 1540 yq-go_4.53.3-2+forky.debian.tar.xz
+ 21e07b9cd33c3812c7efb7243faa76de7ea38930 855 yq-go_4.53.4-1+forky.dsc
+ bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
+ a7bf57980e6c75092ef8bd1aa334960925b90178 1532 yq-go_4.53.4-1+forky.debian.tar.xz
 Checksums-Sha256:
- 358d3bbf24a76aa22b9ab54e4a9f9553cbf99bba349717cd7d60c99029be6533 836 yq-go_4.53.3-2+forky.dsc
- 11bfe0611184946158f5b5e6992bc64ebdf04c82fa81a66bfd3891a21e101513 4153780 yq-go_4.53.3.orig.tar.xz
- 45d8f2f9ae93307241e9e3ee026a3f11916ed8ccc22f85a0cd77d3cc5bec5796 1540 yq-go_4.53.3-2+forky.debian.tar.xz
+ 22e8792e37fe8f36114cd783659153c777b79b74ad135c261b898319afec98be 855 yq-go_4.53.4-1+forky.dsc
+ d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
+ 12e4d20789ff50cc61465fdb12120bdc7a3dcca647c52d31d8877a775c87a5d1 1532 yq-go_4.53.4-1+forky.debian.tar.xz
 Checksums-Sha512:
- c75e2b50e2c4b469f4e06cb16aa32c1da162917fd9ceeba2f29712996201095743f7d243ffa7e92bfe00950f806b773a16ee8cff33eaf5d22e60236e1a03fb64 836 yq-go_4.53.3-2+forky.dsc
- 2b737e4f9cf5221c1ccbc5cc2d6a10285c15fc5c30310c996d7c4c6b3d9820ecc0f82b3ac80aa7d1f49b4c5054877930b2945a8eac34de3273c72abe826e2b59 4153780 yq-go_4.53.3.orig.tar.xz
- d48d69d61c906d720e14a66abd2e14e204f9a7dcd77441aa14a3ee12cb9d2dfecdf0cbcfb8508d1796b21c560384d976618325e4dca43d28e505caf7a5903195 1540 yq-go_4.53.3-2+forky.debian.tar.xz
+ 4aa7d9eefa73107138af6c77b7b6a1a0c34b4b1b9ffafb6d15ef5d713379c9bddda4e27246226e076cc4e2cd251ac967c5b266698729910c23207bb071b0b607 855 yq-go_4.53.4-1+forky.dsc
+ c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
+ ec64ee395140854a13aff3d6b915972f8d99e967cbd359b91769d27c310319850cea5195841a499ece0bf988d956f2753277cdef0bc3e02bf51e8a33a40a9a65 1532 yq-go_4.53.4-1+forky.debian.tar.xz
 

@@ -78,18 +78,34 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: riscv64
-Version: 4.53.3-2+trixie
+Version: 0.12.5-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_riscv64.deb
-Size: 3864940
-MD5sum: 1a65c525c6d89b4674c94b4f5cbd2850
-SHA1: 881900fb34702bbf997d6be5f685fe733dd9bbca
-SHA256: 93f40906252b12514071809facb97f25f3c3ef43d8880dddf448a8668d70b335
-SHA512: df141e453fb21523832508e994ee6961f681c1e307ead848fda605d90a256cf9794df48b303bc7e6179fdb57c0a19a0f0071ce646d2fe5d5dd82083d9cc0fe4c
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/uv/uv_0.12.5-1+trixie_riscv64.deb
+Size: 14893948
+MD5sum: 269edaac7ac497fb894b29d526d4edbd
+SHA1: e4945558857b01b33709be2633ef56c28a252147
+SHA256: 85f2c0fee782f8a3bb864e9c3d430f06c498a4b34be971478fe82d4486e718ff
+SHA512: 9e5dde8519a110bfff59c0c760ae87cc2a8ae77fa13df0eadaa757e7d69c8fba9918fd683f5b6fa908cc91e5b29f2cd400bc9416fae1d7e2dd68439d2db0840e
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yq-go/yq-go_4.53.4-1+trixie_riscv64.deb
+Size: 3879460
+MD5sum: ae980ff65108486403cae9f88e40e792
+SHA1: 343d8fbfe308d68cc5692955e752bf6e9d69c2c5
+SHA256: bb73befad69abd2ae57afbd05387051da1ac72646362282a3367ef6185d89977
+SHA512: 1a8d600411e02df34e73e499e0509d2cd27c515764919ed32d1bc746808c8cb3a114b1c62ed0eda6aef9d580ff50f2e65a645e81f991dbd1bd153360bb7b3eb1
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

@@ -30,6 +30,22 @@ Homepage: https://github.com/junegunn/fzf
 Description: A command-line fuzzy finder
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: ppc64el
+Version: 0.51.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/k9s/k9s_0.51.0-1+forky_ppc64el.deb
+Size: 23333248
+MD5sum: be8f28fb43c8692290af3c182adb5ff3
+SHA1: 9aa619c2da13d6e78d0482423367c90bd0ac6efd
+SHA256: 6889819f796338057cecfeca5ddddb3e5e874f6d8b7f4f7587de7fe6d21ddb4b
+SHA512: ede65a767e90abb1bc6f4202aa245daa6188fae0fc83c0ea7c5745f5e55ba310c8a5a33ee9c9bcbf1cb015364aa7756a2eef360d48ad08dba2d404b818ac2d59
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ruff
 Architecture: ppc64el
 Version: 0.16.3-1+forky
@@ -46,18 +62,34 @@ Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: ppc64el
-Version: 4.53.3-2+forky
+Version: 0.12.5-1+forky
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_ppc64el.deb
-Size: 3543472
-MD5sum: e13872a4f07e804c2ddca6463e7d37a4
-SHA1: 8d32a53fd7069498bb4b05f822b8994cf813ea33
-SHA256: 143b599bdb9db3cf1d1d17c6fdb56b3f7c80a3af111f7b5a272892bc04c553f5
-SHA512: 2cd8ec731a57dc86001fc2ec2d77fdac679ec173524914c7d29ab8fae492c7a6707f59feb812569adaeb8bc8854a1d90644d8411242d2e8be3bb1eac53d7ca4a
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/uv/uv_0.12.5-1+forky_ppc64el.deb
+Size: 13854036
+MD5sum: 53bb5ca4655f57c5ec009ecc0daf7879
+SHA1: 5566696533c72bc6d7d41ef14a1f0e566fa54ceb
+SHA256: 0865e4baaaf4dc28db4b86e3637762bf610606e6213997a218e8f0fa24ac4c68
+SHA512: 18c6342d2fa3720d5f90cf3c7ec2eda8ff32d49d4d093d1ac05502ab759c1e6c251ab51f5174ce2e270145402960a76fbb13a9016885c2692e41d3643ac2a0d1
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.53.4-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_ppc64el.deb
+Size: 3558484
+MD5sum: 7325d64319ceb486bfb58568b106e8c7
+SHA1: a4113c6656fcbcc6ff9a38a6002d51e5f4fbd8fb
+SHA256: 99d7715afdfae0bd8d4b0aca982fa0e53d18310eb255b44fb7c8729829a3ded4
+SHA512: 21266383fc50b06bfd329496e2894591106075216a9cb9d43bc3f5025b726bc417f8f4d9fac82dd59cccd4f5fb961b80cbe718810fd864de40e4ea1d3ef4a9b2
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

@@ -78,18 +78,34 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: riscv64
-Version: 4.53.3-2+bookworm
+Version: 0.12.5-1+bookworm
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_riscv64.deb
-Size: 3861156
-MD5sum: 236a6466370eb0f8a6e8a1d2cf9bcc54
-SHA1: 044ea1d2db82eaa3ce4c73b2304925d1fd3d71c8
-SHA256: eab8f3294044b8a8c3530a6dab6c3cda94c2e57eb9a2f01f07d2e1dbd7476057
-SHA512: 75bcb54b8a915c45d768bd284adad2dd91b9793119ba6a1abdb8deae3011b4bbdead1d46ed7e0dda624b35735bbda312ea0ccc0e132de220b69f209a9836ff5a
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/uv/uv_0.12.5-1+bookworm_riscv64.deb
+Size: 14894444
+MD5sum: ba53c53ddf778d8fcb16a79db4caa830
+SHA1: d1e1cb8825c57b01228850228e181952c2458b92
+SHA256: 5379055714f4e1edc5a71e5b5ecd8c577c66e3b5b8b34e49afb67eb86e24337b
+SHA512: 400d826c39cf35b09eae2c15ff9044ac65bc8847da63d4f2e075bfe025f4207a2b937adbef709354713044277236b38e3a6d5a5f27fa7753dfa8d261443c10ad
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.4-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_riscv64.deb
+Size: 3885780
+MD5sum: 9dcd7aca12e0ed3d69e03ffcf742801f
+SHA1: f05523f68a0fd8e340f53b81ffd57d5c13bd9349
+SHA256: bb5cfe2d837597f969ea99c63b994707abfc4f3a5b089ae658b7aea5890664c8
+SHA512: 143cc5e67de370aa6af14aeead19ce29dfc57f6f251050895a0306f19abf15d8a8e525fd3cb03e4a59229688814171ecc89a6d874a6bc93eb5f324c05fba1508
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

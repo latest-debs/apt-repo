@@ -201,12 +201,41 @@ Checksums-Sha512:
  d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
  0febc61c0fc8e19e04b80ed8417edb6c13e44a5e3ffe617fd60c3b7c686a5f9a6ac5e8a6d2475f22f3ac2309517c96666190e5a9ac2ad93b4b86d800a33dbb9b 2624 ruff_0.16.3-1+trixie.debian.tar.xz
 
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.12.5-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/trixie/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ 6c71659d65142c8c006abc056decd096 835 uv_0.12.5-1+trixie.dsc
+ 9722a778f100fe5b75b496f3a8da18f1 14635424 uv_0.12.5.orig.tar.xz
+ 1af933d68681c32f6d29d0e4eddc7e82 5100 uv_0.12.5-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 3219e82111959ddefd3c0d71ab9ec52f444b82b4 835 uv_0.12.5-1+trixie.dsc
+ a4947d78bee91c0267e83bfcdde9fd1fbde27b24 14635424 uv_0.12.5.orig.tar.xz
+ ae62582f30598d215b972b952313212204450d0b 5100 uv_0.12.5-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ d66d3f2f63b7758ccdde3269c79d3b73817166f376e9c1aaa54b96554c7df8a8 835 uv_0.12.5-1+trixie.dsc
+ 85e48216509a123b85a8b71e8e79b1dc1238cd3fc200fda2cb2ff212f8cbf88c 14635424 uv_0.12.5.orig.tar.xz
+ 634b2a82bb20e3a4a0c05a98dba38617ae10676d4b47c73a42bfd03e07e95b8c 5100 uv_0.12.5-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 49c30bf3c3b80f2c89dfe5ddcf81adc05da47577a6943d516195a74f10731b8ef042db680a2618005b3096dbd6cba24300c8763a425fab60c72c2b3a33861f91 835 uv_0.12.5-1+trixie.dsc
+ 5b74ed41472b2e25f328a0c4a58880a980961b89e1ee0f7ea403a534907c2a3551b47ff3004ff89251e7cc64e10ed8f896323be61692b745587c3b22a9e161a4 14635424 uv_0.12.5.orig.tar.xz
+ 468bf067b62ba3e3640e47c93e5d3a733e40ae9e84a73a298b21535fa6bb944c1988bd1664745f26966c0a247c545a10ac81066dff65ba19985a77efc6207bf9 5100 uv_0.12.5-1+trixie.debian.tar.xz
+
 Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.3-2+trixie
-Maintainer: Your Name <your.email@example.com>
+Version: 4.53.4-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
 Homepage: https://github.com/mikefarah/yq
@@ -214,19 +243,19 @@ Directory: pool/trixie/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- d4d725b3e0fa93e5e2d4cfc444cf623c 840 yq-go_4.53.3-2+trixie.dsc
- 613fcffe0eb7061505ff45ffb4098189 4153780 yq-go_4.53.3.orig.tar.xz
- b2fa02d2ed356a2bf0dbcbb2adad5317 1540 yq-go_4.53.3-2+trixie.debian.tar.xz
+ ee91956d2a8a71198532b3c1137842ff 859 yq-go_4.53.4-1+trixie.dsc
+ 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
+ 9619346e0f84a5cec6726229d996343a 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
 Checksums-Sha1:
- 2361e01c9ff054d60c99e974c465f77617520edb 840 yq-go_4.53.3-2+trixie.dsc
- ced7fb628a2f8258080c0ead0b5c553d496b634a 4153780 yq-go_4.53.3.orig.tar.xz
- 25164c045679b185840cdca953da99074736df73 1540 yq-go_4.53.3-2+trixie.debian.tar.xz
+ c8d6a238aad5fd3888fc463b4ada82fd97bc3418 859 yq-go_4.53.4-1+trixie.dsc
+ bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
+ c44c4e393984ab30ec6ebe328ee6ca9418e0ec71 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
 Checksums-Sha256:
- c63f7369fc1590b5436df6d4543a1f1a2f58a866a38b04301a48d1ae0fe8d1ce 840 yq-go_4.53.3-2+trixie.dsc
- 11bfe0611184946158f5b5e6992bc64ebdf04c82fa81a66bfd3891a21e101513 4153780 yq-go_4.53.3.orig.tar.xz
- c90bbc5e0c700c41d9933c595dec13366c31d7fbb5594bdf5eadf262d930b054 1540 yq-go_4.53.3-2+trixie.debian.tar.xz
+ 0dfff92d866ae2c369972b556b22ce0c94445803192f9575360594c636d001c7 859 yq-go_4.53.4-1+trixie.dsc
+ d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
+ 1bb86e661e711acc66d2a588356bf99ee61c2c0fe14e453bdf53e079f51a5b4f 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
 Checksums-Sha512:
- 47555b05732b21200d93834708a8843b554fd8b0f8b74ca9333a357c1f9794fc8dedd357b7205008c486713195fc9c96ee11b5e2c42b7507d4e08f88486468e6 840 yq-go_4.53.3-2+trixie.dsc
- 2b737e4f9cf5221c1ccbc5cc2d6a10285c15fc5c30310c996d7c4c6b3d9820ecc0f82b3ac80aa7d1f49b4c5054877930b2945a8eac34de3273c72abe826e2b59 4153780 yq-go_4.53.3.orig.tar.xz
- c34519a50ce36f0478d8c3c951823090c6e78727149c492cc880a86a8c11336035ea24bdb5bee315300dc52dd4656499068c2e779507e623d7ea9e32df267e20 1540 yq-go_4.53.3-2+trixie.debian.tar.xz
+ 442e1a67444b1ed920ceb874d5158423c0c9c82583bf434357940fdad0c81768b8761599f0788237cdf3736a183c3dce5c100983e58e79933146d338ceec2659 859 yq-go_4.53.4-1+trixie.dsc
+ c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
+ 8e42331484649f6570326d71bc5fcde2f4f5d5ba1eac37675d909906f16cca381803eab29473aba9d477247e430a9fb1f2b688bf1848d91ac84aa49faceb3dc8 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
 

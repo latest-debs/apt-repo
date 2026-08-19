@@ -30,6 +30,22 @@ Homepage: https://github.com/junegunn/fzf
 Description: A command-line fuzzy finder
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: ppc64el
+Version: 0.51.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/k9s/k9s_0.51.0-1+trixie_ppc64el.deb
+Size: 23333200
+MD5sum: d1975cbdc34f56fc3d53b0048b34c4ad
+SHA1: 8d09ea97c00c8cdfd399ff33c513cb1f719f9427
+SHA256: 1f1ebbe4620458d0b4ccfe748b2362c3f06039e2792e83d626d77815a5a5ea39
+SHA512: f2de5a3b563eabf400e85c8c8f25a182ccda2f94364f0591fbcf9f44be9a5da1b05c9af55640ab39760a6da5e279d2cfa8b0571129844630d60d9fa4422f6864
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ruff
 Architecture: ppc64el
 Version: 0.16.3-1+trixie
@@ -46,18 +62,34 @@ Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: ppc64el
-Version: 4.53.3-2+trixie
+Version: 0.12.5-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_ppc64el.deb
-Size: 3544204
-MD5sum: 1dc5c1b3c94c66438f98ea5e2e110784
-SHA1: 97dec36e6f4536e92df4a3e310a3f3c266efaeb3
-SHA256: 94bf02fb958af6a83a57677173b3e869400e7853b3a0250d45e68e41ddc74a0d
-SHA512: 32267b2800e643a87882968071ceb69399bdb1a6fe7deb7058a029d4f1fa9399d4af50430f3f7fc3fcbb61086198a9246603810d8d91f3a53d94bcebee24da7c
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/uv/uv_0.12.5-1+trixie_ppc64el.deb
+Size: 13853060
+MD5sum: 5879d9d362ab513a9958601281115c94
+SHA1: 1b4349f9ea992229dc8d7889d3b72460bddade5e
+SHA256: 2f669b5413ef913edb76006c458da0ec5d587eb65157768d2b071eed23b0869a
+SHA512: de524adb66c8f3e1a65e598a9853e4d17ce26fc57ef5d33d5491ded1fea494e640e2a198384dea46015fad08e0ecbf21926413e9fef08616082aa70405593e38
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.53.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yq-go/yq-go_4.53.4-1+trixie_ppc64el.deb
+Size: 3558284
+MD5sum: 6e45ef62a14e71f2943308215d18e86e
+SHA1: 373ba9e3a10473246774ff8045ebc5cdbf0500b5
+SHA256: f3e19509a0fd33151ce85d7e162034fbebc3551150f3aa3a89849dbe25cfc693
+SHA512: 415390967a69f24eb36b03f8a8f6d37f5c5366ccdd21cb79f43979d17157c6c1f6a5e38e982544a2991b3efbca8303d814d3452c3037d6fc8a91f50c287b654f
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

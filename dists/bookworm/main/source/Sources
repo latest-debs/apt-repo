@@ -172,12 +172,41 @@ Checksums-Sha512:
  d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
  e999a068c743031d4a9cdd1fa5e8054835c4eb0f98061b2be3874e4344cb7c6cbc9e41c27eaf1239193a0a2121109528b8d367870115cb0079d0d2186be64dcc 2620 ruff_0.16.3-1+bookworm.debian.tar.xz
 
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.12.5-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/bookworm/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ 586bf72fd57300bdab8e92287e1f50a9 843 uv_0.12.5-1+bookworm.dsc
+ 9722a778f100fe5b75b496f3a8da18f1 14635424 uv_0.12.5.orig.tar.xz
+ 5f93e474bed975ed3e3d272761fc28a7 5096 uv_0.12.5-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 2b0c793bcefaa8abb0c7d9e100ef499c0d9ffbab 843 uv_0.12.5-1+bookworm.dsc
+ a4947d78bee91c0267e83bfcdde9fd1fbde27b24 14635424 uv_0.12.5.orig.tar.xz
+ d7f652efc9792b3a2f2d81b75d085c8dc4de80ca 5096 uv_0.12.5-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 031d177924dbaa1fbda2af7fa681d8753c3bf63cd3f61a3ad7bb291cd8e6542f 843 uv_0.12.5-1+bookworm.dsc
+ 85e48216509a123b85a8b71e8e79b1dc1238cd3fc200fda2cb2ff212f8cbf88c 14635424 uv_0.12.5.orig.tar.xz
+ 813c5f938b1c749f7b27ec6e3dd81a3c442f99c5252077747fb4ad0194a886b6 5096 uv_0.12.5-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ fe7e0614813089ae5d1f438455ac00ab6d599bfd3d4d89b176aa9f5395211992de012689c997482eb7b49e518d35b73ffd6a41591508b198f59aed3793915567 843 uv_0.12.5-1+bookworm.dsc
+ 5b74ed41472b2e25f328a0c4a58880a980961b89e1ee0f7ea403a534907c2a3551b47ff3004ff89251e7cc64e10ed8f896323be61692b745587c3b22a9e161a4 14635424 uv_0.12.5.orig.tar.xz
+ 1ac9f56b306afbedefd03c50315efed7cbd23513d12df80defa6d61181fc17b47010a8273d41743449b09caa060bb16c66634757185aa9a2076e87411cd9b3ef 5096 uv_0.12.5-1+bookworm.debian.tar.xz
+
 Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.3-2+bookworm
-Maintainer: Your Name <your.email@example.com>
+Version: 4.53.4-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
 Homepage: https://github.com/mikefarah/yq
@@ -185,19 +214,19 @@ Directory: pool/bookworm/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- 4bb39ebb8ebb4abb60d71863984acbdc 848 yq-go_4.53.3-2+bookworm.dsc
- 613fcffe0eb7061505ff45ffb4098189 4153780 yq-go_4.53.3.orig.tar.xz
- 995c054cc28ce4a18ea6bf50b2f34176 1540 yq-go_4.53.3-2+bookworm.debian.tar.xz
+ ce45ef4e0e610050cac0067f69062daf 867 yq-go_4.53.4-1+bookworm.dsc
+ 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
+ c419ea53b3b836638bab1547e4689986 1532 yq-go_4.53.4-1+bookworm.debian.tar.xz
 Checksums-Sha1:
- de558a0c352fb18fd0c2c0239e372ed981460f74 848 yq-go_4.53.3-2+bookworm.dsc
- ced7fb628a2f8258080c0ead0b5c553d496b634a 4153780 yq-go_4.53.3.orig.tar.xz
- 920713390b5ac349fc1674769116f2d9bc2bc85b 1540 yq-go_4.53.3-2+bookworm.debian.tar.xz
+ 61472bc50977d3f7137d6d83a76cc5adfc72efb4 867 yq-go_4.53.4-1+bookworm.dsc
+ bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
+ c9ebbb585ef3882201187b0ab289189f63a315e3 1532 yq-go_4.53.4-1+bookworm.debian.tar.xz
 Checksums-Sha256:
- d80eeeb61c16ee50f1f6ac297324168d1673e3798295374d6db77f23dcbc6b03 848 yq-go_4.53.3-2+bookworm.dsc
- 11bfe0611184946158f5b5e6992bc64ebdf04c82fa81a66bfd3891a21e101513 4153780 yq-go_4.53.3.orig.tar.xz
- ba87a56ad1565a56020e2eea2ed61dd1b29858b4fc3b8cd2555452cb6e8ef659 1540 yq-go_4.53.3-2+bookworm.debian.tar.xz
+ 1b5dd5b69e58bc6467b4452f9d4a21e8c03ad768af27ea1a7b3f18b890fd91f0 867 yq-go_4.53.4-1+bookworm.dsc
+ d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
+ 63b60dfe99e00c75f8308406a8f98fca9f059ada2474fd6abe5268a0b9096403 1532 yq-go_4.53.4-1+bookworm.debian.tar.xz
 Checksums-Sha512:
- 0e025f10ce04b1460e0190932b5786ab10a482bb4bde9069273890d74c76dc5b871c03186d92d7c0cc66f63592192546365bbb76609d8bb64950006ea99c2613 848 yq-go_4.53.3-2+bookworm.dsc
- 2b737e4f9cf5221c1ccbc5cc2d6a10285c15fc5c30310c996d7c4c6b3d9820ecc0f82b3ac80aa7d1f49b4c5054877930b2945a8eac34de3273c72abe826e2b59 4153780 yq-go_4.53.3.orig.tar.xz
- 3e7903ef4e741156c70d0c23bb50bd8c316da8a0ae689a11e090eb629433d655a2bccbbaebee3e63d0156eed053ac7803cfe4ff70a6e0e21bf5d4eb5c72239f8 1540 yq-go_4.53.3-2+bookworm.debian.tar.xz
+ 2b57a42c42f43f6bd79eb6157f3c500778d1d9aa1da3c3af02c1bbb3bc399cf3a99465c189481ac7e750bb5326eb0a9217f53fec76cb7f7f0123478e3c69c81f 867 yq-go_4.53.4-1+bookworm.dsc
+ c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
+ 5c48cf1530ad556cc6d066e884959380b8006714b1b99670ea59d451d5a76a20a4e44efe5e7152b8688dff893bb48ea8c9f161fd286dfa9631c63259cc88dd9c 1532 yq-go_4.53.4-1+bookworm.debian.tar.xz
 

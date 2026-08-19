@@ -158,6 +158,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: armhf
+Version: 0.51.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/k9s/k9s_0.51.0-1+forky_armhf.deb
+Size: 24064404
+MD5sum: 5b4263611c80ffe4ddf9c85ac810ab53
+SHA1: 25063b8d328a4cdb41d7f4abcdccc7c97b42dd86
+SHA256: fec68506a1245a2468908355c5479218ed0629c37a961674502a18ffdf5607a0
+SHA512: f117f43383444773dbae3d6786238fe68c3c255b56a0f4e347624a88410fb7535d5bc404dcd79048f9991703784e065262587d812d47cf01ca086b8189a1a328
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: armhf
 Version: 0.25.2-1+forky
@@ -204,6 +220,22 @@ SHA256: 26400043ed8790531f4a3b6c0b5f7fe51b41b8bb5ded0220da2b2b2ba6654143
 SHA512: 599fe6b44fd31145e6787576fcc23a8809645b2cf81aee93d1ce7b42142d3205a900da039ec10408ce0605aaad2406bb167882e60e9c32c0b6547d7ef4a8c354
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: armhf
+Version: 0.12.5-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/uv/uv_0.12.5-1+forky_armhf.deb
+Size: 13431072
+MD5sum: 2447d8e8baaf780a11ca0bd998adbd3e
+SHA1: 39ce76e331921227e80bca5099965c89f27ab8ff
+SHA256: 90bd07c78dc7091ca818719c9d67c7bd823eb32bc222192e22dc49e6d6eaf357
+SHA512: fb166acb152cb076a842998ad5070b38a2054e386cfe3ac9a8bffc215ccea67a3b784195674b1b0efbc74dd428c9234382aa39e55debea15ddd544018bc29350
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
 Package: xh

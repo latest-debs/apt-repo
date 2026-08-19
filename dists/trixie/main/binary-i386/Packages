@@ -158,6 +158,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: i386
+Version: 0.12.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/uv/uv_0.12.5-1+trixie_i386.deb
+Size: 15170480
+MD5sum: edbea291c5e5a3db09de232dda29209d
+SHA1: 582d29584148c4588b237c312408d0a2180647fb
+SHA256: 3c5edd82ec242e1e206c192867134b1c1db685c30d5e4f0d8c6ca100dad5d30a
+SHA512: ca953c8a146b3b7b68d1704388cf8d984a84ad07d435900806dd5072e07e34acfa767212c43975383186f6ee67ea6dcdf73388084dfc4adb17a40eb029d3f39f
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: zoxide
 Architecture: i386
 Version: 0.10.0-1+trixie

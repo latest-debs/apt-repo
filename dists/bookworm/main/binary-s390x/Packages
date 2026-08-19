@@ -14,6 +14,22 @@ Homepage: https://github.com/junegunn/fzf
 Description: A command-line fuzzy finder
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/k9s/k9s_0.51.0-1+bookworm_s390x.deb
+Size: 25122440
+MD5sum: 6d5eff92a39e5dfb3fe2c7ede9fb3a45
+SHA1: 31dc3ee44b8e42ca323d1bb2e3a61593b75242d6
+SHA256: c6d260eef3034266abb856ce4c6c96df415027df357ee34578f78cc3ae998fb4
+SHA512: 173810b60526bdaaa5b6d491f6594aa358f78af4c365b273a7bbd307223c957bc1e6475626aca7bea32e60e6675483e93fcb86eebc48eaac61fea6b830629050
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: ripgrep
 Architecture: s390x
 Version: 15.2.0-1+bookworm
@@ -46,18 +62,34 @@ Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: s390x
-Version: 4.53.3-2+bookworm
+Version: 0.12.5-1+bookworm
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_s390x.deb
-Size: 3790132
-MD5sum: 33c4d6ba919507084af9178d802e6afb
-SHA1: 8dc14e01a94f61e4b9e4e7867fb0090830692bbe
-SHA256: d4c0ff0516bd724fc0555ec1cbc8bf252181fd4f62305194677c810db7c49f4c
-SHA512: f1bda4c3f4e14e9cf73aed0709073a0d76415c15994b6b094db36a01b368d626c0c79d4b0deb9c82666abdf160da7743770ef5036642a0c240370ae20a5deaea
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/uv/uv_0.12.5-1+bookworm_s390x.deb
+Size: 14333100
+MD5sum: 465c1dc4270434eaaf97cfdd0142881c
+SHA1: 498b05f6e7885a2ba48fe95d0dbeff426d838280
+SHA256: 57fd51184a5eecb88635d5bd306d85a079faa15f7bcb44342b319a0a32de81b4
+SHA512: 0647691acdef79ac20ac65ce9ea28dad51aa584d72fd14128c427d2fedcbfb8caef1a8c2b82eaefd393339fe8af27b541246e0653e83879218a9fc599c875df1
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.4-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_s390x.deb
+Size: 3808972
+MD5sum: 6b9c60819ab69e37948f926e333f5b19
+SHA1: 488b994d77c7368887770df43f6552b73a867081
+SHA256: 81e25035ee768e627d7afa0e70fea6316da1b4474dfdef53c6a4ff182ab34259
+SHA512: 461fc28cd7294907c0d7fd1f095ca8b364d6fbae875ef1cbea195d8cd6d9757930c32c21ed9c536564eb16d5f55cd0518ded7637e6b69daa97a2ebd3e0ce867e
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

@@ -158,6 +158,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: armhf
+Version: 0.51.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/k9s/k9s_0.51.0-1+trixie_armhf.deb
+Size: 24063984
+MD5sum: 74a739db26a86421f278991777b2872b
+SHA1: 06de7697fb3fb556a4641aac37db9771f3e63195
+SHA256: 8bcda6588748ce86c4499d8baa4b7805469767f71f9400734d60fd54a260c670
+SHA512: e728b300a491eff8e3fc5d45f83323e2201bb482f0b894189c8877fd95bb92398db2974995ada596f48ca3a479b04e76e6e5e5b98c8b45e8135f90f5a65d7a66
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: armhf
 Version: 0.25.2-1+trixie
@@ -204,6 +220,22 @@ SHA256: bbe0e12e18307c78a8e459c70581e1946f168549703345646ca13a4df37c5c5c
 SHA512: adb33562af313addea3f3a00db514ef9c70d195989240ee79ccf5f87e0d947b8d0a1cf8204994e787fcaddbe98c0fa969825c1187344c6f6009ea2e7c638dca3
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: armhf
+Version: 0.12.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/uv/uv_0.12.5-1+trixie_armhf.deb
+Size: 13431036
+MD5sum: be47f3f0aa39f8d76f60784826e6bae2
+SHA1: e721c2825a69f5642487242d8abdabdb8a2ac54c
+SHA256: 7a5f0a5f626a2a761c4ee20dedd39333cbeea4dd6604c369ed945043fffc7a57
+SHA512: 7f8c6e8d8f5ed60257acc9cbadd5eb0c242d755dea2acb4be8f173031ab4794ace17c38341604de096be8ce6445811286542cd9bab4234c9c1ebadc5d243eec1
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
 Package: xh

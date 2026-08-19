@@ -254,6 +254,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: arm64
+Version: 0.51.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/k9s/k9s_0.51.0-1+forky_arm64.deb
+Size: 23599960
+MD5sum: 5c7a0814364b8845b02633fdf11f6aee
+SHA1: da20979624ed57995f9c4cb1ff66ccbd550ff572
+SHA256: 9e38a7245f66b361409cc22c67e6c53614eca31a68c9b3d3f64fdaa5e5ac7768
+SHA512: 90b4bece44f9dee1a2046d7514ee0849c1f1e557173be46f3f3a5314302d0554a3e0d8d97323b4e77eae19471cd231a6d72840611b799d19316a780d6a44487a
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: arm64
 Version: 0.25.2-1+forky
@@ -350,6 +366,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: arm64
+Version: 0.12.5-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/uv/uv_0.12.5-1+forky_arm64.deb
+Size: 13188648
+MD5sum: a58e7eca3b993bdb0bb2a02e17d46dc5
+SHA1: 7d5b24ea4f7eb0218768352d57f6fa40a88c8fdb
+SHA256: 1c15d91a2c9374458f052c7aa84be0a031f822920de72c71cb250f1c76733bc3
+SHA512: afe01f26ac788795e68b11252ab07a7debce22f4fd61a533bb0ddeddde03c8a3f73f71e4f9b8610c8f3ea306ec2bef5ac0f9dff9c8b616bfc6d0a444ba5c4887
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: vite-plus
 Architecture: arm64
 Version: 0.2.9-1+forky
@@ -384,16 +416,16 @@ Description: Friendly and fast tool for sending HTTP requests
 
 Package: yq-go
 Architecture: arm64
-Version: 4.53.3-2+forky
+Version: 4.53.4-1+forky
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_arm64.deb
-Size: 3533888
-MD5sum: af3a54bed19ab6b37a5b437c0b49073c
-SHA1: 79216f2db68f6e761ebcf53790226654aa3c9d9b
-SHA256: 562da34f20941fa03b03908b8269033eec1500c58ca4cc474d4c283c9d7d304d
-SHA512: 2b75616fdbfb89611bb533556f8b56434e073e5fa8094d0e0f3cb4047b160d599a37873235625ef740efb87570218260de53adb61ec849192b6b249a8e67a6a1
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_arm64.deb
+Size: 3546232
+MD5sum: 2691fdbcd6ac7b793852684f9587be47
+SHA1: 133c47026bf166cc79c1df649cf9729b6e879809
+SHA256: 29fb49ba57152a613fe47092955853c295385b94399ebb007e593249b6344c66
+SHA512: dd57e6af404c8e8ded7ed38d869558afe119b56be7f908b20e5bff9cfddd11092850a16ef2cb5e0f66118dcc47c6a33b6bf729d45a80a7583cd9401e486f8867
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

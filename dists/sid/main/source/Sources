@@ -201,12 +201,41 @@ Checksums-Sha512:
  d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
  13c8146ec4f4086a7aedee19f01125098641e7044f017b4af1f04e30c06a9f4b3f6fdae5c10b02d8c1be2f4c7f4788d90ba718b55cca2bff8d9af13e5a2bef27 2616 ruff_0.16.3-1+sid.debian.tar.xz
 
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.12.5-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/sid/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ 73b1e337c507f8a038bacf2827713bfe 823 uv_0.12.5-1+sid.dsc
+ 9722a778f100fe5b75b496f3a8da18f1 14635424 uv_0.12.5.orig.tar.xz
+ e6f4eb2c2ceb6dda1d0cd8cd08bf70a7 5092 uv_0.12.5-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 666be28426bdeba9e9cd412a8fb08e7b2270d119 823 uv_0.12.5-1+sid.dsc
+ a4947d78bee91c0267e83bfcdde9fd1fbde27b24 14635424 uv_0.12.5.orig.tar.xz
+ 137b7ccbce7c7c47b967f510cc9e3ffbfacdccf7 5092 uv_0.12.5-1+sid.debian.tar.xz
+Checksums-Sha256:
+ fc48da92b17d9af5ac2b78b751d9c543d3e83d1b9599a483ed57ed7ea30c8cbd 823 uv_0.12.5-1+sid.dsc
+ 85e48216509a123b85a8b71e8e79b1dc1238cd3fc200fda2cb2ff212f8cbf88c 14635424 uv_0.12.5.orig.tar.xz
+ ae77edfbed7f55c3f2062337397f5e1f029a7987f30e5eb938245c7ef8f8e46d 5092 uv_0.12.5-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 93967c28eff349cbf1e59f53f7e81c256129aa119c2d7814d11090eb6141068d27c14adb4d8495e77f7aac4f1d33f1bbaaca5628cbd8dc83a4c93afc09658cf1 823 uv_0.12.5-1+sid.dsc
+ 5b74ed41472b2e25f328a0c4a58880a980961b89e1ee0f7ea403a534907c2a3551b47ff3004ff89251e7cc64e10ed8f896323be61692b745587c3b22a9e161a4 14635424 uv_0.12.5.orig.tar.xz
+ 30c56179a3e3bc41d1bee8aed7a68350223d1fa291a55c65781f323c1b4c46c2189fa65b3e2e59a9f76fdb89e3dd3b3ad14b304940b1a3032fbbcf0cba79f801 5092 uv_0.12.5-1+sid.debian.tar.xz
+
 Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.3-2+sid
-Maintainer: Your Name <your.email@example.com>
+Version: 4.53.4-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
 Homepage: https://github.com/mikefarah/yq
@@ -214,19 +243,19 @@ Directory: pool/sid/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- f7c773752bd2ec6658069875a66c0373 828 yq-go_4.53.3-2+sid.dsc
- 613fcffe0eb7061505ff45ffb4098189 4153780 yq-go_4.53.3.orig.tar.xz
- 197826cafb933a654ca0bbc2d0be2f66 1536 yq-go_4.53.3-2+sid.debian.tar.xz
+ 3bd2fd15d47001a4e37e3e30570aa0a8 847 yq-go_4.53.4-1+sid.dsc
+ 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
+ 78c3e2e12ad40eebf5cc81ba45f93c9b 1532 yq-go_4.53.4-1+sid.debian.tar.xz
 Checksums-Sha1:
- 0f686bf95c723da918f08ce7096c9f2696ca61e1 828 yq-go_4.53.3-2+sid.dsc
- ced7fb628a2f8258080c0ead0b5c553d496b634a 4153780 yq-go_4.53.3.orig.tar.xz
- d904469d9c8ac9aa74c3a07c04f1d5c33f32cb6d 1536 yq-go_4.53.3-2+sid.debian.tar.xz
+ 03ae67e2c6919203908908176a6a5706b7a811bb 847 yq-go_4.53.4-1+sid.dsc
+ bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
+ 98676a6ffd3749b820f108a6c77e5e8c5a8613d6 1532 yq-go_4.53.4-1+sid.debian.tar.xz
 Checksums-Sha256:
- 49ea7be52a9dda14167b93d92ffe0e4d2027af7715f94faf60e275fefd8b54ba 828 yq-go_4.53.3-2+sid.dsc
- 11bfe0611184946158f5b5e6992bc64ebdf04c82fa81a66bfd3891a21e101513 4153780 yq-go_4.53.3.orig.tar.xz
- 9d79ab409e36fccb178ed000928bd80b55e17cdb38b10205e8a69bc25095321d 1536 yq-go_4.53.3-2+sid.debian.tar.xz
+ 41b9eeb297a4bab1acac4bcf70187ec76203a7225c45d3a79c77ec169113a698 847 yq-go_4.53.4-1+sid.dsc
+ d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
+ e2101a29b0c1b981e94f1d075997ffbcd8bafcb63db606827de54b1d2bda7840 1532 yq-go_4.53.4-1+sid.debian.tar.xz
 Checksums-Sha512:
- 4fba68649b20ec19e3676cbc817b21c6610529d81923bdfeb7bb843f7d9ac0bb0c9b35040f6cd4bb132db60b43e68943dc729d20fee683ec0da28836a91224ab 828 yq-go_4.53.3-2+sid.dsc
- 2b737e4f9cf5221c1ccbc5cc2d6a10285c15fc5c30310c996d7c4c6b3d9820ecc0f82b3ac80aa7d1f49b4c5054877930b2945a8eac34de3273c72abe826e2b59 4153780 yq-go_4.53.3.orig.tar.xz
- 914bc68fea6155d68054f19a3252daabb60099a17a5ae62f5c5a8912ee299073d824fce75dc9e462b909eddfad31172c347e85b88a38e60bc556bffae135f3f7 1536 yq-go_4.53.3-2+sid.debian.tar.xz
+ 98cdaf68b74e314cc9e641f7563798ac6f1726494d2e079cd919ad120413b2dd29a4a2e2f6aff6cf0a62201c474cea4f2221185f143250bc1faaaf46c7517e90 847 yq-go_4.53.4-1+sid.dsc
+ c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
+ a5b25450ff97583c72f24d1ae25ddf23fbd6b03a6cd3f15f6180a5e2ffc0b705be6411161019f2ada3994ee94bb1375756eb4812f6b4a8f41dc89e4a223d6281 1532 yq-go_4.53.4-1+sid.debian.tar.xz
 

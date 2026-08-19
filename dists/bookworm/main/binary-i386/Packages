@@ -158,6 +158,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: i386
+Version: 0.12.5-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/uv/uv_0.12.5-1+bookworm_i386.deb
+Size: 15171484
+MD5sum: 73f8893f6c0e0679eceba943a8ba52cf
+SHA1: 4de1247d3637d3f6e140dc6602f7ee7808e01c6c
+SHA256: 0a837670a3262cfe1f951ca0621b93aaf88ca3c180ec882a78ddcc066bc7705b
+SHA512: 17bf4f5836d70d80b56bf97ebec62d68a09ec90f5a384c82bc990ffdc40662c2b535b732ab30ccf650cbfa5317c75a588cc7251d139f313f6f3733ccb002323b
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: zoxide
 Architecture: i386
 Version: 0.10.0-1+bookworm

@@ -48,16 +48,16 @@ Description: Just a command runner
 
 Package: yq-go
 Architecture: loong64
-Version: 4.53.3-2+forky
+Version: 4.53.4-1+forky
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_loong64.deb
-Size: 3677248
-MD5sum: 4c2fd3ba28871f00f149077b0ea67c52
-SHA1: efdd503a8270615341216245b0041b0b48e6cf8e
-SHA256: 3d76c87a0c0df11ff109c13a9aebe73e35df413ace8e08736b390b2b1a6b35e7
-SHA512: 2951189f3c5fe778dada69ca7edfd3cc27f2f6c3a42b1b415575ea09949d0a2edcbbac52186cfe64628ce65fc1b47cdad9e5e256a5b8025898aba27cb2b08150
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_loong64.deb
+Size: 3691176
+MD5sum: bd5a34dc4ae1bc94aced9a6b547d3d91
+SHA1: 9589ff161ba0d7177fe89c538626b04f14949548
+SHA256: feda2907bf00a3df5fc179fbc2274c9a152c0354e49ddd510e1dab1913f58eb2
+SHA512: 96cca843808742034b7d31ee5c449513a95752723986e2793899db9d7843da7d06874467e35260653cd82d3d0997042d69c256fd3b7bd6ba3de3dd83fc2f52bc
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

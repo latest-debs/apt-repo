@@ -78,18 +78,34 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: riscv64
-Version: 4.53.3-2+sid
+Version: 0.12.5-1+sid
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_riscv64.deb
-Size: 3865604
-MD5sum: 45be11bdf4a4ab43bd3cd5f98dcd91c3
-SHA1: a777498587b6ff312f9a977bfc5ca1dd81582c68
-SHA256: 5e7dcba37d76234800439ee81a36eeac703d3567eee748e94f717a6a4b1727ea
-SHA512: db5ee755ac706e3c842c92c60d4e91e0cf20a06cb424c8823cbfdd11cdfb5d3de90433dcdd51ef6d00b715580edfb3cd47ec35d8abc2bc86298fa7fe3440c176
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/uv/uv_0.12.5-1+sid_riscv64.deb
+Size: 14897632
+MD5sum: c300f537415a1ac43bd431590d40ae43
+SHA1: 28516a7951d5de794ed3c1f91a47ef074bfa2408
+SHA256: 95f2ce0693419ba942db5c48796bfcfc15b021f50516446cbadb79f48a3518e0
+SHA512: 5bc2a97716df49972c1152bbcbf33d1ed7d0f80d661c5d3650d8457debd90f59937b3e822ded91f734635122b0e30571f43697b6c52639bf533da113f9fc5567
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.4-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/yq-go/yq-go_4.53.4-1+sid_riscv64.deb
+Size: 3885440
+MD5sum: c5e9c63a25e3907facd71d3991fd9d1b
+SHA1: 96338fa1fe656d8c2efa9f4e679df7308ef45d25
+SHA256: cc1e7460709a9ac1e45749378f755339ac10feea769c47509855953adff43531
+SHA512: fdc6da39889dcc2806924e6eaea4cb228656da6014bb2bee9a67433d730bf00ef2b461f07fb2a82066e1f2ae3df636c89d1a434703d8d427643877580bc5408f
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

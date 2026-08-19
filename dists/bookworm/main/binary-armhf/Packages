@@ -158,6 +158,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: armhf
+Version: 0.51.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/k9s/k9s_0.51.0-1+bookworm_armhf.deb
+Size: 24064944
+MD5sum: 1f479df8adf84d0a1256a7dd0825c8ba
+SHA1: 77c183da6b14b7c373a314a75d9c7816ed6a701a
+SHA256: 0df7b58f9b1ec1c1b71457cacc72d6a47af78309234c1a9aa0a56addd22c7536
+SHA512: fa4d8e6923a58d866dd78938ef0569f3d70cbd57d966c16afdbe774b0f9e696154f085c58ad0a3486a06e04d03f442abdb243452b414c65a0c5e254d4e0064e3
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: armhf
 Version: 0.25.2-1+bookworm
@@ -204,6 +220,22 @@ SHA256: c5d6b7170101b50c4dc14ca50f1bcb8f6afd8b6a86982fe2a8bbfdb5844b59d4
 SHA512: d22580c973228e318cd68dd80a9b3850c1f42e64064f83ae81ca7fbb4babf34c31b3f70d8d110f3a8916a7ddaf690a22a853c61b56a211b037f41b43e04179cc
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: armhf
+Version: 0.12.5-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/uv/uv_0.12.5-1+bookworm_armhf.deb
+Size: 13430756
+MD5sum: b31c07e913f9f349a35bcc992db6f0a2
+SHA1: c2177c1f4ecfd5177b712687547e6dec482215f7
+SHA256: cc7f58e027d528f0b5ba04357cb0b5738137b4637f038412ae5f1cad0b5bfb84
+SHA512: 86ecd9b8bd2bb89dfde45bd5950bf4ea9b22ccedcd1b432d214b86d419cde8094d159f6b0dbe6651fd57fcc5932261c2b0ffc56136b35cf9162e9fdeacf54e8d
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
  Packaged from the upstream GitHub release for Debian.
 
 Package: xh

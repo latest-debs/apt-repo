@@ -254,6 +254,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: amd64
+Version: 0.51.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/k9s/k9s_0.51.0-1+trixie_amd64.deb
+Size: 27794824
+MD5sum: 1a815bf96101721ab1fb63a9c3ebb97d
+SHA1: 620b6694893268b3dc5c93d3edd31ce35dfb1e1d
+SHA256: ca88274c288c4db77055d0a9ee25326e57cc341360c8a2ae843948e23bf6615c
+SHA512: e0bded8fd686c9b45bb5b8455c82f11908d58f19dbf03a2a48a169fa4e949309c0af041b27bc867ad200b08214ded664f52b1d7afbca0c7e67da1b1fbace0444
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: amd64
 Version: 0.25.2-1+trixie
@@ -350,6 +366,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: amd64
+Version: 0.12.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/uv/uv_0.12.5-1+trixie_amd64.deb
+Size: 15077052
+MD5sum: 6a3116fea52c2a903834681a9b874224
+SHA1: 4bc9f16bba52a3d436205338cd728e08b63cd1be
+SHA256: c49b2bff3093e564339258c8b7d162a9e1db630a746d440c81db33176042578c
+SHA512: fb2386d3d99e7d5c45d9dc86c9050f488d73e25b81d6d71bd430d5f0d4cbe175ec07b17cc4232cacd4237280b931c35bc6cecd2bc8901d550c28fd55047f9a1d
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: vite-plus
 Architecture: amd64
 Version: 0.2.9-1+trixie
@@ -384,16 +416,16 @@ Description: Friendly and fast tool for sending HTTP requests
 
 Package: yq-go
 Architecture: amd64
-Version: 4.53.3-2+trixie
+Version: 4.53.4-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_amd64.deb
-Size: 4154300
-MD5sum: 4df05f10d196bad8c460afe043f459c4
-SHA1: d0487b7446bccfc7904dfddcc42c326d0eecfeff
-SHA256: d0c589e1e5cedb1272091c691c6db7b3b27647bf409436e03c9fad166e5282dc
-SHA512: 0080b40dcd592d4fb8b7f952a84295248056d4d2c0453982d12c9e44e92cda9a5c47a2c54e527f2f2b11f1b62e934125c4f45646b5b7398ecf2bcf3c4691988b
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yq-go/yq-go_4.53.4-1+trixie_amd64.deb
+Size: 4174204
+MD5sum: 2dd2ded1a10d7c44c3e58b93a24ace50
+SHA1: 3687f9ec2bd5217ab5ee7e5b4ae229bb9bd60482
+SHA256: fcc4b3bf7fe9a33cc74d289c00074ab9aef87ebf48f58f7ceae49cc88746080e
+SHA512: 70bc4455cba3112e09d5fd60c3f6e1d99b9c322ee69a8f6492202db6bf4c823815189f260d741368068d9bdf377fe4bf2f48f44b7d49f29cca1186dadf2ce622
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

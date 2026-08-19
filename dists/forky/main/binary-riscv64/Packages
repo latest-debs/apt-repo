@@ -78,18 +78,34 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
-Package: yq-go
+Package: uv
 Architecture: riscv64
-Version: 4.53.3-2+forky
+Version: 0.12.5-1+forky
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_riscv64.deb
-Size: 3864748
-MD5sum: 69efea5750656a3dd9c2e0fa9164c1e9
-SHA1: 42c6bd98bad9fea8c3a4d01561e5a1ade642b6fb
-SHA256: 96f3210eb26fc8f720fa3f5e80fe30c1be47f09c957f2473819790e017a0e3ac
-SHA512: 23cba616eeac3d831045b1172386c9a42f792f7c6a1a4e1690cb9a678b48a64f077cb31895b9e133a393a1267afcf6a2809f7586e934390d92ac8631f8648f8d
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/uv/uv_0.12.5-1+forky_riscv64.deb
+Size: 14893896
+MD5sum: f90fc95ff7d5482af721bff778750c78
+SHA1: 142a08532a43cd197a8445ac009570012b7a2d6e
+SHA256: 215b37b6442ed4030b88bf852c646ca1c447a878b8461fa462702c17f26fbe55
+SHA512: a6f3078a2734181d55cbdec48e1f6ca00dadde66aec7f268f169d1801434af4f6b65fbbe83888805f8b047f1dd76524527fbbe2637187ec50a2108e62f99f544
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.4-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_riscv64.deb
+Size: 3880588
+MD5sum: 26a433f9c1a6668370652b3d1cff8a7f
+SHA1: 90277b98afd555eae67d188fcf720f7e7fb1c8d9
+SHA256: c5ce3da22891c56e3d984121173f55350c7f6df202a21a9055ef2b8644180983
+SHA512: 9ca00d35ec58d73169f1a5b8008239a8db4d679567247af97e87a23d85d342e19e72c3b6423b603d007fe094e4466517041a3f58955aa42021f83f7d6a874d11
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

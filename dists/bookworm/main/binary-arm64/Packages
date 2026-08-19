@@ -238,6 +238,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: arm64
+Version: 0.51.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/k9s/k9s_0.51.0-1+bookworm_arm64.deb
+Size: 23600136
+MD5sum: 7a888f9ba0c1d80a8b17d6f5c2b0982f
+SHA1: ac4cfc144abdbca99e67a7456bd8c6e265bb04ab
+SHA256: e8aaccd64c1c2e424eddac0c7038eb5e1e84dffa9c60ef53a39b2f505b87281e
+SHA512: b48cb33b69fdf9f27116689a3e75f898108bb4683dd0f902041f1cd87f061af0865cee60d256144af1e1b206323629b7b3a82fa32dce0d635713c812ca41916f
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: arm64
 Version: 0.25.2-1+bookworm
@@ -334,6 +350,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: arm64
+Version: 0.12.5-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/uv/uv_0.12.5-1+bookworm_arm64.deb
+Size: 13190352
+MD5sum: 186b118ec7c711d3fa25861e68e3e43f
+SHA1: c140cd184eea9e52137fe7e5ac4bdddb75f02807
+SHA256: 622693545edc5f3c6028725dd9ddbab76b8ac28255c73cb7ca6a9e9680f74426
+SHA512: 8a467a9cf21b80d1b4a98245012ea52cd5f6d93f4aef7abbaf2407e247492eb6ca9d1e02e765763788f6dd66b1c6476805390e58126eeaaf65ac6cb01551a9be
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: vite-plus
 Architecture: arm64
 Version: 0.2.9-1+bookworm
@@ -368,16 +400,16 @@ Description: Friendly and fast tool for sending HTTP requests
 
 Package: yq-go
 Architecture: arm64
-Version: 4.53.3-2+bookworm
+Version: 4.53.4-1+bookworm
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_arm64.deb
-Size: 3531276
-MD5sum: 00d856f5b86e750351ce6c24c1962b07
-SHA1: 88e5b9490f44bbe8fd34abe11634157eb422575b
-SHA256: 1a47b40e137bfd790fa9b0ce3ef8e9ef6c3e5a74fe9cc08f966941d4918d6989
-SHA512: 89f60adb44f96f994abcd31ed611f2445d27e242072230583ee80627f45fd4a37d600d86dc19a6a5dbeafecd22b0e554d69456fa4bf5137fb6ece5b39dd6791d
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_arm64.deb
+Size: 3545892
+MD5sum: ecc5fe9534ddec1a94db40a6c3f19e77
+SHA1: a815b8e286766c8222452191439bad1618f0ade8
+SHA256: d6115f9764e8fef561eba061e2bcef1f716b71a2f0432dd279e5500c00c4ead0
+SHA512: ec09f32a345f75f3d641d5a8b57f60efe7b89a9c058d57684c77259ba2e48d25805fecf5ddf0dd6cf3d3c3f3b957139d4cdd8585aec098e11ad4878bc4bf50af
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

@@ -254,6 +254,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k9s
+Architecture: amd64
+Version: 0.51.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/k9s/k9s_0.51.0-1+sid_amd64.deb
+Size: 27794012
+MD5sum: 5fe53c4bba6964640b1d62372e470b09
+SHA1: 17f1b907d3a33fd56cf7cc244ea61c192e8716b5
+SHA256: 804d07c2c71bea3bccee23609726ccb3f1c28db2ad7879f03b1afbf3c78bca9e
+SHA512: d000bde07e5bcfe6bb9f2c2837cf380598387a9cbcbb7bb69ba58023ae6183b30710ff73296310a99fcf99a31b690e7f2b8a4c38e9c049f03c37f64918666f70
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
 Package: lazydocker
 Architecture: amd64
 Version: 0.25.2-1+sid
@@ -350,6 +366,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: uv
+Architecture: amd64
+Version: 0.12.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/uv/uv_0.12.5-1+sid_amd64.deb
+Size: 15077528
+MD5sum: d7a59da604c07315674072ddaed17d8e
+SHA1: 79d3a5162e8f5aa3ca6640aa3410490e304d25f2
+SHA256: 3ab75faadeed22a9b74769743a8913433daa1f57ff5505d7b5f4dab2a067c783
+SHA512: f6df0c612ec539b5d9da4f63bfa1ac64d90eb52fe087bf50646196e569fdcd08aa9b69d50e7f873d57c02370949b4003ec7465947bd49a226543af2752e6c3f4
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: vite-plus
 Architecture: amd64
 Version: 0.2.9-1+sid
@@ -384,16 +416,16 @@ Description: Friendly and fast tool for sending HTTP requests
 
 Package: yq-go
 Architecture: amd64
-Version: 4.53.3-2+sid
+Version: 4.53.4-1+sid
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_amd64.deb
-Size: 4159492
-MD5sum: c7ab00db009005c02484a48acd3a9957
-SHA1: 76bce4a9578d95b62d6f1cf3980476ed250614d5
-SHA256: 0dd37a0090eb130d5431aa20c093921a575abf3eb6d3bad8983f2c8d96e9b6bf
-SHA512: 2d8d1344bc24a7f91e9a8344b2dd912db8122014127dbc31485ed3991de4398f9807aea551aed3bd1c29814536f9d8482ec41e840c3bdfc6735a7cab7233112e
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/yq-go/yq-go_4.53.4-1+sid_amd64.deb
+Size: 4171860
+MD5sum: 74a0a10cea5b802b3ef8291af50f076a
+SHA1: 68bce6499aec052c2e4e76d17bceb6370a64d099
+SHA256: c56e6cdd576e2159459b6f98b646f7024d3b129a38f0e4143caf077d493e021e
+SHA512: 8f256ccb02debf5d23eb92d0252b7d05b132babac920df0a93b59b8953e8aa66fe3062b80a1cceeccd9c3c345df4022a4915bba52315be45f87288094e387e09
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.
