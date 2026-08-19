@@ -1,3 +1,19 @@
+Package: act
+Architecture: amd64
+Version: 0.2.89-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/act/act_0.2.89-1+forky_amd64.deb
+Size: 6022468
+MD5sum: 8ec654c8d6314039f0a55daf0c7b55f8
+SHA1: bf09e672372e682d717b1538e332153bbb4effcf
+SHA256: 56769ec8bf8bb21e8c9dbf2413d23907eee7dff69f3479a9f14e6083fc48b11c
+SHA512: b9652f0813dae63dd35c509a028df646efa058742856e3c7678a8c3af617b4d4273ca0fe809dc00159008d89f39f4fbe192664a1cb158216a568afa0ce26ec89
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: atuin
 Architecture: amd64
 Version: 18.19.0-4+forky
@@ -76,6 +92,38 @@ SHA256: e783a6aa4d98456391a82cefa342d4c6616686b95dc2c87c0a7b078cee2f6ba1
 SHA512: 139170685bf0f3142afbec041fd4e533322ba2b236f3f1a1930dbef7d58a6cf6257c175a98431d7fab5ccfdd2d02e709a9cfdde433222d3503a46749752474e2
 Homepage: https://github.com/denoland/deno
 Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: difftastic
+Architecture: amd64
+Version: 0.70.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/difftastic/difftastic_0.70.0-1+forky_amd64.deb
+Size: 6915100
+MD5sum: f09104f2d4be59ea80d797ebb5e5d137
+SHA1: cc9accb889539026ee184e4a9414030bd16968b2
+SHA256: 027ed00fd10f9ccd040be2a4c449ce07c94ba9f203b993180170625ef56d5031
+SHA512: 676fa683d505e0c02bc2efd55f6e7adaf179bdbc6bdde6ab91ed1da60069938b4749ebb779df7a370cdf4ad2bb732246c6e797929abba079224e2d9f4518d8a2
+Homepage: https://github.com/Wilfred/difftastic
+Description: A structural diff tool that compares files based on syntax rather than lines, understanding 30+ programming languages.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: dive
+Architecture: amd64
+Version: 0.13.1-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/dive/dive_0.13.1-1+forky_amd64.deb
+Size: 3075624
+MD5sum: da6c49db9872b9e22e272ecdcf54a73e
+SHA1: d413bd19c90139d33232396b958a558a6509fe3f
+SHA256: 9668ac630df02401958d00e501076c384d9b92481d272826ea4e26c68e2b5fea
+SHA512: 3827a07d90d1298253043f7490e17c7daf0692b3aab97803b05f1abab9a6b1fc4409557ae774bc5f17f4f926af9abf192ed89c9c4ef77fbe6648cf35cb69887e
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
  Packaged from the upstream GitHub release for Debian.
 
 Package: du-dust
@@ -254,6 +302,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k6
+Architecture: amd64
+Version: 2.2.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/k6/k6_2.2.0-1+forky_amd64.deb
+Size: 25874828
+MD5sum: e0dac5a98427de6e2c16d6980f0ddd6d
+SHA1: aa4a402fe3753e76ab14c1e4d1bed992a464cbc7
+SHA256: 7201d5d520489f2e61e96f55ef9ca4b5f4b3f51d80e5ea96013c257fc6ed3779
+SHA512: a7c42a55fa4a06823a050cbc174affcffd9d9f5d42c302c79e6d00a856c6df5f8b801585df0e66b380806b2d3a6eefd1783a51d482a5d38bb293fbc0174c28bc
+Homepage: https://github.com/grafana/k6
+Description: A modern load-testing tool for testing the performance and reliability of APIs and services, scriptable in JavaScript.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: k9s
 Architecture: amd64
 Version: 0.51.0-1+forky
@@ -318,6 +382,23 @@ Homepage: https://github.com/nushell/nushell
 Description: A new type of shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: pnpm
+Architecture: amd64
+Version: 11.22.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Depends: libatomic1
+Filename: pool/forky/pnpm/pnpm_11.22.0-1+forky_amd64.deb
+Size: 33664560
+MD5sum: bfd3c74060f44f89bb077a629ce855ec
+SHA1: 34ef44b6818ac12a3833daabd40dc45cf07b4ef4
+SHA256: ee3295643d99821d7ba877286f94bddc79bae65c09f7c11b4beae299684b9fcc
+SHA512: c576d99f811c4daaf5683b973e5ba02198b5c48f6f7aea6f3f23e4204366c01c4da4dfcbecb7db68a69057fd5a29d458afbcb8f4f02950482b5b9931b5036d77
+Homepage: https://github.com/pnpm/pnpm
+Description: A fast, disk space efficient package manager for JavaScript/Node.js, using a content-addressable store to avoid duplicating dependencies.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: procs
 Architecture: amd64
 Version: 0.14.12-1+forky
@@ -332,6 +413,22 @@ SHA256: 22a1a29d8f8fceb3c5dc795ae50f0ecf199cf0c27d3671ed63d019897e028ad9
 SHA512: 9dc50f042164f79d3fecf3e41115656c25c66e8a90859ca9846a54607c97f7cf73b0c48f8faf20968d7c589d91901908faeb9aff1637e3e079bad55bb677b644
 Homepage: https://github.com/dalance/procs
 Description: A modern replacement for ps written in Rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: rclone
+Architecture: amd64
+Version: 1.75.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/rclone/rclone_1.75.0-1+forky_amd64.deb
+Size: 20809252
+MD5sum: 823a28013780319e484e8d9c1ac62d16
+SHA1: 67caad67ed625e53df288d3473f9d17829f8f8e8
+SHA256: a19d99c740efd24873995227c26b38cb0c05482d1f1a5f6eb2f0453783b14b67
+SHA512: 62413912f684fdd79629cfce663fd7af92c52540db3228aa8e27cecd04e12afdfcd87413609781810e00d8613608879d5181ce2daadd785eef156a25e8b392fc
+Homepage: https://github.com/rclone/rclone
+Description: Syncs files and directories to and from cloud storage providers (S3, Drive, Dropbox, etc.) via the command line.
  Packaged from the upstream GitHub release for Debian.
 
 Package: ripgrep
@@ -382,6 +479,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: superfile
+Architecture: amd64
+Version: 1.6.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/superfile/superfile_1.6.0-1+forky_amd64.deb
+Size: 11621372
+MD5sum: d2e08df6ed17ab930858a59c5c9ce635
+SHA1: 3e3e58c5edf2dc9e8b675a2214519e4637623f49
+SHA256: 0d96a2e5039f2b648bde42061ba3dacbb8d895f72bd7277dc99ad61bcd58ae7e
+SHA512: c2cd9d61653b1141dfc826d30f73b0cdc264bc280f882b1228d305ec20911ecb69520913eb69a523362b34e799651e72fc1753be6b70b24b13b133e4abc838a8
+Homepage: https://github.com/yorukot/superfile
+Description: A fast, modern terminal file manager written in Go, with multi-panel navigation, previews, and plugin support.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: uv
 Architecture: amd64
 Version: 0.12.5-1+forky
@@ -396,6 +509,22 @@ SHA256: f31e5569a727229cd686ec7422f8f1691e316c7059e6e9eb6527fe4307ec2cf7
 SHA512: bfb59e2ce0836cdd35db98a63320e0459796ef3def2768d3183c763c2d213de0d5144707928e9b1bbc4f821042b110c57d4ea19804a141950dba165f8a0c9514
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vhs
+Architecture: amd64
+Version: 0.11.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/vhs/vhs_0.11.0-1+forky_amd64.deb
+Size: 7330528
+MD5sum: 26d051af17698edd4b97eaa48ba6f4d9
+SHA1: 6a36afbb3eb7f75613331af75384c3c639a8be1c
+SHA256: 37885a51eba8717c56e447dd7e460c3672d66d0ee4142d0952100aeb3d4cb824
+SHA512: fdd01d8e75c2462ad94baeada775fb20e82944baf717f3a8be8836440f680b54e4b75b22749098f24ca1d606b7f4e91361ab85dfc25e758f30adba4ffcb5df55
+Homepage: https://github.com/charmbracelet/vhs
+Description: Writes terminal GIFs as code, scripting recordings of terminal sessions for docs and demos.
  Packaged from the upstream GitHub release for Debian.
 
 Package: vite-plus
@@ -430,6 +559,22 @@ Homepage: https://github.com/ducaale/xh
 Description: Friendly and fast tool for sending HTTP requests
  Packaged from the upstream GitHub release for Debian.
 
+Package: yazi
+Architecture: amd64
+Version: 26.8.15-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yazi/yazi_26.8.15-1+forky_amd64.deb
+Size: 10327612
+MD5sum: 4b340b27bed0a920a6b310e7e495bba8
+SHA1: e56ca19c6cb4eaef7f477c89842129c6f9aeb88d
+SHA256: 91967924ec8600c06e17beee03e76fe7f7be95bb4df082ef93e05b59cdfe4216
+SHA512: 5ef79dda7b1a3a298d0d26a84a0360546d2e0afee23f2797f93d8bebc6d2350f8881a4208741e2ac29e8bcbba4e9589150ff45cf58c0ceb1263ccba955afa2db
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: yq-go
 Architecture: amd64
 Version: 4.53.4-1+forky
@@ -444,6 +589,38 @@ SHA256: 355a48088d5ebef4b88598ae1a27a0453c18783060f9e620560b499110ed42cf
 SHA512: 400073b300b12844f008e9dffeb60bf411435584873c441f068f729b1f03f32ebfb52c675d2d49b536433e84571c97b24946e73dc46847885eba654c4034a6a3
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zed
+Architecture: amd64
+Version: 1.16.1-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/zed/zed_1.16.1-1+forky_amd64.deb
+Size: 100474860
+MD5sum: ebed8f3368cc78da9feccab4c02e391f
+SHA1: f50ce6b82f4a3e9d6413aa606920377ab5abe9a6
+SHA256: 280244f350db64c898a544d8dfa7f9bac3ad995243e445cb9259eb14b90fcace
+SHA512: 130b68a26e59211ad4dfa91b1a8f3462c0b2cf10003b1fd0206dda7c65d8c0f6b6cbb78503d939a2a481e4692ba2537cb8a5ba54357100cc0a4012ff75993b3b
+Homepage: https://github.com/zed-industries/zed
+Description: A high-performance, multiplayer code editor with built-in collaboration, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zellij
+Architecture: amd64
+Version: 0.44.3-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/zellij/zellij_0.44.3-1+forky_amd64.deb
+Size: 8063684
+MD5sum: 3f4c9e5753b52eaa04db065718995431
+SHA1: 8ba58e9eb1176bb93102babc2351ff84b32b03e9
+SHA256: 30c948d4d156cd84aeb9e77f861177b8f73c40a65c2ec6b07c80e0fd79748ff8
+SHA512: 4832a58ed0de75c3fa56cfe302325d4551703415138ad468bc5e4284d690f3fbc01a55d315744eb9123ccef9335e62dda9fd8bdc209e15971ec2f1ed3e0dc11f
+Homepage: https://github.com/zellij-org/zellij
+Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
  Packaged from the upstream GitHub release for Debian.
 
 Package: zoxide

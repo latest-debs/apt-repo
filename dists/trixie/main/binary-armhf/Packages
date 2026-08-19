@@ -1,3 +1,19 @@
+Package: act
+Architecture: armhf
+Version: 0.2.89-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/act/act_0.2.89-1+trixie_armhf.deb
+Size: 5226952
+MD5sum: f5c5c912af5d5a0d368a557574e46c81
+SHA1: 508774303ebbd93d2a4984c55a4c2c276203ec59
+SHA256: 01189f765ad16eb40a9b2ad75f538612cabc6d1f6127e150c82c159d5ebce066
+SHA512: 451d6a8e29c5890a2898ebca12b7ccea69aa583dea94789817154ee2b11c1a5dce2e6951fc9804396ec33eb62ad2cf14bc1b4bb5144fa8b203fd68053522030e
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: armhf
 Version: 0.26.1-1+trixie

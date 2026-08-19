@@ -1,3 +1,19 @@
+Package: act
+Architecture: i386
+Version: 0.2.89-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/act/act_0.2.89-1+trixie_i386.deb
+Size: 5636616
+MD5sum: 514da37c4a47594b8a1704a94a31ea06
+SHA1: bf135740af0147fbf98db517810e6bf17131d5b5
+SHA256: 4642ad969932ffe9f48d95058eaa3b56d264e1830619ecb42c6c80686910bb71
+SHA512: f2d9e21491a5e4d6d8b00bb4052393d04e2c4638c5075e76f127052820518860d475668d1aebc71c29f82dc74c298f1f928c4dcdccf19e9024ef93756e3a13b7
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: i386
 Version: 0.26.1-1+trixie
@@ -172,6 +188,38 @@ SHA256: 3c5edd82ec242e1e206c192867134b1c1db685c30d5e4f0d8c6ca100dad5d30a
 SHA512: ca953c8a146b3b7b68d1704388cf8d984a84ad07d435900806dd5072e07e34acfa767212c43975383186f6ee67ea6dcdf73388084dfc4adb17a40eb029d3f39f
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vhs
+Architecture: i386
+Version: 0.11.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/vhs/vhs_0.11.0-1+trixie_i386.deb
+Size: 7011756
+MD5sum: bb762a921a168e9e4d654859d43de944
+SHA1: bed9b5cf5e307acff1b788267778e09e8ce6006c
+SHA256: 86bc2394607a6c21e9e2e960ac4d4cae6b32c601dca6801255b3840e7d1f1d3c
+SHA512: a9207a35527ddf49794159b6bbae4ec6bca2aef9ae1e986fcb518ad1b3309f1723c353e6b6ec2ffd3c91081fcb61ae9b362f52c6e4230f1fa67a55937bb009cc
+Homepage: https://github.com/charmbracelet/vhs
+Description: Writes terminal GIFs as code, scripting recordings of terminal sessions for docs and demos.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yazi
+Architecture: i386
+Version: 26.8.15-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yazi/yazi_26.8.15-1+trixie_i386.deb
+Size: 10835752
+MD5sum: 0b8fa6256013d4ae2dbf8a229a668d4d
+SHA1: 3834e29f3e697cc46d0692ddfd7fe5fd9560b0c0
+SHA256: 43cc4f6167bd3798f61911539397f4dd7273206da3d212a8f5e6a6ffe602cd21
+SHA512: ef72f1744f44c64f660fcec44a66c26f663450cdaf57d2d93d4a12d1376b83509085ac4047334a59844191d4e5602cd02fce4079f470051d714ec8dc657c8800
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
  Packaged from the upstream GitHub release for Debian.
 
 Package: zoxide

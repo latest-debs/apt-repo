@@ -1,3 +1,19 @@
+Package: act
+Architecture: armhf
+Version: 0.2.89-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/act/act_0.2.89-1+bookworm_armhf.deb
+Size: 5223464
+MD5sum: 5b937493061b63014283f9c181ac0482
+SHA1: 721404153b5320c54bce5146fce8b9482e4aa892
+SHA256: 27da5214589ac103d459a5f7c361448e76eb92bcd30036933d673489c3afc371
+SHA512: 5f8c841bcba3705c18d1ff90c4f2151db467956e1c15e93e7145a0f7e7c3eb36cfeffc02c17c86140bbe273f69cca5ae9a54f59da8011300afa99117a3a1caa4
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: armhf
 Version: 0.26.1-1+bookworm

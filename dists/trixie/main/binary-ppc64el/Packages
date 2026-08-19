@@ -14,6 +14,22 @@ Homepage: https://github.com/ClementTsang/bottom
 Description: A cross-platform graphical process/system monitor with a customizable interface
  Packaged from the upstream GitHub release for Debian.
 
+Package: dive
+Architecture: ppc64el
+Version: 0.13.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/dive/dive_0.13.1-1+trixie_ppc64el.deb
+Size: 2609996
+MD5sum: cd9a6a28467c7ded96041a5a2a341c4e
+SHA1: c1dbb324069759a703a764850dfa4c5c95577161
+SHA256: d5e236fbf5acd2b6d06d8b5b7bad1b541c67f4b1a8ef15c2dcd18486f33e4a28
+SHA512: b0ee57c59fe1b53ec777d8b5a4be9eb8690bbf6a21ae8b05c3cde384d361be54e2fef6df41af2ae860329bbec661d578b5cc81e1c6e5efd50831f1dd8814e0f2
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: fzf
 Architecture: ppc64el
 Version: 0.74.3-1+trixie

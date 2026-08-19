@@ -1,3 +1,19 @@
+Package: act
+Architecture: armhf
+Version: 0.2.89-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/act/act_0.2.89-1+sid_armhf.deb
+Size: 5224320
+MD5sum: c3eaa44edf2241bbaff7af8ba30025a7
+SHA1: a2df0d15d0685b7e0c6ec9d52f86c66aa4b938c2
+SHA256: 7f1141ac8afafeb1925ce64677f8ed279e0a6927ca746d17fc10893401502a02
+SHA512: e9bfb5d5b661c5185b47e38b6a5f5049d04af84030de5eaa082fae270981f272adcef9af15acb1c311c09131034eae86265d602df142c4f6732a84dfbefa85c5
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: armhf
 Version: 0.26.1-1+sid

@@ -14,6 +14,22 @@ Homepage: https://github.com/ClementTsang/bottom
 Description: A cross-platform graphical process/system monitor with a customizable interface
  Packaged from the upstream GitHub release for Debian.
 
+Package: dive
+Architecture: ppc64el
+Version: 0.13.1-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/dive/dive_0.13.1-1+bookworm_ppc64el.deb
+Size: 2612528
+MD5sum: fdec88b9626b618b3f394a55a8ad7ac6
+SHA1: a17d96edd23a908a8a3b6c5db98019bdfeeee417
+SHA256: f099d2171761da8b28d4661c2a7fcf14786b3d3c2e2660a2ec042cfaaa8a5987
+SHA512: 1be1ef0bf968b233c114ff064c86ac0c521aebe3f521f83d2541e75cbe3cb0455f77a490658fa5eed99958df8ed166388fb54adf6567d3a60008b3345dcab5e0
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: fzf
 Architecture: ppc64el
 Version: 0.74.3-1+bookworm

@@ -227,7 +227,21 @@ deploy_repo() {
   fi
 
   echo "→ Dispatching first auto build"
-  GH_TOKEN="$GH_TOKEN" gh workflow run release.yml --repo "latest-debs/$name-debian" -f auto=true -f enable_lintian=true >/dev/null
+  # GitHub needs a moment to index a just-pushed workflow file before it's
+  # dispatchable; firing immediately after the push above reliably 404s
+  # ("workflow release.yml not found on the default branch") even though
+  # the push itself succeeded. Retry with backoff instead of failing the
+  # whole deploy over a race that resolves itself within seconds.
+  local attempt dispatched=0
+  for attempt in $(seq 1 10); do
+    if GH_TOKEN="$GH_TOKEN" gh workflow run release.yml --repo "latest-debs/$name-debian" -f auto=true -f enable_lintian=true >/dev/null 2>&1; then
+      dispatched=1
+      break
+    fi
+    echo "  workflow not indexed yet, retrying ($attempt/10)..."
+    sleep $((attempt * 2))
+  done
+  [ "$dispatched" = "1" ] || die "release.yml never became dispatchable on latest-debs/$name-debian after repeated retries"
   echo "→ Repo ready: https://github.com/latest-debs/$name-debian"
 }
 

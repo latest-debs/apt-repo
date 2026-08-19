@@ -1,3 +1,19 @@
+Package: act
+Architecture: amd64
+Version: 0.2.89-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/act/act_0.2.89-1+trixie_amd64.deb
+Size: 6025316
+MD5sum: 5638bf1843c955f630a7466f5b6b0858
+SHA1: cc56ec1889f5ed4936f985b6d3fad5ee33987391
+SHA256: 94e13bff672f39091714d35ca16fbd435188abcdf9602949a2cef1dfb49611b7
+SHA512: b5b18fda1d37695215ebdefba8951fadedf92130dadfffe49960f9e304553b422561662a39807a4b6aa63e72ce6cb30b487c482ba0cb853f8aaa08fab1359a99
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: atuin
 Architecture: amd64
 Version: 18.19.0-4+trixie
@@ -76,6 +92,38 @@ SHA256: a294ca8fe749baa1ff038078ec3c5a2bd5227d3dce6eb3999d80e8f5d0533cb6
 SHA512: 62fd6013f0b4b575e936bb69cab58e739518111988480499cfca4f1ec79d1f90e193df392f42de0d0b7519d9be006500c953c609c597bac945981de17f19582a
 Homepage: https://github.com/denoland/deno
 Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: difftastic
+Architecture: amd64
+Version: 0.70.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/difftastic/difftastic_0.70.0-1+trixie_amd64.deb
+Size: 6914096
+MD5sum: 13b7c1adfa1bad87fd73dd4f3d2a7b34
+SHA1: 7b22c02cd8fd2b63f5226dded6775f5df6614ac8
+SHA256: 5c0809ade8e61ce0bb686203063093e08c20a11ae67a57e2ad92f3a06b1d5241
+SHA512: d84185578ac97d7b601eaf779d2e9b439ea26a6daff1620410fdb34032339cf0dca109a0014163f9313fba4dff75e5e72d34876bd2a78d926acae9073367f228
+Homepage: https://github.com/Wilfred/difftastic
+Description: A structural diff tool that compares files based on syntax rather than lines, understanding 30+ programming languages.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: dive
+Architecture: amd64
+Version: 0.13.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/dive/dive_0.13.1-1+trixie_amd64.deb
+Size: 3075128
+MD5sum: f28b98909bf1af459c5049712812f6c4
+SHA1: f43b11821b99ba704e28d8ea184038a0904d8a68
+SHA256: 485a55d86f04601099a745b8f7eaadbf34922068d397b6ee7a9913a1b453c6f7
+SHA512: 18b022ed88926c73120c73d854e09ce0d3a1cf3c26ca629fb227bed7a1043ee5f7e2a5f9ebb83eb98fb9b10eb14d71cad3b34f9733c542392490cbd1470ad70b
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
  Packaged from the upstream GitHub release for Debian.
 
 Package: du-dust
@@ -254,6 +302,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k6
+Architecture: amd64
+Version: 2.2.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/k6/k6_2.2.0-1+trixie_amd64.deb
+Size: 25873936
+MD5sum: 8483e3c94ed758d6b1284e22cd021963
+SHA1: f1284c3b054c674a3d7ca4765a37bcab8ba785e5
+SHA256: 3ce601d9127bd7887d6ca3e6f961d0eada77ce829377e94a8650ea98b12a49f6
+SHA512: 4162764f5fc5e5f787624d8b2ce4287521df58050eb7eaabb4c584dc483ee85efe4ad35e42e44734a33c3d01ca53a3a11f8bb390c05164737e4f33d1385245dc
+Homepage: https://github.com/grafana/k6
+Description: A modern load-testing tool for testing the performance and reliability of APIs and services, scriptable in JavaScript.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: k9s
 Architecture: amd64
 Version: 0.51.0-1+trixie
@@ -318,6 +382,23 @@ Homepage: https://github.com/nushell/nushell
 Description: A new type of shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: pnpm
+Architecture: amd64
+Version: 11.22.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Depends: libatomic1
+Filename: pool/trixie/pnpm/pnpm_11.22.0-1+trixie_amd64.deb
+Size: 33663140
+MD5sum: cd6e4957655548c2fd6e28ade12a5150
+SHA1: 6d050acdf97267ee4ffa80f2181f76ca4913f074
+SHA256: 3b718713b6c108e5110b24334a660b40f4fc07316d2efe1a79a4219157e61450
+SHA512: 3ca31ed2473ad3731b1a6ea976f0d58012ebba4926b65274078f20dd33af8fd6fd1104e0947951c6605199ab955080be81ece357bf404b9f54ee458196723c7e
+Homepage: https://github.com/pnpm/pnpm
+Description: A fast, disk space efficient package manager for JavaScript/Node.js, using a content-addressable store to avoid duplicating dependencies.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: procs
 Architecture: amd64
 Version: 0.14.12-1+trixie
@@ -332,6 +413,22 @@ SHA256: 1d5360cbe1a6fb782ad669600d9ddfe82bed1be9e5982ca5cdd3c7d4f7069355
 SHA512: 6378d5dc92810e24c9cdd78c11f4a524560b5011988506f696dfa88eebc6afe18e7b1d6bc4f13d7b1d006dd2db5cd435207cfe4d98488828d61049c1eb73ca3f
 Homepage: https://github.com/dalance/procs
 Description: A modern replacement for ps written in Rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: rclone
+Architecture: amd64
+Version: 1.75.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/rclone/rclone_1.75.0-1+trixie_amd64.deb
+Size: 20808464
+MD5sum: 7177e81fe9364ac97db098f39dbc15ba
+SHA1: e2b112172e84a41cf72c2efefaae2deedbd25897
+SHA256: 3b49a842ba6d8fd436a5c72b646222c2f7144f1747052da155baa17b7c1390f2
+SHA512: cd19e6d6ec74ffd1f0ac16207a980d2fb8b1ad6000180b5538d8767e9682a3888707b2ad7199feb55bb0a35c373836b85b1288bc47352919c39ad077bf5fd164
+Homepage: https://github.com/rclone/rclone
+Description: Syncs files and directories to and from cloud storage providers (S3, Drive, Dropbox, etc.) via the command line.
  Packaged from the upstream GitHub release for Debian.
 
 Package: ripgrep
@@ -382,6 +479,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: superfile
+Architecture: amd64
+Version: 1.6.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/superfile/superfile_1.6.0-1+trixie_amd64.deb
+Size: 11622564
+MD5sum: bd3724a5196239f14ab44c371b984e71
+SHA1: 54e4430255f1fa0d485421b09c3372e9c64c60d0
+SHA256: c8bd850b3396065b608c386b7bebc2a1d2c85e6e6cca9c22438db08b5e002936
+SHA512: d6a1c3905e570325708f37d14e3eb869ff45df12f60354c185cc7ba209dca8b72a00329aaf1a0db8622efd2bec442c665a2520b45cb457fe13a6b63170c8b6f8
+Homepage: https://github.com/yorukot/superfile
+Description: A fast, modern terminal file manager written in Go, with multi-panel navigation, previews, and plugin support.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: uv
 Architecture: amd64
 Version: 0.12.5-1+trixie
@@ -396,6 +509,22 @@ SHA256: c49b2bff3093e564339258c8b7d162a9e1db630a746d440c81db33176042578c
 SHA512: fb2386d3d99e7d5c45d9dc86c9050f488d73e25b81d6d71bd430d5f0d4cbe175ec07b17cc4232cacd4237280b931c35bc6cecd2bc8901d550c28fd55047f9a1d
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vhs
+Architecture: amd64
+Version: 0.11.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/vhs/vhs_0.11.0-1+trixie_amd64.deb
+Size: 7334000
+MD5sum: 55b6d216b01bacba24d40a9e86bdee63
+SHA1: 213605692520bbcaf7e447f3232cd11c1256b703
+SHA256: 2aa2d21240e0f084c76043ef1d1caa0d8afa0e6d2cef52c07b48730d02899c64
+SHA512: 1ad163ef749e122654760d12f007b20f7a5bb04d11dde583d67522de4081be94fc0c5164e056b12330296ab3981b5b9188b7727364d2450925fc981ae5507159
+Homepage: https://github.com/charmbracelet/vhs
+Description: Writes terminal GIFs as code, scripting recordings of terminal sessions for docs and demos.
  Packaged from the upstream GitHub release for Debian.
 
 Package: vite-plus
@@ -430,6 +559,22 @@ Homepage: https://github.com/ducaale/xh
 Description: Friendly and fast tool for sending HTTP requests
  Packaged from the upstream GitHub release for Debian.
 
+Package: yazi
+Architecture: amd64
+Version: 26.8.15-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yazi/yazi_26.8.15-1+trixie_amd64.deb
+Size: 10328636
+MD5sum: 27cd01a6a995bad13e2c1fefa520984b
+SHA1: ce832209ba78e14e56934ac6ba0b74ddc3a5afff
+SHA256: c95d06af601d0fad9792fe16eaa61d6208f87fae56e6f30c2fcb93b1c465f021
+SHA512: 70b3a37587abbe72e637b397be2acb5e4fe88557b81261915d5d1c3635467f62621cd12995faa77fadf88ce7c60d39ca9fbbeb7bf4c026ff3d9a7380731f39d9
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: yq-go
 Architecture: amd64
 Version: 4.53.4-1+trixie
@@ -444,6 +589,38 @@ SHA256: fcc4b3bf7fe9a33cc74d289c00074ab9aef87ebf48f58f7ceae49cc88746080e
 SHA512: 70bc4455cba3112e09d5fd60c3f6e1d99b9c322ee69a8f6492202db6bf4c823815189f260d741368068d9bdf377fe4bf2f48f44b7d49f29cca1186dadf2ce622
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zed
+Architecture: amd64
+Version: 1.16.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/zed/zed_1.16.1-1+trixie_amd64.deb
+Size: 100471500
+MD5sum: 414e5de8ba2adf4de2a54e54daf69305
+SHA1: 8a8887543924055dca859db933175c45fa4d82f8
+SHA256: 5077de2f57209a2ae41dc120e6686b417e08ec2dc2da110551b0ccbfbc4dd235
+SHA512: d2a3d6c870698432a600f22a54c2a6379eb85dc0187eb92b16989946bda09d5f3638fc6b3d61bb7f1453dab84e0f004fa23d866e285979312e3081710be701b4
+Homepage: https://github.com/zed-industries/zed
+Description: A high-performance, multiplayer code editor with built-in collaboration, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zellij
+Architecture: amd64
+Version: 0.44.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/zellij/zellij_0.44.3-1+trixie_amd64.deb
+Size: 8063108
+MD5sum: 35f8aeeb7d7bf1ec99a388b857722b3e
+SHA1: 857a35b2d88f568e4b66fb7beea1965515e44244
+SHA256: b08dd045999923410329d60d031450446c1ece97635d616dee16d3204cdf66f1
+SHA512: 49bf0157548e732bb27a9e39d242e575e5c7269d8253a97d48a94d9f05078f24870af2e64a6dc38867006bc544c70711fad4ee3344cd7f83652428d8864769c7
+Homepage: https://github.com/zellij-org/zellij
+Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
  Packaged from the upstream GitHub release for Debian.
 
 Package: zoxide

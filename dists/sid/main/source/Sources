@@ -1,3 +1,32 @@
+Package: act
+Format: 3.0 (quilt)
+Binary: act
+Architecture: any
+Version: 0.2.89-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nektos/act
+Directory: pool/sid/act
+Package-List:
+ act deb utils optional arch=any
+Files:
+ 59b7393080413148a1f59de5f7f21ffe 827 act_0.2.89-1+sid.dsc
+ 6392161888bc814e8e8eb0ab3473006d 6023400 act_0.2.89.orig.tar.xz
+ fea70f0d0fd04cb2123a758d0e655618 1532 act_0.2.89-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 43ef5314b683138c517db2f567f122737ec159ff 827 act_0.2.89-1+sid.dsc
+ c1e7116c55d2d590e925715cdb32c51470d85b45 6023400 act_0.2.89.orig.tar.xz
+ c2cd656cde619fb4bd139ae9cdd936f3e072ca94 1532 act_0.2.89-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 121c70b50ab9829192bd8ed046ac1046e84b3679e30cf81225e9ec61edaf876d 827 act_0.2.89-1+sid.dsc
+ b0d9c2f88f26073b18494122518ac49515251daf72f580bf0e784cf26b9191ee 6023400 act_0.2.89.orig.tar.xz
+ c35aabad5c4164f64fdede59259828df99eecc8d8ffe22619aeeabdb47aaa6da 1532 act_0.2.89-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 18608397219d7f80925109cde07b2f4bb3aca5c99e621dc30edc9616f0b580e015a3fb87f118c5cdccf0b46cf0f25aeb71ac970647499f1c008f3c69699c1627 827 act_0.2.89-1+sid.dsc
+ 1d62a2e122bc26d2e1bb64bb9b991acae886d9db77a1c1870af65e476dad10e588187e12c43b84e59e92efc69b8410a57476c775b5e98ec6d5a10a83979753e0 6023400 act_0.2.89.orig.tar.xz
+ 979612f94ca1fca93b4cda516d281c4df69feecaba798abd8e80290f6056d102d4dd35819d463f876cda8f1cad4f5f8813e64f32825dc00e7854ffac4812331e 1532 act_0.2.89-1+sid.debian.tar.xz
+
 Package: atuin
 Format: 3.0 (quilt)
 Binary: atuin
@@ -55,6 +84,64 @@ Checksums-Sha512:
  1bc8d55c28d4f7e397bfcb7bd53e69c0e1a855a8e7dd73d0d65fc4e56c3ca29b80c509fdd13df14aedc444affaeca649ec2d499c5fc283325811be28ae57aa37 863 bottom_0.14.8-1+sid.dsc
  b5b4f3b3d99fcd52ff026cf082236debebbb67e5fe90aa918b49bbfe8ea29bdc25a0287cd86d8df44f531c4963662977d33f2e98894cd0fdaa1769a1e7f467f5 1499252 bottom_0.14.8.orig.tar.xz
  647e0ddbc503beef4ace1da4b068358e742615e11790b487626ad0851f358e40a2a1a025fb83bab2d78ee47771b542bb82c378940f08393e0b348db0f03878ae 1536 bottom_0.14.8-1+sid.debian.tar.xz
+
+Package: difftastic
+Format: 3.0 (quilt)
+Binary: difftastic
+Architecture: any
+Version: 0.70.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/Wilfred/difftastic
+Directory: pool/sid/difftastic
+Package-List:
+ difftastic deb utils optional arch=any
+Files:
+ eb8cdcc14deee1a9c9a6ed702a931700 898 difftastic_0.70.0-1+sid.dsc
+ 0d9a9eccd01014901e3a6fdb40f8673b 6896596 difftastic_0.70.0.orig.tar.xz
+ 0b228f6ca86c899c0937a92de7f96e66 1560 difftastic_0.70.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ bb9f9485e1c50ce6c50079ee8af2b2d3571c5554 898 difftastic_0.70.0-1+sid.dsc
+ 21637c526db701c7208c3188b964c5d447865948 6896596 difftastic_0.70.0.orig.tar.xz
+ 2efe59f5d3089b2659fda9c29247fa7cdf427723 1560 difftastic_0.70.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ f329e8e98b354054c6920d5c534c4bba9584a3529e0d458caafbf0855099c210 898 difftastic_0.70.0-1+sid.dsc
+ 133f1725011fe5d477455359b857cf444eeced34abdd265428ce5baf8c2b48ee 6896596 difftastic_0.70.0.orig.tar.xz
+ a8708f06b54d9cf9b37a98aeec4d2f49272042ac959aef9ef6fa659f134e1efc 1560 difftastic_0.70.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ c4de46b364befc214427bc6b437de736b3a9399722c9da2893d8d0c939421b0e9ab5ce3cedb43dceccb0e698eadee2f196caa5bcebf1f675a6c828735769dd13 898 difftastic_0.70.0-1+sid.dsc
+ 66d2f2453875a4929f89cc418977841c12905fcca59fa6da2778f684fe4e315845fa41abb6cad116db88d47b1fa8747cae7d2a655483dff26e5183498b3fe326 6896596 difftastic_0.70.0.orig.tar.xz
+ 62ac3fcf8a68034d50ce84caefbd24b33eb79f4f873b740c604b6cc6c10a12529b18e4405c70bbc42d9a217ca1324553dfa35d5a7ea84b0453ad2de274a4c0de 1560 difftastic_0.70.0-1+sid.debian.tar.xz
+
+Package: dive
+Format: 3.0 (quilt)
+Binary: dive
+Architecture: any
+Version: 0.13.1-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/wagoodman/dive
+Directory: pool/sid/dive
+Package-List:
+ dive deb utils optional arch=any
+Files:
+ 04878167af92863505625ba4e9ee7a9b 840 dive_0.13.1-1+sid.dsc
+ 2ede6672c8387396f396162582071441 3073748 dive_0.13.1.orig.tar.xz
+ f5d81b6ac2b0a604113fc0d5dda62b68 1528 dive_0.13.1-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 6b7533e7abde67ca2098f51520ac35cdf81ab9d0 840 dive_0.13.1-1+sid.dsc
+ e1ac8b3ce3eaa306a90f62b14730f6a21d2a2d94 3073748 dive_0.13.1.orig.tar.xz
+ 45ae1faefad6fba1cd0794b88bded96365a4d28e 1528 dive_0.13.1-1+sid.debian.tar.xz
+Checksums-Sha256:
+ f8211662d661aa50f7afda271d692d41c1a02aa0b42c333e3faa5048d6918658 840 dive_0.13.1-1+sid.dsc
+ ac8075d4513288b156b857c05ae75bc75e2d9dc82a2a8827b32a01b8e9135ac9 3073748 dive_0.13.1.orig.tar.xz
+ 1f73f824636409856290f7145a29429069dc381a8ef62703c27b5d1381972beb 1528 dive_0.13.1-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 0e5642cc50b2086831d647547996ac5a434ba3d72b6ebf9411f080412029725f130ae6971000c0bb7c3f49f5ed0a8cb0eaaed843602a87441080e9c45f2ad9c8 840 dive_0.13.1-1+sid.dsc
+ 253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
+ aac9cb34ce3570278aab699f706766e87ce1c06aa8760833ba181648ad8ad344b1b45b3be50e062615548413cc5ccea9ef7afe0a12c6702e8686efbefd611690 1528 dive_0.13.1-1+sid.debian.tar.xz
 
 Package: fd
 Format: 3.0 (quilt)
@@ -172,6 +259,35 @@ Checksums-Sha512:
  13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
  d4d48f91238ce8a7cdddf10d9a6c2c7c4addc9ccc9eaf4e5347276d1826f290bb40e1c48e776908826e3fdb208863fbbc9796319c0b7cd6060b4963725e7c2ca 1496 gitui_0.28.1-1+sid.debian.tar.xz
 
+Package: k6
+Format: 3.0 (quilt)
+Binary: k6
+Architecture: any
+Version: 2.2.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/grafana/k6
+Directory: pool/sid/k6
+Package-List:
+ k6 deb utils optional arch=any
+Files:
+ 76943c09539cee43a66201654092f9a5 817 k6_2.2.0-1+sid.dsc
+ 6caca250186ea386988932ee42816803 25844920 k6_2.2.0.orig.tar.xz
+ af6b1d33ecaaa9f30cbf2672f18b7136 11904 k6_2.2.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 0372fa9bba18ff6e2f05f3bb2e135df67373a36d 817 k6_2.2.0-1+sid.dsc
+ b9f1fb01e15928216e1898251dd43e237f6df1ae 25844920 k6_2.2.0.orig.tar.xz
+ 305d24bf25190cb683808b2154e42a065d70e4d9 11904 k6_2.2.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 4ec8da9f95c8805fa0dba153cd194217115542ea4a8d896b8a4cc9a701e9aea6 817 k6_2.2.0-1+sid.dsc
+ 24f734fc2f309fa1caca419ed09addcc4d30a11e0664eb2db05bbbaceca2ddf4 25844920 k6_2.2.0.orig.tar.xz
+ 925db873f305e74c73e6030ab2c7bef27bf4f9c7f01643ede0f3b8265d492c43 11904 k6_2.2.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 15e2f6e4e982e0d0c610a6aa6ec038df0e2b0182f7e8648895bf2fb8b6de200b782270efbbdcfc350c6debd7b211030228166b0d41a311ae1b33bebbc953190a 817 k6_2.2.0-1+sid.dsc
+ 87e460eabea0244b79c75fefbd1d3cf2ad43df4b119a304b46f8947c04826962fa9c7c51729b1e4e9ad6ce6374aa13cc747598df2ac88951c467647448884603 25844920 k6_2.2.0.orig.tar.xz
+ 749614165d373105701804887d2464ad310faf4a17700485a7d3fc11d21820e2a94b63be531223adaeac6304a0d418aa1d775e5931b69595d626ce6f2e83b53f 11904 k6_2.2.0-1+sid.debian.tar.xz
+
 Package: nushell
 Format: 3.0 (quilt)
 Binary: nushell
@@ -200,6 +316,64 @@ Checksums-Sha512:
  ce83bccc6969f2414ea79cd4fb77ad5d6675113bdb020f1c4c3a8532b9662dbb935bfdbb8d4c40df1c60f255a0b0fff5e9dc5c0271ea02a57a61eb20cebfb8c4 878 nushell_0.115.0-1+sid.dsc
  54f6711bc25259e71d55e71127a5394610a771e9a6945098bc535c68e3b420176c3b147eb561dd2551913151f1e7d3adaf18b7388f471311dc5cf352a6e6113c 50555240 nushell_0.115.0.orig.tar.xz
  2251e2ed704f8a91802deed59ba51ef32d8378481c491d7b6da4c4ecc592e588f3236fff2ec4f54e8f5b6919e9ff140856e87ceb610753cf65f8912d5a0e999d 1504 nushell_0.115.0-1+sid.debian.tar.xz
+
+Package: pnpm
+Format: 3.0 (quilt)
+Binary: pnpm
+Architecture: any
+Version: 11.22.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/pnpm/pnpm
+Directory: pool/sid/pnpm
+Package-List:
+ pnpm deb utils optional arch=any
+Files:
+ 250036b7dacff7ae41d882d5b943d3d9 845 pnpm_11.22.0-1+sid.dsc
+ 578aaa68a27516a953f1454bedb4a6fb 33453244 pnpm_11.22.0.orig.tar.xz
+ aea5be7e89b8ec9a6ef62f77d597b9c4 1596 pnpm_11.22.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ b23e34414a6cc0055f5728a58d8c0e497bb98e4c 845 pnpm_11.22.0-1+sid.dsc
+ c216c90b506d498358a3e9b3055e5257933634fe 33453244 pnpm_11.22.0.orig.tar.xz
+ bbc60c4971fd3f90180c0db83fee054dfc900f9d 1596 pnpm_11.22.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 053c30b4b629dcc7ff82e35815cd90611d4eedff8e111120f920a90bfe6a3751 845 pnpm_11.22.0-1+sid.dsc
+ 97898f531a68d5a24c2f1f640b5bced02fa621e835088bc8fc4cede66ad9abc1 33453244 pnpm_11.22.0.orig.tar.xz
+ 825a6292c01211bb3a7cda30843d553b28bbe1b90f6e7ee076f85057631a62e2 1596 pnpm_11.22.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 13409e223bf8f5a3985e58a40c97fb52374fe553467d448f463ffc391c5efb08c52366d081415639c9d5d0a7f24bd29b6dd0cf32739cba7f0c7c137a055a5cc5 845 pnpm_11.22.0-1+sid.dsc
+ 4e112fcdde4696cb145373047e0614f5b67db98a6194fd26e65413f90217b84f32fd0688bf512312b547e0246d72696be9571eee39e662422c84b166384d0514 33453244 pnpm_11.22.0.orig.tar.xz
+ 56aa79b80cf26e5b8a560d66c5bf7e9a738e967c6511580463c167a9274f398b40969fb0f1376241bc4aea39fec08848067660e3c22914d696cbf7c6d9928b5c 1596 pnpm_11.22.0-1+sid.debian.tar.xz
+
+Package: rclone
+Format: 3.0 (quilt)
+Binary: rclone
+Architecture: any
+Version: 1.75.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/rclone/rclone
+Directory: pool/sid/rclone
+Package-List:
+ rclone deb utils optional arch=any
+Files:
+ 376670f5860649540e13438dd51cf086 860 rclone_1.75.0-1+sid.dsc
+ 59e0ce152e816af6a92d0d414067d849 20729480 rclone_1.75.0.orig.tar.xz
+ 1decec22bc22fcf3ef6e822218cc17ef 1560 rclone_1.75.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 7ae144d1a4c286c002a4275af0989a74068eaa74 860 rclone_1.75.0-1+sid.dsc
+ 2fc57949d26527ed0890b748368bf8a3b69f62c6 20729480 rclone_1.75.0.orig.tar.xz
+ 4701af6a3a9871fe25f8340645e0992c9a1ceb9b 1560 rclone_1.75.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ d9c0963756291346652aeaf1e2cf222fae0b3eba58d54262549c4d4dc1221cba 860 rclone_1.75.0-1+sid.dsc
+ f1e44fec24c4ff3d339b8a84e78bc33037ae4aa5fbf6d99ee3a345f59f8dce82 20729480 rclone_1.75.0.orig.tar.xz
+ b30b0c2bfb0cabe6001e709ca61389310079cbb7f86b0a355ec70b20b11292dc 1560 rclone_1.75.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 1bb428a91f25cdda7c0aa809b5742a78ae7f0fd1aaad3b0b3bb68ad8d2e0d75b0681824c0b3412342445e40988209220888b5ff0b114148966066c53212e8c2a 860 rclone_1.75.0-1+sid.dsc
+ c24af1007969d30e5dd4d3744cbd5312dbcd36e1257c86c39d4b0f7adb18cbe8795abb24db52977eecd2126bd49a82c277e6d59a1c011017c50b460b30a9c944 20729480 rclone_1.75.0.orig.tar.xz
+ 6f427238ba8342ce23d2cbce434c7f2cebb9bb4708861feb0da165879ea7e843da4a2342e93f055a0064bcfa1c33ff21892b9462d78fe856b2d5aabcf8e6c31b 1560 rclone_1.75.0-1+sid.debian.tar.xz
 
 Package: ruff
 Format: 3.0 (quilt)
@@ -230,6 +404,35 @@ Checksums-Sha512:
  d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
  13c8146ec4f4086a7aedee19f01125098641e7044f017b4af1f04e30c06a9f4b3f6fdae5c10b02d8c1be2f4c7f4788d90ba718b55cca2bff8d9af13e5a2bef27 2616 ruff_0.16.3-1+sid.debian.tar.xz
 
+Package: superfile
+Format: 3.0 (quilt)
+Binary: superfile
+Architecture: any
+Version: 1.6.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/yorukot/superfile
+Directory: pool/sid/superfile
+Package-List:
+ superfile deb utils optional arch=any
+Files:
+ 0304d203b921b2e9210b79f68293605e 884 superfile_1.6.0-1+sid.dsc
+ 56b7815f7309902dee750b3b46cd38c9 11618916 superfile_1.6.0.orig.tar.xz
+ cde878b569f92480a1f449d7e0449867 1548 superfile_1.6.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ e77ca27daf6f6b42fe1b7977a5cfc519898e23c6 884 superfile_1.6.0-1+sid.dsc
+ 20e665724c2692751239db75534b9929b9e4ee76 11618916 superfile_1.6.0.orig.tar.xz
+ 1f06b938d1abfe724a7e4639835aa6e05edd3f87 1548 superfile_1.6.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 2be3de85cfb1e22a441775c95745c4cb8c7abf823a6c076498a6af8be8418ada 884 superfile_1.6.0-1+sid.dsc
+ 8687ef07bbd9faa3a8ce4153029da8a4ea9878c13e1b8b4f65ecd668cc5ea7f2 11618916 superfile_1.6.0.orig.tar.xz
+ 3f6c47a4e79cf6fd71b2f46b4e0c1d80263cbb9c327ffdaf4e2ec93f894a3157 1548 superfile_1.6.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ dfafc8e1c2ac4bc782c208f0f3146083c84a46d521eec6293269aee49e1bdaba8dca187c1559ac051b2a449f114dfaeb7ba1a19ddc84729f845d8cd3a437e927 884 superfile_1.6.0-1+sid.dsc
+ be3f7089bd31e57c8fbff1900368026131d1e4adda8950540590c03bde6da7ec9f07005410c9ef087a7d142e7b62f8c42ba951e07345485709733e79547a57b8 11618916 superfile_1.6.0.orig.tar.xz
+ 4d5dd13e05864a465b024feae074ad9890178f652bbac6529090be70fb0902a65efec1baa95ef9d9e9f44ebeda6469b9486db2989b883f1cd6f8093810f3f673 1548 superfile_1.6.0-1+sid.debian.tar.xz
+
 Package: uv
 Format: 3.0 (quilt)
 Binary: uv
@@ -259,6 +462,64 @@ Checksums-Sha512:
  5b74ed41472b2e25f328a0c4a58880a980961b89e1ee0f7ea403a534907c2a3551b47ff3004ff89251e7cc64e10ed8f896323be61692b745587c3b22a9e161a4 14635424 uv_0.12.5.orig.tar.xz
  30c56179a3e3bc41d1bee8aed7a68350223d1fa291a55c65781f323c1b4c46c2189fa65b3e2e59a9f76fdb89e3dd3b3ad14b304940b1a3032fbbcf0cba79f801 5092 uv_0.12.5-1+sid.debian.tar.xz
 
+Package: vhs
+Format: 3.0 (quilt)
+Binary: vhs
+Architecture: any
+Version: 0.11.0-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/vhs
+Directory: pool/sid/vhs
+Package-List:
+ vhs deb utils optional arch=any
+Files:
+ 8fc243d7fea1c337e21bd5cdee78d085 834 vhs_0.11.0-1+sid.dsc
+ 8919147705ec1dc186fcc36a9d70e8ae 7330728 vhs_0.11.0.orig.tar.xz
+ d52ee5c6e2fee71741418a1abf5eb7e5 1532 vhs_0.11.0-1+sid.debian.tar.xz
+Checksums-Sha1:
+ e1de5713404530749c5613c44850807b23bbcb78 834 vhs_0.11.0-1+sid.dsc
+ 72e57d9c6cb6bb9897f769e2661bba0e88461c30 7330728 vhs_0.11.0.orig.tar.xz
+ 6d9c8e559c6e8ca2a1e97132f8594e720f05a49e 1532 vhs_0.11.0-1+sid.debian.tar.xz
+Checksums-Sha256:
+ b4719f22cb87a81865b55363a362f070144f33e30c673a94b3802a3f4f2a35a3 834 vhs_0.11.0-1+sid.dsc
+ c39845004493d392a3e02a719b8df1eb2101445cf2c393212e2d61dd3bf85714 7330728 vhs_0.11.0.orig.tar.xz
+ 88fc1a0a527f14c0caf8d901eac737a86b13f73b3d9250702e1212420b489f6c 1532 vhs_0.11.0-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 8b1ac00b8f6e48452f6dd8971cad3b30417805e8dae00e067b3a1b971a7e6ce25fbf1f451373331d6a35a66a370ed7e1772b6be69b4d6c42fea2a8226da95559 834 vhs_0.11.0-1+sid.dsc
+ 2497e396a7c17168babfdf3fd328d7b470fb854474bf29719d2283e102c427ade426c3e86708dba898062cdd4e224d71f1caca2cdcf8b2ee784fa95db7f9ef46 7330728 vhs_0.11.0.orig.tar.xz
+ 40976e4cd5644a4b32447ed5dcb2a85c23dd10b6c33ecc1df47bb82250dfcd23d0a626684dbbb19382490ec4ecfe72fe9bfe6545529b2b6d9fe8f223db7994ac 1532 vhs_0.11.0-1+sid.debian.tar.xz
+
+Package: yazi
+Format: 3.0 (quilt)
+Binary: yazi
+Architecture: any
+Version: 26.8.15-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sxyazi/yazi
+Directory: pool/sid/yazi
+Package-List:
+ yazi deb utils optional arch=any
+Files:
+ 3e53ae7b34b10e5865073bcf8da63cc2 847 yazi_26.8.15-1+sid.dsc
+ 3896c6ee113d4354fde4ffbb5121f011 10167544 yazi_26.8.15.orig.tar.xz
+ df5ae87431d25b4fa66689bbcc1eee05 1520 yazi_26.8.15-1+sid.debian.tar.xz
+Checksums-Sha1:
+ b10262bae3f28030f550fb7deadc41a86fc1a522 847 yazi_26.8.15-1+sid.dsc
+ 6427c45a9301e005185cda30243e7ebe106676ec 10167544 yazi_26.8.15.orig.tar.xz
+ bc89154a5ad83e8721b3b99032d76afc1dda060f 1520 yazi_26.8.15-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 54a7ad73e0fee191980e6846ecaad5825c130acf74d8432195c7d8eecd944bd9 847 yazi_26.8.15-1+sid.dsc
+ 0589d9660a7fd71f1312b4bd95d2c784f032794eb3637d156cce369719b0cb1e 10167544 yazi_26.8.15.orig.tar.xz
+ 6e5072b3383d9b8fba7226c318774d6d611f9ef54d2fb1861b4252e86ab37bee 1520 yazi_26.8.15-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 19249211715bb1042bd310db6882f67a2dd99c94545db9e98a69f81aa5c400d00fc03a36654a95c0070226a4d9cbd63e49744ab4ee30f0a2bebf007f3d195a99 847 yazi_26.8.15-1+sid.dsc
+ f3f598349c2583f623e4b74ce5d157b9d93f06e918120a21c603e67907520ddd95b472f2886f74d81cc7c634b76f5d3baf6ea450cbee3ac9194d8277481c7c10 10167544 yazi_26.8.15.orig.tar.xz
+ ba83ba39601d448437a866a0832bccb857ef6cbdb579718e1c08d4f6db66b888504f0c01754167eaa117bae39fca556c104c082761ab7887baa98667e2e1a0fc 1520 yazi_26.8.15-1+sid.debian.tar.xz
+
 Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
@@ -287,4 +548,62 @@ Checksums-Sha512:
  98cdaf68b74e314cc9e641f7563798ac6f1726494d2e079cd919ad120413b2dd29a4a2e2f6aff6cf0a62201c474cea4f2221185f143250bc1faaaf46c7517e90 847 yq-go_4.53.4-1+sid.dsc
  c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
  a5b25450ff97583c72f24d1ae25ddf23fbd6b03a6cd3f15f6180a5e2ffc0b705be6411161019f2ada3994ee94bb1375756eb4812f6b4a8f41dc89e4a223d6281 1532 yq-go_4.53.4-1+sid.debian.tar.xz
+
+Package: zed
+Format: 3.0 (quilt)
+Binary: zed
+Architecture: any
+Version: 1.16.1-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zed-industries/zed
+Directory: pool/sid/zed
+Package-List:
+ zed deb utils optional arch=any
+Files:
+ e2518573105097d7ad08f22f40636bdd 838 zed_1.16.1-1+sid.dsc
+ bcad45aa6b4387a835e9415c82a1089f 98674736 zed_1.16.1.orig.tar.xz
+ cadf1f339faffae86519eebb0f2957e7 4472 zed_1.16.1-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 85e77c09d50f1af15244a522a9e4b92f91606d87 838 zed_1.16.1-1+sid.dsc
+ 823df5a7eec6b6a90f16c4a83d2e7c03e7f6577f 98674736 zed_1.16.1.orig.tar.xz
+ ffc95a4fd789a38f17516ac596057aba4a3c00bf 4472 zed_1.16.1-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 5c7ad0e4d47ffabe7a38d9eddcb3e86d3eac541d7d22a6c5c905e1c404915cea 838 zed_1.16.1-1+sid.dsc
+ d9bac9645fd5d7c0a39db754c007cfa1ad0ff1d070ae973f1a4b44e186d71f33 98674736 zed_1.16.1.orig.tar.xz
+ bb1f581e5fa059d530694511e68ee8c65665eb697780c80a3156b74322c43655 4472 zed_1.16.1-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 23f118469653ffe56d831b32de30e929b9bc36f12549a1f99ea78a3ac7665beb6f27dffe6e7def85417b95146fb5b1f2f206c7f9c5a147c90a895efca9ec2af8 838 zed_1.16.1-1+sid.dsc
+ ae9d89cc3c8e6fa5cd756d23d0bd947d8cf128d0754959d0979ba601076a267e0bbcfc138a7209372d0d9c170e59d380c25da27a4ef237591816a6a0ebc57636 98674736 zed_1.16.1.orig.tar.xz
+ 1bdc1e07012b057b80561721e9c82651ce55c959c8c1cb42005ffc4fa851257cc241c4b9263f1ef747cb6dddc4c0efc817dc9247c844afd5e3c2b8225bbdf18a 4472 zed_1.16.1-1+sid.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.44.3-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/sid/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 598d8cf71ab355e081b9e78b48e6e88d 861 zellij_0.44.3-1+sid.dsc
+ 463ac47e0bff0b2e44d33f0440564a48 7802520 zellij_0.44.3.orig.tar.xz
+ 6ebd0ecf9a2d2305837b9e439d8c0b71 1536 zellij_0.44.3-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 8bd048b7b25ccff07a6f09774816a731098de42e 861 zellij_0.44.3-1+sid.dsc
+ 2051557a272897db71257a501802bbf5b989c443 7802520 zellij_0.44.3.orig.tar.xz
+ dbdce944aeea3bcc31ff0f205b078a660b30f9c7 1536 zellij_0.44.3-1+sid.debian.tar.xz
+Checksums-Sha256:
+ daf7d8a76a3a64079a3d1f354493f46d920bbbc479ecea7e51f1b6c9ac2d834d 861 zellij_0.44.3-1+sid.dsc
+ b1f37f86c16ce41fd09128d472c4033e841abc6a65da76c042b23d56207af492 7802520 zellij_0.44.3.orig.tar.xz
+ ca54874a28be757c5b747743eec04eb422cfc989f8d543fdfb82adbf97cc8434 1536 zellij_0.44.3-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 32c8c6e12a8be75ec1e7dd11be32cb3609d7640d9400503123d7de6892c9bd53c125e80b13b5266e6df2a9b536fac52c26145c8184e2b7d9629206d553b0b677 861 zellij_0.44.3-1+sid.dsc
+ d08707b4635cec73db02a2beb26e6e6bba69e74f9f06070a345d19b35d1969e27dc8999d0b9c1216fffd56f8485cebad1b9f2dce3d0294bc678b8164dcfce1f7 7802520 zellij_0.44.3.orig.tar.xz
+ 62ee00fa975e4ef13d7e34f177fca304f5f9a2d8849a7018ef6119f55eaafadc96eac1f3dd21e9e97da660af1319a3fe6d37e36f30d7d2490282423a8dc0bd9c 1536 zellij_0.44.3-1+sid.debian.tar.xz
 

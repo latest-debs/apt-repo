@@ -1,3 +1,19 @@
+Package: act
+Architecture: arm64
+Version: 0.2.89-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/act/act_0.2.89-1+bookworm_arm64.deb
+Size: 5119824
+MD5sum: 311e6ef701fcd316a90cecd31ed6ca4c
+SHA1: 0026cc72793f544212a44a08deb51c2b79438964
+SHA256: 5ae56b0c31c5777f20d0b728cf22faf1c980dee69ff4cca58b35d395ccac4708
+SHA512: 1dc8ec9d02b71db2a7d7f145eb305a0d3a0d5139b7e57f3e4dc934eab1208b405f8149cd4dd71dc23121ec4c6594ef5ac868e9097f7b70c6f08db83fd2acf821
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: arm64
 Version: 0.26.1-1+bookworm
@@ -60,6 +76,38 @@ SHA256: 1768ee024a807adaa2f9b645ab15ad4bad2042853f49c8a044a73abffe5d41b7
 SHA512: 4cef5fe35d16c3eb2f2a18f431fa9d55d512633da7d1f174a0ca3ec15a654c856d6df51c9daaed605c0bb1be41d6c7b515d2802eee1d17920bbda5dbfba2068b
 Homepage: https://github.com/denoland/deno
 Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: difftastic
+Architecture: arm64
+Version: 0.70.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/difftastic/difftastic_0.70.0-1+bookworm_arm64.deb
+Size: 6553700
+MD5sum: e41a3829e936f0363adf458b65624bc3
+SHA1: f971342a2b3bbc29b2d314f9d917cfa5b4970537
+SHA256: 227935c6f2b07496d0eb18f30163a71a7760edd067424dbeb96595491a9389f7
+SHA512: f30e0d7c8c697c587c14fd79d4e991cec03b678609765fe49df37a3a74da18bd236cde0adec40c0af9aadeafa810745951e8541fd912fe94e034decd20e19696
+Homepage: https://github.com/Wilfred/difftastic
+Description: A structural diff tool that compares files based on syntax rather than lines, understanding 30+ programming languages.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: dive
+Architecture: arm64
+Version: 0.13.1-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/dive/dive_0.13.1-1+bookworm_arm64.deb
+Size: 2628732
+MD5sum: be55b1d4ca288f2f3d59969f93a7f5b6
+SHA1: 3a1fee9656dd9a7f828fd76bf7af6cb34397d466
+SHA256: 03ebeda3f623f988e9f873b5108b924aff7976af29d37fc916b5258921c0c505
+SHA512: 8cca192edead0d074a239aafd4aa1fa47454ce8d84028d8e31647c6cc2b7bc15924d27c0e4e155d9bdbc36954804f8552e9dd518ee43329f1c00963ce99224dc
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
  Packaged from the upstream GitHub release for Debian.
 
 Package: du-dust
@@ -238,6 +286,22 @@ Homepage: https://github.com/casey/just
 Description: Just a command runner
  Packaged from the upstream GitHub release for Debian.
 
+Package: k6
+Architecture: arm64
+Version: 2.2.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/k6/k6_2.2.0-1+bookworm_arm64.deb
+Size: 23222264
+MD5sum: a3a0231af69e1dc517e0ecb8c02992bc
+SHA1: bf20eca5f8202d0a99546e28a69545a1253c337f
+SHA256: f686579cedfc041040e932c3ecaeec77b6d61d9314d9023c575c2edc4f68b004
+SHA512: d4d58780e0ec234d1adff3a65c76dc9e38e0ef88fc738c6ab60b40bb513ee312bf016fcdf5b2e26cb16be20aac82f91f507dbffb8852c169656012dcf1c7ca6d
+Homepage: https://github.com/grafana/k6
+Description: A modern load-testing tool for testing the performance and reliability of APIs and services, scriptable in JavaScript.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: k9s
 Architecture: arm64
 Version: 0.51.0-1+bookworm
@@ -302,6 +366,23 @@ Homepage: https://github.com/nushell/nushell
 Description: A new type of shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: pnpm
+Architecture: arm64
+Version: 11.22.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Depends: libatomic1
+Filename: pool/bookworm/pnpm/pnpm_11.22.0-1+bookworm_arm64.deb
+Size: 32882856
+MD5sum: 149fd6c6dadd23dce1c216732e4a7574
+SHA1: e2b1c041affea38308e871ad05a63c2bc543e9cd
+SHA256: bad9de9ebd81a53c2ac1c0d2a31793acc41604850e3bfcfcc973b7ab47748e33
+SHA512: 2dc34a8afc66a7de588bfd952788561adfeae1948e1bf58d6e16093b23981fe1542b09f9146b8a25cdfb99eace484941ea28474eec075f27e578c9c995cfd5f6
+Homepage: https://github.com/pnpm/pnpm
+Description: A fast, disk space efficient package manager for JavaScript/Node.js, using a content-addressable store to avoid duplicating dependencies.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: procs
 Architecture: arm64
 Version: 0.14.12-1+bookworm
@@ -316,6 +397,22 @@ SHA256: 3afb10dccabed8fdcaa7f47ec62d812e2177169def6bb9f14ce807a5d2919f4f
 SHA512: 47d10e31abaaa7cc42d63fdfe756599abb918b7a8379065524eb7da3ccbed02d7e6e0276dc9b37867cf20345d1b14fd154da96445e210be9d6db89d7b09b2733
 Homepage: https://github.com/dalance/procs
 Description: A modern replacement for ps written in Rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: rclone
+Architecture: arm64
+Version: 1.75.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/rclone/rclone_1.75.0-1+bookworm_arm64.deb
+Size: 17783168
+MD5sum: d348bec12394410d3d71d44b8a542c36
+SHA1: c8595b1c263e97ad974fc6cc1c94eb19817f30b2
+SHA256: 35faf7d76b1feccdf7f17b1ea822fc504f387b74f7cf4bbee558e8e015291bc2
+SHA512: 766bb38e287db3988cfdaca889d5471c54613f7369e65736513dab193781f9479e72b2d22f26c7c75bb8ed8c5b69a13d1b1f6141357a2d6f5106998a874ea7c2
+Homepage: https://github.com/rclone/rclone
+Description: Syncs files and directories to and from cloud storage providers (S3, Drive, Dropbox, etc.) via the command line.
  Packaged from the upstream GitHub release for Debian.
 
 Package: ripgrep
@@ -366,6 +463,22 @@ Homepage: https://github.com/starship/starship
 Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
  Packaged from the upstream GitHub release for Debian.
 
+Package: superfile
+Architecture: arm64
+Version: 1.6.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/superfile/superfile_1.6.0-1+bookworm_arm64.deb
+Size: 10412784
+MD5sum: d83ce0efbb52aad67af4416c34b7f6d0
+SHA1: 015e7302c0f75cc6f8d83dba4bfded38f9edd275
+SHA256: 3d79c60d45d19e924c5b07a87b859e495cc6c4ebc48effe03e55c8ef0a986610
+SHA512: 000c9e4f64b1c06c9d12d7c853f293dd7c4d6d12635ab85a55e7b9187b637dee33ba3ac7d2316b3d8605849df708337a22ac3e1be33a7778dc3a85813a78e16e
+Homepage: https://github.com/yorukot/superfile
+Description: A fast, modern terminal file manager written in Go, with multi-panel navigation, previews, and plugin support.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: uv
 Architecture: arm64
 Version: 0.12.5-1+bookworm
@@ -380,6 +493,22 @@ SHA256: 622693545edc5f3c6028725dd9ddbab76b8ac28255c73cb7ca6a9e9680f74426
 SHA512: 8a467a9cf21b80d1b4a98245012ea52cd5f6d93f4aef7abbaf2407e247492eb6ca9d1e02e765763788f6dd66b1c6476805390e58126eeaaf65ac6cb01551a9be
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vhs
+Architecture: arm64
+Version: 0.11.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/vhs/vhs_0.11.0-1+bookworm_arm64.deb
+Size: 6599456
+MD5sum: 62154c4a759c43f1a94f058246ba82d4
+SHA1: bbf34ee9a19685447cb29be9d0789d8ae15cbf9b
+SHA256: 426c5239b3a4f592eaf2ccd1c0fca4f00de942e9bbda728b2e17152b4915cc93
+SHA512: dfa2123be30fe610c2ef05d4323096c09911f9d936449881c17dc47d55a6fa8bf46e3cb089682fb4c6ad65a169875ff8c4cb99ff2b8359ef78d8f680c5d856f5
+Homepage: https://github.com/charmbracelet/vhs
+Description: Writes terminal GIFs as code, scripting recordings of terminal sessions for docs and demos.
  Packaged from the upstream GitHub release for Debian.
 
 Package: vite-plus
@@ -428,6 +557,38 @@ SHA256: d6115f9764e8fef561eba061e2bcef1f716b71a2f0432dd279e5500c00c4ead0
 SHA512: ec09f32a345f75f3d641d5a8b57f60efe7b89a9c058d57684c77259ba2e48d25805fecf5ddf0dd6cf3d3c3f3b957139d4cdd8585aec098e11ad4878bc4bf50af
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zed
+Architecture: arm64
+Version: 1.16.1-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/zed/zed_1.16.1-1+bookworm_arm64.deb
+Size: 90165760
+MD5sum: 2ad0cf6f1070ce3c37096a159e11c99a
+SHA1: 220d01ab3fe9ec4c420fda511a687f65253116f2
+SHA256: c5edfa3f9b6d0adb9c640cd9d6419974b7c8edfe10896d036b5420a794d21c13
+SHA512: 107955a4a092d497be43498cdab165e753ba0c2b7627eca332b56ce1deadb3088c0209d74c4d95eff50b67580b6f091c429088da6e4c4417758ea21f46600d30
+Homepage: https://github.com/zed-industries/zed
+Description: A high-performance, multiplayer code editor with built-in collaboration, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zellij
+Architecture: arm64
+Version: 0.44.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/zellij/zellij_0.44.3-1+bookworm_arm64.deb
+Size: 9919316
+MD5sum: 55a4738a4cc052262c5efe811a4a382f
+SHA1: 4ed085ba49f54bfffc2753a36aaec72fe1707b0f
+SHA256: cbfe287fe19eabb78ad2a59fa8b891ce9672b3f4e5c6deaff3bf053c046d4087
+SHA512: 04b5a31e3bc252d461faf846505f17195d4492a04874231bf0de9c129e3d986e2da035b6d38ae3e61e3b1b5c8df0f6074619ce456bf4a27c7038dc14262b514a
+Homepage: https://github.com/zellij-org/zellij
+Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
  Packaged from the upstream GitHub release for Debian.
 
 Package: zoxide

@@ -290,6 +290,17 @@ appear in the **License** column of the [Packages](#packages) table below;
 | `gitui` | MIT | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
 | `fresh-editor` | GPL-2.0 | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
 | `nushell` | MIT | `apt install nushell` | [nushell/nushell](https://github.com/nushell/nushell) |
+| `dive` | MIT | `apt install dive` | [wagoodman/dive](https://github.com/wagoodman/dive) |
+| `superfile` | MIT | `apt install superfile` | [yorukot/superfile](https://github.com/yorukot/superfile) |
+| `pnpm` | MIT | `apt install pnpm` | [pnpm/pnpm](https://github.com/pnpm/pnpm) |
+| `act` | MIT | `apt install act` | [nektos/act](https://github.com/nektos/act) |
+| `zed` | GPL-2.0 | `apt install zed` | [zed-industries/zed](https://github.com/zed-industries/zed) |
+| `rclone` | MIT | `apt install rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
+| `k6` | AGPL-3.0 | `apt install k6` | [grafana/k6](https://github.com/grafana/k6) |
+| `difftastic` | MIT | `apt install difftastic` | [Wilfred/difftastic](https://github.com/Wilfred/difftastic) |
+| `vhs` | MIT | `apt install vhs` | [charmbracelet/vhs](https://github.com/charmbracelet/vhs) |
+| `yazi` | MIT | `apt install yazi` | [sxyazi/yazi](https://github.com/sxyazi/yazi) |
+| `zellij` | MIT | `apt install zellij` | [zellij-org/zellij](https://github.com/zellij-org/zellij) |
 
 <!-- packages:end -->
 

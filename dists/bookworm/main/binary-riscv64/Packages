@@ -1,3 +1,19 @@
+Package: act
+Architecture: riscv64
+Version: 0.2.89-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/act/act_0.2.89-1+bookworm_riscv64.deb
+Size: 5333308
+MD5sum: 81781db226a5d43e0840071e9eddc656
+SHA1: 0614966243210c5b1976b087fd36e4b9e3342505
+SHA256: dcf50934521412b41a54c166e690bbbf31e055596eae82757a5bed25dc147c3b
+SHA512: c20c907a65aa87314627d54c3c1d81f83de5901f212ca819203349be314c0c5ec72575937cfb6242570ae919a194cb17c16f1633885e6c2890b60b35e69de61c
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bottom
 Architecture: riscv64
 Version: 0.14.8-1+bookworm

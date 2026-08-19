@@ -91,7 +91,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build __PKG_NAME__
-        uses: ranjithrajv/debian-multiarch-builder@v.0.1a15
+        uses: ranjithrajv/debian-multiarch-builder@v.0.1a20
         env:
           # Authenticate GitHub API calls from the builder; anonymous calls
           # from shared runner IPs are rate-limited (60/h) and caused
@@ -170,22 +170,53 @@ jobs:
           EXPECTED="${EXPECTED#v}"
           rm -rf smoke-root
           dpkg-deb -x "$DEB" smoke-root
-          for bin in smoke-root/usr/bin/*; do
-            name="$(basename "$bin")"
+          mapfile -t bin_names < <(basename -a smoke-root/usr/bin/*)
+          # Actually install the .deb (not just extract + mount usr/bin) so
+          # this exercises what a real `apt install` does: bundle-mode
+          # packages symlink /usr/bin/<name> to an ABSOLUTE path under
+          # /usr/lib/<package>/ (e.g. pnpm, zed), which only resolves once
+          # the package is installed at its real root - mounting just
+          # usr/bin left those as dangling symlinks. Installing also
+          # exercises any Depends: the package declares (e.g. pnpm needs
+          # libatomic1), catching a missing runtime dependency here instead
+          # of shipping a package that crashes for every user.
+          # shellcheck disable=SC2016 # intentionally unexpanded here - this
+          # string is handed to a nested `bash -c` invocation below, which
+          # is what expands $1/$name/$out/etc., not this outer shell.
+          smoke_script='set -e
+          apt-get update -qq
+          apt-get install -y -qq "$1" >/dev/null
+          shift; expected="$1"; shift
+          for name in "$@"; do
             ok=0
             for arg in --version -V version; do
-              out="$(docker run --rm -v "$PWD/smoke-root/usr/bin:/bins:ro" debian:$SUITE bash -c "chmod +x /bins/$name; /bins/$name $arg 2>&1 || true")"
-              if [ -n "$out" ] && printf '%s' "$out" | grep -q "$EXPECTED"; then
-                echo "  OK: $name $arg (on $SUITE) -> $(printf '%s' "$out" | head -1)"
+              out="$("$name" "$arg" 2>&1 || true)"
+              if [ -n "$out" ] && printf "%s" "$out" | grep -q "$expected"; then
+                echo "  OK: $name $arg -> $(printf "%s" "$out" | head -1)"
                 ok=1
                 break
               fi
             done
-            if [ "$ok" != 1 ]; then
-              echo "::error::Smoke test failed for $name on $SUITE (expected version $EXPECTED)"
-              exit 1
-            fi
+            [ "$ok" = 1 ] || { echo "SMOKE_FAIL:$name"; exit 1; }
           done
+          echo "ALL_OK"'
+          # The outer `set -e` would otherwise kill this script the instant
+          # docker run exits non-zero - before $out ever gets echoed, losing
+          # the actual diagnostic. Capture the exit status explicitly so a
+          # real failure (SMOKE_FAIL, a crashed binary, apt-get install
+          # itself failing) still prints what happened.
+          #
+          # ZED_ALLOW_ROOT: some binaries (zed) refuse to run as root as a
+          # deliberate safety guard - harmless no-op for every package that
+          # doesn't check for it, needed for the ones that do since this
+          # container always runs as root.
+          out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
+            bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)" || true
+          echo "$out"
+          if ! echo "$out" | grep -q "^ALL_OK$"; then
+            echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED)"
+            exit 1
+          fi
           echo "All binaries passed the smoke test"
 
   release:

@@ -14,6 +14,22 @@ Homepage: https://github.com/ClementTsang/bottom
 Description: A cross-platform graphical process/system monitor with a customizable interface
  Packaged from the upstream GitHub release for Debian.
 
+Package: dive
+Architecture: ppc64el
+Version: 0.13.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/dive/dive_0.13.1-1+sid_ppc64el.deb
+Size: 2612900
+MD5sum: f6bd6e559ee9e37240d4c506a72679fa
+SHA1: 1051f6fec61e5e52d09b1e7e58a7dd0eae2878d3
+SHA256: 20668cbd759f3007b26aebaf16d0ad3bea9c93b1943391cd0481bb2f19ad3231
+SHA512: c9feae452f4f9ef1cfb2a25ffc560b194a41f810a01758376748e39bdb39b46170905a0252da99b6e97dc64b9d2451a949ecac5816f76c8ce90cd2d5e69fb72e
+Homepage: https://github.com/wagoodman/dive
+Description: A tool for exploring a Docker image's layers to discover ways to shrink image size.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: fzf
 Architecture: ppc64el
 Version: 0.74.3-1+sid

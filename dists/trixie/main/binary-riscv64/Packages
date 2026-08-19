@@ -1,3 +1,19 @@
+Package: act
+Architecture: riscv64
+Version: 0.2.89-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/act/act_0.2.89-1+trixie_riscv64.deb
+Size: 5334064
+MD5sum: ba77004b2f6ca16f1b45905165c2f28f
+SHA1: 256378120b58a993a2dadbe4057ed3cf5c368766
+SHA256: bf49a5345e50e940de1c6747a89e2a1390454bf43c5c90706860db603b782e89
+SHA512: 434d2ce7f4ed482e244ecaa20e9abecf238ea01305e36bc1c9195f3a6180f3ac8160466a320ad21e84ebde970fc0488d3a4a74457a5569a1c211a37e69a2f875
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bottom
 Architecture: riscv64
 Version: 0.14.8-1+trixie
@@ -108,6 +124,22 @@ SHA256: 85f2c0fee782f8a3bb864e9c3d430f06c498a4b34be971478fe82d4486e718ff
 SHA512: 9e5dde8519a110bfff59c0c760ae87cc2a8ae77fa13df0eadaa757e7d69c8fba9918fd683f5b6fa908cc91e5b29f2cd400bc9416fae1d7e2dd68439d2db0840e
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yazi
+Architecture: riscv64
+Version: 26.8.15-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/yazi/yazi_26.8.15-1+trixie_riscv64.deb
+Size: 10706748
+MD5sum: 56752c3c95ec516ce6877032defc3e5d
+SHA1: 32fc64bcb9780a3837830826e42ba47e1e6af806
+SHA256: 6dd129a668010fc16320af2a71f079c7353e78ae53431b1863bebf0897c4bee5
+SHA512: 6554b8e241e992e47f0d9e2d3778d2bd509a0f10053173960490b363ea9789a88f89ba856d173424d25e291cbd6ffe962b588079f5294e38411ce231eb280ed4
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
  Packaged from the upstream GitHub release for Debian.
 
 Package: yq-go

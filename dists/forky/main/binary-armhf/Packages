@@ -1,3 +1,19 @@
+Package: act
+Architecture: armhf
+Version: 0.2.89-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/act/act_0.2.89-1+forky_armhf.deb
+Size: 5228716
+MD5sum: 708fd047d10def624496f2da6e9cbd06
+SHA1: 163db2f5b84533eb26ec66389a8a6611fafc42e5
+SHA256: e31c486d489ac81dd9587b7b3d090bf618d2c915c6897bd50f659a8052acb4f8
+SHA512: 956a916c5de7627d29edbd0032e49746a2cfdadbfdcc01e217dcb98b916cfa4690306d483ccbd46df7a1d79d5c8397045e6c0dad9bc03d29c102a7625753b63e
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: armhf
 Version: 0.26.1-1+forky

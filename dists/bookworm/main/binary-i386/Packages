@@ -1,3 +1,19 @@
+Package: act
+Architecture: i386
+Version: 0.2.89-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/act/act_0.2.89-1+bookworm_i386.deb
+Size: 5631172
+MD5sum: 16597bfefccf16c6f623fb44ae78f807
+SHA1: 49a09d6d2d40e7631554f26dc1d30caabd96eee9
+SHA256: fcd1e92a62996c10c66c26b4e4b3c3e5606d1f377a49c18b33f24d4ed35e089a
+SHA512: 8a4c26d25c2dd504ab893167e1b1f819920c71728e6badff7fb1e934c7cf2f7ff69ab25269be34650275c15319cd56a6fc7f0e295005f0413d23fec8df07ac53
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: bat
 Architecture: i386
 Version: 0.26.1-1+bookworm
@@ -172,6 +188,22 @@ SHA256: 0a837670a3262cfe1f951ca0621b93aaf88ca3c180ec882a78ddcc066bc7705b
 SHA512: 17bf4f5836d70d80b56bf97ebec62d68a09ec90f5a384c82bc990ffdc40662c2b535b732ab30ccf650cbfa5317c75a588cc7251d139f313f6f3733ccb002323b
 Homepage: https://github.com/astral-sh/uv
 Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vhs
+Architecture: i386
+Version: 0.11.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/vhs/vhs_0.11.0-1+bookworm_i386.deb
+Size: 7010548
+MD5sum: cef5ed90535c1af0d2a691ac2e2ad3ab
+SHA1: 5bfca1e91502cb357b95bea3a67bd15014a1aee3
+SHA256: b7f9477a436c1771418ba2fb7b36553f9cd50ee8c3c61f159a5641321c364203
+SHA512: b0cd368d099ab2c1efafc60e090ff7f28c73b92bb0d59f3c27712722b74e5489c2e26a79559ce338677bb846f94e9a05351b98bf84337898a0047bfe5e740ba7
+Homepage: https://github.com/charmbracelet/vhs
+Description: Writes terminal GIFs as code, scripting recordings of terminal sessions for docs and demos.
  Packaged from the upstream GitHub release for Debian.
 
 Package: zoxide
