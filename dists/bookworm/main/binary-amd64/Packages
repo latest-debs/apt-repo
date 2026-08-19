@@ -350,6 +350,22 @@ Homepage: https://github.com/jesseduffield/lazygit
 Description: simple terminal UI for git commands
  Packaged from the upstream GitHub release for Debian.
 
+Package: neovim
+Architecture: amd64
+Version: 0.12.4-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/neovim/neovim_0.12.4-1+bookworm_amd64.deb
+Size: 8653480
+MD5sum: 8206b34ef6f7668207d8c5dd03a4256b
+SHA1: a1503d871f13ea481df10ce67e761cd73f23a85c
+SHA256: abc0f043130284f00af8c6fb6189b95fbfd05c1001ba9a49112ceb8c7a9d4bcd
+SHA512: d570dc1b433d974265c925dac6f1c166f66feafda37ca08b9dec0f5174bacf6d0cb17d37e18738916d9532b7209ad02cda5a31117f990aa9bca201f92e87ba04
+Homepage: https://github.com/neovim/neovim
+Description: A heavily refactored vim fork focused on extensibility and usability, with a built-in Lua scripting engine and LSP support.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: nushell
 Architecture: amd64
 Version: 0.115.0-1+bookworm

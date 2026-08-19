@@ -366,6 +366,22 @@ Homepage: https://github.com/jesseduffield/lazygit
 Description: simple terminal UI for git commands
  Packaged from the upstream GitHub release for Debian.
 
+Package: neovim
+Architecture: arm64
+Version: 0.12.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/neovim/neovim_0.12.4-1+trixie_arm64.deb
+Size: 8363892
+MD5sum: b5c56da440192248efa58915ed270bb0
+SHA1: ba18a580206afdad82c962d7d0fe0e07ca9727f1
+SHA256: d15fddef0016f36cfa7fc95e6fd44657d50f927084640bec1c3128a9a0f9b6c5
+SHA512: 424983d7b7c3ee1a01700492dd007fa8cb36739c6adb9420ed0bd10e0ab4501b15d356cfd8b154588c324a7c1d1564fdf636cc5960f0d3d64864d59fbf1acf1a
+Homepage: https://github.com/neovim/neovim
+Description: A heavily refactored vim fork focused on extensibility and usability, with a built-in Lua scripting engine and LSP support.
+ Packaged from the upstream GitHub release for Debian.
+
 Package: nushell
 Architecture: arm64
 Version: 0.115.0-1+trixie

@@ -259,6 +259,35 @@ Checksums-Sha512:
  87e460eabea0244b79c75fefbd1d3cf2ad43df4b119a304b46f8947c04826962fa9c7c51729b1e4e9ad6ce6374aa13cc747598df2ac88951c467647448884603 25844920 k6_2.2.0.orig.tar.xz
  0132211582c76f4566ed56e08af7f2f95059ccc7a287ca4513717a632d0801b971ac43b6f3ec3c94715d1dc073dc1222f80de0fb2d2d59448495611cc97b74d0 11908 k6_2.2.0-1+bookworm.debian.tar.xz
 
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.4-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/bookworm/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ 283532af6874ebefca34980f1002cd39 877 neovim_0.12.4-1+bookworm.dsc
+ e919c0232ffdc70f01106649925e4ffe 8679524 neovim_0.12.4.orig.tar.xz
+ 431ca3e62fe3ae01b285d437a9ba248f 6260 neovim_0.12.4-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 0d2573ac147f798c29eb4b1dd71d278dc4200000 877 neovim_0.12.4-1+bookworm.dsc
+ d1b4bf0988c8319bcc78ee9a57abb2854dcae5aa 8679524 neovim_0.12.4.orig.tar.xz
+ 31f9cc60cc9615b683972de97076cc9a3d160de4 6260 neovim_0.12.4-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 4abb84e823ef2345dbcb7746b4e06a21c52b4a33380f06f5ce1ad1c41cf22ab6 877 neovim_0.12.4-1+bookworm.dsc
+ 956fd07fd51c2f2f888925ce4c2232d81249058dfa90b5ae167e4cf6ae3016d4 8679524 neovim_0.12.4.orig.tar.xz
+ 8ca3fa864521b3bc0c6faf55f1170e411cd996d4c36a8b6878c980bb360cc7b2 6260 neovim_0.12.4-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 641a7ccfed4dcff57dc6c5b1e37b074cbb0001f263df82c856f9d4a37fc909f624159289d9d2fa787b3edc610b187fbb48baa59c47a150569afaff609dba22d9 877 neovim_0.12.4-1+bookworm.dsc
+ 273f056bae7e08dcd41ec9f71a890f7cedc7bc983ce46c2773e4c891c422172af4a999da6a73c85cea0463f31f210f4850efc4f4fa106c166b2222af9593a572 8679524 neovim_0.12.4.orig.tar.xz
+ e566c4f0919a32b5497bcd96f2b090983c9bd03aafe01e2249d6410312206b841c859ee118eaa7fcb1583cfec23dbbb0c0af3349f69936e49667d7934114506c 6260 neovim_0.12.4-1+bookworm.debian.tar.xz
+
 Package: nushell
 Format: 3.0 (quilt)
 Binary: nushell

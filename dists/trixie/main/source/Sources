@@ -288,6 +288,35 @@ Checksums-Sha512:
  87e460eabea0244b79c75fefbd1d3cf2ad43df4b119a304b46f8947c04826962fa9c7c51729b1e4e9ad6ce6374aa13cc747598df2ac88951c467647448884603 25844920 k6_2.2.0.orig.tar.xz
  dc2355a20c9e13ba9e5fda0a7cf70234aee2cd689179c2326425e108da6b3f45498da9db8306e507ce2afdd3f472d37bce46e40b1629fc7550fcf6ee78d6e369 11908 k6_2.2.0-1+trixie.debian.tar.xz
 
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.4-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/trixie/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ 26871b35f948a0058a5d5ae0bfd92835 869 neovim_0.12.4-1+trixie.dsc
+ e919c0232ffdc70f01106649925e4ffe 8679524 neovim_0.12.4.orig.tar.xz
+ d9bc1751d44515cf00bac818d8654a09 6260 neovim_0.12.4-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 4d7eae7ce986a230af15a5cdc87445b9bc6d6fe1 869 neovim_0.12.4-1+trixie.dsc
+ d1b4bf0988c8319bcc78ee9a57abb2854dcae5aa 8679524 neovim_0.12.4.orig.tar.xz
+ 40f86d435e8823bcbca88da8402f1a29d36e07c7 6260 neovim_0.12.4-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 8b5b373424897047e96ab0d700f73057292997d797ecea0acd91176fa93ca7bf 869 neovim_0.12.4-1+trixie.dsc
+ 956fd07fd51c2f2f888925ce4c2232d81249058dfa90b5ae167e4cf6ae3016d4 8679524 neovim_0.12.4.orig.tar.xz
+ 1210fb14d1a9edb272757ccb96d55f59d16f7b81bc42bbaee16394c87583bc63 6260 neovim_0.12.4-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ ed9c304f114b68836fa234ef0924d53a1da5c0b89963e050286ee4aa722caa750c329af96208f44fb1a5e3733018d6733895693ee48556ed71a47dd03213d0db 869 neovim_0.12.4-1+trixie.dsc
+ 273f056bae7e08dcd41ec9f71a890f7cedc7bc983ce46c2773e4c891c422172af4a999da6a73c85cea0463f31f210f4850efc4f4fa106c166b2222af9593a572 8679524 neovim_0.12.4.orig.tar.xz
+ 68051bdbda86649e2a4b45c4d0b0f39dffbc1a28d4426c20d1d54c7f5e19a919e6b2745de1d92a4141eb4109dd2fe35a328e8c0ea928b77233444cf05dad11b6 6260 neovim_0.12.4-1+trixie.debian.tar.xz
+
 Package: nushell
 Format: 3.0 (quilt)
 Binary: nushell

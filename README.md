@@ -301,6 +301,7 @@ appear in the **License** column of the [Packages](#packages) table below;
 | `vhs` | MIT | `apt install vhs` | [charmbracelet/vhs](https://github.com/charmbracelet/vhs) |
 | `yazi` | MIT | `apt install yazi` | [sxyazi/yazi](https://github.com/sxyazi/yazi) |
 | `zellij` | MIT | `apt install zellij` | [zellij-org/zellij](https://github.com/zellij-org/zellij) |
+| `neovim` | Apache-2.0 | `apt install neovim` | [neovim/neovim](https://github.com/neovim/neovim) |
 
 <!-- packages:end -->
 

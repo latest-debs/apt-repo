@@ -288,6 +288,35 @@ Checksums-Sha512:
  87e460eabea0244b79c75fefbd1d3cf2ad43df4b119a304b46f8947c04826962fa9c7c51729b1e4e9ad6ce6374aa13cc747598df2ac88951c467647448884603 25844920 k6_2.2.0.orig.tar.xz
  aaecb54a23133b6fd861311a246c668b21d8e7051df2971951f0fe783d247f8c3f83e4512cce2791b0d7e850deee3d5c715f416604c9c9b4b179e48a8e1f6f75 11908 k6_2.2.0-1+forky.debian.tar.xz
 
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.4-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/forky/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ e97747a2333d3eabfa9f3e7d7e419762 865 neovim_0.12.4-1+forky.dsc
+ e919c0232ffdc70f01106649925e4ffe 8679524 neovim_0.12.4.orig.tar.xz
+ b463778976491b94ff6a0463fbae9b21 6260 neovim_0.12.4-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 36466c2c92dee1b68ed8e167ba60af438f3f81c3 865 neovim_0.12.4-1+forky.dsc
+ d1b4bf0988c8319bcc78ee9a57abb2854dcae5aa 8679524 neovim_0.12.4.orig.tar.xz
+ c1fd392169c8b0a401d7554d46ef6143f82f1b93 6260 neovim_0.12.4-1+forky.debian.tar.xz
+Checksums-Sha256:
+ b82c448044cfbaf32f49cb29432fce0768f09fa6479695780406dd5486009a55 865 neovim_0.12.4-1+forky.dsc
+ 956fd07fd51c2f2f888925ce4c2232d81249058dfa90b5ae167e4cf6ae3016d4 8679524 neovim_0.12.4.orig.tar.xz
+ bcd961a90368ff2b1d93a9b6d3a89da5dc729bd59f80561d8cf081f528d0d124 6260 neovim_0.12.4-1+forky.debian.tar.xz
+Checksums-Sha512:
+ c9243ce476ba7ca753e8d7e5f8a6720f76b333c53a6e8e0b075bf4ef88e9b65bc13c93321d5309ef85c9bbe219f076a94592509931f1123ba336a22ac141d01a 865 neovim_0.12.4-1+forky.dsc
+ 273f056bae7e08dcd41ec9f71a890f7cedc7bc983ce46c2773e4c891c422172af4a999da6a73c85cea0463f31f210f4850efc4f4fa106c166b2222af9593a572 8679524 neovim_0.12.4.orig.tar.xz
+ f1712f980008cb68e7da101b77c3e5aa44d6c0da02c7b440af6c93b0f45ad12d53579d3da03136c7e7b6c8a6bdee2ea0404d724363bbe77f197e9422607edd00 6260 neovim_0.12.4-1+forky.debian.tar.xz
+
 Package: nushell
 Format: 3.0 (quilt)
 Binary: nushell

@@ -288,6 +288,35 @@ Checksums-Sha512:
  87e460eabea0244b79c75fefbd1d3cf2ad43df4b119a304b46f8947c04826962fa9c7c51729b1e4e9ad6ce6374aa13cc747598df2ac88951c467647448884603 25844920 k6_2.2.0.orig.tar.xz
  749614165d373105701804887d2464ad310faf4a17700485a7d3fc11d21820e2a94b63be531223adaeac6304a0d418aa1d775e5931b69595d626ce6f2e83b53f 11904 k6_2.2.0-1+sid.debian.tar.xz
 
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.4-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/sid/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ 6fa96e09efe75e1c06a6350fdc29b162 857 neovim_0.12.4-1+sid.dsc
+ e919c0232ffdc70f01106649925e4ffe 8679524 neovim_0.12.4.orig.tar.xz
+ a9b557b3de2db195eb79c7e291afe23d 6264 neovim_0.12.4-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 910aa48db720ebed8dadf10b9df1b55cb1a74944 857 neovim_0.12.4-1+sid.dsc
+ d1b4bf0988c8319bcc78ee9a57abb2854dcae5aa 8679524 neovim_0.12.4.orig.tar.xz
+ 623af36b8dad9e7b9c9ba8db48b03363b1f8b597 6264 neovim_0.12.4-1+sid.debian.tar.xz
+Checksums-Sha256:
+ 8aa40dc6caca8d29df9b67dd7e2169254d088296f83bb606bc9d13c2d44c390a 857 neovim_0.12.4-1+sid.dsc
+ 956fd07fd51c2f2f888925ce4c2232d81249058dfa90b5ae167e4cf6ae3016d4 8679524 neovim_0.12.4.orig.tar.xz
+ a9306011046deffd1f36b617f747059478f2dace997459d4ff41f146720824bf 6264 neovim_0.12.4-1+sid.debian.tar.xz
+Checksums-Sha512:
+ 8c65ece9610033282a11822c71754716abfc9d9d6d742d0354d1f022b779e5e0424b2c5da9b6e1d706fd85b83d28d41d3f22b88dee6c62d2bba67371ac5b3ac1 857 neovim_0.12.4-1+sid.dsc
+ 273f056bae7e08dcd41ec9f71a890f7cedc7bc983ce46c2773e4c891c422172af4a999da6a73c85cea0463f31f210f4850efc4f4fa106c166b2222af9593a572 8679524 neovim_0.12.4.orig.tar.xz
+ 45f73ba4a47bcb2fc9400bcae217e4b88422df5edba672d471a9c3b619d43f359fdc3e684a60e3f7f643497f214380578cc9175ff14a805b33a634112f1c3b0d 6264 neovim_0.12.4-1+sid.debian.tar.xz
+
 Package: nushell
 Format: 3.0 (quilt)
 Binary: nushell
