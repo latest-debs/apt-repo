@@ -104,6 +104,66 @@ yours (the `<tool>-debian` repo is public and forkable).
 **Your win:** `apt install yourtool` on every Debian, always current, with a
 signing and provenance story a tarball can't match.
 
+## We're complementary to upstream, not competing with it
+
+This channel exists to fill a gap, not to become a permanent third party
+between you and your users. Two things follow from that:
+
+- **If you ship your own official apt repo, we hand off cleanly.** Tell us
+  and we'll point the `<tool>-debian` repo and its README at your channel,
+  archive it, and drop the entry from `tools.yaml` in the same PR — no
+  negotiation, no lingering "which one is canonical" confusion for users. We'd
+  rather see you running your own signed repo than keep packaging in your
+  place.
+- **Prefer to run this yourself from day one?** The pipeline packaging every
+  tool here is just
+  [debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder),
+  a free, public, reusable GitHub Action — the same one your `<tool>-debian`
+  repo would use if we did it. Point it at your release workflow and it turns
+  an upstream binary release into signed, multi-arch `.deb`s in one run: no
+  `debhelper` rules to write, no cross-arch build matrix to maintain by hand.
+  Fast to adopt, and entirely yours to operate — we're happy to help you stand
+  it up even if you never touch latest-debs itself.
+
+## One more ask: link us from your install docs
+
+Once your package is live, the highest-leverage thing you can do for your
+Debian users is add a line to your own README or install docs pointing at it.
+The pitch to make there is the same differentiator: this isn't a random
+third-party mirror, it's **signed, test-gated, and audit-trailed** —
+
+- **Signed** — GPG-signed apt indexes, verified by `apt` itself via
+  `signed-by=`, not just a downloaded script you have to trust blind.
+- **Test-gated** — lintian plus a container smoke test verifies every build
+  before it ships, so a broken package never reaches `apt install`.
+- **Audit-trailed** — every build is a public CI run against a pinned,
+  checksum-verified upstream release, reviewed as a draft before publish. A
+  user (or their security team) can trace exactly what they're running back
+  to your release.
+
+That's a materially stronger story than the `curl | sh` snippet most projects
+default to, and it costs you one paragraph. Suggested copy for a "Debian /
+Ubuntu" section in your install docs:
+
+```markdown
+### Debian (unofficial, via latest-debs)
+
+Signed, test-gated .deb packages, rebuilt automatically on every release:
+
+    sudo extrepo enable latest-debs
+    sudo apt update
+    sudo apt install yourtool
+
+See https://github.com/latest-debs/yourtool-debian for details, or
+https://latest-debs.github.io for how the packaging pipeline works.
+```
+
+Swap `yourtool` for your package name, and drop the extrepo lines in favor of
+the manual `sources.list.d` snippet from [README.md](README.md#install) if
+you'd rather not depend on `extrepo`. If you later ship your own official apt
+repo, see [above](#were-complementary-to-upstream-not-competing-with-it) —
+we'll update or remove the link, no questions asked.
+
 ## Get started
 
 Open a [package request](https://github.com/latest-debs/apt-repo/issues/new?template=package-request.yml)
