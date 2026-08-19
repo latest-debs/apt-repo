@@ -12,6 +12,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_YAML="$ROOT/tools.yaml"
+LICENSES_JSON="$ROOT/licenses.json"
 README="$ROOT/README.md"
 START="<!-- packages:start -->"
 END="<!-- packages:end -->"
@@ -50,20 +51,31 @@ fi
 
 [ -n "$rows" ] || die "no packages found in $TOOLS_YAML"
 
+# License lookup, sourced from licenses.json (written by fetch-licenses.sh,
+# which reads it fresh from each tool's package.yaml). Missing file or
+# missing entry both degrade to "—" rather than failing the sync - a local
+# run without the license snapshot step should still produce a valid table.
+license_for() {
+  local pkg="$1"
+  [ -f "$LICENSES_JSON" ] && command -v jq >/dev/null 2>&1 || { echo "—"; return; }
+  jq -r --arg pkg "$pkg" '.packages[$pkg] // "—"' "$LICENSES_JSON"
+}
+
 # Generate the table block (marker lines inclusive).
 {
   printf '%s\n' "$START"
-  printf '\n| Package | Install | Upstream |\n'
-  printf '|---------|---------|----------|\n'
+  printf '\n| Package | License | Install | Upstream |\n'
+  printf '|---------|---------|---------|----------|\n'
   local_IFS="$IFS"
   IFS=$'\n'
   for row in $rows; do
     name=""; install=""; upstream=""
     IFS=$'\t' read -r name install upstream <<< "$row"
+    license="$(license_for "$name")"
     if [ -n "$upstream" ]; then
-      printf '| `%s` | `apt install %s` | [%s](%s) |\n' "$name" "$install" "${upstream#https://github.com/}" "$upstream"
+      printf '| `%s` | %s | `apt install %s` | [%s](%s) |\n' "$name" "$license" "$install" "${upstream#https://github.com/}" "$upstream"
     else
-      printf '| `%s` | `apt install %s` | — |\n' "$name" "$install"
+      printf '| `%s` | %s | `apt install %s` | — |\n' "$name" "$license" "$install"
     fi
   done
   IFS="$local_IFS"

@@ -102,7 +102,9 @@ with no SLA**:
 - **Upstream dependency.** We repackage upstream GitHub releases as they
   publish them. If an upstream changes its release layout, removes old
   archives, or goes away, the corresponding tool silently stops updating until
-  someone fixes the packaging.
+  someone fixes the packaging. There's no automated staleness monitor yet —
+  if you notice a tracked tool has gone quiet, please
+  [flag it](https://github.com/latest-debs/.github/blob/main/CONTRIBUTING.md#improving-the-pipeline).
 
 What we do guarantee: the channel stays internally consistent. Indexes are
 always GPG-signed, every package is lintian-checked, smoke-tested, and
@@ -240,38 +242,51 @@ Access is scoped to the minimum: repo-scoped `GITHUB_TOKEN` wherever possible
 build. GitHub API calls are authenticated everywhere to avoid the shared
 60/hour anonymous rate limit silently starving every fetch.
 
+### License audit
+
+[`licenses.json`](licenses.json) is the published, per-package SPDX record —
+one declared license identifier per tracked tool, sourced straight from each
+`<tool>-debian` repo's `package.yaml` (the same field the vet-time license
+scan and every release's license-recheck gate both read). It's regenerated
+from `tools.yaml` with `scripts/fetch-licenses.sh` and committed rather than
+generated on the fly, so anyone auditing the channel — before depending on it
+in CI, an image, or a fleet — can check exactly what's declared for every
+package without re-running the pipeline themselves. The same identifiers
+appear in the **License** column of the [Packages](#packages) table below;
+`licenses.json` is the machine-readable form of that same data.
+
 ## Packages
 
 <!-- packages:start -->
 
-| Package | Install | Upstream |
-|---------|---------|----------|
-| `vite-plus` | `apt install vite-plus` | [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus) |
-| `eza` | `apt install eza` | [eza-community/eza](https://github.com/eza-community/eza) |
-| `lazygit` | `apt install lazygit` | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) |
-| `ruff` | `apt install ruff` | [astral-sh/ruff](https://github.com/astral-sh/ruff) |
-| `bun` | `apt install bun` | [oven-sh/bun](https://github.com/oven-sh/bun) |
-| `deno` | `apt install deno` | [denoland/deno](https://github.com/denoland/deno) |
-| `duckdb` | `apt install duckdb` | [duckdb/duckdb](https://github.com/duckdb/duckdb) |
-| `lazydocker` | `apt install lazydocker` | [jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker) |
-| `ripgrep` | `apt install ripgrep` | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
-| `fd` | `apt install fd-find` | [sharkdp/fd](https://github.com/sharkdp/fd) |
-| `fzf` | `apt install fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
-| `starship` | `apt install starship` | [starship/starship](https://github.com/starship/starship) |
-| `just` | `apt install just` | [casey/just](https://github.com/casey/just) |
-| `hyperfine` | `apt install hyperfine` | [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine) |
-| `atuin` | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
-| `xh` | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
-| `yq-go` | `apt install yq-go` | [mikefarah/yq](https://github.com/mikefarah/yq) |
-| `du-dust` | `apt install du-dust` | [bootandy/dust](https://github.com/bootandy/dust) |
-| `procs` | `apt install procs` | [dalance/procs](https://github.com/dalance/procs) |
-| `bottom` | `apt install bottom` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
-| `bat` | `apt install bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
-| `zoxide` | `apt install zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
-| `git-delta` | `apt install git-delta` | [dandavison/delta](https://github.com/dandavison/delta) |
-| `jj` | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
-| `gitui` | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
-| `fresh-editor` | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
+| Package | License | Install | Upstream |
+|---------|---------|---------|----------|
+| `vite-plus` | MIT | `apt install vite-plus` | [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus) |
+| `eza` | EUPL-1.2 | `apt install eza` | [eza-community/eza](https://github.com/eza-community/eza) |
+| `lazygit` | MIT | `apt install lazygit` | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) |
+| `ruff` | MIT | `apt install ruff` | [astral-sh/ruff](https://github.com/astral-sh/ruff) |
+| `bun` | NOASSERTION | `apt install bun` | [oven-sh/bun](https://github.com/oven-sh/bun) |
+| `deno` | MIT | `apt install deno` | [denoland/deno](https://github.com/denoland/deno) |
+| `duckdb` | MIT | `apt install duckdb` | [duckdb/duckdb](https://github.com/duckdb/duckdb) |
+| `lazydocker` | MIT | `apt install lazydocker` | [jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker) |
+| `ripgrep` | Unlicense | `apt install ripgrep` | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
+| `fd` | Apache-2.0 | `apt install fd-find` | [sharkdp/fd](https://github.com/sharkdp/fd) |
+| `fzf` | MIT | `apt install fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
+| `starship` | ISC | `apt install starship` | [starship/starship](https://github.com/starship/starship) |
+| `just` | CC0-1.0 | `apt install just` | [casey/just](https://github.com/casey/just) |
+| `hyperfine` | Apache-2.0 | `apt install hyperfine` | [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine) |
+| `atuin` | MIT | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
+| `xh` | MIT | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
+| `yq-go` | MIT | `apt install yq-go` | [mikefarah/yq](https://github.com/mikefarah/yq) |
+| `du-dust` | Apache-2.0 | `apt install du-dust` | [bootandy/dust](https://github.com/bootandy/dust) |
+| `procs` | MIT | `apt install procs` | [dalance/procs](https://github.com/dalance/procs) |
+| `bottom` | MIT | `apt install bottom` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
+| `bat` | Apache-2.0 | `apt install bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
+| `zoxide` | MIT | `apt install zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
+| `git-delta` | MIT | `apt install git-delta` | [dandavison/delta](https://github.com/dandavison/delta) |
+| `jj` | Apache-2.0 | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
+| `gitui` | MIT | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
+| `fresh-editor` | GPL-2.0 | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
 
 <!-- packages:end -->
 
@@ -288,8 +303,10 @@ scripts/run-in-debian.sh    run build-repo.sh in a Debian container
 scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
 scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos
+scripts/fetch-licenses.sh   regenerate licenses.json from tools.yaml
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
+licenses.json               per-package SPDX license audit (generated, committed)
 pool/                       downloaded .deb + source files (generated)
 dists/                      apt indexes (generated)
 ```

@@ -91,6 +91,9 @@ jobs:
       - name: Snapshot Debian archive versions
         run: bash scripts/fetch-debian-versions.sh
 
+      - name: Snapshot per-package license declarations
+        run: bash scripts/fetch-licenses.sh
+
       - name: Sync package table in README from tools.yaml
         run: bash scripts/sync-readme.sh
 
