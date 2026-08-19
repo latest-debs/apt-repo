@@ -11,6 +11,10 @@
 #   <package>_<version>-<build>.<suite>.debian.tar.xz
 # (the "<suite>" component is how a single release carries all dists).
 
+uv:
+  source: https://github.com/latest-debs/uv-debian
+  homepage: https://github.com/astral-sh/uv
+
 vite-plus:
   source: https://github.com/latest-debs/vite-plus-debian
   homepage: https://github.com/voidzero-dev/vite-plus
@@ -69,6 +73,10 @@ just:
 hyperfine:
   source: https://github.com/latest-debs/hyperfine-debian
   homepage: https://github.com/sharkdp/hyperfine
+
+k9s:
+  source: https://github.com/latest-debs/k9s-debian
+  homepage: https://github.com/derailed/k9s
 
 atuin:
   source: https://github.com/latest-debs/atuin-debian
