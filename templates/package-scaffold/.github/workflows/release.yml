@@ -1,0 +1,229 @@
+name: Build __PKG_NAME__ for Debian
+
+on:
+  schedule:
+    # Auto-watch upstream every 3 hours and build new releases.
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version of __GITHUB_REPO__ to build (e.g. v1.0.0)
+        type: string
+        required: false
+      build_version:
+        description: Debian build revision (e.g. 1)
+        type: string
+        required: true
+        default: '1'
+      auto:
+        description: 'Auto-detect the latest upstream release'
+        type: boolean
+        default: true
+      architecture:
+        description: Architecture to build (or 'all')
+        type: choice
+        default: 'all'
+        options:
+          - 'all'
+          - 'amd64'
+          - 'arm64'
+          - 'armel'
+          - 'armhf'
+          - 'ppc64el'
+          - 's390x'
+          - 'riscv64'
+      enable_lintian:
+        description: Enable lintian validation
+        type: boolean
+        default: true
+      release_mode:
+        description: 'auto publishes immediately after lintian + smoke test; draft keeps the GitHub draft for manual review'
+        type: choice
+        default: 'auto'
+        options:
+          - 'auto'
+          - 'draft'
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    name: Determine version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.detect.outputs.version }}
+      build_version: ${{ steps.detect.outputs.build_version }}
+      should_build: ${{ steps.detect.outputs.should_build }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect version
+        id: detect
+        run: bash .github/scripts/detect-version.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MANUAL_VERSION: ${{ inputs.version }}
+          BUILD_VERSION: ${{ inputs.build_version }}
+          AUTO: ${{ github.event_name == 'schedule' || inputs.auto }}
+
+      - name: Recheck upstream license
+        # License gate (warn-only): recheck the live upstream SPDX license
+        # against the pin in package.yaml on every run, so a license change
+        # upstream can't slip new builds through the auto-watch silently.
+        id: license
+        run: bash .github/scripts/license-check.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build
+    needs: prepare
+    if: needs.prepare.outputs.should_build == 'true'
+    # Native arm64 runner: arm64 is the Raspberry Pi audience's architecture
+    # and the bulk of this channel's consumers. Building on arm64 hardware
+    # (instead of cross-packaging on x64) is faster and validates arm64
+    # natively; the builder packages every architecture either way.
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build __PKG_NAME__
+        uses: ranjithrajv/debian-multiarch-builder@v.0.1a15
+        env:
+          # Authenticate GitHub API calls from the builder; anonymous calls
+          # from shared runner IPs are rate-limited (60/h) and caused
+          # architecture detection to find zero release assets.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-file: 'package.yaml'
+          version: ${{ needs.prepare.outputs.version }}
+          build-version: ${{ needs.prepare.outputs.build_version }}
+          architecture: ${{ inputs.architecture }}
+          lintian-check: ${{ inputs.enable_lintian }}
+          # Provenance pin recorded at vet time (add-package.sh scaffold).
+          # The builder verifies the downloaded upstream bytes against the
+          # pinned SHA-256 when the release matches the vetted version, so a
+          # release altered after vetting fails the build instead of being
+          # silently packaged.
+          pinned-metadata: ${{ github.workspace }}/.github/release-metadata.json
+
+      - name: Upload builder summary on failure
+        # The builder writes build-summary.json (structured failure data) on
+        # both success and failure; persist it so the failure reporter can
+        # fold it into the notification instead of anyone scraping logs.
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-summary
+          path: build-summary.json
+          if-no-files-found: ignore
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: __PKG_NAME__-debian-packages
+          path: |
+            __PKG_NAME___*.deb
+            *.dsc
+            *.debian.tar.xz
+            *.orig.tar.xz
+          if-no-files-found: error
+
+  smoke:
+    name: Smoke Test
+    needs: [prepare, build]
+    if: needs.build.result == 'success'
+    # Runs the packaged arm64 binaries on native arm64 hardware (same
+    # architecture as Raspberry Pi), so the smoke gate exercises exactly what
+    # the Pi audience runs - no emulation, real runtime coverage.
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          name: __PKG_NAME__-debian-packages
+
+      - name: Run binaries from the built package
+        run: |
+          set -euo pipefail
+          # Smoke-test the oldest available suite (bookworm first, then
+          # trixie, forky, sid) so packages that intentionally skip a suite
+          # (e.g. atuin requiring a newer glibc than bookworm ships) still get
+          # runtime coverage on the oldest suite they do build.
+          DEB="" SUITE=""
+          for suite in bookworm trixie forky sid; do
+            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_arm64.deb")
+            if [ -n "${debs[0]:-}" ]; then
+              DEB="${debs[0]}"
+              SUITE="$suite"
+              break
+            fi
+          done
+          if [ -z "$DEB" ]; then
+            echo "::notice::No arm64 package available to smoke test; skipping"
+            exit 0
+          fi
+          EXPECTED="${{ needs.prepare.outputs.version }}"
+          EXPECTED="${EXPECTED#v}"
+          rm -rf smoke-root
+          dpkg-deb -x "$DEB" smoke-root
+          for bin in smoke-root/usr/bin/*; do
+            name="$(basename "$bin")"
+            ok=0
+            for arg in --version -V version; do
+              out="$(docker run --rm -v "$PWD/smoke-root/usr/bin:/bins:ro" debian:$SUITE bash -c "chmod +x /bins/$name; /bins/$name $arg 2>&1 || true")"
+              if [ -n "$out" ] && printf '%s' "$out" | grep -q "$EXPECTED"; then
+                echo "  OK: $name $arg (on $SUITE) -> $(printf '%s' "$out" | head -1)"
+                ok=1
+                break
+              fi
+            done
+            if [ "$ok" != 1 ]; then
+              echo "::error::Smoke test failed for $name on $SUITE (expected version $EXPECTED)"
+              exit 1
+            fi
+          done
+          echo "All binaries passed the smoke test"
+
+  release:
+    name: Release
+    if: github.ref == 'refs/heads/main' && needs.build.result == 'success' && needs.smoke.result == 'success'
+    needs: [prepare, build, smoke]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          name: __PKG_NAME__-debian-packages
+
+      - name: Gate duplicate release tags
+        # Refuse to (re)publish a release tag that already exists - published
+        # or draft - so a retry or double-dispatch can't clobber or fork it.
+        id: dup-gate
+        run: |
+          TAG="${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}"
+          if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '.id' >/dev/null 2>&1; then
+            echo "::warning::Release tag $TAG already exists (published or draft); skipping publish"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish release
+        if: steps.dup-gate.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: ${{ inputs.release_mode == 'draft' }}
+          tag_name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
+          name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
+          files: |
+            __PKG_NAME___*.deb
+            *.dsc
+            *.debian.tar.xz
+            *.orig.tar.xz
+          fail_on_unmatched_files: true

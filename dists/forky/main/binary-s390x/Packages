@@ -1,0 +1,64 @@
+Package: fzf
+Architecture: s390x
+Version: 0.74.3-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/fzf/fzf_0.74.3-1+forky_s390x.deb
+Size: 1428392
+MD5sum: 2bd13920e1e2b914c4f867e5e341d355
+SHA1: 7b80fdd8bc336af220b7161570a9afd13ccb7c44
+SHA256: 1107f5e9686183df65c6eacfe14021b5529adaceb1d007c70fd0e78221c2655e
+SHA512: 5bd60997eddb2b615d95958df63f2af51a3416652e2ca2b57662cd6fa19d85008b016f4bbc5b67ebee24035494d7f3167cf35e0b2ae5de6c3f783098ad92302b
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/ripgrep/ripgrep_15.2.0-1+forky_s390x.deb
+Size: 1408200
+MD5sum: d0c68d49b0671904695d6b963bbee928
+SHA1: 8f2bfa8a57c8d6f02594346af924c6b3d7df8fcc
+SHA256: 76a220010b020504f3b1ee3d7303de4ed99a5b3602c34ef9aa1d2b9b80f5212b
+SHA512: 15b5c9b3800a02b3b50ff7474cf2a05fd7e195ba66a6547c27ea556e1a72282840c473244bc4d05a0cc1784048e76c96545819af679834edff12018203991bad
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.3-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/ruff/ruff_0.16.3-1+forky_s390x.deb
+Size: 7209488
+MD5sum: 0609fa21c319ea3252323c213471eebc
+SHA1: 6afb123c1a57ed89ce6ef0caa5231a8d934cae24
+SHA256: f6f80e077641c88c28938abc12f49d7866cfec9a066cedc7c3e6551ca5af1d8a
+SHA512: 6ab12f78a9ae37055e9e43b01f43314ee693884e9abda9e0071b14b131c465bac7ba27385b08b801bc471a336dca01db8d3e53714b4a713e4c8b5827f4d062b3
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.3-2+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_s390x.deb
+Size: 3787608
+MD5sum: c4f765a3a944185027f5b69cd073e8c6
+SHA1: d4f00926184ab9441cd08e2e2713879131b59ad0
+SHA256: 684420c6530400a0dbe5e1fedc72f54d0fd3cfe5ecfde08849bab7aa52282fbd
+SHA512: 40a0e76638fd3c3cef01a5512d7cc04d82aa3dd5b6368bc7958eab34ff13563c3df4e7ca644abd0692abc46688156b6e72357a9833e0b6d207672481a727dce0
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

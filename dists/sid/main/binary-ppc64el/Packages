@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: ppc64el
+Version: 0.14.8-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/bottom/bottom_0.14.8-1+sid_ppc64el.deb
+Size: 1453832
+MD5sum: 995b3f0ae0d32ce7ad4036f6b25a341a
+SHA1: 9b98da99ad95c93b623425ab41fe7827c034c64b
+SHA256: 6e0add10fb179ee059147fe9790536035ec650360a73f8a5ddf61e20e96ffe3e
+SHA512: d692c7f06328e36f5fbdb307d84dd6498f07f57d0562215b1dc3a982036513ec762ccda0117cdfced76a9c6ca593bf83e3a4147620a6b5e5d01a6b3f1629e941
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: ppc64el
+Version: 0.74.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fzf/fzf_0.74.3-1+sid_ppc64el.deb
+Size: 1348324
+MD5sum: dde35ca5182e91a3cf582e167cf70bf2
+SHA1: d86d54fce0a33883283e6ae6355b726d873e96b9
+SHA256: d74c3a4441f44f6e2187583e9096bbe113db453a0e85b8be15b7576469ef1acb
+SHA512: 2027d595ab2b165441d290e40e8e4dea5360b1e6a37f284e7ad3055ed4ff61894781ea184b866b846d42e6d31b31ca623838caf9fc1e0266fb94f3d0adc7ebb9
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: ppc64el
+Version: 0.16.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.3-1+sid_ppc64el.deb
+Size: 7411716
+MD5sum: e43e44d038dce402aed1e9e02096c59f
+SHA1: f0e689280e062f9745772c3b4e8b6e26ad7babc0
+SHA256: 6bfada987bf9178336f88ceaac62c5c0dd2f4a9aab02d0f593db2647708c9054
+SHA512: d703d960e2dc9733c17397ad223af9341ba41d7a478058adf3120178f63ae7d762b4f0154990f063740a779258de214d899ed484c0fe8fc047e1728ba030a889
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.53.3-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_ppc64el.deb
+Size: 3542312
+MD5sum: 81bfebb0d029ca296838e747252210bd
+SHA1: 99cc8daf982ecb1479467160f703a1c3b3065de2
+SHA256: d8f5aa9bc17807db54c938f98678f3c38d1afea916b15510fc6213edb070d76d
+SHA512: 6664dc54411452e26cc2b8e92969c36a2d5030c6c5e327747f67eb5b66ab2568de3de2dc61d20b7b9fc33207449eef3e191bd7de669b25c1fdf74da2a39a2617
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.8-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/bottom/bottom_0.14.8-1+sid_loong64.deb
+Size: 1295164
+MD5sum: 0777e88b74107398f9bab509d6e8ab37
+SHA1: 42a072b7d4c902c1e0f9356c76af4483e2c267f9
+SHA256: f7b0fc270aecd5c70a7b721af51e891a42242a91832c4dc555b841f48bd132ec
+SHA512: 7b97b84dfa9da1377e798f0db6b9a9816f81e5f1ddf451f11f08d0ec06d552dddd9e0ee0b84490378424f1490244c13d1674692826088f822ed6070c2e58caae
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fzf/fzf_0.74.3-1+sid_loong64.deb
+Size: 1392876
+MD5sum: 7de918b1b9f29f4d3ec53db3bc1e3f58
+SHA1: ac1fa45414d40268f9a24500c1021f6f2c496ce2
+SHA256: 46d56d074824422aa602c983305fc2a11d8ccdc81cd047d80eb722a1343e9538
+SHA512: 148d3546c4ffc8b8dd57a15ab7053d47bdf9367340282c54f1d7b8285ce62907176bfb7dc4d9db8e0afcafeefe88d4b2dc2b7145064306c14bba11c3771065e8
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.58.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/just/just_1.58.0-1+sid_loong64.deb
+Size: 1538688
+MD5sum: 93c4b033b90bd466d41b172bd831fa31
+SHA1: c4d9f0445272d6ddedd99c900d8bbced201cadcd
+SHA256: 719af9976defb225e88d65b30734c2c90e23f7b762975e7b00e6edfab639119f
+SHA512: 354a2fc77f719b65000a814ebd9ba88a181d256c23187ed0025f13f82edfb6a72c2315e4440c007f66afd6304945442c3a1eb7708325c82a34c960d0326ac4b4
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.53.3-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_loong64.deb
+Size: 3679604
+MD5sum: 904a26c75ccc7c5c2d83540667d0287f
+SHA1: fcd663f36e85271469188c74cbf108a946d65012
+SHA256: 850e36c8f39f46a52d6662eb2cf194c70c31b57cc84d0f74dec656a96b0e1ec2
+SHA512: f05520c1e35ac154a311b7f11dffa2c3a012180139ba0363580d559a9c92f6ea40f39a6ba1fbd6be0ba8b6bda005b874b1247d785d00eab693d2a355048e61af
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

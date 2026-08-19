@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: ppc64el
+Version: 0.14.8-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/bottom/bottom_0.14.8-1+trixie_ppc64el.deb
+Size: 1453428
+MD5sum: 14872ba2aec0eff5c13cea2980b7c80b
+SHA1: 3364e3d62d89ef2a33e0469cd122885244f31477
+SHA256: 77cf448aa755c459f1bdd91f25a847d165c1da0f93d8583eaa1c037ddee2c6f8
+SHA512: 62892be5371c4edfd250142f09abecbfd40a53e86cfca6536706dbae24f150ba6ffde64dc4dd7ee3dfb45f82e1ed35604f3ee43356f142ef441fd884f704b998
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: ppc64el
+Version: 0.74.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fzf/fzf_0.74.3-1+trixie_ppc64el.deb
+Size: 1347872
+MD5sum: 0e45d6bbf39bbb1c99980616a372e64b
+SHA1: 4f5fe21b73b22e643aabaddc20db4f42ed81fe2d
+SHA256: 5406608e678b0bb84a251abf4c17f4ebfa8b11036d6e3420a5f43cfac3545226
+SHA512: 640916bde9131ecff3bc8549bee71968b8c596fc55c2096e4ae91dfb5a64f2d7f4b8967b7ae474795688a806210fa20fbc2c4ca2a1dbf3ab3201bf5ecc120d97
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: ppc64el
+Version: 0.16.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_ppc64el.deb
+Size: 7412044
+MD5sum: bf85172dc86889128c9c3a8c86753962
+SHA1: cb8cde34996d606e9dedeacdd17fc83e3c6e947c
+SHA256: 5ac7e3b04eef0d07a925abdd0ef52de7422404fcf5b4be594c21623989da7027
+SHA512: 44d451c197f1d77f66f2814d189b647f2360701df38d7d1d9c087aec155e59db04213d6f0578fb56af2b2d3c988cbf43cb4cb35f35c6fa8c7b71aa434a71ff29
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.53.3-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_ppc64el.deb
+Size: 3544204
+MD5sum: 1dc5c1b3c94c66438f98ea5e2e110784
+SHA1: 97dec36e6f4536e92df4a3e310a3f3c266efaeb3
+SHA256: 94bf02fb958af6a83a57677173b3e869400e7853b3a0250d45e68e41ddc74a0d
+SHA512: 32267b2800e643a87882968071ceb69399bdb1a6fe7deb7058a029d4f1fa9399d4af50430f3f7fc3fcbb61086198a9246603810d8d91f3a53d94bcebee24da7c
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

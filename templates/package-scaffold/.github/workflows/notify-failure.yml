@@ -1,0 +1,57 @@
+name: Report build failures
+
+on:
+  workflow_run:
+    workflows: ["release.yml"]
+    types: [completed]
+
+permissions:
+  actions: write
+  issues: write
+
+concurrency:
+  group: failure-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    name: Structured failure notification
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'failure'
+    steps:
+      - name: Build structured failure report
+        id: report
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FAILED_RUN_ID: ${{ github.event.workflow_run.id }}
+          FAILURE_REPORT_DIR: ${{ runner.temp }}/failure
+        run: bash .github/scripts/collect-failure-report.sh
+
+      - name: Post report to the job summary
+        run: cat "${{ runner.temp }}/failure/failure-summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload structured report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-report-${{ github.event.workflow_run.id }}
+          path: ${{ runner.temp }}/failure/failure-report.json
+          if-no-files-found: error
+
+      - name: Open or update the build-failure issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          SUMMARY="${{ runner.temp }}/failure/failure-summary.md"
+          # Reuse a single open build-failure issue per repo; each new failure
+          # appends a comment so triage stays in one place.
+          existing="$(gh issue list --repo "$GITHUB_REPOSITORY" --label build-failure --state open --json number --jq '.[0].number' 2>/dev/null || true)"
+          if [ -n "$existing" ] && [ "$existing" != "null" ]; then
+            gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY" >/dev/null
+          else
+            gh label create build-failure --repo "$GITHUB_REPOSITORY" --force >/dev/null 2>&1 || true
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "Build failed — run #${{ github.event.workflow_run.id }}" \
+              --label build-failure --body-file "$SUMMARY" >/dev/null
+          fi
+          echo "::notice::Failure report for run ${{ github.event.workflow_run.id }}: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}"

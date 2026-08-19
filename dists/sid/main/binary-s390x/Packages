@@ -1,0 +1,64 @@
+Package: fzf
+Architecture: s390x
+Version: 0.74.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fzf/fzf_0.74.3-1+sid_s390x.deb
+Size: 1428092
+MD5sum: f9f219717414988411f093bf0e4e52cf
+SHA1: d677e27076b74f8e30dd04f36690da38e96b5402
+SHA256: d32d9b5a0352971ff3f6ea2d8354f6c8d63694d70d793baebeb621d7a7c85e3f
+SHA512: d5973afe2707076733303612e190b8af2e59b097f79ec67d32b7dd735884765980f05dfb021398340c54094e1aedbddf43fb3e19751b2c5087ab6d645c3ac26c
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/ripgrep/ripgrep_15.2.0-1+sid_s390x.deb
+Size: 1407236
+MD5sum: 9f888aacae2863c4b1471ed65edb1619
+SHA1: c2d1ef354f21eb19b7491fce519f5a40f2975025
+SHA256: 038cf69fb77ab2bc4eed9e453a56133edd09d5849f80a59aa701690f8ef9e173
+SHA512: d7f7d2e73fe34484413f0560fb92018f89f22b45dea10d94aff15e523705554ce72a2acf30d025d33a7c6c0d2c9fd27a3ce8aa085d596dbe33a0724c44b72649
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.3-1+sid_s390x.deb
+Size: 7209596
+MD5sum: 5859af38b1636539b2e324adc3a0713d
+SHA1: c7254be8bba93271ddbbfdbeb7383e797c224b20
+SHA256: e315dbafb626243ead07d4ce952ab375d87f2f21b52e99ec3918b4abdd1ddac9
+SHA512: e7e21438394cb7f626d0809b6c553f690da57f158ae15e6bca0f3ff9a5eaca0a8d6cc4a7344eca7e513823d1906dbf7a3294ccb4a1fa618677bee67b35082d3c
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.3-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_s390x.deb
+Size: 3789312
+MD5sum: 20a6074337c763f3f4dcb127d81b7746
+SHA1: b24bf2e6354872733de28c9e4e70f54d86a5d36c
+SHA256: 28afe5ba1ba0e7c0702438f0e15d3b62281d7a0896fac94d19ad0245d0147832
+SHA512: 04fa5e8b4e1cc79aec817819a174b72b96da319ede816a7070c58b8f811ff804fce2adc701244439605d797427e3148af1299b40d63db18454ab8d31122104a4
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

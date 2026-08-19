@@ -1,0 +1,112 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.8-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/bottom/bottom_0.14.8-1+forky_riscv64.deb
+Size: 1487100
+MD5sum: 7aefb0f6676039aecbb57d2253f2f3d9
+SHA1: 1bcb69124439cb61eb201173af8e47bf38fbaf8a
+SHA256: 0ce06aa7b95f378afd4d5852538f1cf9f8d347e9a49474aad6cbc27231a67cf1
+SHA512: fd4709db4bd30e8e38aa70f78e3b911a6495dacd9f8ccd268d32252bbe5fd12493bce6d6b389cdc963fd78e8dfe6737678eeb384525b44b43e8979878a5012d4
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.3-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/fzf/fzf_0.74.3-1+forky_riscv64.deb
+Size: 1441700
+MD5sum: fd7537100a9feffd8f4dae3a434b00e0
+SHA1: 11f2eb37a62b76cc4c6d33c0a961fc1347099901
+SHA256: 8421eab7612496af43d372213726a60a9c558fbb9f59bb8a448a6105fb036326
+SHA512: 11319d36274cafb1f144b875662567458b7f926a676ec1c68d3c3f6dbd286a50b5a6601f397cf82807feccff95e3712e983f869ef27e6633434074317c1cba29
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: riscv64
+Version: 1.58.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/just/just_1.58.0-1+forky_riscv64.deb
+Size: 1748688
+MD5sum: f5eed21666958a4325db625da0ebbcbe
+SHA1: 1b95c94ea5fdd242a999b028ad468a342c7d29f5
+SHA256: 302e90d21c5d2a8f0ccbb950cf5750f00c10955f50dce9a3a7ea359aa802311e
+SHA512: 36cf5b19b70ef13fdecf5b991647511b0e8eea16523c813fac077e5e7005610256a97765698dfe21192cd891c6962d134f16efed00e3674222caa42fff8906b7
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.3-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/ruff/ruff_0.16.3-1+forky_riscv64.deb
+Size: 7535348
+MD5sum: 1b8b2519aaf1709477da7323c45e61d1
+SHA1: f024e7027d5efe6dc708dd6a503de6d266a4b5ef
+SHA256: 38be0cb7aedfbec2e62e15a63694f2e5e874003afdb6612885dc2fe987964dbb
+SHA512: a3ba9309957559e3990ccf13c90175c7288b7ecf52f5d9eb85e9cb29009f87bd86b6321d1fed6e01f07beef157d818f33d5e85c81a3106cca9f4274685a97c59
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: riscv64
+Version: 1.26.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/starship/starship_1.26.0-1+forky_riscv64.deb
+Size: 3682992
+MD5sum: 153d92d1ae89fe13994a902c780e9825
+SHA1: 086e46343054f33b6fdc8ff6cc33af2e6e101980
+SHA256: c9e83efa870d0fa180d416080b3669d9e2fd153b4b455cc0f9e16540e40be347
+SHA512: 8f8fb9b4a36b773dff7505bd41eb8dbb186599b3d346295ba848b9d2ff887bc3c92cd6f9d7fbcdf9cd21fad2283e9cf7a01ab87a97c4f0f679b1d58941ab1ff5
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.3-2+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/yq-go/yq-go_4.53.3-2+forky_riscv64.deb
+Size: 3864748
+MD5sum: 69efea5750656a3dd9c2e0fa9164c1e9
+SHA1: 42c6bd98bad9fea8c3a4d01561e5a1ade642b6fb
+SHA256: 96f3210eb26fc8f720fa3f5e80fe30c1be47f09c957f2473819790e017a0e3ac
+SHA512: 23cba616eeac3d831045b1172386c9a42f792f7c6a1a4e1690cb9a678b48a64f077cb31895b9e133a393a1267afcf6a2809f7586e934390d92ac8631f8648f8d
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: riscv64
+Version: 0.10.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/zoxide/zoxide_0.10.0-1+forky_riscv64.deb
+Size: 408692
+MD5sum: 238fae87c7a312af038c7726beebdb9a
+SHA1: 40c2e265a5afea430b46051887b644f93a200ce0
+SHA256: 692041561bfb4475ec67adb011b73608b2d39db91f74804b0e98050dd91e1ede
+SHA512: eebceb93c35fdd72ac6a4190e875b89cbba1c3f905780c8b0ef855086a88c58162e4edc0a468eb9dcad3e8301ecd4f019ab35fb1e1133abe540c4a1bf483c881
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+

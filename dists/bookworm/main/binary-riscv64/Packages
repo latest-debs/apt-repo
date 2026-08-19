@@ -1,0 +1,112 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.8-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/bottom/bottom_0.14.8-1+bookworm_riscv64.deb
+Size: 1487200
+MD5sum: b3d02fc33df831d33c58c3f7d7807ea1
+SHA1: 7631f339435b09d3113be5b1a043dd89fe19accb
+SHA256: 53b90a5b1ea12a36f06144df2af2086f9e7d31a54abc3e7c2321133c05efe3c4
+SHA512: 195ade38735f22dd49f062785cee47ca0c95c9875be4a853fc0ec1d25fca03a30bdd3103c0ca93cb4ee3e357cccc54a666ee972f421a173bf622f00b7ea8385c
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fzf/fzf_0.74.3-1+bookworm_riscv64.deb
+Size: 1441556
+MD5sum: 20634dd10cdc3587270362f81d0f2d3f
+SHA1: 450adc69ddf5f8da6afd6749ba796a4e598a724f
+SHA256: 272ee2d2b99407b48985a486889f7d3214a1f24dfacfb11df2a34184bfd00ef3
+SHA512: 8f7c1cb61695a2597a29a1f86c6cbb7ed365aca1e0d23b7aa8452557c014d0862b20c7e3ebdeefa4e80317a9a58af1f86b26c46f8729c53f05ba781151639b52
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: riscv64
+Version: 1.58.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/just/just_1.58.0-1+bookworm_riscv64.deb
+Size: 1748304
+MD5sum: af903b97f431a2e729f2845f94ff2c32
+SHA1: 0405c158fc31f5713b0410ff1f38fa5439e9cf1e
+SHA256: d78d620621bd3b49ddeb4c430b072d8a1719c17eb4674171ddf48c57461e8481
+SHA512: 4206879800b081a6aeb1f1b26f3952c61bc08ba17a58bf598e6cb76700617c4a52f5de9ae2223e754b23ff6c3878bd5754fcde7078fe8641894fd5f3c09f34a8
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/ruff/ruff_0.16.3-1+bookworm_riscv64.deb
+Size: 7536436
+MD5sum: ee00c36685e185bb18696b6ecd391f27
+SHA1: 11725596d23bfa31770f14e32a4eb98b3d82a720
+SHA256: a8f252bd14921074919f713dc37c17158698f1362ab8701d0771260c90d47eb9
+SHA512: 4b7415975f8f6ea34d8d93eedd1c92be24a002ad97c9671fdb36512dc7df1da7f1d1784cc69041edd906e60bc049122cfaaab0455975f1005ecd7936d4a21ced
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: riscv64
+Version: 1.26.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/starship/starship_1.26.0-1+bookworm_riscv64.deb
+Size: 3681744
+MD5sum: 76a62d3a57699ebb929f169e6bdd8ede
+SHA1: d7f7a1e67753de560c3e7973230d47681b8c3b3c
+SHA256: 87dc53145116b7f5d1297c802421f2b3dde2d444742fb77ffddbd5e6f50afdac
+SHA512: 26dbfaf2ea96bd136d72ca8846b8f806a2d84e9371a258ca1302fb64bbc21023f2c981b6e1c9a907d9798d9f70641e0a181cabe0398b105bf6a16f17a624f9dc
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.3-2+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_riscv64.deb
+Size: 3861156
+MD5sum: 236a6466370eb0f8a6e8a1d2cf9bcc54
+SHA1: 044ea1d2db82eaa3ce4c73b2304925d1fd3d71c8
+SHA256: eab8f3294044b8a8c3530a6dab6c3cda94c2e57eb9a2f01f07d2e1dbd7476057
+SHA512: 75bcb54b8a915c45d768bd284adad2dd91b9793119ba6a1abdb8deae3011b4bbdead1d46ed7e0dda624b35735bbda312ea0ccc0e132de220b69f209a9836ff5a
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: riscv64
+Version: 0.10.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/zoxide/zoxide_0.10.0-1+bookworm_riscv64.deb
+Size: 408664
+MD5sum: 9eae0b69a90dd839664ff0cab621f1d6
+SHA1: 76d96c8df727aa24d77a599b6ad7fa6f0cc2c375
+SHA256: a2454c3200b990ffc1411f94eff555058e0bd4ff35cc83f0af0b403be85ed114
+SHA512: 0cfa393fd0c7916e745e596a900a5641d3f3f244b863dd12911ef4388ee04d1638aead8fab3437a4242c69774e00995c624ce34a8aebb010052e48085f438436
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+

@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: ppc64el
+Version: 0.14.8-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/bottom/bottom_0.14.8-1+bookworm_ppc64el.deb
+Size: 1453260
+MD5sum: eb1f0afe0c46e92897227580d0e56feb
+SHA1: c065b484594e3b2e8072bf46e31f52dde27f58ef
+SHA256: 35deec9ee4de61dd0b1099854752565b624e48ea72ec4c19f9389c83e90f36e8
+SHA512: 8ae89423fd54e7a1fbdcb101507929a116388144d2beec71ee7cea04e85ac39094fa1c64a7fe98eeafb07cf4fac28d94475def61446f174422cfbdbac888839f
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: ppc64el
+Version: 0.74.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fzf/fzf_0.74.3-1+bookworm_ppc64el.deb
+Size: 1348124
+MD5sum: 743136cbe41e6da3bed5825a61b9ab47
+SHA1: c1079fd985c822abdc9a8470d8c197f3693e922a
+SHA256: 634dd1a930ad4662ce0a961ade59f2de7162a128b1639077bbe4106781cf8d97
+SHA512: 02cdd6bf02d538a75181a78930045010d4232fb3922c9dc18d9cf297a90774d74c01cd7323edffc02abb3c55c4d59d3fc7527f65ba086bb1813a1fb38a851d9c
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: ppc64el
+Version: 0.16.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/ruff/ruff_0.16.3-1+bookworm_ppc64el.deb
+Size: 7412700
+MD5sum: a4730781506d25a5db5b3ab161df6c80
+SHA1: 513e547d2ac801e7a008eee2c3ddbde0da514be3
+SHA256: 0448bb55e88d1e8dba8d269db1505f08df636ffcca73abd351adc168641d4fa1
+SHA512: b7216e6899c5fd642b0d0024bea649901353defab73e7ed052dfb637b1d71d9fe93cf541988b3277fa82f85fceceb72dfab2199a7dc155fca4033a094b818b46
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.53.3-2+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_ppc64el.deb
+Size: 3545572
+MD5sum: 6d79126c1de53e32031732dada7c979a
+SHA1: 129a4cf139cad6bd9e79a974007cbb997c7c9fc8
+SHA256: 7b9654e47a99b6540a955814a47269bf13c0eaa6bd6dfbd768e9750e5b2da903
+SHA512: cb47cf7902bfb4056799a21f792323a2de0642618a10288abdde64515d4c8ec8f23d14ddd5d33492ad8e4c660c4324ee52622f8053daba3e4b04240ef2c78150
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

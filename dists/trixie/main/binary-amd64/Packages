@@ -1,0 +1,416 @@
+Package: atuin
+Architecture: amd64
+Version: 18.19.0-4+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/atuin/atuin_18.19.0-4+trixie_amd64.deb
+Size: 9908932
+MD5sum: b9208e73810387149c455df08eeb4b43
+SHA1: 71759f7a208c0c372aded77e8cf5db2997efb205
+SHA256: 3c60f14cf4b3b627078e2bea554e6c87524d4394c12bf1f2e19abae23c5fde88
+SHA512: 6834821c6dbfbc50d6d71cc46d651681f4715d7a5f8c8d5078eb4a92170d0d44ef84ac41b60ad9740e762c4610fc357e0e79482f811299f50a24b82e6016a343
+Homepage: https://github.com/atuinsh/atuin
+Description: Magical shell history
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bat
+Architecture: amd64
+Version: 0.26.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/bat/bat_0.26.1-1+trixie_amd64.deb
+Size: 2834824
+MD5sum: a1a8e6a79f6120011877d7cf45852273
+SHA1: c46b7f1401f75016cb29a1193feb63f7f3f6d6ad
+SHA256: f6cc3ba8305e086cd3ea1c7175f001f266bc2836fa26d761aa19499948a959a8
+SHA512: fb060725743cdfbd2aefba7cc9ae539866c590208d940d0fcf628322dd726e04364a77cc869011c65b6c5117c303415352d13d4548c595c78be414b3f2ca1358
+Homepage: https://github.com/sharkdp/bat
+Description: A cat(1) clone with wings
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bottom
+Architecture: amd64
+Version: 0.14.8-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/bottom/bottom_0.14.8-1+trixie_amd64.deb
+Size: 1501092
+MD5sum: 8c16c2282f5cdb840e1e9a64d6e5ae09
+SHA1: b8018f68c7d9409c002a551c060332af522b9669
+SHA256: 608df9b6b4948fec6ee57359d660b66d24fc6d0dd50f5b3ebbb57a5282bf7812
+SHA512: c60ca6f833686ed68b299a375f4c87f29ab67b88bf7e5138c4d9cb2fffb3d3140e3e3a8d64afc5100d01aca980f62eb11e2f586df070d2b2ebc58a206c1110fe
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bun
+Architecture: amd64
+Version: 1.3.14-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/bun/bun_1.3.14-1+trixie_amd64.deb
+Size: 25384792
+MD5sum: bbef5c3663d00b21da756ea3d19ecab4
+SHA1: 14ac6937ed0b0554458508717abcc5938dd2e73e
+SHA256: ad8a722a43adc90a26ac2e20888614a5f020c034a3d2cf15d1624aa44e1f715f
+SHA512: a93501dfc8ce878cc8170eda25c366386be29399be705ad759113e22bb6bd8f50f9534e24408ce1b92c5f8ed2880ff6b471511544b94887580832e310ac37200
+Homepage: https://github.com/oven-sh/bun
+Description: Incredibly fast JavaScript runtime, bundler, test runner, and package manager - all in one
+ Packaged from the upstream GitHub release for Debian.
+
+Package: deno
+Architecture: amd64
+Version: 2.9.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/deno/deno_2.9.5-1+trixie_amd64.deb
+Size: 30805112
+MD5sum: d95df13de0734ca1ece98ae3c822f6ff
+SHA1: f0113308f390bfb2d46f6e7e2b53e1c1437fa5e4
+SHA256: a294ca8fe749baa1ff038078ec3c5a2bd5227d3dce6eb3999d80e8f5d0533cb6
+SHA512: 62fd6013f0b4b575e936bb69cab58e739518111988480499cfca4f1ec79d1f90e193df392f42de0d0b7519d9be006500c953c609c597bac945981de17f19582a
+Homepage: https://github.com/denoland/deno
+Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: amd64
+Version: 1.2.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/du-dust/du-dust_1.2.4-1+trixie_amd64.deb
+Size: 944184
+MD5sum: 63593d6c6333ad22aabb660795ab9a8e
+SHA1: ae1d32de2a30b3110fac3fdaf4f4d1492b383aea
+SHA256: 6b48ef6ba22160b88b7a3304839f6d58607ceb58d7e45c1958f0819b0af8299c
+SHA512: cf1f97ebc5ff6a652f13f1d3432a0d591e58bbac076c0a1d7a21671c83cf5a4c75916f983f6073e930cfc9f684f5cc5a18f5d11c011dcacd3dd69523bb3b7068
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: duckdb
+Architecture: amd64
+Version: 1.5.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/duckdb/duckdb_1.5.5-1+trixie_amd64.deb
+Size: 14774492
+MD5sum: 587db309e719ec43b339dc99a75364f8
+SHA1: 7d5cef907cd8629628538eec03ef73d633639131
+SHA256: e1087db7c92b365196081a6a3f56796c9d300e8a503c84aac1fb483d64e9a113
+SHA512: 8e933d73bda1a9cb47e3907b36d5850e50ae0284f571674209744a251569bab90ac7a6b14c45f090a8f430da020e1a5abc6ea85e1001a0ce4ad70e019bc6386c
+Homepage: https://github.com/duckdb/duckdb
+Description: DuckDB is an analytical in-process SQL database management system
+ Packaged from the upstream GitHub release for Debian.
+
+Package: eza
+Architecture: amd64
+Version: 0.23.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/eza/eza_0.23.5-1+trixie_amd64.deb
+Size: 995316
+MD5sum: 3b7289fc3a09a44964bc7a9836a267ba
+SHA1: 65f087e085a2254a896659b850a99affa47c7289
+SHA256: 869a412d0a8ed4ec2c58ae617eb6c7a1b7e70fd4887b731f1b37fec34c8f0b93
+SHA512: da8be56288dc1cf722463f3ff6263594136133d6f981a2378083ebe13b28359ee9d395462fd76fa8419c483b0e2be8986b4a8a7f71268f57ec80fae2389f6763
+Homepage: https://github.com/eza-community/eza
+Description: A modern alternative to ls
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fd
+Architecture: amd64
+Version: 10.4.2-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/fd/fd_10.4.2-2+trixie_amd64.deb
+Size: 1245028
+MD5sum: 100db52854f990b3385b0996f302d833
+SHA1: c7e9c9efe55e72e90059725ca42c8545959e59a5
+SHA256: 1465802819ae5ef3490e5de03a2110d5bc3ea37bb2c64bb28a5978462435e310
+SHA512: e937280cd1f0047017386e0f115fd3d2bd5de40b7d32cb40464e2dedcda433ec6dcc0a9cbe6ed54972ebff30a3bab64f135ba3b97b8ac031a0ba7d986df684ba
+Homepage: https://github.com/sharkdp/fd
+Description: A simple, fast and user-friendly alternative to find
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fresh-editor
+Architecture: amd64
+Version: 0.4.9-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fresh-editor/fresh-editor_0.4.9-1+trixie_amd64.deb
+Size: 9496080
+MD5sum: f3a046a91c7e5be795f0c2d46ec4c22d
+SHA1: a3e6744603d4767aafddf0f19a301f2bb996d20f
+SHA256: c1fb3aec9ce36a199f3758ea89d32b2399311d46ba600d9d2754df3d915beae5
+SHA512: aa46c63784a9a9a15842d4faabbeba2ea9e5514e0a1d613fe3e95e80c02400dc2c45ad4e5990c527c90469e4bbaf04ebf987285da1bb014bf2f13f36e5c355be
+Homepage: https://github.com/sinelaw/fresh
+Description: Terminal based IDE & text editor: easy, powerful and fast
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: amd64
+Version: 0.74.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fzf/fzf_0.74.3-1+trixie_amd64.deb
+Size: 1563012
+MD5sum: 5c82d73592ba1881e2854e700b859d14
+SHA1: 6aac6b73b7245f172920d946f3a21f50bf8d1de7
+SHA256: d9067c3552059b94dbe00bbee35e1b4cd88869f3e3f132853673c4e6794f5f8e
+SHA512: 8db530173bcd3e555fc03672e02e09a9372d67eb27c0e881cae28a0aaa2f88165b0d609147356412a12aa6938d9901a13231966ffd7e111973c623f314ec3748
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: git-delta
+Architecture: amd64
+Version: 0.19.2-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/git-delta/git-delta_0.19.2-1+trixie_amd64.deb
+Size: 2629012
+MD5sum: 1077ee4417252d812d99f732916cce1f
+SHA1: c241cc9004674a9ae5d488c515a04d50a76c7eac
+SHA256: e6d835d3ecd22296c6ff7772f06768070d6eac6cb7f6d176070c81a87fd6da16
+SHA512: bb5547ddc5f102b1e0fb9c7ecd2c04bab1b91db14340198307d6bee78a9ddace228d44c650c304e85919eda546b92f80ca85303dbdc52fcf40cbd79f569a45e5
+Homepage: https://github.com/dandavison/delta
+Description: A syntax-highlighting pager for git, diff, grep, and blame output
+ Packaged from the upstream GitHub release for Debian.
+
+Package: gitui
+Architecture: amd64
+Version: 0.28.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/gitui/gitui_0.28.1-1+trixie_amd64.deb
+Size: 5410616
+MD5sum: 2881ee45978bd06229d509ff26c39ed7
+SHA1: 3964ca02db23efefcf3c3b6d267ab0edae63b707
+SHA256: 7179d81dafbe32c9b89628510022b23140c2b1b56db0e58c29070194f21f9e20
+SHA512: c400f9dc88bc5ec57e8c2d3a71ab1e4eb03670f9d416de93b11f8f5dccce07506de335d1f73fce3acd7fb1f1b8e1059b04704d9f2a5c710a84e2e9f680415923
+Homepage: https://github.com/gitui-org/gitui
+Description: Blazing fast terminal UI for git.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: hyperfine
+Architecture: amd64
+Version: 1.20.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/hyperfine/hyperfine_1.20.0-1+trixie_amd64.deb
+Size: 513692
+MD5sum: 2f29d9f5f20d67d93f289cb7e1d086b8
+SHA1: 66fdcdb8decc855781d4ca8687ec7e8c322ebb77
+SHA256: 2f2f896046e338c4d28391d4fc8e3cb01cdd9ddd5cd5a4d29c0ae24615fb3eac
+SHA512: ef2983e797e58b38d6d00a731b615056a2a53b8009f123316a87f94f2ad662b23cdf2ab0f675e5a365c53f3cd8f83d5c7ef6c4400da2641708d726c666b3a61f
+Homepage: https://github.com/sharkdp/hyperfine
+Description: A command-line benchmarking tool
+ Packaged from the upstream GitHub release for Debian.
+
+Package: jj
+Architecture: amd64
+Version: 0.44.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/jj/jj_0.44.0-1+trixie_amd64.deb
+Size: 7451228
+MD5sum: 97560bbd40ed999f85d85eaa2ec91f04
+SHA1: f41a181d490bc74b8ceb4f5085f3c7638fa82c7b
+SHA256: dbae9c1f1ecaf49ce9c41780691ec3a7ba4739f5e0316f38789c4b27ac79a8b7
+SHA512: c19f158e58068a7bdb91f93e509e0a97759a938738d36b3a96ab9dd538e78b1804dd46b2c332240896f9ccd2601a54446a96bb9e6c80f3538190c750e113183d
+Homepage: https://github.com/jj-vcs/jj
+Description: A Git-compatible VCS, powered by Jujutsu
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: amd64
+Version: 1.58.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/just/just_1.58.0-1+trixie_amd64.deb
+Size: 1814176
+MD5sum: 56643e361dbb353421a9cd4bd345b9fd
+SHA1: d23d701584d82fb5a0c5e344159a73432840b7e4
+SHA256: e4aaa428556e4d8711ebaf7ea5454a2f37d7c0af8c2f9bd7f9e4a87d31c8b95b
+SHA512: 7807f47cedda00108ec999bbc10a50ae69b4a284a592b914c6066f5037fe052e1ce785e2da73b7460baef7209fab3d8db3238924adace7fc306d8137180fed9a
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lazydocker
+Architecture: amd64
+Version: 0.25.2-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/lazydocker/lazydocker_0.25.2-1+trixie_amd64.deb
+Size: 3681676
+MD5sum: 78c0a5755b9a1db03e42be585c636b76
+SHA1: a732ccadc44d00439d059c7a04985d520e9e0d41
+SHA256: 0d0656f892603bdbb9542f6d5c5548113bbdc4ea273ead211fca617f401e0f6f
+SHA512: 611f30d1e8f67b5add9ec2c76b1988f63124a2947dd534f94cc1b0cd99e4c02abbad3001e0e02fb1fdcdc14c9914a22668a84d2a4217b6f0396ebe17e7db0d82
+Homepage: https://github.com/jesseduffield/lazydocker
+Description: The lazier way to manage everything docker
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lazygit
+Architecture: amd64
+Version: 0.64.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/lazygit/lazygit_0.64.1-1+trixie_amd64.deb
+Size: 5090236
+MD5sum: f851385f6a808de0c4fab865df737f17
+SHA1: fadcfd021cd4edc7d3889ee3e5344877d0081bae
+SHA256: d58f0400309c180e069350925aabb2386a9bed110dbcd71e6566d60d05828b3f
+SHA512: 302a00c5eba08db84168260d52343fffe0d51df57c167a690aee6082b081efa0e8481d073d7f6c702354569bb0f91b9cac061c18423f44e9244ff96710344bd6
+Homepage: https://github.com/jesseduffield/lazygit
+Description: simple terminal UI for git commands
+ Packaged from the upstream GitHub release for Debian.
+
+Package: procs
+Architecture: amd64
+Version: 0.14.12-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/procs/procs_0.14.12-1+trixie_amd64.deb
+Size: 1887224
+MD5sum: b0da4545ed3a0533ec9cb004c90d4fb5
+SHA1: b827cd8f5962566e5c874f593dd362074d3c5b0b
+SHA256: 1d5360cbe1a6fb782ad669600d9ddfe82bed1be9e5982ca5cdd3c7d4f7069355
+SHA512: 6378d5dc92810e24c9cdd78c11f4a524560b5011988506f696dfa88eebc6afe18e7b1d6bc4f13d7b1d006dd2db5cd435207cfe4d98488828d61049c1eb73ca3f
+Homepage: https://github.com/dalance/procs
+Description: A modern replacement for ps written in Rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: amd64
+Version: 15.2.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/ripgrep/ripgrep_15.2.0-1+trixie_amd64.deb
+Size: 1620980
+MD5sum: ff7856a71d9465911170ff0a70d6947e
+SHA1: 69f7a763ea1b7ddfe5df50ff90dd9f497044ebad
+SHA256: e2ab51f121e8765d0f8ed9c617b6e47b2873aa50cf2008f6d9d28020f4038628
+SHA512: 3ff335987dd3eedcd2a0c10759245c783c8702017cac1d78b93519894978a42919020d084d4c3f20725c1a88998f5bc2890b055394e0164c1e2bebcaca41f2c7
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: amd64
+Version: 0.16.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_amd64.deb
+Size: 7419076
+MD5sum: ecf9891178041843e7998b6364128b85
+SHA1: 9bdd4ff4f1d0af510bb60a0f2a89829b7b359b20
+SHA256: 3e5408be68b6ebdfb49d78b88844056fc7ae25f487c07a2bb35ed1639f2fb5c4
+SHA512: 5be08deb5313c833b56d4a8dfed014298f00203229d6457bed0543317e106789e37fb49535ffb856feb6122e1f96a2e0f9d542b3437565c19541c94c6b0c9ebd
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: amd64
+Version: 1.26.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/starship/starship_1.26.0-1+trixie_amd64.deb
+Size: 3596420
+MD5sum: 5df2655094ba924fdb815988108ad6f2
+SHA1: 59c6b2c9959ed9ab63e4dce07e107b13b5145b29
+SHA256: d9b6d16a341198412530005cbb68bc10147d7803535b6fcbbde868b8c65ccd3b
+SHA512: 66eaad85f4627a22022613f0d8b939190e0f29dc8b64ccbe0fc2498747aef8f61e40cd6f2acc24b777852baca0ff036fc44b6ce7a266a311017a91381df88303
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vite-plus
+Architecture: amd64
+Version: 0.2.9-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/vite-plus/vite-plus_0.2.9-1+trixie_amd64.deb
+Size: 3518552
+MD5sum: 25f39a5d3cabf98834b13cb1b8a2713c
+SHA1: 5a4d2720e2a2bfe128301d29686dbd818938b02d
+SHA256: afb7fa3f4afc05df8b3d923adbfc9997ac67b3e44c4152d8bfd899f547cb894c
+SHA512: 80fdf7a2de2c5bf05d1b3d4b9e9b0cec04798bbf534f5637d432d61f8662af76b6376626401463f919b5091f29090309c9007cef01a6e49ffc764cd369c85e04
+Homepage: https://github.com/voidzero-dev/vite-plus
+Description: The unified toolchain for the web (vp CLI)
+ Packaged from the upstream GitHub release for Debian.
+
+Package: xh
+Architecture: amd64
+Version: 0.26.2-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/xh/xh_0.26.2-1+trixie_amd64.deb
+Size: 3311008
+MD5sum: 8032361ee1d9aa554bd687c6575ec39e
+SHA1: e3d8207f044bdecf4252b7b6498c7dfa5998c6e3
+SHA256: fa7052619faaa8da70216c68030f70a7f598b977664e002234a210f67338716a
+SHA512: 4608abac567c74c8fb55fb64cae7d92ea3bde5cb42672a955de2ac958d55b1f0364aee83338b5b570a1cb806eb0530795f2471cc2b4d7e2e769cff4e40495dea
+Homepage: https://github.com/ducaale/xh
+Description: Friendly and fast tool for sending HTTP requests
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: amd64
+Version: 4.53.3-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_amd64.deb
+Size: 4154300
+MD5sum: 4df05f10d196bad8c460afe043f459c4
+SHA1: d0487b7446bccfc7904dfddcc42c326d0eecfeff
+SHA256: d0c589e1e5cedb1272091c691c6db7b3b27647bf409436e03c9fad166e5282dc
+SHA512: 0080b40dcd592d4fb8b7f952a84295248056d4d2c0453982d12c9e44e92cda9a5c47a2c54e527f2f2b11f1b62e934125c4f45646b5b7398ecf2bcf3c4691988b
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: amd64
+Version: 0.10.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/zoxide/zoxide_0.10.0-1+trixie_amd64.deb
+Size: 464328
+MD5sum: d37b2b2d48ca360c2c1f9c5ceda1acef
+SHA1: 61060d114c6833332a1c41629640f3ebe25aac4e
+SHA256: 7283dd7f28645a943820a99d426a1ccfb24e77519cbcbf4c1bbe9525545693f6
+SHA512: bf75874ea1f8b2aa281c3b239ec5e32558ceb1fa73dd9f446dac34d90dbd5a3877bf7a24bbd902d2226a5b1084e2fc483d885d863de855a8a3f27214b7e51415
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+

@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.8-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/bottom/bottom_0.14.8-1+bookworm_loong64.deb
+Size: 1295140
+MD5sum: a44e9ccad8bf515537b2da7262202828
+SHA1: 4e4b2d51eb43269ad861ecf5daebf3537e66b7ee
+SHA256: 9c80f33f5b90c791294a7249942eee804c0c5a91d72c6283c2a065a471e33f26
+SHA512: ea31b863e4ba046c9c6368ec00316b8bc38aa13275909189adee4465388df5e9544d8de4122e760ce2f79dc0b6df9ed31b6591092377d823cc53a94b7ac3f0f2
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fzf/fzf_0.74.3-1+bookworm_loong64.deb
+Size: 1393008
+MD5sum: 373d7df530dc4eb7b82267d585548da5
+SHA1: cd128eff85e68711dd799c20684339b6ebcce98e
+SHA256: 9ddc90278b4115d0c4295a480ccc1ca5fbbaeca37badd59d7da8696f0d78dd15
+SHA512: 7eaa3fd64d77915daea82c4820e93546e24b7a266754590463e2154a5402da82fcb74fa57db5c9caee5c0fdd26890cadcb1ab902f041b85aa173dc934e1afc47
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.58.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/just/just_1.58.0-1+bookworm_loong64.deb
+Size: 1538536
+MD5sum: d008391b9e264aa416bd3c7fb05f5976
+SHA1: e702fe6196f79fe587a49230e9dc1986aa89a041
+SHA256: 29e09a3614f728cff26fe77c81ae32bbe633cc76f48bb7c2357b2d3a02a79219
+SHA512: 484845822d626fad9b0e0e51894fbe6815625deae9b1d6ada184b7244e95d8dcf123b6b78d21c0f3a4e3864ae6a2a81cf0d8d93c4626e0add40b45ebef361982
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.53.3-2+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_loong64.deb
+Size: 3675956
+MD5sum: 28ee212375202e9d29724570e29e4d6e
+SHA1: 29b1a80fc9971cf668edc7d0fb8bcf739e5162b9
+SHA256: e8ff1546a799d1d9810fedd0c862e1fd5bb259a486727bf2e4bc49d1d0bac0fa
+SHA512: 838e28a8d1ae12e0446e063b2416b807ec92865d7f6fa4b9c50b719c898dea41e0567059055d630d73163495ca704e12cd4aca3e6ee2bdbb79f9f03b434253d6
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

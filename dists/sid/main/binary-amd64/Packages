@@ -1,0 +1,416 @@
+Package: atuin
+Architecture: amd64
+Version: 18.19.0-4+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/atuin/atuin_18.19.0-4+sid_amd64.deb
+Size: 9908744
+MD5sum: d8470df572671dc76f73674ad7cf00bc
+SHA1: e011b6e0fa90bf4b20311bc22c5cd1c5b586b9fe
+SHA256: 20e6ca081fb2076e30054162e5ca840535cd9fa3ab0a9e9f459d127f51ce46c1
+SHA512: 72c6d9187250056fd1d69feb183a618aa7e6b1f95df341d24cd9eaf6fae4cf8314b4995353f7f7e102a4860c8159761f7edf93582c27dfc7d4a19b9ebceacc0a
+Homepage: https://github.com/atuinsh/atuin
+Description: Magical shell history
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bat
+Architecture: amd64
+Version: 0.26.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/bat/bat_0.26.1-1+sid_amd64.deb
+Size: 2834760
+MD5sum: c75313e959b7d8f539db76b4a3ad037a
+SHA1: 280a85efd94d25751a1e39209b003635fcfcc4f0
+SHA256: 4cfb69246e68e89b68fdcdeabee4b74eeaa55f28b4f8f8cf9bddc1b73ed99a81
+SHA512: d12df82ec40889a9f3ee87697728917c9580d70084f7ccf472fddfe318a13d32aae9a8e3ac648accd39f4abb29e77d3b8ff1fa8b65ac4155d73f6ac64b0045be
+Homepage: https://github.com/sharkdp/bat
+Description: A cat(1) clone with wings
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bottom
+Architecture: amd64
+Version: 0.14.8-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/bottom/bottom_0.14.8-1+sid_amd64.deb
+Size: 1501064
+MD5sum: ecf602e46640b572429c556155a2768b
+SHA1: c79e1a7de26e6b3635fcdbc8bc413488ca095d2c
+SHA256: 4831855b9202e1dab86f7dc2651ba69cbe10ca5f91ba8fb4ad471ddaea0eaad7
+SHA512: 1e6793c4c64f07e1179cc22337f68c5a1807f111092f4d60a53caa861f33b5b3b03c86ad56b7afd912fe937b1e5afed971e9f9b6572e59a6df7821a4270930c6
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bun
+Architecture: amd64
+Version: 1.3.14-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/bun/bun_1.3.14-1+sid_amd64.deb
+Size: 25381012
+MD5sum: 665b97070fee9564b5b5609ea48c4865
+SHA1: 21625a8c0b4dd653e8b4e29615dcbd3111f1eb0e
+SHA256: b318c83761a9a54afcc941555da6c205e1154743d184a761a90d738787801968
+SHA512: 0dd3339a6e6d5da6a50f7fe730b0c9f9d23b2103ce05043c2e6c7a2a0635516f9cc482f6a575b88b2ff12a6e6168ef6c146dfd7395ba80583e8c920840b245fd
+Homepage: https://github.com/oven-sh/bun
+Description: Incredibly fast JavaScript runtime, bundler, test runner, and package manager - all in one
+ Packaged from the upstream GitHub release for Debian.
+
+Package: deno
+Architecture: amd64
+Version: 2.9.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/deno/deno_2.9.5-1+sid_amd64.deb
+Size: 30801648
+MD5sum: eb2a5cd6fdd8a52a2a2a7a84ccfc37ce
+SHA1: d7c805fdb90371538a2bde8011ce31896e8636f1
+SHA256: f45ed357d7afe2e4b1aa4b83ed1d69890dd876416fda2e02520d02e862b25077
+SHA512: 34af7f2c3586b42bd1cb2e2cc357c7fe90cc4056bd2db1bb0b87fc59d34102d88cf269c5e9e85af919bc417204e5c408466cbc02c5204a8a84ae56a37996fa12
+Homepage: https://github.com/denoland/deno
+Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: amd64
+Version: 1.2.4-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/du-dust/du-dust_1.2.4-1+sid_amd64.deb
+Size: 943972
+MD5sum: dbcd132776508363dfc52e1c1bd82d33
+SHA1: 7dfe6b96c2ca2fab694188dcae8f4dd0dbc80253
+SHA256: c6fd3b3e390a8f6f3fcbf69399812a28b0e00578d7c59b6271964d576aa833f6
+SHA512: d39104ae161ad4d4bda89503c79a2c4fbf286c9d5137a4276b3ded437dab657991e5cd85588bc28a0a3eec1f0de50c3d83ab9a86002603ce60dacb2006974854
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: duckdb
+Architecture: amd64
+Version: 1.5.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/duckdb/duckdb_1.5.5-1+sid_amd64.deb
+Size: 14774560
+MD5sum: 48b46fb6e609b9115eec32fe9827b673
+SHA1: 0b3581dbd766667b8a9a808efd7eb07fc34b601f
+SHA256: 01b486e1438adf8648da9c6da981d7272cb9a63becbd94fd648518329e925f03
+SHA512: a94894e7f132f5b8f97615678220c89895b7efae95717792048cf417da314cb549390d8011b36dc993090481c8b580e8c991f51302557da5944aab655e235d6b
+Homepage: https://github.com/duckdb/duckdb
+Description: DuckDB is an analytical in-process SQL database management system
+ Packaged from the upstream GitHub release for Debian.
+
+Package: eza
+Architecture: amd64
+Version: 0.23.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/eza/eza_0.23.5-1+sid_amd64.deb
+Size: 995480
+MD5sum: e534956c6cad2a18686ab2bf13973eea
+SHA1: a104fc928c8fc231722332321eb6a54b551b13c0
+SHA256: 9049870a3d092e36cb3e3547e0f6284b6743deef494996eb92bd9d3fe2f934ed
+SHA512: bdf5dddf4a671ccdcad58633dad48dc3b932bb2f73b2d894ea6b281845c3d6cdd493c0acdb6ef13a46f4f3e9202f4a20b9a19f61f78f2512f2380a2d96a799d7
+Homepage: https://github.com/eza-community/eza
+Description: A modern alternative to ls
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fd
+Architecture: amd64
+Version: 10.4.2-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/fd/fd_10.4.2-2+sid_amd64.deb
+Size: 1244616
+MD5sum: c18a85aef093c8cda976167389d7121b
+SHA1: 4bc7d03371f57c0d4b1b1ad7b081617e67c29406
+SHA256: 112a88dbff918169215f17944304c0fe2a675be87dcf9846f63fb2572538ed3e
+SHA512: cc2e6efb930d4138ca4d3523c7ed605387df0e963b85e39ea2fbf61646c75a0caaf0bfa7df1cf69c1c918b3033081440839451e781eb9851ea3c3a76ed14609f
+Homepage: https://github.com/sharkdp/fd
+Description: A simple, fast and user-friendly alternative to find
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fresh-editor
+Architecture: amd64
+Version: 0.4.9-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fresh-editor/fresh-editor_0.4.9-1+sid_amd64.deb
+Size: 9497036
+MD5sum: 7074691b02b032be1930bb16f8f6630d
+SHA1: 8a228b875e9a90eaca238fb37e35c1f4318e7e68
+SHA256: febd1c7b326bd15e8794bd52e4a2f5c26078ed1f488548e1f38a254924e5ef63
+SHA512: ec7ebe5410a939733bce91f87e457f8ddfb35cf86d48fee012199a50f8cf25660b3b5068e5a64998ad69ff39faa2316c1a1727fd4b9497dded69bb6cc81de583
+Homepage: https://github.com/sinelaw/fresh
+Description: Terminal based IDE & text editor: easy, powerful and fast
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: amd64
+Version: 0.74.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fzf/fzf_0.74.3-1+sid_amd64.deb
+Size: 1563192
+MD5sum: 480b3b4c3f957019c0cb0378b9c5f3fb
+SHA1: 30c93aff02e3bb2a4475dcf75e48be7b4e81dbdd
+SHA256: 45746408e083c91075c676b8aac97a758505bbdc07379850a83030e7cb88f76c
+SHA512: 7f205bdfdaafb08286b6d5c85e42a76913c200af1e3816c25c0d24277e14017ee671e308f1ba191d7da102ca0fe6860694dea470402ec65fb0db04159bb8bc96
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: git-delta
+Architecture: amd64
+Version: 0.19.2-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/git-delta/git-delta_0.19.2-1+sid_amd64.deb
+Size: 2630140
+MD5sum: 85e5e3d261ba22d2c4cc3aad7933f819
+SHA1: ca60cf33c2c8df68dba08861141156e50f1593a9
+SHA256: 6e6dafda717dcda7981e53120b22e96181480e679de7636f798f226004717648
+SHA512: 9613fc3a7008c7dc0021876c6e71f0c2e803cfccae010973fd4396f1020206ec5b93f2b7e063ad821669aea1cd89ba1c23e9488335651f83165f5cf89679a2e2
+Homepage: https://github.com/dandavison/delta
+Description: A syntax-highlighting pager for git, diff, grep, and blame output
+ Packaged from the upstream GitHub release for Debian.
+
+Package: gitui
+Architecture: amd64
+Version: 0.28.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/gitui/gitui_0.28.1-1+sid_amd64.deb
+Size: 5411292
+MD5sum: 3f212c7f7352289b04e6f50670d8b655
+SHA1: 0c8583aad2f05465232d0c49a07354e2714e3c8f
+SHA256: ce43b2dd936c445c371d649e01d6672b50082dd85a1138df94cff6dfafff4428
+SHA512: 7753db0e4a7ddbf522bf3a3a4f4bd48559c882304e376cdaac58c7aced9af5a331716f9c9195ae5b6fdfbd0dad384d8a329999953a6f92530b7830469cead6c5
+Homepage: https://github.com/gitui-org/gitui
+Description: Blazing fast terminal UI for git.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: hyperfine
+Architecture: amd64
+Version: 1.20.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/hyperfine/hyperfine_1.20.0-1+sid_amd64.deb
+Size: 513768
+MD5sum: ff94d530d776aedf651e607343927039
+SHA1: e18a49025816fb396f0bbc13e200b6b0af10ff54
+SHA256: b7565291a3e82ec9c1b4e89ed12097ef56f82c7dbed5c599dff82ab840b9df67
+SHA512: aef9be3239be9b6c4ea577f98258fc9648077a378b192ce4056ae177751633c041c40e4f374e57272efc99879302ed6404268bad6dc78c3bf02f5434e8722516
+Homepage: https://github.com/sharkdp/hyperfine
+Description: A command-line benchmarking tool
+ Packaged from the upstream GitHub release for Debian.
+
+Package: jj
+Architecture: amd64
+Version: 0.44.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/jj/jj_0.44.0-1+sid_amd64.deb
+Size: 7451740
+MD5sum: 4f070dfccc38b4fff0ebfe0ae2a9b706
+SHA1: f65bbb3313e89317e6293129e75f18a6057fd443
+SHA256: b225ae819add4e0b28da363421a16f90c451de932a1a9e79a0fdc868159a75b2
+SHA512: 7c711935e3955c94f7a7a6f8aa3b0e40fcf5a995f0a411a140bb54ab476b63844c6f59272cda804b9a78df0bda7c175e99ccf3efe67a8b78dd98b7bbe39a2565
+Homepage: https://github.com/jj-vcs/jj
+Description: A Git-compatible VCS, powered by Jujutsu
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: amd64
+Version: 1.58.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/just/just_1.58.0-1+sid_amd64.deb
+Size: 1814080
+MD5sum: ca7d67cedaefcd455d66d0c410068bf2
+SHA1: b2f2b6a0df0319642524f3baf5594228280cd231
+SHA256: f4e8c79c8765abd2ee9050ac1eaff305786a35749ae11ee91ac4c2db442f7614
+SHA512: 5d5cba5781757f671903e0671eae8f73c5555fbed16234b06a9f4e6af445ea2d0444f678b9d0ef19752deee99fadbb2beebd7985bc30f8def3c75c2e0e117347
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lazydocker
+Architecture: amd64
+Version: 0.25.2-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/lazydocker/lazydocker_0.25.2-1+sid_amd64.deb
+Size: 3682120
+MD5sum: 4407ec9295d53b81a2e61787a8a772fe
+SHA1: dc3038512b3c55eb394a352ba6d7dc9f4998f036
+SHA256: 7ff35b4bd0278f7d1b706ab6b3935a21818a856f71c9a96e4037699b232a73ec
+SHA512: 2b9dbe360dd4118ff8c4d6aceea292f18086410646bbc08a2f7e365041fb29a4acf6c999c7864164d990678ed4a868660fea3ac92ea49e89b3014ccdcafe109e
+Homepage: https://github.com/jesseduffield/lazydocker
+Description: The lazier way to manage everything docker
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lazygit
+Architecture: amd64
+Version: 0.64.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/lazygit/lazygit_0.64.1-1+sid_amd64.deb
+Size: 5088632
+MD5sum: 0eae95c3f60855ef3976072ce5e77b2f
+SHA1: de9b06adddc201f63681d26d4dfaf787855851e9
+SHA256: 3c16b98affe0c3499d418e014da0322768c2076766e0de8b3ba97e2296260c0f
+SHA512: c5c1d887f0911f8d9d6da27462b4726a04202c9da857acb6efb28613c1d21266278b89d5cc0bd1c0799a06820d7f482d51824d62f952c657f19e7cd22ca6a3cd
+Homepage: https://github.com/jesseduffield/lazygit
+Description: simple terminal UI for git commands
+ Packaged from the upstream GitHub release for Debian.
+
+Package: procs
+Architecture: amd64
+Version: 0.14.12-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/procs/procs_0.14.12-1+sid_amd64.deb
+Size: 1886868
+MD5sum: ef9fd7c90da20aad19a3291e7debcfe9
+SHA1: 441fbdd64081bda6e7cbb1c30963b9af3242e1df
+SHA256: 37662bbcc54670bd3b547ae7152c8555a490b6f6e1c3858d522c289a2fc1e400
+SHA512: 73f835577962069bc0f4ce05cd129782bfedbbadb89c39abc601e352714358ba10578197322196ded2a6cb6f79b8b0746e288c7aa4605505c0a72deec420c91e
+Homepage: https://github.com/dalance/procs
+Description: A modern replacement for ps written in Rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: amd64
+Version: 15.2.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/ripgrep/ripgrep_15.2.0-1+sid_amd64.deb
+Size: 1621520
+MD5sum: 4761b4f04e83e00fb52dadc9ad6c25ab
+SHA1: 41352f9179f44bd69ce4b9199791048bd0d8bdc4
+SHA256: c1f7454c9c8270911c0f8d41c332c22fe6f89f39e064480ab7386af3b46d6a8d
+SHA512: 725ad59d03ee741e3e77dfea0821cacb33117491e1650dc2a0f3f230799495c21b603ceadc8da5468ea06b3407bf9dff5cebc76caa6312389bf33099ce4d34d2
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: amd64
+Version: 0.16.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.3-1+sid_amd64.deb
+Size: 7422820
+MD5sum: 254b686ed5c0d8066f1100a7324ecede
+SHA1: 3ac7342b12d3eac709fc4b67a6fd3d9536874bef
+SHA256: f5fa66934f5f9af7bba5f44902cfb4fdf39dc7468cc389f804965fc6c33f8250
+SHA512: 13f0e94143e5578ee9e15c33a7dd3bde398385e24b6e1bbf9107857d2aa77b76bff0c87e5257fe85b191f0e0b22cfe27bdc5f59a1de9d67fe1466349956079d4
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: amd64
+Version: 1.26.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/starship/starship_1.26.0-1+sid_amd64.deb
+Size: 3595204
+MD5sum: be0d9f77b9ffaf39eb2d28c0d24d1a4b
+SHA1: 87656ee1b80114e9cdb9f4e6d24f7766be01d775
+SHA256: 07b00b93a65ff989a894570cf3ed57628516a3d87f0029018c32ad35e844f683
+SHA512: 4c975c674d7bc88cb8601634b58fc00ce20997d3e0a5cbdd0f7a2b05b8e929950c84f7059875506dda9aed1d5eca50e9b076e26e95672cf872050d3d7b74197d
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vite-plus
+Architecture: amd64
+Version: 0.2.9-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/vite-plus/vite-plus_0.2.9-1+sid_amd64.deb
+Size: 3518824
+MD5sum: 8b0077eefc8c2f42b6973fc023f916db
+SHA1: d1997c89e6a5624cec0250d2cd4d0136e40228aa
+SHA256: f92bf15a36769de05ec10bc29a42b2cd822bbea674887573fa92dd5ff643d471
+SHA512: 87315d52e1f2ebf88734d5f07a169e5dae77b0f54304cc7e485ccb91148248ca20d5f04ab1188f5d6d1b2eb1547649f32951babd3176387c9d54958f2b33273d
+Homepage: https://github.com/voidzero-dev/vite-plus
+Description: The unified toolchain for the web (vp CLI)
+ Packaged from the upstream GitHub release for Debian.
+
+Package: xh
+Architecture: amd64
+Version: 0.26.2-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/xh/xh_0.26.2-1+sid_amd64.deb
+Size: 3309468
+MD5sum: 6bb88e0eac03f37f99ee6ce6bc41f648
+SHA1: 7d67643cc3b4ba6acf87446dc8c53b4aa5cce89a
+SHA256: 9beb59a7eec759e67c898078e1a2fb183c14b41c7b70a29a2281c0af096d594b
+SHA512: f7e8e3ddd74cac3ce818cbb637a33c8d75522608ab428250cd9686f41e6a8f006f99a6e466766dc7eb1796e2fa67a00f69f9163be23af9aba07c35eae50dc2fe
+Homepage: https://github.com/ducaale/xh
+Description: Friendly and fast tool for sending HTTP requests
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: amd64
+Version: 4.53.3-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_amd64.deb
+Size: 4159492
+MD5sum: c7ab00db009005c02484a48acd3a9957
+SHA1: 76bce4a9578d95b62d6f1cf3980476ed250614d5
+SHA256: 0dd37a0090eb130d5431aa20c093921a575abf3eb6d3bad8983f2c8d96e9b6bf
+SHA512: 2d8d1344bc24a7f91e9a8344b2dd912db8122014127dbc31485ed3991de4398f9807aea551aed3bd1c29814536f9d8482ec41e840c3bdfc6735a7cab7233112e
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: amd64
+Version: 0.10.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/zoxide/zoxide_0.10.0-1+sid_amd64.deb
+Size: 464296
+MD5sum: a46335dbf91190a2b0a7488e0f7e7c40
+SHA1: 934f87818d15ee90589874e38c2a539bac28274b
+SHA256: 603d236f02f15167e6bc016cfe70efd144679925980abdc1b702ef174e050278
+SHA512: 9c1bac2348129cf5474c8bba63830e15c0e86acda6b7101927fd0f84b2aa986ab7dd8916519a1fcdb18129121f2ea9b867a56903a38ed761d6d1a9428366e5d6
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+

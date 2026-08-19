@@ -1,0 +1,112 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.8-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/bottom/bottom_0.14.8-1+sid_riscv64.deb
+Size: 1487120
+MD5sum: d7ac81ada11a05a6b9a9ee2b6fee3118
+SHA1: 40452bd77b49e66503035317ce0d05154d842aa9
+SHA256: a5a2a1bc2ce25aae53995b8c9150c2ad13aa75c6af24d2aeed16d48dfb0afa61
+SHA512: 2603985f671ea31d010b2aae954d8de42421adf86ec723b92b114b0127e889e88f5d81c906e6680ca2fbe565932d2d3f7afc0cd4fa3390c611e0af51846946e6
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fzf/fzf_0.74.3-1+sid_riscv64.deb
+Size: 1441740
+MD5sum: 54f6daadaa0fc3da0a9113f372f04fb0
+SHA1: 7f092ed14f9110b0cedbcd07877e5ec1e5f8055c
+SHA256: de5d02e63c8e22760f03e4f9b6917eb54af6988bd184d1c918ed7e3562ccc7b4
+SHA512: 6c924f09351650855d56216f6670bb83fe1dc4049080d874565e09325d29e4f361693eea6ecf109674b12eaf709fca41c43df0d5b11a654c07f065ee6582c266
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: riscv64
+Version: 1.58.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/just/just_1.58.0-1+sid_riscv64.deb
+Size: 1748592
+MD5sum: 0ac37a3741f834901418aef80b195e03
+SHA1: f8adbb4beb4416fc68182565cd7b2778aab666cb
+SHA256: 0ddb7b0d4291150e8e3ff34399bc4510eb7c481f60eb71495819c771b06e1e21
+SHA512: 81310247fedf1ae92ee345cc59949cf35b4fe69a17cc926e218929dbc521ea2965353bd00e04c7d1d247fb4e848fd43c985b02dbd8ef314e39e9c8fbb615deda
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.3-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.3-1+sid_riscv64.deb
+Size: 7535784
+MD5sum: cb2e7c7c467be91e8ac7d880b3612ffb
+SHA1: 994d544b56870f8a7781e2f12a8871066d29d834
+SHA256: d7748eb33663b9a532d2c556cd40f908072d319ce9e4037d549e84f2f316bc1e
+SHA512: cc8e3527cf638d3e2d8cca2717e0474f1bb2418c9d3b745335f9e633bcfbef6b8b2e3ad67e412c298539c5ee2c122f93600125574b1f679127bd4e6d2f178b78
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: riscv64
+Version: 1.26.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/starship/starship_1.26.0-1+sid_riscv64.deb
+Size: 3681372
+MD5sum: 3661b42083238319a7e85d055ff96ad8
+SHA1: f91d2024aedfe8781aff60c505b8421f4b8b8483
+SHA256: 6dae09e94c28ec4c27421b92ff91d55281bd765ccecbdbfc35ee6057e34c6129
+SHA512: 0ff871dba73d608caf10723755b4fd12b2f39e9818fb293e1f01b767f4e4a8d88836462921ae9f08499f8521eb2d5ba9e906a327e9bb82efb8c3bd1f90fbce1b
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.3-2+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/yq-go/yq-go_4.53.3-2+sid_riscv64.deb
+Size: 3865604
+MD5sum: 45be11bdf4a4ab43bd3cd5f98dcd91c3
+SHA1: a777498587b6ff312f9a977bfc5ca1dd81582c68
+SHA256: 5e7dcba37d76234800439ee81a36eeac703d3567eee748e94f717a6a4b1727ea
+SHA512: db5ee755ac706e3c842c92c60d4e91e0cf20a06cb424c8823cbfdd11cdfb5d3de90433dcdd51ef6d00b715580edfb3cd47ec35d8abc2bc86298fa7fe3440c176
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: riscv64
+Version: 0.10.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/zoxide/zoxide_0.10.0-1+sid_riscv64.deb
+Size: 408604
+MD5sum: b93bed91dd29316e51d873eda2c1cc51
+SHA1: 955ec9ba29e83939de197b50753c88c53fc31061
+SHA256: 4697ab10214eae0e582d765383f78bba405ab14e693b03d3083cc402bed8fa20
+SHA512: 65a6025d7fda630c1232369042f72d176a19d29ee386867bd93599e9868297e2066125c3edd4705e8694151fa35bccbc743b4947e80ea8917d755ae2c9672895
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+

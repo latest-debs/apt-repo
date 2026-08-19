@@ -1,0 +1,64 @@
+Package: fzf
+Architecture: s390x
+Version: 0.74.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fzf/fzf_0.74.3-1+trixie_s390x.deb
+Size: 1428448
+MD5sum: f501f32c6fd02d8524dc800f30da09b6
+SHA1: 95290b8569ab836faf6b270589a299b4b074b2c5
+SHA256: cd3dbce0d2ed49adaa70f104ea29b5587608632ffe33e2689c53706c6809ff0d
+SHA512: e940ddd44ee0d5bc4240dbacfa2e4cb53d3bfa288a93ee5afa92566ea42ce09e24d1124441089184fcd6476a1013e9144db06b4e39424de50229df47e60cb1b1
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/ripgrep/ripgrep_15.2.0-1+trixie_s390x.deb
+Size: 1408160
+MD5sum: 6227f19f203e91f9ec76141b0f5fa324
+SHA1: 34561d5382873ad416bf7cc44e0e51f3211f7be8
+SHA256: a22d956619eed796f6548a2f818cd39604b960a83a28c8ab2acaac389451d5b5
+SHA512: 3db86f32759ca1f3a59ce316cc15ca88382e8556a2a7dc954585d7663e5a5e00bb4bb8612d1402847075fc2e0753a01624f7bb43fc69e0de288824a1020cf968
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_s390x.deb
+Size: 7209492
+MD5sum: 95c0a96c50ffce23c70b155b0f0cbb6d
+SHA1: 7d384346d9836549d5b303906e3077c1ccc94f2b
+SHA256: f81f1e636ce1b069f58ce7a45832d0f8422006c2f00eb7846fef4de55d927596
+SHA512: c8a1f50fe87dd16baa9d1f0f045548e4b1cd7a30e3042f4c52649520ff511065edebfc07a99219012df9bd0253243e12db437881ef9b8e6ea8389533f91c4bcf
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.3-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_s390x.deb
+Size: 3788012
+MD5sum: 4a5eeacc34e079a6db05a748d86c0cc2
+SHA1: 2b45d71088fc525eac028df89f87046dcdba02ac
+SHA256: f668e3f8fb31e3b5f5bf7117ce6a52de30adec309f8159a09e897ff44d3d4570
+SHA512: 0dcb86048a96bf0f32c6685737f88830b09715a12e40af925cf5cab7d8c18db4d284704e8ee969e6529343d7455237697b593d582809648767fcd4dc4ef53cd0
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

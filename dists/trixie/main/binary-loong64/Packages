@@ -1,0 +1,64 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.8-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/bottom/bottom_0.14.8-1+trixie_loong64.deb
+Size: 1295056
+MD5sum: 986f8bd84e354cf13f73293dfef2b732
+SHA1: 73070c200a380c8017bed5dd7cac743fd334d8b2
+SHA256: 6de5647feb65809259941811e48a9af3f8c373bd8e515d9808481215ea06f9f5
+SHA512: c3a47581913da60bfe64e5c27d07418f0c9cc88295a8958a99ab6e69676887c0e1cd873483a0abff75c413f17ee7783fb909b391b0ac33ec8f77a1489660f759
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fzf/fzf_0.74.3-1+trixie_loong64.deb
+Size: 1393304
+MD5sum: acb7ef19d74f41a4cab1a97bd6424a69
+SHA1: 8f2880f97bc339bb7c6a15e595b58fd0e249a4ce
+SHA256: 62d1c229bc511572e731d2919d47d438d95a9e6dddea0419295a0ae4c71673ac
+SHA512: 4c0ab2f3fcf11755735f53049b1b0cf381f32a1dfaa9823e9339dbdf249ecec9dd52b18f2c7e4d69d4942c5c8b2f10409ad18a14a3ea9bb15b7d28a084873571
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.58.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/just/just_1.58.0-1+trixie_loong64.deb
+Size: 1538676
+MD5sum: 6b3823b62a0d92c1cacf30065bd3451f
+SHA1: c0eca5c60e75da0a993d77a588aabee39af12427
+SHA256: f20ac7c712a6c9abcc68ff46bc0381a1d6cbf32b564d9e3828b2a62d9c7ae25a
+SHA512: 2c5e7ca170d8206eb66063f219744f2c786321d806b547fa8bbeec16eed2fadd78ddb21703ec114181dcee100bd00939ddd4c3dd8fcf1535b91d7dbe5a248578
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.53.3-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_loong64.deb
+Size: 3675992
+MD5sum: 9c71968be39ef362635d6575932fd3b1
+SHA1: 21a98131d4869551a6417c957dcc6e50a92d6480
+SHA256: 7e7b9e122a5ee2a30c3b31ebead630f2abd868b37ddd34d116caa1938a3c49df
+SHA512: e22953d78c150c0ea6f647ab008b30b0fe7fd24c51f562459cea76fa1dfbfce81f3653d7e13fc1ea403e3b9d4eef7d1f214c3253e01725fe908ceedef545005e
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

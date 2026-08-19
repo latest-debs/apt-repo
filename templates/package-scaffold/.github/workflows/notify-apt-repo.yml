@@ -1,0 +1,34 @@
+name: Notify apt-repo of release
+
+on:
+  # Fires whenever a release becomes public - both auto-published builds and
+  # drafts promoted to published by a maintainer. Tells apt-repo to rebuild
+  # immediately instead of waiting for its ~6h scheduled run.
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Trigger apt-repo rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch rebuild to apt-repo
+        run: |
+          set -euo pipefail
+          if [ -z "$TRIGGER_TOKEN" ]; then
+            echo "::notice::TRIGGER_TOKEN is not set on this repo; the ~6h scheduled apt-repo rebuild will still pick the release up."
+            exit 0
+          fi
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $TRIGGER_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/latest-debs/apt-repo/dispatches" \
+            -d "$(jq -nc --arg repo "${{ github.repository }}" --arg tag "${{ github.event.release.tag_name }}" \
+              '{event_type:"release-published", client_payload:{repo:$repo, tag:$tag}}')"
+          echo "::notice::Dispatched apt-repo rebuild for ${{ github.repository }} @ ${{ github.event.release.tag_name }}"
+        env:
+          TRIGGER_TOKEN: ${{ secrets.TRIGGER_TOKEN }}

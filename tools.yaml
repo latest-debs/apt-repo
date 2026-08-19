@@ -1,0 +1,122 @@
+# Registry of tools tracked by the latest-debs apt repository.
+#
+# Each entry maps a package name to the GitHub repository that publishes
+# the multi-architecture .deb release assets for it. The build-repo.sh
+# script reads this file, downloads the latest release from each repo,
+# and folds the assets into the aggregate pool/ + dists/ layout.
+#
+# The target repos are expected to publish assets named like:
+#   <package>_<version>-<build>.<suite>_<arch>.deb
+#   <package>_<version>-<build>.<suite>.dsc
+#   <package>_<version>-<build>.<suite>.debian.tar.xz
+# (the "<suite>" component is how a single release carries all dists).
+
+vite-plus:
+  source: https://github.com/latest-debs/vite-plus-debian
+  homepage: https://github.com/voidzero-dev/vite-plus
+
+eza:
+  source: https://github.com/latest-debs/eza-debian
+  homepage: https://github.com/eza-community/eza
+
+lazygit:
+  source: https://github.com/latest-debs/lazygit-debian
+  homepage: https://github.com/jesseduffield/lazygit
+
+ruff:
+  source: https://github.com/latest-debs/ruff-debian
+  homepage: https://github.com/astral-sh/ruff
+
+bun:
+  source: https://github.com/latest-debs/bun-debian
+  homepage: https://github.com/oven-sh/bun
+
+deno:
+  source: https://github.com/latest-debs/deno-debian
+  homepage: https://github.com/denoland/deno
+
+duckdb:
+  source: https://github.com/latest-debs/duckdb-debian
+  homepage: https://github.com/duckdb/duckdb
+
+lazydocker:
+  source: https://github.com/latest-debs/lazydocker-debian
+  homepage: https://github.com/jesseduffield/lazydocker
+
+ripgrep:
+  source: https://github.com/latest-debs/ripgrep-debian
+  homepage: https://github.com/BurntSushi/ripgrep
+
+fd:
+  source: https://github.com/latest-debs/fd-debian
+  homepage: https://github.com/sharkdp/fd
+  # Debian's own "fd" binary package is an unrelated older tool; this one
+  # is packaged there as "fd-find".
+  debian_name: fd-find
+
+fzf:
+  source: https://github.com/latest-debs/fzf-debian
+  homepage: https://github.com/junegunn/fzf
+
+starship:
+  source: https://github.com/latest-debs/starship-debian
+  homepage: https://github.com/starship/starship
+
+just:
+  source: https://github.com/latest-debs/just-debian
+  homepage: https://github.com/casey/just
+
+hyperfine:
+  source: https://github.com/latest-debs/hyperfine-debian
+  homepage: https://github.com/sharkdp/hyperfine
+
+atuin:
+  source: https://github.com/latest-debs/atuin-debian
+  homepage: https://github.com/atuinsh/atuin
+
+xh:
+  source: https://github.com/latest-debs/xh-debian
+  homepage: https://github.com/ducaale/xh
+
+yq-go:
+  source: https://github.com/latest-debs/yq-debian
+  homepage: https://github.com/mikefarah/yq
+  # Debian's own "yq" package is an unrelated, older Python-based tool
+  # (kislyuk/yq); this one is packaged there under no equivalent name, so
+  # no debian_name override - it should correctly show as "not packaged".
+
+du-dust:
+  source: https://github.com/latest-debs/du-dust-debian
+  homepage: https://github.com/bootandy/dust
+
+procs:
+  source: https://github.com/latest-debs/procs-debian
+  homepage: https://github.com/dalance/procs
+
+bottom:
+  source: https://github.com/latest-debs/bottom-debian
+  homepage: https://github.com/ClementTsang/bottom
+
+bat:
+  source: https://github.com/latest-debs/bat-debian
+  homepage: https://github.com/sharkdp/bat
+
+zoxide:
+  source: https://github.com/latest-debs/zoxide-debian
+  homepage: https://github.com/ajeetdsouza/zoxide
+
+git-delta:
+  source: https://github.com/latest-debs/git-delta-debian
+  homepage: https://github.com/dandavison/delta
+
+jj:
+  source: https://github.com/latest-debs/jj-debian
+  homepage: https://github.com/jj-vcs/jj
+
+gitui:
+  source: https://github.com/latest-debs/gitui-debian
+  homepage: https://github.com/extrawurst/gitui
+
+fresh-editor:
+  source: https://github.com/latest-debs/fresh-editor-debian
+  homepage: https://github.com/sinelaw/fresh

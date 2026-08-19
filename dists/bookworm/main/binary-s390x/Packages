@@ -1,0 +1,64 @@
+Package: fzf
+Architecture: s390x
+Version: 0.74.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fzf/fzf_0.74.3-1+bookworm_s390x.deb
+Size: 1428592
+MD5sum: 7f76ade4b1fdded0dbaac8b696af1c23
+SHA1: 7df9ceca298ab786b425955bcbe756e7911a08ba
+SHA256: 0e2e4cbd50b3f55ad09f73d1e29a07454d5eb1d4460865cba8b89b786d4c5ac8
+SHA512: ec6d0e25ca56f56dfbf2964f8e1830fd52a16a48fadad3f04b6545654c996338a95b90d63f7d4dd6afab895cc7cfd56b94046668790f64b6e6c45e8b16ce5a25
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/ripgrep/ripgrep_15.2.0-1+bookworm_s390x.deb
+Size: 1407928
+MD5sum: 738db52031ac71031800b7d0a7659097
+SHA1: 379666611a2cd739207c026916b7f9eacae9a2bc
+SHA256: 0f9529153da54b1b828745a1df3a82282d7a3c8b601034c21ae1f50fd81d77d4
+SHA512: 4157f2e08c9b3fea7efa1c9aa526c9d140f11c6770fca7e3cbe84439cd4836168912d00a4b246ace9c5c5fe3a19b863cfd6873464c15d2e7d603d5827cc573fc
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/ruff/ruff_0.16.3-1+bookworm_s390x.deb
+Size: 7208684
+MD5sum: 654f9b80c9360558f1ab639cba16441c
+SHA1: 179c3379caada74524c92de09e93366742e07adb
+SHA256: d1776c7fc46ac23c5c2766bfaffc82fdb254bf8e1622a17fdcb0077e5992f9d6
+SHA512: cf7f87c80ecea0f32a8b8c031ce8d0d8f8f7f6549a065199078eb63e0fb49cf442ae5a60b6a498319f31f7e7d9e3587d67b2ccf18e4036302f3e46b24c4b2b80
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.3-2+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/yq-go/yq-go_4.53.3-2+bookworm_s390x.deb
+Size: 3790132
+MD5sum: 33c4d6ba919507084af9178d802e6afb
+SHA1: 8dc14e01a94f61e4b9e4e7867fb0090830692bbe
+SHA256: d4c0ff0516bd724fc0555ec1cbc8bf252181fd4f62305194677c810db7c49f4c
+SHA512: f1bda4c3f4e14e9cf73aed0709073a0d76415c15994b6b094db36a01b368d626c0c79d4b0deb9c82666abdf160da7743770ef5036642a0c240370ae20a5deaea
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

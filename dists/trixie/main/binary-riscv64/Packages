@@ -1,0 +1,112 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.8-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/bottom/bottom_0.14.8-1+trixie_riscv64.deb
+Size: 1486916
+MD5sum: bd008dec8a446c27bcc707183bbd3075
+SHA1: f6fff7c0bd2c3c6fee407df858d581e9d38654ac
+SHA256: 2afba27a4d653ee5d5fb30f29300a4c4ac8cb1cbde074c017b1109f84d951c04
+SHA512: ef40e0b66c0cb787b2114bdd64b501986a6d431ad9e2387c9cb603147b8bcc7c7ee94866a2dd01745a33b9362667758c928c5b5b7992da00b38d871ab0d325d4
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/fzf/fzf_0.74.3-1+trixie_riscv64.deb
+Size: 1441860
+MD5sum: 13da398462e59dd706d93a8e4e5dbb1d
+SHA1: 898c043ded38fff060c50fcf56a392b93f8abdd5
+SHA256: ff72f1c97355189b7bc51bda25ca2cb983c55dfff2317f1a0118e0e0e843a241
+SHA512: e312aedcabbc03493bad52e1c6a4994d2bdbd1608386e9e2e722d335eea56a9324fefa7f4acf39ec6d2cf5b7b3cd07b22e4fa38cd7eefe7b8ebd3643123467d3
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: riscv64
+Version: 1.58.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/just/just_1.58.0-1+trixie_riscv64.deb
+Size: 1748184
+MD5sum: a0f6d121b8169a875835bcf7b6a42a15
+SHA1: ae5e700eb89acc7e41aedfa9d0cb08b5594ad338
+SHA256: 0c286931fc27313b0387bfca937e3998d8ceb520bef34178d130dc3417f9dd98
+SHA512: b3ff2ceab678962083e9c7ea982e8a42fdd4ae0850c9e8979d35e49e646a36338157ef0eff00994352566eaa3a194c7042f1fc23d9a2635614efef5b561d9676
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_riscv64.deb
+Size: 7536188
+MD5sum: 3a49cbfd797159a39b199697d10a8daa
+SHA1: 729872971b3e60829d389cd0a828847b7a48e363
+SHA256: 4ef3cd651eb37846bf34be72e23994700b61092858e4cb6deed3718d6b1567b7
+SHA512: ba5f216cd0398663c30a2080e146e3ee4ee3465444636d589134f5a4fb4fdd2750cb2fb03939100b274811c5cbd61a9c82f1d1c13f5531ef123e69f2c8118f1f
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: riscv64
+Version: 1.26.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/starship/starship_1.26.0-1+trixie_riscv64.deb
+Size: 3681236
+MD5sum: 62606028bd8b4debd25c0c10f2aa359c
+SHA1: 4b037acf7ece61d4407fbfb92b1659aeb862e28c
+SHA256: 9f6f05aabc7ad038cf086f1620d9941cfc8a91a5e4da0ad89f0db48d4be12f62
+SHA512: b6d86767ead7185ab8ca0cad618051ba97564c521b96cf9917ec8eb8ede0e339dc6c9f7f110562b83ae597be0250c27980eba8ae6c10ca37cd8bc34a5e448936
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.3-2+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/yq-go/yq-go_4.53.3-2+trixie_riscv64.deb
+Size: 3864940
+MD5sum: 1a65c525c6d89b4674c94b4f5cbd2850
+SHA1: 881900fb34702bbf997d6be5f685fe733dd9bbca
+SHA256: 93f40906252b12514071809facb97f25f3c3ef43d8880dddf448a8668d70b335
+SHA512: df141e453fb21523832508e994ee6961f681c1e307ead848fda605d90a256cf9794df48b303bc7e6179fdb57c0a19a0f0071ce646d2fe5d5dd82083d9cc0fe4c
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: riscv64
+Version: 0.10.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/zoxide/zoxide_0.10.0-1+trixie_riscv64.deb
+Size: 408628
+MD5sum: dc567eaabce32dc7734a615fecb100d2
+SHA1: 864485894d69af3da15cf4a477005ff93cbc1edc
+SHA256: 995ba2f9815aff209bbcd9b8f3e4fe901bd56661eab96248f1031c4b070a63ff
+SHA512: 0f37e4e941c9e0fc07413fac0391c8ea6567c92bdbf9eb10c0701ee379e3e3f91a15b503b174756124f8e804b1a0afa9c885e0516944f60bcf3fb06ca368b769
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+
