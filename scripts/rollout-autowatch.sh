@@ -25,6 +25,16 @@
 #   rollout-autowatch.sh --repo latest-debs/uv-debian  # one remote repo
 #   rollout-autowatch.sh --local ./uv-debian    # one local repo
 #   rollout-autowatch.sh --dry-run              # preview only (no writes/pushes)
+#   rollout-autowatch.sh --skip-ci-check        # bypass the CI gate below (not recommended)
+#
+# CI gate: refuses to run unless latest-debs/apt-repo's own CI workflow has
+# already passed on HEAD - a rollout from a red (or not-yet-checked) commit
+# is exactly how a broken templates/package-scaffold/.github/workflows/
+# release.yml (bad YAML block-scalar indentation) got fanned out to 40
+# *-debian repos' release.yml on 2026-08-19, breaking their workflow_dispatch
+# and scheduled auto-builds simultaneously. Push HEAD and let CI finish
+# before rolling out; --skip-ci-check exists only for a deliberate emergency
+# override, not routine use.
 #
 # Requirements: gh (authenticated) plus a token with Contents:write on the
 # latest-debs repos - GH_TOKEN if set, otherwise the logged-in gh token.
@@ -36,13 +46,15 @@ TOOLS_YAML="$APT_REPO_DIR/tools.yaml"
 API="https://api.github.com"
 
 DRY_RUN=false
+SKIP_CI_CHECK=false
 TARGETS=()
 
-usage() { sed -n '2,30p' "$0" | sed 's/^# \{0,1\}//'; }
+usage() { sed -n '2,38p' "$0" | sed 's/^# \{0,1\}//'; }
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY_RUN=true; shift;;
+    --skip-ci-check) SKIP_CI_CHECK=true; shift;;
     --repo) TARGETS+=("remote:$2"); shift 2;;
     --local) TARGETS+=("local:$2"); shift 2;;
     -h|--help) usage; exit 0;;
@@ -56,6 +68,53 @@ if [ -z "$TOKEN" ] && command -v gh >/dev/null 2>&1; then
 fi
 if [ "$DRY_RUN" = false ] && [ -z "$TOKEN" ]; then
   echo "ERROR: GH_TOKEN (or an authenticated gh) is required to push rollouts" >&2
+  exit 1
+fi
+
+# CI gate: the template content this script fans out to every repo comes
+# from this working tree's HEAD - refuse to propagate a commit whose own CI
+# hasn't been verified green, so a red (or unpushed/unchecked) template
+# change can't reach 40 repos before anyone notices it's broken.
+check_source_ci() {
+  local sha run_json status result url
+  sha="$(git -C "$APT_REPO_DIR" rev-parse HEAD)"
+  echo "→ Checking latest-debs/apt-repo CI status for HEAD (${sha:0:7})..."
+  # grep for the '[' line: some shell environments (e.g. a version-manager
+  # shim) print an activation notice to stdout ahead of gh's own output,
+  # which would otherwise corrupt the JSON fed to jq below.
+  run_json="$(gh run list --repo latest-debs/apt-repo --workflow CI \
+      --json headSha,conclusion,status,url --limit 30 2>/dev/null \
+      | grep '^\[' \
+      | jq -c --arg sha "$sha" '[.[] | select(.headSha == $sha)] | .[0] // empty')"
+  if [ -z "$run_json" ] || [ "$run_json" = "null" ]; then
+    echo "ERROR: no CI run found for HEAD (${sha:0:7}) on latest-debs/apt-repo." >&2
+    echo "  Push this commit and wait for CI, or pass --skip-ci-check to bypass (not recommended)." >&2
+    exit 1
+  fi
+  status="$(echo "$run_json" | jq -r '.status')"
+  result="$(echo "$run_json" | jq -r '.conclusion')"
+  url="$(echo "$run_json" | jq -r '.url')"
+  if [ "$status" != "completed" ]; then
+    echo "ERROR: CI is still running for HEAD (${sha:0:7}) on latest-debs/apt-repo: $url" >&2
+    echo "  Wait for it to finish, or pass --skip-ci-check to bypass (not recommended)." >&2
+    exit 1
+  fi
+  if [ "$result" != "success" ]; then
+    echo "ERROR: CI failed (conclusion=$result) for HEAD (${sha:0:7}) on latest-debs/apt-repo: $url" >&2
+    echo "  Rolling out from a red commit is exactly how a broken release.yml" >&2
+    echo "  reached 40 repos on 2026-08-19. Fix CI before rolling out, or pass" >&2
+    echo "  --skip-ci-check to bypass (not recommended)." >&2
+    exit 1
+  fi
+  echo "  ✅ CI passed for HEAD (${sha:0:7}): $url"
+}
+
+if [ "$SKIP_CI_CHECK" = true ]; then
+  echo "⚠ Skipping CI gate (--skip-ci-check) - rolling out without verifying apt-repo's own CI status" >&2
+elif command -v gh >/dev/null 2>&1; then
+  check_source_ci
+else
+  echo "ERROR: gh is required to check CI status before rolling out (or pass --skip-ci-check)" >&2
   exit 1
 fi
 
