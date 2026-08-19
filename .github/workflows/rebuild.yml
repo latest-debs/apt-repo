@@ -112,11 +112,18 @@ jobs:
         run: rm -f .gitignore
 
       - name: Deploy to gh-pages
+        # force_orphan was resetting gh-pages to a fresh, parentless commit
+        # on every rebuild. With no shared history, git can't tell that most
+        # pool/ files are byte-identical to what's already on the remote, so
+        # every rebuild re-uploaded the entire payload (1.5-2GB+) from
+        # scratch - the cause of the repeated HTTP 500 push failures as the
+        # catalog grew. Committing on top of the existing branch lets git
+        # reuse unchanged blobs and push only the actual delta.
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           publish_branch: gh-pages
-          force_orphan: true
+          force_orphan: false
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
