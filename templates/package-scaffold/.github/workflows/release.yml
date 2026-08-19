@@ -200,8 +200,18 @@ jobs:
             [ "$ok" = 1 ] || { echo "SMOKE_FAIL:$name"; exit 1; }
           done
           echo "ALL_OK"'
-          out="$(docker run --rm -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
-            bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)"
+          # The outer `set -e` would otherwise kill this script the instant
+          # docker run exits non-zero - before $out ever gets echoed, losing
+          # the actual diagnostic. Capture the exit status explicitly so a
+          # real failure (SMOKE_FAIL, a crashed binary, apt-get install
+          # itself failing) still prints what happened.
+          #
+          # ZED_ALLOW_ROOT: some binaries (zed) refuse to run as root as a
+          # deliberate safety guard - harmless no-op for every package that
+          # doesn't check for it, needed for the ones that do since this
+          # container always runs as root.
+          out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
+            bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)" || true
           echo "$out"
           if ! echo "$out" | grep -q "^ALL_OK$"; then
             echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED)"
