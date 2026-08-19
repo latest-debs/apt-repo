@@ -91,7 +91,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build __PKG_NAME__
-        uses: ranjithrajv/debian-multiarch-builder@v.0.1a19
+        uses: ranjithrajv/debian-multiarch-builder@v.0.1a20
         env:
           # Authenticate GitHub API calls from the builder; anonymous calls
           # from shared runner IPs are rate-limited (60/h) and caused
