@@ -112,8 +112,8 @@ jobs:
             bash -n "$d/.github/scripts/detect-version.sh"
             git -C "$d" status --porcelain | grep -q . && { echo "::error::scaffold git repo is dirty"; exit 1; }
             git -C "$d" log --oneline -1 | grep -q 'scaffold' || { echo "::error::scaffold commit missing"; exit 1; }
-            grep -q 'debian-multiarch-builder@v.0.1a17' "$d/.github/workflows/release.yml" \
-              || { echo "::error::template builder pin drifted from v.0.1a17"; exit 1; }
+            grep -q 'debian-multiarch-builder@v.0.1a18' "$d/.github/workflows/release.yml" \
+              || { echo "::error::template builder pin drifted from v.0.1a18"; exit 1; }
             grep -q 'pinned-metadata' "$d/.github/workflows/release.yml" \
               || { echo "::error::pinned-metadata wiring missing from template"; exit 1; }
             python3 -c 'import json,sys;m=json.load(open(sys.argv[1]));assert m["asset"] and len(m["sha256"])==64 and m["checksum_verified"] in (True,False) and isinstance(m.get("license"), str) and len(m["license"])>0;assert isinstance(m.get("assets"), dict) and len(m["assets"])>0;assert m["asset"] in m["assets"];assert all(len(v["sha256"])==64 for v in m["assets"].values());assert m.get("asset_count")==len(m["assets"]);assert m["sha256"]==m["assets"][m["asset"]]["sha256"]' \
