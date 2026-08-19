@@ -170,22 +170,40 @@ jobs:
           EXPECTED="${EXPECTED#v}"
           rm -rf smoke-root
           dpkg-deb -x "$DEB" smoke-root
-          for bin in smoke-root/usr/bin/*; do
-            name="$(basename "$bin")"
-            ok=0
-            for arg in --version -V version; do
-              out="$(docker run --rm -v "$PWD/smoke-root/usr/bin:/bins:ro" debian:$SUITE bash -c "chmod +x /bins/$name; /bins/$name $arg 2>&1 || true")"
-              if [ -n "$out" ] && printf '%s' "$out" | grep -q "$EXPECTED"; then
-                echo "  OK: $name $arg (on $SUITE) -> $(printf '%s' "$out" | head -1)"
-                ok=1
-                break
-              fi
-            done
-            if [ "$ok" != 1 ]; then
-              echo "::error::Smoke test failed for $name on $SUITE (expected version $EXPECTED)"
-              exit 1
-            fi
-          done
+          mapfile -t bin_names < <(basename -a smoke-root/usr/bin/*)
+          # Actually install the .deb (not just extract + mount usr/bin) so
+          # this exercises what a real `apt install` does: bundle-mode
+          # packages symlink /usr/bin/<name> to an ABSOLUTE path under
+          # /usr/lib/<package>/ (e.g. pnpm, zed), which only resolves once
+          # the package is installed at its real root - mounting just
+          # usr/bin left those as dangling symlinks. Installing also
+          # exercises any Depends: the package declares (e.g. pnpm needs
+          # libatomic1), catching a missing runtime dependency here instead
+          # of shipping a package that crashes for every user.
+          smoke_script='set -e
+apt-get update -qq
+apt-get install -y -qq "$1" >/dev/null
+shift; expected="$1"; shift
+for name in "$@"; do
+  ok=0
+  for arg in --version -V version; do
+    out="$("$name" "$arg" 2>&1 || true)"
+    if [ -n "$out" ] && printf "%s" "$out" | grep -q "$expected"; then
+      echo "  OK: $name $arg -> $(printf "%s" "$out" | head -1)"
+      ok=1
+      break
+    fi
+  done
+  [ "$ok" = 1 ] || { echo "SMOKE_FAIL:$name"; exit 1; }
+done
+echo "ALL_OK"'
+          out="$(docker run --rm -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
+            bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)"
+          echo "$out"
+          if ! echo "$out" | grep -q "^ALL_OK$"; then
+            echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED)"
+            exit 1
+          fi
           echo "All binaries passed the smoke test"
 
   release:
