@@ -180,6 +180,9 @@ jobs:
           # exercises any Depends: the package declares (e.g. pnpm needs
           # libatomic1), catching a missing runtime dependency here instead
           # of shipping a package that crashes for every user.
+          # shellcheck disable=SC2016 # intentionally unexpanded here - this
+          # string is handed to a nested `bash -c` invocation below, which
+          # is what expands $1/$name/$out/etc., not this outer shell.
           smoke_script='set -e
           apt-get update -qq
           apt-get install -y -qq "$1" >/dev/null
