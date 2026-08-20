@@ -80,40 +80,29 @@ live changes the base URI apt clients and the extrepo policy point at,
 which is a real, hard-to-reverse, user-facing change (see step 4's
 migration/sequencing notes). Specifically still open:
 
-1. ~~Not deployed.~~ **Deployed**: `https://latest-debs-apt-redirector.ranjithraj.workers.dev`.
-   Hit a real bug on first deploy that local `wrangler dev` never surfaced:
-   every `fetch()` call (both the origin pass-through and the manifest
-   lookup) failed with Cloudflare error 1042 — `*.workers.dev` is treated
-   as one shared zone, and outbound `fetch()` from a Worker hosted there is
-   restricted by default. Fixed with the `global_fetch_strictly_public`
-   compatibility flag in `wrangler.jsonc`; confirmed working against real
-   production data after redeploying (pass-through 200s on the real signing
-   key, pool redirect correctly 502s — see item 2, not a bug). Local dev
-   doesn't run under the real `workers.dev` zone, so this class of issue
-   needs a real deploy to catch, not just `wrangler dev`.
-2. **`ORIGIN_BASE`/`MANIFEST_URL` point at production `latest-debs.github.io`
-   today**, which still means the manifest (`dists/pkg-repo-map.json`)
-   doesn't exist there yet. The generation mechanism itself is confirmed
-   working — a real, unmodified run of `scripts/build-repo.sh` via
-   `scripts/run-in-debian.sh`'s own approach produced a correct
-   `pkg-repo-map.json`, cross-checked tag-for-tag against live GitHub data
-   — but that was against a scratch copy with a trimmed `tools.yaml`, not
-   an actual production rebuild. `build-repo.sh` still needs to run for
-   real (via CI, or `scripts/run-in-debian.sh` against the real
-   `tools.yaml`) before the Worker's pool redirects resolve anything in
-   production.
+1. ~~Not deployed.~~ **Deployed**: `https://latest-debs.ranjithraj.workers.dev`
+   (renamed once from `latest-debs-apt-redirector` — the old name was
+   deleted, not left orphaned). Hit a real bug on first deploy that local
+   `wrangler dev` never surfaced: every `fetch()` call (both the origin
+   pass-through and the manifest lookup) failed with Cloudflare error 1042
+   — `*.workers.dev` is treated as one shared zone, and outbound `fetch()`
+   from a Worker hosted there is restricted by default. Fixed with the
+   `global_fetch_strictly_public` compatibility flag. Local dev doesn't run
+   under the real `workers.dev` zone, so this class of issue needs a real
+   deploy to catch, not just `wrangler dev`.
+2. ~~Production manifest doesn't exist yet.~~ **Resolved** — `build-repo.sh`
+   has run for real in production (triggered via `workflow_dispatch`, not
+   just the scheduled job) and `dists/pkg-repo-map.json` is live with all
+   41 entries. Verified the full chain against real production data, not
+   just the local fixture used for the full-catalog run below: pass-through
+   resolves the real signing key, pool redirect resolves a real package to
+   the correct GitHub Release URL, and a full download through the Worker
+   produced a genuine, valid `.deb` (`ar t` confirmed).
 3. **Sequencing from step 4 isn't executed**: the extrepo-data update MR,
    the README manual-install snippet update, and keeping the old origin
    fully live (both `dists/` and `pool/`) through a transition window
-   before retiring it.
-4. **Coverage note, not a gap**: all 41 tracked tools / 749 real release
-   assets were exercised (see the full-catalog run above) using a manifest
-   built from live `releases/latest` data, but the test still ran against a
-   *local* `pkg-repo-map.json` fixture, not the real
-   `dists/pkg-repo-map.json` that only exists once item 2 (a production
-   rebuild) has actually happened. Worth re-running this same check (it's
-   now a cheap, repeatable script, not manual work) once that file is real,
-   as a final pre-cutover gate.
+   before retiring it. This is the only remaining item, and it's a
+   deliberate-sequencing decision, not more testing.
 
 ## Local development
 
@@ -126,7 +115,7 @@ npm run dev -- \
 
 ## Deployment
 
-Live at **`https://latest-debs-apt-redirector.ranjithraj.workers.dev`**.
+Live at **`https://latest-debs.ranjithraj.workers.dev`**.
 No custom domain or paid Cloudflare plan required — `workers_dev: true` in
 `wrangler.jsonc` gives the free `*.workers.dev` URL. This becomes the new
 apt `sources.list` base URI once the migration in step 4 (extrepo-data MR,
