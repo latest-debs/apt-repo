@@ -120,7 +120,8 @@ fetch_repo() {
   # schedule) exhausts easily, silently degrading every fetch to "skip:
   # no latest release yet" and shipping an apt repo with zero packages.
   local json
-  json="$(curl -fsSL -H "Accept: application/vnd.github+json" \
+  json="$(curl -fsSL --connect-timeout 10 --max-time 60 \
+      -H "Accept: application/vnd.github+json" \
       ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
       "$api" 2>/dev/null)" || {
     log "   skip: no latest release yet (repo may be empty)"
@@ -159,7 +160,8 @@ fetch_repo() {
     local dest="$POOL/$suite/$pkg"
     mkdir -p "$dest"
     log "   fetch $name -> pool/$suite/$pkg/"
-    curl -fsSL -o "$dest/$name" "$dlurl" || log "   WARN: failed to fetch $name"
+    curl -fsSL --connect-timeout 10 --max-time 120 -o "$dest/$name" "$dlurl" \
+      || log "   WARN: failed to fetch $name"
     [[ "$kind" == "dsc" ]] && src_suites+=("$suite")
   done < "$tmp_manifest"
 
@@ -173,7 +175,8 @@ fetch_repo() {
         local dest="$POOL/$s/$pkg"
         mkdir -p "$dest"
         log "   fetch $orig_name -> pool/$s/$pkg/ (shared orig)"
-        curl -fsSL -o "$dest/$orig_name" "$orig_url" || log "   WARN: failed to fetch $orig_name"
+        curl -fsSL --connect-timeout 10 --max-time 120 -o "$dest/$orig_name" "$orig_url" \
+          || log "   WARN: failed to fetch $orig_name"
       done
     fi
   fi
@@ -281,10 +284,32 @@ else
   rm -rf "$POOL" "$DISTS"
   mkdir -p "$POOL" "$DISTS"
 
+  # Each tool's fetch is independent (own pool/<suite>/<pkg>/ subtree, own
+  # $tmp_manifest, own local vars in its subshell) so they run concurrently,
+  # bounded by BUILD_REPO_PARALLEL. This is a fully I/O-bound loop - ~750
+  # assets fetched one at a time was the actual wall-clock cost, not CPU or
+  # rate limits. $PKG_REPO_MANIFEST is appended to from multiple processes;
+  # safe because each append is one short line, atomic under O_APPEND.
+  # Per-tool output goes to its own logfile instead of directly to stdout so
+  # concurrent runs don't interleave mid-line; printed back in tools.yaml
+  # order once every job has finished, so the log reads the same as a
+  # sequential run would.
+  BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-8}"
+  fetch_logs=()
   while IFS=$'\t' read -r pkg url; do
     [[ -n "$pkg" ]] || continue
-    fetch_repo "$pkg" "$url"
+    logfile="$TMP/fetch-$pkg.log"
+    fetch_logs+=("$logfile")
+    fetch_repo "$pkg" "$url" > "$logfile" 2>&1 &
+    while (( $(jobs -rp | wc -l) >= BUILD_REPO_PARALLEL )); do
+      wait -n
+    done
   done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
+  wait
+
+  for logfile in "${fetch_logs[@]}"; do
+    cat "$logfile"
+  done
 fi
 
 log "== generating indexes =="
