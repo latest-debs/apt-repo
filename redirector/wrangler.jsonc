@@ -4,6 +4,13 @@
   "main": "src/worker.js",
   "compatibility_date": "2026-08-14",
 
+  // Required for *.workers.dev deployments specifically: without this,
+  // every outbound fetch() from the Worker (both the origin pass-through
+  // and the manifest lookup) fails with Cloudflare error 1042 - workers.dev
+  // is treated as one shared zone, and fetch() is restricted by default
+  // for anything hosted there. Confirmed by deploying without it first.
+  "compatibility_flags": ["global_fetch_strictly_public"],
+
   // Deploys to the account's free <name>.<subdomain>.workers.dev URL by
   // default - no custom domain or account budget required (see
   // PLATFORM-EVALUATION.md, "Decision", step 4). Point apt's sources.list

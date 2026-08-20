@@ -6,3 +6,10 @@ PLATFORM-EVALUATION.md
 depscan-2026-08-20/
 redirector/node_modules/
 redirector/.wrangler/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

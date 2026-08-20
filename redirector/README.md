@@ -80,9 +80,17 @@ live changes the base URI apt clients and the extrepo policy point at,
 which is a real, hard-to-reverse, user-facing change (see step 4's
 migration/sequencing notes). Specifically still open:
 
-1. **Not deployed.** `npm install` + `wrangler dev` were used for local
-   verification only. `wrangler deploy` needs a real Cloudflare account
-   (`wrangler login`) and a decision on whether/when to actually cut over.
+1. ~~Not deployed.~~ **Deployed**: `https://latest-debs-apt-redirector.ranjithraj.workers.dev`.
+   Hit a real bug on first deploy that local `wrangler dev` never surfaced:
+   every `fetch()` call (both the origin pass-through and the manifest
+   lookup) failed with Cloudflare error 1042 — `*.workers.dev` is treated
+   as one shared zone, and outbound `fetch()` from a Worker hosted there is
+   restricted by default. Fixed with the `global_fetch_strictly_public`
+   compatibility flag in `wrangler.jsonc`; confirmed working against real
+   production data after redeploying (pass-through 200s on the real signing
+   key, pool redirect correctly 502s — see item 2, not a bug). Local dev
+   doesn't run under the real `workers.dev` zone, so this class of issue
+   needs a real deploy to catch, not just `wrangler dev`.
 2. **`ORIGIN_BASE`/`MANIFEST_URL` point at production `latest-debs.github.io`
    today**, which still means the manifest (`dists/pkg-repo-map.json`)
    doesn't exist there yet. The generation mechanism itself is confirmed
@@ -116,13 +124,20 @@ npm run dev -- \
   --var ORIGIN_BASE:https://latest-debs.github.io/apt-repo/
 ```
 
-## Deploying (once the above is reviewed and the cutover is intentional)
+## Deployment
+
+Live at **`https://latest-debs-apt-redirector.ranjithraj.workers.dev`**.
+No custom domain or paid Cloudflare plan required — `workers_dev: true` in
+`wrangler.jsonc` gives the free `*.workers.dev` URL. This becomes the new
+apt `sources.list` base URI once the migration in step 4 (extrepo-data MR,
+README update, transition window) is actually carried out — deploying the
+Worker doesn't change what any apt client points at by itself.
 
 ```sh
 npm run dry-run   # wrangler deploy --dry-run — validates without publishing
-npm run deploy    # publishes to <name>.<account-subdomain>.workers.dev
+npm run deploy    # redeploy after a code/config change
 ```
 
-No custom domain or paid Cloudflare plan is required — `workers_dev: true`
-in `wrangler.jsonc` gives a free `*.workers.dev` URL, which becomes the new
-apt `sources.list` base URI once the migration in step 4 is carried out.
+Run from `redirector/`, not the repo root — `wrangler` scaffolds a
+different, unrelated Worker config if run from a directory with no
+existing `wrangler.jsonc` (hit this once already; see git history).
