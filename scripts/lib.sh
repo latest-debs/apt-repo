@@ -6,6 +6,9 @@
 #
 # Not executable on its own; has no shebang and sets no -e/-u (the sourcing
 # script's set -euo pipefail already applies).
+#
+# shellcheck shell=bash
+# shellcheck disable=SC2034  # every constant here is used by the scripts that source this file, not within it
 
 # GitHub org every *-debian package repo (and this apt-repo) lives under.
 ORG="latest-debs"
