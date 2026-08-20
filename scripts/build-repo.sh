@@ -294,7 +294,7 @@ else
   # concurrent runs don't interleave mid-line; printed back in tools.yaml
   # order once every job has finished, so the log reads the same as a
   # sequential run would.
-  BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-8}"
+  BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-16}"
   fetch_logs=()
   while IFS=$'\t' read -r pkg url; do
     [[ -n "$pkg" ]] || continue
