@@ -144,16 +144,16 @@ Description: An extremely fast Python package and project manager, written in Ru
 
 Package: yq-go
 Architecture: riscv64
-Version: 4.53.4-1+bookworm
+Version: 4.53.6-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_riscv64.deb
-Size: 3885780
-MD5sum: 9dcd7aca12e0ed3d69e03ffcf742801f
-SHA1: f05523f68a0fd8e340f53b81ffd57d5c13bd9349
-SHA256: bb5cfe2d837597f969ea99c63b994707abfc4f3a5b089ae658b7aea5890664c8
-SHA512: 143cc5e67de370aa6af14aeead19ce29dfc57f6f251050895a0306f19abf15d8a8e525fd3cb03e4a59229688814171ecc89a6d874a6bc93eb5f324c05fba1508
+Filename: pool/bookworm/yq-go/yq-go_4.53.6-1+bookworm_riscv64.deb
+Size: 4080408
+MD5sum: eaf77d7d74dd03c0940d596e69f045d3
+SHA1: f20194868e500281db99686b47d170c827f20f82
+SHA256: 5c82fcf4ea1b4a9f93e2bdfc2ec383f9bfffcff8fcae71cffe78dc4f0069b5b0
+SHA512: aa06e4b39d17dfc5c7bda94f680cf9dee3b9c48283cd0059278aa9693322c76e5436b6e902c68a54e112c3467d16cafe172062fbfb1287655366d063a208416e
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

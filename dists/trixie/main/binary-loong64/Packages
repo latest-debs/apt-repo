@@ -64,16 +64,16 @@ Description: A new type of shell
 
 Package: yq-go
 Architecture: loong64
-Version: 4.53.4-1+trixie
+Version: 4.53.6-1+trixie
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/trixie/yq-go/yq-go_4.53.4-1+trixie_loong64.deb
-Size: 3691144
-MD5sum: a0ffd7b3b5abade900a50bc637f21e8a
-SHA1: 361ef95a5fa3b4f51311bbb36985a5d45edca0ea
-SHA256: 9c600eaa577b610d08d72f7f165c29b6bcd7421297bc9f24402375c1286e23ae
-SHA512: a13dcc4522f05e87142b08aafdaaea1f17780b5572bfe4f56df7a39f84d94ca2b2e42b1d7fcc04754eaa196734007655d8a429080b85c9c51730e7e82240f18e
+Filename: pool/trixie/yq-go/yq-go_4.53.6-1+trixie_loong64.deb
+Size: 3830716
+MD5sum: 1cbaf39a2552f6e92749dcea6745fed5
+SHA1: 37fbef9a97219f552b3c7a4a93dc15c6aca28bae
+SHA256: d8c3931bbb2a12a90ff3c7729612b2b866c34a98f53654332e83059aa0d7fa1c
+SHA512: 523064785a5e3fc453e92b568d3918cedebc3a3c8f40f22f0c5a83dded180f8a40947aa445a6f93b90cd2649f2e060fc28164b2999d954a87ada08e4aae81323
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

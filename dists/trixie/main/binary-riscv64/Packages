@@ -160,16 +160,16 @@ Description: A blazing fast terminal file manager written in Rust, based on asyn
 
 Package: yq-go
 Architecture: riscv64
-Version: 4.53.4-1+trixie
+Version: 4.53.6-1+trixie
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/trixie/yq-go/yq-go_4.53.4-1+trixie_riscv64.deb
-Size: 3879460
-MD5sum: ae980ff65108486403cae9f88e40e792
-SHA1: 343d8fbfe308d68cc5692955e752bf6e9d69c2c5
-SHA256: bb73befad69abd2ae57afbd05387051da1ac72646362282a3367ef6185d89977
-SHA512: 1a8d600411e02df34e73e499e0509d2cd27c515764919ed32d1bc746808c8cb3a114b1c62ed0eda6aef9d580ff50f2e65a645e81f991dbd1bd153360bb7b3eb1
+Filename: pool/trixie/yq-go/yq-go_4.53.6-1+trixie_riscv64.deb
+Size: 4080060
+MD5sum: c8e87592a27c03b48c72004c4a3072e6
+SHA1: 321b9cca46b806476fa54f90a4cc2cb7eca2db7d
+SHA256: 1e8b6df533cd73565c22db6538ed2bd9114999008b133545d877d5690e914ca4
+SHA512: 140401f060bb5222cbcca229b799209252aaa03ad2459d99a93b25f94866fca85b1d86588e9dfcd535600c4e44c39473512a3f1d6df8977e4a4a5561062f8288
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

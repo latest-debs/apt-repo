@@ -593,16 +593,16 @@ Description: A blazing fast terminal file manager written in Rust, based on asyn
 
 Package: yq-go
 Architecture: arm64
-Version: 4.53.4-1+forky
+Version: 4.53.6-1+forky
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_arm64.deb
-Size: 3546232
-MD5sum: 2691fdbcd6ac7b793852684f9587be47
-SHA1: 133c47026bf166cc79c1df649cf9729b6e879809
-SHA256: 29fb49ba57152a613fe47092955853c295385b94399ebb007e593249b6344c66
-SHA512: dd57e6af404c8e8ded7ed38d869558afe119b56be7f908b20e5bff9cfddd11092850a16ef2cb5e0f66118dcc47c6a33b6bf729d45a80a7583cd9401e486f8867
+Filename: pool/forky/yq-go/yq-go_4.53.6-1+forky_arm64.deb
+Size: 3681320
+MD5sum: 8862f45c45649620d07223b4bdbd23b7
+SHA1: 00212b472a5c5ad2aed5d48aac61db18db212662
+SHA256: 1c94ffcb0278b74183cac46b850762f613fc897d74cf0df94ecfc6e23aba179f
+SHA512: 3ea19aa85ce8d6b1bba3c4a6827dbf1ce91bca5927553a92f88818e702e552d7ba63c54221d2d915f0f3739f70be26ea3ad79acaffc9e7f734609c536cda5b5e
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.
@@ -625,16 +625,16 @@ Description: A high-performance, multiplayer code editor with built-in collabora
 
 Package: zellij
 Architecture: arm64
-Version: 0.44.3-1+forky
+Version: 0.45.0-1+forky
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/forky/zellij/zellij_0.44.3-1+forky_arm64.deb
-Size: 9921144
-MD5sum: 11ad7da92994d253d7517afe987bec7d
-SHA1: 3d9bcf7209a8b5bcbf35b12c5bb76557131d86a4
-SHA256: 5f13409c1bc734c6c089163ef9bf3d2cfcce54d1592491f1de469a5961e06b8e
-SHA512: 410c1d03e1f1e7565f918f7d1b3d6b036e0a8744a7667b814354221ad04b41d0945d74eb2154d29f58a866a2828b4efe57485a6559b60eb6ca822a522c8325ca
+Filename: pool/forky/zellij/zellij_0.45.0-1+forky_arm64.deb
+Size: 10156992
+MD5sum: 971b522d7d712124362058d95c78f4ac
+SHA1: ea7338addd23796591366a493a97c86f66734b2f
+SHA256: c9ade2962f7d307a14865354f1cfbd319ac6d6d7696c1b6df88b082cd57055cc
+SHA512: c98ad17d05a8bca9ace5d1ac9f934435a19d4ea11e34aefd966f74cc37690bf3e616ebb4736898487c2d46e953e37f55468bc000c6cdfa3376bb7a0bfcfb976f
 Homepage: https://github.com/zellij-org/zellij
 Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
  Packaged from the upstream GitHub release for Debian.

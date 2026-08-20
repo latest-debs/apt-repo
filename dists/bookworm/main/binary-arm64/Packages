@@ -561,16 +561,16 @@ Description: Friendly and fast tool for sending HTTP requests
 
 Package: yq-go
 Architecture: arm64
-Version: 4.53.4-1+bookworm
+Version: 4.53.6-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_arm64.deb
-Size: 3545892
-MD5sum: ecc5fe9534ddec1a94db40a6c3f19e77
-SHA1: a815b8e286766c8222452191439bad1618f0ade8
-SHA256: d6115f9764e8fef561eba061e2bcef1f716b71a2f0432dd279e5500c00c4ead0
-SHA512: ec09f32a345f75f3d641d5a8b57f60efe7b89a9c058d57684c77259ba2e48d25805fecf5ddf0dd6cf3d3c3f3b957139d4cdd8585aec098e11ad4878bc4bf50af
+Filename: pool/bookworm/yq-go/yq-go_4.53.6-1+bookworm_arm64.deb
+Size: 3677768
+MD5sum: bb8619e3c815f3dd15fb6adb2dff9057
+SHA1: 3870134e4ee9c23fa6b6b493e7906cae9d5d010e
+SHA256: c31890a753030e2dfc2a04d3667079d8921564d16034a3350387e6f2e8e6b882
+SHA512: a78a119ba5ac3a68937bbaaa7f82f49a4d1e4728db6748cdb8a7cd29ac1e293af40f9fecbd333733a88c92946bd461c30c96cb2d1619fc713946e8cf00d56674
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.
@@ -593,16 +593,16 @@ Description: A high-performance, multiplayer code editor with built-in collabora
 
 Package: zellij
 Architecture: arm64
-Version: 0.44.3-1+bookworm
+Version: 0.45.0-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/zellij/zellij_0.44.3-1+bookworm_arm64.deb
-Size: 9919316
-MD5sum: 55a4738a4cc052262c5efe811a4a382f
-SHA1: 4ed085ba49f54bfffc2753a36aaec72fe1707b0f
-SHA256: cbfe287fe19eabb78ad2a59fa8b891ce9672b3f4e5c6deaff3bf053c046d4087
-SHA512: 04b5a31e3bc252d461faf846505f17195d4492a04874231bf0de9c129e3d986e2da035b6d38ae3e61e3b1b5c8df0f6074619ce456bf4a27c7038dc14262b514a
+Filename: pool/bookworm/zellij/zellij_0.45.0-1+bookworm_arm64.deb
+Size: 10156592
+MD5sum: 83686e6c3f188a967c5d5f778b35650a
+SHA1: c84300e76627949b8136498f53650acb60809569
+SHA256: 908fa016c3531b6f926d116064972c15e01f22796824cbb88de432e76edce07b
+SHA512: 917bd4a28ba05ba4c5acda277f8cfc5c6d46f4d727cab1ef05b0ad1c651557e840e7bb762a2e2ad2c0813d4c18d42951cb7ce6efce51a7ea5c6b891d4df8d8cf
 Homepage: https://github.com/zellij-org/zellij
 Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
  Packaged from the upstream GitHub release for Debian.

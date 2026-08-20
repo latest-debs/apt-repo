@@ -582,7 +582,7 @@ Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.4-1+trixie
+Version: 4.53.6-1+trixie
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -591,21 +591,21 @@ Directory: pool/trixie/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- ee91956d2a8a71198532b3c1137842ff 859 yq-go_4.53.4-1+trixie.dsc
- 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
- 9619346e0f84a5cec6726229d996343a 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
+ e6f9e25559e07174410ae6e58fda5be9 859 yq-go_4.53.6-1+trixie.dsc
+ 1ef99782f8222b9b72c2c44338886e13 4338340 yq-go_4.53.6.orig.tar.xz
+ 805939802a98d7f311df065db203fac8 1536 yq-go_4.53.6-1+trixie.debian.tar.xz
 Checksums-Sha1:
- c8d6a238aad5fd3888fc463b4ada82fd97bc3418 859 yq-go_4.53.4-1+trixie.dsc
- bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
- c44c4e393984ab30ec6ebe328ee6ca9418e0ec71 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
+ 3d814dd1143d4ad23e5aee537f90e5530747894d 859 yq-go_4.53.6-1+trixie.dsc
+ b707a1aa13649e6164f10c5109ddb3c57eeb71b2 4338340 yq-go_4.53.6.orig.tar.xz
+ aba14a9b5358f715c26939639c39de34b4048765 1536 yq-go_4.53.6-1+trixie.debian.tar.xz
 Checksums-Sha256:
- 0dfff92d866ae2c369972b556b22ce0c94445803192f9575360594c636d001c7 859 yq-go_4.53.4-1+trixie.dsc
- d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
- 1bb86e661e711acc66d2a588356bf99ee61c2c0fe14e453bdf53e079f51a5b4f 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
+ 1d2c54a89f1fcedb0672fd80f7bbad7cb1853bf78597ef28f608134e21f1471a 859 yq-go_4.53.6-1+trixie.dsc
+ 0f4d43ec1717fd93f20b0409943c1022b8e6bffe216d745f1bd38cf9c5788981 4338340 yq-go_4.53.6.orig.tar.xz
+ c648b3cbc01dda33f1a32ded33de47e2f2f96d8f26463176e037dc830802de7a 1536 yq-go_4.53.6-1+trixie.debian.tar.xz
 Checksums-Sha512:
- 442e1a67444b1ed920ceb874d5158423c0c9c82583bf434357940fdad0c81768b8761599f0788237cdf3736a183c3dce5c100983e58e79933146d338ceec2659 859 yq-go_4.53.4-1+trixie.dsc
- c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
- 8e42331484649f6570326d71bc5fcde2f4f5d5ba1eac37675d909906f16cca381803eab29473aba9d477247e430a9fb1f2b688bf1848d91ac84aa49faceb3dc8 1536 yq-go_4.53.4-1+trixie.debian.tar.xz
+ 273b8ea0b7083f1f131f9e513f25f3d9afd20da40df53a201776c011852b610c2569999d6d37ef7d86953a471c3f0e39c980d722b7b25c49c88f289b7353a6b6 859 yq-go_4.53.6-1+trixie.dsc
+ 538acd5a67936d1b6585829eea13abc9e09c15ca568c44e9bc94d9e929f470c6d41b476c4c5a8c381790a647773dd7a00da98f11ef5f7a0c70211781943239c9 4338340 yq-go_4.53.6.orig.tar.xz
+ 33d7221f9347da52212facbbbd6a7daf8cb414170b2c44b736fd59449ca7f6db2bbe6e2bf36b198f4dc0a520e9c989e3c5bb44b6944c531ce527812efcaa9341 1536 yq-go_4.53.6-1+trixie.debian.tar.xz
 
 Package: zed
 Format: 3.0 (quilt)
@@ -640,7 +640,7 @@ Package: zellij
 Format: 3.0 (quilt)
 Binary: zellij
 Architecture: any
-Version: 0.44.3-1+trixie
+Version: 0.45.0-1+trixie
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -649,19 +649,19 @@ Directory: pool/trixie/zellij
 Package-List:
  zellij deb utils optional arch=any
 Files:
- 58e3f5d53ba1682e7db386e90e922f39 873 zellij_0.44.3-1+trixie.dsc
- 463ac47e0bff0b2e44d33f0440564a48 7802520 zellij_0.44.3.orig.tar.xz
- 69021a580518c99ac969331c37c36afc 1536 zellij_0.44.3-1+trixie.debian.tar.xz
+ ee2f4a82cd1aeb155043a6cb9226bc4b 873 zellij_0.45.0-1+trixie.dsc
+ df5b9d13c8cb9057a8eb82dda41219f4 8029736 zellij_0.45.0.orig.tar.xz
+ 902194de492380f44bc75501b2bd0edf 1536 zellij_0.45.0-1+trixie.debian.tar.xz
 Checksums-Sha1:
- da17d749dd301329b3c7a2e21d4f6d0395a4ded8 873 zellij_0.44.3-1+trixie.dsc
- 2051557a272897db71257a501802bbf5b989c443 7802520 zellij_0.44.3.orig.tar.xz
- 417123eb9d2e0dfdaeb135f11ba3b7ac780f2cb3 1536 zellij_0.44.3-1+trixie.debian.tar.xz
+ 0fabaa3ce5294e5b9919e8f6f60906ff74b6ff5a 873 zellij_0.45.0-1+trixie.dsc
+ f5ab736f34a72521c515a5c427b75098a6332555 8029736 zellij_0.45.0.orig.tar.xz
+ 0a7bb95bfd05cdf317657bf75e43efb6f0eee8d1 1536 zellij_0.45.0-1+trixie.debian.tar.xz
 Checksums-Sha256:
- a397f7222c88e7bd42868b1eeedbe982acebb2f6c043309c9fae54f5a5b7f6ea 873 zellij_0.44.3-1+trixie.dsc
- b1f37f86c16ce41fd09128d472c4033e841abc6a65da76c042b23d56207af492 7802520 zellij_0.44.3.orig.tar.xz
- 139bf182f979dac9f0bc52b0f1d1b7fac21955cff8d20b077c3fa7c2887f8b71 1536 zellij_0.44.3-1+trixie.debian.tar.xz
+ 36384f1ef3f50beff4a5576ec56deb90f3db820f66ee3de21f5cc5025cdb7aca 873 zellij_0.45.0-1+trixie.dsc
+ d5c3d24e4f02e23b81c16e3c18f7b94265b7107fc3c2957958297950779a324e 8029736 zellij_0.45.0.orig.tar.xz
+ 5dfb91789aa1f8b1233850fc597e6fc3fd5dd8e9fccc87faddeaeb39942f19ba 1536 zellij_0.45.0-1+trixie.debian.tar.xz
 Checksums-Sha512:
- 4807217795302233abc391496207c96473bdfcaa179c21cc13d4cfc75bdbea53364c621e4a9ff28959591161c823ec62a7b509a5b7da694c867201d4df254565 873 zellij_0.44.3-1+trixie.dsc
- d08707b4635cec73db02a2beb26e6e6bba69e74f9f06070a345d19b35d1969e27dc8999d0b9c1216fffd56f8485cebad1b9f2dce3d0294bc678b8164dcfce1f7 7802520 zellij_0.44.3.orig.tar.xz
- 845d324f87ba1cf1d3da444f99112300e4e6059ea587e7e017a5c91f91fef8e102522c2a542220051a858e35df1fb702fba8581bf5c82111593ec8dd0df50dc5 1536 zellij_0.44.3-1+trixie.debian.tar.xz
+ 6ad0bf7d825ca31485deade0927734caf7833ef0b761b6b957d9e4ca4e05d95c48426259b6f1f26b78c33e86a7cc395aea2d3d031a44b68b8e1f46792c0a17b3 873 zellij_0.45.0-1+trixie.dsc
+ e384cfdb39ccec605e5d0c3150e9404f23a76e0b6fb99b221a3bcf7abbda624698682a5bcc7b451438980d86f5eca0cf0fe2c9da9d28394e8602283da355e408 8029736 zellij_0.45.0.orig.tar.xz
+ 40422ef317d159f336c0289b0dc85a485a6dde3d0e41ae194c31a0271f60335d6b9bde2fbe0733bc72e36a04ba7e717191da6ca318815c4f26ea106d97bd2180 1536 zellij_0.45.0-1+trixie.debian.tar.xz
 

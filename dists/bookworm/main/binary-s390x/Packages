@@ -80,16 +80,16 @@ Description: An extremely fast Python package and project manager, written in Ru
 
 Package: yq-go
 Architecture: s390x
-Version: 4.53.4-1+bookworm
+Version: 4.53.6-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_s390x.deb
-Size: 3808972
-MD5sum: 6b9c60819ab69e37948f926e333f5b19
-SHA1: 488b994d77c7368887770df43f6552b73a867081
-SHA256: 81e25035ee768e627d7afa0e70fea6316da1b4474dfdef53c6a4ff182ab34259
-SHA512: 461fc28cd7294907c0d7fd1f095ca8b364d6fbae875ef1cbea195d8cd6d9757930c32c21ed9c536564eb16d5f55cd0518ded7637e6b69daa97a2ebd3e0ce867e
+Filename: pool/bookworm/yq-go/yq-go_4.53.6-1+bookworm_s390x.deb
+Size: 3945580
+MD5sum: adc3fe58b09c13da5d7f267ac1d8aab3
+SHA1: 6c90bb04335aeef12fcfec025355246a6c6a9bb7
+SHA256: f6f4c1b84f3ffa974ae98c97bb52ec4ed162136a3aa6336c6d9c7e75cfda2259
+SHA512: b6daf2477ab8530f951b6f54f832fb645fb6e0001034524e35d8ec8f5c3d12ba7558288b340b0f5e4c4817123d18fc7d58c7b322d3ef00453c68d305df0b956b
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

@@ -64,16 +64,16 @@ Description: A new type of shell
 
 Package: yq-go
 Architecture: loong64
-Version: 4.53.4-1+sid
+Version: 4.53.6-1+sid
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/sid/yq-go/yq-go_4.53.4-1+sid_loong64.deb
-Size: 3692816
-MD5sum: 0823987db544348565a52abd10e680bb
-SHA1: eb28a5c62aabd7ecb20dc43ddf1267a767545f36
-SHA256: 36ca0098259dd62bf4fa61887565d38fc074086ba5c0fa390be398c6b2d89b4e
-SHA512: 5651f462f52973bb58e56ac240910825e7dadac479bd34b0f9ba0c782dd3c938295e38c2796af13866b59da783554206f5203d7da01306da46313b0a01ebc433
+Filename: pool/sid/yq-go/yq-go_4.53.6-1+sid_loong64.deb
+Size: 3829568
+MD5sum: 31f388bb2ff578c290964f61c7011e1a
+SHA1: 794795c442dea42f15836ff2ed6ec5a8b9f4163d
+SHA256: b733b1db23afd57d968f061b8ad1ad6ae480f77f86c6cea7d8054afa4655d70e
+SHA512: 125448b503b000af37ef322cbe74469516c83429840d873a623bea6d559cce16fe11ebddc38b2e83056131bdd95e0730b3fc3609742ecfeb04aab687750764bb
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

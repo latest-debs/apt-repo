@@ -582,7 +582,7 @@ Package: yq-go
 Format: 3.0 (quilt)
 Binary: yq-go
 Architecture: any
-Version: 4.53.4-1+forky
+Version: 4.53.6-1+forky
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -591,21 +591,21 @@ Directory: pool/forky/yq-go
 Package-List:
  yq-go deb utils optional arch=any
 Files:
- 007985aab99b0b7580a808f03e8f9749 855 yq-go_4.53.4-1+forky.dsc
- 9a3ba66bcc233d73d0c3d82f9adf0a44 4172776 yq-go_4.53.4.orig.tar.xz
- 69f0f3f2db50a708b35b3dd32ca8c3a2 1532 yq-go_4.53.4-1+forky.debian.tar.xz
+ 13e5620fc397cfe4e1cbccd6e0725d9e 855 yq-go_4.53.6-1+forky.dsc
+ 1ef99782f8222b9b72c2c44338886e13 4338340 yq-go_4.53.6.orig.tar.xz
+ 0ad0f54f942862e5d83f2c57b4c2a88e 1532 yq-go_4.53.6-1+forky.debian.tar.xz
 Checksums-Sha1:
- 21e07b9cd33c3812c7efb7243faa76de7ea38930 855 yq-go_4.53.4-1+forky.dsc
- bf656c1eb500ae17d35179ddbba0e979b99bee14 4172776 yq-go_4.53.4.orig.tar.xz
- a7bf57980e6c75092ef8bd1aa334960925b90178 1532 yq-go_4.53.4-1+forky.debian.tar.xz
+ 7634830d85cdc8b81d3f1e7d8fd2b5440b51d744 855 yq-go_4.53.6-1+forky.dsc
+ b707a1aa13649e6164f10c5109ddb3c57eeb71b2 4338340 yq-go_4.53.6.orig.tar.xz
+ bd1d906bc59816333664c18b4b4fba9a456dfb8a 1532 yq-go_4.53.6-1+forky.debian.tar.xz
 Checksums-Sha256:
- 22e8792e37fe8f36114cd783659153c777b79b74ad135c261b898319afec98be 855 yq-go_4.53.4-1+forky.dsc
- d700c1f44dbcc709fae00aaa977becb08b5030a83baa88a33b7918a12ecc634b 4172776 yq-go_4.53.4.orig.tar.xz
- 12e4d20789ff50cc61465fdb12120bdc7a3dcca647c52d31d8877a775c87a5d1 1532 yq-go_4.53.4-1+forky.debian.tar.xz
+ 572f1ca579c8815dff49e7635a670f5fc691519ec8a15ddfd2fa8b30b829b9c1 855 yq-go_4.53.6-1+forky.dsc
+ 0f4d43ec1717fd93f20b0409943c1022b8e6bffe216d745f1bd38cf9c5788981 4338340 yq-go_4.53.6.orig.tar.xz
+ dfde6363f89cb312e6c3577090c6b6bb72700e2b15aab1df2c138cecbb7deb0e 1532 yq-go_4.53.6-1+forky.debian.tar.xz
 Checksums-Sha512:
- 4aa7d9eefa73107138af6c77b7b6a1a0c34b4b1b9ffafb6d15ef5d713379c9bddda4e27246226e076cc4e2cd251ac967c5b266698729910c23207bb071b0b607 855 yq-go_4.53.4-1+forky.dsc
- c8ed2fedd0a5ace7ec2f39f5e226f8e56e260b5b94ae913a20d5589fd65e654bd16229df018f41bc5b0acf8ee273449b767eb879026094804767c65d60748103 4172776 yq-go_4.53.4.orig.tar.xz
- ec64ee395140854a13aff3d6b915972f8d99e967cbd359b91769d27c310319850cea5195841a499ece0bf988d956f2753277cdef0bc3e02bf51e8a33a40a9a65 1532 yq-go_4.53.4-1+forky.debian.tar.xz
+ 0beea11215e8b8b72d9e2cc59354178e9127307704e6b6d7c00fd2759495dcab8b00d6dd75fae9e1705129971ed564fbcc589489e468a176af9d0462b499caea 855 yq-go_4.53.6-1+forky.dsc
+ 538acd5a67936d1b6585829eea13abc9e09c15ca568c44e9bc94d9e929f470c6d41b476c4c5a8c381790a647773dd7a00da98f11ef5f7a0c70211781943239c9 4338340 yq-go_4.53.6.orig.tar.xz
+ f5b19767d54791d64f3519cc326aa7f56394a87e3e091c3b7422beebec17d8755cfa5c69e901c1101ffcdf1ddaf826ab9e3b10bd5b82d423f74a11c61cd029e8 1532 yq-go_4.53.6-1+forky.debian.tar.xz
 
 Package: zed
 Format: 3.0 (quilt)
@@ -640,7 +640,7 @@ Package: zellij
 Format: 3.0 (quilt)
 Binary: zellij
 Architecture: any
-Version: 0.44.3-1+forky
+Version: 0.45.0-1+forky
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -649,19 +649,19 @@ Directory: pool/forky/zellij
 Package-List:
  zellij deb utils optional arch=any
 Files:
- 3bcfb98de20ddcdb7feea69ddd487736 869 zellij_0.44.3-1+forky.dsc
- 463ac47e0bff0b2e44d33f0440564a48 7802520 zellij_0.44.3.orig.tar.xz
- a776297d6c5ebb1128ff957801498fe5 1540 zellij_0.44.3-1+forky.debian.tar.xz
+ 857d75f037a4152d3f7a5aaa81d5d337 869 zellij_0.45.0-1+forky.dsc
+ df5b9d13c8cb9057a8eb82dda41219f4 8029736 zellij_0.45.0.orig.tar.xz
+ 86e6c8f34fe209430fdede9a0db653e4 1540 zellij_0.45.0-1+forky.debian.tar.xz
 Checksums-Sha1:
- 09f991cfa08289d73ac8e301aec611ae5ec16d38 869 zellij_0.44.3-1+forky.dsc
- 2051557a272897db71257a501802bbf5b989c443 7802520 zellij_0.44.3.orig.tar.xz
- 7374a18daa73e826d282491ac4cd8ad9ac6438eb 1540 zellij_0.44.3-1+forky.debian.tar.xz
+ bd041f1c9f4343f4dc822fe384a0319440162a77 869 zellij_0.45.0-1+forky.dsc
+ f5ab736f34a72521c515a5c427b75098a6332555 8029736 zellij_0.45.0.orig.tar.xz
+ ef722e6f067b67c55b9dc2b2d8d91e23a7747637 1540 zellij_0.45.0-1+forky.debian.tar.xz
 Checksums-Sha256:
- df9ff65faa8e19ca5cc5ed88a9bc030204d1f4939fc0b8484575c91fd03046c5 869 zellij_0.44.3-1+forky.dsc
- b1f37f86c16ce41fd09128d472c4033e841abc6a65da76c042b23d56207af492 7802520 zellij_0.44.3.orig.tar.xz
- 66d2e819a221ad7416039169d99f2c015a85f0f46ee8b37391cf488f3007214d 1540 zellij_0.44.3-1+forky.debian.tar.xz
+ 39a15807fc02aa28bb400966c8fce60ba2450a22cf7b7d52242299b4d57c35e6 869 zellij_0.45.0-1+forky.dsc
+ d5c3d24e4f02e23b81c16e3c18f7b94265b7107fc3c2957958297950779a324e 8029736 zellij_0.45.0.orig.tar.xz
+ b88222b1c1b9e053b072dba8199e54af78e398185b0c92b292d07fc2f039ce45 1540 zellij_0.45.0-1+forky.debian.tar.xz
 Checksums-Sha512:
- 5e34a3ff51c8f8be4380c0136cb6e4bdff3021bc68d9cce58c39c6cc4c3c8fc5b56a4c5f8e83a49736d15809b33ae16e911fa16331c095c171d9675aa5e30c5b 869 zellij_0.44.3-1+forky.dsc
- d08707b4635cec73db02a2beb26e6e6bba69e74f9f06070a345d19b35d1969e27dc8999d0b9c1216fffd56f8485cebad1b9f2dce3d0294bc678b8164dcfce1f7 7802520 zellij_0.44.3.orig.tar.xz
- bfb45939c5560919bb0a5e00ad5a57754f733e0477fc0406aea2dfce4e7df97ac0ab695e63a149690a87e05aaa4c02aa3ea9bd6420f06ad9f4fdc582e97780f9 1540 zellij_0.44.3-1+forky.debian.tar.xz
+ 74e41e31e1a0196e9ea6413fcc6820eb181079e222740c8ad03cc1de5b97b81ab40b2b16e5d9e7e6ce542a78013c668ec99d379864a2e0de6edc524081686820 869 zellij_0.45.0-1+forky.dsc
+ e384cfdb39ccec605e5d0c3150e9404f23a76e0b6fb99b221a3bcf7abbda624698682a5bcc7b451438980d86f5eca0cf0fe2c9da9d28394e8602283da355e408 8029736 zellij_0.45.0.orig.tar.xz
+ 830c71fdc437ddcc3e467d2047ae684c21b27ff8ac692afc2a7587b211a7ee4cb3b38976775ee282539184ae4b8ad4379b56a59d12695eeaa612e1c045a8b55e 1540 zellij_0.45.0-1+forky.debian.tar.xz
 

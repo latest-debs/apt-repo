@@ -64,16 +64,16 @@ Description: A new type of shell
 
 Package: yq-go
 Architecture: loong64
-Version: 4.53.4-1+forky
+Version: 4.53.6-1+forky
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_loong64.deb
-Size: 3691176
-MD5sum: bd5a34dc4ae1bc94aced9a6b547d3d91
-SHA1: 9589ff161ba0d7177fe89c538626b04f14949548
-SHA256: feda2907bf00a3df5fc179fbc2274c9a152c0354e49ddd510e1dab1913f58eb2
-SHA512: 96cca843808742034b7d31ee5c449513a95752723986e2793899db9d7843da7d06874467e35260653cd82d3d0997042d69c256fd3b7bd6ba3de3dd83fc2f52bc
+Filename: pool/forky/yq-go/yq-go_4.53.6-1+forky_loong64.deb
+Size: 3827940
+MD5sum: 1deba530263ec5e2026e9d5a3680e051
+SHA1: 5ef717f646abcdfc6fe4e15e76cd25e516a93a12
+SHA256: 107e6707e6892a6ace44f742cb43c13ed12cd888e89c868d514f29f452533741
+SHA512: f31855ef0dd969c32289acc1426225550ddffe2aab51b2c09f92a88b4a62da66a7e5106fb59c2d7905b415ae38944a671b0a1fa3058a3848212a18bf0acd7138
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

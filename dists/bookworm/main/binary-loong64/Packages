@@ -64,16 +64,16 @@ Description: A new type of shell
 
 Package: yq-go
 Architecture: loong64
-Version: 4.53.4-1+bookworm
+Version: 4.53.6-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/yq-go/yq-go_4.53.4-1+bookworm_loong64.deb
-Size: 3691696
-MD5sum: 30cb5916e0448ae5bc1a365d3a444bad
-SHA1: 07a6ec6a022bd8b5bb7738cebae9d13aa32bb211
-SHA256: c98412d84165c6a57895d86facd23721e91f8452de267eff219bcb796d811366
-SHA512: 2a449fbbb1194c7bc29c257211ea1d4fea88ff38f99791408e5b9a326b487fe690ed896f5c375c5b87a50cb2055ec4142b1d7f1614abba82261c934fb35d092b
+Filename: pool/bookworm/yq-go/yq-go_4.53.6-1+bookworm_loong64.deb
+Size: 3830852
+MD5sum: a4a1de199a4eabf7767fb7a7ec27f262
+SHA1: 04632bbaba5c2df8e87328dc72c37b3a7f5f5216
+SHA256: 337e2374a169831c8a40b3b8c55fcaf1b6d2fe1c78ae419c2338e23b1c0f0cb2
+SHA512: 7c0d1a8742be881dfaf74eb831f2033cc1eb2e3fd7f4c6daf1b57d808aa99c4159c074ae7f3d27c72debf8a72f0d6b2f969d7ab24c35c4d6a6e5c742db0ad779
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.

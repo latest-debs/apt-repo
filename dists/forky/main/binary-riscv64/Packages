@@ -160,16 +160,16 @@ Description: A blazing fast terminal file manager written in Rust, based on asyn
 
 Package: yq-go
 Architecture: riscv64
-Version: 4.53.4-1+forky
+Version: 4.53.6-1+forky
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/forky/yq-go/yq-go_4.53.4-1+forky_riscv64.deb
-Size: 3880588
-MD5sum: 26a433f9c1a6668370652b3d1cff8a7f
-SHA1: 90277b98afd555eae67d188fcf720f7e7fb1c8d9
-SHA256: c5ce3da22891c56e3d984121173f55350c7f6df202a21a9055ef2b8644180983
-SHA512: 9ca00d35ec58d73169f1a5b8008239a8db4d679567247af97e87a23d85d342e19e72c3b6423b603d007fe094e4466517041a3f58955aa42021f83f7d6a874d11
+Filename: pool/forky/yq-go/yq-go_4.53.6-1+forky_riscv64.deb
+Size: 4079404
+MD5sum: 09795f55e329c1e5115dbf7b7c7be6f2
+SHA1: aa7ad3217c5ec3f267d446d327fd2fa33a8825f4
+SHA256: 9d5fe36e7b3981906449f4a1dc6abc031b9ff2d2449d6e652cd5b3d11456df44
+SHA512: 14ab1cb4a93f50177f8ec66ca26f5aa89af61bbc2fa7a685a31a91195500b233ca2336139a476683172b22e34f2279ee8a3b7a3c94bcad3a68aed79646d507a9
 Homepage: https://github.com/mikefarah/yq
 Description: A lightweight and portable command-line YAML, JSON and XML processor
  Packaged from the upstream GitHub release for Debian.
