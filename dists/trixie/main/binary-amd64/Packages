@@ -128,16 +128,16 @@ Description: A tool for exploring a Docker image's layers to discover ways to sh
 
 Package: du-dust
 Architecture: amd64
-Version: 1.2.4-1+trixie
+Version: 1.2.5-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/du-dust/du-dust_1.2.4-1+trixie_amd64.deb
-Size: 944184
-MD5sum: 63593d6c6333ad22aabb660795ab9a8e
-SHA1: ae1d32de2a30b3110fac3fdaf4f4d1492b383aea
-SHA256: 6b48ef6ba22160b88b7a3304839f6d58607ceb58d7e45c1958f0819b0af8299c
-SHA512: cf1f97ebc5ff6a652f13f1d3432a0d591e58bbac076c0a1d7a21671c83cf5a4c75916f983f6073e930cfc9f684f5cc5a18f5d11c011dcacd3dd69523bb3b7068
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/du-dust/du-dust_1.2.5-1+trixie_amd64.deb
+Size: 897336
+MD5sum: 6e395893ac944fbdee30d85aa7eecfbd
+SHA1: 27952425f288c1ca3dcbea2363ba6ef8ece4d965
+SHA256: 93172fdce0a4675a96442ff305ce0d68cc07da6fcbdfbe039b7a02ff1bf8a523
+SHA512: 66ecc29e9f36c4bc1a5693de9d0b552750ba30d9d9f2e647ccbf014ab701b351eaa1746d428a3adf2c1f0c82cd1dca2426d17df5fac352a7a79431d3ec6d7f89
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

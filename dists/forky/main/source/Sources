@@ -143,6 +143,35 @@ Checksums-Sha512:
  253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
  ac1496204c9576ef9864e9bcccb81d4863fa35d6e48837433890bd73664dfa6aa76041bce479be7d38fa2eb602e978519b283a62230a6caf7364e346e0284c05 1532 dive_0.13.1-1+forky.debian.tar.xz
 
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.5-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/forky/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ fb45af157e4600427333dd23763e801a 864 du-dust_1.2.5-1+forky.dsc
+ cff81c207328796c7821a7e63d3c0e88 892916 du-dust_1.2.5.orig.tar.xz
+ 761db21f04505d9b69df584fbf8db242 4628 du-dust_1.2.5-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 4b9bb34883e61455c29f2029c9cc011ffef0880f 864 du-dust_1.2.5-1+forky.dsc
+ b3e7a1016965af72d4bf544ca7ad903a44ad8526 892916 du-dust_1.2.5.orig.tar.xz
+ 36496f5fdf239487758817c44ab236a45a580a3a 4628 du-dust_1.2.5-1+forky.debian.tar.xz
+Checksums-Sha256:
+ f3c25940f0d3525f13fb4c758e08d9a9f018dfa8336146d9096d11b0844025c9 864 du-dust_1.2.5-1+forky.dsc
+ 22d290ae728b73413c2ccfbe08fd31196032b51739fc15175d79dbcb3c07d183 892916 du-dust_1.2.5.orig.tar.xz
+ 48e34bb0c27a9e9371c61150af84b6e98f8c038803ac2c456d0092aa3a11c77e 4628 du-dust_1.2.5-1+forky.debian.tar.xz
+Checksums-Sha512:
+ bd8acfa61b0fa9dc05b552d5577783b45b690abb8320e3f5ada1fba9e1b02e440428d1a30e337a152478cc2994df25a9b8228841de0b909af501c9d6e9071b43 864 du-dust_1.2.5-1+forky.dsc
+ b7620f45a17a806be984d577e7239528121ba31b570188e65657a04fed1319d2afe8e7b7a528478522d7c14659e832f3f53d69f8600720b0dffc930922b7e053 892916 du-dust_1.2.5.orig.tar.xz
+ bea75d1355730df1295c741938c757dbc754f367c522121a3025e153a60d432d4f7c041beaf99ccb701de02c3bed4c43b7d0beb70b3a3bb84a9162f1c1a9e226 4628 du-dust_1.2.5-1+forky.debian.tar.xz
+
 Package: fd
 Format: 3.0 (quilt)
 Binary: fd

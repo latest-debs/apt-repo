@@ -1,15 +1,15 @@
 Package: du-dust
 Architecture: armel
-Version: 1.2.4-1+trixie
+Version: 1.2.5-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/du-dust/du-dust_1.2.4-1+trixie_armel.deb
-Size: 809264
-MD5sum: a87dbf1a40781ca56a6c600807f26ba3
-SHA1: d4f6e9cc26c6a674145620897613830f32467c64
-SHA256: d1f11f18a7d4732a2339bb2b4a471ce0193c16d98e57bfc87eb53a2cd60a2450
-SHA512: 91262e931b48476d8cd42ade354bdcbf3f0f043f302c0397f492a50c29a4bf678a25d7f1c57c9580e7bcdfdc1305385fc577e9811b267450fa1d5de3c3b357e8
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/du-dust/du-dust_1.2.5-1+trixie_armel.deb
+Size: 801004
+MD5sum: 1a110f25ab1670d685de04470da6fbc9
+SHA1: 2a6a44097238495abc219bb2ab4a1d8d6fec5921
+SHA256: e0cc5e7b65ab922ec750f7a1c9eb642203abb8e80155c478ed0dc369532dceeb
+SHA512: 102b84775aaade41fbeeddfffbc3c888d044d225716e2c4e84c44ff1f4da91eec12f376ebeeebfab00a4124970748cdde042533e74de47f07f1029fd89a205ad
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

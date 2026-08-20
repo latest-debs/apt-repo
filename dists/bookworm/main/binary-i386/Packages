@@ -48,16 +48,16 @@ Description: A cross-platform graphical process/system monitor with a customizab
 
 Package: du-dust
 Architecture: i386
-Version: 1.2.4-1+bookworm
+Version: 1.2.5-1+bookworm
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/bookworm/du-dust/du-dust_1.2.4-1+bookworm_i386.deb
-Size: 933600
-MD5sum: 9b92e5852d6bd6766c91e1bdea800f3b
-SHA1: 0179a4e4c2cb3b4de101123f3d48c4fae4114e28
-SHA256: a0688167d90317692d02630eaeb9b16048714715bbab5050365ea752f7c43324
-SHA512: e597fcfa283a452a389891eb0069281e83b2cae2a1a90db7a36dbc9fb99146316fddd45086594984c823bd8f52d465e895e35ede8a33bb5d6341f25fa5585d69
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/du-dust/du-dust_1.2.5-1+bookworm_i386.deb
+Size: 919112
+MD5sum: fc4f572b302e92c144e44b144196862d
+SHA1: 2dc48399b6bd43b86d8f6bd8e555b638a18a155e
+SHA256: af686409098c3a8256f2801d8d31ed158202b67fb6d1c809388d92d77802dd4f
+SHA512: 619af372cd4589b8eb005448da530f4fc872319df06d2cdf25245dbd9893670ebfb3a5646a6fac65d673588f4e33cdf193ef1aedfa24fd9a308ffc078492ac66
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

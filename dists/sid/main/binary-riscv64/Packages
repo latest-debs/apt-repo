@@ -30,6 +30,22 @@ Homepage: https://github.com/ClementTsang/bottom
 Description: A cross-platform graphical process/system monitor with a customizable interface
  Packaged from the upstream GitHub release for Debian.
 
+Package: du-dust
+Architecture: riscv64
+Version: 1.2.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/du-dust/du-dust_1.2.5-1+sid_riscv64.deb
+Size: 861324
+MD5sum: a502de4555bdfc5f925faabe24fc3803
+SHA1: 5a42d3762df8321d439523249b882b4a73c498b0
+SHA256: bb0bce1be49b7e31f8986fdb2f8e36bc34de787d6b90dcdb6cb98a95695b8ebe
+SHA512: f687083b831f9fd38c883b5cb1a99559783d90a058c3be2ed072a23709bd0f51ec6cc9c6768175bf784b152897c3dfc8bacc378ddc68e86b90f91e8806af7846
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
 Package: fzf
 Architecture: riscv64
 Version: 0.74.3-1+sid

@@ -48,16 +48,16 @@ Description: A cross-platform graphical process/system monitor with a customizab
 
 Package: du-dust
 Architecture: i386
-Version: 1.2.4-1+trixie
+Version: 1.2.5-1+trixie
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/trixie/du-dust/du-dust_1.2.4-1+trixie_i386.deb
-Size: 933392
-MD5sum: a834ab1c9288dc36386e9720ab5e3dbc
-SHA1: 8b0da086dc2f0ec4c959fc06168006eb9316fa5d
-SHA256: 7b26a6f940fdcf51c1325c0a391a77e2cf8596b304c0f9c58bfb6353d73fc9b5
-SHA512: da0600a8621187da78931e821db0fabd0c75483b6f29b475d3691c2912cf8e76a7e8f5764e6aab76c8e9b30554a4f91e6376cc0ec75c829f1bd63d042fce6c69
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/du-dust/du-dust_1.2.5-1+trixie_i386.deb
+Size: 918728
+MD5sum: 98d36711273ba1552710903d00559128
+SHA1: 61cefa2867cfe371ca8422e5b20f16715566da77
+SHA256: ebff7a27816d40e89a0b315ce272d060c8dc9797caa3a971b3718efe40bd05de
+SHA512: 2e6862c1c5e595571b078cddfe4a493b2f2aed6d6350693ff360881532e8b5cd9cfb357b87a0dd63e2e40b9f618ab625e2c3f9aef769a881576d116ef3952667
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

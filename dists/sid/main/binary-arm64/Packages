@@ -128,16 +128,16 @@ Description: A tool for exploring a Docker image's layers to discover ways to sh
 
 Package: du-dust
 Architecture: arm64
-Version: 1.2.4-1+sid
+Version: 1.2.5-1+sid
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/sid/du-dust/du-dust_1.2.4-1+sid_arm64.deb
-Size: 791744
-MD5sum: b054415e59bb5b89611792d754aec887
-SHA1: fc63c3c990003da1aee55360f18764800538e731
-SHA256: c952f6e2249c444d8f0f1139b422ffd719fe0313bce33361e1b859cb1279a75b
-SHA512: 4dba02101f9ebba94a365bbbf2ef468e48c12db1826a7c04841c080ab7e62e22ff79707b8addbf4a5c5c08ec8671732f42b5ff26cd9a430249e070430871929f
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/du-dust/du-dust_1.2.5-1+sid_arm64.deb
+Size: 793888
+MD5sum: ffc9f73b2b83c117057a2fb944d9b12c
+SHA1: 26ef36bf3e1d5f545528ce1bda7ddb3be2b023e1
+SHA256: bebcb6d5594ca9aa4af9e6f8abc460c97aa0a9a18b93ded46a7162bfa77097cd
+SHA512: dcbece6a7004374c59d7de827d07a340ba51a00da8ff0116068fc6f306b3b777e7fca843a9ed4bc14f29245ee56a856d4f3d709b66a88577bc054fd114cb7b86
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

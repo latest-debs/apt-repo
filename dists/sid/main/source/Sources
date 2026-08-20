@@ -143,6 +143,35 @@ Checksums-Sha512:
  253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
  aac9cb34ce3570278aab699f706766e87ce1c06aa8760833ba181648ad8ad344b1b45b3be50e062615548413cc5ccea9ef7afe0a12c6702e8686efbefd611690 1528 dive_0.13.1-1+sid.debian.tar.xz
 
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.5-1+sid
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/sid/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ 0af790e370bd5c6704bd20ca15475f7e 856 du-dust_1.2.5-1+sid.dsc
+ cff81c207328796c7821a7e63d3c0e88 892916 du-dust_1.2.5.orig.tar.xz
+ 316b4ecd5c8bbcc4a8ecd397c5f6c04f 4632 du-dust_1.2.5-1+sid.debian.tar.xz
+Checksums-Sha1:
+ 7785a0c88cab3da612ddad0bf8c50c21001a8dc0 856 du-dust_1.2.5-1+sid.dsc
+ b3e7a1016965af72d4bf544ca7ad903a44ad8526 892916 du-dust_1.2.5.orig.tar.xz
+ 23a0ccafa0bb37cf13f472f0aaf270e83055f686 4632 du-dust_1.2.5-1+sid.debian.tar.xz
+Checksums-Sha256:
+ db11789fc6a19e9ebdfaa73c16c94d548d39f0b5ebcdc4a25768fa1163f4976c 856 du-dust_1.2.5-1+sid.dsc
+ 22d290ae728b73413c2ccfbe08fd31196032b51739fc15175d79dbcb3c07d183 892916 du-dust_1.2.5.orig.tar.xz
+ 4e4a930b3b5b233163ceb1119f4d75ae98f44eb7d1f493521f747fce6e19a51b 4632 du-dust_1.2.5-1+sid.debian.tar.xz
+Checksums-Sha512:
+ f7df3e8dc3b0a6d9b875012cdb7b3b63b4c54899ae61cbf3bb7135d5caea427c9ba745042e2ad5cff0a81318aa4f253b143fc5934d1fa70792c35b8c0e16136d 856 du-dust_1.2.5-1+sid.dsc
+ b7620f45a17a806be984d577e7239528121ba31b570188e65657a04fed1319d2afe8e7b7a528478522d7c14659e832f3f53d69f8600720b0dffc930922b7e053 892916 du-dust_1.2.5.orig.tar.xz
+ c47e6b6467078f59c62c63b82a592637948a6fee8fb731fb992fb43b4036cdc46f6054c82937cbe5fcf5d5e3575a73ffc2a52051367f3cee8d3ebca4cbd69bc6 4632 du-dust_1.2.5-1+sid.debian.tar.xz
+
 Package: fd
 Format: 3.0 (quilt)
 Binary: fd

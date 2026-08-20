@@ -112,16 +112,16 @@ Description: A tool for exploring a Docker image's layers to discover ways to sh
 
 Package: du-dust
 Architecture: amd64
-Version: 1.2.4-1+bookworm
+Version: 1.2.5-1+bookworm
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/bookworm/du-dust/du-dust_1.2.4-1+bookworm_amd64.deb
-Size: 943588
-MD5sum: 862e71fc2528aa7d9d33812a59e1ffac
-SHA1: 12b095c7de48a8001c0ef5187d2a6fe4737a61a9
-SHA256: f79442ebe7daaa9f18e4d37f7482d139647504649a1c9a17e3d70a9f7ac18cb6
-SHA512: 080b3e97e0b5bd244a350b13aa30354822750c07229ae6cb428bdeea54d8d89673aff3e0d8d421bdc52f4d86a36f33f45f92246a888ecbf6a268d983dfdbd585
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/du-dust/du-dust_1.2.5-1+bookworm_amd64.deb
+Size: 897544
+MD5sum: 9e897de8f5fda8390d439b84892d3054
+SHA1: 1d9cc01c8dd6e38e885222408325252ea48ea800
+SHA256: 2f48805ee9c697b19dcb1536db649012098dcf65bd63da734f5994c800e60cbc
+SHA512: aac8f70a1b7fba99c02eaf4ea9718fcc8ba2c5dc02c4e7ce3f5e23a717ec5ca1066ff85b395e177a63ec7916860cd185b1ae2ad8b69e5793cbd4fe3e7cd4c677
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

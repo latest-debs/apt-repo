@@ -128,16 +128,16 @@ Description: A tool for exploring a Docker image's layers to discover ways to sh
 
 Package: du-dust
 Architecture: amd64
-Version: 1.2.4-1+forky
+Version: 1.2.5-1+forky
 Priority: optional
 Section: utils
-Maintainer: Your Name <your.email@example.com>
-Filename: pool/forky/du-dust/du-dust_1.2.4-1+forky_amd64.deb
-Size: 944208
-MD5sum: 25e770f4000af8fb17ab45b212ad531a
-SHA1: 400fa42aa8ae1fef426bd34ea7221cfb2b094984
-SHA256: d7a0991f3363f0b786330d0fd5cc53c21915023c34b4657b2942eeeb75f0e5f0
-SHA512: b567b5b593abaada9a46c6b6335dbe8f30dda7a12207cfafc15378f4e6f4f3e9c54f84b0b2ee2a21e4701408f61e39912cb368667c47db87d2a62d6422926c69
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/du-dust/du-dust_1.2.5-1+forky_amd64.deb
+Size: 897564
+MD5sum: b46cd4b41294f79a73e4dbd839dc5666
+SHA1: 3761531ad1fd0494f1e5ca680661f9fa76f8c067
+SHA256: 55c68ef2869951ce93a0c762af572fbcf5c825b43347b9ce284a50c4c02cc26c
+SHA512: 29ae24430359f1eee72be4a063b8e1d5eeff58aff6d6deee980a383af7cce45569f7c98ebc620a772dc159a8324577d54375c7536ec7e53635a9ddb66d44e742
 Homepage: https://github.com/bootandy/dust
 Description: A more intuitive version of du in rust
  Packaged from the upstream GitHub release for Debian.

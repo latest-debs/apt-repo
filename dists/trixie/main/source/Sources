@@ -143,6 +143,35 @@ Checksums-Sha512:
  253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
  688f98dff1535c802626288631830c123a23f29589447a2993983f3dd557ce7fc147a873a79ed2dde3b73546cce7b8ba923ceb082434b24982892ad1c4f4fff5 1532 dive_0.13.1-1+trixie.debian.tar.xz
 
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.5-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/trixie/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ 83792656440bcfd75389fb3c44044ce5 868 du-dust_1.2.5-1+trixie.dsc
+ cff81c207328796c7821a7e63d3c0e88 892916 du-dust_1.2.5.orig.tar.xz
+ e05536ef8544ae4801159aa33c51c7f3 4632 du-dust_1.2.5-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 31fb4d06a23035fb2ce0b4314260fc4b19a10aa0 868 du-dust_1.2.5-1+trixie.dsc
+ b3e7a1016965af72d4bf544ca7ad903a44ad8526 892916 du-dust_1.2.5.orig.tar.xz
+ fd79b21c78fcb3f186ffca04631ef05c28a4630a 4632 du-dust_1.2.5-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 74f5f01d1ad5231221ed55a01310869cc30b88830a184062cbbbf132e1e70b08 868 du-dust_1.2.5-1+trixie.dsc
+ 22d290ae728b73413c2ccfbe08fd31196032b51739fc15175d79dbcb3c07d183 892916 du-dust_1.2.5.orig.tar.xz
+ 2fe452fd44d75e2faa2b0b0cede2ce0f2af31bee2b7fcb03d2e837c16065e8f1 4632 du-dust_1.2.5-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 22543b3765c05d08c04f739f27d06d0b50491a58cd0738cafb1ec88ea8cca78cb85f47220298773a085104d26cbfa66ce53343c19b989eff4ba3f1ed81f697e1 868 du-dust_1.2.5-1+trixie.dsc
+ b7620f45a17a806be984d577e7239528121ba31b570188e65657a04fed1319d2afe8e7b7a528478522d7c14659e832f3f53d69f8600720b0dffc930922b7e053 892916 du-dust_1.2.5.orig.tar.xz
+ 76968d8b3f80af3de59499f850376e0c3ed216c8f2acd0f129cdf2de2aa5a22ac8551a13c7919202f82e342413ae572253c216b9747fb9c8aefeab7d5ea79e20 4632 du-dust_1.2.5-1+trixie.debian.tar.xz
+
 Package: fd
 Format: 3.0 (quilt)
 Binary: fd

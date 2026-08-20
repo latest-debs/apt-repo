@@ -114,6 +114,35 @@ Checksums-Sha512:
  253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
  3d141af7169f964085d7075a91769891320adb40c23f028fe18d6df852aeac6be1876f8523797ff0abba7b178b603bd8ec274ad5ccbf41b2304abd55b2b5758c 1532 dive_0.13.1-1+bookworm.debian.tar.xz
 
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.5-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/bookworm/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ fac796fb79b9b02cb824a6f74c21ce45 876 du-dust_1.2.5-1+bookworm.dsc
+ cff81c207328796c7821a7e63d3c0e88 892916 du-dust_1.2.5.orig.tar.xz
+ 96a70226aeb2eb21feb9c22dcb4193e5 4628 du-dust_1.2.5-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ e0de33f0bc23be3488e99c7146da1a7b99a44d43 876 du-dust_1.2.5-1+bookworm.dsc
+ b3e7a1016965af72d4bf544ca7ad903a44ad8526 892916 du-dust_1.2.5.orig.tar.xz
+ 0b3094e430dbe110ebd39d2699b11653d6b39276 4628 du-dust_1.2.5-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ e9251db1299180996663216f2e6f6b2d443419c007373675934347b15445d09a 876 du-dust_1.2.5-1+bookworm.dsc
+ 22d290ae728b73413c2ccfbe08fd31196032b51739fc15175d79dbcb3c07d183 892916 du-dust_1.2.5.orig.tar.xz
+ 568f7fd854acbf32a0063f80cb82bce60e9d16a842e19d955fe41212294aa863 4628 du-dust_1.2.5-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 0f9fd2490a0fc983199c923ea6940d44aa5444f22279a6ee4b065d715fee1276d0abd0e4748d54cc8d07172666bdca6e494983342dfda8351fa114c27ac97381 876 du-dust_1.2.5-1+bookworm.dsc
+ b7620f45a17a806be984d577e7239528121ba31b570188e65657a04fed1319d2afe8e7b7a528478522d7c14659e832f3f53d69f8600720b0dffc930922b7e053 892916 du-dust_1.2.5.orig.tar.xz
+ ae697cc67c2443f3dcf8292da30e3b9e1f4075b50a139a883207f5856d8035719d36e9b92ac1cac543fca33395679f1091f2c9967d735af409a2dd0d1aac692c 4628 du-dust_1.2.5-1+bookworm.debian.tar.xz
+
 Package: fd
 Format: 3.0 (quilt)
 Binary: fd
