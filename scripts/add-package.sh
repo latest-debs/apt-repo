@@ -21,8 +21,9 @@
 
 set -euo pipefail
 
-API="https://api.github.com"
-TEMPLATE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/templates/package-scaffold"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. "$SCRIPT_DIR/lib.sh"
+TEMPLATE="$(cd "$SCRIPT_DIR/.." && pwd)/templates/package-scaffold"
 AUTH=()
 [ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
@@ -117,6 +118,22 @@ scaffold() {
   esac
   echo "→ Asset: $asset (format: $fmt)"
 
+  # DEBIAN PARITY: don't package a tool that any live Debian suite
+  # (bookworm/trixie/forky/sid) already carries at this upstream version -
+  # see README.md#debian-parity-when-we-step-aside. No --suite is passed, so
+  # this checks all four. A brand-new request has no tools.yaml entry yet,
+  # so the Debian package name defaults to $name (the common case); a
+  # mismatched name just fails open to "not in <suite>" rather than
+  # blocking a legitimate request. --out records debian-parity-report.json
+  # (pass or fail) so a rejection has the same kind of structured audit
+  # trail as the license/asset/architecture pre-checks below, instead of
+  # just a log line - the package-request workflow reads it to comment
+  # the specific reason on the issue.
+  echo "→ Checking Debian suite parity"
+  bash "$(dirname "$0")/check-suite-parity.sh" \
+    --name "$name" --repo "$repo" --upstream-version "$release_tag" --out "$out" \
+    || die "already at parity in a released Debian suite — see README.md#debian-parity-when-we-step-aside"
+
   # VET TIME: verify the upstream asset's SHA-256 against the release's
   # published checksum file and capture the release identity + digest as a
   # provenance pin. The builder re-verifies against this pin when building
@@ -178,7 +195,7 @@ scaffold() {
   cp "$precheck_out/vet-report.json" "$dest/.github/vet-report.json"
 
   ( cd "$dest" && git init -q -b main && git add -A && \
-    git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+    git -c user.name="$BOT_NAME" -c user.email="$BOT_EMAIL" \
       commit -q -m "scaffold $name Debian packaging" )
   echo "→ Scaffolded $dest"
 }
@@ -199,18 +216,19 @@ deploy_repo() {
   [ -n "${GH_TOKEN:-}" ] || die "GH_TOKEN (org admin token) is required to create the repository"
   [ -d "$dir/$name-debian" ] || die "scaffold not found at $dir/$name-debian"
 
-  echo "→ Deploying latest-debs/$name-debian"
+  local repo="$ORG/$name-debian"
+  echo "→ Deploying $repo"
   # Push with the token inline so it is never persisted into the scaffold's
   # .git/config (a credential helper could otherwise cache it); disable any
   # credential helper for this push. Only the deploy step uses the org
   # token - it must create repos in the org, which GITHUB_TOKEN cannot.
-  local remote="https://x-access-token:${GH_TOKEN}@github.com/latest-debs/$name-debian.git"
-  if gh repo view "latest-debs/$name-debian" >/dev/null 2>&1; then
+  local remote="https://x-access-token:${GH_TOKEN}@github.com/$repo.git"
+  if gh repo view "$repo" >/dev/null 2>&1; then
     echo "→ Repo already exists; pushing updated scaffold"
     ( cd "$dir/$name-debian" && git -c credential.helper= push -q --force "$remote" main )
   else
-    echo "→ Creating latest-debs/$name-debian"
-    GH_TOKEN="$GH_TOKEN" gh repo create "latest-debs/$name-debian" --public --source "$dir/$name-debian" --push >/dev/null
+    echo "→ Creating $repo"
+    GH_TOKEN="$GH_TOKEN" gh repo create "$repo" --public --source "$dir/$name-debian" --push >/dev/null
   fi
 
   # Provision the apt-repo rebuild trigger token so this repo's
@@ -219,8 +237,8 @@ deploy_repo() {
   # scheduled rebuild still catches releases.
   if [ -n "${TRIGGER_TOKEN:-}" ]; then
     if printf '%s' "$TRIGGER_TOKEN" \
-        | GH_TOKEN="$GH_TOKEN" gh secret set TRIGGER_TOKEN --repo "latest-debs/$name-debian" >/dev/null 2>&1; then
-      echo "→ Set TRIGGER_TOKEN secret on latest-debs/$name-debian"
+        | GH_TOKEN="$GH_TOKEN" gh secret set TRIGGER_TOKEN --repo "$repo" >/dev/null 2>&1; then
+      echo "→ Set TRIGGER_TOKEN secret on $repo"
     else
       echo "  ⚠ could not set TRIGGER_TOKEN secret (schedule will still catch releases)"
     fi
@@ -234,15 +252,15 @@ deploy_repo() {
   # whole deploy over a race that resolves itself within seconds.
   local attempt dispatched=0
   for attempt in $(seq 1 10); do
-    if GH_TOKEN="$GH_TOKEN" gh workflow run release.yml --repo "latest-debs/$name-debian" -f auto=true -f enable_lintian=true >/dev/null 2>&1; then
+    if GH_TOKEN="$GH_TOKEN" gh workflow run release.yml --repo "$repo" -f auto=true -f enable_lintian=true >/dev/null 2>&1; then
       dispatched=1
       break
     fi
     echo "  workflow not indexed yet, retrying ($attempt/10)..."
     sleep $((attempt * 2))
   done
-  [ "$dispatched" = "1" ] || die "release.yml never became dispatchable on latest-debs/$name-debian after repeated retries"
-  echo "→ Repo ready: https://github.com/latest-debs/$name-debian"
+  [ "$dispatched" = "1" ] || die "release.yml never became dispatchable on $repo after repeated retries"
+  echo "→ Repo ready: https://github.com/$repo"
 }
 
 # ---------------------------------------------------------------------------
@@ -269,14 +287,14 @@ register_tools() {
     return 0
   fi
 
-  printf '\n%s:\n  source: https://github.com/latest-debs/%s-debian\n  homepage: https://github.com/%s\n' \
-    "$name" "$name" "$repo" >> "$tools_yaml"
+  printf '\n%s:\n  source: https://github.com/%s/%s-debian\n  homepage: https://github.com/%s\n' \
+    "$name" "$ORG" "$name" "$repo" >> "$tools_yaml"
   local dir branch refspec
   dir="$(dirname "$tools_yaml")"
   branch="$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null || echo HEAD)"
   if [ "$branch" = "HEAD" ]; then refspec="HEAD:main"; else refspec="HEAD"; fi
   ( cd "$dir" && git add "$(basename "$tools_yaml")" && \
-    git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+    git -c user.name="$BOT_NAME" -c user.email="$BOT_EMAIL" \
       commit -q -m "register $name package" && git push -q origin "$refspec" )
   echo "→ Registered $name in tools.yaml"
 }

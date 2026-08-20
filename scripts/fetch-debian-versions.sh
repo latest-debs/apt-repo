@@ -10,41 +10,39 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+. "$ROOT/scripts/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
+SUITES_JSON="$ROOT/suites.json"
 OUT="$ROOT/debian-versions.json"
-
-# Debian's current stable release. Trixie became stable in August 2025
-# (bookworm is now oldstable) - update this, and the matching "trixie"
-# references in latest-debs.github.io/index.html, whenever Debian's next
-# stable release ships.
-STABLE_SUITE="trixie"
 
 log() { printf '[debian-versions] %s\n' "$*"; }
 
 command -v jq >/dev/null || { log "ERROR: jq is required"; exit 1; }
 [[ -f "$TOOLS_YAML" ]] || { log "ERROR: missing $TOOLS_YAML"; exit 1; }
+[[ -f "$SUITES_JSON" ]] || { log "ERROR: missing $SUITES_JSON"; exit 1; }
 
-# Emit "package<TAB>debian_name" lines. debian_name defaults to the
-# package name itself unless a tools.yaml entry overrides it (e.g. fd's
-# Debian package is "fd-find" - Debian's own "fd" is an unrelated tool).
-parse_tools() {
-  awk '
-    /^[a-zA-Z0-9_.-]+:/ {
-      if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg)
-      pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      dname = ""
-      next
-    }
-    /^  debian_name:/ { dname = $0; sub(/^  debian_name:[[:space:]]*/, "", dname); gsub(/"/, "", dname) }
-    END { if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg) }
-  ' "$TOOLS_YAML"
-}
+# Debian's current stable release. Single source of truth is suites.json -
+# update it (only it) whenever Debian's next stable release ships; every
+# other "trixie" reference in this org (check-suite-parity.sh, the release
+# workflow template, latest-debs.github.io/index.html) reads from there too.
+STABLE_SUITE="$(jq -r '.stable' "$SUITES_JSON")"
 
 tmp_json="$(mktemp)"
 echo '{}' > "$tmp_json"
 
 while IFS=$'\t' read -r pkg dname; do
   [[ -n "$pkg" ]] || continue
+
+  # NONE = tools.yaml has documented that Debian's same-named package is an
+  # unrelated tool (e.g. "zed" is a 1980s Unix editor, not zed-industries/zed)
+  # - looking it up would show a misleading "Debian has this" version.
+  if [[ "$dname" == "NONE" ]]; then
+    log "  -> $pkg: Debian's same-named package is unrelated (see tools.yaml); skipping"
+    jq --arg pkg "$pkg" '. + {($pkg): null}' "$tmp_json" > "${tmp_json}.new"
+    mv "${tmp_json}.new" "$tmp_json"
+    continue
+  fi
+
   log "checking $pkg (debian package: $dname)..."
 
   madison_out=$(curl -fsSL "https://qa.debian.org/madison.php?package=${dname}&text=on" 2>/dev/null || echo "")
@@ -61,7 +59,7 @@ while IFS=$'\t' read -r pkg dname; do
   mv "${tmp_json}.new" "$tmp_json"
 
   sleep 0.5 # be polite to qa.debian.org across ~14 sequential requests
-done < <(parse_tools)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,3)
 
 jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg suite "$STABLE_SUITE" \
    --slurpfile packages "$tmp_json" \

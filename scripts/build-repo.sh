@@ -16,6 +16,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+. "$ROOT/scripts/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
 POOL="$ROOT/pool"
 DISTS="$ROOT/dists"
@@ -28,21 +29,6 @@ die() { printf '[build-repo] ERROR: %s\n' "$*" >&2; exit 1; }
 for c in curl jq dpkg-deb apt-ftparchive; do
   command -v "$c" >/dev/null || die "$c is required"
 done
-
-# ---------------------------------------------------------------------------
-# Parse tools.yaml: emit "package<TAB>source-url" lines.
-# ---------------------------------------------------------------------------
-parse_tools() {
-  awk '
-    /^[a-zA-Z0-9_.-]+:/ {
-      pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      src = ""
-      next
-    }
-    /^  source:/ { src = $0; sub(/^  source:[[:space:]]*/, "", src); gsub(/"/, "", src) }
-    src != "" { print pkg "\t" src; src = "" }
-  ' "$TOOLS_YAML"
-}
 
 # ---------------------------------------------------------------------------
 # Classify one release asset name. Emits: kind<TAB>suite<TAB>arch<TAB>package
@@ -289,7 +275,7 @@ else
   while IFS=$'\t' read -r pkg url; do
     [[ -n "$pkg" ]] || continue
     fetch_repo "$pkg" "$url"
-  done < <(parse_tools)
+  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
 fi
 
 log "== generating indexes =="

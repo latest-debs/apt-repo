@@ -12,6 +12,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+. "$ROOT/scripts/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
 OUT="$ROOT/licenses.json"
 
@@ -19,19 +20,6 @@ log() { printf '[fetch-licenses] %s\n' "$*"; }
 
 command -v jq >/dev/null || { log "ERROR: jq is required"; exit 1; }
 [[ -f "$TOOLS_YAML" ]] || { log "ERROR: missing $TOOLS_YAML"; exit 1; }
-
-# Emit "package<TAB>source-url" lines (same parse as build-repo.sh).
-parse_tools() {
-  awk '
-    /^[a-zA-Z0-9_.-]+:/ {
-      pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      src = ""
-      next
-    }
-    /^  source:/ { src = $0; sub(/^  source:[[:space:]]*/, "", src); gsub(/"/, "", src) }
-    src != "" { print pkg "\t" src; src = "" }
-  ' "$TOOLS_YAML"
-}
 
 tmp_json="$(mktemp)"
 echo '{}' > "$tmp_json"
@@ -52,7 +40,7 @@ while IFS=$'\t' read -r pkg url; do
     jq --arg pkg "$pkg" '. + {($pkg): null}' "$tmp_json" > "${tmp_json}.new"
   fi
   mv "${tmp_json}.new" "$tmp_json"
-done < <(parse_tools)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
 
 jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
    --slurpfile packages "$tmp_json" \

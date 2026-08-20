@@ -43,7 +43,7 @@ set -euo pipefail
 APT_REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TPL="$APT_REPO_DIR/templates/package-scaffold"
 TOOLS_YAML="$APT_REPO_DIR/tools.yaml"
-API="https://api.github.com"
+. "$APT_REPO_DIR/scripts/lib.sh"
 
 DRY_RUN=false
 SKIP_CI_CHECK=false
@@ -78,16 +78,16 @@ fi
 check_source_ci() {
   local sha run_json status result url
   sha="$(git -C "$APT_REPO_DIR" rev-parse HEAD)"
-  echo "→ Checking latest-debs/apt-repo CI status for HEAD (${sha:0:7})..."
+  echo "→ Checking $ORG/apt-repo CI status for HEAD (${sha:0:7})..."
   # grep for the '[' line: some shell environments (e.g. a version-manager
   # shim) print an activation notice to stdout ahead of gh's own output,
   # which would otherwise corrupt the JSON fed to jq below.
-  run_json="$(gh run list --repo latest-debs/apt-repo --workflow CI \
+  run_json="$(gh run list --repo "$ORG/apt-repo" --workflow CI \
       --json headSha,conclusion,status,url --limit 30 2>/dev/null \
       | grep '^\[' \
       | jq -c --arg sha "$sha" '[.[] | select(.headSha == $sha)] | .[0] // empty')"
   if [ -z "$run_json" ] || [ "$run_json" = "null" ]; then
-    echo "ERROR: no CI run found for HEAD (${sha:0:7}) on latest-debs/apt-repo." >&2
+    echo "ERROR: no CI run found for HEAD (${sha:0:7}) on $ORG/apt-repo." >&2
     echo "  Push this commit and wait for CI, or pass --skip-ci-check to bypass (not recommended)." >&2
     exit 1
   fi
@@ -95,12 +95,12 @@ check_source_ci() {
   result="$(echo "$run_json" | jq -r '.conclusion')"
   url="$(echo "$run_json" | jq -r '.url')"
   if [ "$status" != "completed" ]; then
-    echo "ERROR: CI is still running for HEAD (${sha:0:7}) on latest-debs/apt-repo: $url" >&2
+    echo "ERROR: CI is still running for HEAD (${sha:0:7}) on $ORG/apt-repo: $url" >&2
     echo "  Wait for it to finish, or pass --skip-ci-check to bypass (not recommended)." >&2
     exit 1
   fi
   if [ "$result" != "success" ]; then
-    echo "ERROR: CI failed (conclusion=$result) for HEAD (${sha:0:7}) on latest-debs/apt-repo: $url" >&2
+    echo "ERROR: CI failed (conclusion=$result) for HEAD (${sha:0:7}) on $ORG/apt-repo: $url" >&2
     echo "  Rolling out from a red commit is exactly how a broken release.yml" >&2
     echo "  reached 40 repos on 2026-08-19. Fix CI before rolling out, or pass" >&2
     echo "  --skip-ci-check to bypass (not recommended)." >&2
@@ -226,7 +226,7 @@ commit_and_push() {
     return
   fi
   ( cd "$dir" && git add "${changed_files[@]}" && \
-    git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+    git -c user.name="$BOT_NAME" -c user.email="$BOT_EMAIL" \
       commit -q -m "rollout: sync packaging files from apt-repo template" )
   local remote="https://x-access-token:${TOKEN}@github.com/$repo.git"
   if ( cd "$dir" && git -c credential.helper= push -q "$remote" HEAD:main ); then

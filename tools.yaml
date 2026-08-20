@@ -152,6 +152,10 @@ act:
 zed:
   source: https://github.com/latest-debs/zed-debian
   homepage: https://github.com/zed-industries/zed
+  # Debian's own "zed" is an unrelated 1980s Unix line editor (versioned
+  # 3.x since "woody"/2002) - not zed-industries/zed. NONE tells the
+  # sid-version tooling not to treat that collision as a match.
+  debian_name: NONE
 
 rclone:
   source: https://github.com/latest-debs/rclone-debian
