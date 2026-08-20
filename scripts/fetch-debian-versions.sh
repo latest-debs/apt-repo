@@ -11,18 +11,20 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_YAML="$ROOT/tools.yaml"
+SUITES_JSON="$ROOT/suites.json"
 OUT="$ROOT/debian-versions.json"
-
-# Debian's current stable release. Trixie became stable in August 2025
-# (bookworm is now oldstable) - update this, and the matching "trixie"
-# references in latest-debs.github.io/index.html, whenever Debian's next
-# stable release ships.
-STABLE_SUITE="trixie"
 
 log() { printf '[debian-versions] %s\n' "$*"; }
 
 command -v jq >/dev/null || { log "ERROR: jq is required"; exit 1; }
 [[ -f "$TOOLS_YAML" ]] || { log "ERROR: missing $TOOLS_YAML"; exit 1; }
+[[ -f "$SUITES_JSON" ]] || { log "ERROR: missing $SUITES_JSON"; exit 1; }
+
+# Debian's current stable release. Single source of truth is suites.json -
+# update it (only it) whenever Debian's next stable release ships; every
+# other "trixie" reference in this org (check-suite-parity.sh, the release
+# workflow template, latest-debs.github.io/index.html) reads from there too.
+STABLE_SUITE="$(jq -r '.stable' "$SUITES_JSON")"
 
 # Emit "package<TAB>debian_name" lines. debian_name defaults to the
 # package name itself unless a tools.yaml entry overrides it (e.g. fd's

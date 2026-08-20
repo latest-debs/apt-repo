@@ -153,6 +153,13 @@ jobs:
           # trixie, forky, sid) so packages that intentionally skip a suite
           # (e.g. atuin requiring a newer glibc than bookworm ships) still get
           # runtime coverage on the oldest suite they do build.
+          #
+          # This list is a copy: it runs in this repo's own isolated CI, with
+          # no access to apt-repo's filesystem, so it can't read
+          # apt-repo/suites.json (the canonical source) directly. Update
+          # suites.json first, then run apt-repo's rollout-autowatch.sh to
+          # fan this template out to every *-debian repo in one pass, rather
+          # than hand-editing this list here or in any generated copy.
           DEB="" SUITE=""
           for suite in bookworm trixie forky sid; do
             mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_arm64.deb")

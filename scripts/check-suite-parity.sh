@@ -45,11 +45,15 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_YAML="$ROOT/tools.yaml"
+SUITES_JSON="$ROOT/suites.json"
 API="https://api.github.com"
 AUTH=()
 [ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
-ALL_SUITES="bookworm trixie forky sid"
+command -v jq >/dev/null || { echo "ERROR: jq is required" >&2; exit 1; }
+[ -f "$SUITES_JSON" ] || { echo "ERROR: missing $SUITES_JSON" >&2; exit 1; }
+# Single source of truth for the tracked suite list - see suites.json.
+ALL_SUITES="$(jq -r '.suites | join(" ")' "$SUITES_JSON")"
 
 name="" repo="" debian_name="" upstream_version="" suite_arg="all" out=""
 while [ $# -gt 0 ]; do
