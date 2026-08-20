@@ -10,6 +10,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+. "$ROOT/scripts/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
 SUITES_JSON="$ROOT/suites.json"
 OUT="$ROOT/debian-versions.json"
@@ -25,22 +26,6 @@ command -v jq >/dev/null || { log "ERROR: jq is required"; exit 1; }
 # other "trixie" reference in this org (check-suite-parity.sh, the release
 # workflow template, latest-debs.github.io/index.html) reads from there too.
 STABLE_SUITE="$(jq -r '.stable' "$SUITES_JSON")"
-
-# Emit "package<TAB>debian_name" lines. debian_name defaults to the
-# package name itself unless a tools.yaml entry overrides it (e.g. fd's
-# Debian package is "fd-find" - Debian's own "fd" is an unrelated tool).
-parse_tools() {
-  awk '
-    /^[a-zA-Z0-9_.-]+:/ {
-      if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg)
-      pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      dname = ""
-      next
-    }
-    /^  debian_name:/ { dname = $0; sub(/^  debian_name:[[:space:]]*/, "", dname); gsub(/"/, "", dname) }
-    END { if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg) }
-  ' "$TOOLS_YAML"
-}
 
 tmp_json="$(mktemp)"
 echo '{}' > "$tmp_json"
@@ -74,7 +59,7 @@ while IFS=$'\t' read -r pkg dname; do
   mv "${tmp_json}.new" "$tmp_json"
 
   sleep 0.5 # be polite to qa.debian.org across ~14 sequential requests
-done < <(parse_tools)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,3)
 
 jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg suite "$STABLE_SUITE" \
    --slurpfile packages "$tmp_json" \

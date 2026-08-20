@@ -194,20 +194,6 @@ fi
 command -v jq >/dev/null || { echo "ERROR: jq is required" >&2; exit 1; }
 [ -f "$TOOLS_YAML" ] || { echo "ERROR: missing $TOOLS_YAML" >&2; exit 1; }
 
-parse_tools() {
-  awk '
-    /^[a-zA-Z0-9_.-]+:/ {
-      if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg) "\t" homepage
-      pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      dname = ""; homepage = ""
-      next
-    }
-    /^  debian_name:/ { dname = $0; sub(/^  debian_name:[[:space:]]*/, "", dname); gsub(/"/, "", dname) }
-    /^  homepage:/ { homepage = $0; sub(/^  homepage:[[:space:]]*/, "", homepage) }
-    END { if (pkg != "") print pkg "\t" (dname != "" ? dname : pkg) "\t" homepage }
-  ' "$TOOLS_YAML"
-}
-
 # Dynamic header/format: PACKAGE, UPSTREAM, one column per requested suite,
 # then VERDICT (the suites - if any - where the package is already at parity).
 fmt="%-16s %-16s"
@@ -252,7 +238,7 @@ while IFS=$'\t' read -r pkg dname homepage; do
 
   [ -n "$parity_suites" ] && retire_count=$((retire_count + 1))
   sleep 0.5 # be polite to qa.debian.org and the GitHub API across many tools
-done < <(parse_tools)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,3,4)
 
 echo
 if [ "$retire_count" -gt 0 ]; then
