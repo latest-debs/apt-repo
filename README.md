@@ -34,6 +34,13 @@ release, a webhook (`repository_dispatch`) fires an **immediate** apt-repo
 rebuild — with a ~6h scheduled run as the catch-up backstop — so you get
 current tools on a stable base, through the same `apt` you already trust.
 
+**vs. Debian itself** — when a live Debian suite (most often sid/unstable,
+but sometimes trixie too — common for tools with a Debian Developer
+upstream, e.g. `bat`, `fd`) already tracks a tool's latest upstream release,
+it's already offering exactly what this channel would add, on a much larger
+base of packages. We don't duplicate that — see
+[Debian parity](#debian-parity-when-we-step-aside) below.
+
 **vs. ad-hoc release downloads** — a raw GitHub binary is trust-on-download:
 no policy check, no run test, no signature chain, no record of what you got.
 Every package in this channel instead carries:
@@ -148,6 +155,57 @@ sudo apt update
   1. Add an entry to `tools.yaml` pointing at the tool's package repo
      (e.g. `https://github.com/latest-debs/uv-debian`).
   2. The scheduled workflow picks it up automatically on the next run.
+
+### Debian parity — when we step aside
+
+**Policy: if any live Debian suite already carries a tool at its latest
+upstream version, we don't package it.** That suite — bookworm, trixie,
+forky, or sid — is already doing, for free and at full Debian QA, exactly
+what this channel exists to provide. Packaging it too would just be a
+second, lower-trust copy of what Debian already ships there. In practice
+this is usually sid or forky (they move fastest), but the check — and the
+policy — covers all four suites we build for, not just sid.
+
+- **New requests:** `scripts/add-package.sh scaffold` checks the requested
+  tool's version in every live suite against the upstream release being
+  vetted (`scripts/check-suite-parity.sh`, same madison lookup
+  `fetch-debian-versions.sh` uses for the stable-version column). A request
+  already at parity anywhere fails vetting rather than being scaffolded —
+  the request comment points the requester at that suite instead.
+- **Tracked tools:** run `scripts/check-suite-parity.sh` against `tools.yaml`
+  to list current packages that have since caught up in any suite (upstream
+  reaching parity after a tool was added is expected — Debian keeps moving).
+  These are flagged for a maintainer to review and retire, not
+  auto-removed: removing a package a user already depends on is a real
+  breaking change, so it goes through the same human-gate as everything else
+  here. Narrow the check with `--suite trixie`, `--suite trixie,sid`, etc.
+  when you just want to preview one suite rather than all four.
+- **What we tell users instead:** depends on which suite matched.
+  - **If it's the suite they already run** (trixie or bookworm, if that's
+    their `apt` config) — nothing extra needed, plain `apt install <tool>`
+    already gets the latest version straight from Debian.
+  - **If it's a suite they don't run** (typically sid or forky) — enabling
+    it wholesale on a stable/testing box is a good way to break that box
+    (dependency escalation, aka "Frankendebian"). The safe version is
+    **pinning just the one package**:
+
+    ```sh
+    SUITE=sid   # whichever suite matched — see the check's output
+    echo "deb http://deb.debian.org/debian $SUITE main" | sudo tee /etc/apt/sources.list.d/$SUITE.list
+    printf 'Package: *\nPin: release a=%s\nPin-Priority: 100\n\nPackage: %s\nPin: release a=%s\nPin-Priority: 500\n' \
+      "$SUITE" "<tool>" "$SUITE" | sudo tee /etc/apt/preferences.d/$SUITE-pin-<tool>
+    sudo apt update
+    sudo apt install <tool>
+    ```
+
+    Everything else on the system stays on its current suite (priority 100
+    — won't install from `$SUITE`); only the pinned package (priority 500)
+    is allowed to come from there.
+
+This only applies to Debian-suite parity — it doesn't change the
+[hand-off policy](SERVICE.md#were-complementary-to-upstream-not-competing-with-it)
+for a project shipping its own official repo, which is a separate, unrelated
+case.
 
 ### Maintainers: automating a package request
 
@@ -304,6 +362,7 @@ scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
 scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos
 scripts/fetch-licenses.sh   regenerate licenses.json from tools.yaml
+scripts/check-suite-parity.sh flag tools already at latest-upstream parity in any Debian suite (default: all)
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 licenses.json               per-package SPDX license audit (generated, committed)

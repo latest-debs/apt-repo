@@ -45,6 +45,17 @@ echo '{}' > "$tmp_json"
 
 while IFS=$'\t' read -r pkg dname; do
   [[ -n "$pkg" ]] || continue
+
+  # NONE = tools.yaml has documented that Debian's same-named package is an
+  # unrelated tool (e.g. "zed" is a 1980s Unix editor, not zed-industries/zed)
+  # - looking it up would show a misleading "Debian has this" version.
+  if [[ "$dname" == "NONE" ]]; then
+    log "  -> $pkg: Debian's same-named package is unrelated (see tools.yaml); skipping"
+    jq --arg pkg "$pkg" '. + {($pkg): null}' "$tmp_json" > "${tmp_json}.new"
+    mv "${tmp_json}.new" "$tmp_json"
+    continue
+  fi
+
   log "checking $pkg (debian package: $dname)..."
 
   madison_out=$(curl -fsSL "https://qa.debian.org/madison.php?package=${dname}&text=on" 2>/dev/null || echo "")

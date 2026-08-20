@@ -117,6 +117,22 @@ scaffold() {
   esac
   echo "→ Asset: $asset (format: $fmt)"
 
+  # DEBIAN PARITY: don't package a tool that any live Debian suite
+  # (bookworm/trixie/forky/sid) already carries at this upstream version -
+  # see README.md#debian-parity-when-we-step-aside. No --suite is passed, so
+  # this checks all four. A brand-new request has no tools.yaml entry yet,
+  # so the Debian package name defaults to $name (the common case); a
+  # mismatched name just fails open to "not in <suite>" rather than
+  # blocking a legitimate request. --out records debian-parity-report.json
+  # (pass or fail) so a rejection has the same kind of structured audit
+  # trail as the license/asset/architecture pre-checks below, instead of
+  # just a log line - the package-request workflow reads it to comment
+  # the specific reason on the issue.
+  echo "→ Checking Debian suite parity"
+  bash "$(dirname "$0")/check-suite-parity.sh" \
+    --name "$name" --repo "$repo" --upstream-version "$release_tag" --out "$out" \
+    || die "already at parity in a released Debian suite — see README.md#debian-parity-when-we-step-aside"
+
   # VET TIME: verify the upstream asset's SHA-256 against the release's
   # published checksum file and capture the release identity + digest as a
   # provenance pin. The builder re-verifies against this pin when building

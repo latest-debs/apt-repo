@@ -115,6 +115,17 @@ between you and your users. Two things follow from that:
   negotiation, no lingering "which one is canonical" confusion for users. We'd
   rather see you running your own signed repo than keep packaging in your
   place.
+- **If any live Debian suite already carries your latest release, we don't
+  duplicate it.** A tool with a Debian Developer upstream (or an active
+  Debian maintainer) often lands in unstable within days of a release —
+  sometimes reaching trixie or even bookworm too — at which point that suite
+  already offers current + Debian's own QA, which is strictly more than we
+  can offer. New requests already at parity anywhere aren't scaffolded;
+  existing packages that reach parity get flagged for retirement. We point
+  users at that suite instead — directly if it's what they already run,
+  pinned if it isn't — rather than running a second, lower-trust copy of
+  what Debian already ships. See
+  [Debian parity](README.md#debian-parity-when-we-step-aside).
 - **Prefer to run this yourself from day one?** The pipeline packaging every
   tool here is just
   [debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder),
