@@ -23,6 +23,14 @@ DISTS="$ROOT/dists"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
+# pkg -> {repo, tag} for every tool with a valid latest release, consumed by
+# the Cloudflare Workers redirector (redirector/) to turn a pool/ request
+# into the exact GitHub Release asset URL without re-fetching from the
+# GitHub API per request. Appended to in fetch_repo(), written out after the
+# main loop. TSV instead of building JSON incrementally in bash.
+PKG_REPO_MANIFEST="$TMP/pkg-repo-map.tsv"
+: > "$PKG_REPO_MANIFEST"
+
 log() { printf '[build-repo] %s\n' "$*"; }
 die() { printf '[build-repo] ERROR: %s\n' "$*" >&2; exit 1; }
 
@@ -122,6 +130,7 @@ fetch_repo() {
   tag="$(jq -r '.tag_name' <<<"$json")"
   [[ -n "$tag" && "$tag" != "null" ]] || { log "   skip: no latest release for $pkg"; return 0; }
   log "   tag: $tag"
+  printf '%s\t%s\t%s\n' "$pkg" "$repo" "$tag" >> "$PKG_REPO_MANIFEST"
 
   # One download URL per asset (already absolute; survives tag renames).
   local tmp_manifest="$TMP/$pkg.assets"
@@ -284,6 +293,13 @@ for suite in "$POOL"/*/; do
   suite="${suite##*/}"
   build_suite "$suite"
 done
+
+log "== writing pkg-repo-map.json =="
+jq -R -s -c '
+  split("\n") | map(select(length > 0) | split("\t"))
+  | map({(.[0]): {repo: .[1], tag: .[2]}})
+  | add // {}
+' "$PKG_REPO_MANIFEST" > "$DISTS/pkg-repo-map.json"
 
 log "done."
 log "NOTE: repository is unsigned. Run scripts/sign-repo.sh on a Debian machine with the signing key when ready."

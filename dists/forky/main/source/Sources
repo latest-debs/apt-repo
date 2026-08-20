@@ -437,7 +437,7 @@ Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff
 Architecture: any
-Version: 0.16.3-1+forky
+Version: 0.16.4-1+forky
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -446,21 +446,21 @@ Directory: pool/forky/ruff
 Package-List:
  ruff deb utils optional arch=any
 Files:
- 3715d305f8db67478643519c00b47417 848 ruff_0.16.3-1+forky.dsc
- ff82cce75b2980c97ddf6467a867b6fc 7401668 ruff_0.16.3.orig.tar.xz
- 522325b6efce82d86971fe588ed8aef4 2620 ruff_0.16.3-1+forky.debian.tar.xz
+ 0ad21bc343c2b37286ef24a9c4d3a3fd 848 ruff_0.16.4-1+forky.dsc
+ d5d81e28b49019b67c48e468bbc5fd14 7103144 ruff_0.16.4.orig.tar.xz
+ 2b654bf5b6ff7b902af4c8f7ebe9b07a 2620 ruff_0.16.4-1+forky.debian.tar.xz
 Checksums-Sha1:
- 3a8a53c8844f1d9d2b2c251faa9c52739d93a656 848 ruff_0.16.3-1+forky.dsc
- 0cc2d14f238c7d1f9f44b957dcb81aace54df134 7401668 ruff_0.16.3.orig.tar.xz
- cff29d43cd63a837209b67b8923150ce484b25ec 2620 ruff_0.16.3-1+forky.debian.tar.xz
+ 0ccc12e2b3f857a8c08540ffeb9ffc8dd57c4947 848 ruff_0.16.4-1+forky.dsc
+ a9d337baf95a7576c3a27033e278cb754edf049c 7103144 ruff_0.16.4.orig.tar.xz
+ 753c9599bce6adefd9b7c09d4e05bd3d4eb7c41b 2620 ruff_0.16.4-1+forky.debian.tar.xz
 Checksums-Sha256:
- e24620bd3d89d0dfc222245ff14feac8b5fb37c1c11ca8368d93047250b1322f 848 ruff_0.16.3-1+forky.dsc
- 111742cb5d8cfce23a056537ae337f5339ee172bbcfd236f73ab38b0f483ecb4 7401668 ruff_0.16.3.orig.tar.xz
- 97b535f96ea37115562dc2c242abafca516545cf7113830f87d1603d104b24c9 2620 ruff_0.16.3-1+forky.debian.tar.xz
+ 5af5127af5e878832c92ddfc19cb4845fc1a5acdcb4c0ac8fe5cca2980c69b8a 848 ruff_0.16.4-1+forky.dsc
+ 08f2a61ae0dbde307e67e6c0f7b057a8b16fdc198aceadfd5997dcbdba4dd862 7103144 ruff_0.16.4.orig.tar.xz
+ a64dded85158b1caf95cb69f9bd0f2b6417ffb6929b05d255a15a7599c699f67 2620 ruff_0.16.4-1+forky.debian.tar.xz
 Checksums-Sha512:
- e74926fb84f7aa0ceb5d6a87383fec833441a96fa59afe24a6d54fb3654f208cc915f093456761070caf7b6602f39a067b6b014d19ab832bf58117dc69ae6510 848 ruff_0.16.3-1+forky.dsc
- d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
- bbbdbdf62141e8b0a6f62157fa136d2f2e534639b8255775010a2e150e62c1d94b3a99c32c1754459246f1573f212368a4547671b08d317014ea4fecbb4c332b 2620 ruff_0.16.3-1+forky.debian.tar.xz
+ b5836c15147d5e6b59caa835d34de5f91027a832d9745d32a0b4c2b00786ada884d3da6c1af6c100abaf7089a03751780ada8005f818ec72a19588b678312344 848 ruff_0.16.4-1+forky.dsc
+ 40cd83afa225aa2d8fa783869c56608671361fa9fe15e08c95aca4b574ec9a625ac4cbd23ada476a4a84d388c24b68be5d1c05da21dba097058669cf37078446 7103144 ruff_0.16.4.orig.tar.xz
+ d87d339eefe8d7e703229d6497e2dc679380072f0c4301534b138dea236975b3ee22cf2716d2458b2e0569bf3c1a04f58c8e281105d0f122b913eb1df74e293b 2620 ruff_0.16.4-1+forky.debian.tar.xz
 
 Package: superfile
 Format: 3.0 (quilt)

@@ -437,7 +437,7 @@ Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff
 Architecture: any
-Version: 0.16.3-1+sid
+Version: 0.16.4-1+sid
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -446,21 +446,21 @@ Directory: pool/sid/ruff
 Package-List:
  ruff deb utils optional arch=any
 Files:
- 8972cc8c4fb229d4def21fea5ea3552e 840 ruff_0.16.3-1+sid.dsc
- ff82cce75b2980c97ddf6467a867b6fc 7401668 ruff_0.16.3.orig.tar.xz
- 6f0d33fe2e4d0e0031586eebe37c9e3b 2616 ruff_0.16.3-1+sid.debian.tar.xz
+ 2009b998e631513447f8219e39a670b9 840 ruff_0.16.4-1+sid.dsc
+ d5d81e28b49019b67c48e468bbc5fd14 7103144 ruff_0.16.4.orig.tar.xz
+ 93f8b6f1867f4142deea38ca31ec534d 2616 ruff_0.16.4-1+sid.debian.tar.xz
 Checksums-Sha1:
- faa628619f8924bb24132b6626404729d6b9467d 840 ruff_0.16.3-1+sid.dsc
- 0cc2d14f238c7d1f9f44b957dcb81aace54df134 7401668 ruff_0.16.3.orig.tar.xz
- 84e2dc15b78a37e8a273e97939a1486519e4c5c7 2616 ruff_0.16.3-1+sid.debian.tar.xz
+ 4b95fc547f682b2c4ce7b8b6c30e2b111cd8c6af 840 ruff_0.16.4-1+sid.dsc
+ a9d337baf95a7576c3a27033e278cb754edf049c 7103144 ruff_0.16.4.orig.tar.xz
+ cc55d2db1d956e12c01a6c9e6007407716a476bf 2616 ruff_0.16.4-1+sid.debian.tar.xz
 Checksums-Sha256:
- dca7ab311e3f438dde2f6f281d22f5bfe7b2f48dda4d62023e417f07e5f78c9a 840 ruff_0.16.3-1+sid.dsc
- 111742cb5d8cfce23a056537ae337f5339ee172bbcfd236f73ab38b0f483ecb4 7401668 ruff_0.16.3.orig.tar.xz
- cb1f8c091d8a1d5aa507a90562756adaaee718f3f5eaddf7e808a9a74cc8eac6 2616 ruff_0.16.3-1+sid.debian.tar.xz
+ 2061d306f138aaf6745f7f0fd40cdd8837eb88839033a3b632ccbbc1fd3a4501 840 ruff_0.16.4-1+sid.dsc
+ 08f2a61ae0dbde307e67e6c0f7b057a8b16fdc198aceadfd5997dcbdba4dd862 7103144 ruff_0.16.4.orig.tar.xz
+ 9d8a4cb65061d1967d088ea15bf5852d2eefcc831c505e7e53d40ccf3def35bc 2616 ruff_0.16.4-1+sid.debian.tar.xz
 Checksums-Sha512:
- b1afe301f729241b89a2f5719784f5adb4195ec835c065617eebbbfc0f9cbbdebac4e9611250ac2700833c7e90883f9d0a3235ff1382e047162a2923e2bcbbcd 840 ruff_0.16.3-1+sid.dsc
- d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
- 13c8146ec4f4086a7aedee19f01125098641e7044f017b4af1f04e30c06a9f4b3f6fdae5c10b02d8c1be2f4c7f4788d90ba718b55cca2bff8d9af13e5a2bef27 2616 ruff_0.16.3-1+sid.debian.tar.xz
+ 45c09ee1adda46dc7ac63074a463957650cbcc67022e9573ccb07cc0de8291469a1d0d492a67f0b32ef169d53f2bb9d7cbf91acb6ea37a9e82ad016ea7cf6531 840 ruff_0.16.4-1+sid.dsc
+ 40cd83afa225aa2d8fa783869c56608671361fa9fe15e08c95aca4b574ec9a625ac4cbd23ada476a4a84d388c24b68be5d1c05da21dba097058669cf37078446 7103144 ruff_0.16.4.orig.tar.xz
+ 47e777a55aaeec7144a5491bae56e10c734b7c54580899a151cf1c74fe55596cbefc86f417fa7b2586b63d270bc8349fa0160756871e2a91a2f4ebb52fabfeb9 2616 ruff_0.16.4-1+sid.debian.tar.xz
 
 Package: superfile
 Format: 3.0 (quilt)

@@ -96,16 +96,16 @@ Description: A new type of shell
 
 Package: ruff
 Architecture: riscv64
-Version: 0.16.3-1+sid
+Version: 0.16.4-1+sid
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/sid/ruff/ruff_0.16.3-1+sid_riscv64.deb
-Size: 7535784
-MD5sum: cb2e7c7c467be91e8ac7d880b3612ffb
-SHA1: 994d544b56870f8a7781e2f12a8871066d29d834
-SHA256: d7748eb33663b9a532d2c556cd40f908072d319ce9e4037d549e84f2f316bc1e
-SHA512: cc8e3527cf638d3e2d8cca2717e0474f1bb2418c9d3b745335f9e633bcfbef6b8b2e3ad67e412c298539c5ee2c122f93600125574b1f679127bd4e6d2f178b78
+Filename: pool/sid/ruff/ruff_0.16.4-1+sid_riscv64.deb
+Size: 7238800
+MD5sum: 6422c4a58a28933df439fce2a4d06bf3
+SHA1: 56bbb26aa23bac2a4af0caed1e1a112b8151930c
+SHA256: 33d0ca15034a70911034d598f92252e72492055bdc849ce5163f55d30f36c40e
+SHA512: a3c2acbc1509aebe7c1717bd1243e66cb12771dfad505c8db7552fd84c886da6d24128527522d4a140adffad4848a85d065962b119309352c69d953f42a02e93
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

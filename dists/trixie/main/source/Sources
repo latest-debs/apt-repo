@@ -437,7 +437,7 @@ Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff
 Architecture: any
-Version: 0.16.3-1+trixie
+Version: 0.16.4-1+trixie
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -446,21 +446,21 @@ Directory: pool/trixie/ruff
 Package-List:
  ruff deb utils optional arch=any
 Files:
- 96cc12c2e91d3a66c4115f2e83161199 852 ruff_0.16.3-1+trixie.dsc
- ff82cce75b2980c97ddf6467a867b6fc 7401668 ruff_0.16.3.orig.tar.xz
- e056f93e1c61d1f403cde8827d4bd141 2624 ruff_0.16.3-1+trixie.debian.tar.xz
+ e110adec1ea9af144716e23c75697be2 852 ruff_0.16.4-1+trixie.dsc
+ d5d81e28b49019b67c48e468bbc5fd14 7103144 ruff_0.16.4.orig.tar.xz
+ 76da11297ec0b1b194e1a34dd88a5736 2624 ruff_0.16.4-1+trixie.debian.tar.xz
 Checksums-Sha1:
- 529dce1184e4b7a547774d88ba465516ac55897e 852 ruff_0.16.3-1+trixie.dsc
- 0cc2d14f238c7d1f9f44b957dcb81aace54df134 7401668 ruff_0.16.3.orig.tar.xz
- 66cdfd2b2b22b1cfb0d7532519826712d20bc39c 2624 ruff_0.16.3-1+trixie.debian.tar.xz
+ de7a7c3df0a995e06f56614f5114ec6b0c9f2795 852 ruff_0.16.4-1+trixie.dsc
+ a9d337baf95a7576c3a27033e278cb754edf049c 7103144 ruff_0.16.4.orig.tar.xz
+ 9809029ecdac4fbe135eb7bcdc6a887df9bea30c 2624 ruff_0.16.4-1+trixie.debian.tar.xz
 Checksums-Sha256:
- fa428c2b72a7b68a9b2a7eb93cc9e073a5011f4d4c19f7430f92ea843b217660 852 ruff_0.16.3-1+trixie.dsc
- 111742cb5d8cfce23a056537ae337f5339ee172bbcfd236f73ab38b0f483ecb4 7401668 ruff_0.16.3.orig.tar.xz
- 313d9fb2a6ab6ae05a95fbd63fe3f72e0bffeb755dc60189da57490c3e4ed98e 2624 ruff_0.16.3-1+trixie.debian.tar.xz
+ 04574eefa88d18d18d0f16f1521b0c182aa09c0ed8fa36344a52fafa3834cb4b 852 ruff_0.16.4-1+trixie.dsc
+ 08f2a61ae0dbde307e67e6c0f7b057a8b16fdc198aceadfd5997dcbdba4dd862 7103144 ruff_0.16.4.orig.tar.xz
+ ca20cbfc67ffd8b49ad34709ce61a1d65c72bcf587e566ea3c9d266163135055 2624 ruff_0.16.4-1+trixie.debian.tar.xz
 Checksums-Sha512:
- 6710c79f80ff00d94ee42dffd3397d0ad15cf94bce116df2190e021cafe88aab60a782792a2f13c4f965a385ab6b80cd3e0d4a97759863df9fa40bf19182ff44 852 ruff_0.16.3-1+trixie.dsc
- d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
- 0febc61c0fc8e19e04b80ed8417edb6c13e44a5e3ffe617fd60c3b7c686a5f9a6ac5e8a6d2475f22f3ac2309517c96666190e5a9ac2ad93b4b86d800a33dbb9b 2624 ruff_0.16.3-1+trixie.debian.tar.xz
+ 75835f1ffe886b3a5132a09f4cf90e9d6abf8a7e1b38943da898bc5ffdc683560dfd15ac4d1983a804d2ba2ae6fcc8b2d8f34bda54f9c659c7d3d0203217a0a4 852 ruff_0.16.4-1+trixie.dsc
+ 40cd83afa225aa2d8fa783869c56608671361fa9fe15e08c95aca4b574ec9a625ac4cbd23ada476a4a84d388c24b68be5d1c05da21dba097058669cf37078446 7103144 ruff_0.16.4.orig.tar.xz
+ 6d7873a339135235eab6d1be52658beccbea88e579d29e6ddac01791dc2a02d09a8b467573443203cb25127eaf39a90577c3c369d460042a2b42c3c597d862ad 2624 ruff_0.16.4-1+trixie.debian.tar.xz
 
 Package: superfile
 Format: 3.0 (quilt)

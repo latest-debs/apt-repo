@@ -64,16 +64,16 @@ Description: Kubernetes CLI to manage your clusters in style
 
 Package: ruff
 Architecture: ppc64el
-Version: 0.16.3-1+bookworm
+Version: 0.16.4-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/ruff/ruff_0.16.3-1+bookworm_ppc64el.deb
-Size: 7412700
-MD5sum: a4730781506d25a5db5b3ab161df6c80
-SHA1: 513e547d2ac801e7a008eee2c3ddbde0da514be3
-SHA256: 0448bb55e88d1e8dba8d269db1505f08df636ffcca73abd351adc168641d4fa1
-SHA512: b7216e6899c5fd642b0d0024bea649901353defab73e7ed052dfb637b1d71d9fe93cf541988b3277fa82f85fceceb72dfab2199a7dc155fca4033a094b818b46
+Filename: pool/bookworm/ruff/ruff_0.16.4-1+bookworm_ppc64el.deb
+Size: 6949792
+MD5sum: 7a0a6897b72599fd65e20439a01bff3e
+SHA1: 93f2197d35153f9cb7791785bfddd00b317f8ef7
+SHA256: cabd0897dfe54e135355eac1af5ec8f7ea5ea6bc83c6b2d1eec14957c7cdd402
+SHA512: 4bda62508a217d59a72c67f84ac138ab873104c57fcd4c28988f7f13ef3c885e07b64d981ec433a16c2473528e419adfde16b03ea83e4d0b071f47e5d122fdd0
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

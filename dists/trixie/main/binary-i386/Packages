@@ -144,16 +144,16 @@ Description: simple terminal UI for git commands
 
 Package: ruff
 Architecture: i386
-Version: 0.16.3-1+trixie
+Version: 0.16.4-1+trixie
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_i386.deb
-Size: 7787132
-MD5sum: 63b79ec79a779210f8bedd0ced0e5cb2
-SHA1: 0dcc21315bbd6fd88162156619d44991c6a41553
-SHA256: 57f1094603eb9779cbe31e35b4580fc4f06c03c57c0cfcf3b958e753014766d1
-SHA512: 6b9623256d936b3c365a543edcb1f922d3e1d111b02bcc9d6e7407331ee8757a489e1b3c901d2c8857f7b900345405e7d588418bd5d2eef28fae910eaa504570
+Filename: pool/trixie/ruff/ruff_0.16.4-1+trixie_i386.deb
+Size: 7305136
+MD5sum: 0208e6a3350441469b7c254bd84fc325
+SHA1: b904c82f1da5cf043c45eed5dc2f4f5e663eb0de
+SHA256: 8d4af75f982d5204311fa31d9a3e46a9c9927d82b313b7bee07c1e27717fc437
+SHA512: 0d22939d3dbf8ea8ce83575764388fd10dc07a7c9c651b3b842a5a679382ccf9fefd485c97858f822b52fdb7bd52d89eb54cbae0f0828889d16772b6570ce4a8
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

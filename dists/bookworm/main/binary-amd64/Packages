@@ -449,16 +449,16 @@ Description: ripgrep recursively searches directories for a regex pattern while 
 
 Package: ruff
 Architecture: amd64
-Version: 0.16.3-1+bookworm
+Version: 0.16.4-1+bookworm
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/bookworm/ruff/ruff_0.16.3-1+bookworm_amd64.deb
-Size: 7419460
-MD5sum: 0d087f8ad76047bec2caa3f6121872fc
-SHA1: a6d15012b03fc215c322e8b48d0cfc5953a7a906
-SHA256: 94c894c456b32bc3c02a0bb4f168fd07951acb167237d900ff4f62508ddfb1d6
-SHA512: 2dc12c6e5ffca10ad823af3b7db20968d244c6812410f58547fac2cfeda8a1e471e85e09f0a9449e31e6b61cffd3aa3371dc1049ccf056e7ab6c32dbafeecadf
+Filename: pool/bookworm/ruff/ruff_0.16.4-1+bookworm_amd64.deb
+Size: 7103880
+MD5sum: 9375a545d27b28909d0d96f86d9bc5b6
+SHA1: d8fe5d55300970c52598f341cb989196cb6788e0
+SHA256: 2f5731d44881786c922d4d201f08478261c7553f08bd21b1b88dbc577517fec2
+SHA512: 1f5000c9b05207989b88ce7f66509153884a07f8fcc37f7484711d826555379da21e5c5c68cbe5feb47dfda1e6ce2e4c1928825e78a5b7b239ced915df7f3221
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

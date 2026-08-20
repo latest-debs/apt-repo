@@ -64,16 +64,16 @@ Description: Kubernetes CLI to manage your clusters in style
 
 Package: ruff
 Architecture: ppc64el
-Version: 0.16.3-1+sid
+Version: 0.16.4-1+sid
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/sid/ruff/ruff_0.16.3-1+sid_ppc64el.deb
-Size: 7411716
-MD5sum: e43e44d038dce402aed1e9e02096c59f
-SHA1: f0e689280e062f9745772c3b4e8b6e26ad7babc0
-SHA256: 6bfada987bf9178336f88ceaac62c5c0dd2f4a9aab02d0f593db2647708c9054
-SHA512: d703d960e2dc9733c17397ad223af9341ba41d7a478058adf3120178f63ae7d762b4f0154990f063740a779258de214d899ed484c0fe8fc047e1728ba030a889
+Filename: pool/sid/ruff/ruff_0.16.4-1+sid_ppc64el.deb
+Size: 6949732
+MD5sum: 4be2ac5d03b525d7111fd6d3aa0b7f42
+SHA1: 15f7761a8f986bb64e1dd67ce7ff09dc82409015
+SHA256: 24c4f53f0d23099b26ff6f9d51e128330170452ee092548013c817fd9dfa03a9
+SHA512: fa993a02608716f97f2f6d4bfba60fc0e14d16aa31a52bc022b7c8a645a4154b9ea4ec90499d4fcc33db8ca57e0f8361b17dfbd4c9a2e00d09d43e1c564bd848
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

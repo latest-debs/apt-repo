@@ -408,7 +408,7 @@ Package: ruff
 Format: 3.0 (quilt)
 Binary: ruff
 Architecture: any
-Version: 0.16.3-1+bookworm
+Version: 0.16.4-1+bookworm
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -417,21 +417,21 @@ Directory: pool/bookworm/ruff
 Package-List:
  ruff deb utils optional arch=any
 Files:
- 95d500e684969667bc0c99b75e2c37d5 860 ruff_0.16.3-1+bookworm.dsc
- ff82cce75b2980c97ddf6467a867b6fc 7401668 ruff_0.16.3.orig.tar.xz
- 0e1cd4951265e858264a6275b3a9ef43 2620 ruff_0.16.3-1+bookworm.debian.tar.xz
+ ba671995440242217a5ec8a5423f1ee4 860 ruff_0.16.4-1+bookworm.dsc
+ d5d81e28b49019b67c48e468bbc5fd14 7103144 ruff_0.16.4.orig.tar.xz
+ 2e4b93ae881992b680ca014810f03a48 2620 ruff_0.16.4-1+bookworm.debian.tar.xz
 Checksums-Sha1:
- 38c50eb6193825c275e378ad8ef7a9a35a42e028 860 ruff_0.16.3-1+bookworm.dsc
- 0cc2d14f238c7d1f9f44b957dcb81aace54df134 7401668 ruff_0.16.3.orig.tar.xz
- fc055d42e0f71e36f120a44453dfaa14f22b7f2d 2620 ruff_0.16.3-1+bookworm.debian.tar.xz
+ d73cd1fd7e7394bcc7e7766cdc0d846f114b7638 860 ruff_0.16.4-1+bookworm.dsc
+ a9d337baf95a7576c3a27033e278cb754edf049c 7103144 ruff_0.16.4.orig.tar.xz
+ 2a7b6bddb9ac6a65e4645fa835d283c153e85e16 2620 ruff_0.16.4-1+bookworm.debian.tar.xz
 Checksums-Sha256:
- cfa014718d2fcdaaf2ad44a41940a70d35c600971c5fc09d1bae7a9d3aa97cbc 860 ruff_0.16.3-1+bookworm.dsc
- 111742cb5d8cfce23a056537ae337f5339ee172bbcfd236f73ab38b0f483ecb4 7401668 ruff_0.16.3.orig.tar.xz
- f03714bbb67bc299e2d7ed51ee554d2133c217ffadb64cf921e41f821d828f4c 2620 ruff_0.16.3-1+bookworm.debian.tar.xz
+ c3574badbf0523632af1968f80e8d666967eb2473146506cbd2f7480e666ac7c 860 ruff_0.16.4-1+bookworm.dsc
+ 08f2a61ae0dbde307e67e6c0f7b057a8b16fdc198aceadfd5997dcbdba4dd862 7103144 ruff_0.16.4.orig.tar.xz
+ 778a9dc9d8cef3341bb0fbdbcb3b53b5b84cf1d664264926003aa1d2b2080052 2620 ruff_0.16.4-1+bookworm.debian.tar.xz
 Checksums-Sha512:
- 0f3e93076d5d6ed5620f0e21ec4f16671fe16b84ecaebd0161db5ae7202a13a765a06c5d168f208d992a30a451e0f6cb0381a5ac49ce013ceb657e4dc6c1f5a1 860 ruff_0.16.3-1+bookworm.dsc
- d4554ee1ec3b40f0ad0e9a169221119549c6fde789993e36ee232a3d34cd6d967b3c26ef2af20d9284f302b595303e9ac6ec0dd7b7373868d7dae923edff0ef9 7401668 ruff_0.16.3.orig.tar.xz
- e999a068c743031d4a9cdd1fa5e8054835c4eb0f98061b2be3874e4344cb7c6cbc9e41c27eaf1239193a0a2121109528b8d367870115cb0079d0d2186be64dcc 2620 ruff_0.16.3-1+bookworm.debian.tar.xz
+ ce3bf7e67dba08c3b923c8fc336ea2d4d501c7e1d1aca4889671366ff8bb45b5fd87084dffaa0a71073fb3af3640634fe1d780693d1ee6de3fc660e1edae9dca 860 ruff_0.16.4-1+bookworm.dsc
+ 40cd83afa225aa2d8fa783869c56608671361fa9fe15e08c95aca4b574ec9a625ac4cbd23ada476a4a84d388c24b68be5d1c05da21dba097058669cf37078446 7103144 ruff_0.16.4.orig.tar.xz
+ 8945640d67900be593f7ffc32c0023a507853287656a4beb4bc81032af2f10881733dd0da67f1eb4e83940c67abd026f6091a9c4a3c404b7169ad59e7a022920 2620 ruff_0.16.4-1+bookworm.debian.tar.xz
 
 Package: superfile
 Format: 3.0 (quilt)

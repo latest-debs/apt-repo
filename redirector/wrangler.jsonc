@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "latest-debs-apt-redirector",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-14",
+
+  // Required for *.workers.dev deployments specifically: without this,
+  // every outbound fetch() from the Worker (both the origin pass-through
+  // and the manifest lookup) fails with Cloudflare error 1042 - workers.dev
+  // is treated as one shared zone, and fetch() is restricted by default
+  // for anything hosted there. Confirmed by deploying without it first.
+  "compatibility_flags": ["global_fetch_strictly_public"],
+
+  // Deploys to the account's free <name>.<subdomain>.workers.dev URL by
+  // default - no custom domain or account budget required (see
+  // PLATFORM-EVALUATION.md, "Decision", step 4). Point apt's sources.list
+  // base URI at that URL once deployed; add a "routes"/"custom_domains"
+  // entry here only if a real domain is later attached.
+  "workers_dev": true,
+
+  "observability": {
+    "enabled": true
+  },
+
+  // ORIGIN_BASE: everything except /pool/* is proxied here unchanged.
+  // MANIFEST_URL: pkg -> {repo, tag} map, written by scripts/build-repo.sh.
+  // Both point at the current production origin during the transition
+  // window described in step 4 - update only once apt-repo's own base URI
+  // moves (it shouldn't need to, since this Worker *becomes* the base URI
+  // apt clients use; ORIGIN_BASE stays pinned to GitHub Pages as the
+  // backing index store either way).
+  "vars": {
+    "ORIGIN_BASE": "https://latest-debs.github.io/apt-repo/",
+    "MANIFEST_URL": "https://latest-debs.github.io/apt-repo/dists/pkg-repo-map.json"
+  }
+}

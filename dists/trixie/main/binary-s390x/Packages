@@ -48,16 +48,16 @@ Description: ripgrep recursively searches directories for a regex pattern while 
 
 Package: ruff
 Architecture: s390x
-Version: 0.16.3-1+trixie
+Version: 0.16.4-1+trixie
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/trixie/ruff/ruff_0.16.3-1+trixie_s390x.deb
-Size: 7209492
-MD5sum: 95c0a96c50ffce23c70b155b0f0cbb6d
-SHA1: 7d384346d9836549d5b303906e3077c1ccc94f2b
-SHA256: f81f1e636ce1b069f58ce7a45832d0f8422006c2f00eb7846fef4de55d927596
-SHA512: c8a1f50fe87dd16baa9d1f0f045548e4b1cd7a30e3042f4c52649520ff511065edebfc07a99219012df9bd0253243e12db437881ef9b8e6ea8389533f91c4bcf
+Filename: pool/trixie/ruff/ruff_0.16.4-1+trixie_s390x.deb
+Size: 6701388
+MD5sum: f563048eafc5b9c4f4911440875960f7
+SHA1: d45daabd123aec820a9f10d4e89f743f6ed3b1a0
+SHA256: 631b78e1418f4384c1b0b652431836779c78b6694dc1195ecc654cfc38a4ee5a
+SHA512: 26ba9e0b06deae63268d9a8b1aca40d4d1fb7fc2f0e8bae234457c9beb26b75b11c1ead8fc720532115977f0e60bc0b573f6f6e2ddb89cdd015910e8d2b36eaf
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.

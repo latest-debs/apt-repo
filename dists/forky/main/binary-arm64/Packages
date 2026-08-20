@@ -465,16 +465,16 @@ Description: ripgrep recursively searches directories for a regex pattern while 
 
 Package: ruff
 Architecture: arm64
-Version: 0.16.3-1+forky
+Version: 0.16.4-1+forky
 Priority: optional
 Section: utils
 Maintainer: ${MAINTAINER}
-Filename: pool/forky/ruff/ruff_0.16.3-1+forky_arm64.deb
-Size: 6540060
-MD5sum: 265b5dd38dff117784a951b9762b727b
-SHA1: ae98082b8d496719ec81bc392a384fad4021f545
-SHA256: d5d079bf98ef7996128c9d7b356f54ee2adcdf20ccc143bd7fb5610a73c605a4
-SHA512: a06fb9e75dee70a5e8da0093e059ead3d9f224d43bbec02056a453efe79e0aec3639f8745982b5e4154ce26abeb060a15158e69c0ab5a071bf3b8aa7c022d18b
+Filename: pool/forky/ruff/ruff_0.16.4-1+forky_arm64.deb
+Size: 6312344
+MD5sum: 8f447990855d103b6ba2320d30a08aad
+SHA1: 213526db373d41bde8c047065758cb5b0e1c61b9
+SHA256: 9884759eba717626990b6b3b12c013a6e1887bf58d946e371ad53f3c4ca2c423
+SHA512: c54f9b5397bdf9af04629528d467da500c5f91f9ba97f1a80909820d4c54a1bdf337041236bbf60b369b0426941840649f1fba7b43353085530826c1dc365e9d
 Homepage: https://github.com/astral-sh/ruff
 Description: An extremely fast Python linter and code formatter, written in Rust.
  Packaged from the upstream GitHub release for Debian.
