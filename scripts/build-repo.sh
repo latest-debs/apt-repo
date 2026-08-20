@@ -26,10 +26,19 @@ trap 'rm -rf "$TMP"' EXIT
 # pkg -> {repo, tag} for every tool with a valid latest release, consumed by
 # the Cloudflare Workers redirector (redirector/) to turn a pool/ request
 # into the exact GitHub Release asset URL without re-fetching from the
-# GitHub API per request. Appended to in fetch_repo(), written out after the
-# main loop. TSV instead of building JSON incrementally in bash.
+# GitHub API per request. Appended to in resolve_repo(), written out after
+# the main loop. TSV instead of building JSON incrementally in bash.
 PKG_REPO_MANIFEST="$TMP/pkg-repo-map.tsv"
 : > "$PKG_REPO_MANIFEST"
+
+# Flattened (dest_path<TAB>url) download queue, filled by resolve_repo() for
+# every tool before any asset is actually fetched. Draining this as one
+# global pool of ~750 independent downloads - rather than parallelizing
+# per-tool and leaving each tool's own assets sequential within it - means a
+# large tool (e.g. uv, ~34 assets) can't dominate a concurrency batch the
+# way it could when parallelism was scoped to "one job per tool".
+DOWNLOAD_QUEUE="$TMP/download-queue.tsv"
+: > "$DOWNLOAD_QUEUE"
 
 log() { printf '[build-repo] %s\n' "$*"; }
 die() { printf '[build-repo] ERROR: %s\n' "$*" >&2; exit 1; }
@@ -105,10 +114,13 @@ classify_asset() {
 }
 
 # ---------------------------------------------------------------------------
-# Fetch the latest release JSON for a repo and download matching assets into
-# pool/<suite>/<package>/.
+# Resolve one tool's latest release: fetch the release JSON, record its
+# pkg/repo/tag, and enqueue a (dest_path, url) download task for every
+# matching asset into $DOWNLOAD_QUEUE. Does not download anything itself -
+# cheap enough (one API call plus string work) to run sequentially for every
+# tool before the actual, much more expensive download pass starts.
 # ---------------------------------------------------------------------------
-fetch_repo() {
+resolve_repo() {
   local pkg="$1" url="$2"
   local repo="${url##https://github.com/}"
   local api="https://api.github.com/repos/$repo/releases/latest"
@@ -138,8 +150,8 @@ fetch_repo() {
   jq -r '.assets[] | [.name, .browser_download_url] | @tsv' <<<"$json" > "$tmp_manifest"
 
   # The upstream .orig.tar.xz is shared by every suite's source package for
-  # this tool, so stash it until we know which suites got a .dsc, then fan
-  # it out into each of them.
+  # this tool, so stash it until we know which suites got a .dsc, then
+  # enqueue one download task per destination suite.
   local orig_name="" orig_url=""
   local src_suites=()
 
@@ -157,11 +169,7 @@ fetch_repo() {
       continue
     fi
 
-    local dest="$POOL/$suite/$pkg"
-    mkdir -p "$dest"
-    log "   fetch $name -> pool/$suite/$pkg/"
-    curl -fsSL --connect-timeout 10 --max-time 120 -o "$dest/$name" "$dlurl" \
-      || log "   WARN: failed to fetch $name"
+    printf '%s\t%s\n' "$POOL/$suite/$pkg/$name" "$dlurl" >> "$DOWNLOAD_QUEUE"
     [[ "$kind" == "dsc" ]] && src_suites+=("$suite")
   done < "$tmp_manifest"
 
@@ -172,14 +180,38 @@ fetch_repo() {
     else
       local s
       for s in "${src_suites[@]}"; do
-        local dest="$POOL/$s/$pkg"
-        mkdir -p "$dest"
-        log "   fetch $orig_name -> pool/$s/$pkg/ (shared orig)"
-        curl -fsSL --connect-timeout 10 --max-time 120 -o "$dest/$orig_name" "$orig_url" \
-          || log "   WARN: failed to fetch $orig_name"
+        printf '%s\t%s\n' "$POOL/$s/$pkg/$orig_name" "$orig_url" >> "$DOWNLOAD_QUEUE"
       done
     fi
   fi
+}
+
+# ---------------------------------------------------------------------------
+# Drain $DOWNLOAD_QUEUE: fetch every queued (dest_path, url) pair, bounded by
+# BUILD_REPO_PARALLEL concurrent downloads at a time, regardless of which
+# tool each one came from.
+# ---------------------------------------------------------------------------
+drain_download_queue() {
+  local dest url
+  while IFS=$'\t' read -r dest url; do
+    [[ -n "$dest" ]] || continue
+    (
+      mkdir -p "$(dirname "$dest")"
+      log "   fetch $(basename "$dest") -> ${dest#"$POOL"/}"
+      # curl -o writes directly to $dest, not atomically via a temp file, so
+      # a killed or timed-out transfer leaves a truncated file in place -
+      # apt-ftparchive then fails the whole suite's index generation on it
+      # ("Invalid archive member header") rather than just skipping one
+      # missing package. Remove it on any failure so a partial download is
+      # indistinguishable from no download.
+      curl -fsSL --connect-timeout 10 --max-time 120 -o "$dest" "$url" \
+        || { rm -f "$dest"; log "   WARN: failed to fetch $(basename "$dest")"; }
+    ) &
+    while (( $(jobs -rp | wc -l) >= BUILD_REPO_PARALLEL )); do
+      wait -n
+    done
+  done < "$DOWNLOAD_QUEUE"
+  wait
 }
 
 # ---------------------------------------------------------------------------
@@ -284,32 +316,27 @@ else
   rm -rf "$POOL" "$DISTS"
   mkdir -p "$POOL" "$DISTS"
 
-  # Each tool's fetch is independent (own pool/<suite>/<pkg>/ subtree, own
-  # $tmp_manifest, own local vars in its subshell) so they run concurrently,
-  # bounded by BUILD_REPO_PARALLEL. This is a fully I/O-bound loop - ~750
-  # assets fetched one at a time was the actual wall-clock cost, not CPU or
-  # rate limits. $PKG_REPO_MANIFEST is appended to from multiple processes;
-  # safe because each append is one short line, atomic under O_APPEND.
-  # Per-tool output goes to its own logfile instead of directly to stdout so
-  # concurrent runs don't interleave mid-line; printed back in tools.yaml
-  # order once every job has finished, so the log reads the same as a
-  # sequential run would.
   BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-16}"
-  fetch_logs=()
+
+  # Phase 1: resolve every tool's latest release and enqueue its downloads.
+  # Cheap (one API call + string work per tool), so this runs sequentially -
+  # keeps log output in tools.yaml order for free, and 41 small API calls
+  # in series cost seconds, not minutes.
+  log "== resolving releases =="
   while IFS=$'\t' read -r pkg url; do
     [[ -n "$pkg" ]] || continue
-    logfile="$TMP/fetch-$pkg.log"
-    fetch_logs+=("$logfile")
-    fetch_repo "$pkg" "$url" > "$logfile" 2>&1 &
-    while (( $(jobs -rp | wc -l) >= BUILD_REPO_PARALLEL )); do
-      wait -n
-    done
+    resolve_repo "$pkg" "$url"
   done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
-  wait
 
-  for logfile in "${fetch_logs[@]}"; do
-    cat "$logfile"
-  done
+  # Phase 2: drain the flattened queue with global concurrency. This is
+  # the actual cost (~750 assets), and flattening it - instead of bounding
+  # concurrency per-tool with each tool's own assets fetched serially within
+  # it - means no single large tool (e.g. uv, ~34 assets) can dominate a
+  # concurrency batch. Downloads interleave in the log; each line is a
+  # complete, self-contained "fetch X -> Y" statement, so unlike phase 1's
+  # multi-line per-tool blocks, that's fine to read as-is.
+  log "== downloading $(wc -l < "$DOWNLOAD_QUEUE") assets =="
+  drain_download_queue
 fi
 
 log "== generating indexes =="
