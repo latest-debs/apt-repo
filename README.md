@@ -6,7 +6,7 @@ Latest stable releases of developer tools, packaged for Debian and served
 over `apt`.
 
 - **Debian:** Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
-- **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64 (plus i386 on bookworm/trixie)
+- **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64, loong64 (plus i386 and armel on bookworm/trixie)
 - **Updates:** near-instant — publishing a release in a `*-debian` repo
   triggers an immediate rebuild via webhook, with a ~6h scheduled run as the
   fallback. Best-effort, no SLA (see
@@ -134,7 +134,7 @@ Manually:
 ```sh
 sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
-echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.github.io/apt-repo/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
+echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
 sudo apt update
 ```
 

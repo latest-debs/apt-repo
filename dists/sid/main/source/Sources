@@ -205,7 +205,7 @@ Package: fresh-editor
 Format: 3.0 (quilt)
 Binary: fresh-editor
 Architecture: any
-Version: 0.4.9-1+sid
+Version: 0.4.10-1+sid
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -214,21 +214,21 @@ Directory: pool/sid/fresh-editor
 Package-List:
  fresh-editor deb utils optional arch=any
 Files:
- 00708f94a5788f5c0253de86203c6caa 904 fresh-editor_0.4.9-1+sid.dsc
- 709a5c00103da3e9a12f613d3c7ac68f 9468196 fresh-editor_0.4.9.orig.tar.xz
- e49af4540ba53ecd32591b4d7eee53e6 6892 fresh-editor_0.4.9-1+sid.debian.tar.xz
+ 467be48d75381f0be17f23b0f419ab08 911 fresh-editor_0.4.10-1+sid.dsc
+ 38fc58bacdc12402b5398dda109168d8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ ff02396ef7319e6c044a452d0c77747a 6888 fresh-editor_0.4.10-1+sid.debian.tar.xz
 Checksums-Sha1:
- 40651ee6f7d647d8d74f58f19b3ac5ebb3a98f4e 904 fresh-editor_0.4.9-1+sid.dsc
- bf5210bca75df40407a922484a4a190dce9e81d7 9468196 fresh-editor_0.4.9.orig.tar.xz
- a58ebd11ccf113d2094bd990199b10bd836ed960 6892 fresh-editor_0.4.9-1+sid.debian.tar.xz
+ 9c4d8cbd5ade9dd5dfc68308efb2d33e768bd77c 911 fresh-editor_0.4.10-1+sid.dsc
+ d998501551e0ce71bea2b40e3139bd516ba7dbd3 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 621c77d74cecc36aaae22c6f1f62011d8d7926f4 6888 fresh-editor_0.4.10-1+sid.debian.tar.xz
 Checksums-Sha256:
- 2fcc9cba29e75dc69bd8da0d94114d6dc181a2f51eb530661def4a595970ed2f 904 fresh-editor_0.4.9-1+sid.dsc
- ff7a2d1b99d0b2d4babac2082a27e84f4eea319f7e794c9e08ea86bc926fa1c7 9468196 fresh-editor_0.4.9.orig.tar.xz
- 07c66ae5f0cb0ec515efab889d4b37bf6ca94f71e2512cdef53e8b1b65fc02bb 6892 fresh-editor_0.4.9-1+sid.debian.tar.xz
+ 9335e04322387e6e319ef5cf5e8574b02f79cb2752c33076ff1e2da99d96f674 911 fresh-editor_0.4.10-1+sid.dsc
+ 537603d4e1d9c1e9c42cf640ef8087c8f02d396c212d5e7f487b7faef23e3ac8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ ca6e301729bde2c092390e2f23235efa2f26fbceeffaef505e1034ad6f82da15 6888 fresh-editor_0.4.10-1+sid.debian.tar.xz
 Checksums-Sha512:
- 1a60dc10270d5faadf27431a470b12dbbf7ae81e9235151e4da9a8af76d5234308190f9e647ab50224d8a548b2a1c3ca76bd710a7cb36b4b42193a6aef5beac7 904 fresh-editor_0.4.9-1+sid.dsc
- 2c048f1a04e3e67ae5cef795bb977a4b26663506f98a217ac72834f594b5bc026f5dfddc38d06467f37fa79919e8f0d64b553dd6362cca21527e252620a90c38 9468196 fresh-editor_0.4.9.orig.tar.xz
- ae2e5964adad2d22e5b9e882a43f31e55cae05bdfbd36a42bb747163951157d56fa601fa6f4d821db981ba7f5c725c708f3edfae982acac981271bf688a8c107 6892 fresh-editor_0.4.9-1+sid.debian.tar.xz
+ b605e70a54efa9f2e678cc2be0c1f9d11e877d69c0fc9ebf578422976d1da088041ad2e168276f3a83f9e77617e954b5a648f3e145b1bcf9ef46ebd93749bf86 911 fresh-editor_0.4.10-1+sid.dsc
+ 95bb736f663dd9d86d49f3997b2d198762e350b1fe9f0871d497f303d5d1512ba9ba6b3bad7269d58a5d5ad0c513ceeb35ba397553c52f8d71a1f074efdb7ba1 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 51574c8c11d04c9d807637253968fe079eccbdea6e196efba3514465b8894f88a9adbdd2e0ec32c362ddc3be71b8117a29d01c3191ea3ad889bf15b173aa646c 6888 fresh-editor_0.4.10-1+sid.debian.tar.xz
 
 Package: fzf
 Format: 3.0 (quilt)

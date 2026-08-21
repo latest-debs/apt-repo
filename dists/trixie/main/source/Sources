@@ -205,7 +205,7 @@ Package: fresh-editor
 Format: 3.0 (quilt)
 Binary: fresh-editor
 Architecture: any
-Version: 0.4.9-1+trixie
+Version: 0.4.10-1+trixie
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -214,21 +214,21 @@ Directory: pool/trixie/fresh-editor
 Package-List:
  fresh-editor deb utils optional arch=any
 Files:
- 18f55ddb61d2d1491d0460cc191a9391 916 fresh-editor_0.4.9-1+trixie.dsc
- 709a5c00103da3e9a12f613d3c7ac68f 9468196 fresh-editor_0.4.9.orig.tar.xz
- 4bc183709741f6515ba7f15f81b78ff9 6896 fresh-editor_0.4.9-1+trixie.debian.tar.xz
+ 67bb7fa46a769216b3284b317ec432ee 923 fresh-editor_0.4.10-1+trixie.dsc
+ 38fc58bacdc12402b5398dda109168d8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 8bbcb79abdef43d80bf74b89e0239267 6892 fresh-editor_0.4.10-1+trixie.debian.tar.xz
 Checksums-Sha1:
- d5a1c065989d36b3d71ac3bf934c91eda5cd5f50 916 fresh-editor_0.4.9-1+trixie.dsc
- bf5210bca75df40407a922484a4a190dce9e81d7 9468196 fresh-editor_0.4.9.orig.tar.xz
- e98d4e88a9841d72ab5ac7b5089fd3cba9558987 6896 fresh-editor_0.4.9-1+trixie.debian.tar.xz
+ 1bd7680a5f75624d9a39a52a3a12b459893dc792 923 fresh-editor_0.4.10-1+trixie.dsc
+ d998501551e0ce71bea2b40e3139bd516ba7dbd3 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 4b7945630bc4dd08cdeb7f722306ed44a1a0f146 6892 fresh-editor_0.4.10-1+trixie.debian.tar.xz
 Checksums-Sha256:
- cf7c6be5ef1b9ca6c2a23077674084159cd970f0ab0a4e53c0c77589c8b49dbe 916 fresh-editor_0.4.9-1+trixie.dsc
- ff7a2d1b99d0b2d4babac2082a27e84f4eea319f7e794c9e08ea86bc926fa1c7 9468196 fresh-editor_0.4.9.orig.tar.xz
- 5653d0f32ec85bef6428376c4c98a71dc2dafc66fcf0ef956f65beff6cccf3ce 6896 fresh-editor_0.4.9-1+trixie.debian.tar.xz
+ 4be514519e89e170b2358a976fa42c8ba2572c60c0c978b172963a5be99ffa0b 923 fresh-editor_0.4.10-1+trixie.dsc
+ 537603d4e1d9c1e9c42cf640ef8087c8f02d396c212d5e7f487b7faef23e3ac8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 52827820e511f9730d3b97bc0a80d2b6b72d473de9669e6aa66af5178aa48375 6892 fresh-editor_0.4.10-1+trixie.debian.tar.xz
 Checksums-Sha512:
- 816e420198111442396e7fb6d9712292cb3d8ec15cd4044490cb85aa3ad4e52b8f55212ad5cbf964f8d7fff8c7040a1da7dc25c5ce91f4a45c035045d1bbc8ad 916 fresh-editor_0.4.9-1+trixie.dsc
- 2c048f1a04e3e67ae5cef795bb977a4b26663506f98a217ac72834f594b5bc026f5dfddc38d06467f37fa79919e8f0d64b553dd6362cca21527e252620a90c38 9468196 fresh-editor_0.4.9.orig.tar.xz
- e43ad4bef976df67032b29ac87231e43ed44e693ee9e0d5b37a1f8ce934be8437a7258fe0ac8d0fde7c030f0e67ccc8ffdc2625dc2e52125ada3699ce244b889 6896 fresh-editor_0.4.9-1+trixie.debian.tar.xz
+ 4e7d3e48ddaa0ae0681599b79fdd3446a129f39b14cc5b0d7e07661291712e4d414e94c6c3b7424bcaa53a44ce74ae7f90bdccd49abef98c8b34f2c7e3a5069f 923 fresh-editor_0.4.10-1+trixie.dsc
+ 95bb736f663dd9d86d49f3997b2d198762e350b1fe9f0871d497f303d5d1512ba9ba6b3bad7269d58a5d5ad0c513ceeb35ba397553c52f8d71a1f074efdb7ba1 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 5a25bb27abf69427388b29d50969f58dc5c86eda8253219339ef015eaf126ccc9c5539d8cbb0d9d2e91e4792d5e684420bd69feb2a7b53df4e50867f82690024 6892 fresh-editor_0.4.10-1+trixie.debian.tar.xz
 
 Package: fzf
 Format: 3.0 (quilt)

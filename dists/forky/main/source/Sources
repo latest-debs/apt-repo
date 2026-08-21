@@ -205,7 +205,7 @@ Package: fresh-editor
 Format: 3.0 (quilt)
 Binary: fresh-editor
 Architecture: any
-Version: 0.4.9-1+forky
+Version: 0.4.10-1+forky
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -214,21 +214,21 @@ Directory: pool/forky/fresh-editor
 Package-List:
  fresh-editor deb utils optional arch=any
 Files:
- feed771bdab903aa6586ed8798b0fbb3 912 fresh-editor_0.4.9-1+forky.dsc
- 709a5c00103da3e9a12f613d3c7ac68f 9468196 fresh-editor_0.4.9.orig.tar.xz
- e3023867e53e5bd3d378013303833c22 6892 fresh-editor_0.4.9-1+forky.debian.tar.xz
+ ec5270c00b35d6c1c0148fea2d2fd2fd 919 fresh-editor_0.4.10-1+forky.dsc
+ 38fc58bacdc12402b5398dda109168d8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 4444bb87816ed2f98e770d115c8d6deb 6888 fresh-editor_0.4.10-1+forky.debian.tar.xz
 Checksums-Sha1:
- f386b24d9103ad52351b4bf4df692311a4c75940 912 fresh-editor_0.4.9-1+forky.dsc
- bf5210bca75df40407a922484a4a190dce9e81d7 9468196 fresh-editor_0.4.9.orig.tar.xz
- bebae7a759b09accc3674aec53e7975fd8402dad 6892 fresh-editor_0.4.9-1+forky.debian.tar.xz
+ 88f682dc21bf84c2214025616153c0743996f154 919 fresh-editor_0.4.10-1+forky.dsc
+ d998501551e0ce71bea2b40e3139bd516ba7dbd3 9579024 fresh-editor_0.4.10.orig.tar.xz
+ a1f9d87f537738b8b56a9f4d7e76d0609aa9c6d8 6888 fresh-editor_0.4.10-1+forky.debian.tar.xz
 Checksums-Sha256:
- 2648686e327ed8017367019d346db0fddd74708a75df6fa84193aa36da8f3e76 912 fresh-editor_0.4.9-1+forky.dsc
- ff7a2d1b99d0b2d4babac2082a27e84f4eea319f7e794c9e08ea86bc926fa1c7 9468196 fresh-editor_0.4.9.orig.tar.xz
- 42c4a1eb9d4e3bcdff347c1cf192988a74ffe0288a92f59c4db0b0f2778c0d2a 6892 fresh-editor_0.4.9-1+forky.debian.tar.xz
+ 2255c15c0e0a97c58a55d7938b83dce574fb50ea2be2f6de34a691161997ef44 919 fresh-editor_0.4.10-1+forky.dsc
+ 537603d4e1d9c1e9c42cf640ef8087c8f02d396c212d5e7f487b7faef23e3ac8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ b1a88696d778d3565db4da2efc3055075988bcc314d153469636b2cdb9565f43 6888 fresh-editor_0.4.10-1+forky.debian.tar.xz
 Checksums-Sha512:
- c460c7a22a210c601d982154f3f8d02eb925b3d870680e07003e564a5ec4913b0f8c20b7db5ab2cff31b4bab7808a03d8c812c11538577ee63796614eb1230c3 912 fresh-editor_0.4.9-1+forky.dsc
- 2c048f1a04e3e67ae5cef795bb977a4b26663506f98a217ac72834f594b5bc026f5dfddc38d06467f37fa79919e8f0d64b553dd6362cca21527e252620a90c38 9468196 fresh-editor_0.4.9.orig.tar.xz
- 792a195af8950849a08834b826fdb783c52d67655b03db4c2e0c4a1c1bb4a02951d1a248f0d9540d8644b78d78c4cd7d435bf3a6a170205095d90453b8db5d8b 6892 fresh-editor_0.4.9-1+forky.debian.tar.xz
+ 04d2aada585613258570bcbe7cb79d98051ee38efa376ccf07a51b64a361b378e2b69a0049a49df131a24d71db96297b9595891525524d280b34ee74fe481546 919 fresh-editor_0.4.10-1+forky.dsc
+ 95bb736f663dd9d86d49f3997b2d198762e350b1fe9f0871d497f303d5d1512ba9ba6b3bad7269d58a5d5ad0c513ceeb35ba397553c52f8d71a1f074efdb7ba1 9579024 fresh-editor_0.4.10.orig.tar.xz
+ d38b55971e8322ffc5a0b34adbbc1390052232d479230faaee4635a4cbf5189755a3e4a14ee9cb788976fcf9d2221bcbceb20f76347a74423e688e3ebabc75ca 6888 fresh-editor_0.4.10-1+forky.debian.tar.xz
 
 Package: fzf
 Format: 3.0 (quilt)

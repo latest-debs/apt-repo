@@ -17,13 +17,15 @@ latest-debs:
     URIs: https://latest-debs.github.io/apt-repo/
     Suites: <SUITE>
     Components: main
-    # armel isn't listed: no currently-tracked package publishes a real
-    # soft-float ARM build (only hard-float armhf), so there is never an
-    # armel Packages file to list here. i386 is bookworm/trixie only -
-    # riscv64 support requirements dropped i386 from forky/sid.
-    Architectures: amd64 arm64 armhf i386 ppc64el riscv64 s390x
-    suite-forky-Architectures: amd64 arm64 armhf ppc64el riscv64 s390x
-    suite-sid-Architectures: amd64 arm64 armhf ppc64el riscv64 s390x
+    # i386 and armel are bookworm/trixie only - riscv64 support requirements
+    # dropped i386 from forky/sid, and no currently-tracked package builds a
+    # soft-float ARM target for forky/sid. loong64 is covered in all four
+    # suites. Verified directly against each suite's real dists/*/Release
+    # Architectures field, not assumed - re-check there before editing this
+    # again, since which tools publish which archs changes over time.
+    Architectures: amd64 arm64 armhf i386 armel loong64 ppc64el riscv64 s390x
+    suite-forky-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
+    suite-sid-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
   suites:
     - bookworm
     - trixie

@@ -176,7 +176,7 @@ Package: fresh-editor
 Format: 3.0 (quilt)
 Binary: fresh-editor
 Architecture: any
-Version: 0.4.9-1+bookworm
+Version: 0.4.10-1+bookworm
 Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
@@ -185,21 +185,21 @@ Directory: pool/bookworm/fresh-editor
 Package-List:
  fresh-editor deb utils optional arch=any
 Files:
- 0a794d6521a8bd64b7a9a677cf724847 924 fresh-editor_0.4.9-1+bookworm.dsc
- 709a5c00103da3e9a12f613d3c7ac68f 9468196 fresh-editor_0.4.9.orig.tar.xz
- 688d424f0cbde49602926ee778fde04c 6896 fresh-editor_0.4.9-1+bookworm.debian.tar.xz
+ 8807cb06857a67c47d4b3acb7505ac54 931 fresh-editor_0.4.10-1+bookworm.dsc
+ 38fc58bacdc12402b5398dda109168d8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ 13868a0ac8f4b63a049d14c7d987be43 6892 fresh-editor_0.4.10-1+bookworm.debian.tar.xz
 Checksums-Sha1:
- 0a2fd43a0d145da231caccdcffbe5b544ba3241c 924 fresh-editor_0.4.9-1+bookworm.dsc
- bf5210bca75df40407a922484a4a190dce9e81d7 9468196 fresh-editor_0.4.9.orig.tar.xz
- c3fc7d257914741187627b8c87b00f3969025ac9 6896 fresh-editor_0.4.9-1+bookworm.debian.tar.xz
+ 9609bb6326992d3bd94dd960ae5a67c2ab4d32e4 931 fresh-editor_0.4.10-1+bookworm.dsc
+ d998501551e0ce71bea2b40e3139bd516ba7dbd3 9579024 fresh-editor_0.4.10.orig.tar.xz
+ c040f80127f3bd15543143bd18ca5f8e540538fb 6892 fresh-editor_0.4.10-1+bookworm.debian.tar.xz
 Checksums-Sha256:
- 5a95f3c4c1e417996c4b8cd72dc25c69f8dd924906137597dc74956d14e34934 924 fresh-editor_0.4.9-1+bookworm.dsc
- ff7a2d1b99d0b2d4babac2082a27e84f4eea319f7e794c9e08ea86bc926fa1c7 9468196 fresh-editor_0.4.9.orig.tar.xz
- 6d82bb654bc3e33cf0ab6c7131af985ad356775295591619d419cc3d9fd7c703 6896 fresh-editor_0.4.9-1+bookworm.debian.tar.xz
+ 8d83cf7307588187c7d4c2f40d8edec03350aad34810dbb825dfafe69786b554 931 fresh-editor_0.4.10-1+bookworm.dsc
+ 537603d4e1d9c1e9c42cf640ef8087c8f02d396c212d5e7f487b7faef23e3ac8 9579024 fresh-editor_0.4.10.orig.tar.xz
+ a155a2c23975155ab7aade00133cfc605528ea3eecef6ac2e2dd3ac56eb64301 6892 fresh-editor_0.4.10-1+bookworm.debian.tar.xz
 Checksums-Sha512:
- ea981ae5d35ffc7aeb5c0d76a948b93e607d9355cb22c5bf3a658d336cd5396f6541b06e979b48a2789efc753f91475a4172181570cde21600302482aa61f802 924 fresh-editor_0.4.9-1+bookworm.dsc
- 2c048f1a04e3e67ae5cef795bb977a4b26663506f98a217ac72834f594b5bc026f5dfddc38d06467f37fa79919e8f0d64b553dd6362cca21527e252620a90c38 9468196 fresh-editor_0.4.9.orig.tar.xz
- 7d72623e1a389e336a206ee8a14f7c379c4abe502fbb6f13ac18da9662500061bb5b4d26773d7162869e06832fae28482f36a4e9497d7884cba4c205e02b6f1f 6896 fresh-editor_0.4.9-1+bookworm.debian.tar.xz
+ a8c26cf391c5a9e1cb0dcdfe239a148cca3dfb0534c11c445da2e4060dcc5dc7ba5e0352ef9aca2061c7a2e94dcddc6ee4ba26fba9327479c1f679755c2e9b83 931 fresh-editor_0.4.10-1+bookworm.dsc
+ 95bb736f663dd9d86d49f3997b2d198762e350b1fe9f0871d497f303d5d1512ba9ba6b3bad7269d58a5d5ad0c513ceeb35ba397553c52f8d71a1f074efdb7ba1 9579024 fresh-editor_0.4.10.orig.tar.xz
+ efdbd01f44cbeeedec462da184d7153fca8575f0c0e291e0c4a8fef4c23b7daeee0be6a8bc67b516540e70642ecabf801a9e18039298474e1ff15377acb14100 6892 fresh-editor_0.4.10-1+bookworm.debian.tar.xz
 
 Package: fzf
 Format: 3.0 (quilt)
