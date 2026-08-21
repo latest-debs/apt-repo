@@ -5,8 +5,8 @@
 Latest stable releases of developer tools, packaged for Debian and served
 over `apt`.
 
-- **Debian:** Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
-- **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64, loong64 (plus i386 and armel on bookworm/trixie)
+- **Debian:** Bullseye (11), Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
+- **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64, loong64 (plus i386 and armel on bullseye/bookworm/trixie)
 - **Updates:** near-instant — publishing a release in a `*-debian` repo
   triggers an immediate rebuild via webhook, with a ~6h scheduled run as the
   fallback. Best-effort, no SLA (see
@@ -75,8 +75,9 @@ What you get, concretely:
 
 - A public packaging repo scaffolded from one template, with CI and full history.
 - Auto-watch: new upstream releases are built automatically, no per-version work.
-- All four Debian suites × every architecture your release actually publishes
+- All five Debian suites × every architecture your release actually publishes
   a Linux binary for (verified precisely at vet time), plus source packages.
+  A suite drops out automatically once its Debian LTS window ends.
 - GPG-signed apt indexes, lintian + smoke-test gates, a vet-time SHA-256
   provenance pin, and automated license/SPDX + asset pre-checks at intake.
 - Near-instant updates via webhook-triggered rebuilds.
@@ -159,12 +160,12 @@ sudo apt update
 ### Debian parity — when we step aside
 
 **Policy: if any live Debian suite already carries a tool at its latest
-upstream version, we don't package it.** That suite — bookworm, trixie,
-forky, or sid — is already doing, for free and at full Debian QA, exactly
-what this channel exists to provide. Packaging it too would just be a
+upstream version, we don't package it.** That suite — bullseye, bookworm,
+trixie, forky, or sid — is already doing, for free and at full Debian QA,
+exactly what this channel exists to provide. Packaging it too would just be a
 second, lower-trust copy of what Debian already ships there. In practice
 this is usually sid or forky (they move fastest), but the check — and the
-policy — covers all four suites we build for, not just sid.
+policy — covers all five suites we build for, not just sid.
 
 - **New requests:** `scripts/add-package.sh scaffold` checks the requested
   tool's version in every live suite against the upstream release being
@@ -179,7 +180,7 @@ policy — covers all four suites we build for, not just sid.
   auto-removed: removing a package a user already depends on is a real
   breaking change, so it goes through the same human-gate as everything else
   here. Narrow the check with `--suite trixie`, `--suite trixie,sid`, etc.
-  when you just want to preview one suite rather than all four.
+  when you just want to preview one suite rather than all five.
 - **What we tell users instead:** depends on which suite matched.
   - **If it's the suite they already run** (trixie or bookworm, if that's
     their `apt` config) — nothing extra needed, plain `apt install <tool>`

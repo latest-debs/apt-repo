@@ -26,7 +26,7 @@ sudo dpkg -i __PKG_NAME___*.deb
 
 ## Supported distributions & architectures
 
-- Debian Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
+- Debian Bullseye (11), Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
 - amd64, arm64, armhf, i386, armel, loong64, ppc64el, riscv64, s390x —
   whichever architectures __GITHUB_REPO__ actually publishes a Linux
   binary for

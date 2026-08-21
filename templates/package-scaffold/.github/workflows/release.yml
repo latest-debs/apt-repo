@@ -91,7 +91,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build __PKG_NAME__
-        uses: ranjithrajv/debian-multiarch-builder@v.0.1a21
+        uses: ranjithrajv/debian-multiarch-builder@v.0.1a23
         env:
           # Authenticate GitHub API calls from the builder; anonymous calls
           # from shared runner IPs are rate-limited (60/h) and caused
@@ -149,10 +149,10 @@ jobs:
       - name: Run binaries from the built package
         run: |
           set -euo pipefail
-          # Smoke-test the oldest available suite (bookworm first, then
-          # trixie, forky, sid) so packages that intentionally skip a suite
-          # (e.g. atuin requiring a newer glibc than bookworm ships) still get
-          # runtime coverage on the oldest suite they do build.
+          # Smoke-test the oldest available suite (bullseye first, then
+          # bookworm, trixie, forky, sid) so packages that intentionally skip
+          # a suite (e.g. atuin requiring a newer glibc than bookworm ships)
+          # still get runtime coverage on the oldest suite they do build.
           #
           # This list is a copy: it runs in this repo's own isolated CI, with
           # no access to apt-repo's filesystem, so it can't read
@@ -161,7 +161,7 @@ jobs:
           # fan this template out to every *-debian repo in one pass, rather
           # than hand-editing this list here or in any generated copy.
           DEB="" SUITE=""
-          for suite in bookworm trixie forky sid; do
+          for suite in bullseye bookworm trixie forky sid; do
             mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_arm64.deb")
             if [ -n "${debs[0]:-}" ]; then
               DEB="${debs[0]}"
