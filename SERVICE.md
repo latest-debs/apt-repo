@@ -39,8 +39,9 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
 - **All four Debian suites** — Bookworm (12), Trixie (13), Forky
   (14/testing), Sid (unstable).
 - **Every architecture you actually publish a Linux binary for** — amd64,
-  arm64, armhf, i386, ppc64el, riscv64, s390x, and we verify exactly which
-  ones your release covers at vet time rather than assuming "all".
+  arm64, armhf, i386, armel, loong64, ppc64el, riscv64, s390x, and we verify
+  exactly which ones your release covers at vet time rather than assuming
+  "all".
 - **Source packages too** — so `apt-get source` works, not just `apt install`.
 
 ### A supply-chain story you can point to
