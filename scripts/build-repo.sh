@@ -23,6 +23,17 @@ DISTS="$ROOT/dists"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
+# Persisted across CI runs via actions/cache (see rebuild.yml), alongside
+# pool/ itself. PREV_MANIFEST is last run's dists/pkg-repo-map.json - the
+# record of what tag each tool's on-disk pool/ files actually are, so a
+# tool whose latest tag hasn't changed can skip re-downloading entirely
+# instead of every run re-fetching the whole catalog regardless of whether
+# anything changed. A cold cache (no BUILD_STATE_DIR yet) just means every
+# tool looks "changed" and gets fetched fresh - identical to today's
+# always-fetch-everything behavior, so this can't regress a cache miss.
+BUILD_STATE_DIR="$ROOT/.build-state"
+PREV_MANIFEST="$BUILD_STATE_DIR/pkg-repo-map.json"
+
 # pkg -> {repo, tag} for every tool with a valid latest release, consumed by
 # the Cloudflare Workers redirector (redirector/) to turn a pool/ request
 # into the exact GitHub Release asset URL without re-fetching from the
@@ -145,6 +156,27 @@ resolve_repo() {
   log "   tag: $tag"
   printf '%s\t%s\t%s\n' "$pkg" "$repo" "$tag" >> "$PKG_REPO_MANIFEST"
 
+  # Same tag as last run's cached pool/? Then the on-disk files should
+  # already be correct - each one gets a cheap existence+nonzero-size check
+  # below rather than trusted blindly, so a corrupted or partially-restored
+  # cache self-heals by re-fetching just the missing pieces. Different tag
+  # (or no previous record, e.g. a cold cache): the old files are for a
+  # stale version and must be cleared first, so an old and new version of
+  # the same package can never both end up in the index at once.
+  local prev_tag="" reuse="no"
+  if [[ -f "$PREV_MANIFEST" ]]; then
+    prev_tag="$(jq -r --arg p "$pkg" '.[$p].tag // ""' "$PREV_MANIFEST")"
+  fi
+  if [[ -n "$prev_tag" && "$prev_tag" == "$tag" ]]; then
+    reuse="yes"
+  else
+    local d
+    for d in "$POOL"/*/"$pkg"; do
+      [[ -d "$d" ]] || continue
+      rm -rf "$d"
+    done
+  fi
+
   # One download URL per asset (already absolute; survives tag renames).
   local tmp_manifest="$TMP/$pkg.assets"
   jq -r '.assets[] | [.name, .browser_download_url] | @tsv' <<<"$json" > "$tmp_manifest"
@@ -154,6 +186,7 @@ resolve_repo() {
   # enqueue one download task per destination suite.
   local orig_name="" orig_url=""
   local src_suites=()
+  local queued=0 cached=0
 
   while IFS=$'\t' read -r name dlurl; do
     [[ -n "$name" ]] || continue
@@ -169,7 +202,13 @@ resolve_repo() {
       continue
     fi
 
-    printf '%s\t%s\n' "$POOL/$suite/$pkg/$name" "$dlurl" >> "$DOWNLOAD_QUEUE"
+    local dest="$POOL/$suite/$pkg/$name"
+    if [[ "$reuse" == "yes" && -s "$dest" ]]; then
+      cached=$((cached + 1))
+    else
+      printf '%s\t%s\n' "$dest" "$dlurl" >> "$DOWNLOAD_QUEUE"
+      queued=$((queued + 1))
+    fi
     [[ "$kind" == "dsc" ]] && src_suites+=("$suite")
   done < "$tmp_manifest"
 
@@ -180,10 +219,28 @@ resolve_repo() {
     else
       local s
       for s in "${src_suites[@]}"; do
-        printf '%s\t%s\n' "$POOL/$s/$pkg/$orig_name" "$orig_url" >> "$DOWNLOAD_QUEUE"
+        local dest="$POOL/$s/$pkg/$orig_name"
+        if [[ "$reuse" == "yes" && -s "$dest" ]]; then
+          cached=$((cached + 1))
+        else
+          printf '%s\t%s\n' "$dest" "$orig_url" >> "$DOWNLOAD_QUEUE"
+          queued=$((queued + 1))
+        fi
       done
     fi
   fi
+
+  if [[ "$reuse" == "yes" ]]; then
+    log "   unchanged ($tag) - $cached cached, $queued to fetch"
+  fi
+  # Explicit, unconditional: without this, the function's own return status
+  # is whatever the branch above evaluated to (false/1 when reuse != yes,
+  # the common case) - and since resolve_repo is called as a bare statement
+  # in the main loop, that nonzero return would trip set -e and silently
+  # kill the whole script after the very first non-reused tool. Caught by
+  # testing, not by inspection - verify this class of bug with -x tracing
+  # if this function's tail ever changes again.
+  return 0
 }
 
 # ---------------------------------------------------------------------------
@@ -313,8 +370,13 @@ if [[ -n "$LOCAL_POOL" ]]; then
   mkdir -p "$DISTS"
   cp -a "$LOCAL_POOL"/. "$POOL"
 else
-  rm -rf "$POOL" "$DISTS"
-  mkdir -p "$POOL" "$DISTS"
+  # pool/ is intentionally NOT wiped here - it may have been restored from
+  # last run's cache (see rebuild.yml), and resolve_repo() below decides
+  # per-tool whether its cached files are still valid (same tag) or stale
+  # (different tag, cleared and re-fetched fresh). dists/ is always fully
+  # regenerated; that's cheap regardless of how much of pool/ was reused.
+  rm -rf "$DISTS"
+  mkdir -p "$POOL" "$DISTS" "$BUILD_STATE_DIR"
 
   BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-16}"
 
@@ -327,6 +389,20 @@ else
     [[ -n "$pkg" ]] || continue
     resolve_repo "$pkg" "$url"
   done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
+
+  # Now that pool/ persists across runs instead of being wiped every time,
+  # a tool dropped from tools.yaml would otherwise linger in the index
+  # forever - prune any pool/<suite>/<pkg> whose <pkg> isn't tracked.
+  log "== pruning removed tools =="
+  current_pkgs=" $(parse_tools "$TOOLS_YAML" | cut -f1 | tr '\n' ' ') "
+  for d in "$POOL"/*/*/; do
+    [[ -d "$d" ]] || continue
+    dpkg_name="$(basename "$d")"
+    if [[ "$current_pkgs" != *" $dpkg_name "* ]]; then
+      log "   removing pool/*/$dpkg_name (no longer tracked)"
+      rm -rf "$d"
+    fi
+  done
 
   # Phase 2: drain the flattened queue with global concurrency. This is
   # the actual cost (~750 assets), and flattening it - instead of bounding
@@ -352,6 +428,14 @@ jq -R -s -c '
   | map({(.[0]): {repo: .[1], tag: .[2]}})
   | add // {}
 ' "$PKG_REPO_MANIFEST" > "$DISTS/pkg-repo-map.json"
+
+# Becomes next run's $PREV_MANIFEST once .build-state/ round-trips through
+# the cache save/restore in rebuild.yml - this is what lets resolve_repo()
+# recognize "unchanged since last time" on the run after this one.
+if [[ -z "$LOCAL_POOL" ]]; then
+  mkdir -p "$BUILD_STATE_DIR"
+  cp "$DISTS/pkg-repo-map.json" "$PREV_MANIFEST"
+fi
 
 log "done."
 log "NOTE: repository is unsigned. Run scripts/sign-repo.sh on a Debian machine with the signing key when ready."

@@ -83,10 +83,40 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl jq dpkg-dev apt-utils gnupg python3-yaml
 
+      - name: Restore pool/ cache
+        # Lets build-repo.sh skip re-downloading any tool whose latest tag
+        # hasn't changed since the last run, instead of re-fetching the
+        # whole ~750-asset catalog every single time regardless of whether
+        # anything actually changed. restore-keys falls back to the most
+        # recent cache under the prefix; a cold cache (first run, or after
+        # eviction) just means every tool gets fetched fresh, same as
+        # today - this can't make a run behave worse than the status quo.
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            pool
+            .build-state
+          key: pool-${{ github.run_id }}
+          restore-keys: |
+            pool-
+
       - name: Regenerate repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/build-repo.sh
+
+      - name: Save pool/ cache
+        # Always saves under a fresh, unique key (github.run_id) so the
+        # next run's restore-keys prefix match picks up this run's state.
+        # Only runs if Regenerate repository succeeded (default step
+        # behavior - no explicit `if:` needed), so a failed run never
+        # caches a broken pool/.
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            pool
+            .build-state
+          key: pool-${{ github.run_id }}
 
       - name: Snapshot Debian archive versions
         run: bash scripts/fetch-debian-versions.sh
