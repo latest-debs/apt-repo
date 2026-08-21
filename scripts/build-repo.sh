@@ -34,6 +34,17 @@ trap 'rm -rf "$TMP"' EXIT
 BUILD_STATE_DIR="$ROOT/.build-state"
 PREV_MANIFEST="$BUILD_STATE_DIR/pkg-repo-map.json"
 
+# apt-ftparchive's own per-(suite,arch) binary cache DBs, also persisted via
+# actions/cache under .build-state/. Verified directly (local test, not
+# assumed): apt-ftparchive skips re-scanning a .deb entirely when it's
+# already in this DB unchanged - 18.7s -> 0.014s on an unchanged pool in
+# testing - and correctly re-scans just the files that actually differ
+# otherwise. This is what actually dominates a fully-cached run's time now
+# that resolve_repo() already skips re-downloading: Packages/Contents
+# generation was re-scanning every .deb's contents from scratch every run
+# regardless of whether pool/ changed at all.
+APT_CACHE_DIR="$BUILD_STATE_DIR/apt-cache"
+
 # pkg -> {repo, tag} for every tool with a valid latest release, consumed by
 # the Cloudflare Workers redirector (redirector/) to turn a pool/ request
 # into the exact GitHub Release asset URL without re-fetching from the
@@ -326,6 +337,7 @@ build_suite() {
     echo "  Architectures \"${arches[*]}\";"
     echo "  Directory \"pool/$suite\";"
     echo "  Packages \"dists/$suite/main/binary-\$(ARCH)/Packages\";"
+    echo "  BinCacheDB \"$APT_CACHE_DIR/$suite-\$(ARCH).db\";"
     echo "};"
   } > "$conf"
 
@@ -414,6 +426,8 @@ else
   log "== downloading $(wc -l < "$DOWNLOAD_QUEUE") assets =="
   drain_download_queue
 fi
+
+mkdir -p "$APT_CACHE_DIR"
 
 log "== generating indexes =="
 for suite in "$POOL"/*/; do
