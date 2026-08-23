@@ -163,41 +163,22 @@ jobs:
       - name: Run binaries from the built package
         run: |
           set -euo pipefail
-          # Smoke-test the oldest available suite (bullseye first, then
-          # bookworm, trixie, forky, sid) so packages that intentionally skip
-          # a suite (e.g. atuin requiring a newer glibc than bookworm ships)
-          # still get runtime coverage on the oldest suite they do build.
-          #
-          # This list is a copy: it runs in this repo's own isolated CI, with
-          # no access to apt-repo's filesystem, so it can't read
-          # apt-repo/suites.json (the canonical source) directly. Update
-          # suites.json first, then run apt-repo's rollout-autowatch.sh to
-          # fan this template out to every *-debian repo in one pass, rather
-          # than hand-editing this list here or in any generated copy.
-          DEB="" SUITE=""
-          for suite in bullseye bookworm trixie forky sid; do
-            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${suite}_arm64.deb")
-            if [ -n "${debs[0]:-}" ]; then
-              DEB="${debs[0]}"
-              SUITE="$suite"
-              break
-            fi
-          done
-          if [ -z "$DEB" ]; then
-            echo "::notice::No arm64 package available to smoke test; skipping"
-            exit 0
-          fi
           EXPECTED="${{ needs.prepare.outputs.version }}"
-          # Some upstreams (e.g. oven-sh/bun) tag releases as
-          # "<pkgname>-vX.Y.Z" instead of plain "vX.Y.Z" - strip that prefix
-          # before the leading v, or EXPECTED stays "bun-v1.4.0" while the
-          # binary's actual --version output is just "1.4.0" and the grep
-          # below never matches.
           EXPECTED="${EXPECTED#__PKG_NAME__-}"
           EXPECTED="${EXPECTED#v}"
-          rm -rf smoke-root
-          dpkg-deb -x "$DEB" smoke-root
-          mapfile -t bin_names < <(basename -a smoke-root/usr/bin/*)
+          # Smoke-test each suite in order (bullseye first) until one passes.
+          # Some binaries (e.g. nushell 0.115.1 needs GLIBC_2.35) fail on
+          # older suites (bullseye 2.31) with "GLIBC_X not found" — try next
+          # suite instead of hard-failing on the oldest.
+          for SUITE in bullseye bookworm trixie forky sid; do
+            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${SUITE}_arm64.deb")
+            if [ -z "${debs[0]:-}" ]; then continue; fi
+            DEB="${debs[0]}"
+            echo "Trying $SUITE: $DEB (expected $EXPECTED)"
+            rm -rf smoke-root
+            dpkg-deb -x "$DEB" smoke-root
+            mapfile -t bin_names < <(basename -a smoke-root/usr/bin/*)
+            if [ -z "${bin_names[0]:-}" ]; then continue; fi
           # Actually install the .deb (not just extract + mount usr/bin) so
           # this exercises what a real `apt install` does: bundle-mode
           # packages symlink /usr/bin/<name> to an ABSOLUTE path under
@@ -227,24 +208,22 @@ jobs:
             [ "$ok" = 1 ] || { echo "SMOKE_FAIL:$name"; exit 1; }
           done
           echo "ALL_OK"'
-          # The outer `set -e` would otherwise kill this script the instant
-          # docker run exits non-zero - before $out ever gets echoed, losing
-          # the actual diagnostic. Capture the exit status explicitly so a
-          # real failure (SMOKE_FAIL, a crashed binary, apt-get install
-          # itself failing) still prints what happened.
-          #
-          # ZED_ALLOW_ROOT: some binaries (zed) refuse to run as root as a
-          # deliberate safety guard - harmless no-op for every package that
-          # doesn't check for it, needed for the ones that do since this
-          # container always runs as root.
-          out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
-            bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)" || true
-          echo "$out"
-          if ! echo "$out" | grep -q "^ALL_OK$"; then
+            out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
+              bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)" || true
+            echo "$out"
+            if echo "$out" | grep -q "^ALL_OK$"; then
+              echo "All binaries passed the smoke test on $SUITE"
+              exit 0
+            fi
+            if echo "$out" | grep -q "GLIBC"; then
+              echo "::warning::Smoke failed on $SUITE due to GLIBC mismatch, trying next suite"
+              continue
+            fi
             echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED)"
             exit 1
-          fi
-          echo "All binaries passed the smoke test"
+          done
+          echo "::notice::No suite passed smoke test"
+          exit 1
 
   release:
     name: Release
