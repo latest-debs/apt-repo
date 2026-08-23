@@ -429,6 +429,25 @@ fi
 
 mkdir -p "$APT_CACHE_DIR"
 
+# Ubuntu jammy is an alias of bullseye for substring UX (no extra docker build):
+# copy pool/bullseye -> pool/jammy so jammy appears in releases with +jammy
+# artifacts without rebuilding. Noble is a real build (needs separate docker).
+if [[ -d "$POOL/bullseye" ]]; then
+  if [[ -n "$(jq -r '.aliases.jammy // empty' "$ROOT/suites.json")" ]]; then
+    alias_src="$(jq -r '.aliases.jammy' "$ROOT/suites.json")"
+    if [[ -d "$POOL/$alias_src" && ! -e "$POOL/jammy" ]]; then
+      log "== alias jammy -> $alias_src (pool copy for substring UX) =="
+      cp -a "$POOL/$alias_src" "$POOL/jammy"
+      # Rewrite +bullseye -> +jammy in filenames so grep +jammy matches
+      for f in "$POOL/jammy"/*/*; do
+        [[ -f "$f" ]] || continue
+        nf="${f/+${alias_src}/+jammy}"
+        [[ "$f" != "$nf" ]] && mv "$f" "$nf"
+      done
+    fi
+  fi
+fi
+
 log "== generating indexes =="
 for suite in "$POOL"/*/; do
   suite="${suite%/}"

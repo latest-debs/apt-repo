@@ -1,5 +1,17 @@
 {
-  "_comment": "Canonical list of Debian suites this repo tracks. Read by scripts/check-suite-parity.sh and scripts/fetch-debian-versions.sh (local file), and fetched same-origin by latest-debs.github.io/index.html (published verbatim to gh-pages alongside dists/). Update this file - and only this file - when Debian's stable release changes.",
+  "_comment": "Canonical list of suites this repo tracks. Read by scripts/check-suite-parity.sh and scripts/fetch-debian-versions.sh (local file), and fetched same-origin by latest-debs.github.io/index.html (published verbatim to gh-pages alongside dists/). Update this file - and only this file - when Debian's stable release changes. distro field distinguishes Debian vs Ubuntu suites; aliases are pool/dists copies (no extra docker build) for substring UX.",
   "stable": "trixie",
-  "suites": ["bullseye", "bookworm", "trixie", "forky", "sid"]
+  "suites": ["bullseye", "bookworm", "trixie", "forky", "sid"],
+  "distro_suites": [
+    {"distro": "debian", "suite": "bullseye"},
+    {"distro": "debian", "suite": "bookworm"},
+    {"distro": "debian", "suite": "trixie"},
+    {"distro": "debian", "suite": "forky"},
+    {"distro": "debian", "suite": "sid"},
+    {"distro": "ubuntu", "suite": "noble"},
+    {"distro": "ubuntu", "suite": "jammy", "alias_of": "bullseye"}
+  ],
+  "aliases": {
+    "jammy": "bullseye"
+  }
 }
