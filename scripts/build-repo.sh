@@ -45,11 +45,12 @@ PREV_MANIFEST="$BUILD_STATE_DIR/pkg-repo-map.json"
 # regardless of whether pool/ changed at all.
 APT_CACHE_DIR="$BUILD_STATE_DIR/apt-cache"
 
-# pkg -> {repo, tag} for every tool with a valid latest release, consumed by
-# the Cloudflare Workers redirector (redirector/) to turn a pool/ request
-# into the exact GitHub Release asset URL without re-fetching from the
-# GitHub API per request. Appended to in resolve_repo(), written out after
-# the main loop. TSV instead of building JSON incrementally in bash.
+# pkg -> {repo, tag, published_at} for every tool with a valid latest
+# release, consumed by the Cloudflare Workers redirector (redirector/) to
+# turn a pool/ request into the exact GitHub Release asset URL without
+# re-fetching from the GitHub API per request. Appended to in
+# resolve_repo(), written out after the main loop. TSV instead of building
+# JSON incrementally in bash.
 PKG_REPO_MANIFEST="$TMP/pkg-repo-map.tsv"
 : > "$PKG_REPO_MANIFEST"
 
@@ -161,11 +162,14 @@ resolve_repo() {
     log "   skip: no latest release yet (repo may be empty)"
     return 0
   }
-  local tag
+  local tag published
   tag="$(jq -r '.tag_name' <<<"$json")"
   [[ -n "$tag" && "$tag" != "null" ]] || { log "   skip: no latest release for $pkg"; return 0; }
+  # When GitHub served this release to the public - the timestamp the
+  # freshness badges measure age against, not our build time.
+  published="$(jq -r '.published_at // ""' <<<"$json")"
   log "   tag: $tag"
-  printf '%s\t%s\t%s\n' "$pkg" "$repo" "$tag" >> "$PKG_REPO_MANIFEST"
+  printf '%s\t%s\t%s\t%s\n' "$pkg" "$repo" "$tag" "$published" >> "$PKG_REPO_MANIFEST"
 
   # Same tag as last run's cached pool/? Then the on-disk files should
   # already be correct - each one gets a cheap existence+nonzero-size check
@@ -458,9 +462,65 @@ done
 log "== writing pkg-repo-map.json =="
 jq -R -s -c '
   split("\n") | map(select(length > 0) | split("\t"))
-  | map({(.[0]): {repo: .[1], tag: .[2]}})
+  | map({(.[0]): {repo: .[1], tag: .[2], published_at: .[3]}})
   | add // {}
 ' "$PKG_REPO_MANIFEST" > "$DISTS/pkg-repo-map.json"
+
+# freshness.json - one shields.io endpoint-badge object per package, plus a
+# "_meta" org-level badge, served from gh-pages and rendered via
+# https://img.shields.io/endpoint?url=<site>/dists/freshness.json&query=$.<pkg>.
+# Age = now minus the release's published_at (when GitHub served the .deb
+# release), so the badge shows how current the apt version is regardless of
+# when this rebuild ran. Color escalates with age: brightgreen < 7d,
+# green < 31d, yellowgreen < 92d, yellow beyond.
+log "== writing freshness.json =="
+NOW_EPOCH="$(date +%s)"
+jq -R -s -c --argjson now "$NOW_EPOCH" '
+  def hum(s):
+    if   s < 5400    then "\((s / 60   | floor))m"
+    elif s < 172800  then "\((s / 3600 | floor))h"
+    elif s < 5270400 then "\((s / 86400 | floor))d"
+    else                  "\((s / 2592000 | floor))mo"
+    end;
+  def col(s):
+    if   s < 604800  then "brightgreen"
+    elif s < 2678400 then "green"
+    elif s < 7948800 then "yellowgreen"
+    else "yellow"
+    end;
+  split("\n") | map(select(length > 0) | split("\t"))
+  | map(. as $r
+      | (try ($r[3] | fromdateiso8601) catch null) as $pub
+      | if $pub == null then
+          # No usable timestamp: fall back to a neutral badge rather than
+          # dropping the package from the catalog view.
+          { key: $r[0], age: null,
+            badge: { schemaVersion: 1, label: "apt", message: $r[2], color: "lightgrey" } }
+        else
+          ($now - $pub) as $s
+          | { key: $r[0], age: $s,
+              badge:
+                { schemaVersion: 1, label: "apt",
+                  message: (($r[2]
+                             | ltrimstr($r[0] + "-")
+                             | ltrimstr("v")
+                             | sub("\\+[0-9]+$"; "")) + " · " + hum($s)),
+                  color: col($s) } }
+        end)
+  | . as $rows
+  | ($rows | map({(.key): .badge}) | add // {}) as $badges
+  | ($rows | map(.age) | map(select(. != null)) | sort) as $ages
+  | ($ages | length) as $n
+  | $badges + {
+      _meta:
+        (if $n == 0 then
+           { schemaVersion: 1, label: "latest-debs", message: "no releases yet", color: "lightgrey" }
+         else
+           { schemaVersion: 1, label: "latest-debs",
+             message: "\($n) tools · median \(hum($ages[($n / 2 | floor)]))",
+             color: col($ages[($n / 2 | floor)]) }
+         end) }
+' "$PKG_REPO_MANIFEST" > "$DISTS/freshness.json"
 
 # Becomes next run's $PREV_MANIFEST once .build-state/ round-trips through
 # the cache save/restore in rebuild.yml - this is what lets resolve_repo()
