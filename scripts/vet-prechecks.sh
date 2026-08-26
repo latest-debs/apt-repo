@@ -29,7 +29,7 @@
 # Requirements: tar, unzip, file, jq, sha256sum, grep.
 #
 # Usage:
-#   vet-prechecks.sh --asset <file> [--format tar.gz|tgz|zip]
+#   vet-prechecks.sh --asset <file> [--format tar.gz|tgz|tar.xz|zip]
 #                    [--license <spdx-id>] [--arch <linux-arch>]
 #                    [--release-json <release.json>] --out <dir>
 
@@ -54,6 +54,7 @@ done
     *.zip) format="zip";;
     *.tgz) format="tgz";;
     *.tar.gz) format="tar.gz";;
+    *.tar.xz) format="tar.xz";;
     *) echo "ERROR: cannot infer format from $asset; pass --format" >&2; exit 2;;
   esac
 }
@@ -77,8 +78,10 @@ case "$format" in
   zip)
     if unzip -Z1 "$asset" >/dev/null 2>&1; then valid=true; fi
     ;;
-  tar.gz|tgz)
-    if tar -tzf "$asset" >/dev/null 2>&1; then valid=true; fi
+  tar.gz|tgz|tar.xz)
+    # No -z/-J: GNU tar auto-detects gzip/xz compression from the archive
+    # itself, so one path covers all three tar variants.
+    if tar -tf "$asset" >/dev/null 2>&1; then valid=true; fi
     ;;
 esac
 
@@ -88,8 +91,8 @@ case "$format" in
   zip)
     mkdir -p "$TMP/x" && unzip -q "$asset" -d "$TMP/x" 2>/dev/null || true
     ;;
-  tar.gz|tgz)
-    mkdir -p "$TMP/x" && tar -xzf "$asset" -C "$TMP/x" 2>/dev/null || true
+  tar.gz|tgz|tar.xz)
+    mkdir -p "$TMP/x" && tar -xf "$asset" -C "$TMP/x" 2>/dev/null || true
     ;;
 esac
 if [ -d "$TMP/x" ]; then
@@ -163,7 +166,7 @@ if [ -n "$release_json" ] && [ -f "$release_json" ]; then
   # All Linux archive asset names in the release.
   rel_assets="$(jq -r '.assets[]?.name' "$release_json" 2>/dev/null \
     | grep -iE 'linux' \
-    | grep -iE '\.(tar\.gz|tgz|zip)$' \
+    | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
     | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)"
   covered=""
   covered_assets=""

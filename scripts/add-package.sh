@@ -101,19 +101,20 @@ scaffold() {
   # Prefer a Linux build; fall back to any non-mac/windows archive.
   asset="$(printf '%s' "$assets" \
     | grep -iE 'linux' \
-    | grep -iE '\.(tar\.gz|tgz|zip)$' \
+    | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
     | grep -viE 'sha256|checksum|\.asc$|source|sums' \
     | head -n1 || true)"
   if [ -z "$asset" ]; then
     asset="$(printf '%s' "$assets" \
-      | grep -iE '\.(tar\.gz|tgz|zip)$' \
+      | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
       | grep -viE 'darwin|macos|windows|win32|msvc|apple|sha256|checksum|\.asc$|source|sums' \
       | head -n1 || true)"
   fi
-  [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.zip asset found in the latest release of $repo"
+  [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.tar.xz/.zip asset found in the latest release of $repo"
   case "$asset" in
     *.tar.gz) fmt="tar.gz";;
     *.tgz) fmt="tgz";;
+    *.tar.xz) fmt="tar.xz";;
     *.zip) fmt="zip";;
   esac
   echo "→ Asset: $asset (format: $fmt)"

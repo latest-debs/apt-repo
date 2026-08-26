@@ -216,8 +216,8 @@ case.
 
 The [`Process package request`](.github/workflows/package-request.yml) workflow
 runs on every `package-request` issue. With no extra setup it validates the
-request (upstream exists, publishes a Linux `.tar.gz`/`.tgz`/`.zip` release
-asset) and leaves a comment on the issue.
+request (upstream exists, publishes a Linux `.tar.gz`/`.tgz`/`.tar.xz`/`.zip`
+release asset) and leaves a comment on the issue.
 
 To let it fully deploy, create a fine-grained PAT restricted to the
 `latest-debs` org with **Administration: write**, **Contents: write**, and

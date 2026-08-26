@@ -88,8 +88,8 @@ if already current. That means:
 
 ## The offer
 
-For projects that publish a Linux binary (`.tar.gz`, `.tgz`, or `.zip`) on
-GitHub:
+For projects that publish a Linux binary (`.tar.gz`, `.tgz`, `.tar.xz`, or
+`.zip`) on GitHub:
 
 1. We scaffold your `<tool>-debian` repo from the template.
 2. Vet time runs the checksum pin + license/SPDX scan + asset validation +

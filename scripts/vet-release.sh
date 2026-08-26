@@ -72,7 +72,7 @@ license="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
 # ---------------------------------------------------------------------------
 mapfile -t linux_assets < <(jq -r '.assets[]?.name' <<<"$release" \
     | grep -iE 'linux' \
-    | grep -iE '\.(tar\.gz|tgz|zip)$' \
+    | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
     | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)
 
 # Select the asset: an explicit override, or the first Linux archive.
@@ -190,7 +190,7 @@ size_actual="$(jq -r --arg a "$asset" '.assets[]? | select(.name == $a) | .size 
 # Retain the primary asset so the caller (add-package.sh) can run the vet
 # pre-checks (license/SPDX scan + asset validation) against the exact bytes
 # that were vetted, without a second download.
-ext="tar.gz"; case "$asset" in *.zip) ext="zip";; *.tgz) ext="tgz";; esac
+ext="tar.gz"; case "$asset" in *.zip) ext="zip";; *.tgz) ext="tgz";; *.tar.xz) ext="tar.xz";; esac
 curl -fsSL -o "$out/primary.$ext" "$dlurl" 2>/dev/null \
   || echo "  ⚠ could not retain primary asset for pre-checks" >&2
 # The release JSON (asset list + license) for the caller's pre-checks.
