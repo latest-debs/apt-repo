@@ -46,6 +46,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   prepare:
@@ -55,6 +56,8 @@ jobs:
       version: ${{ steps.detect.outputs.version }}
       build_version: ${{ steps.detect.outputs.build_version }}
       should_build: ${{ steps.detect.outputs.should_build }}
+      smoke_glob: ${{ steps.policy.outputs.smoke_glob }}
+      min_glibc: ${{ steps.policy.outputs.min_glibc }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -67,6 +70,23 @@ jobs:
           MANUAL_VERSION: ${{ inputs.version }}
           BUILD_VERSION: ${{ inputs.build_version }}
           AUTO: ${{ github.event_name == 'schedule' || inputs.auto }}
+          IS_SCHEDULE: ${{ github.event_name == 'schedule' }}
+
+      - name: Read smoke policy from package.yaml
+        # Policy as data, read at runtime (not scaffold-time substitution):
+        # a per-tool smoke_skip glob and a minimum glibc floor are ordinary
+        # package.yaml edits - no workflow change needed to teach the smoke
+        # gate about plugin binaries or a glibc-cliff upstream.
+        id: policy
+        run: |
+          set -euo pipefail
+          read_val() {
+            awk -v k="$1" -F': *' '$1==k { v=$2; gsub(/["'\'' ]/, "", v); sub(/#.*/, "", v); print v; exit }' package.yaml
+          }
+          {
+            printf 'smoke_glob=%s\n' "$(read_val smoke_skip || true)"
+            printf 'min_glibc=%s\n' "$(read_val min_glibc || true)"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Recheck upstream license
         # License gate (warn-only): recheck the live upstream SPDX license
@@ -166,11 +186,35 @@ jobs:
           EXPECTED="${{ needs.prepare.outputs.version }}"
           EXPECTED="${EXPECTED#__PKG_NAME__-}"
           EXPECTED="${EXPECTED#v}"
+          # Per-tool smoke policy, read from package.yaml at runtime:
+          #   smoke_skip  glob of binaries that never report --version
+          #               (plugin-protocol helpers, alias binaries, protoc
+          #               plugins) - skipped, not failed
+          #   min_glibc   floor like "2.36" - suites older than it are
+          #               skipped outright instead of burned as a known
+          #               GLIBC-cliff failure (bullseye ships 2.31)
+          SKIP_GLOB="${{ needs.prepare.outputs.smoke_glob }}"
+          MIN_GLIBC="${{ needs.prepare.outputs.min_glibc }}"
+          [ -n "$SKIP_GLOB" ] || SKIP_GLOB='__no_smoke_skip_configured__'
+          # Suite -> its glibc version; keep in sync with suites.yaml order.
+          suite_glibc() {
+            case "$1" in
+              bullseye) echo 2.31 ;;
+              bookworm) echo 2.36 ;;
+              trixie)   echo 2.41 ;;
+              forky)    echo 2.42 ;;
+              sid)      echo 2.42 ;;
+              *)        echo 9.9 ;;
+            esac
+          }
           # Smoke-test each suite in order (bullseye first) until one passes.
-          # Some binaries (e.g. nushell 0.115.1 needs GLIBC_2.35) fail on
-          # older suites (bullseye 2.31) with "GLIBC_X not found" — try next
-          # suite instead of hard-failing on the oldest.
           for SUITE in bullseye bookworm trixie forky sid; do
+            if [ -n "$MIN_GLIBC" ] && \
+               [ "$(printf '%s\n%s\n' "$(suite_glibc "$SUITE")" "$MIN_GLIBC" | sort -V | head -n1)" = "$(suite_glibc "$SUITE")" ] && \
+               [ "$(suite_glibc "$SUITE")" != "$MIN_GLIBC" ]; then
+              echo "Skipping $SUITE (glibc $(suite_glibc "$SUITE") < min_glibc $MIN_GLIBC)"
+              continue
+            fi
             mapfile -t debs < <(compgen -G "__PKG_NAME___*+${SUITE}_arm64.deb")
             if [ -z "${debs[0]:-}" ]; then continue; fi
             DEB="${debs[0]}"
@@ -194,13 +238,13 @@ jobs:
           smoke_script='set -e
           apt-get update -qq
           apt-get install -y -qq "$1" >/dev/null
-          shift; expected="$1"; shift
+          shift; expected="$1"; skip_glob="$2"; shift 2
           for name in "$@"; do
-            # Binaries listed in package.yaml smoke_skip (substituted below)
-            # are not standalone CLIs (plugin protocol, aliases, protoc
-            # plugins) and never report --version - skip them.
+            # Binaries listed in package.yaml smoke_skip are not standalone
+            # CLIs (plugin protocol, aliases, protoc plugins) and never
+            # report --version - skip them.
             case "$name" in
-              __SMOKE_SKIP_GLOB__) echo "  SKIP: $name (smoke_skip)"; continue;;
+              $skip_glob) echo "  SKIP: $name (smoke_skip)"; continue;;
             esac
             ok=0
             for arg in --version -V version; do
@@ -217,20 +261,20 @@ jobs:
           done
           echo "ALL_OK"'
             out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
-              bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "${bin_names[@]}" 2>&1)" || true
+              bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "$SKIP_GLOB" "${bin_names[@]}" 2>&1)" || true
             echo "$out"
             if echo "$out" | grep -q "^ALL_OK$"; then
               echo "All binaries passed the smoke test on $SUITE"
               exit 0
             fi
             if echo "$out" | grep -q "GLIBC"; then
-              echo "::warning::Smoke failed on $SUITE due to GLIBC mismatch, trying next suite"
+              echo "::warning::Smoke failed on $SUITE due to GLIBC mismatch [failure-class: glibc], trying next suite"
               continue
             fi
-            echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED)"
+            echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED) [failure-class: version-cmd]"
             exit 1
           done
-          echo "::notice::No suite passed smoke test"
+          echo "::notice::No suite passed smoke test [failure-class: all-suites-exhausted]"
           exit 1
 
   release:
@@ -272,3 +316,48 @@ jobs:
             *.debian.tar.xz
             *.orig.tar.xz
           fail_on_unmatched_files: true
+
+      - name: Clear failure marker
+        # This run got the current tag through build + smoke + release, so
+        # any scheduled-retry dedup marker for it is stale - clear it.
+        # PATCH-to-empty first; some variable APIs reject empty values, in
+        # which case DELETE removes the variable outright.
+        if: always()
+        run: |
+          if ! gh api -X PATCH "repos/$GITHUB_REPOSITORY/actions/variables/SMOKE_FAIL_TAG" \
+               -f value="" >/dev/null 2>&1; then
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/variables/SMOKE_FAIL_TAG" >/dev/null 2>&1 \
+              || echo "No failure marker to clear"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  record-failure:
+    name: Record failure marker (schedule dedup)
+    needs: [prepare, build, smoke, release]
+    # Only scheduled runs are deduped - a manual dispatch must always retry
+    # (that's how a fix gets validated), and PR events have no marker either.
+    if: >-
+      always() &&
+      github.event_name == 'schedule' &&
+      contains(needs.*.result, 'failure')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write failure marker
+        run: |
+          set -euo pipefail
+          version="${{ needs.prepare.outputs.version }}"
+          if [ -z "$version" ]; then
+            echo "prepare failed before a version was determined; nothing to dedup on"
+            exit 0
+          fi
+          value="${version}@$(date +%s)"
+          if gh api "repos/$GITHUB_REPOSITORY/actions/variables/SMOKE_FAIL_TAG" >/dev/null 2>&1; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/actions/variables/SMOKE_FAIL_TAG" -f value="$value" >/dev/null
+          else
+            gh api -X POST "repos/$GITHUB_REPOSITORY/actions/variables" \
+              -f name=SMOKE_FAIL_TAG -f value="$value" >/dev/null
+          fi
+          echo "Recorded failure marker: $value (scheduled retries of this tag skip for 48h)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

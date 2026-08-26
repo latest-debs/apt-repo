@@ -16,6 +16,32 @@ set -euo pipefail
 API="https://api.github.com"
 AUTH=(-H "Authorization: token ${GITHUB_TOKEN:?}")
 
+# Retry on 403/429/5xx (3 attempts, 5s/15s backoff). Warn-only script: a
+# persistent rate limit degrades to a warning, never a silent "" that would
+# look like "upstream has no license".
+gh_json() {
+  local url="$1" attempt code
+  for attempt in 1 2 3; do
+    code="$(curl -fsSL -o /tmp/lic_json.$$ -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    if [ "$code" = "200" ]; then
+      cat /tmp/lic_json.$$
+      rm -f /tmp/lic_json.$$
+      return 0
+    fi
+    rm -f /tmp/lic_json.$$
+    case "$code" in
+      403|429|5??)
+        echo "::warning::GitHub API $code (attempt $attempt/3) in license-check; backing off" >&2
+        sleep $((attempt * 5))
+        ;;
+      404) return 1 ;;
+      *)   return 1 ;;
+    esac
+  done
+  echo "::warning::GitHub API persistently rate-limited in license-check; skipping live license comparison" >&2
+  return 1
+}
+
 yaml_val() {
   awk -v k="$1" -F': *' '$1==k { v=$2; gsub(/["'\'' ]/, "", v); sub(/#.*/, "", v); print v; exit }' package.yaml
 }
@@ -27,8 +53,9 @@ PINNED="$(yaml_val license)"
 out() { printf '%s=%s\n' "$1" "$2" >>"${GITHUB_OUTPUT:-/dev/null}"; }
 
 LIVE=""
-repo="$(curl -fsSL "${AUTH[@]}" "$API/repos/$GITHUB_REPO" 2>/dev/null || true)"
-LIVE="$(printf '%s' "$repo" | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
+if repo="$(gh_json "$API/repos/$GITHUB_REPO")"; then
+  LIVE="$(printf '%s' "$repo" | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
+fi
 
 out license "$LIVE"
 out pinned "$PINNED"

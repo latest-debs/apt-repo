@@ -68,6 +68,42 @@ jobs:
             .github/workflows/*.sh \
             templates/package-scaffold/.github/scripts/*.sh
 
+  catalog:
+    name: Catalog (every registered tool has a published release)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Check registered-but-unpublished tools
+        # trivy/yq-go sat registered-but-unpublished for a day while every
+        # scheduled run stayed green - this makes that state a red job.
+        run: bash scripts/check-catalog.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  profile-sync:
+    name: Org profile in sync with tools.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Compare generated Packages table against the live profile
+        # tools.yaml is the single source of truth for the catalog; the
+        # .github org profile's Packages table is generated from it.
+        # Regenerate and diff against the live profile - drift fails here
+        # instead of being noticed by a human weeks later.
+        run: bash scripts/sync-profile.sh --check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   dry-run:
     name: Template dry-run (scaffold a package end-to-end)
     runs-on: ubuntu-latest

@@ -198,7 +198,6 @@ scaffold() {
       -e "s/__ARTIFACT_FORMAT__/$fmt/g" \
       -e "s|__LICENSE__|$license|g" \
       -e "s/__DESCRIPTION__/${description//\//\\/}/g" \
-      -e "s|__SMOKE_SKIP_GLOB__|__SMOKE_SKIP_NONE__|g" \
       "$f"
   done
 

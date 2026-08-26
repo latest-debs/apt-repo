@@ -141,27 +141,11 @@ jobs:
           APT_SIGNING_KEY_PASS: ${{ secrets.APT_SIGNING_KEY_PASS }}
         run: bash scripts/sign-repo.sh
 
-      - name: Unignore generated pool/dists for the Pages publish
-        # .gitignore keeps pool/ and dists/ (build artifacts) out of the
-        # main branch's history, but peaceiris/actions-gh-pages publishes
-        # this same working directory verbatim - so the same .gitignore
-        # was silently excluding them from every gh-pages deploy, meaning
-        # the site never actually served any packages.
-        run: rm -f .gitignore
-
       - name: Deploy to gh-pages
-        # force_orphan was resetting gh-pages to a fresh, parentless commit
-        # on every rebuild. With no shared history, git can't tell that most
-        # pool/ files are byte-identical to what's already on the remote, so
-        # every rebuild re-uploaded the entire payload (1.5-2GB+) from
-        # scratch - the cause of the repeated HTTP 500 push failures as the
-        # catalog grew. Committing on top of the existing branch lets git
-        # reuse unchanged blobs and push only the actual delta.
-        uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
-          force_orphan: false
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+        # Replaces the peaceiris action: pushes were dying mid-RPC with
+        # HTTP 500 on the 1.5-2GB payload. deploy-gh-pages.sh forces
+        # HTTP/1.1, commits on top of existing history (blob dedupe), and
+        # retries the whole cycle 3x with backoff.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/deploy-gh-pages.sh

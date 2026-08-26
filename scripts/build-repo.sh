@@ -154,14 +154,41 @@ resolve_repo() {
   # this org's build volume (14+ tool repos, each rebuilding on its own
   # schedule) exhausts easily, silently degrading every fetch to "skip:
   # no latest release yet" and shipping an apt repo with zero packages.
-  local json
-  json="$(curl -fsSL --connect-timeout 10 --max-time 60 \
-      -H "Accept: application/vnd.github+json" \
-      ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
-      "$api" 2>/dev/null)" || {
-    log "   skip: no latest release yet (repo may be empty)"
-    return 0
-  }
+  # Retry 403/429/5xx with backoff; a PERSISTENT rate limit is fatal (loud
+  # die) rather than a silent per-tool skip - a silent skip here is how a
+  # rate-limited run ships an apt repo missing tools (and freshness.json).
+  local json="" code="" attempt
+  for attempt in 1 2 3; do
+    code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/resolve.$$" -w '%{http_code}' \
+        -H "Accept: application/vnd.github+json" \
+        ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
+        "$api" 2>/dev/null || true)"
+    if [ "$code" = "200" ]; then
+      json="$(cat "$TMP/resolve.$$")"
+      break
+    fi
+    case "$code" in
+      403|429|5??)
+        log "   GitHub API $code (attempt $attempt/3) for $repo; backing off"
+        sleep $((attempt * 10))
+        ;;
+      404)
+        log "   skip: no latest release yet (repo may be empty)"
+        rm -f "$TMP/resolve.$$"
+        return 0
+        ;;
+      *)
+        log "   skip: GitHub API $code for $repo"
+        rm -f "$TMP/resolve.$$"
+        return 0
+        ;;
+    esac
+  done
+  rm -f "$TMP/resolve.$$"
+  if [ "$code" != "200" ]; then
+    die "GitHub API persistently rate-limited/unavailable ($code) fetching $repo - refusing to build a partial repo; re-run when the rate limit resets"
+  fi
+  [[ -n "$json" ]] || { log "   skip: no latest release yet (repo may be empty)"; return 0; }
   local tag published
   tag="$(jq -r '.tag_name' <<<"$json")"
   [[ -n "$tag" && "$tag" != "null" ]] || { log "   skip: no latest release for $pkg"; return 0; }
