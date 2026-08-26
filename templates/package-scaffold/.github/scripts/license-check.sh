@@ -14,7 +14,11 @@
 set -euo pipefail
 
 API="https://api.github.com"
-AUTH=(-H "Authorization: token ${GITHUB_TOKEN:?}")
+# Upstream reads go tokenless: some upstreams (observed live: aquasecurity
+# org-enables an IP allow list, 403ing every authenticated API request from
+# GitHub-hosted runner IPs) reject runner-IP traffic, while anonymous reads
+# of PUBLIC repo data are served to any IP.
+AUTH=()
 
 # Retry on 403/429/5xx (3 attempts, 5s/10s backoff). On success sets
 # _LIC_JSON to the body and returns 0. All diagnostics to STDERR - never

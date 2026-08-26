@@ -26,7 +26,15 @@
 set -euo pipefail
 
 API="https://api.github.com"
-AUTH=(-H "Authorization: token ${GITHUB_TOKEN:?}")
+# Authenticated token for OUR repo's API reads (never rate-limited).
+AUTH_OWN=(-H "Authorization: token ${GITHUB_TOKEN:?}")
+# UPSTREAM reads go tokenless: some upstreams (observed live: aquasecurity
+# org-enables an IP allow list, 403ing every authenticated API request from
+# GitHub-hosted runner IPs with "correct authorization credentials, but ...
+# IP address is not permitted") reject runner-IP traffic, while anonymous
+# reads of PUBLIC repo data are served to any IP. Tokenless also keeps the
+# 60/h anonymous budget per runner, which 2 reads per 3h schedule fits in.
+AUTH_UP=()
 
 # curl with 403/429/5xx retry: 3 attempts, 5s/10s backoff. On success sets
 # _GH_JSON_OUT to the body and returns 0; otherwise returns nonzero.
@@ -37,11 +45,18 @@ _GH_JSON_OUT=""
 gh_json() {
   _GH_JSON_OUT=""
   local url="$1" attempt code
+  # Own-repo reads authenticate; upstream reads are anonymous (see AUTH_UP
+  # above for the aquasecurity IP-allow-list war story).
+  local auth
+  case "$url" in
+    *"/repos/$GITHUB_REPOSITORY/"*) auth=("${AUTH_OWN[@]}") ;;
+    *)                              auth=("${AUTH_UP[@]}") ;;
+  esac
   local body; body="$(mktemp)"
   for attempt in 1 2 3; do
     # NOTE: deliberately no -f: with -f, curl suppresses error-response
     # bodies, and the 403/429 body is exactly what diagnoses a block.
-    code="$(curl -sSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    code="$(curl -sSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${auth[@]}" "$url" 2>/dev/null || true)"
     echo "detect: GET ${url#"$API"/} -> HTTP ${code:-none} (attempt $attempt)" >&2
     if [ "$code" = "200" ]; then
       _GH_JSON_OUT="$(cat "$body")"
