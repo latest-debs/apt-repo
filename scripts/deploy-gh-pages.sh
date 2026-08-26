@@ -26,8 +26,11 @@ REPO_ROOT="$(pwd)"
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
-# Large-push reliability: HTTP/1.1 for every git transfer in this deploy.
-git config --global http.version HTTP/1.1
+# Push reliability only: HTTP/1.1 for the push (the RPC-500-on-large-push
+# workaround). Deliberately NOT set globally - it was first deployed with
+# http.version set globally, which also throttled the ~2GB baseline CLONE
+# into a 25-minute crawl (single HTTP/1.1 stream). Clones keep HTTP/2
+# multiplexing; only the push forces HTTP/1.1.
 git config --global http.postBuffer 524288000
 git config --global user.name "github-actions[bot]"
 git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -44,6 +47,7 @@ EXCLUDES=(
 
 deploy_attempt() {
   local url="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+  local t0=$SECONDS
   rm -rf "$WORK/gh-pages"
   # Fresh shallow clone of gh-pages each attempt so a partially-pushed
   # previous attempt can't poison this one's commit.
@@ -51,15 +55,20 @@ deploy_attempt() {
     log "gh-pages branch missing or unreachable; creating an orphan checkout"
     git init -q -b gh-pages "$WORK/gh-pages"
   fi
+  log "clone done in $((SECONDS - t0))s"
+  local t1=$SECONDS
   rsync -a --delete "${EXCLUDES[@]}" "$REPO_ROOT/" "$WORK/gh-pages/"
   cd "$WORK/gh-pages"
   git add -A
+  log "sync+add done in $((SECONDS - t1))s"
   if git diff --cached --quiet; then
     log "nothing changed; skipping push"
     return 0
   fi
   git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ'))"
-  git push origin gh-pages
+  local t2=$SECONDS
+  git -c http.version=HTTP/1.1 push origin gh-pages
+  log "push done in $((SECONDS - t2))s (total $((SECONDS - t0))s)"
 }
 
 attempt=1
