@@ -33,7 +33,7 @@ jobs:
       issues: write
     steps:
       - name: Checkout apt-repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Extract request fields
         id: fields
@@ -128,7 +128,7 @@ jobs:
       issues: write
     steps:
       - name: Checkout apt-repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Extract request fields
         id: fields
