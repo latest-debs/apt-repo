@@ -66,14 +66,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log trigger
+        # client_payload comes from another repo's release event (tag names
+        # are attacker-influenceable if that repo's release process ever
+        # takes external input) - pass via env rather than interpolating
+        # into the script, consistent with package-request.yml's fix.
         run: |
-          case "${{ github.event_name }}" in
+          case "$EVENT_NAME" in
             repository_dispatch)
-              echo "Triggered by release-published from ${{ github.event.client_payload.repo }} @ ${{ github.event.client_payload.tag }}"
+              echo "Triggered by release-published from $DISPATCH_REPO @ $DISPATCH_TAG"
               ;;
             schedule) echo "Triggered by schedule (fallback)" ;;
             workflow_dispatch) echo "Triggered manually" ;;
           esac
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_REPO: ${{ github.event.client_payload.repo }}
+          DISPATCH_TAG: ${{ github.event.client_payload.tag }}
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -149,7 +157,7 @@ jobs:
         # scratch - the cause of the repeated HTTP 500 push failures as the
         # catalog grew. Committing on top of the existing branch lets git
         # reuse unchanged blobs and push only the actual delta.
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .

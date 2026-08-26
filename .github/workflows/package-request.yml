@@ -13,11 +13,14 @@ on:
 # Least-privilege tokens:
 #   * GITHUB_TOKEN is auto-scoped to this repo with the per-job permissions
 #     declared below - it is what pushes to apt-repo and edits issues.
-#   * secrets.ORG_ADMIN_TOKEN is ONLY used by the deploy step, which must
-#     create repos in the latest-debs org and dispatch their workflows. It
-#     should be a fine-grained PAT restricted to this org with only
-#     Administration:write + Contents:write + Workflows:write (never a
-#     classic PAT with admin:org), short-lived and rotated.
+#   * The org-admin token used by the deploy step (create repos in the
+#     latest-debs org, dispatch their workflows) is minted on demand from a
+#     GitHub App installation (secrets.APP_ID + secrets.APP_PRIVATE_KEY) via
+#     actions/create-github-app-token, instead of a long-lived PAT stored as
+#     a secret - each run gets a token that expires in ~1h and is scoped to
+#     exactly what the App installation grants (Administration:write +
+#     Contents:write + Workflows:write on latest-debs only), so there is no
+#     standing high-privilege credential to leak or rotate.
 permissions: {}
 
 jobs:
@@ -49,14 +52,22 @@ jobs:
 
       - name: Validate and scaffold package repo
         id: scaffold
+        # Request fields come from an untrusted issue body - pass them via
+        # env vars (single argv values) rather than interpolating them into
+        # the run: script, which would let a crafted "about"/"name" field
+        # break out of the quoted argument and execute arbitrary shell here.
         run: |
           bash scripts/add-package.sh scaffold \
-            --name "${{ steps.fields.outputs.name }}" \
-            --repo "${{ steps.fields.outputs.repo }}" \
-            --description "${{ steps.fields.outputs.about }}" \
-            --license "${{ steps.fields.outputs.license }}" \
+            --name "$PKG_NAME" \
+            --repo "$PKG_REPO" \
+            --description "$PKG_ABOUT" \
+            --license "$PKG_LICENSE" \
             --out "$RUNNER_TEMP"
         env:
+          PKG_NAME: ${{ steps.fields.outputs.name }}
+          PKG_REPO: ${{ steps.fields.outputs.repo }}
+          PKG_ABOUT: ${{ steps.fields.outputs.about }}
+          PKG_LICENSE: ${{ steps.fields.outputs.license }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
@@ -74,7 +85,7 @@ jobs:
         run: |
           gh label create awaiting-approval --force 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "awaiting-approval" --remove-label "processing"
-          report="$RUNNER_TEMP/${{ steps.fields.outputs.name }}-debian/.github/vet-report.json"
+          report="$RUNNER_TEMP/$PKG_NAME-debian/.github/vet-report.json"
           gate="$(jq -r '.gate // "unknown"' "$report" 2>/dev/null || echo unknown)"
           covered="$(jq -c '.architectures.covered // []' "$report" 2>/dev/null || echo '[]')"
           missing="$(jq -c '.architectures.missing // []' "$report" 2>/dev/null || echo '[]')"
@@ -106,6 +117,7 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           REPO: ${{ github.repository }}
           RUNNER_TEMP: ${{ runner.temp }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
 
   fulfil:
     name: Fulfil approved package request
@@ -144,32 +156,49 @@ jobs:
 
       - name: Validate and scaffold package repo
         id: scaffold
+        # Request fields come from an untrusted issue body - pass them via
+        # env vars (single argv values) rather than interpolating them into
+        # the run: script, which would let a crafted "about"/"name" field
+        # break out of the quoted argument and execute arbitrary shell here.
         run: |
           bash scripts/add-package.sh scaffold \
-            --name "${{ steps.fields.outputs.name }}" \
-            --repo "${{ steps.fields.outputs.repo }}" \
-            --description "${{ steps.fields.outputs.about }}" \
-            --license "${{ steps.fields.outputs.license }}" \
+            --name "$PKG_NAME" \
+            --repo "$PKG_REPO" \
+            --description "$PKG_ABOUT" \
+            --license "$PKG_LICENSE" \
             --out "$RUNNER_TEMP"
         env:
+          PKG_NAME: ${{ steps.fields.outputs.name }}
+          PKG_REPO: ${{ steps.fields.outputs.repo }}
+          PKG_ABOUT: ${{ steps.fields.outputs.about }}
+          PKG_LICENSE: ${{ steps.fields.outputs.license }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
-      - name: Check ORG_ADMIN_TOKEN
+      - name: Check GitHub App credentials
         id: check-token
         env:
-          # Fine-grained PAT, org-restricted (Administration:write +
-          # Contents:write + Workflows:write on latest-debs only). Used ONLY
-          # by the deploy step to create the org repo and dispatch its first
-          # build - everything else in this job uses the repo-scoped
-          # GITHUB_TOKEN.
-          ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
         run: |
-          if [ -n "$ADMIN_TOKEN" ]; then
+          if [ -n "$APP_ID" ] && [ -n "$APP_PRIVATE_KEY" ]; then
             echo "has_token=true" >> "$GITHUB_OUTPUT"
           else
             echo "has_token=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Mint org deploy token
+        id: org-token
+        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
+        # Short-lived (~1h) installation token scoped to whatever the App
+        # installation grants - used ONLY by the deploy step to create the
+        # org repo and dispatch its first build. Everything else in this job
+        # uses the repo-scoped GITHUB_TOKEN.
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: latest-debs
 
       - name: Comment on failure
         if: always() && steps.scaffold.outcome == 'failure'
@@ -183,12 +212,15 @@ jobs:
       - name: Deploy package repo
         id: deploy
         if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
+        # PKG_NAME is attacker-controlled (the issue's "Tool name" field) and
+        # this step holds the minted org deploy token/TRIGGER_TOKEN - it MUST
+        # come in via env, never interpolated into the script text.
         run: |
           bash scripts/add-package.sh deploy-repo \
-            --name "${{ steps.fields.outputs.name }}" \
+            --name "$PKG_NAME" \
             --dir "$RUNNER_TEMP"
           for _ in $(seq 1 30); do
-            run_id="$(gh run list --repo "latest-debs/${{ steps.fields.outputs.name }}-debian" --workflow release.yml --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)"
+            run_id="$(gh run list --repo "latest-debs/$PKG_NAME-debian" --workflow release.yml --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)"
             [ -n "$run_id" ] && [ "$run_id" != "null" ] && break
             sleep 2
           done
@@ -196,30 +228,35 @@ jobs:
         env:
           # Deploy needs the org token to create the repo; TRIGGER_TOKEN is
           # copied onto the new repo so its releases can dispatch rebuilds.
-          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          GH_TOKEN: ${{ steps.org-token.outputs.token }}
           TRIGGER_TOKEN: ${{ secrets.TRIGGER_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
 
       - name: Register in tools.yaml
         id: register
         if: always() && steps.deploy.outcome == 'success'
         run: |
           bash scripts/add-package.sh register-tools \
-            --name "${{ steps.fields.outputs.name }}" \
-            --repo "${{ steps.fields.outputs.repo }}" \
+            --name "$PKG_NAME" \
+            --repo "$PKG_REPO" \
             --tools-yaml "$GITHUB_WORKSPACE/tools.yaml"
         env:
           # Pushes only to this repo (apt-repo), so the repo-scoped token is
           # sufficient - no org admin credentials needed here.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
+          PKG_REPO: ${{ steps.fields.outputs.repo }}
 
       - name: Wait for the first build
         id: build
         if: always() && steps.deploy.outcome == 'success' && steps.register.outcome == 'success'
+        # PKG_NAME is attacker-controlled and this step holds the minted org
+        # deploy token - must come in via env, not interpolated into text.
         run: |
           run_id="${{ steps.deploy.outputs.build_run_id }}"
-          repo="latest-debs/${{ steps.fields.outputs.name }}-debian"
+          repo="latest-debs/$PKG_NAME-debian"
           status=""
           for _ in $(seq 1 120); do
             status="$(gh run view "$run_id" --repo "$repo" --json status --jq .status 2>/dev/null || true)"
@@ -230,14 +267,15 @@ jobs:
           echo "conclusion=$conclusion" >> "$GITHUB_OUTPUT"
           echo "run_url=https://github.com/$repo/actions/runs/$run_id" >> "$GITHUB_OUTPUT"
         env:
-          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          GH_TOKEN: ${{ steps.org-token.outputs.token }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
 
       - name: Comment and close on build success
         if: always() && steps.build.outcome == 'success' && steps.build.outputs.conclusion == 'success'
         run: |
-          tag="$(gh release list --repo "latest-debs/${{ steps.fields.outputs.name }}-debian" --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)"
+          tag="$(gh release list --repo "latest-debs/$PKG_NAME-debian" --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)"
           version="${tag#v}"; version="${version%+*}"
-          printf -v body '✅ **%s** %s built and published.\n\nRepo: https://github.com/latest-debs/%s-debian\nBuild: %s\n\nThe apt repo picks it up on the next rebuild (~6h; best-effort, no SLA).' "${{ steps.fields.outputs.name }}" "${version:+v${version}}" "${{ steps.fields.outputs.name }}" "${{ steps.build.outputs.run_url }}"
+          printf -v body '✅ **%s** %s built and published.\n\nRepo: https://github.com/latest-debs/%s-debian\nBuild: %s\n\nThe apt repo picks it up on the next rebuild (~6h; best-effort, no SLA).' "$PKG_NAME" "${version:+v${version}}" "$PKG_NAME" "${{ steps.build.outputs.run_url }}"
           gh label create automated --force 2>/dev/null || true
           gh issue edit "$NUMBER" --repo "$REPO" --add-label "automated" --remove-label "processing" --remove-label "awaiting-approval" --remove-label "build-failed"
           gh issue close "$NUMBER" --repo "$REPO" --comment "$body"
@@ -245,6 +283,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
 
       - name: Comment on build failure
         if: always() && steps.build.outcome == 'success' && steps.build.outputs.conclusion != 'success'
@@ -263,16 +302,17 @@ jobs:
         if: always() && steps.scaffold.outcome == 'success' && (steps.deploy.outcome == 'failure' || steps.register.outcome == 'failure')
         run: |
           gh issue edit "$NUMBER" --repo "$REPO" --remove-label "processing"
-          gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Validation passed, but deployment failed. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) — the scaffold is ready, so a maintainer can deploy it manually with \`bash scripts/add-package.sh deploy-repo --name ${{ steps.fields.outputs.name }} --dir <scaffold>\`."
+          gh issue comment "$NUMBER" --repo "$REPO" --body "❌ Validation passed, but deployment failed. Check the [run logs]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) — the scaffold is ready, so a maintainer can deploy it manually with \`bash scripts/add-package.sh deploy-repo --name $PKG_NAME --dir <scaffold>\`."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.inputs.issue_number }}
           REPO: ${{ github.repository }}
+          PKG_NAME: ${{ steps.fields.outputs.name }}
 
       - name: Comment when admin token is missing
         if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'false'
         run: |
-          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **ORG_ADMIN_TOKEN** secret in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) to enable one-click deployment — then reply \`/approve\` again."
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **APP_ID** and **APP_PRIVATE_KEY** secrets in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) (see the deploy GitHub App setup in README.md) to enable one-click deployment — then reply \`/approve\` again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.inputs.issue_number }}
