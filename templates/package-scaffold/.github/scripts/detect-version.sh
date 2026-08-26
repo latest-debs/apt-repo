@@ -35,6 +35,7 @@ gh_json() {
   local url="$1" attempt code
   for attempt in 1 2 3; do
     code="$(curl -fsSL -o /tmp/gh_json.$$ -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    echo "detect: GET ${url#"$API"/} -> HTTP ${code:-none} (attempt $attempt)"
     if [ "$code" = "200" ]; then
       cat /tmp/gh_json.$$
       rm -f /tmp/gh_json.$$
