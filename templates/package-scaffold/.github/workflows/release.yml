@@ -205,7 +205,7 @@ jobs:
                 break
               fi
             done
-            [ "$ok" = 1 ] || { echo "SMOKE_FAIL:$name"; exit 1; }
+            [ "$ok" = 1 ] || { echo "$out"; echo "SMOKE_FAIL:$name"; exit 1; }
           done
           echo "ALL_OK"'
             out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
