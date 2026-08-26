@@ -55,7 +55,7 @@ done
     *.tgz) format="tgz";;
     *.tar.gz) format="tar.gz";;
     *.tar.xz) format="tar.xz";;
-    *) echo "ERROR: cannot infer format from $asset; pass --format" >&2; exit 2;;
+    *) format="raw";;
   esac
 }
 [ -n "$out" ] || out="$(pwd)"
@@ -83,6 +83,13 @@ case "$format" in
     # itself, so one path covers all three tar variants.
     if tar -tf "$asset" >/dev/null 2>&1; then valid=true; fi
     ;;
+  raw)
+    # No archive - the asset itself is the binary (e.g. oh-my-posh's
+    # "posh-linux-amd64", no .tar.*/.zip wrapper). "Valid" just means it's
+    # actually an ELF executable, checked below via the same ELF scan every
+    # other format uses.
+    if printf '%s' "$ftype" | grep -qi "ELF"; then valid=true; fi
+    ;;
 esac
 
 # Locate Linux ELF executables inside the archive.
@@ -93,6 +100,9 @@ case "$format" in
     ;;
   tar.gz|tgz|tar.xz)
     mkdir -p "$TMP/x" && tar -xf "$asset" -C "$TMP/x" 2>/dev/null || true
+    ;;
+  raw)
+    mkdir -p "$TMP/x" && cp "$asset" "$TMP/x/" 2>/dev/null || true
     ;;
 esac
 if [ -d "$TMP/x" ]; then
@@ -163,11 +173,20 @@ PAT
 
 asset_map_coverage=""
 if [ -n "$release_json" ] && [ -f "$release_json" ]; then
-  # All Linux archive asset names in the release.
-  rel_assets="$(jq -r '.assets[]?.name' "$release_json" 2>/dev/null \
-    | grep -iE 'linux' \
-    | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
-    | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)"
+  # All Linux archive asset names in the release. A "raw" (bare, unarchived
+  # binary) release has no extension to match on, so exclude known
+  # non-binary asset types instead of requiring one - see add-package.sh.
+  if [ "$format" = "raw" ]; then
+    rel_assets="$(jq -r '.assets[]?.name' "$release_json" 2>/dev/null \
+      | grep -iE 'linux' \
+      | grep -viE '\.(tar\.gz|tgz|tar\.xz|tar\.bz2|tar\.zst|zip|deb|rpm|exe|dmg|pkg|txt|md|json|sig|asc|sha256|sha256sum|sha512|sbom)$' \
+      | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)"
+  else
+    rel_assets="$(jq -r '.assets[]?.name' "$release_json" 2>/dev/null \
+      | grep -iE 'linux' \
+      | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
+      | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)"
+  fi
   covered=""
   covered_assets=""
   missing=""

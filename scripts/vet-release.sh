@@ -69,11 +69,26 @@ license="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
 # per-architecture assets (one per arch), so the provenance pin must cover
 # ALL of them - not just the primary - or a swapped non-primary asset would
 # slip through. Selection mirrors the builder's auto-discovery filter.
+#
+# When the primary asset has no recognized archive extension (a bare,
+# unarchived binary - see add-package.sh), the sibling per-arch assets won't
+# either, so exclude known non-binary asset types instead of requiring an
+# archive extension.
 # ---------------------------------------------------------------------------
-mapfile -t linux_assets < <(jq -r '.assets[]?.name' <<<"$release" \
-    | grep -iE 'linux' \
-    | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
-    | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)
+case "$asset" in
+  *.tar.gz|*.tgz|*.tar.xz|*.zip)
+    mapfile -t linux_assets < <(jq -r '.assets[]?.name' <<<"$release" \
+        | grep -iE 'linux' \
+        | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
+        | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)
+    ;;
+  *)
+    mapfile -t linux_assets < <(jq -r '.assets[]?.name' <<<"$release" \
+        | grep -iE 'linux' \
+        | grep -viE '\.(tar\.gz|tgz|tar\.xz|tar\.bz2|tar\.zst|zip|deb|rpm|exe|dmg|pkg|txt|md|json|sig|asc|sha256|sha256sum|sha512|sbom)$' \
+        | grep -viE 'sha256|checksum|\.asc$|source|sums' || true)
+    ;;
+esac
 
 # Select the asset: an explicit override, or the first Linux archive.
 if [ -z "$asset" ]; then
@@ -190,7 +205,7 @@ size_actual="$(jq -r --arg a "$asset" '.assets[]? | select(.name == $a) | .size 
 # Retain the primary asset so the caller (add-package.sh) can run the vet
 # pre-checks (license/SPDX scan + asset validation) against the exact bytes
 # that were vetted, without a second download.
-ext="tar.gz"; case "$asset" in *.zip) ext="zip";; *.tgz) ext="tgz";; *.tar.xz) ext="tar.xz";; esac
+ext="tar.gz"; case "$asset" in *.zip) ext="zip";; *.tgz) ext="tgz";; *.tar.xz) ext="tar.xz";; *.tar.gz) ext="tar.gz";; *) ext="raw";; esac
 curl -fsSL -o "$out/primary.$ext" "$dlurl" 2>/dev/null \
   || echo "  ⚠ could not retain primary asset for pre-checks" >&2
 # The release JSON (asset list + license) for the caller's pre-checks.

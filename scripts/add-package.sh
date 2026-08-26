@@ -98,7 +98,13 @@ scaffold() {
   local release_tag
   release_tag="$(printf '%s' "$release" | jq -r '.tag_name // empty')"
   assets="$(printf '%s' "$release" | jq -r '.assets[]?.name' || true)"
-  # Prefer a Linux build; fall back to any non-mac/windows archive.
+  # Prefer a Linux archive; fall back to any non-mac/windows archive; then
+  # fall back to a bare, unarchived Linux binary - some goreleaser/cargo-dist
+  # configs skip archiving a single-binary release (e.g.
+  # jandedobbeleer/oh-my-posh's "posh-linux-amd64", no .tar.*/.zip at all).
+  # That last tier has no extension to match on, so it instead excludes
+  # known non-binary asset types (docs, checksums, signatures, other package
+  # formats) rather than requiring a recognized one.
   asset="$(printf '%s' "$assets" \
     | grep -iE 'linux' \
     | grep -iE '\.(tar\.gz|tgz|tar\.xz|zip)$' \
@@ -110,12 +116,20 @@ scaffold() {
       | grep -viE 'darwin|macos|windows|win32|msvc|apple|sha256|checksum|\.asc$|source|sums' \
       | head -n1 || true)"
   fi
-  [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.tar.xz/.zip asset found in the latest release of $repo"
+  if [ -z "$asset" ]; then
+    asset="$(printf '%s' "$assets" \
+      | grep -iE 'linux' \
+      | grep -viE '\.(tar\.gz|tgz|tar\.xz|tar\.bz2|tar\.zst|zip|deb|rpm|exe|dmg|pkg|txt|md|json|sig|asc|sha256|sha256sum|sha512|sbom)$' \
+      | grep -viE 'darwin|macos|windows|win32|msvc|apple|sha256|checksum|\.asc$|source|sums' \
+      | head -n1 || true)"
+  fi
+  [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.tar.xz/.zip or bare-binary asset found in the latest release of $repo"
   case "$asset" in
     *.tar.gz) fmt="tar.gz";;
     *.tgz) fmt="tgz";;
     *.tar.xz) fmt="tar.xz";;
     *.zip) fmt="zip";;
+    *) fmt="raw";;
   esac
   echo "→ Asset: $asset (format: $fmt)"
 
