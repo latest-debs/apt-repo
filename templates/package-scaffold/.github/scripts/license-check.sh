@@ -16,19 +16,24 @@ set -euo pipefail
 API="https://api.github.com"
 AUTH=(-H "Authorization: token ${GITHUB_TOKEN:?}")
 
-# Retry on 403/429/5xx (3 attempts, 5s/15s backoff). Warn-only script: a
-# persistent rate limit degrades to a warning, never a silent "" that would
-# look like "upstream has no license".
+# Retry on 403/429/5xx (3 attempts, 5s/10s backoff). On success sets
+# _LIC_JSON to the body and returns 0. All diagnostics to STDERR - never
+# call this via $( ) command substitution (stdout capture swallows the
+# warnings and degrades a persistent 403 into a silent "" that would look
+# like "upstream has no license").
+_LIC_JSON=""
 gh_json() {
+  _LIC_JSON=""
   local url="$1" attempt code
+  local body; body="$(mktemp)"
   for attempt in 1 2 3; do
-    code="$(curl -fsSL -o /tmp/lic_json.$$ -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    code="$(curl -fsSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
     if [ "$code" = "200" ]; then
-      cat /tmp/lic_json.$$
-      rm -f /tmp/lic_json.$$
+      _LIC_JSON="$(cat "$body")"
+      rm -f "$body"
       return 0
     fi
-    rm -f /tmp/lic_json.$$
+    rm -f "$body"
     case "$code" in
       403|429|5??)
         echo "::warning::GitHub API $code (attempt $attempt/3) in license-check; backing off" >&2
@@ -53,8 +58,8 @@ PINNED="$(yaml_val license)"
 out() { printf '%s=%s\n' "$1" "$2" >>"${GITHUB_OUTPUT:-/dev/null}"; }
 
 LIVE=""
-if repo="$(gh_json "$API/repos/$GITHUB_REPO")"; then
-  LIVE="$(printf '%s' "$repo" | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
+if gh_json "$API/repos/$GITHUB_REPO"; then
+  LIVE="$(jq -r '.license.spdx_id // ""' <<<"$_LIC_JSON" 2>/dev/null || true)"
 fi
 
 out license "$LIVE"

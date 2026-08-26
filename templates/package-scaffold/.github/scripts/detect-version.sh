@@ -28,41 +28,52 @@ set -euo pipefail
 API="https://api.github.com"
 AUTH=(-H "Authorization: token ${GITHUB_TOKEN:?}")
 
-# curl with 403/429/5xx retry: 3 attempts, 5s/15s backoff. Prints the body
-# on success; on persistent rate limit emits a ::error and exits 1 (never
-# a silent empty string - callers must not confuse that with "no releases").
+# curl with 403/429/5xx retry: 3 attempts, 5s/10s backoff. On success sets
+# _GH_JSON_OUT to the body and returns 0; otherwise returns nonzero.
+# All diagnostics go to STDERR - this function must never be called via
+# $( ) command substitution (stdout capture would swallow them, and exit 1
+# would only kill the subshell, silently continuing as "no releases").
+_GH_JSON_OUT=""
 gh_json() {
+  _GH_JSON_OUT=""
   local url="$1" attempt code
+  local body; body="$(mktemp)"
   for attempt in 1 2 3; do
-    code="$(curl -fsSL --connect-timeout 5 --max-time 30 -o /tmp/gh_json.$$ -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
-    echo "detect: GET ${url#"$API"/} -> HTTP ${code:-none} (attempt $attempt)"
+    code="$(curl -fsSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    echo "detect: GET ${url#"$API"/} -> HTTP ${code:-none} (attempt $attempt)" >&2
     if [ "$code" = "200" ]; then
-      cat /tmp/gh_json.$$
-      rm -f /tmp/gh_json.$$
+      _GH_JSON_OUT="$(cat "$body")"
+      rm -f "$body"
       return 0
     fi
-    rm -f /tmp/gh_json.$$
     case "$code" in
       403|429|5??)
-        echo "::warning::GitHub API $code (attempt $attempt/3) for $url; backing off"
+        echo "::warning::GitHub API $code (attempt $attempt/3) for $url; backing off" >&2
+        if [ -s "$body" ]; then
+          echo "  response body: $(head -c 300 "$body")" >&2
+        fi
         sleep $((attempt * 5))
         ;;
       404)
-        # Genuinely absent resource - let the caller decide (empty output).
+        # Genuinely absent resource - let the caller decide.
+        rm -f "$body"
         return 1
         ;;
       "")
-        echo "::warning::GitHub API unreachable (attempt $attempt/3) for $url"
+        echo "::warning::GitHub API unreachable (attempt $attempt/3) for $url" >&2
         sleep $((attempt * 5))
         ;;
       *)
-        echo "::error::Unexpected GitHub API $code for $url"
-        exit 1
+        echo "::error::Unexpected GitHub API $code for $url" >&2
+        [ -s "$body" ] && echo "  response body: $(head -c 300 "$body")" >&2
+        rm -f "$body"
+        return 1
         ;;
     esac
   done
-  echo "::error::GitHub API persistently rate-limited/unavailable (403/429) for $url - NOT treating this as 'no releases'. See https://docs.github.com/rest/rate-limit"
-  exit 1
+  rm -f "$body"
+  echo "::error::GitHub API persistently rate-limited/unavailable (403/429) for $url - NOT treating this as 'no releases'. See https://docs.github.com/rest/rate-limit" >&2
+  return 1
 }
 
 yaml_val() {
@@ -96,13 +107,14 @@ fi
 
 # Latest upstream release (skips drafts and prereleases by default).
 UPSTREAM_TAG=""
-if resp="$(gh_json "$API/repos/$GITHUB_REPO/releases/latest")"; then
-  UPSTREAM_TAG="$(printf '%s' "$resp" | jq -r '.tag_name // empty' 2>/dev/null || true)"
+if gh_json "$API/repos/$GITHUB_REPO/releases/latest"; then
+  UPSTREAM_TAG="$(jq -r '.tag_name // empty' <<<"$_GH_JSON_OUT" 2>/dev/null || true)"
 fi
 if [ -z "$UPSTREAM_TAG" ]; then
   # Fallback: upstream publishes everything as prerelease, or no release metadata.
-  if resp="$(gh_json "$API/repos/$GITHUB_REPO/releases?per_page=1")"; then
-    UPSTREAM_TAG="$(printf '%s' "$resp" | jq -r '.[0].tag_name // empty' 2>/dev/null || true)"
+  echo "detect: no published 'latest' release - trying the release list fallback" >&2
+  if gh_json "$API/repos/$GITHUB_REPO/releases?per_page=1"; then
+    UPSTREAM_TAG="$(jq -r '.[0].tag_name // empty' <<<"$_GH_JSON_OUT" 2>/dev/null || true)"
   fi
 fi
 if [ -z "$UPSTREAM_TAG" ]; then
@@ -133,12 +145,12 @@ fi
 
 # Newest tag already built in this repo.
 OWN_TAG=""
-if resp="$(gh_json "$API/repos/$GITHUB_REPOSITORY/releases/latest")"; then
-  OWN_TAG="$(printf '%s' "$resp" | jq -r '.tag_name // empty' 2>/dev/null || true)"
+if gh_json "$API/repos/$GITHUB_REPOSITORY/releases/latest"; then
+  OWN_TAG="$(jq -r '.tag_name // empty' <<<"$_GH_JSON_OUT" 2>/dev/null || true)"
 fi
 if [ -z "$OWN_TAG" ]; then
-  if resp="$(gh_json "$API/repos/$GITHUB_REPOSITORY/tags?per_page=1")"; then
-    OWN_TAG="$(printf '%s' "$resp" | jq -r '.[0].name // empty' 2>/dev/null || true)"
+  if gh_json "$API/repos/$GITHUB_REPOSITORY/tags?per_page=1"; then
+    OWN_TAG="$(jq -r '.[0].name // empty' <<<"$_GH_JSON_OUT" 2>/dev/null || true)"
   fi
 fi
 
