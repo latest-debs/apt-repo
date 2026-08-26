@@ -2,10 +2,11 @@
 
 # latest-debs apt repository
 
-Latest stable releases of developer tools, packaged for Debian and served
-over `apt`.
+Latest stable releases of developer tools, packaged for Debian and Ubuntu and
+served over `apt`.
 
 - **Debian:** Bullseye (11), Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
+- **Ubuntu:** Noble (24.04 LTS), Jammy (22.04 LTS, served as an alias of Bullseye)
 - **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64, loong64 (plus i386 and armel on bullseye/bookworm/trixie)
 - **Updates:** near-instant — publishing a release in a `*-debian` repo
   triggers an immediate rebuild via webhook, with a ~6h scheduled run as the
