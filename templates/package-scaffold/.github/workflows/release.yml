@@ -196,6 +196,12 @@ jobs:
           apt-get install -y -qq "$1" >/dev/null
           shift; expected="$1"; shift
           for name in "$@"; do
+            # Binaries listed in package.yaml smoke_skip (substituted below)
+            # are not standalone CLIs (plugin protocol, aliases, protoc
+            # plugins) and never report --version - skip them.
+            case "$name" in
+              __SMOKE_SKIP_GLOB__) echo "  SKIP: $name (smoke_skip)"; continue;;
+            esac
             ok=0
             for arg in --version -V version; do
               out="$("$name" "$arg" 2>&1 || true)"
@@ -205,7 +211,10 @@ jobs:
                 break
               fi
             done
-            [ "$ok" = 1 ] || { echo "$out"; echo "SMOKE_FAIL:$name"; exit 1; }
+            # Emit the failing binary's output BEFORE SMOKE_FAIL: the outer
+            # loop greps this stream for "GLIBC" to fall through to the next
+            # newer suite (nushell/helix need newer glibc than bullseye).
+            [ "$ok" = 1 ] || { printf '%s\n' "$out" | head -5; echo "SMOKE_FAIL:$name"; exit 1; }
           done
           echo "ALL_OK"'
             out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \

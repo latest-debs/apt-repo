@@ -170,6 +170,19 @@ apply_to_dir() {
   local subst=(-e "s|__PKG_NAME__|$name|g" -e "s|__GITHUB_REPO__|$upstream|g"
                -e "s|__ARTIFACT_FORMAT__|$fmt|g" -e "s|__DESCRIPTION__|$desc|g")
 
+  # smoke_skip (optional package.yaml list) -> case-glob for the smoke
+  # script's skip branch. Binaries like nu_plugin_* / protoc-gen-* /
+  # flashfetch speak no --version; without a skip they fail the gate.
+  # Empty/absent -> never-matching sentinel keeps the case valid.
+  local skip_globs
+  skip_globs="$(awk '/^smoke_skip:/{flag=1; next} flag && /^  - /{gsub(/^  - |"|\x27/, ""); printf "%s|", $0; next} {flag=0}' "$pkg_yaml")"
+  skip_globs="${skip_globs%|}"
+  if [ -n "$skip_globs" ]; then
+    subst+=(-e "s|__SMOKE_SKIP_GLOB__|$skip_globs|g")
+  else
+    subst+=(-e "s|__SMOKE_SKIP_GLOB__|__SMOKE_SKIP_NONE__|g")
+  fi
+
   local wf="$dir/.github/workflows/release.yml"
   local nf="$dir/.github/workflows/notify-apt-repo.yml"
   local ff="$dir/.github/workflows/notify-failure.yml"
