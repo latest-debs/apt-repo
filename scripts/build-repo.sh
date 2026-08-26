@@ -429,24 +429,24 @@ fi
 
 mkdir -p "$APT_CACHE_DIR"
 
-# Ubuntu jammy is an alias of bullseye for substring UX (no extra docker build):
-# copy pool/bullseye -> pool/jammy so jammy appears in releases with +jammy
-# artifacts without rebuilding. Noble is a real build (needs separate docker).
-if [[ -d "$POOL/bullseye" ]]; then
-  if [[ -n "$(jq -r '.aliases.jammy // empty' "$ROOT/suites.json")" ]]; then
-    alias_src="$(jq -r '.aliases.jammy' "$ROOT/suites.json")"
-    if [[ -d "$POOL/$alias_src" && ! -e "$POOL/jammy" ]]; then
-      log "== alias jammy -> $alias_src (pool copy for substring UX) =="
-      cp -a "$POOL/$alias_src" "$POOL/jammy"
-      # Rewrite +bullseye -> +jammy in filenames so grep +jammy matches
-      for f in "$POOL/jammy"/*/*; do
-        [[ -f "$f" ]] || continue
-        nf="${f/+${alias_src}/+jammy}"
-        [[ "$f" != "$nf" ]] && mv "$f" "$nf"
-      done
-    fi
+# Ubuntu suites without a dedicated build are served as an alias of a Debian
+# suite whose glibc is older-or-equal, so its binaries also run there: copy
+# pool/<src> -> pool/<alias> and rewrite the suite token in filenames (no
+# extra docker build). Source of truth for the mapping is suites.json's
+# "aliases" map.
+while IFS=$'\t' read -r alias_suite alias_src; do
+  [[ -n "$alias_suite" ]] || continue
+  if [[ -d "$POOL/$alias_src" && ! -e "$POOL/$alias_suite" ]]; then
+    log "== alias $alias_suite -> $alias_src (pool copy, no separate build) =="
+    cp -a "$POOL/$alias_src" "$POOL/$alias_suite"
+    # Rewrite +<alias_src> -> +<alias_suite> in filenames so grep +<alias_suite> matches
+    for f in "$POOL/$alias_suite"/*/*; do
+      [[ -f "$f" ]] || continue
+      nf="${f/+${alias_src}/+${alias_suite}}"
+      [[ "$f" != "$nf" ]] && mv "$f" "$nf"
+    done
   fi
-fi
+done < <(jq -r '.aliases | to_entries[] | [.key, .value] | @tsv' "$ROOT/suites.json")
 
 log "== generating indexes =="
 for suite in "$POOL"/*/; do

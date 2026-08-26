@@ -8,10 +8,15 @@
     {"distro": "debian", "suite": "trixie"},
     {"distro": "debian", "suite": "forky"},
     {"distro": "debian", "suite": "sid"},
-    {"distro": "ubuntu", "suite": "noble"},
-    {"distro": "ubuntu", "suite": "jammy", "alias_of": "bullseye"}
+    {"distro": "ubuntu", "suite": "jammy", "alias_of": "bullseye"},
+    {"distro": "ubuntu", "suite": "noble", "alias_of": "trixie"},
+    {"distro": "ubuntu", "suite": "questing", "alias_of": "trixie"},
+    {"distro": "ubuntu", "suite": "resolute", "alias_of": "trixie"}
   ],
   "aliases": {
-    "jammy": "bullseye"
+    "jammy": "bullseye",
+    "noble": "trixie",
+    "questing": "trixie",
+    "resolute": "trixie"
   }
 }
