@@ -39,7 +39,9 @@ gh_json() {
   local url="$1" attempt code
   local body; body="$(mktemp)"
   for attempt in 1 2 3; do
-    code="$(curl -fsSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
+    # NOTE: deliberately no -f: with -f, curl suppresses error-response
+    # bodies, and the 403/429 body is exactly what diagnoses a block.
+    code="$(curl -sSL --connect-timeout 5 --max-time 30 -o "$body" -w '%{http_code}' "${AUTH[@]}" "$url" 2>/dev/null || true)"
     echo "detect: GET ${url#"$API"/} -> HTTP ${code:-none} (attempt $attempt)" >&2
     if [ "$code" = "200" ]; then
       _GH_JSON_OUT="$(cat "$body")"
