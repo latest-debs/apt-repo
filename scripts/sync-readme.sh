@@ -103,7 +103,9 @@ license_for() {
   IFS=$'\n'
   for row in $rows; do
     name=""; install=""; upstream=""
-    IFS=$'\t' read -r name install upstream <<< "$row"
+    # rows are 5 columns (name, install, homepage, display, description);
+    # the trailing _ soaks up display+description so `upstream` stays col 3.
+    IFS=$'\t' read -r name install upstream _ <<< "$row"
     if [ "$install" = "NONE" ]; then
       # debian_name: NONE is a marker for sid-version comparison tooling
       # (e.g. zed, whose Debian "zed" is an unrelated 1980s editor), not

@@ -263,7 +263,7 @@ jobs:
             [ "$ok" = 1 ] || { echo "$out" | head -5; echo "SMOKE_FAIL:$name"; exit 1; }
           done
           echo "ALL_OK"'
-            out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" debian:$SUITE \
+            out="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$DEB:/pkg.deb:ro" "debian:$SUITE" \
               bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "$SKIP_GLOB" "${bin_names[@]}" 2>&1)" || true
             echo "$out"
             if echo "$out" | grep -q "^ALL_OK$"; then
@@ -324,7 +324,7 @@ jobs:
               sm "| ubuntu:$U | $SUITE | skip (no binaries in package) |"
               continue
             fi
-            uout="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$UDEB:/pkg.deb:ro" ubuntu:$U \
+            uout="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$UDEB:/pkg.deb:ro" "ubuntu:$U" \
               bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "$SKIP_GLOB" "${ubin_names[@]}" 2>&1)" || true
             if echo "$uout" | grep -q "^ALL_OK$"; then
               echo "Ubuntu alias smoke passed on ubuntu:$U ($SUITE build)"
