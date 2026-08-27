@@ -178,19 +178,32 @@ upstream_time() {
   [[ "$base" == v* ]] || cands+=("v$base")
 
   local api="https://api.github.com/repos/$uprepo/releases/tags"
-  local code cand ts=""
+  local code cand ts="" attempt
+  # Cold-cache runs fetch ~51 upstream timestamps back-to-back right after
+  # 51 own-repo release reads; that burst is what trips GitHub's secondary
+  # rate limiter. A 1s stagger costs ~1 min per cold run and keeps the
+  # request pattern off the abuse detector.
+  sleep 1
   for cand in "${cands[@]}"; do
-    code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/utime.$$" -w '%{http_code}' \
-        -H "Accept: application/vnd.github+json" \
-        ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
-        "$api/$cand" 2>/dev/null || true)"
-    if [ "$code" = "200" ]; then
-      ts="$(jq -r '.published_at // ""' "$TMP/utime.$$" 2>/dev/null || true)"
-      break
-    fi
-    [ "$code" = "403" ] && sleep 10   # secondary rate limit: don't hammer
+    for attempt in 1 2 3; do
+      code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/utime.$$" -w '%{http_code}' \
+          -H "Accept: application/vnd.github+json" \
+          ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
+          "$api/$cand" 2>/dev/null || true)"
+      if [ "$code" = "200" ]; then
+        ts="$(jq -r '.published_at // ""' "$TMP/utime.$$" 2>/dev/null || true)"
+        break
+      fi
+      if [ "$code" = "404" ]; then break; fi
+      # 403/429/5xx: GitHub secondary (abuse) rate limiting hits exactly this
+      # pattern - bursty per-tool fetches from one runner IP. Back off and
+      # retry; NEVER give up silently or the lag metric just vanishes.
+      log "   upstream-time: HTTP $code (attempt $attempt/3) for $uprepo@$cand; backing off"
+      sleep $((attempt * 5))
+    done
+    rm -f "$TMP/utime.$$"
+    [ -n "$ts" ] && break
   done
-  rm -f "$TMP/utime.$$"
   [ -n "$ts" ] || return 0
   jq --arg p "$pkg" --arg t "$tag" --arg u "$ts" \
      '.[$p] = {tag: $t, upstream_published_at: $u}' "$UPSTREAM_TIMES" \
