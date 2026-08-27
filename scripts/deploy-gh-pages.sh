@@ -80,6 +80,35 @@ push_ref() {
   return 1
 }
 
+# Push one staged path, sub-chunking per-package if the whole path's pack
+# is too big for the server (alias suites like noble are full renamed
+# copies of trixie - their single-suite push is exactly the size that
+# deterministically 500s). On suite failure: undo the suite commit and
+# re-push it one pool/<suite>/<pkg> at a time. Landed packages stay landed.
+push_staged() {
+  local before="$1" label="$2"
+  if push_ref "$before" "$label"; then
+    return 0
+  fi
+  if [[ "$label" != pool/* ]] || [[ "$label" == */*/* ]]; then
+    return 1  # not a suite path (or already per-package): no finer split
+  fi
+  log "sub-chunking $label per package (suite pack too large)"
+  # Undo the failed suite commit but KEEP the files on disk (mixed reset -
+  # the suite files exist only in the worktree; --hard would delete them).
+  git reset -q "$before" || return 1
+  local d pkg sub_before
+  for d in "$label"/*/; do
+    pkg="$(basename "$d")"
+    sub_before="$(remote_sha)"
+    git add -A -- "$label/$pkg" || return 1
+    git diff --cached --quiet && continue
+    git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ')): $label/$pkg" || return 1
+    push_ref "$sub_before" "$label/$pkg" || return 1
+  done
+  return 0
+}
+
 deploy_attempt() {
   # Start from a stable cwd: a previous attempt's `cd` into $WORK/gh-pages
   # leaves this shell inside a directory the retry's `rm -rf` deletes
@@ -121,7 +150,7 @@ deploy_attempt() {
       continue
     fi
     git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ')): $g" || return 1
-    push_ref "$before" "$g" || return 1
+    push_staged "$before" "$g" || return 1
     pushed=$((pushed + 1))
   done
   log "sync+commits+pushes done in $((SECONDS - t1))s ($pushed chunk(s) pushed)"
