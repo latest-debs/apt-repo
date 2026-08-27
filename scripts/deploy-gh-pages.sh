@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
-# deploy-gh-pages.sh - publish the apt repo (pool/, dists/, key, index) to
-# the gh-pages branch.
+# deploy-gh-pages.sh - publish the apt repo's indexes, site and signing key
+# to the gh-pages branch as a single orphan commit.
 #
 # Failure history this script has to survive:
 #   - peaceiris era: pushes died mid-RPC with "RPC failed; HTTP 500 curl 22"
 #     once the branch payload grew past ~2GB.
-#   - v1 of this script: forced HTTP/1.1 globally (throttled the 2GB baseline
-#     clone into a 25-minute crawl), and - much worse - ran under an
-#     `until deploy_attempt` loop, where bash suppresses set -e: a failed
-#     `git push` fell through to a success log and an implicit `return 0`,
-#     reporting a GREEN deploy while the push had 500'd. The site silently
-#     froze for 17 hours that way.
+#   - v1: forced HTTP/1.1 globally (throttled the 2GB baseline clone into a
+#     25-minute crawl), and ran under an `until deploy_attempt` loop where
+#     bash suppresses set -e: a failed push reported GREEN while the push
+#     had 500'd. The site silently froze for 17 hours that way.
+#   - v3: chunked pool/<suite> pushes with per-package sub-chunking - and
+#     deploys still failed, because the problem was never the push: it was
+#     the branch CONTENT. gh-pages carried the full 17.46GB pool/ against
+#     GitHub Pages' 1GB published-site limit; every build sat in
+#     deployment_in_progress for ~20 minutes and died. The site froze on
+#     2026-08-26 20:22 UTC and stayed frozen for a day while the rebuild
+#     pipeline stayed green above it.
 #
-# v3 rules (all learned from the failures above):
-#   1. Every fallible command gets an explicit `|| return 1`. Never rely on
-#      set -e inside a function used as a loop condition.
-#   2. HTTP/1.1 on the push ONLY (the RPC-500 workaround); clones keep
-#      HTTP/2 multiplexing.
-#   3. `push --no-thin`: thin packs are a known trigger for the server-side
-#      500 on large pushes.
-#   4. Chunked pushes: dists/+key first, then one pool/<suite> per commit -
-#      each pushed pack stays small instead of one multi-GB push.
-#   5. The whole clone..push cycle retries 3x with backoff, and a push that
-#      the server applied despite reporting an error is detected via the
-#      remote SHA (idempotent re-check), not trusted from the exit code.
+# v4: pool/ is no longer published at all. apt clients fetch pool files
+# through the redirector (Cloudflare Worker), which 302s /pool/* to each
+# tool's own GitHub Release assets using dists/pkg-repo-map.json; gh-pages
+# carries only dists/ + site + signing key (~11.5MB). Each deploy is ONE
+# fresh orphan commit force-pushed over the branch - history cannot
+# accumulate, so the size bug can never return, and the clone / chunking /
+# dedupe machinery that existed for the 17GB world is gone.
 #
 # Env: GITHUB_TOKEN (contents:write), GITHUB_REPOSITORY.
-# Run from the workspace holding the built pool/ + dists/.
+# Run from the workspace holding the built dists/ (+ pool/, ignored).
 
 set -uo pipefail
-# NOTE: deliberately NOT set -e: this script's functions are invoked from an
-# until-loop condition where set -e is inert anyway; correctness comes from
-# explicit rc handling below.
+# NOTE: deliberately NOT set -e: deploy_attempt runs as an until-loop
+# condition where set -e is inert anyway; correctness comes from explicit
+# rc handling below.
 
 log() { printf '[deploy] %s\n' "$*"; }
 die() { printf '[deploy] ERROR: %s\n' "$*" >&2; exit 1; }
@@ -49,6 +49,8 @@ git config --global user.name "github-actions[bot]"
 git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 # Paths that live in the build workspace but must never be published.
+# pool/ above all: 17.45GB against Pages' 1GB limit - it is served via the
+# redirector from each tool's GitHub Release assets instead.
 EXCLUDES=(
   --exclude .git
   --exclude .github
@@ -56,6 +58,7 @@ EXCLUDES=(
   --exclude .wrangler
   --exclude .build-state
   --exclude .gitignore
+  --exclude pool
 )
 
 remote_sha() {
@@ -64,96 +67,37 @@ remote_sha() {
 
 # Push with honest failure reporting. Never trust the exit code alone: the
 # server has been observed applying a push while answering HTTP 500, and
-# also answering 200 while silently not updating - so verify via ls-remote.
-push_ref() {
-  local before="$1" label="$2" after
-  log "push: $label"
-  if ! git -c http.version=HTTP/1.1 push --no-thin "$URL" gh-pages; then
-    log "push: $label exited nonzero - checking whether it landed anyway"
+# also answering 200 while silently not updating - so verify via ls-remote
+# against the commit we actually built.
+push_orphan() {
+  local before="$1" after
+  log "push: force-pushing orphan commit (remote was ${before:-none})"
+  if ! git -c http.version=HTTP/1.1 push --no-thin --force "$URL" gh-pages; then
+    log "push: exited nonzero - checking whether it landed anyway"
   fi
   after="$(remote_sha)"
-  if [ -n "$after" ] && [ "$after" != "$before" ]; then
-    log "push: $label landed (remote now $after)"
+  if [ -n "$after" ] && [ "$after" = "$(git rev-parse HEAD)" ]; then
+    log "push: landed (remote now ${after:0:8})"
     return 0
   fi
-  log "push: $label did NOT land (remote still ${before:-none})"
+  log "push: did NOT land (remote ${after:-none})"
   return 1
 }
 
-# Push one staged path, sub-chunking per-package if the whole path's pack
-# is too big for the server (alias suites like noble are full renamed
-# copies of trixie - their single-suite push is exactly the size that
-# deterministically 500s). On suite failure: undo the suite commit and
-# re-push it one pool/<suite>/<pkg> at a time. Landed packages stay landed.
-push_staged() {
-  local before="$1" label="$2"
-  if push_ref "$before" "$label"; then
-    return 0
-  fi
-  if [[ "$label" != pool/* ]] || [[ "$label" == */*/* ]]; then
-    return 1  # not a suite path (or already per-package): no finer split
-  fi
-  log "sub-chunking $label per package (suite pack too large)"
-  # Undo the failed suite commit but KEEP the files on disk (mixed reset -
-  # the suite files exist only in the worktree; --hard would delete them).
-  git reset -q "$before" || return 1
-  local d pkg sub_before
-  for d in "$label"/*/; do
-    pkg="$(basename "$d")"
-    sub_before="$(remote_sha)"
-    git add -A -- "$label/$pkg" || return 1
-    git diff --cached --quiet && continue
-    git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ')): $label/$pkg" || return 1
-    push_ref "$sub_before" "$label/$pkg" || return 1
-  done
-  return 0
-}
-
 deploy_attempt() {
-  # Start from a stable cwd: a previous attempt's `cd` into $WORK/gh-pages
-  # leaves this shell inside a directory the retry's `rm -rf` deletes
-  # (observed: rsync then fails with "getcwd(): No such file or directory").
   cd "$REPO_ROOT" || return 1
   local t0=$SECONDS
   rm -rf "$WORK/gh-pages"
-  # Fresh shallow clone each attempt so a poisoned previous attempt can't
-  # leak into this one.
-  if ! git clone --depth 1 --branch gh-pages "$URL" "$WORK/gh-pages" 2>/dev/null; then
-    log "gh-pages branch missing or unreachable; creating an orphan checkout"
-    git init -q -b gh-pages "$WORK/gh-pages" || return 1
-  fi
-  log "clone done in $((SECONDS - t0))s"
-
-  rsync -a --delete "${EXCLUDES[@]}" "$REPO_ROOT/" "$WORK/gh-pages/" || return 1
+  # Fresh orphan repo each attempt: no clone, no inherited history, nothing
+  # a poisoned previous attempt could leak in.
+  git init -q -b gh-pages "$WORK/gh-pages" || return 1
+  rsync -a "${EXCLUDES[@]}" "$REPO_ROOT/" "$WORK/gh-pages/" || return 1
   cd "$WORK/gh-pages" || return 1
-
-  # Small pushes beat one giant push: dists/+index files first, then one
-  # suite's pool directory per commit, then stragglers.
-  local groups=() g
-  groups+=(".")
-  for g in "$REPO_ROOT"/pool/*/; do
-    groups+=("pool/$(basename "$g")")
-  done
-
-  local t1=$SECONDS pushed=0
-  for g in "${groups[@]}"; do
-    local before
-    before="$(remote_sha)"
-    if [ "$g" = "." ]; then
-      # Everything EXCEPT pool (cwd is the repo root of the checkout).
-      git add -A -- . ':(exclude)pool' || return 1
-    else
-      git add -A -- "$g" || return 1
-    fi
-    if git diff --cached --quiet; then
-      log "no changes in $g; skipping"
-      continue
-    fi
-    git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ')): $g" || return 1
-    push_staged "$before" "$g" || return 1
-    pushed=$((pushed + 1))
-  done
-  log "sync+commits+pushes done in $((SECONDS - t1))s ($pushed chunk(s) pushed)"
+  git add -A || return 1
+  git commit -q -m "Rebuild apt repository ($(date -u '+%Y-%m-%dT%H:%M:%SZ'))" || return 1
+  log "staged $(git ls-files | wc -l) file(s) in $((SECONDS - t0))s"
+  push_orphan "$(remote_sha)" || return 1
+  log "deploy complete in $((SECONDS - t0))s"
   return 0
 }
 

@@ -14,7 +14,11 @@ latest-debs:
   description: Latest stable releases of developer tools, packaged for Debian and Ubuntu. Tracks uv, eza, lazygit and more.
   source:
     Types: deb
-    URIs: https://latest-debs.github.io/apt-repo/
+    # The redirector (Cloudflare Worker) is the single origin apt clients
+    # hit: dists/ is proxied from the GitHub Pages site, /pool/* 302s to
+    # each tool's own GitHub Release assets (pool/ is no longer published
+    # to gh-pages - it exceeded Pages' 1GB published-site limit).
+    URIs: https://latest-debs.ranjithraj.workers.dev/
     Suites: <SUITE>
     Components: main
     # Architectures are the union per suite, verified against each suite's

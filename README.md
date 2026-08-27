@@ -419,6 +419,6 @@ scripts/check-suite-parity.sh flag tools already at latest-upstream parity in an
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 licenses.json               per-package SPDX license audit (generated, committed)
-pool/                       downloaded .deb + source files (generated)
+pool/                       downloaded .deb + source files (generated, build workspace only - never published to gh-pages; apt fetches pool files via the redirector from each tool's GitHub Release assets)
 dists/                      apt indexes (generated)
 ```
