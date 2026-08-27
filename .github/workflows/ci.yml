@@ -104,6 +104,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  readme-sync:
+    name: README package table in sync with tools.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Regenerate and diff this repo's Packages table
+        # Same principle as profile-sync, one repo closer: the generated
+        # <!-- packages:start --> table in README.md must match tools.yaml
+        # at merge time, not whenever the next 6-hourly rebuild happens to
+        # run sync-readme.sh. A tools.yaml PR without the regenerated
+        # table now fails here.
+        run: bash scripts/sync-readme.sh --check
+
   dry-run:
     name: Template dry-run (scaffold a package end-to-end)
     runs-on: ubuntu-latest

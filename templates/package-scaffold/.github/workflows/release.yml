@@ -207,7 +207,10 @@ jobs:
               *)        echo 9.9 ;;
             esac
           }
-          # Smoke-test each suite in order (bullseye first) until one passes.
+          # Smoke-test each suite in order (bullseye first) until one passes;
+          # the first passing suite is remembered for the Ubuntu alias pass
+          # below (which needs the alias-source .debs, not this one).
+          DEBIAN_PASS=""
           for SUITE in bullseye bookworm trixie forky sid; do
             if [ -n "$MIN_GLIBC" ] && \
                [ "$(printf '%s\n%s\n' "$(suite_glibc "$SUITE")" "$MIN_GLIBC" | sort -V | head -n1)" = "$(suite_glibc "$SUITE")" ] && \
@@ -265,7 +268,8 @@ jobs:
             echo "$out"
             if echo "$out" | grep -q "^ALL_OK$"; then
               echo "All binaries passed the smoke test on $SUITE"
-              exit 0
+              DEBIAN_PASS="$SUITE"
+              break
             fi
             if echo "$out" | grep -q "GLIBC"; then
               echo "::warning::Smoke failed on $SUITE due to GLIBC mismatch [failure-class: glibc], trying next suite"
@@ -274,8 +278,73 @@ jobs:
             echo "::error::Smoke test failed on $SUITE (expected version $EXPECTED) [failure-class: version-cmd]"
             exit 1
           done
-          echo "::notice::No suite passed smoke test [failure-class: all-suites-exhausted]"
-          exit 1
+          if [ -z "$DEBIAN_PASS" ]; then
+            echo "::notice::No suite passed smoke test [failure-class: all-suites-exhausted]"
+            exit 1
+          fi
+          # ---- Ubuntu alias coverage (warn-only) ----
+          # suites.json serves the Ubuntu suites as pool copies of a Debian
+          # suite (jammy<-bullseye; noble/questing/resolute<-trixie) - i.e.
+          # "Ubuntu works" is currently an assumption, never a test. Run the
+          # same install + version probe inside the real ubuntu:* images for
+          # each alias, using the .deb of the suite the alias is served
+          # from, so an alias that can't actually run (glibc floor, a
+          # Depends that Ubuntu's archive can't resolve) surfaces here
+          # instead of in user bug reports.
+          # Warn-only while the alias matrix is young: each failure shows up
+          # as an annotation and a job-summary row for the draft reviewer
+          # (the human gate reads them before publishing) without blocking
+          # the release. Once an alias has been green across the catalog,
+          # flip it to a hard gate by replacing its ::warning with exit 1.
+          sm() { # job-summary row (or stdout when not on Actions)
+            if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+              printf '%s\n' "$*" >> "$GITHUB_STEP_SUMMARY"
+            else
+              printf '%s\n' "$*"
+            fi
+          }
+          ubuntu_fail=0
+          sm ""
+          sm "### Ubuntu alias smoke coverage"
+          sm ""
+          sm "| Alias | From suite | Result |"
+          sm "|-------|------------|--------|"
+          while read -r U SUITE; do
+            [ -n "$U" ] || continue
+            mapfile -t udebs < <(compgen -G "__PKG_NAME___*+${SUITE}_arm64.deb")
+            if [ -z "${udebs[0]:-}" ]; then
+              sm "| ubuntu:$U | $SUITE | skip (no $SUITE .deb built) |"
+              continue
+            fi
+            UDEB="${udebs[0]}"
+            rm -rf smoke-root
+            dpkg-deb -x "$UDEB" smoke-root
+            mapfile -t ubin_names < <(basename -a smoke-root/usr/bin/*)
+            if [ -z "${ubin_names[0]:-}" ]; then
+              sm "| ubuntu:$U | $SUITE | skip (no binaries in package) |"
+              continue
+            fi
+            uout="$(docker run --rm -e ZED_ALLOW_ROOT=true -v "$PWD/$UDEB:/pkg.deb:ro" ubuntu:$U \
+              bash -c "$smoke_script" _ /pkg.deb "$EXPECTED" "$SKIP_GLOB" "${ubin_names[@]}" 2>&1)" || true
+            if echo "$uout" | grep -q "^ALL_OK$"; then
+              echo "Ubuntu alias smoke passed on ubuntu:$U ($SUITE build)"
+              sm "| ubuntu:$U | $SUITE | pass |"
+            else
+              ubuntu_fail=$((ubuntu_fail + 1))
+              sm "| ubuntu:$U | $SUITE | FAIL |"
+              echo "$uout" | tail -20
+              echo "::warning::Ubuntu alias smoke failed on ubuntu:$U (from $SUITE) [failure-class: ubuntu-alias] - warn-only, see job summary"
+            fi
+          done <<'UBUNTU_ALIASES'
+          jammy bullseye
+          noble trixie
+          questing trixie
+          resolute trixie
+          UBUNTU_ALIASES
+          if [ "$ubuntu_fail" -gt 0 ]; then
+            echo "::notice::$ubuntu_fail Ubuntu alias(es) failed smoke (warn-only until the alias matrix is proven green)"
+          fi
+          exit 0
 
   release:
     name: Release

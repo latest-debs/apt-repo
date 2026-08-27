@@ -1,0 +1,35 @@
+name: Upstream staleness watchdog
+
+on:
+  # Daily sweep: upstream releases that outlive the 48h grace window
+  # (rebuild + draft-promotion lag) mean an auto-watch is failing or blocked.
+  schedule:
+    - cron: '37 5 * * *'
+  workflow_dispatch:
+
+# Writes only the `stale-package` tracking issue on this repo; everything
+# else is read-only API access (tools.yaml, pkg-repo-map.json, upstream
+# releases).
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: staleness
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Compare upstream releases against the apt channel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Check upstream staleness and sync the tracking issue
+        run: bash scripts/check-upstream-staleness.sh --update-issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

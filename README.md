@@ -110,13 +110,16 @@ with no SLA**:
   hand (see [Supply chain & provenance](#supply-chain--provenance)). That
   human gate is deliberate — it keeps tampered or broken releases out of the
   channel — but it means promotion lags the build, and if a maintainer is
-  away, newer versions wait.
+  away, newer versions wait. `scripts/promote-drafts.sh` makes catching up a
+  single reviewed command (list, then publish, across every `*-debian` repo).
 - **Upstream dependency.** We repackage upstream GitHub releases as they
   publish them. If an upstream changes its release layout, removes old
-  archives, or goes away, the corresponding tool silently stops updating until
-  someone fixes the packaging. There's no automated staleness monitor yet —
-  if you notice a tracked tool has gone quiet, please
-  [flag it](https://github.com/latest-debs/.github/blob/main/CONTRIBUTING.md#improving-the-pipeline).
+  archives, or goes away, the corresponding tool stops updating until someone
+  fixes the packaging. The [staleness watchdog](#upstream-staleness-watchdog)
+  catches that automatically — a tool whose upstream release outlives the
+  rebuild + promotion grace window lands on the
+  [`stale-package`](https://github.com/latest-debs/apt-repo/labels/stale-package)
+  tracking issue — but the fix itself still needs a human.
 
 What we do guarantee: the channel stays internally consistent. Indexes are
 always GPG-signed, every package is lintian-checked, smoke-tested, and
@@ -279,6 +282,24 @@ to `main`. Idempotent: repos already at the template are skipped. Use
 `--repo owner/repo` to target a single repo. `README.md` is intentionally
 not rolled out — child READMEs carry per-repo customizations.
 
+### Upstream staleness watchdog
+
+A daily scheduled workflow (`staleness.yml`) compares each tool's upstream
+latest release against what the apt channel actually carries (from
+`dists/pkg-repo-map.json`, the same data the freshness badges use). A tool is
+flagged only once the upstream release has outlived the grace window
+(`STALE_AFTER_HOURS`, default 48) — shorter gaps are the normal rebuild +
+draft-promotion lag, not a broken pipeline. Flagged tools land on a single
+`stale-package` tracking issue, which the watchdog updates in place and
+closes on its own when everything is current again. Run it by hand with
+`scripts/check-upstream-staleness.sh` (add `--update-issue` to sync the
+tracking issue; local runs print the report).
+
+Promoting the backlog of already-built drafts is a separate one-liner —
+`scripts/promote-drafts.sh` lists every pending draft across all
+`*-debian` repos (`--publish` promotes them after review; publishing fires
+the webhook, so the apt index rebuilds within minutes).
+
 ## Supply chain & provenance
 
 The pipeline defends against upstream supply-chain attacks with two layers:
@@ -324,6 +345,7 @@ appear in the **License** column of the [Packages](#packages) table below;
 
 | Package | License | Install | Upstream |
 |---------|---------|---------|----------|
+| `uv` | Apache-2.0 | `apt install uv` | [astral-sh/uv](https://github.com/astral-sh/uv) |
 | `vite-plus` | MIT | `apt install vite-plus` | [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus) |
 | `eza` | EUPL-1.2 | `apt install eza` | [eza-community/eza](https://github.com/eza-community/eza) |
 | `lazygit` | MIT | `apt install lazygit` | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) |
@@ -338,6 +360,7 @@ appear in the **License** column of the [Packages](#packages) table below;
 | `starship` | ISC | `apt install starship` | [starship/starship](https://github.com/starship/starship) |
 | `just` | CC0-1.0 | `apt install just` | [casey/just](https://github.com/casey/just) |
 | `hyperfine` | Apache-2.0 | `apt install hyperfine` | [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine) |
+| `k9s` | Apache-2.0 | `apt install k9s` | [derailed/k9s](https://github.com/derailed/k9s) |
 | `atuin` | MIT | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
 | `xh` | MIT | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
 | `yq-go` | MIT | `apt install yq-go` | [mikefarah/yq](https://github.com/mikefarah/yq) |
@@ -350,6 +373,29 @@ appear in the **License** column of the [Packages](#packages) table below;
 | `jj` | Apache-2.0 | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
 | `gitui` | MIT | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
 | `fresh-editor` | GPL-2.0 | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
+| `nushell` | MIT | `apt install nushell` | [nushell/nushell](https://github.com/nushell/nushell) |
+| `dive` | MIT | `apt install dive` | [wagoodman/dive](https://github.com/wagoodman/dive) |
+| `superfile` | MIT | `apt install superfile` | [yorukot/superfile](https://github.com/yorukot/superfile) |
+| `pnpm` | MIT | `apt install pnpm` | [pnpm/pnpm](https://github.com/pnpm/pnpm) |
+| `act` | MIT | `apt install act` | [nektos/act](https://github.com/nektos/act) |
+| `zed` | GPL-2.0 | `apt install zed` | [zed-industries/zed](https://github.com/zed-industries/zed) |
+| `rclone` | MIT | `apt install rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
+| `k6` | AGPL-3.0 | `apt install k6` | [grafana/k6](https://github.com/grafana/k6) |
+| `difftastic` | MIT | `apt install difftastic` | [Wilfred/difftastic](https://github.com/Wilfred/difftastic) |
+| `vhs` | MIT | `apt install vhs` | [charmbracelet/vhs](https://github.com/charmbracelet/vhs) |
+| `yazi` | MIT | `apt install yazi` | [sxyazi/yazi](https://github.com/sxyazi/yazi) |
+| `zellij` | MIT | `apt install zellij` | [zellij-org/zellij](https://github.com/zellij-org/zellij) |
+| `neovim` | Apache-2.0 | `apt install neovim` | [neovim/neovim](https://github.com/neovim/neovim) |
+| `gh` | MIT | `apt install gh` | [cli/cli](https://github.com/cli/cli) |
+| `mise` | MIT | `apt install mise` | [jdx/mise](https://github.com/jdx/mise) |
+| `gum` | MIT | `apt install gum` | [charmbracelet/gum](https://github.com/charmbracelet/gum) |
+| `fastfetch` | MIT | `apt install fastfetch` | [fastfetch-cli/fastfetch](https://github.com/fastfetch-cli/fastfetch) |
+| `buf` | Apache-2.0 | `apt install buf` | [bufbuild/buf](https://github.com/bufbuild/buf) |
+| `sd` | MIT | `apt install sd` | [chmln/sd](https://github.com/chmln/sd) |
+| `scc` | MIT | `apt install scc` | [boyter/scc](https://github.com/boyter/scc) |
+| `trivy` | Apache-2.0 | `apt install trivy` | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
+| `helix` | MPL-2.0 | `apt install helix` | [helix-editor/helix](https://github.com/helix-editor/helix) |
+| `fish` | NOASSERTION | `apt install fish` | [fish-shell/fish-shell](https://github.com/fish-shell/fish-shell) |
 
 <!-- packages:end -->
 
@@ -367,6 +413,8 @@ scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
 scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos
 scripts/fetch-licenses.sh   regenerate licenses.json from tools.yaml
+scripts/check-upstream-staleness.sh  flag tools whose upstream release outran the channel (--update-issue syncs the tracking issue)
+scripts/promote-drafts.sh   list/publish pending draft releases across all *-debian repos (dry-run by default)
 scripts/check-suite-parity.sh flag tools already at latest-upstream parity in any Debian suite (default: all)
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
