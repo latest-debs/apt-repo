@@ -65,7 +65,10 @@ done
 
 TOKEN="${GH_TOKEN:-}"
 if [ -z "$TOKEN" ] && command -v gh >/dev/null 2>&1; then
-  TOKEN="$(gh auth token 2>/dev/null || true)"
+  # tail -n1: some shell environments (e.g. a version-manager shim) print an
+  # activation notice to stdout ahead of the token itself, which would
+  # otherwise corrupt the credential URL used for the push below.
+  TOKEN="$(gh auth token 2>/dev/null | tail -n1 || true)"
 fi
 if [ "$DRY_RUN" = false ] && [ -z "$TOKEN" ]; then
   echo "ERROR: GH_TOKEN (or an authenticated gh) is required to push rollouts" >&2
