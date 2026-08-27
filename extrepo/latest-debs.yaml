@@ -11,19 +11,23 @@
 # metadata format and the rules external repositories must follow.
 
 latest-debs:
-  description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
+  description: Latest stable releases of developer tools, packaged for Debian and Ubuntu. Tracks uv, eza, lazygit and more.
   source:
     Types: deb
     URIs: https://latest-debs.github.io/apt-repo/
     Suites: <SUITE>
     Components: main
-    # i386 and armel are bookworm/trixie only - riscv64 support requirements
-    # dropped i386 from forky/sid, and no currently-tracked package builds a
-    # soft-float ARM target for forky/sid. loong64 is covered in all four
-    # suites. Verified directly against each suite's real dists/*/Release
-    # Architectures field, not assumed - re-check there before editing this
-    # again, since which tools publish which archs changes over time.
-    Architectures: amd64 arm64 armhf i386 armel loong64 ppc64el riscv64 s390x
+    # Architectures are the union per suite, verified against each suite's
+    # real dists/*/Release Architectures field - re-check there before
+    # editing, since which tools publish which archs changes over time.
+    Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
+    # Ubuntu suites are aliases of Debian suites (same .debs, glibc-checked);
+    # their arch sets match the source suite exactly (verified 2026-08-27):
+    #   jammy -> bullseye, noble/questing/resolute -> trixie
+    suite-jammy-Architectures: amd64 arm64 armhf ppc64el riscv64 s390x i386 loong64
+    suite-noble-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
+    suite-questing-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
+    suite-resolute-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
     suite-forky-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
     suite-sid-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
   suites:
@@ -31,6 +35,10 @@ latest-debs:
     - trixie
     - forky
     - sid
+    - jammy
+    - noble
+    - questing
+    - resolute
   policy: main
   contact: latest-debs@users.noreply.github.com
   bugs: https://github.com/latest-debs/apt-repo/issues

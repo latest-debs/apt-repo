@@ -45,14 +45,30 @@ PREV_MANIFEST="$BUILD_STATE_DIR/pkg-repo-map.json"
 # regardless of whether pool/ changed at all.
 APT_CACHE_DIR="$BUILD_STATE_DIR/apt-cache"
 
-# pkg -> {repo, tag, published_at} for every tool with a valid latest
-# release, consumed by the Cloudflare Workers redirector (redirector/) to
-# turn a pool/ request into the exact GitHub Release asset URL without
-# re-fetching from the GitHub API per request. Appended to in
+# pkg -> {repo, tag, published_at, upstream_published_at} for every tool
+# with a valid latest release, consumed by the Cloudflare Workers redirector
+# (redirector/) to turn a pool/ request into the exact GitHub Release asset
+# URL without re-fetching from the GitHub API per request. Appended to in
 # resolve_repo(), written out after the main loop. TSV instead of building
 # JSON incrementally in bash.
 PKG_REPO_MANIFEST="$TMP/pkg-repo-map.tsv"
 : > "$PKG_REPO_MANIFEST"
+
+# Upstream release timestamps, persisted across runs: lag (upstream-tag ->
+# our .deb publish) is a per-VERSION property, computed once when a new tag
+# appears and reused while the tag is current, so the freshness metrics
+# never re-query every upstream on every 6-hourly rebuild.
+UPSTREAM_TIMES="$BUILD_STATE_DIR/upstream-times.json"
+init_upstream_times() {
+  [ -s "$UPSTREAM_TIMES" ] || echo '{}' > "$UPSTREAM_TIMES"
+  jq -e . "$UPSTREAM_TIMES" >/dev/null 2>&1 || echo '{}' > "$UPSTREAM_TIMES"
+}
+
+# Packages whose tag changed since the last run (first publishes included):
+# consumed by close-request-loop.sh to comment on + close the originating
+# package-request issues ("you asked, it shipped").
+CHANGED_MANIFEST="$DISTS/changed-pkgs.tsv"
+: > "$CHANGED_MANIFEST"
 
 # Flattened (dest_path<TAB>url) download queue, filled by resolve_repo() for
 # every tool before any asset is actually fetched. Draining this as one
@@ -137,6 +153,51 @@ classify_asset() {
 }
 
 # ---------------------------------------------------------------------------
+# Resolve one upstream release timestamp for the lag metric.
+# ---------------------------------------------------------------------------
+# Lag (upstream tag -> our .deb published_at) is per-VERSION: compute it once
+# when a tag first appears, cache it in UPSTREAM_TIMES keyed by tag, and
+# reuse while the tag is current. Our tag format is "<upstream-tag>+<build>"
+# (or "<upstream-tag>" unprefixed), so the upstream candidates are the tag
+# with the +build stripped, optionally with a 'v' prefix added. Best-effort:
+# a 404 on both candidates (prerelease-only upstreams, exotic tag shapes)
+# yields "" and the metric is simply absent for that tool.
+upstream_time() {
+  local pkg="$1" tag="$2" homepage="$3"
+  init_upstream_times
+  local cached
+  cached="$(jq -r --arg p "$pkg" --arg t "$tag" '.[$p] | select(.tag == $t) | .upstream_published_at // ""' "$UPSTREAM_TIMES")"
+  [ -n "$cached" ] && { printf '%s' "$cached"; return 0; }
+
+  local uprepo="${homepage#https://github.com/}"
+  [ -n "$uprepo" ] && [[ "$uprepo" == */* ]] || return 0
+
+  local base="${tag%+*}"
+  local cands=("$base")
+  [[ "$base" == v* ]] || cands+=("v$base")
+
+  local api="https://api.github.com/repos/$uprepo/releases/tags"
+  local code cand ts=""
+  for cand in "${cands[@]}"; do
+    code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/utime.$$" -w '%{http_code}' \
+        -H "Accept: application/vnd.github+json" \
+        ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
+        "$api/$cand" 2>/dev/null || true)"
+    if [ "$code" = "200" ]; then
+      ts="$(jq -r '.published_at // ""' "$TMP/utime.$$" 2>/dev/null || true)"
+      break
+    fi
+    [ "$code" = "403" ] && sleep 10   # secondary rate limit: don't hammer
+  done
+  rm -f "$TMP/utime.$$"
+  [ -n "$ts" ] || return 0
+  jq --arg p "$pkg" --arg t "$tag" --arg u "$ts" \
+     '.[$p] = {tag: $t, upstream_published_at: $u}' "$UPSTREAM_TIMES" \
+     > "$UPSTREAM_TIMES.new" && mv "$UPSTREAM_TIMES.new" "$UPSTREAM_TIMES"
+  printf '%s' "$ts"
+}
+
+# ---------------------------------------------------------------------------
 # Resolve one tool's latest release: fetch the release JSON, record its
 # pkg/repo/tag, and enqueue a (dest_path, url) download task for every
 # matching asset into $DOWNLOAD_QUEUE. Does not download anything itself -
@@ -144,7 +205,7 @@ classify_asset() {
 # tool before the actual, much more expensive download pass starts.
 # ---------------------------------------------------------------------------
 resolve_repo() {
-  local pkg="$1" url="$2"
+  local pkg="$1" url="$2" homepage="$3"
   local repo="${url##https://github.com/}"
   local api="https://api.github.com/repos/$repo/releases/latest"
   log "== $pkg  ($repo) =="
@@ -196,7 +257,7 @@ resolve_repo() {
   # freshness badges measure age against, not our build time.
   published="$(jq -r '.published_at // ""' <<<"$json")"
   log "   tag: $tag"
-  printf '%s\t%s\t%s\t%s\n' "$pkg" "$repo" "$tag" "$published" >> "$PKG_REPO_MANIFEST"
+  printf '%s\t%s\t%s\t%s\t%s\n' "$pkg" "$repo" "$tag" "$published" "$(upstream_time "$pkg" "$tag" "$homepage")" >> "$PKG_REPO_MANIFEST"
 
   # Same tag as last run's cached pool/? Then the on-disk files should
   # already be correct - each one gets a cheap existence+nonzero-size check
@@ -212,6 +273,8 @@ resolve_repo() {
   if [[ -n "$prev_tag" && "$prev_tag" == "$tag" ]]; then
     reuse="yes"
   else
+    # New version (or first publish): record for the request-loop closer.
+    printf '%s\t%s\n' "$pkg" "$tag" >> "$CHANGED_MANIFEST"
     local d
     for d in "$POOL"/*/"$pkg"; do
       [[ -d "$d" ]] || continue
@@ -428,10 +491,10 @@ else
   # keeps log output in tools.yaml order for free, and 41 small API calls
   # in series cost seconds, not minutes.
   log "== resolving releases =="
-  while IFS=$'\t' read -r pkg url; do
+  while IFS=$'\t' read -r pkg url _dname homepage; do
     [[ -n "$pkg" ]] || continue
-    resolve_repo "$pkg" "$url"
-  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2)
+    resolve_repo "$pkg" "$url" "$homepage"
+  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2,4)
 
   # Now that pool/ persists across runs instead of being wiped every time,
   # a tool dropped from tools.yaml would otherwise linger in the index
@@ -489,7 +552,7 @@ done
 log "== writing pkg-repo-map.json =="
 jq -R -s -c '
   split("\n") | map(select(length > 0) | split("\t"))
-  | map({(.[0]): {repo: .[1], tag: .[2], published_at: .[3]}})
+  | map({(.[0]): {repo: .[1], tag: .[2], published_at: .[3], upstream_published_at: .[4]}})
   | add // {}
 ' "$PKG_REPO_MANIFEST" > "$DISTS/pkg-repo-map.json"
 
@@ -500,6 +563,10 @@ jq -R -s -c '
 # release), so the badge shows how current the apt version is regardless of
 # when this rebuild ran. Color escalates with age: brightgreen < 7d,
 # green < 31d, yellowgreen < 92d, yellow beyond.
+# Honest-lag metric: when the upstream release timestamp is known (5th
+# manifest column, see upstream_time()), each package also gets a
+# "lag_label" (upstream-tag -> our publish, the number users actually care
+# about) and _meta gets "median_lag_label" for the landing-page hero.
 log "== writing freshness.json =="
 NOW_EPOCH="$(date +%s)"
 jq -R -s -c --argjson now "$NOW_EPOCH" '
@@ -518,35 +585,39 @@ jq -R -s -c --argjson now "$NOW_EPOCH" '
   split("\n") | map(select(length > 0) | split("\t"))
   | map(. as $r
       | (try ($r[3] | fromdateiso8601) catch null) as $pub
+      | (try ($r[4] | fromdateiso8601) catch null) as $upub
+      | (if $pub != null and $upub != null and $pub >= $upub
+         then $pub - $upub else null end) as $lag
       | if $pub == null then
-          # No usable timestamp: fall back to a neutral badge rather than
-          # dropping the package from the catalog view.
-          { key: $r[0], age: null,
+          { key: $r[0], age: null, lag: null,
             badge: { schemaVersion: 1, label: "apt", message: $r[2], color: "lightgrey" } }
         else
           ($now - $pub) as $s
-          | { key: $r[0], age: $s,
+          | { key: $r[0], age: $s, lag: $lag,
               badge:
                 { schemaVersion: 1, label: "apt",
                   message: (($r[2]
                              | ltrimstr($r[0] + "-")
                              | ltrimstr("v")
                              | sub("\\+[0-9]+$"; "")) + " · " + hum($s)),
-                  color: col($s) } }
+                  color: col($s) },
+              lag_label: (if $lag != null then "upstream→apt " + hum($lag) else null end) }
         end)
   | . as $rows
   | ($rows | map({(.key): .badge}) | add // {}) as $badges
-  | ($rows | map(.age) | map(select(. != null)) | sort) as $ages
+  | ($rows | map(.age)  | map(select(. != null)) | sort) as $ages
+  | ($rows | map(.lag)  | map(select(. != null)) | sort) as $lags
   | ($ages | length) as $n
+  | ($lags | length) as $m
   | $badges + {
       _meta:
-        (if $n == 0 then
-           { schemaVersion: 1, label: "latest-debs", message: "no releases yet", color: "lightgrey" }
-         else
-           { schemaVersion: 1, label: "latest-debs",
-             message: "\($n) tools · median \(hum($ages[($n / 2 | floor)]))",
-             color: col($ages[($n / 2 | floor)]) }
-         end) }
+        ({ schemaVersion: 1, label: "latest-debs",
+           message: (if $n == 0 then "no releases yet"
+                     else "\($n) tools · median \(hum($ages[($n / 2 | floor)]))" end),
+           color: (if $n == 0 then "lightgrey" else col($ages[($n / 2 | floor)]) end) }
+         + (if $m > 0 then { median_lag_label: "upstream→apt median \(hum($lags[($m / 2 | floor)]))" }
+            else {} end))
+    }
 ' "$PKG_REPO_MANIFEST" > "$DISTS/freshness.json"
 
 # Becomes next run's $PREV_MANIFEST once .build-state/ round-trips through

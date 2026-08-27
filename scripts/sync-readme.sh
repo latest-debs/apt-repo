@@ -34,24 +34,29 @@ trap 'rm -f "$tmp_readme"' EXIT
 grep -qF "$START" "$README" || die "README.md is missing the $START marker"
 grep -qF "$END" "$README"   || die "README.md is missing the $END marker"
 
-# Parse tools.yaml into TAB-separated "name\tinstall\tupstream" lines.
-# install uses debian_name when present (e.g. fd is packaged as fd-find).
+# Parse tools.yaml into TAB-separated "name\tinstall\tupstream\tdisplay\tdesc"
+# lines. install uses debian_name when present (e.g. fd is packaged as
+# fd-find); NONE is the sid-version-comparison marker, not an install name.
 rows=""
 if command -v yq >/dev/null 2>&1; then
-  rows="$(yq -r 'to_entries[] | [.key, (.value.debian_name // .key), (.value.homepage // "")] | @tsv' "$TOOLS_YAML")"
+  rows="$(yq -r 'to_entries[] | [.key, ((.value.debian_name | select(. != "NONE")) // .key), (.value.homepage // ""), (.value.display // .key), (.value.description // "")] | @tsv' "$TOOLS_YAML")"
 elif command -v python3 >/dev/null 2>&1; then
   rows="$(python3 - "$TOOLS_YAML" <<'PYEOF'
-import sys
+import sys, json
 try:
     import yaml
 except ImportError:
     sys.exit("python3 yaml module missing (install python3-yaml or yq)")
-rows = []
+out = []
 for pkg, meta in yaml.safe_load(open(sys.argv[1])).items():
-    install = meta.get("debian_name") or pkg
-    upstream = meta.get("homepage") or ""
-    rows.append(f"{pkg}\t{install}\t{upstream}")
-print("\n".join(rows))
+    dname = meta.get("debian_name")
+    install = pkg if dname in (None, "NONE") else dname
+    out.append("\t".join([
+        pkg, install, meta.get("homepage") or "",
+        meta.get("display") or pkg,
+        (meta.get("description") or "").replace("\t", " "),
+    ]))
+print("\n".join(out))
 PYEOF
 )"
 else
@@ -59,6 +64,25 @@ else
 fi
 
 [ -n "$rows" ] || die "no packages found in $TOOLS_YAML"
+
+# catalog.json - machine-readable catalog for the landing page and other
+# consumers (the apt-repo README table is the human rendering of the same
+# data). Written into dists/ so it ships with every gh-pages deploy; the
+# live freshness.json carries the version/age half.
+CATALOG_JSON="$ROOT/dists/catalog.json"
+mkdir -p "$ROOT/dists"
+python3 - "$rows" "$CATALOG_JSON" <<'PYEOF'
+import json, sys
+rows = [l.split("\t") for l in sys.argv[1].splitlines() if l.strip()]
+catalog = [
+    {"name": r[0], "install": r[1], "homepage": r[2], "display": r[3], "description": r[4]}
+    for r in rows if len(r) >= 5
+]
+with open(sys.argv[2], "w") as f:
+    json.dump({"generated_by": "sync-readme.sh", "packages": catalog}, f, indent=1)
+    f.write("\n")
+print(f"[sync-readme] wrote {sys.argv[2]} ({len(catalog)} packages)")
+PYEOF
 
 # License lookup, sourced from licenses.json (written by fetch-licenses.sh,
 # which reads it fresh from each tool's package.yaml). Missing file or

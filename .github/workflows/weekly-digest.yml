@@ -1,0 +1,85 @@
+name: Weekly shipped digest
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Fridays 15:00 UTC
+    - cron: '0 15 * * 5'
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: weekly-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    name: Publish "shipped this week"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
+
+      - name: Collect the week's releases and publish the digest issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          since="$(date -u -d '7 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+          week="$(date -u +%G-W%V)"
+
+          : > /tmp/digest_rows.tsv
+          new_count=0
+          upd_count=0
+          while IFS=$'\t' read -r pkg repo; do
+            [ -n "$pkg" ] || continue
+            rels="$(gh api "repos/$repo/releases?per_page=30" --jq \
+              ".[] | select(.published_at != null and .draft == false and .prerelease == false and .published_at >= \"$since\") | [.tag_name, .published_at, .html_url] | @tsv" 2>/dev/null || true)"
+            [ -n "$rels" ] || continue
+            # "new" = every release this repo has ever published is inside
+            # the window (i.e. the first-ever release shipped this week).
+            total="$(gh api "repos/$repo/releases?per_page=100" --jq 'length' 2>/dev/null || echo '?')"
+            inwin="$(printf '%s\n' "$rels" | wc -l)"
+            kind="update"
+            if [ "$total" = "$inwin" ] && [ "$total" != '?' ]; then
+              kind="first"
+              new_count=$((new_count + 1))
+            else
+              upd_count=$((upd_count + 1))
+            fi
+            while IFS=$'\t' read -r tag pub url; do
+              [ -n "$tag" ] || continue
+              printf '%s\t%s\t%s\t%s\t%s\n' "$pkg" "$tag" "$pub" "$url" "$kind" >> /tmp/digest_rows.tsv
+            done <<< "$rels"
+          done < <(python3 -c "import yaml;[print(p, m['source'].split('github.com/')[1], sep='\t') for p, m in yaml.safe_load(open('tools.yaml')).items()]")
+
+          rows="$(wc -l < /tmp/digest_rows.tsv)"
+          if [ "$rows" -eq 0 ]; then
+            echo "No releases shipped this week; skipping digest"
+            exit 0
+          fi
+
+          pkgs="$(cut -f1 /tmp/digest_rows.tsv | sort -u | wc -l)"
+          body="$(python3 scripts/render-digest.py "$week" "$since" < /tmp/digest_rows.tsv)"
+
+          gh label create weekly-digest --color 1f6feb --force -R "$GITHUB_REPOSITORY" 2>/dev/null || true
+
+          # One issue per ISO week: update if it already exists (rerun),
+          # otherwise create.
+          existing="$(gh issue list -R "$GITHUB_REPOSITORY" --label weekly-digest --state all \
+                        --search "Shipped this week ($week) in:title" --json number --jq '.[0].number' 2>/dev/null || true)"
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" -R "$GITHUB_REPOSITORY" --body "$body" >/dev/null
+            echo "updated digest issue #$existing"
+          else
+            gh issue create -R "$GITHUB_REPOSITORY" \
+              --label weekly-digest \
+              --title "Shipped this week ($week): $rows versions across $pkgs tools" \
+              --body "$body" >/dev/null
+            echo "created digest issue"
+          fi
