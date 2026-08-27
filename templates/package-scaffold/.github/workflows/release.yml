@@ -352,10 +352,23 @@ jobs:
     needs: [prepare, build, smoke]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
       - name: Download packages
         uses: actions/download-artifact@v4
         with:
           name: __PKG_NAME__-debian-packages
+
+      - name: Generate build provenance
+        # Nix-style build-provenance: records the builder action ref, the
+        # workflow run, the commit, and a SHA-256 of every shipped artifact
+        # alongside the vet-time upstream pin (if one exists yet) - so a
+        # .deb traces back to an inspectable CI run, not just a checksum.
+        run: bash .github/scripts/generate-provenance.sh
+        env:
+          VERSION: ${{ needs.prepare.outputs.version }}
+          BUILD_VERSION: ${{ needs.prepare.outputs.build_version }}
 
       - name: Gate duplicate release tags
         # Refuse to (re)publish a release tag that already exists - published
@@ -384,6 +397,7 @@ jobs:
             *.dsc
             *.debian.tar.xz
             *.orig.tar.xz
+            provenance.json
           fail_on_unmatched_files: true
 
       - name: Clear failure marker

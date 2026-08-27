@@ -319,6 +319,13 @@ The pipeline defends against upstream supply-chain attacks with two layers:
   auto-watch) have no pin yet, so they are verified against the release's own
   checksum file and still gated by draft-before-publish until a maintainer
   vets them.
+- **Build provenance** — every release also ships a `provenance.json` asset
+  (`.github/scripts/generate-provenance.sh`) recording the exact builder
+  action ref, workflow run URL, and source commit that produced it, a
+  SHA-256 of every shipped artifact, and the vet-time upstream pin it was
+  built from. The input pin proves *what upstream bytes* were verified;
+  this proves *what build produced the .deb* — so a package traces back to
+  an inspectable CI run, not just a checksum on faith.
 
 Access is scoped to the minimum: repo-scoped `GITHUB_TOKEN` wherever possible
 (issue handling, `tools.yaml`), and a fine-grained, org-restricted
@@ -419,6 +426,6 @@ scripts/check-suite-parity.sh flag tools already at latest-upstream parity in an
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 licenses.json               per-package SPDX license audit (generated, committed)
-pool/                       downloaded .deb + source files (generated, build workspace only - never published to gh-pages; apt fetches pool files via the redirector from each tool's GitHub Release assets)
+pool/                       downloaded .deb + source files (generated)
 dists/                      apt indexes (generated)
 ```

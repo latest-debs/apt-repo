@@ -16,6 +16,7 @@
 #   .github/scripts/detect-version.sh      (auto-watch version detection)
 #   .github/scripts/license-check.sh       (license recheck / warn gate)
 #   .github/scripts/collect-failure-report.sh (structured failure report)
+#   .github/scripts/generate-provenance.sh (build-provenance for release assets)
 # package.yaml is only touched to BACKFILL a missing license: pin (never
 # regenerated - it carries per-repo config). README.md is not rolled out:
 # child READMEs carry per-repo customizations the template cannot encode.
@@ -189,6 +190,7 @@ apply_to_dir() {
   local dt="$dir/.github/scripts/detect-version.sh"
   local lc="$dir/.github/scripts/license-check.sh"
   local fr="$dir/.github/scripts/collect-failure-report.sh"
+  local pv="$dir/.github/scripts/generate-provenance.sh"
 
   mkdir -p "$(dirname "$wf")" "$(dirname "$nf")" "$(dirname "$dt")"
   sed "${subst[@]}" "$TPL/.github/workflows/release.yml" > "$wf.tmp"
@@ -210,6 +212,9 @@ apply_to_dir() {
   cp "$TPL/.github/scripts/collect-failure-report.sh" "$fr.tmp"
   chmod +x "$fr.tmp"
   stage_file "$fr" "$fr.tmp" ".github/scripts/collect-failure-report.sh"
+  cp "$TPL/.github/scripts/generate-provenance.sh" "$pv.tmp"
+  chmod +x "$pv.tmp"
+  stage_file "$pv" "$pv.tmp" ".github/scripts/generate-provenance.sh"
 
   # Backfill a license: pin when package.yaml lacks one, using the upstream's
   # live SPDX id. New scaffolds already carry it; this covers repos created
