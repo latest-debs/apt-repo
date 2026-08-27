@@ -67,8 +67,9 @@ init_upstream_times() {
 # Packages whose tag changed since the last run (first publishes included):
 # consumed by close-request-loop.sh to comment on + close the originating
 # package-request issues ("you asked, it shipped").
+# Truncated in main() after dists/ exists - a top-level truncation here
+# would fail on a fresh CI checkout where dists/ does not exist yet.
 CHANGED_MANIFEST="$DISTS/changed-pkgs.tsv"
-: > "$CHANGED_MANIFEST"
 
 # Flattened (dest_path<TAB>url) download queue, filled by resolve_repo() for
 # every tool before any asset is actually fetched. Draining this as one
@@ -483,6 +484,7 @@ else
   # regenerated; that's cheap regardless of how much of pool/ was reused.
   rm -rf "$DISTS"
   mkdir -p "$POOL" "$DISTS" "$BUILD_STATE_DIR"
+  : > "$CHANGED_MANIFEST"
 
   BUILD_REPO_PARALLEL="${BUILD_REPO_PARALLEL:-16}"
 
