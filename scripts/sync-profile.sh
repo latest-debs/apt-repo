@@ -108,20 +108,20 @@ case "$MODE" in
   --check)
     live="$(api_json "https://raw.githubusercontent.com/$PROFILE_REPO/main/$PROFILE_PATH" || true)"
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
-    extracted="$(python3 - "$live" "$HEADER" <<'PYEOF'
-import sys, re
-text, header = sys.argv[1], sys.argv[2]
+    extracted="$(python3 - "$live" <<'PYEOF'
+import sys
+text = sys.argv[1]
 lines = text.splitlines()
 try:
-    start = lines.index(header.splitlines()[0])
-except ValueError:
+    start = next(i for i, l in enumerate(lines) if l.startswith("| Tool |"))
+except StopIteration:
     sys.exit("profile table header not found in live profile")
 end = start
 for i in range(start + 2, len(lines)):
     if not lines[i].startswith("| "):
         break
     end = i
-print(header)
+# rows only - the caller compares against the header-less generated table
 print("\n".join(lines[start + 2:end + 1]))
 PYEOF
 )"
