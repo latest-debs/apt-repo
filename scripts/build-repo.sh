@@ -161,10 +161,6 @@ classify_asset() {
 # yields "" and the metric is simply absent for that tool.
 upstream_time() {
   local pkg="$1" tag="$2" homepage="$3"
-  init_upstream_times
-  local cached
-  cached="$(jq -r --arg p "$pkg" --arg t "$tag" '.[$p] | select(.tag == $t) | .upstream_published_at // ""' "$UPSTREAM_TIMES")"
-  [ -n "$cached" ] && { printf '%s' "$cached"; return 0; }
 
   local uprepo="${homepage#https://github.com/}"
   [ -n "$uprepo" ] && [[ "$uprepo" == */* ]] || return 0
@@ -201,9 +197,6 @@ upstream_time() {
     [ -n "$ts" ] && break
   done
   [ -n "$ts" ] || return 0
-  jq --arg p "$pkg" --arg t "$tag" --arg u "$ts" \
-     '.[$p] = {tag: $t, upstream_published_at: $u}' "$UPSTREAM_TIMES" \
-     > "$UPSTREAM_TIMES.new" && mv "$UPSTREAM_TIMES.new" "$UPSTREAM_TIMES"
   printf '%s' "$ts"
 }
 
