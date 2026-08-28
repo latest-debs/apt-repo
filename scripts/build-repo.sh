@@ -58,11 +58,7 @@ PKG_REPO_MANIFEST="$TMP/pkg-repo-map.tsv"
 # our .deb publish) is a per-VERSION property, computed once when a new tag
 # appears and reused while the tag is current, so the freshness metrics
 # never re-query every upstream on every 6-hourly rebuild.
-UPSTREAM_TIMES="$BUILD_STATE_DIR/upstream-times.json"
-init_upstream_times() {
-  [ -s "$UPSTREAM_TIMES" ] || echo '{}' > "$UPSTREAM_TIMES"
-  jq -e . "$UPSTREAM_TIMES" >/dev/null 2>&1 || echo '{}' > "$UPSTREAM_TIMES"
-}
+
 
 # Packages whose tag changed since the last run (first publishes included):
 # consumed by close-request-loop.sh to comment on + close the originating
