@@ -55,7 +55,7 @@ command -v jq >/dev/null || { echo "ERROR: jq is required" >&2; exit 1; }
 # Single source of truth for the tracked suite list - see suites.json.
 ALL_SUITES="$(jq -r '.suites | join(" ")' "$SUITES_JSON")"
 
-name="" repo="" debian_name="" upstream_version="" suite_arg="all" out=""
+name="" repo="" debian_name="" upstream_version="" suite_arg="all" out="" json_out=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --name) name="$2"; shift 2;;
@@ -64,6 +64,7 @@ while [ $# -gt 0 ]; do
     --upstream-version) upstream_version="$2"; shift 2;;
     --suite) suite_arg="$2"; shift 2;;
     --out) out="$2"; shift 2;;
+    --json) json_out="$2"; shift 2;;
     *) echo "ERROR: unknown arg: $1" >&2; exit 2;;
   esac
 done
@@ -207,6 +208,15 @@ header+=(VERDICT)
 # shellcheck disable=SC2059
 printf "$fmt" "${header[@]}"
 
+SCAN_TMP=""
+SCAN_JSONL=""
+if [ -n "$json_out" ]; then
+  SCAN_TMP="$(mktemp -d)"
+  trap 'rm -rf "$SCAN_TMP"' EXIT
+  SCAN_JSONL="$SCAN_TMP/packages.jsonl"
+  : > "$SCAN_JSONL"
+fi
+
 retire_count=0
 while IFS=$'\t' read -r pkg dname homepage; do
   [ -n "$pkg" ] || continue
@@ -225,9 +235,11 @@ while IFS=$'\t' read -r pkg dname homepage; do
   madison_text="$(madison_for "$dname")"
   cols=("$pkg" "$up_ver")
   parity_suites=""
+  suites_json="{}"
   while IFS=$'\t' read -r p suite dver upv verdict; do
     [ -n "$p" ] || continue
     cols+=("$dver")
+    suites_json="$(jq -nc --argjson obj "$suites_json" --arg s "$suite" --arg v "$dver" '$obj + {($s): $v}')"
     [ "$verdict" = "RETIRE" ] && parity_suites="${parity_suites}${suite},"
   done < <(check_suites "$pkg" "$madison_text" "$up_ver")
   parity_suites="${parity_suites%,}"
@@ -237,6 +249,11 @@ while IFS=$'\t' read -r pkg dname homepage; do
   printf "$fmt" "${cols[@]}"
 
   [ -n "$parity_suites" ] && retire_count=$((retire_count + 1))
+  if [ -n "$SCAN_JSONL" ]; then
+    jq -nc --arg pkg "$pkg" --arg upstream "$up_ver" --argjson suites "$suites_json" \
+      --argjson parity "$(printf '%s' "$parity_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
+      '{package:$pkg, upstream_version:$upstream, suites:$suites, parity_suites:$parity}' >> "$SCAN_JSONL"
+  fi
   sleep 0.5 # be polite to qa.debian.org and the GitHub API across many tools
 done < <(parse_tools "$TOOLS_YAML" | cut -f1,3,4)
 
@@ -246,4 +263,12 @@ if [ "$retire_count" -gt 0 ]; then
   echo "Review and remove from tools.yaml by hand - see README.md#debian-parity-when-we-step-aside." >&2
 else
   echo "No tracked packages are at parity in any checked suite ($suites)." >&2
+fi
+
+if [ -n "$json_out" ]; then
+  jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    --argjson suites_checked "$(printf '%s\n' $suites | jq -R . | jq -s .)" \
+    --argjson retire_count "$retire_count" --slurpfile packages "$SCAN_JSONL" \
+    '{generated_at:$generated_at, suites_checked:$suites_checked, retire_count:$retire_count, packages:$packages}' \
+    > "$json_out"
 fi

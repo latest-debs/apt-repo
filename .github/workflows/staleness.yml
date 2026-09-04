@@ -7,11 +7,13 @@ on:
     - cron: '37 5 * * *'
   workflow_dispatch:
 
-# Writes only the `stale-package` tracking issue on this repo; everything
-# else is read-only API access (tools.yaml, pkg-repo-map.json, upstream
-# releases).
+# Writes the `stale-package` tracking issue on this repo, the
+# `pipeline-failure` tracking issue if this workflow itself breaks, and the
+# two status-report JSON files on gh-pages (see "Publish status reports"
+# below); everything else is read-only API access (tools.yaml,
+# pkg-repo-map.json, upstream releases, qa.debian.org).
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 concurrency:
@@ -30,6 +32,50 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
 
       - name: Check upstream staleness and sync the tracking issue
-        run: bash scripts/check-upstream-staleness.sh --update-issue
+        run: bash scripts/check-upstream-staleness.sh --update-issue --json "$RUNNER_TEMP/staleness.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check Debian suite parity
+        # Full scan, same policy check add-package.sh runs per-candidate at
+        # vet time (README.md#debian-parity-when-we-step-aside) - here run
+        # across every tracked tool so the dashboard can show it, not just
+        # printed for a maintainer to read in Actions logs.
+        run: bash scripts/check-suite-parity.sh --json "$RUNNER_TEMP/parity.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish status reports to gh-pages
+        # dists/ on gh-pages is normally regenerated wholesale by every
+        # rebuild.yml run (see deploy-gh-pages.sh); these two reports only
+        # change once a day, so they're pushed here as a small commit on top
+        # of the current gh-pages tip instead. deploy-gh-pages.sh carries
+        # them forward across every subsequent full rebuild by re-fetching
+        # whatever is currently live before it force-pushes over the branch.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone --depth 1 --branch gh-pages \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$RUNNER_TEMP/gh-pages"
+          install -m644 "$RUNNER_TEMP/staleness.json" "$RUNNER_TEMP/gh-pages/dists/staleness.json"
+          install -m644 "$RUNNER_TEMP/parity.json" "$RUNNER_TEMP/gh-pages/dists/parity.json"
+          cd "$RUNNER_TEMP/gh-pages"
+          git add dists/staleness.json dists/parity.json
+          if git diff --cached --quiet; then
+            echo "Status reports unchanged."
+          else
+            git commit -q -m "Update pipeline status reports"
+            git push origin gh-pages
+          fi
+
+      - name: Report a broken watchdog run
+        # This workflow is the safety net for silent pipeline failure - if
+        # it breaks itself, that has to be loud too, not just a red run a
+        # single maintainer might not notice for days.
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/report-workflow-failure.sh "Upstream staleness watchdog"

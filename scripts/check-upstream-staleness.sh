@@ -28,6 +28,11 @@
 #                                            issue (needs GITHUB_TOKEN with
 #                                            issues:write); closes it when
 #                                            nothing is stale
+#   check-upstream-staleness.sh --json <path>
+#                                            also write a machine-readable
+#                                            report to <path> (for the public
+#                                            status dashboard); combine freely
+#                                            with --update-issue
 #
 # Env: GITHUB_TOKEN (contents:read to call the API at a useful rate; the
 # unauthenticated 60/h limit starves a full-catalog run).
@@ -43,7 +48,14 @@ TOOLS_YAML="$ROOT/tools.yaml"
 STALE_LABEL="stale-package"
 GRACE_HOURS="${STALE_AFTER_HOURS:-48}"
 MODE="print"
-[ "${1:-}" = "--update-issue" ] && MODE="update-issue"
+JSON_OUT=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --update-issue) MODE="update-issue"; shift;;
+    --json) JSON_OUT="$2"; shift 2;;
+    *) echo "ERROR: unknown arg: $1" >&2; exit 2;;
+  esac
+done
 
 command -v jq >/dev/null || { echo "jq required" >&2; exit 1; }
 command -v curl >/dev/null || { echo "curl required" >&2; exit 1; }
@@ -92,6 +104,8 @@ report_header="| Tool | Ours (apt) | Upstream | Upstream release age |
 stale_rows=""
 checked=0
 skipped=0
+STALE_JSONL="$TMP/stale.jsonl"
+: > "$STALE_JSONL"
 
 while IFS=$'\t' read -r pkg homepage; do
   [ -n "$pkg" ] || continue
@@ -133,6 +147,8 @@ while IFS=$'\t' read -r pkg homepage; do
   stale_rows+="| $pkg | $ours | $upstream_ver | $age_cell |
 "
   echo "STALE: $pkg (apt $ours, upstream $upstream_ver, released $age_cell ago)"
+  jq -nc --arg pkg "$pkg" --arg ours "$ours" --arg upstream "$upstream_ver" --argjson age_hours "$age_hours" \
+    '{package:$pkg, ours:$ours, upstream:$upstream, age_hours:$age_hours}' >> "$STALE_JSONL"
 done < <(python3 - "$TOOLS_YAML" <<'PYEOF'
 import sys
 try:
@@ -145,6 +161,13 @@ PYEOF
 )
 
 echo "Checked $checked tool(s), skipped $skipped (no GitHub homepage, nothing in pool, or upstream has no latest release)."
+
+if [ -n "$JSON_OUT" ]; then
+  jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson grace_hours "$GRACE_HOURS" \
+    --argjson checked "$checked" --argjson skipped "$skipped" --slurpfile stale "$STALE_JSONL" \
+    '{generated_at:$generated_at, grace_hours:$grace_hours, checked:$checked, skipped:$skipped, stale:$stale}' \
+    > "$JSON_OUT"
+fi
 
 build_body() {
   {

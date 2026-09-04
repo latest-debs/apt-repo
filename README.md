@@ -150,6 +150,43 @@ sudo apt update
 > automatically on every rebuild). `apt` verifies signatures against the key
 > imported above via `signed-by=`.
 
+## For CI pipelines & fleets
+
+If you're installing these tools in a build image, a CI runner, or across a
+fleet, the usual options are `curl | sh` inside the Dockerfile or a version
+manager (`mise`, `asdf`) resolving a plugin at build time — neither gives you
+a signature, a pinned checksum, or a record of what actually got installed.
+
+This channel gives a CI/fleet pipeline something to point at instead:
+
+- **Pin an exact version, verifiably.** Every package's build carries a
+  `provenance.json` asset (source commit, builder run URL, SHA-256 of every
+  shipped artifact) and was built against a vet-time upstream checksum pin —
+  so a base image can pin `<tool>=<version>` and you can prove, after the
+  fact, exactly what bytes that resolved to and what CI run produced them.
+  See [Supply chain & provenance](#supply-chain--provenance).
+- **Signed, not just downloaded.** `apt`'s own `signed-by=` verification
+  replaces "trust the TLS connection to a raw GitHub URL" with a GPG chain
+  you control the keyring for — the same trust model as every other package
+  on the box, not a special case for your dev tools.
+- **A `Dockerfile` line, not a shell script to audit.** No `curl | sh`,
+  no third-party install script to review on every version bump:
+
+  ```dockerfile
+  RUN sudo install -d -m 0755 /etc/apt/keyrings \
+    && curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc \
+         | gpg --dearmor -o /etc/apt/keyrings/latest-debs.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.github.io/apt-repo/ trixie main" \
+         > /etc/apt/sources.list.d/latest-debs.list \
+    && apt-get update && apt-get install -y ripgrep=<version> fd-find=<version>
+  ```
+
+Read [Support & expectations](#support--expectations-best-effort-no-sla)
+first, though: this is volunteer-run with no SLA. Fine for a build image
+where a missed rebuild window just means "not on the latest patch release
+yet" — not a fit for a deploy gate with a hard deadline on a specific
+version landing.
+
 ## Adding or updating a tool
 
 - **Request a package:** open a

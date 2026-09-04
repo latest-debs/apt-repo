@@ -157,3 +157,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/deploy-gh-pages.sh
+
+      - name: Report a broken rebuild
+        # A failed webhook-triggered rebuild still has the 6h schedule as a
+        # backstop, but a failed *scheduled* rebuild has nothing behind it
+        # except tomorrow's staleness watchdog (up to 48h later). Surface it
+        # immediately instead of waiting for that grace window to expire.
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/report-workflow-failure.sh "Rebuild apt repository"
