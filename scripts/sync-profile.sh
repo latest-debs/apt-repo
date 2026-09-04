@@ -116,7 +116,7 @@ case "$MODE" in
     # has strong read-after-write consistency, while the raw CDN edge can
     # serve stale content for minutes after a commit, failing this check
     # with a false positive on a just-merged profile update.
-    live="$(gh api "repos/$PROFILE_REPO/contents/$PROFILE_PATH" --jq '.content' | base64 -d || true)"
+    live="$(api_json "$API/repos/$PROFILE_REPO/contents/$PROFILE_PATH" | python3 -c 'import sys,json; print(json.load(sys.stdin).get("content",""))' | base64 -d || true)"
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
     extracted="$(printf '%s' "$live" | extract_block)" || exit 1
     if [ "$SUMMARY" != "$extracted" ]; then
