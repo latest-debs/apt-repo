@@ -351,6 +351,14 @@ jobs:
     if: github.ref == 'refs/heads/main' && needs.build.result == 'success' && needs.smoke.result == 'success'
     needs: [prepare, build, smoke]
     runs-on: ubuntu-latest
+    # Job-level block REPLACES the workflow-level one, so contents/actions are
+    # restated here. id-token + attestations are what the two attest steps
+    # need; scoping them to this job keeps build/smoke unable to sign anything.
+    permissions:
+      contents: write
+      actions: write
+      id-token: write
+      attestations: write
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -370,6 +378,13 @@ jobs:
           VERSION: ${{ needs.prepare.outputs.version }}
           BUILD_VERSION: ${{ needs.prepare.outputs.build_version }}
 
+      - name: Generate SBOM
+        # SPDX 2.3, derived from provenance.json so the two documents cannot
+        # disagree. Scope is the shipped artifacts + the upstream release they
+        # were packaged from - deliberately NOT a transitive dependency graph,
+        # and the document says so in its own comment field.
+        run: bash .github/scripts/generate-sbom.sh
+
       - name: Gate duplicate release tags
         # Refuse to (re)publish a release tag that already exists - published
         # or draft - so a retry or double-dispatch can't clobber or fork it.
@@ -385,6 +400,36 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Attest build provenance
+        # Sigstore-signed SLSA provenance, stored in GitHub's attestations API
+        # and verifiable by anyone with:
+        #   gh attestation verify <file.deb> --repo <owner>/<repo>
+        # provenance.json is our own record and is only as trustworthy as the
+        # host serving it; this is a cryptographic signature over the same
+        # facts, which is what a security review can actually check.
+        if: steps.dup-gate.outputs.exists == 'false'
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            __PKG_NAME___*.deb
+            *.dsc
+            *.debian.tar.xz
+            *.orig.tar.xz
+
+      - name: Attest SBOM
+        # Binds the SPDX document to those same artifacts, verifiable with:
+        #   gh attestation verify <file.deb> --repo <owner>/<repo> \
+        #     --predicate-type https://spdx.dev/Document
+        if: steps.dup-gate.outputs.exists == 'false'
+        uses: actions/attest-sbom@c604332985a26aa8cf1bdc465b92731239ec6b9e # v4.1.0
+        with:
+          subject-path: |
+            __PKG_NAME___*.deb
+            *.dsc
+            *.debian.tar.xz
+            *.orig.tar.xz
+          sbom-path: sbom.spdx.json
+
       - name: Publish release
         if: steps.dup-gate.outputs.exists == 'false'
         uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
@@ -398,6 +443,7 @@ jobs:
             *.debian.tar.xz
             *.orig.tar.xz
             provenance.json
+            sbom.spdx.json
           fail_on_unmatched_files: true
 
       - name: Clear failure marker
