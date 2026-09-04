@@ -112,7 +112,11 @@ case "$MODE" in
     printf '%s\n' "$SUMMARY"
     ;;
   --check)
-    live="$(api_json "https://raw.githubusercontent.com/$PROFILE_REPO/main/$PROFILE_PATH" || true)"
+    # Fetch via the Contents API, not raw.githubusercontent.com: the API
+    # has strong read-after-write consistency, while the raw CDN edge can
+    # serve stale content for minutes after a commit, failing this check
+    # with a false positive on a just-merged profile update.
+    live="$(gh api "repos/$PROFILE_REPO/contents/$PROFILE_PATH" --jq '.content' | base64 -d || true)"
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
     extracted="$(printf '%s' "$live" | extract_block)" || exit 1
     if [ "$SUMMARY" != "$extracted" ]; then
