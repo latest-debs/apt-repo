@@ -299,7 +299,7 @@ upstream_time() {
 # tool before the actual, much more expensive download pass starts.
 # ---------------------------------------------------------------------------
 resolve_repo() {
-  local pkg="$1" url="$2" homepage="$3"
+  local pkg="$1" url="$2" homepage="$3" dname="${4:-$1}"
   local repo="${url##https://github.com/}"
   local api="https://api.github.com/repos/$repo/releases/latest"
   log "== $pkg  ($repo) =="
@@ -372,7 +372,9 @@ resolve_repo() {
     [[ -n "$name" ]] || continue
     read -r kind suite arch apkg <<< "$(classify_asset "$name")"
     [[ "$kind" == "skip" ]] && { log "   skip $name (ubuntu/non-matching)"; continue; }
-    [[ "$apkg" == "$pkg" ]] || { log "   skip $name (package mismatch)"; continue; }
+    # Match assets against the binary package name, which is either the
+    # tools.yaml key or its debian_name override (e.g. yq -> yq-go).
+    [[ "$apkg" == "$pkg" || "$apkg" == "$dname" ]] || { log "   skip $name (package mismatch)"; continue; }
 
     # Remember the shared orig for fan-out after the loop.
     if [[ "$kind" == "orig" ]]; then
@@ -567,10 +569,10 @@ else
   # keeps log output in tools.yaml order for free, and 41 small API calls
   # in series cost seconds, not minutes.
   log "== resolving releases =="
-  while IFS=$'\t' read -r pkg url _dname homepage; do
+  while IFS=$'\t' read -r pkg url dname homepage; do
     [[ -n "$pkg" ]] || continue
-    resolve_repo "$pkg" "$url" "$homepage"
-  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2,4)
+    resolve_repo "$pkg" "$url" "$homepage" "$dname"
+  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2,3,4)
 
   # Now that pool/ persists across runs instead of being wiped every time,
   # a tool dropped from tools.yaml would otherwise linger in the index

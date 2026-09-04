@@ -108,9 +108,11 @@ yq:
   description: "Portable command-line YAML, JSON & XML processor"
   source: https://github.com/latest-debs/yq-debian
   homepage: https://github.com/mikefarah/yq
-  # Debian's own "yq" package is an unrelated, older Python-based tool
-  # (kislyuk/yq); this one is packaged there under no equivalent name, so
-  # no debian_name override - it should correctly show as "not packaged".
+  # The yq-debian repo builds the binary package as "yq-go" (Debian's own
+  # "yq" package is an unrelated, older Python-based tool), so release
+  # assets and the apt index use the yq-go name. debian_name keeps the
+  # tracking key "yq" while build-repo.sh and the site match on yq-go.
+  debian_name: yq-go
 
 du-dust:
   description: "A more intuitive version of `du`"
