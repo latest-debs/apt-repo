@@ -514,16 +514,10 @@ list renders on the
 | `trivy` | Apache-2.0 | `apt install trivy` | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
 | `helix` | MPL-2.0 | `apt install helix` | [helix-editor/helix](https://github.com/helix-editor/helix) |
 | `fish` | NOASSERTION | `apt install fish` | [fish-shell/fish-shell](https://github.com/fish-shell/fish-shell) |
-| `dasel` | — | `apt install dasel` | [TomWright/dasel](https://github.com/TomWright/dasel) |
 | `hexyl` | — | `apt install hexyl` | [sharkdp/hexyl](https://github.com/sharkdp/hexyl) |
 | `joshuto` | — | `apt install joshuto` | [kamiyaa/joshuto](https://github.com/kamiyaa/joshuto) |
 | `lf` | — | `apt install lf` | [gokcehan/lf](https://github.com/gokcehan/lf) |
 | `watchexec` | — | `apt install watchexec` | [watchexec/watchexec](https://github.com/watchexec/watchexec) |
-| `herdr` | — | `apt install herdr` | [herdrdev/herdr](https://github.com/herdrdev/herdr) |
-| `oh-my-posh` | — | `apt install oh-my-posh` | [JanDeDobbeleer/oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh) |
-| `uncloud` | — | `apt install uncloud` | [psviderski/uncloud](https://github.com/psviderski/uncloud) |
-| `unregistry` | — | `apt install unregistry` | [psviderski/unregistry](https://github.com/psviderski/unregistry) |
-| `workmux` | — | `apt install workmux` | [raine/workmux](https://github.com/raine/workmux) |
 
 <!-- packages:end -->
 
