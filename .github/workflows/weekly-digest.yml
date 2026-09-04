@@ -73,8 +73,8 @@ jobs:
             --jq '.data.repository.discussionCategories.nodes[] | select(.name == "Announcements") | .id')"
           repo_id="$(gh api graphql -f query='query{repository(owner:"latest-debs",name:"apt-repo"){id}}' --jq '.data.repository.id')"
           title="Shipped this week ($week): $rows versions across $pkgs tools"
-          existing="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussions(first:1, categoryId:\"$cat_id\", orderBy:{field:CREATED_AT, direction:DESC}){nodes{number title}}}}" \
-            --jq '.data.repository.discussions.nodes[] | select(.title == $title) | .number' --raw-field title="$title" 2>/dev/null || true)"
+          existing="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussions(first:10, categoryId:\"$cat_id\"){nodes{number title}}}}" \
+            --jq ".data.repository.discussions.nodes[] | select(.title | contains(\"$week\")) | .number" 2>/dev/null || true)"
           if [ -n "$existing" ]; then
             gh api graphql -f query='mutation($id:ID!,$body:String!){updateDiscussion(input:{discussionId:$id, body:$body}){discussion{number}}}' \
               -f id="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussion(number:$existing){id}}}" --jq '.data.repository.discussion.id')" \
