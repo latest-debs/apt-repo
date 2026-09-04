@@ -100,7 +100,12 @@ jobs:
         # .github org profile's Packages table is generated from it.
         # Regenerate and diff against the live profile - drift fails here
         # instead of being noticed by a human weeks later.
-        run: bash scripts/sync-profile.sh --check
+        #
+        # Settle delay: raw.githubusercontent.com is CDN-backed, so a fresh
+        # commit on latest-debs/.github can race the check by seconds. Sleep
+        # lets the edge propagate before we fetch, so a just-merged profile
+        # update doesn't fail this step with a stale-content false positive.
+        run: sleep 60 && bash scripts/sync-profile.sh --check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
