@@ -298,12 +298,32 @@ lf:
   source: https://github.com/latest-debs/lf-debian
   homepage: https://github.com/gokcehan/lf
 
-tokei:
-  description: "Count your code, quickly"
-  source: https://github.com/latest-debs/tokei-debian
-  homepage: https://github.com/XAMPPRocky/tokei
-
 watchexec:
   description: "Execute commands in response to file modifications"
   source: https://github.com/latest-debs/watchexec-debian
   homepage: https://github.com/watchexec/watchexec
+
+herdr:
+  description: "Terminal workspace manager for coding agents"
+  source: https://github.com/latest-debs/herdr-debian
+  homepage: https://github.com/herdrdev/herdr
+
+oh-my-posh:
+  description: "Cross-platform/shell prompt renderer"
+  source: https://github.com/latest-debs/oh-my-posh-debian
+  homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+
+uncloud:
+  description: "Lightweight clustering and container orchestration tool"
+  source: https://github.com/latest-debs/uncloud-debian
+  homepage: https://github.com/psviderski/uncloud
+
+unregistry:
+  description: "Push Docker images directly to remote servers without a registry"
+  source: https://github.com/latest-debs/unregistry-debian
+  homepage: https://github.com/psviderski/unregistry
+
+workmux:
+  description: "Git worktrees + tmux windows for zero-friction parallel dev"
+  source: https://github.com/latest-debs/workmux-debian
+  homepage: https://github.com/raine/workmux
