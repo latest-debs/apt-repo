@@ -27,10 +27,18 @@ echo '{}' > "$tmp_json"
 while IFS=$'\t' read -r pkg url; do
   [[ -n "$pkg" ]] || continue
   repo="${url##https://github.com/}"
-  raw="https://raw.githubusercontent.com/$repo/main/package.yaml"
   log "checking $pkg ($repo)..."
 
-  license="$(curl -fsSL "$raw" 2>/dev/null | awk -F': *' '/^license:/{print $2; exit}')"
+  # package.yaml may live on the default branch, which is not always "main"
+  # (older repos use "master"). Probe both; tolerate a missing file with a
+  # WARN instead of aborting the whole rebuild (set -euo pipefail would
+  # otherwise turn a single 404 into exit code 22 for the pipeline).
+  license=""
+  for branch in main master; do
+    raw="https://raw.githubusercontent.com/$repo/$branch/package.yaml"
+    license="$(curl -fsSL "$raw" 2>/dev/null | awk -F': *' '/^license:/{print $2; exit}' || true)"
+    [[ -n "$license" ]] && break
+  done
 
   if [[ -n "$license" ]]; then
     log "  -> $license"
