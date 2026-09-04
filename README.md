@@ -553,7 +553,7 @@ list renders on the
 | `k9s` | Apache-2.0 | `apt install k9s` | [derailed/k9s](https://github.com/derailed/k9s) |
 | `atuin` | MIT | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
 | `xh` | MIT | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
-| `yq-go` | MIT | `apt install yq-go` | [mikefarah/yq](https://github.com/mikefarah/yq) |
+| `yq` | — | `apt install yq` | [mikefarah/yq](https://github.com/mikefarah/yq) |
 | `du-dust` | Apache-2.0 | `apt install du-dust` | [bootandy/dust](https://github.com/bootandy/dust) |
 | `procs` | MIT | `apt install procs` | [dalance/procs](https://github.com/dalance/procs) |
 | `bottom` | MIT | `apt install bottom` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
@@ -590,6 +590,11 @@ list renders on the
 | `joshuto` | — | `apt install joshuto` | [kamiyaa/joshuto](https://github.com/kamiyaa/joshuto) |
 | `lf` | — | `apt install lf` | [gokcehan/lf](https://github.com/gokcehan/lf) |
 | `watchexec` | — | `apt install watchexec` | [watchexec/watchexec](https://github.com/watchexec/watchexec) |
+| `herdr` | — | `apt install herdr` | [herdrdev/herdr](https://github.com/herdrdev/herdr) |
+| `oh-my-posh` | — | `apt install oh-my-posh` | [JanDeDobbeleer/oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh) |
+| `uncloud` | — | `apt install uncloud` | [psviderski/uncloud](https://github.com/psviderski/uncloud) |
+| `workmux` | — | `apt install workmux` | [raine/workmux](https://github.com/raine/workmux) |
+| `dasel` | — | `apt install dasel` | [TomWright/dasel](https://github.com/TomWright/dasel) |
 
 <!-- packages:end -->
 
