@@ -186,7 +186,7 @@ This channel gives a CI/fleet pipeline something to point at instead:
   RUN sudo install -d -m 0755 /etc/apt/keyrings \
     && curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc \
          | gpg --dearmor -o /etc/apt/keyrings/latest-debs.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.github.io/apt-repo/ trixie main" \
+    && echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ trixie main" \
          > /etc/apt/sources.list.d/latest-debs.list \
     && apt-get update && apt-get install -y ripgrep=<version> fd-find=<version>
   ```

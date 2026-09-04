@@ -20,12 +20,22 @@ administer, release, rotate secrets, and recover the org alone.
 on a **personal Cloudflare account** at `latest-debs.ranjithraj.workers.dev`,
 on the free `*.workers.dev` tier (see `PLATFORM-EVALUATION.md`).
 
-That hostname is the `URIs:` in `extrepo/latest-debs.yaml`, contributed
-upstream to [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data).
-**Users who ran `extrepo enable latest-debs` cannot be re-pointed by any
-change made in this repo** — moving hosts needs an upstream MR plus a
-`sources.list` edit by every manual-install user. Losing the account is a
-total outage with a slow, externally-gated recovery.
+**How exposed we are depends on a migration that is only half-done.** As of
+2026-09-04 the merged upstream
+[extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data) entry
+still carries the old `https://latest-debs.github.io/apt-repo/` base URI, so
+`extrepo enable latest-debs` users do *not* currently depend on this account.
+Everything we control directly (the site installer, both manual snippets)
+now points at the Worker.
+
+The pending extrepo-data MR flips that: once it lands, **every** user depends
+on a personal Cloudflare account, and they cannot be re-pointed by any change
+made in this repo — moving hosts would need a second upstream MR plus a
+`sources.list` edit by every manual-install user.
+
+**So the mitigations below are not "someday" work — they are a precondition
+for that MR.** Do them first, or the MR converts a recoverable dependency
+into an unrecoverable one.
 
 Fixes, cheapest first:
 
