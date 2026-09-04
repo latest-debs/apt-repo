@@ -7,7 +7,7 @@ on:
     - cron: '0 15 * * 5'
 
 permissions:
-  issues: write
+  discussions: write
   contents: read
 
 concurrency:
@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y curl jq python3-yaml
 
-      - name: Collect the week's releases and publish the digest issue
+      - name: Collect the week's releases and publish the digest discussion
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -67,19 +67,21 @@ jobs:
           pkgs="$(cut -f1 /tmp/digest_rows.tsv | sort -u | wc -l)"
           body="$(python3 scripts/render-digest.py "$week" "$since" < /tmp/digest_rows.tsv)"
 
-          gh label create weekly-digest --color 1f6feb --force -R "$GITHUB_REPOSITORY" 2>/dev/null || true
-
-          # One issue per ISO week: update if it already exists (rerun),
-          # otherwise create.
-          existing="$(gh issue list -R "$GITHUB_REPOSITORY" --label weekly-digest --state all \
-                        --search "Shipped this week ($week) in:title" --json number --jq '.[0].number' 2>/dev/null || true)"
+          # One discussion per ISO week in the Announcements category:
+          # update if it already exists (rerun), otherwise create.
+          cat_id="$(gh api graphql -f query='query{repository(owner:"latest-debs",name:"apt-repo"){discussionCategories(first:10){nodes{id name}}}}' \
+            --jq '.data.repository.discussionCategories.nodes[] | select(.name == "Announcements") | .id')"
+          repo_id="$(gh api graphql -f query='query{repository(owner:"latest-debs",name:"apt-repo"){id}}' --jq '.data.repository.id')"
+          title="Shipped this week ($week): $rows versions across $pkgs tools"
+          existing="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussions(first:1, categoryId:\"$cat_id\", orderBy:{field:CREATED_AT, direction:DESC}){nodes{number title}}}}" \
+            --jq '.data.repository.discussions.nodes[] | select(.title == $title) | .number' --raw-field title="$title" 2>/dev/null || true)"
           if [ -n "$existing" ]; then
-            gh issue edit "$existing" -R "$GITHUB_REPOSITORY" --body "$body" >/dev/null
-            echo "updated digest issue #$existing"
+            gh api graphql -f query='mutation($id:ID!,$body:String!){updateDiscussion(input:{discussionId:$id, body:$body}){discussion{number}}}' \
+              -f id="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussion(number:$existing){id}}}" --jq '.data.repository.discussion.id')" \
+              -f body="$body" >/dev/null
+            echo "updated digest discussion #$existing"
           else
-            gh issue create -R "$GITHUB_REPOSITORY" \
-              --label weekly-digest \
-              --title "Shipped this week ($week): $rows versions across $pkgs tools" \
-              --body "$body" >/dev/null
-            echo "created digest issue"
+            gh api graphql -f query='mutation($repo:ID!,$cat:ID!,$title:String!,$body:String!){createDiscussion(input:{repositoryId:$repo, categoryId:$cat, title:$title, body:$body}){discussion{number url}}}' \
+              -f repo="$repo_id" -f cat="$cat_id" -f title="$title" -f body="$body" \
+              --jq '.data.createDiscussion.discussion.url' | { read -r url; echo "created digest discussion $url"; }
           fi
