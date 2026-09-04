@@ -1,23 +1,39 @@
 ---
-# extrepo metadata for the latest-debs aggregate repository.
-#
-# This file is intended to be contributed upstream to
+# extrepo metadata for the latest-debs aggregate repository, staged here for
+# contribution to
 # https://salsa.debian.org/extrepo-team/extrepo-data as
-# repos/debian/latest-debs.yaml so that users can run:
+# repos/debian/latest-debs.yaml, so that users can run:
 #
 #     sudo extrepo enable latest-debs
+#
+# Already merged upstream; this copy is the staging area for the next MR.
+# Keep it mergeable: extrepo-data is Debian-only by construction. Its
+# generator globs repos/debian/*.yaml into a hardcoded `debian` dist and
+# validates every entry in `suites:` against Debian::DistroInfo
+# (tools/lib/ExtRepoData.pm: `croak "Unknown Debian release"`), so an
+# Ubuntu codename here does not degrade gracefully - it fails the upstream
+# publish pipeline. Ubuntu users are already served without one: the
+# extrepo package pins dist/version in /etc/extrepo/config.yaml rather than
+# reading os-release, and Ubuntu's universe builds ship `dist: debian` with
+# a Debian codename (jammy's 0.9 -> bookworm; noble's 0.13 and questing's
+# 0.15 -> trixie), so `extrepo enable latest-debs` on Ubuntu resolves a
+# Debian suite of ours. Ubuntu suite aliases live in suites.json and are
+# served over apt directly; they are not expressible here.
 #
 # See https://salsa.debian.org/extrepo-team/extrepo-data for the full
 # metadata format and the rules external repositories must follow.
 
 latest-debs:
-  description: Latest stable releases of developer tools, packaged for Debian and Ubuntu. Tracks uv, eza, lazygit and more.
+  description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
   source:
     Types: deb
     # The redirector (Cloudflare Worker) is the single origin apt clients
     # hit: dists/ is proxied from the GitHub Pages site, /pool/* 302s to
     # each tool's own GitHub Release assets (pool/ is no longer published
     # to gh-pages - it exceeded Pages' 1GB published-site limit).
+    # Upstream still carries the old https://latest-debs.github.io/apt-repo/
+    # base URI; switching it is the open sequencing step in
+    # redirector/README.md ("What's NOT done", item 3).
     URIs: https://latest-debs.ranjithraj.workers.dev/
     Suites: <SUITE>
     Components: main
@@ -25,13 +41,6 @@ latest-debs:
     # real dists/*/Release Architectures field - re-check there before
     # editing, since which tools publish which archs changes over time.
     Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
-    # Ubuntu suites are aliases of Debian suites (same .debs, glibc-checked);
-    # their arch sets match the source suite exactly (verified 2026-08-27):
-    #   jammy -> bullseye, noble/questing/resolute -> trixie
-    suite-jammy-Architectures: amd64 arm64 armhf ppc64el riscv64 s390x i386 loong64
-    suite-noble-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
-    suite-questing-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
-    suite-resolute-Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
     suite-forky-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
     suite-sid-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
   suites:
@@ -39,10 +48,6 @@ latest-debs:
     - trixie
     - forky
     - sid
-    - jammy
-    - noble
-    - questing
-    - resolute
   policy: main
   contact: latest-debs@users.noreply.github.com
   bugs: https://github.com/latest-debs/apt-repo/issues

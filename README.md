@@ -129,13 +129,23 @@ time-critical patch delivery.
 
 ## Install
 
-Via [extrepo](https://salsa.debian.org/extrepo-team/extrepo) (Debian):
+Via [extrepo](https://salsa.debian.org/extrepo-team/extrepo) (Debian, and
+Ubuntu except 22.04):
 
 ```sh
 sudo extrepo enable latest-debs
 sudo apt update
 sudo apt install uv eza lazygit
 ```
+
+> **On Ubuntu 22.04 (jammy), use the manual snippet below instead.** extrepo
+> takes its suite from `/etc/extrepo/config.yaml` — a static file shipped in
+> the package, not read from `os-release` — and jammy's extrepo 0.9 pins
+> `bookworm`, whose glibc (2.36) is newer than jammy's (2.35). The manual
+> snippet uses jammy's own codename, which we serve as an alias of bullseye
+> (glibc 2.31). Noble and later pin `trixie`, the same alias target this
+> repo already maps them to, so extrepo and the manual snippet install
+> identical packages there.
 
 Manually:
 

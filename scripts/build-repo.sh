@@ -601,20 +601,23 @@ mkdir -p "$APT_CACHE_DIR"
 
 # Ubuntu suites without a dedicated build are served as an alias of a Debian
 # suite whose glibc is older-or-equal, so its binaries also run there: copy
-# pool/<src> -> pool/<alias> and rewrite the suite token in filenames (no
-# extra docker build). Source of truth for the mapping is suites.json's
-# "aliases" map.
+# pool/<src> -> pool/<alias> (no extra docker build). Source of truth for the
+# mapping is suites.json's "aliases" map.
+#
+# Filenames keep the SOURCE suite token (+trixie, not +noble). They used to be
+# rewritten, which was fine while pool/ was real files on gh-pages, but pool/
+# is now served by the redirector: it matches /pool/<suite>/<pkg>/<filename>,
+# ignores <suite>, and appends <filename> verbatim to that tool's GitHub
+# Release download URL (redirector/src/worker.js). Only the Debian-suite asset
+# exists there, so a rewritten +<alias> filename 302s to a 404 - apt update
+# succeeds and every apt install fails. The token also has to stay to match
+# the .deb's own Version: field, which dpkg-deb stamped at build time and
+# no rename can change.
 while IFS=$'\t' read -r alias_suite alias_src; do
   [[ -n "$alias_suite" ]] || continue
   if [[ -d "$POOL/$alias_src" && ! -e "$POOL/$alias_suite" ]]; then
     log "== alias $alias_suite -> $alias_src (pool copy, no separate build) =="
     cp -a "$POOL/$alias_src" "$POOL/$alias_suite"
-    # Rewrite +<alias_src> -> +<alias_suite> in filenames so grep +<alias_suite> matches
-    for f in "$POOL/$alias_suite"/*/*; do
-      [[ -f "$f" ]] || continue
-      nf="${f/+${alias_src}/+${alias_suite}}"
-      [[ "$f" != "$nf" ]] && mv "$f" "$nf"
-    done
   fi
 done < <(jq -r '.aliases | to_entries[] | [.key, .value] | @tsv' "$ROOT/suites.json")
 
