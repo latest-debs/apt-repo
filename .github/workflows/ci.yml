@@ -189,6 +189,72 @@ jobs:
             "$RUNNER_TEMP/yq-citest-debian/.github/release-metadata.json" \
             || { echo "::error::yq pin was not verified against upstream checksums"; exit 1; }
 
+      - name: Provenance + SBOM round-trip
+        # generate-sbom.sh is a jq program embedded in a shell script - a
+        # syntax error in it is invisible until a real release job runs it,
+        # by which point the build already passed and the release is stuck.
+        # Run the pair for real, both with and without a vet-time upstream
+        # pin (the two shapes provenance.json actually takes), and assert the
+        # SPDX document is structurally valid with resolvable references.
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/sbom-check"
+          rm -rf "$d"; mkdir -p "$d/.github/workflows"
+          cp templates/package-scaffold/.github/scripts/generate-provenance.sh "$d/"
+          cp templates/package-scaffold/.github/scripts/generate-sbom.sh "$d/"
+          cd "$d"
+          printf 'package_name: demo\n' > package.yaml
+          printf 'uses: ranjithrajv/debian-multiarch-builder@deadbeef\n' \
+            > .github/workflows/release.yml
+          echo fake-deb  > demo_1.2.3-1+trixie_amd64.deb
+          echo fake-dsc  > demo_1.2.3-1+trixie.dsc
+
+          for case in no-pin with-pin; do
+            if [ "$case" = with-pin ]; then
+              cat > .github/release-metadata.json <<'JSON'
+          {"upstream_repo":"acme/demo","tag":"v1.2.3","published_at":"2026-01-01T00:00:00Z",
+           "license":"MIT","asset":"demo_linux_amd64.tar.gz",
+           "sha256":"1111111111111111111111111111111111111111111111111111111111111111",
+           "checksum_verified":true}
+          JSON
+            fi
+            VERSION=v1.2.3 BUILD_VERSION=1 bash generate-provenance.sh
+            bash generate-sbom.sh
+            CASE="$case" python3 - <<'PY'
+          import json, os
+          d = json.load(open('sbom.spdx.json'))
+          case = os.environ['CASE']
+          assert d['spdxVersion'] == 'SPDX-2.3', d['spdxVersion']
+          assert d['dataLicense'] == 'CC0-1.0'
+          for k in ('SPDXID','name','documentNamespace','creationInfo','packages','relationships'):
+              assert k in d, f'missing {k}'
+          ids = ({p['SPDXID'] for p in d['packages']}
+                 | {f['SPDXID'] for f in d.get('files', [])}
+                 | {'SPDXRef-DOCUMENT'})
+          for r in d['relationships']:
+              assert r['spdxElementId'] in ids, r
+              assert r['relatedSpdxElement'] in ids, r
+          # Every shipped artifact must appear as a checksummed SPDX file.
+          assert len(d['files']) == 2, d['files']
+          for f in d['files']:
+              assert f['checksums'][0]['algorithm'] == 'SHA256'
+              assert len(f['checksums'][0]['checksumValue']) == 64
+          # Debian version, not the upstream tag: no leading "v".
+          pkg = next(p for p in d['packages'] if p['SPDXID'].startswith('SPDXRef-Package-'))
+          assert pkg['versionInfo'] == '1.2.3-1', pkg['versionInfo']
+          rels = {r['relationshipType'] for r in d['relationships']}
+          if case == 'with-pin':
+              assert len(d['packages']) == 2, d['packages']
+              assert 'GENERATED_FROM' in rels
+              up = next(p for p in d['packages'] if p['SPDXID'] == 'SPDXRef-Upstream')
+              assert up['checksums'][0]['checksumValue'].startswith('1111'), up
+          else:
+              assert len(d['packages']) == 1, d['packages']
+              assert 'GENERATED_FROM' not in rels
+          print(f'  SBOM {case}: OK')
+          PY
+          done
+
       - name: Parse a sample package-request issue body
         run: |
           set -euo pipefail
@@ -199,6 +265,13 @@ jobs:
           grep -q '^repo=junegunn/fzf$' "$out/outputs"
           grep -q '^about=A command-line fuzzy finder.$' "$out/outputs"
           grep -q '^license=MIT$' "$out/outputs"
+
+      - name: Self-check lib.sh's ETag-cached gh_get()
+        # Hermetic (local http.server, no network/token): asserts a 304 is
+        # masked back to 200 with the cached body restored, that a body
+        # evicted out from under its etag does not revalidate into an empty
+        # result, and that an unset $ETAG_DIR degrades to a plain GET.
+        run: bash scripts/test-gh-get.sh
 
       - name: Validate tools.yaml registry
         run: |
