@@ -76,11 +76,20 @@ jobs:
           existing="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussions(first:10, categoryId:\"$cat_id\"){nodes{number title}}}}" \
             --jq ".data.repository.discussions.nodes[] | select(.title | contains(\"$week\")) | .number" 2>/dev/null || true)"
           if [ -n "$existing" ]; then
-            gh api graphql -f query='mutation($id:ID!,$body:String!){updateDiscussion(input:{discussionId:$id, body:$body}){discussion{number}}}' \
-              -f id="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussion(number:$existing){id}}}" --jq '.data.repository.discussion.id')" \
-              -f body="$body" >/dev/null
-            echo "updated digest discussion #$existing"
-          else
+            # GITHUB_TOKEN can only edit discussions it authored itself; if
+            # the existing one was authored by a human, create a replacement.
+            disc_id="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussion(number:$existing){id author{login}}}}" \
+              --jq 'if .data.repository.discussion.author.login == "github-actions[bot]" then .data.repository.discussion.id else empty end' 2>/dev/null || true)"
+            if [ -n "$disc_id" ]; then
+              gh api graphql -f query='mutation($id:ID!,$body:String!){updateDiscussion(input:{discussionId:$id, body:$body}){discussion{number}}}' \
+                -f id="$disc_id" \
+                -f body="$body" >/dev/null
+              echo "updated digest discussion #$existing"
+            else
+              existing=""
+            fi
+          fi
+          if [ -z "$existing" ]; then
             gh api graphql -f query='mutation($repo:ID!,$cat:ID!,$title:String!,$body:String!){createDiscussion(input:{repositoryId:$repo, categoryId:$cat, title:$title, body:$body}){discussion{number url}}}' \
               -f repo="$repo_id" -f cat="$cat_id" -f title="$title" -f body="$body" \
               --jq '.data.createDiscussion.discussion.url' | { read -r url; echo "created digest discussion $url"; }
