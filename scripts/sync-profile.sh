@@ -119,6 +119,8 @@ case "$MODE" in
     # read-after-write consistency.
     live="$(gh api "repos/$PROFILE_REPO/contents/$PROFILE_PATH" --jq '.content' | base64 -d || true)"
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
+    echo "DEBUG: fetched live profile: ${#live} bytes"
+    echo "${live:0:300}"
     extracted="$(printf '%s' "$live" | extract_block)" || exit 1
     if [ "$SUMMARY" != "$extracted" ]; then
       echo "::error::org profile Packages summary has drifted from tools.yaml"
