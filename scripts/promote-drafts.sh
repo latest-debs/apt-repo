@@ -49,26 +49,10 @@ command -v jq >/dev/null || { echo "jq required" >&2; exit 1; }
 command -v curl >/dev/null || { echo "curl required" >&2; exit 1; }
 
 TOKEN="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
-AUTH=()
-[ -n "$TOKEN" ] && AUTH=(-H "Authorization: token $TOKEN")
 if $PUBLISH && [ -z "$TOKEN" ]; then
   echo "ERROR: --publish needs GH_TOKEN (Contents:write on the *-debian repos); unauthenticated runs can list only" >&2
   exit 1
 fi
-
-api_json() { # retrying GET; prints body, returns 1 on persistent failure
-  local url="$1" attempt code
-  for attempt in 1 2 3; do
-    code="$(curl -fsSL -o "$TMP/api.json" -w '%{http_code}' --connect-timeout 10 \
-      --max-time 30 "${AUTH[@]}" "$url" 2>/dev/null || true)"
-    if [ "$code" = "200" ]; then cat "$TMP/api.json"; return 0; fi
-    case "$code" in
-      403|429|5??) sleep $((attempt * 5));;
-      *) return 1;;
-    esac
-  done
-  return 1
-}
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT

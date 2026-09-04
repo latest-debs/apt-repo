@@ -22,30 +22,17 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+. "$SCRIPT_DIR/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
-API="https://api.github.com"
 PROFILE_REPO="latest-debs/.github"
 PROFILE_PATH="profile/README.md"
 START="<!-- packages:start -->"
 END="<!-- packages:end -->"
 SAMPLE_N=12   # names shown inline before "and N more"
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
 command -v jq >/dev/null || { echo "jq required" >&2; exit 1; }
-
-api_json() { # retrying GET; prints body, returns 1 on persistent failure
-  local url="$1" attempt code
-  for attempt in 1 2 3; do
-    code="$(curl -fsSL -o /tmp/sp.$$ -w '%{http_code}' --connect-timeout 10 --max-time 30 \
-      "${AUTH[@]}" "$url" 2>/dev/null || true)"
-    if [ "$code" = "200" ]; then cat /tmp/sp.$$; rm -f /tmp/sp.$$; return 0; fi
-    rm -f /tmp/sp.$$
-    case "$code" in 403|429|5??) sleep $((attempt * 5));; 404) return 1;; *) return 1;; esac
-  done
-  return 1
-}
 
 MODE="${1:-print}"
 case "$MODE" in

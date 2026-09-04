@@ -24,8 +24,6 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$SCRIPT_DIR/lib.sh"
 TEMPLATE="$(cd "$SCRIPT_DIR/.." && pwd)/templates/package-scaffold"
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
 usage() {
   sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'
@@ -65,7 +63,7 @@ scaffold() {
   esac
 
   # Validate upstream repo exists.
-  repo_json="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo" || true)"
+  repo_json="$(api_json "$API/repos/$repo" || true)"
   [ -n "$repo_json" ] || die "upstream repo $repo not found (or API rate-limited)"
   description="${description:-$(printf '%s' "$repo_json" | jq -r '.description // empty')}"
   # License: prefer the request's explicit license, else the upstream repo's
@@ -89,10 +87,10 @@ scaffold() {
   # is told the same tag so the asset it downloads is the one we detected.
   local release assets asset fmt
   if [ -n "$version" ]; then
-    release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/tags/$version" || true)"
+    release="$(api_json "$API/repos/$repo/releases/tags/$version" || true)"
     [ -n "$release" ] || die "upstream $repo has no release tagged $version"
   else
-    release="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
+    release="$(api_json "$API/repos/$repo/releases/latest" || true)"
     [ -n "$release" ] || die "upstream $repo has no (non-prerelease) release — nothing to package"
   fi
   local release_tag

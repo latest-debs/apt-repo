@@ -30,19 +30,18 @@
 #
 # Usage:
 #   vet-prechecks.sh --asset <file> [--format tar.gz|tgz|tar.xz|zip]
-#                    [--license <spdx-id>] [--arch <linux-arch>]
+#                    [--license <spdx-id>]
 #                    [--release-json <release.json>] --out <dir>
 
 set -euo pipefail
 
-asset="" format="" declared_license="" expected_arch="" out="$(pwd)" release_json=""
+asset="" format="" declared_license="" out="$(pwd)" release_json=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --asset)  asset="$2"; shift 2;;
     --format) format="$2"; shift 2;;
     --license) declared_license="$2"; shift 2;;
-    --arch)   expected_arch="$2"; shift 2;;
     --release-json) release_json="$2"; shift 2;;
     --out)    out="$2"; shift 2;;
     *) echo "ERROR: unknown arg: $1" >&2; exit 2;;
@@ -137,14 +136,6 @@ elif [ "$size" -lt 1024 ]; then
 else
   asset_status="pass"
   asset_detail="valid $format archive containing ${elf_count} ELF executable(s); first: ${binary}${elf_arch:+ (${elf_arch})}"
-fi
-if [ -n "$expected_arch" ] && [ "$asset_status" = "pass" ] && [ -n "$elf_arch" ]; then
-  # Normalize x86_64 == x86-64 (file emits the hyphenated form).
-  norm_arch() { printf '%s' "$1" | tr '_' '-' | tr '[:upper:]' '[:lower:]'; }
-  case "$(norm_arch "$elf_arch")" in
-    *"$(norm_arch "$expected_arch")"*) : ;;
-    *) asset_status="warn"; asset_detail="$asset_detail; ELF arch '${elf_arch}' does not match expected '${expected_arch}'";;
-  esac
 fi
 
 # ---------------------------------------------------------------------------

@@ -58,8 +58,6 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOLS_YAML="$ROOT/tools.yaml"
 SUITES_JSON="$ROOT/suites.json"
 . "$ROOT/scripts/lib.sh"
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
 command -v jq >/dev/null || { echo "ERROR: jq is required" >&2; exit 1; }
 [ -f "$SUITES_JSON" ] || { echo "ERROR: missing $SUITES_JSON" >&2; exit 1; }
@@ -76,12 +74,11 @@ is_rolling() {
   return 1
 }
 
-name="" repo="" debian_name="" upstream_version="" suite_arg="all" out="" json_out=""
+name="" repo="" upstream_version="" suite_arg="all" out="" json_out=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --name) name="$2"; shift 2;;
     --repo) repo="$2"; shift 2;;
-    --debian-name) debian_name="$2"; shift 2;;
     --upstream-version) upstream_version="$2"; shift 2;;
     --suite) suite_arg="$2"; shift 2;;
     --out) out="$2"; shift 2;;
@@ -165,12 +162,12 @@ if [ -n "$name" ] && [ -n "$repo" ]; then
   # Single-candidate mode (used by add-package.sh at vet time, all suites
   # by default).
   if [ -z "$upstream_version" ]; then
-    rel="$(curl -sfL "${AUTH[@]}" "$API/repos/$repo/releases/latest" || true)"
+    rel="$(api_json "$API/repos/$repo/releases/latest" || true)"
     upstream_version="$(printf '%s' "$rel" | jq -r '.tag_name // empty')"
   fi
   [ -n "$upstream_version" ] || { echo "ERROR: could not resolve upstream version for $repo" >&2; exit 2; }
 
-  madison_text="$(madison_for "${debian_name:-$name}")"
+  madison_text="$(madison_for "$name")"
   parity_suites="" advisory_suites="" versions_json="{}"
   while IFS=$'\t' read -r p suite dver upv verdict; do
     [ -n "$p" ] || continue
@@ -268,7 +265,7 @@ while IFS=$'\t' read -r pkg dname homepage; do
     log "skip $pkg: no github homepage"
     continue
   fi
-  rel="$(curl -sfL "${AUTH[@]}" "$API/repos/$ghrepo/releases/latest" 2>/dev/null || true)"
+  rel="$(api_json "$API/repos/$ghrepo/releases/latest" 2>/dev/null || true)"
   up_ver="$(printf '%s' "$rel" | jq -r '.tag_name // empty' 2>/dev/null || true)"
   if [ -z "$up_ver" ]; then
     log "skip $pkg: could not resolve upstream release"

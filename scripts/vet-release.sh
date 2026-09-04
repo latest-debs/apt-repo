@@ -22,8 +22,6 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$SCRIPT_DIR/lib.sh"
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
 repo="" pkg="" asset="" version="" out="$(pwd)" declared_license=""
 VET_SOURCE="${VET_SOURCE:-}"
@@ -49,11 +47,9 @@ trap 'rm -rf "$TMP"' EXIT
 # Resolve the release JSON (latest, or an explicit tag).
 # ---------------------------------------------------------------------------
 if [ -n "$version" ]; then
-  release="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
-    "$API/repos/$repo/releases/tags/$version")"
+  release="$(api_json "$API/repos/$repo/releases/tags/$version")"
 else
-  release="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
-    "$API/repos/$repo/releases/latest")"
+  release="$(api_json "$API/repos/$repo/releases/latest")"
 fi
 tag="$(jq -r '.tag_name' <<<"$release")"
 [ -n "$tag" ] && [ "$tag" != "null" ] || { echo "ERROR: no release found for $repo" >&2; exit 1; }
@@ -61,8 +57,7 @@ published_at="$(jq -r '.published_at // ""' <<<"$release")"
 
 # Upstream's current SPDX license (also captured at scaffold time into
 # package.yaml; license-check.sh rechecks it on every build).
-license="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" \
-  "$API/repos/$repo" 2>/dev/null | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
+license="$(api_json "$API/repos/$repo" 2>/dev/null | jq -r '.license.spdx_id // ""' 2>/dev/null || true)"
 
 # ---------------------------------------------------------------------------
 # Enumerate every Linux archive asset in the release. The builder downloads
