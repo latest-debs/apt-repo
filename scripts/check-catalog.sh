@@ -11,11 +11,10 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+. "$SCRIPT_DIR/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
-API="https://api.github.com"
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: token $GITHUB_TOKEN")
 
 command -v jq >/dev/null || { echo "jq required" >&2; exit 1; }
 
@@ -26,30 +25,21 @@ total=0
 while IFS=$'\t' read -r pkg repo; do
   [ -n "$pkg" ] || continue
   total=$((total + 1))
-  code="" attempt=""
-  for attempt in 1 2 3; do
-    code="$(curl -fsSL -o /dev/null -w '%{http_code}' --connect-timeout 10 --max-time 30 \
-      "${AUTH[@]}" "$API/repos/$repo/releases/latest" 2>/dev/null || true)"
-    case "$code" in
-      200|404) break ;;
-      403|429|5??)
-        echo "::warning::GitHub API $code (attempt $attempt/3) for $repo; backing off" >&2
-        sleep $((attempt * 5))
-        ;;
-      *)
-        break  # 404-ish or unexpected: report below
-        ;;
-    esac
-    code=""
-  done
+  # Only the status code matters here, so this is gh_get rather than
+  # api_json; the 403/429/5xx backoff it used to spell out lives there now.
+  code="$(gh_get "$API/repos/$repo/releases/latest" /dev/null)"
   case "$code" in
     200) : ;;
     404)
       echo "MISSING: $pkg ($repo has no published release)"
       missing="$missing $pkg"
       ;;
-    "")
-      echo "::error::GitHub API persistently rate-limited checking $repo - NOT counting as pass"
+    403|429|5??)
+      echo "::error::GitHub API persistently rate-limited ($code) checking $repo - NOT counting as pass"
+      unknown=$((unknown + 1))
+      ;;
+    000|"")
+      echo "::error::Could not reach the GitHub API for $repo - NOT counting as pass"
       unknown=$((unknown + 1))
       ;;
     *)

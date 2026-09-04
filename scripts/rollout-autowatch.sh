@@ -17,6 +17,7 @@
 #   .github/scripts/license-check.sh       (license recheck / warn gate)
 #   .github/scripts/collect-failure-report.sh (structured failure report)
 #   .github/scripts/generate-provenance.sh (build-provenance for release assets)
+#   .github/scripts/generate-sbom.sh       (SPDX SBOM, derived from provenance)
 # package.yaml is only touched to BACKFILL a missing license: pin (never
 # regenerated - it carries per-repo config). README.md is not rolled out:
 # child READMEs carry per-repo customizations the template cannot encode.
@@ -126,7 +127,7 @@ fi
 if [ ${#TARGETS[@]} -eq 0 ]; then
   while IFS= read -r repo; do
     [ -n "$repo" ] && TARGETS+=("remote:$repo")
-  done < <(awk '/^[[:space:]]+source:[[:space:]]+https:\/\/github.com\//{print $2}' "$TOOLS_YAML" | sed 's|https://github.com/||')
+  done < <(parse_tools "$TOOLS_YAML" | cut -f2 | sed 's|https://github.com/||')
 fi
 [ ${#TARGETS[@]} -gt 0 ] || { echo "ERROR: no repos found in $TOOLS_YAML" >&2; exit 1; }
 
@@ -194,6 +195,7 @@ apply_to_dir() {
   local lc="$dir/.github/scripts/license-check.sh"
   local fr="$dir/.github/scripts/collect-failure-report.sh"
   local pv="$dir/.github/scripts/generate-provenance.sh"
+  local sb="$dir/.github/scripts/generate-sbom.sh"
 
   mkdir -p "$(dirname "$wf")" "$(dirname "$nf")" "$(dirname "$dt")"
   sed "${subst[@]}" "$TPL/.github/workflows/release.yml" > "$wf.tmp"
@@ -218,6 +220,12 @@ apply_to_dir() {
   cp "$TPL/.github/scripts/generate-provenance.sh" "$pv.tmp"
   chmod +x "$pv.tmp"
   stage_file "$pv" "$pv.tmp" ".github/scripts/generate-provenance.sh"
+  # Must ship in the same rollout as the release.yml that calls it - a repo
+  # that got the workflow without this script fails its next release at the
+  # "Generate SBOM" step.
+  cp "$TPL/.github/scripts/generate-sbom.sh" "$sb.tmp"
+  chmod +x "$sb.tmp"
+  stage_file "$sb" "$sb.tmp" ".github/scripts/generate-sbom.sh"
 
   # Backfill a license: pin when package.yaml lacks one, using the upstream's
   # live SPDX id. New scaffolds already carry it; this covers repos created

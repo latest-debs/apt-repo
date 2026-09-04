@@ -16,15 +16,15 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+. "$SCRIPT_DIR/lib.sh"
 TOOLS_YAML="$ROOT/tools.yaml"
 
 [ -n "${GH_TOKEN:-}" ] || { echo "ERROR: GH_TOKEN (secret-management capable) is required" >&2; exit 1; }
 [ -n "${TRIGGER_TOKEN:-}" ] || { echo "ERROR: TRIGGER_TOKEN value is required" >&2; exit 1; }
 
-mapfile -t repos < <(
-  awk '/^[[:space:]]+source:[[:space:]]+https:\/\/github.com\//{print $2}' "$TOOLS_YAML"
-)
+mapfile -t repos < <(parse_tools "$TOOLS_YAML" | cut -f2)
 [ ${#repos[@]} -gt 0 ] || { echo "ERROR: no tool repos found in $TOOLS_YAML" >&2; exit 1; }
 
 for repo in "${repos[@]}"; do

@@ -45,6 +45,27 @@ PREV_MANIFEST="$BUILD_STATE_DIR/pkg-repo-map.json"
 # regardless of whether pool/ changed at all.
 APT_CACHE_DIR="$BUILD_STATE_DIR/apt-cache"
 
+# ETag cache for the GitHub REST calls below, persisted under .build-state/
+# by the same actions/cache step. GitHub does not charge a 304 against the
+# primary 5,000/hr rate limit, so replaying the previous run's ETag makes the
+# steady state - most tools unchanged since the last run - free against that
+# cap rather than linear in the tool count.
+#
+# Measured against the live API (2026-09-04, authenticated), which is worth
+# recording because the two call sites are NOT equally expensive:
+#
+#   GET /repos/{r}/releases/latest      -> 0 quota   (resolve_repo)
+#   GET /repos/{r}/releases/tags/{tag}  -> 1 quota   (upstream_time)
+#   ...the same tags call, revalidated  -> 0 quota
+#
+# So upstream_time() is the only real consumer here, and it is the one the
+# cache helps most: an upstream release's published_at never changes once
+# published, so every run after the first revalidates for free. resolve_repo()
+# routes through the same helper anyway - uniform, and it costs nothing if
+# GitHub ever starts charging that endpoint.
+# shellcheck disable=SC2034  # read by lib.sh's gh_get(), not in this file
+ETAG_DIR="$BUILD_STATE_DIR/etags"
+
 # pkg -> {repo, tag, published_at, upstream_published_at} for every tool
 # with a valid latest release, consumed by the Cloudflare Workers redirector
 # (redirector/) to turn a pool/ request into the exact GitHub Release asset
@@ -242,29 +263,27 @@ upstream_time() {
   [[ "$base" == v* ]] || cands+=("v$base")
 
   local api="https://api.github.com/repos/$uprepo/releases/tags"
-  local code cand ts="" attempt
+  local code cand ts=""
   # Cold-cache runs fetch ~51 upstream timestamps back-to-back right after
   # 51 own-repo release reads; that burst is what trips GitHub's secondary
   # rate limiter. A 1s stagger costs ~1 min per cold run and keeps the
-  # request pattern off the abuse detector.
+  # request pattern off the abuse detector. gh_get()'s ETag cache makes the
+  # warm case cheap against the primary limit but not against this one - the
+  # request is still made. Collapsing these N fetches into batched GraphQL
+  # queries is the fix that removes the stagger too; worth doing once the
+  # stagger's cost (1s x tool count) rather than the rate limit is what hurts.
   sleep 1
   for cand in "${cands[@]}"; do
-    for attempt in 1 2 3; do
-      code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/utime.$$" -w '%{http_code}' \
-          -H "Accept: application/vnd.github+json" \
-          ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
-          "$api/$cand" 2>/dev/null || true)"
-      if [ "$code" = "200" ]; then
-        ts="$(jq -r '.published_at // ""' "$TMP/utime.$$" 2>/dev/null || true)"
-        break
-      fi
-      if [ "$code" = "404" ]; then break; fi
-      # 403/429/5xx: GitHub secondary (abuse) rate limiting hits exactly this
-      # pattern - bursty per-tool fetches from one runner IP. Back off and
-      # retry; NEVER give up silently or the lag metric just vanishes.
-      log "   upstream-time: HTTP $code (attempt $attempt/3) for $uprepo@$cand; backing off"
-      sleep $((attempt * 5))
-    done
+    # 403/429/5xx (GitHub secondary/abuse limiting, which this bursty
+    # per-tool pattern attracts) is already backed off and retried inside
+    # gh_get; anything still non-200 here is the settled answer. Log it
+    # rather than giving up silently, or the lag metric just vanishes.
+    code="$(gh_get "$api/$cand" "$TMP/utime.$$")"
+    if [ "$code" = "200" ]; then
+      ts="$(jq -r '.published_at // ""' "$TMP/utime.$$" 2>/dev/null || true)"
+    elif [ "$code" != "404" ]; then
+      log "   upstream-time: HTTP $code for $uprepo@$cand after retries"
+    fi
     rm -f "$TMP/utime.$$"
     [ -n "$ts" ] && break
   done
@@ -290,40 +309,21 @@ resolve_repo() {
   # this org's build volume (14+ tool repos, each rebuilding on its own
   # schedule) exhausts easily, silently degrading every fetch to "skip:
   # no latest release yet" and shipping an apt repo with zero packages.
-  # Retry 403/429/5xx with backoff; a PERSISTENT rate limit is fatal (loud
-  # die) rather than a silent per-tool skip - a silent skip here is how a
-  # rate-limited run ships an apt repo missing tools (and freshness.json).
-  local json="" code="" attempt
-  for attempt in 1 2 3; do
-    code="$(curl -fsSL --connect-timeout 10 --max-time 60 -o "$TMP/resolve.$$" -w '%{http_code}' \
-        -H "Accept: application/vnd.github+json" \
-        ${GITHUB_TOKEN:+-H "Authorization: token $GITHUB_TOKEN"} \
-        "$api" 2>/dev/null || true)"
-    if [ "$code" = "200" ]; then
-      json="$(cat "$TMP/resolve.$$")"
-      break
-    fi
-    case "$code" in
-      403|429|5??)
-        log "   GitHub API $code (attempt $attempt/3) for $repo; backing off"
-        sleep $((attempt * 10))
-        ;;
-      404)
-        log "   skip: no latest release yet (repo may be empty)"
-        rm -f "$TMP/resolve.$$"
-        return 0
-        ;;
-      *)
-        log "   skip: GitHub API $code for $repo"
-        rm -f "$TMP/resolve.$$"
-        return 0
-        ;;
-    esac
-  done
+  # gh_get() backs off and retries 403/429/5xx internally, so what comes back
+  # is the settled answer. A PERSISTENT rate limit is fatal (loud die) rather
+  # than a silent per-tool skip - a silent skip here is how a rate-limited run
+  # ships an apt repo missing tools (and freshness.json).
+  local json="" code
+  code="$(gh_get "$api" "$TMP/resolve.$$")"
+  [ "$code" = "200" ] && json="$(cat "$TMP/resolve.$$")"
   rm -f "$TMP/resolve.$$"
-  if [ "$code" != "200" ]; then
-    die "GitHub API persistently rate-limited/unavailable ($code) fetching $repo - refusing to build a partial repo; re-run when the rate limit resets"
-  fi
+  case "$code" in
+    200) : ;;
+    404) log "   skip: no latest release yet (repo may be empty)"; return 0 ;;
+    403|429|5??)
+      die "GitHub API persistently rate-limited/unavailable ($code) fetching $repo - refusing to build a partial repo; re-run when the rate limit resets" ;;
+    *) log "   skip: GitHub API $code for $repo"; return 0 ;;
+  esac
   [[ -n "$json" ]] || { log "   skip: no latest release yet (repo may be empty)"; return 0; }
   local tag published
   tag="$(jq -r '.tag_name' <<<"$json")"
