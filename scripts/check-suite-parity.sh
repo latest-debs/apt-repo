@@ -1,38 +1,49 @@
 #!/usr/bin/env bash
-# check-suite-parity.sh - flag tools already at latest-upstream parity in
-# Debian, per the "we don't duplicate Debian" policy
-# (README.md#debian-parity-when-we-step-aside): if ANY live Debian suite
-# already carries a tool's latest upstream release, packaging it here would
-# just be a second, lower-trust copy of what Debian already ships there.
+# check-suite-parity.sh - report where Debian already carries a tool at its
+# latest upstream version, per the "we don't duplicate Debian" policy
+# (README.md#debian-parity--when-we-step-aside). We step aside per SUITE:
+# a suite Debian already covers is handed back by build-repo.sh, while every
+# other suite keeps shipping.
 #
 # Generic across suites via --suite:
-#   (no flag)                default - all four live suites at once.
+#   (no flag)                default - all five live suites at once.
 #   --suite sid               any single suite (bookworm, trixie, forky, sid).
 #   --suite trixie,sid        a comma-separated list.
 #   --suite all                explicit spelling of the default.
 # Narrowing to one/some suites is for targeted lookups (e.g. "is trixie
-# caught up yet") - the retirement GATE below fires whenever ANY of the
-# suites actually checked shows parity, not just sid, so narrowing the set
-# also narrows what the gate can catch.
+# caught up yet") - the gate only sees the suites actually checked, so
+# narrowing also narrows what it can catch.
 #
 # Two modes:
 #
 #   Full scan (no --name/--repo) - reads tools.yaml, checks every tracked
 #     tool's version(s) in the requested suite(s) against its upstream
-#     latest release, and lists parity candidates in the VERDICT column
-#     (which suite(s) already match). Informational only - nothing is
-#     removed automatically. A maintainer reviews the list and drops
-#     entries from tools.yaml by hand, same as every other user-facing
-#     removal in this pipeline.
+#     latest release, and reports each suite's verdict. Nothing is removed
+#     from tools.yaml automatically; the per-suite hand-back is applied at
+#     build time from the published parity.json.
 #
 #   Single check (--name + --repo, used by add-package.sh at vet time) -
-#     checks one candidate before it's scaffolded. Exits 3 when any checked
-#     suite is already at parity; the caller should treat that as a hard
-#     stop. With --out <dir>, also writes debian-parity-report.json
-#     (gate pass/fail + which suite(s) matched) - same audit-trail shape as
-#     vet-prechecks.sh's vet-report.json, so a rejected request has a
-#     structured record to build the issue comment from instead of just a
-#     log line, the same way license/asset/architecture failures do.
+#     checks one candidate before it's scaffolded. Exits 3 only when a
+#     RELEASED suite is at parity (see the grades below); rolling-suite
+#     parity is advisory and exits 0. With --out <dir>, also writes
+#     debian-parity-report.json (gate pass/fail, plus parity_suites and
+#     advisory_suites) - same audit-trail shape as vet-prechecks.sh's
+#     vet-report.json, so a rejected request has a structured record to
+#     build the issue comment from instead of just a log line.
+#
+# Two grades of parity, per suites.json's `rolling` list:
+#
+#   RETIRE      - parity in a RELEASED suite (bullseye/bookworm/trixie).
+#                 Users get it from the suite they already run with a plain
+#                 `apt install`, so this channel is genuinely redundant.
+#                 Hard stop for new requests; retirement candidate for
+#                 tracked tools.
+#   PIN-ADVISED - parity only in a rolling suite (forky/sid). We recommend
+#                 pinning that single package from the suite rather than
+#                 switching a stable box to it wholesale - but a user
+#                 unwilling to enable sid at all still has no way to get the
+#                 current version, so WE KEEP PACKAGING IT. Advisory only:
+#                 never blocks a request, never triggers retirement.
 #
 # Version comparison uses dpkg --compare-versions after stripping the
 # Debian revision and common repack suffixes (+ds, +dfsg) from the Debian
@@ -54,6 +65,16 @@ command -v jq >/dev/null || { echo "ERROR: jq is required" >&2; exit 1; }
 [ -f "$SUITES_JSON" ] || { echo "ERROR: missing $SUITES_JSON" >&2; exit 1; }
 # Single source of truth for the tracked suite list - see suites.json.
 ALL_SUITES="$(jq -r '.suites | join(" ")' "$SUITES_JSON")"
+# Rolling (non-released) suites: parity there is advisory, not a step-aside
+# signal. Absent/empty `rolling` degrades to "every suite is released",
+# i.e. the stricter pre-2026-09 behaviour.
+ROLLING_SUITES="$(jq -r '(.rolling // []) | join(" ")' "$SUITES_JSON")"
+
+is_rolling() {
+  local s="$1" r
+  for r in $ROLLING_SUITES; do [ "$s" = "$r" ] && return 0; done
+  return 1
+}
 
 name="" repo="" debian_name="" upstream_version="" suite_arg="all" out="" json_out=""
 while [ $# -gt 0 ]; do
@@ -129,7 +150,11 @@ check_suites() {
     dnorm="$(normalize_debian "$dver")"
     ge="$(version_ge_upstream "$dnorm" "$up_norm")"
     if [ "$ge" = "true" ]; then
-      printf '%s\t%s\t%s\t%s\tRETIRE\n' "$pkg" "$suite" "$dver" "$up_ver"
+      if is_rolling "$suite"; then
+        printf '%s\t%s\t%s\t%s\tPIN-ADVISED\n' "$pkg" "$suite" "$dver" "$up_ver"
+      else
+        printf '%s\t%s\t%s\t%s\tRETIRE\n' "$pkg" "$suite" "$dver" "$up_ver"
+      fi
     else
       printf '%s\t%s\t%s\t%s\tKEEP\n' "$pkg" "$suite" "$dver" "$up_ver"
     fi
@@ -146,45 +171,62 @@ if [ -n "$name" ] && [ -n "$repo" ]; then
   [ -n "$upstream_version" ] || { echo "ERROR: could not resolve upstream version for $repo" >&2; exit 2; }
 
   madison_text="$(madison_for "${debian_name:-$name}")"
-  parity_suites="" versions_json="{}"
+  parity_suites="" advisory_suites="" versions_json="{}"
   while IFS=$'\t' read -r p suite dver upv verdict; do
     [ -n "$p" ] || continue
     printf '%s\t%s\t%s\t%s\t%s\n' "$p" "$suite" "$dver" "$upv" "$verdict"
     versions_json="$(jq -nc --argjson obj "$versions_json" --arg s "$suite" --arg v "$dver" '$obj + {($s): $v}')"
-    if [ "$verdict" = "RETIRE" ]; then
-      echo "PARITY[$suite]: $p is already at $dver in Debian $suite (upstream: $upv)." >&2
-      parity_suites="${parity_suites}${suite},"
-    fi
+    case "$verdict" in
+      RETIRE)
+        echo "PARITY[$suite]: $p is already at $dver in Debian $suite (upstream: $upv)." >&2
+        parity_suites="${parity_suites}${suite},"
+        ;;
+      PIN-ADVISED)
+        echo "PIN-ADVISED[$suite]: $p is at $dver in Debian $suite (upstream: $upv) - advisory only, not a blocker." >&2
+        advisory_suites="${advisory_suites}${suite},"
+        ;;
+    esac
   done < <(check_suites "$name" "$madison_text" "$upstream_version")
   parity_suites="${parity_suites%,}"
+  advisory_suites="${advisory_suites%,}"
 
   if [ -n "$out" ]; then
     mkdir -p "$out"
     gate="pass"; [ -n "$parity_suites" ] && gate="fail"
     detail="no live Debian suite is at parity yet"
-    [ -n "$parity_suites" ] && detail="already at parity in: $parity_suites"
+    [ -n "$advisory_suites" ] && detail="at parity only in rolling suite(s): $advisory_suites - pin advised, still packaged here"
+    [ -n "$parity_suites" ] && detail="already at parity in released suite(s): $parity_suites"
     jq -n \
       --arg gate "$gate" \
       --arg package "$name" \
       --arg upstream_version "$upstream_version" \
       --argjson suites_checked "$(printf '%s\n' $suites | jq -R . | jq -s .)" \
       --argjson parity_suites "$(printf '%s' "$parity_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
+      --argjson advisory_suites "$(printf '%s' "$advisory_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
       --argjson versions "$versions_json" \
       --arg detail "$detail" \
       --arg checked_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
       '{gate:$gate, package:$package, upstream_version:$upstream_version,
         suites_checked:$suites_checked, parity_suites:$parity_suites,
+        advisory_suites:$advisory_suites,
         versions:$versions, detail:$detail, checked_at:$checked_at}' \
       > "$out/debian-parity-report.json"
   fi
 
   if [ -n "$parity_suites" ]; then
-    echo "  Per policy (README.md#debian-parity-when-we-step-aside) we do not" >&2
-    echo "  package tools already current in a released Debian suite. Debian" >&2
+    echo "  Per policy (README.md#debian-parity--when-we-step-aside) we do not" >&2
+    echo "  package tools already current in a RELEASED Debian suite. Debian" >&2
     echo "  already carries '$name' at the latest version in: $parity_suites." >&2
-    echo "  Point the requester at that suite instead (directly, if it's what" >&2
-    echo "  they already run - pinned, if it isn't) rather than packaging it here." >&2
+    echo "  That's the suite the requester already runs, so a plain" >&2
+    echo "  'apt install $name' already gets them the current version." >&2
     exit 3
+  fi
+  if [ -n "$advisory_suites" ]; then
+    echo "  NOTE: '$name' is already current in rolling suite(s): $advisory_suites." >&2
+    echo "  Recommend pinning just that one package from there rather than" >&2
+    echo "  switching the whole box to it. But that's advice, not a refusal -" >&2
+    echo "  a user unwilling to enable $advisory_suites at all still has no" >&2
+    echo "  other route to the current version, so we package it. Proceeding." >&2
   fi
   exit 0
 fi
@@ -218,6 +260,7 @@ if [ -n "$json_out" ]; then
 fi
 
 retire_count=0
+advisory_count=0
 while IFS=$'\t' read -r pkg dname homepage; do
   [ -n "$pkg" ] || continue
   ghrepo="${homepage#https://github.com/}"
@@ -235,40 +278,63 @@ while IFS=$'\t' read -r pkg dname homepage; do
   madison_text="$(madison_for "$dname")"
   cols=("$pkg" "$up_ver")
   parity_suites=""
+  advisory_suites=""
   suites_json="{}"
   while IFS=$'\t' read -r p suite dver upv verdict; do
     [ -n "$p" ] || continue
     cols+=("$dver")
     suites_json="$(jq -nc --argjson obj "$suites_json" --arg s "$suite" --arg v "$dver" '$obj + {($s): $v}')"
     [ "$verdict" = "RETIRE" ] && parity_suites="${parity_suites}${suite},"
+    [ "$verdict" = "PIN-ADVISED" ] && advisory_suites="${advisory_suites}${suite},"
   done < <(check_suites "$pkg" "$madison_text" "$up_ver")
   parity_suites="${parity_suites%,}"
-  cols+=("${parity_suites:--}")
+  advisory_suites="${advisory_suites%,}"
+  # VERDICT column: released-suite parity is the actionable one; rolling-suite
+  # parity is shown as "pin:<suites>" so it reads as advice, not a to-do.
+  if [ -n "$parity_suites" ]; then
+    cols+=("$parity_suites")
+  elif [ -n "$advisory_suites" ]; then
+    cols+=("pin:$advisory_suites")
+  else
+    cols+=("-")
+  fi
 
   # shellcheck disable=SC2059
   printf "$fmt" "${cols[@]}"
 
   [ -n "$parity_suites" ] && retire_count=$((retire_count + 1))
+  [ -n "$advisory_suites" ] && advisory_count=$((advisory_count + 1))
   if [ -n "$SCAN_JSONL" ]; then
     jq -nc --arg pkg "$pkg" --arg upstream "$up_ver" --argjson suites "$suites_json" \
       --argjson parity "$(printf '%s' "$parity_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
-      '{package:$pkg, upstream_version:$upstream, suites:$suites, parity_suites:$parity}' >> "$SCAN_JSONL"
+      --argjson advisory "$(printf '%s' "$advisory_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
+      '{package:$pkg, upstream_version:$upstream, suites:$suites,
+        parity_suites:$parity, advisory_suites:$advisory}' >> "$SCAN_JSONL"
   fi
   sleep 0.5 # be polite to qa.debian.org and the GitHub API across many tools
 done < <(parse_tools "$TOOLS_YAML" | cut -f1,3,4)
 
 echo
 if [ "$retire_count" -gt 0 ]; then
-  echo "$retire_count package(s) flagged for retirement (already at parity in a released Debian suite - see the VERDICT column for which)." >&2
-  echo "Review and remove from tools.yaml by hand - see README.md#debian-parity-when-we-step-aside." >&2
+  echo "$retire_count package(s) flagged for retirement (already at parity in a RELEASED Debian suite - see the VERDICT column for which)." >&2
+  echo "Review and remove from tools.yaml by hand - see README.md#debian-parity--when-we-step-aside." >&2
 else
-  echo "No tracked packages are at parity in any checked suite ($suites)." >&2
+  echo "No tracked packages are at parity in a released suite - nothing to retire." >&2
+fi
+if [ "$advisory_count" -gt 0 ]; then
+  echo "$advisory_count package(s) are also current in a rolling suite (VERDICT 'pin:<suite>')." >&2
+  echo "Advisory only: recommend pinning that single package from the suite; we keep packaging it" >&2
+  echo "for users unwilling to enable forky/sid at all. No action needed." >&2
 fi
 
 if [ -n "$json_out" ]; then
   jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     --argjson suites_checked "$(printf '%s\n' $suites | jq -R . | jq -s .)" \
-    --argjson retire_count "$retire_count" --slurpfile packages "$SCAN_JSONL" \
-    '{generated_at:$generated_at, suites_checked:$suites_checked, retire_count:$retire_count, packages:$packages}' \
+    --argjson rolling_suites "$(printf '%s\n' $ROLLING_SUITES | jq -R . | jq -s 'map(select(. != ""))')" \
+    --argjson retire_count "$retire_count" --argjson advisory_count "$advisory_count" \
+    --slurpfile packages "$SCAN_JSONL" \
+    '{generated_at:$generated_at, suites_checked:$suites_checked,
+      rolling_suites:$rolling_suites, retire_count:$retire_count,
+      advisory_count:$advisory_count, packages:$packages}' \
     > "$json_out"
 fi

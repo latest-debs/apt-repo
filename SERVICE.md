@@ -116,7 +116,12 @@ between you and your users. Two things follow from that:
   archive it, and drop the entry from `tools.yaml` in the same PR — no
   negotiation, no lingering "which one is canonical" confusion for users. We'd
   rather see you running your own signed repo than keep packaging in your
-  place.
+  place. The same PR appends the hand-off to
+  [`graduated.json`](graduated.json), which is published on the
+  [status dashboard](https://latest-debs.github.io/status.html): a tool
+  leaving because the gap it filled has closed is the outcome this channel
+  is aiming for, so it gets counted as one rather than quietly disappearing —
+  and anyone who goes looking for the removed package finds where it went.
 - **If any live Debian suite already carries your latest release, we don't
   duplicate it.** A tool with a Debian Developer upstream (or an active
   Debian maintainer) often lands in unstable within days of a release —
@@ -127,7 +132,7 @@ between you and your users. Two things follow from that:
   users at that suite instead — directly if it's what they already run,
   pinned if it isn't — rather than running a second, lower-trust copy of
   what Debian already ships. See
-  [Debian parity](README.md#debian-parity-when-we-step-aside).
+  [Debian parity](README.md#debian-parity--when-we-step-aside).
 - **Prefer to run this yourself from day one?** The pipeline packaging every
   tool here is just
   [debian-multiarch-builder](https://github.com/ranjithrajv/debian-multiarch-builder),

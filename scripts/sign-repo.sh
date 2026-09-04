@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # sign-repo.sh - GPG-sign the generated repository indexes.
 #
-# Intentionally NOT run in CI or on non-Debian hosts. Copy your (sub)key to a
-# Debian/Ubuntu machine, export these variables, and run this script.
+# Runs in CI on every rebuild (the "Sign repository" step in rebuild.yml,
+# on ubuntu-latest) with APT_SIGNING_KEY / APT_SIGNING_KEY_PASS supplied as
+# Actions secrets - so the private key is held in GitHub Actions, not only
+# offline. See RUNBOOK.md for custody, backup and rotation.
+#
+# Also runnable by hand on any Debian/Ubuntu host:
 #
 #   export APT_SIGNING_KEY="<ascii-armored private key or path to keyring>"
 #   export APT_SIGNING_KEY_PASS="<passphrase>"

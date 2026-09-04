@@ -1,0 +1,4 @@
+{
+  "_comment": "Ledger of tools that have LEFT this channel, and why. A hand-off is a success condition, not attrition: this channel exists to fill a gap, so a tool leaving because upstream shipped its own signed apt repo (reason: own-repo) or because Debian caught up (reason: debian-parity) means the gap closed. Recording it here - rather than silently dropping the tools.yaml entry - keeps that outcome countable and gives users who go looking for a removed package somewhere to land. Append one entry per hand-off, in the same PR that drops the tools.yaml entry. Published to gh-pages alongside licenses.json/suites.json and rendered on https://latest-debs.github.io/status.html. Fields: package (tools.yaml key), date (UTC, YYYY-MM-DD), reason (own-repo | debian-parity), destination (where users should go now), note (one line, optional).",
+  "graduated": []
+}

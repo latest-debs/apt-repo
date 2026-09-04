@@ -43,7 +43,7 @@ but sometimes trixie too — common for tools with a Debian Developer
 upstream, e.g. `bat`, `fd`) already tracks a tool's latest upstream release,
 it's already offering exactly what this channel would add, on a much larger
 base of packages. We don't duplicate that — see
-[Debian parity](#debian-parity-when-we-step-aside) below.
+[Debian parity](#debian-parity--when-we-step-aside) below.
 
 **vs. ad-hoc release downloads** — a raw GitHub binary is trust-on-download:
 no policy check, no run test, no signature chain, no record of what you got.
@@ -181,11 +181,24 @@ This channel gives a CI/fleet pipeline something to point at instead:
     && apt-get update && apt-get install -y ripgrep=<version> fd-find=<version>
   ```
 
+- **Check our work before you depend on it.** The
+  [pipeline status dashboard](https://latest-debs.github.io/status.html)
+  publishes, daily and unedited, exactly which tools are behind upstream and
+  by how long, and which are at parity in a Debian suite. It's rendered
+  straight from
+  [`dists/staleness.json`](https://latest-debs.github.io/apt-repo/dists/staleness.json)
+  and
+  [`dists/parity.json`](https://latest-debs.github.io/apt-repo/dists/parity.json)
+  — machine-readable, so a procurement review (or a scheduled check in your
+  own CI) can assess the channel's actual operating record rather than take
+  this README's word for it.
+
 Read [Support & expectations](#support--expectations-best-effort-no-sla)
-first, though: this is volunteer-run with no SLA. Fine for a build image
-where a missed rebuild window just means "not on the latest patch release
-yet" — not a fit for a deploy gate with a hard deadline on a specific
-version landing.
+first, though: this is volunteer-run with no SLA — and the dashboard above is
+deliberately the place to verify that claim rather than dispute it. Fine for
+a build image where a missed rebuild window just means "not on the latest
+patch release yet" — not a fit for a deploy gate with a hard deadline on a
+specific version landing.
 
 ## Adding or updating a tool
 
@@ -203,27 +216,56 @@ version landing.
 
 ### Debian parity — when we step aside
 
-**Policy: if any live Debian suite already carries a tool at its latest
-upstream version, we don't package it.** That suite — bullseye, bookworm,
-trixie, forky, or sid — is already doing, for free and at full Debian QA,
-exactly what this channel exists to provide. Packaging it too would just be a
-second, lower-trust copy of what Debian already ships there. In practice
-this is usually sid or forky (they move fastest), but the check — and the
-policy — covers all five suites we build for, not just sid.
+**Policy: we step aside exactly as far as Debian actually covers the user —
+per suite, not per package.** Where a live Debian suite already carries a
+tool at its latest upstream version, our copy *for that suite* is a second,
+lower-trust duplicate of what Debian already ships. But how far that goes
+depends on whether the user can actually reach that suite:
+
+| Parity in | What we do | Why |
+|---|---|---|
+| **A released suite** (bullseye, bookworm, trixie) | **Retire the package** (human-gated) | The user already runs that suite: plain `apt install <tool>` gets them the current version. We're fully redundant. |
+| **A rolling suite** (forky, sid) | **Drop just that suite from our build. Keep the package.** | A sid user gets it from sid — so we stop publishing our sid copy. But a bookworm/trixie user can't reach sid without pinning, and may not want to at all, so our package stays for every other suite. |
+
+So a tool at parity in sid keeps shipping here for bullseye/bookworm/trixie —
+we simply stop building it *for sid*, and point sid users at Debian's own
+copy. Nobody loses a route to the current version; we just stop duplicating
+the one route that already exists.
+
+The per-suite drop is applied at build time by `scripts/build-repo.sh` from
+the daily `parity.json`. It runs *after* the Ubuntu alias copy on purpose:
+an alias (noble←trixie, jammy←bullseye) keeps the package even when the
+Debian suite it was copied from is handed back, because an Ubuntu user gains
+nothing from Debian trixie reaching parity. If the report is missing or
+unreadable the build fails open and publishes everything — shipping a
+redundant package is cheaper than silently withholding one.
+
+**These drops are wins, and the dashboard counts them as such.** Every suite
+handed back is one this channel no longer has to carry, reached by the
+outcome the project wants: Debian caught up. They appear under
+[Handed back to Debian](https://latest-debs.github.io/status.html) rather
+than on any to-do list — no maintainer action is needed, and no user loses a
+route to the current version.
 
 - **New requests:** `scripts/add-package.sh scaffold` checks the requested
   tool's version in every live suite against the upstream release being
   vetted (`scripts/check-suite-parity.sh`, same madison lookup
-  `fetch-debian-versions.sh` uses for the stable-version column). A request
-  already at parity anywhere fails vetting rather than being scaffolded —
-  the request comment points the requester at that suite instead.
+  `fetch-debian-versions.sh` uses for the stable-version column). Parity in a
+  **released** suite fails vetting (verdict `RETIRE`) — the requester already
+  has it. Parity in **forky/sid only** is advisory (verdict `PIN-ADVISED`):
+  the request still proceeds, and the comment recommends pinning from that
+  suite for anyone willing.
 - **Tracked tools:** run `scripts/check-suite-parity.sh` against `tools.yaml`
   to list current packages that have since caught up in any suite (upstream
   reaching parity after a tool was added is expected — Debian keeps moving).
-  These are flagged for a maintainer to review and retire, not
-  auto-removed: removing a package a user already depends on is a real
-  breaking change, so it goes through the same human-gate as everything else
-  here. Narrow the check with `--suite trixie`, `--suite trixie,sid`, etc.
+  Only released-suite parity is flagged for retirement, and even then it is
+  reviewed by a maintainer rather than auto-removed: removing a package a
+  user already depends on is a real breaking change, so it goes through the
+  same human-gate as everything else here. Rolling-suite parity shows as
+  `pin:<suites>` and needs no action — the build already drops those suites
+  on its own. A retirement that does go ahead is appended to
+  [`graduated.json`](graduated.json) in the same PR that drops the
+  `tools.yaml` entry — see [Graduated tools](#graduated-tools) below. Narrow the check with `--suite trixie`, `--suite trixie,sid`, etc.
   when you just want to preview one suite rather than all five.
 - **What we tell users instead:** depends on which suite matched.
   - **If it's the suite they already run** (trixie or bookworm, if that's
@@ -370,6 +412,12 @@ Access is scoped to the minimum: repo-scoped `GITHUB_TOKEN` wherever possible
 build. GitHub API calls are authenticated everywhere to avoid the shared
 60/hour anonymous rate limit silently starving every fetch.
 
+**[RUNBOOK.md](RUNBOOK.md)** covers the two dependencies that *can't* be
+recreated from this repo if their holder is unavailable — the Cloudflare
+Worker that serves every apt client, and the GPG signing key — plus what
+maintainers would need to take the channel over. The tokens above are
+deliberately out of scope there: any org owner can re-issue them in minutes.
+
 ### License audit
 
 [`licenses.json`](licenses.json) is the published, per-package SPDX record —
@@ -382,6 +430,22 @@ in CI, an image, or a fleet — can check exactly what's declared for every
 package without re-running the pipeline themselves. The same identifiers
 appear in the **License** column of the [Packages](#packages) table below;
 `licenses.json` is the machine-readable form of that same data.
+
+### Graduated tools
+
+[`graduated.json`](graduated.json) records every tool that has *left* this
+channel and why — either because upstream shipped its own signed apt repo
+(the [hand-off policy](SERVICE.md#were-complementary-to-upstream-not-competing-with-it))
+or because a Debian suite caught up (the
+[parity policy](#debian-parity--when-we-step-aside)).
+
+This channel exists to fill a gap, so a tool leaving because that gap closed
+is the intended outcome, not attrition — and the ledger is what makes that
+countable instead of invisible. It also gives anyone hunting for a package
+that used to be here a place to land: each entry names where the tool lives
+now. Append an entry in the same PR that drops the `tools.yaml` entry; the
+list renders on the
+[status dashboard](https://latest-debs.github.io/status.html).
 
 ## Packages
 

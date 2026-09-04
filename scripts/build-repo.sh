@@ -84,6 +84,78 @@ for c in curl jq dpkg-deb apt-ftparchive; do
 done
 
 # ---------------------------------------------------------------------------
+# Parity drops: when Debian itself already carries a tool at its latest
+# upstream version in suite S, our copy *for S* is a redundant, lower-trust
+# duplicate - so we stop publishing it there and hand that suite back to
+# Debian. Every other suite keeps shipping: a bookworm user gets nothing
+# from sid having parity. The package itself is NOT retired.
+# See README.md#debian-parity--when-we-step-aside.
+#
+# Applied per-suite, for ANY suite at parity (released or rolling). The
+# prune runs AFTER the Ubuntu alias copy (noble<-trixie, jammy<-bullseye)
+# precisely so an alias keeps the package: an Ubuntu user gains nothing from
+# Debian trixie reaching parity, so only the Debian suite is handed back.
+#
+# Source is the daily parity.json published by staleness.yml, not a live
+# madison sweep: 50+ synchronous qa.debian.org lookups do not belong in the
+# webhook-triggered hot path. PARITY_URL is overridable for testing.
+# Fails OPEN - any fetch/parse problem means "drop nothing" and build the
+# full set, because shipping a redundant package is far cheaper than
+# silently withholding one.
+# ---------------------------------------------------------------------------
+PARITY_DROPS="$TMP/parity-drops.txt"   # one "<pkg> <suite>" line per drop
+: > "$PARITY_DROPS"
+PARITY_URL="${PARITY_URL:-https://raw.githubusercontent.com/${GITHUB_REPOSITORY:-latest-debs/apt-repo}/gh-pages/dists/parity.json}"
+
+load_parity_drops() {
+  local body="$TMP/parity.json"
+  if ! curl -fsSL --connect-timeout 10 --max-time 30 -o "$body" "$PARITY_URL" 2>/dev/null; then
+    log "== parity: no report at $PARITY_URL - building every suite (fail-open) =="
+    return 0
+  fi
+  if ! jq -e '.packages' "$body" >/dev/null 2>&1; then
+    log "== parity: report unparseable - building every suite (fail-open) =="
+    return 0
+  fi
+  # Any suite at parity - released (parity_suites) or rolling
+  # (advisory_suites) - is handed back.
+  jq -r '.packages[] | . as $p
+         | ((.parity_suites // []) + (.advisory_suites // []))[]
+         | "\($p.package) \(.)"' \
+    "$body" | sort -u > "$PARITY_DROPS" 2>/dev/null || : > "$PARITY_DROPS"
+  local n; n="$(wc -l < "$PARITY_DROPS")"
+  if [ "$n" -gt 0 ]; then
+    log "== parity: handing $n package/suite pair(s) back to Debian =="
+  else
+    log "== parity: nothing to hand back =="
+  fi
+}
+
+# True when this package's build for this suite is redundant with Debian's.
+is_parity_drop() {
+  grep -qxF "$1 $2" "$PARITY_DROPS" 2>/dev/null
+}
+
+# Remove handed-back package/suite pairs from the pool. MUST run after the
+# Ubuntu alias copy, so aliases keep the package (see the note above).
+prune_parity_drops() {
+  local pkg suite dir pruned=0
+  [ -s "$PARITY_DROPS" ] || return 0
+  while read -r pkg suite; do
+    [ -n "$pkg" ] || continue
+    dir="$POOL/$suite/$pkg"
+    if [[ -d "$dir" ]]; then
+      rm -rf "$dir"
+      log "   handed back: $pkg/$suite (Debian $suite is already current)"
+      pruned=$((pruned + 1))
+    fi
+  done < "$PARITY_DROPS"
+  log "== parity: $pruned package/suite pair(s) handed back to Debian =="
+}
+
+load_parity_drops
+
+# ---------------------------------------------------------------------------
 # Classify one release asset name. Emits: kind<TAB>suite<TAB>arch<TAB>package
 # kind = deb | dsc | debian | orig | skip
 # suite = "-" for the shared upstream .orig tarball (no suite of its own)
@@ -545,6 +617,11 @@ while IFS=$'\t' read -r alias_suite alias_src; do
     done
   fi
 done < <(jq -r '.aliases | to_entries[] | [.key, .value] | @tsv' "$ROOT/suites.json")
+
+# Hand suites back to Debian AFTER the alias copy above: an alias (noble,
+# jammy, ...) has already taken its copy, so it keeps the package even when
+# the Debian suite it was copied from is handed back.
+prune_parity_drops
 
 log "== generating indexes =="
 for suite in "$POOL"/*/; do

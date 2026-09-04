@@ -2,6 +2,8 @@
   "_comment": "Canonical list of suites this repo tracks. Read by scripts/check-suite-parity.sh and scripts/fetch-debian-versions.sh (local file), and fetched same-origin by latest-debs.github.io/index.html (published verbatim to gh-pages alongside dists/). Update this file - and only this file - when Debian's stable release changes. distro field distinguishes Debian vs Ubuntu suites; aliases are pool/dists copies (no extra docker build) for substring UX.",
   "stable": "trixie",
   "suites": ["bullseye", "bookworm", "trixie", "forky", "sid"],
+  "_rolling_comment": "Suites a user cannot adopt wholesale on a stable box without dependency escalation (\"Frankendebian\"). Parity HERE is advisory, not a retirement trigger: we point users at pinning the single package from that suite, and keep our package for anyone unwilling to enable it at all. Parity in a RELEASED suite (everything in `suites` not listed here) is the real step-aside signal. Move a suite out of this list when it becomes stable.",
+  "rolling": ["forky", "sid"],
   "distro_suites": [
     {"distro": "debian", "suite": "bullseye"},
     {"distro": "debian", "suite": "bookworm"},

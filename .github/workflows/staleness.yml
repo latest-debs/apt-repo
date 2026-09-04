@@ -38,7 +38,7 @@ jobs:
 
       - name: Check Debian suite parity
         # Full scan, same policy check add-package.sh runs per-candidate at
-        # vet time (README.md#debian-parity-when-we-step-aside) - here run
+        # vet time (README.md#debian-parity--when-we-step-aside) - here run
         # across every tracked tool so the dashboard can show it, not just
         # printed for a maintainer to read in Actions logs.
         run: bash scripts/check-suite-parity.sh --json "$RUNNER_TEMP/parity.json"

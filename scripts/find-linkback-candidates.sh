@@ -56,12 +56,15 @@ while IFS=$'\t' read -r pkg homepage; do
     continue # no GitHub homepage on record; can't check its README
   fi
 
-  default_branch="$(curl -fsSL "${AUTH[@]}" "$API/repos/$repo" 2>/dev/null \
-    | jq -r '.default_branch // "main"')"
-  readme="$(curl -fsSL "${AUTH[@]}" "https://raw.githubusercontent.com/$repo/$default_branch/README.md" 2>/dev/null || true)"
+  # /readme resolves whatever the project actually calls its README -
+  # README.md, README.rst (fish-shell), README.adoc, docs/README.md - on the
+  # default branch, in one request. Globbing candidate filenames off
+  # raw.githubusercontent instead silently skipped every non-.md project.
+  readme="$(curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github.raw" \
+    "$API/repos/$repo/readme" 2>/dev/null || true)"
 
   if [ -z "$readme" ]; then
-    echo "SKIP $pkg ($repo): could not fetch README.md off $default_branch" >&2
+    echo "SKIP $pkg ($repo): no README resolvable via the GitHub API" >&2
     continue
   fi
   if grep -qi "latest-debs" <<< "$readme"; then

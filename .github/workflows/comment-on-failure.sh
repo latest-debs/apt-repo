@@ -31,7 +31,7 @@ if [ -f "$parity_report" ] && [ "$(jq -r '.gate' "$parity_report" 2>/dev/null)" 
   cat > "$body_file" <<EOF
 ❌ Not packaging **${pkg}** — Debian already carries it at the latest upstream version (\`${up}\`) in: **${suites}**.
 
-Per policy ([Debian parity](https://github.com/latest-debs/apt-repo/blob/main/README.md#debian-parity-when-we-step-aside)), we don't duplicate a suite that's already current — it'd just be a second, lower-trust copy of what Debian ships there.
+Per policy ([Debian parity](https://github.com/latest-debs/apt-repo/blob/main/README.md#debian-parity--when-we-step-aside)), we don't duplicate a **released** suite that's already current — it'd just be a second, lower-trust copy of what Debian ships there. (Parity in only \`forky\`/\`sid\` wouldn't block this request; it just means we'd hand those two suites back and still ship the rest.)
 
 If you already run ${first_suite}, plain \`apt install ${pkg}\` already gets you that version. Otherwise, pin just this one package to ${first_suite} instead of enabling it wholesale — see the policy doc for the safe install snippet.
 EOF
