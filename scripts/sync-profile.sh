@@ -121,6 +121,8 @@ case "$MODE" in
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
     echo "DEBUG: fetched live profile: ${#live} bytes"
     echo "${live:0:300}"
+    echo "DEBUG: packages:start found: $(echo "$live" | grep -c "packages:start")"
+    echo "DEBUG: first line: $(echo "$live" | head -1 | cat -A)"
     extracted="$(printf '%s' "$live" | extract_block)" || exit 1
     if [ "$SUMMARY" != "$extracted" ]; then
       echo "::error::org profile Packages summary has drifted from tools.yaml"
