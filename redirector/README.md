@@ -75,10 +75,9 @@ ecosystems (`duckdb` C++, `zed`, `bun`, `neovim`) — all valid `.deb`s.
 
 ## What's NOT done
 
-This is unreviewed, un-deployed, and deliberately left that way — going
-live changes the base URI apt clients and the extrepo policy point at,
-which is a real, hard-to-reverse, user-facing change (see step 4's
-migration/sequencing notes). Specifically still open:
+The Worker is deployed and serving; what remains is the migration of what
+apt clients are *told* to point at. Items 1 and 2 below are done and kept
+for the record; item 3 is the live one.
 
 1. ~~Not deployed.~~ **Deployed**: `https://latest-debs.ranjithraj.workers.dev`
    (renamed once from `latest-debs-apt-redirector` — the old name was
@@ -98,11 +97,66 @@ migration/sequencing notes). Specifically still open:
    resolves the real signing key, pool redirect resolves a real package to
    the correct GitHub Release URL, and a full download through the Worker
    produced a genuine, valid `.deb` (`ar t` confirmed).
-3. **Sequencing from step 4 isn't executed**: the extrepo-data update MR,
-   the README manual-install snippet update, and keeping the old origin
-   fully live (both `dists/` and `pool/`) through a transition window
-   before retiring it. This is the only remaining item, and it's a
-   deliberate-sequencing decision, not more testing.
+3. **The extrepo-data MR is the last step, and it is now overdue rather
+   than deliberately held.** The README/site manual-install snippets were
+   already switched to the Worker, and `pool/` was already dropped from the
+   GitHub Pages origin (it exceeded Pages' 1GB published-site limit) — so
+   the "keep the old origin fully live through a transition window" part of
+   step 4's sequencing did not actually happen. **Verified live 2026-09-04:**
+
+   | Path | Old origin (`latest-debs.github.io/apt-repo/`) | Worker |
+   |---|---|---|
+   | `dists/trixie/Release` | 200 | 200 |
+   | `dists/trixie/main/binary-amd64/Packages` | 200 (50 packages) | 200 |
+   | `pool/trixie/*/*.deb` (6 sampled) | **404** | 200, valid `.deb` |
+   | `pool/` index | **404** | — |
+
+   Because `dists/` still resolves there, `apt update` succeeds and the
+   packages appear in `apt search` — the failure only shows up at `apt
+   install`, as a 404 on download. Upstream extrepo-data still publishes
+   `URIs: https://latest-debs.github.io/apt-repo/` (confirmed against
+   `repos/debian/latest-debs.yaml` on master), so **every user who installed
+   via `extrepo enable latest-debs` is currently broken.**
+
+   Interim mitigation is in place: README and the site both lead with the
+   manual snippet and carry an explicit "don't use extrepo yet" notice. The
+   actual fix is the MR below; the notices come out in the same change that
+   lands it.
+
+   ### Landing the extrepo-data MR
+
+   `extrepo/latest-debs.yaml` in this repo is the finished replacement file —
+   it already carries the Worker `URIs:` and the corrected per-suite
+   `Architectures:` (upstream's copy is missing `armel` and `loong64`). It
+   needs a Salsa account, so it can't be automated from here:
+
+   ```sh
+   # 1. Fork https://salsa.debian.org/extrepo-team/extrepo-data on Salsa, then:
+   git clone git@salsa.debian.org:<you>/extrepo-data.git
+   cd extrepo-data
+   git checkout -b latest-debs-redirector-origin
+
+   # 2. Drop in the staged file (this repo's copy is authoritative).
+   cp <apt-repo>/extrepo/latest-debs.yaml repos/debian/latest-debs.yaml
+
+   # 3. Sanity-check it the way upstream's generator will.
+   git diff --stat
+   python3 -c 'import yaml,sys; yaml.safe_load(open("repos/debian/latest-debs.yaml"))'
+
+   git commit -am 'latest-debs: point at the redirector origin
+
+   pool/ is no longer served from GitHub Pages (1GB published-site limit);
+   the Cloudflare Worker is now the single origin serving both dists/ and
+   pool/. Also adds armel and loong64, which the packages actually ship.'
+   git push -u origin latest-debs-redirector-origin
+   # 4. Open the MR against extrepo-data master.
+   ```
+
+   Keep the old origin's `dists/` published until the MR is merged *and* a
+   release of `extrepo-data` carrying it has propagated — an apt client that
+   has not refreshed its policy is still pointed at the old base URI, and a
+   working `apt update` there is what keeps `apt search` honest while the
+   install path is broken. Only retire it after that.
 
 ## Local development
 

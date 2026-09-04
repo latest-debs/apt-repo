@@ -61,6 +61,11 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
   (dual-licenses handled), validates the asset is a real runnable binary, and
   maps the release's assets to the precise set of Debian architectures it
   covers.
+- **Attested** — every release publishes a Sigstore-signed SLSA
+  build-provenance attestation and a signed SPDX SBOM, bound to the artifact
+  digests. Your users can verify a package came from your release, built by
+  the workflow it claims, with `gh attestation verify` — no trust in us
+  required.
 - **Human gate where it matters** — builds land as drafts that a maintainer
   reviews; nothing is auto-published past review.
 

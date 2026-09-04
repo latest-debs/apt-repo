@@ -66,6 +66,20 @@ Every package in this channel instead carries:
 That combination is what ad-hoc downloads can't offer (no signing, no policy,
 no audit trail) and what Debian's cadence can't offer (currency).
 
+**And we retire ourselves when Debian catches up.** Most third-party
+repositories have a structural reason to keep you on them; this one does not.
+When a tool reaches its latest upstream version in a released suite, we drop
+our package — when it reaches parity in a rolling suite, we drop that suite
+from our build and leave the rest. It is applied automatically by
+`scripts/build-repo.sh` from a daily parity report, not left to good
+intentions, and every hand-off is recorded in
+[`graduated.json`](graduated.json) with where to go instead. The
+[dashboard](https://latest-debs.github.io/status.html) counts suites handed
+back as wins rather than to-do items. A vendor apt repo or a Homebrew tap has
+no equivalent — nothing in either shrinks its own scope when the distribution
+catches up. Full mechanics in
+[Debian parity](#debian-parity--when-we-step-aside).
+
 ## For project maintainers: package your tool as a signed `.deb`
 
 Have a project that publishes a Linux binary on GitHub? We can package it for
@@ -138,6 +152,18 @@ sudo apt update
 sudo apt install uv eza lazygit
 ```
 
+> [!IMPORTANT]
+> **`extrepo enable latest-debs` is currently broken — use the manual snippet
+> below instead.** The policy published in
+> [extrepo-data](https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/latest-debs.yaml)
+> still carries the old `https://latest-debs.github.io/apt-repo/` base URI.
+> That origin still serves `dists/`, so `apt update` succeeds and the packages
+> appear — but `pool/` is no longer published there (it exceeded GitHub Pages'
+> 1GB published-site limit), so every `apt install` 404s on download. The
+> manual snippet below points at the redirector, which serves both. This
+> clears once the extrepo-data MR in
+> [`extrepo/latest-debs.yaml`](extrepo/latest-debs.yaml) is merged upstream.
+
 > **On Ubuntu 22.04 (jammy), use the manual snippet below instead.** extrepo
 > takes its suite from `/etc/extrepo/config.yaml` — a static file shipped in
 > the package, not read from `os-release` — and jammy's extrepo 0.9 pins
@@ -169,12 +195,33 @@ a signature, a pinned checksum, or a record of what actually got installed.
 
 This channel gives a CI/fleet pipeline something to point at instead:
 
-- **Pin an exact version, verifiably.** Every package's build carries a
-  `provenance.json` asset (source commit, builder run URL, SHA-256 of every
-  shipped artifact) and was built against a vet-time upstream checksum pin —
-  so a base image can pin `<tool>=<version>` and you can prove, after the
-  fact, exactly what bytes that resolved to and what CI run produced them.
+- **Pin an exact version, and verify the pin cryptographically.** Every
+  release carries a **Sigstore-signed SLSA build-provenance attestation** and
+  a **signed SPDX SBOM**, both bound to the exact artifact bytes. That turns
+  "trust our `provenance.json`" into something your pipeline can check itself,
+  with no appeal to us:
+
+  ```sh
+  # Fails loudly if the .deb was not built by the workflow it claims.
+  gh attestation verify uv_0.12.3-1+trixie_amd64.deb --repo latest-debs/uv-debian
+
+  # Same artifact, its SPDX SBOM.
+  gh attestation verify uv_0.12.3-1+trixie_amd64.deb --repo latest-debs/uv-debian \
+    --predicate-type https://spdx.dev/Document
+  ```
+
+  Run it as a gate in the build that consumes the package, and a substituted
+  or re-uploaded artifact fails the step instead of shipping. Alongside those,
+  each release still carries the human-readable `provenance.json` (source
+  commit, builder run URL, SHA-256 of every shipped artifact) and
+  `sbom.spdx.json`, and was built against a vet-time upstream checksum pin.
   See [Supply chain & provenance](#supply-chain--provenance).
+
+  **What the SBOM does and does not cover**, since an overstated SBOM is worse
+  than none: it documents the shipped artifacts and the upstream release they
+  were packaged from — names, versions, licenses, SHA-256s, and the CI run
+  that produced them. It does **not** enumerate the upstream's transitive
+  dependency graph. The document says so in its own `comment` field.
 - **Signed, not just downloaded.** `apt`'s own `signed-by=` verification
   replaces "trust the TLS connection to a raw GitHub URL" with a GPG chain
   you control the keyring for — the same trust model as every other package
@@ -202,6 +249,13 @@ This channel gives a CI/fleet pipeline something to point at instead:
   — machine-readable, so a procurement review (or a scheduled check in your
   own CI) can assess the channel's actual operating record rather than take
   this README's word for it.
+
+  Both reports are served from **two independent origins** — the redirector
+  (`https://latest-debs.ranjithraj.workers.dev/dists/…`) and the GitHub Pages
+  site it proxies — and the dashboard reads whichever answers first. Point
+  your own check at either. The record is the basis on which this channel
+  asks to be judged, so it deliberately does not depend on any single host
+  staying available.
 
 Read [Support & expectations](#support--expectations-best-effort-no-sla)
 first, though: this is volunteer-run with no SLA — and the dashboard above is
@@ -391,7 +445,7 @@ the webhook, so the apt index rebuilds within minutes).
 
 ## Supply chain & provenance
 
-The pipeline defends against upstream supply-chain attacks with two layers:
+The pipeline defends against upstream supply-chain attacks in layers:
 
 - **Draft-before-publish** — every `*-debian` build produces a *draft* GitHub
   release. Only a human publishing the draft makes the packages visible to
@@ -415,6 +469,24 @@ The pipeline defends against upstream supply-chain attacks with two layers:
   built from. The input pin proves *what upstream bytes* were verified;
   this proves *what build produced the .deb* — so a package traces back to
   an inspectable CI run, not just a checksum on faith.
+- **Signed attestations** — `provenance.json` and `sbom.spdx.json` are our own
+  documents, and on their own they are exactly as trustworthy as whoever
+  serves them. Every release therefore also publishes a **Sigstore-signed
+  SLSA build-provenance attestation** and a **signed SPDX SBOM attestation**
+  (`actions/attest-build-provenance`, `actions/attest-sbom`), each bound to
+  the artifact digests. Anyone can check one without trusting this README, the
+  apt origin, or us:
+
+  ```sh
+  gh attestation verify <file>.deb --repo latest-debs/<tool>-debian
+  ```
+
+  This is the layer that survives the rest being wrong: if the origin were
+  compromised and a `.deb` swapped, its attestation would not verify. See
+  [For CI pipelines & fleets](#for-ci-pipelines--fleets) for using it as a
+  gate. The SBOM covers the shipped artifacts and their upstream release, not
+  the upstream's transitive dependency graph — it says so in its own
+  `comment` field.
 
 Access is scoped to the minimum: repo-scoped `GITHUB_TOKEN` wherever possible
 (issue handling, `tools.yaml`), and a fine-grained, org-restricted
