@@ -509,9 +509,9 @@ scan and every release's license-recheck gate both read). It's regenerated
 from `tools.yaml` with `scripts/fetch-licenses.sh` and committed rather than
 generated on the fly, so anyone auditing the channel — before depending on it
 in CI, an image, or a fleet — can check exactly what's declared for every
-package without re-running the pipeline themselves. The same identifiers
-appear in the **License** column of the [Packages](#packages) table below;
-`licenses.json` is the machine-readable form of that same data.
+package without re-running the pipeline themselves. `licenses.json` is the
+machine-readable form of the same data shown in the License column of the
+[status dashboard](https://latest-debs.github.io).
 
 ### Graduated tools
 
@@ -531,72 +531,13 @@ list renders on the
 
 ## Packages
 
-<!-- packages:start -->
-
-| Package | License | Install | Upstream |
-|---------|---------|---------|----------|
-| `uv` | Apache-2.0 | `apt install uv` | [astral-sh/uv](https://github.com/astral-sh/uv) |
-| `vite-plus` | MIT | `apt install vite-plus` | [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus) |
-| `eza` | EUPL-1.2 | `apt install eza` | [eza-community/eza](https://github.com/eza-community/eza) |
-| `lazygit` | MIT | `apt install lazygit` | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) |
-| `ruff` | MIT | `apt install ruff` | [astral-sh/ruff](https://github.com/astral-sh/ruff) |
-| `bun` | NOASSERTION | `apt install bun` | [oven-sh/bun](https://github.com/oven-sh/bun) |
-| `deno` | MIT | `apt install deno` | [denoland/deno](https://github.com/denoland/deno) |
-| `duckdb` | MIT | `apt install duckdb` | [duckdb/duckdb](https://github.com/duckdb/duckdb) |
-| `lazydocker` | MIT | `apt install lazydocker` | [jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker) |
-| `ripgrep` | Unlicense | `apt install ripgrep` | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
-| `fd` | Apache-2.0 | `apt install fd-find` | [sharkdp/fd](https://github.com/sharkdp/fd) |
-| `fzf` | MIT | `apt install fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
-| `starship` | ISC | `apt install starship` | [starship/starship](https://github.com/starship/starship) |
-| `just` | CC0-1.0 | `apt install just` | [casey/just](https://github.com/casey/just) |
-| `hyperfine` | Apache-2.0 | `apt install hyperfine` | [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine) |
-| `k9s` | Apache-2.0 | `apt install k9s` | [derailed/k9s](https://github.com/derailed/k9s) |
-| `atuin` | MIT | `apt install atuin` | [atuinsh/atuin](https://github.com/atuinsh/atuin) |
-| `xh` | MIT | `apt install xh` | [ducaale/xh](https://github.com/ducaale/xh) |
-| `yq` | — | `apt install yq` | [mikefarah/yq](https://github.com/mikefarah/yq) |
-| `du-dust` | Apache-2.0 | `apt install du-dust` | [bootandy/dust](https://github.com/bootandy/dust) |
-| `procs` | MIT | `apt install procs` | [dalance/procs](https://github.com/dalance/procs) |
-| `bottom` | MIT | `apt install bottom` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
-| `bat` | Apache-2.0 | `apt install bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
-| `zoxide` | MIT | `apt install zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
-| `git-delta` | MIT | `apt install git-delta` | [dandavison/delta](https://github.com/dandavison/delta) |
-| `jj` | Apache-2.0 | `apt install jj` | [jj-vcs/jj](https://github.com/jj-vcs/jj) |
-| `gitui` | MIT | `apt install gitui` | [extrawurst/gitui](https://github.com/extrawurst/gitui) |
-| `fresh-editor` | GPL-2.0 | `apt install fresh-editor` | [sinelaw/fresh](https://github.com/sinelaw/fresh) |
-| `nushell` | MIT | `apt install nushell` | [nushell/nushell](https://github.com/nushell/nushell) |
-| `dive` | MIT | `apt install dive` | [wagoodman/dive](https://github.com/wagoodman/dive) |
-| `superfile` | MIT | `apt install superfile` | [yorukot/superfile](https://github.com/yorukot/superfile) |
-| `pnpm` | MIT | `apt install pnpm` | [pnpm/pnpm](https://github.com/pnpm/pnpm) |
-| `act` | MIT | `apt install act` | [nektos/act](https://github.com/nektos/act) |
-| `zed` | GPL-2.0 | `apt install zed` | [zed-industries/zed](https://github.com/zed-industries/zed) |
-| `rclone` | MIT | `apt install rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
-| `k6` | AGPL-3.0 | `apt install k6` | [grafana/k6](https://github.com/grafana/k6) |
-| `difftastic` | MIT | `apt install difftastic` | [Wilfred/difftastic](https://github.com/Wilfred/difftastic) |
-| `vhs` | MIT | `apt install vhs` | [charmbracelet/vhs](https://github.com/charmbracelet/vhs) |
-| `yazi` | MIT | `apt install yazi` | [sxyazi/yazi](https://github.com/sxyazi/yazi) |
-| `zellij` | MIT | `apt install zellij` | [zellij-org/zellij](https://github.com/zellij-org/zellij) |
-| `neovim` | Apache-2.0 | `apt install neovim` | [neovim/neovim](https://github.com/neovim/neovim) |
-| `gh` | MIT | `apt install gh` | [cli/cli](https://github.com/cli/cli) |
-| `mise` | MIT | `apt install mise` | [jdx/mise](https://github.com/jdx/mise) |
-| `gum` | MIT | `apt install gum` | [charmbracelet/gum](https://github.com/charmbracelet/gum) |
-| `fastfetch` | MIT | `apt install fastfetch` | [fastfetch-cli/fastfetch](https://github.com/fastfetch-cli/fastfetch) |
-| `buf` | Apache-2.0 | `apt install buf` | [bufbuild/buf](https://github.com/bufbuild/buf) |
-| `sd` | MIT | `apt install sd` | [chmln/sd](https://github.com/chmln/sd) |
-| `scc` | MIT | `apt install scc` | [boyter/scc](https://github.com/boyter/scc) |
-| `trivy` | Apache-2.0 | `apt install trivy` | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
-| `helix` | MPL-2.0 | `apt install helix` | [helix-editor/helix](https://github.com/helix-editor/helix) |
-| `fish` | NOASSERTION | `apt install fish` | [fish-shell/fish-shell](https://github.com/fish-shell/fish-shell) |
-| `hexyl` | — | `apt install hexyl` | [sharkdp/hexyl](https://github.com/sharkdp/hexyl) |
-| `joshuto` | — | `apt install joshuto` | [kamiyaa/joshuto](https://github.com/kamiyaa/joshuto) |
-| `lf` | — | `apt install lf` | [gokcehan/lf](https://github.com/gokcehan/lf) |
-| `watchexec` | — | `apt install watchexec` | [watchexec/watchexec](https://github.com/watchexec/watchexec) |
-| `herdr` | — | `apt install herdr` | [herdrdev/herdr](https://github.com/herdrdev/herdr) |
-| `oh-my-posh` | — | `apt install oh-my-posh` | [JanDeDobbeleer/oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh) |
-| `uncloud` | — | `apt install uncloud` | [psviderski/uncloud](https://github.com/psviderski/uncloud) |
-| `workmux` | — | `apt install workmux` | [raine/workmux](https://github.com/raine/workmux) |
-| `dasel` | — | `apt install dasel` | [TomWright/dasel](https://github.com/TomWright/dasel) |
-
-<!-- packages:end -->
+The current list of published packages — with versions, licenses, and install
+commands — is served dynamically on the
+[status dashboard](https://latest-debs.github.io), generated live from the
+apt indexes on every rebuild, so it can never drift from what the channel
+actually serves. The per-package SPDX declarations behind the dashboard's
+License column are also available as machine-readable
+[`licenses.json`](licenses.json).
 
 ## Layout
 
@@ -606,7 +547,6 @@ templates/package-scaffold  template for new <tool>-debian repos
 scripts/add-package.sh      validate + vet (checksum) + scaffold + deploy + register tool
 scripts/vet-release.sh      vet-time checksum verification + release metadata capture
 scripts/build-repo.sh       fetch releases + generate pool/ and dists/
-scripts/sync-readme.sh      regenerate the package table in README.md
 scripts/run-in-debian.sh    run build-repo.sh in a Debian container
 scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos

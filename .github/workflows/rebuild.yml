@@ -133,9 +133,6 @@ jobs:
       - name: Snapshot per-package license declarations
         run: bash scripts/fetch-licenses.sh
 
-      - name: Sync package table in README from tools.yaml
-        run: bash scripts/sync-readme.sh
-
       - name: Close the loop on published package requests
         # Tools whose tag changed this run get their originating
         # package-request issue commented on and closed.
