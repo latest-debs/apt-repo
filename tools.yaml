@@ -104,7 +104,7 @@ xh:
   source: https://github.com/latest-debs/xh-debian
   homepage: https://github.com/ducaale/xh
 
-yq-go:
+yq:
   description: "Portable command-line YAML, JSON & XML processor"
   source: https://github.com/latest-debs/yq-debian
   homepage: https://github.com/mikefarah/yq
@@ -303,3 +303,28 @@ watchexec:
 
 
 
+
+herdr:
+  description: "Terminal workspace manager for coding agents"
+  source: https://github.com/latest-debs/herdr-debian
+  homepage: https://github.com/herdrdev/herdr
+
+oh-my-posh:
+  description: "Cross-platform/shell prompt renderer"
+  source: https://github.com/latest-debs/oh-my-posh-debian
+  homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+
+uncloud:
+  description: "Lightweight clustering and container orchestration tool"
+  source: https://github.com/latest-debs/uncloud-debian
+  homepage: https://github.com/psviderski/uncloud
+
+workmux:
+  description: "Git worktrees + tmux windows for zero-friction parallel dev"
+  source: https://github.com/latest-debs/workmux-debian
+  homepage: https://github.com/raine/workmux
+
+dasel:
+  description: "Query and modify data structures using selector strings"
+  source: https://github.com/latest-debs/dasel-debian
+  homepage: https://github.com/TomWright/dasel
