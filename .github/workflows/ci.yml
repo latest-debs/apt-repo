@@ -100,10 +100,7 @@ jobs:
         # .github org profile's Packages table is generated from it.
         # Regenerate and diff against the live profile - drift fails here
         # instead of being noticed by a human weeks later.
-        run: |
-          set -x
-          gh auth status
-          bash scripts/sync-profile.sh --check
+        run: bash scripts/sync-profile.sh --check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

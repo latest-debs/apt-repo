@@ -97,14 +97,16 @@ PYEOF
 SUMMARY="$(generate_summary)"
 
 extract_block() { # stdin: profile text -> the text between the markers
-  python3 - "$START" "$END" <<'PYEOF'
+  # NOTE: must NOT use a heredoc here — the heredoc would be python3's
+  # stdin, clobbering the pipe input. Pass the script via -c instead.
+  python3 -c '
 import sys
 start_m, end_m = sys.argv[1], sys.argv[2]
 text = sys.stdin.read()
 if start_m not in text or end_m not in text:
     sys.exit(f"markers {start_m} / {end_m} not found in profile")
 print(text.split(start_m, 1)[1].split(end_m, 1)[0].strip())
-PYEOF
+' "$START" "$END"
 }
 
 case "$MODE" in
@@ -119,10 +121,6 @@ case "$MODE" in
     # read-after-write consistency.
     live="$(gh api "repos/$PROFILE_REPO/contents/$PROFILE_PATH" --jq '.content' | base64 -d || true)"
     [ -n "$live" ] || { echo "::error::could not fetch live profile $PROFILE_REPO/$PROFILE_PATH"; exit 1; }
-    echo "DEBUG: fetched live profile: ${#live} bytes"
-    echo "${live:0:300}"
-    echo "DEBUG: packages:start found: $(echo "$live" | grep -c "packages:start")"
-    echo "DEBUG: first line: $(echo "$live" | head -1 | cat -A)"
     extracted="$(printf '%s' "$live" | extract_block)" || exit 1
     if [ "$SUMMARY" != "$extracted" ]; then
       echo "::error::org profile Packages summary has drifted from tools.yaml"
