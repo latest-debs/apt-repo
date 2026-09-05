@@ -1,8 +1,9 @@
 ---
-# extrepo metadata for the latest-debs aggregate repository, staged here for
-# contribution to
+# extrepo metadata for the latest-debs aggregate repository.
+#
+# This file is intended to be contributed upstream to
 # https://salsa.debian.org/extrepo-team/extrepo-data as
-# repos/debian/latest-debs.yaml, so that users can run:
+# repos/debian/latest-debs.yaml so that users can run:
 #
 #     sudo extrepo enable latest-debs
 #
@@ -27,19 +28,14 @@ latest-debs:
   description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
   source:
     Types: deb
-    # The redirector (Cloudflare Worker) is the single origin apt clients
-    # hit: dists/ is proxied from the GitHub Pages site, /pool/* 302s to
-    # each tool's own GitHub Release assets (pool/ is no longer published
-    # to gh-pages - it exceeded Pages' 1GB published-site limit).
-    # Upstream still carries the old https://latest-debs.github.io/apt-repo/
-    # base URI; switching it is the open sequencing step in
-    # redirector/README.md ("What's NOT done", item 3).
+    # Cloudflare Worker: serves dists/ and redirects pool/ to each
+    # tool's own GitHub Release assets.
     URIs: https://latest-debs.ranjithraj.workers.dev/
     Suites: <SUITE>
     Components: main
-    # Architectures are the union per suite, verified against each suite's
-    # real dists/*/Release Architectures field - re-check there before
-    # editing, since which tools publish which archs changes over time.
+    # Verified against each suite's live dists/*/Release Architectures
+    # field. armel and i386 are bookworm/trixie only; forky and sid ship
+    # neither.
     Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
     suite-forky-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
     suite-sid-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
