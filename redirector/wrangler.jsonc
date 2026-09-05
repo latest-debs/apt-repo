@@ -22,6 +22,25 @@
     "enabled": true
   },
 
+  // Usage analytics. This Worker is the only point in the stack that sees a
+  // real apt request, so it is the only place a per-suite/per-arch breakdown
+  // can come from - GitHub's release-asset counter sees the 302 target and
+  // nothing else. Free plan: 100,000 data points written and 10,000 read
+  // queries per day, and Cloudflare does not bill for Analytics Engine at
+  // all today - so this stays inside PLATFORM-EVALUATION.md's zero-cost
+  // constraint. Query via the SQL API; see README.md, "Usage analytics".
+  // Analytics Engine must be switched on for the account before this
+  // binding will deploy (dash.cloudflare.com -> Workers -> Analytics
+  // Engine); with it off, the whole deploy fails on API error 10089.
+  // src/worker.js no-ops when env.AE is absent, so dropping this block is
+  // always a safe way to ship an urgent fix.
+  "analytics_engine_datasets": [
+    {
+      "binding": "AE",
+      "dataset": "latest_debs_requests"
+    }
+  ],
+
   // ORIGIN_BASE: everything except /pool/* is proxied here unchanged.
   // MANIFEST_URL: pkg -> {repo, tag} map, written by scripts/build-repo.sh.
   // Both point at the current production origin during the transition

@@ -128,7 +128,8 @@ for the record; item 3 is the live one.
    `extrepo/latest-debs.yaml` in this repo is the finished replacement file —
    it already carries the Worker `URIs:` and the corrected per-suite
    `Architectures:` (upstream's copy is missing `armel` and `loong64`). It
-   needs a Salsa account, so it can't be automated from here:
+   needs a Salsa account; with `glab auth login --hostname salsa.debian.org`
+   done, the whole sequence is:
 
    ```sh
    # 1. Fork https://salsa.debian.org/extrepo-team/extrepo-data on Salsa, then:
@@ -152,11 +153,151 @@ for the record; item 3 is the live one.
    # 4. Open the MR against extrepo-data master.
    ```
 
+   **Deploy the Worker before opening the MR.** `tools/validate-repo` in
+   extrepo-data does not just lint the YAML — it fetches
+   `<URIs>/dists/<suite>/InRelease` from the *live* origin and fails the
+   whole repository if it 404s. It builds that URL by joining the base URI
+   (which ends in `/`) with `/dists/...`, so it requests `//dists/...`, and
+   the Worker used to 404 on the doubled slash: `proxyToOrigin` stripped
+   only one leading slash, leaving an absolute path that `new URL` resolved
+   against the origin root and so dropped the `/apt-repo/` prefix. The old
+   GitHub Pages origin normalised `//` server-side, which is why upstream's
+   copy validates today and ours did not. Fixed in `src/worker.js`
+   (`normalizePath` / `originUrlFor`, covered by `npm test`).
+
+   **Done, 2026-09-05.** Fix deployed, and `tools/validate-repo` now passes
+   against the staged file for all four suites: `InRelease` retrieved and
+   its signature verified against `9329C48E...518AB96A` on each, and every
+   per-architecture `Packages` found, `loong64` included. The branch
+   `latest-debs-redirector-origin` is pushed to the `ranjithraj/extrepo-data`
+   fork, branched off `upstream/master` rather than the fork's stale master,
+   and opened as
+   [extrepo-data!573](https://salsa.debian.org/extrepo-team/extrepo-data/-/merge_requests/573).
+
+   When it merges, drop the "extrepo is currently broken" notices — they
+   are in three places: the org profile (`.github/profile/README.md`),
+   `apt-repo/README.md`, and the site (`latest-debs.github.io/index.html`).
+
+   **Keep the staged file a minimal delta against upstream's copy.** It is a
+   drop-in replacement for `repos/debian/latest-debs.yaml`, so anything
+   added to it becomes part of the MR diff. Rebuild it from
+   `git show upstream/master:repos/debian/latest-debs.yaml` and re-apply
+   only the substantive changes rather than editing it freehand — the first
+   version of !573 carried 30 changed lines, of which 21 were commentary
+   that only made the review larger.
+
+   **Why no Ubuntu codenames are listed.** extrepo-data is Debian-only by
+   construction: its generator globs `repos/debian/*.yaml` into a hardcoded
+   `debian` dist and validates every `suites:` entry against
+   `Debian::DistroInfo` (`tools/lib/ExtRepoData.pm` — `croak "Unknown
+   Debian release"`), so an Ubuntu codename fails the upstream publish
+   pipeline rather than degrading gracefully. Ubuntu users are still
+   served: the `extrepo` package reads dist/version from a static
+   `/etc/extrepo/config.yaml`, not `os-release`, and Ubuntu's universe
+   builds ship `dist: debian` with a Debian codename (jammy's 0.9 →
+   bookworm; noble's 0.13 and questing's 0.15 → trixie), so
+   `extrepo enable latest-debs` on Ubuntu resolves one of our Debian
+   suites. Our own Ubuntu aliases live in `suites.json` and are served over
+   apt directly; they are not expressible here. (Jammy is the exception
+   documented in `apt-repo/README.md` — its pinned `bookworm` has newer
+   glibc than jammy, so jammy users want the manual snippet.)
+
+   **`bullseye` is deliberately not in the MR.** We still serve it —
+   `dists/bullseye/Release` is live and signed for
+   `amd64 arm64 armhf i386 loong64 ppc64el riscv64 s390x` (no `armel`,
+   unlike bookworm/trixie), `suites.json` tracks it, and `jammy` is an alias
+   of it — so `extrepo enable latest-debs` on a Debian 11 box enables
+   nothing today even though the packages exist. It was left out because
+   bullseye's LTS window ended 2026-08-31 and listing a just-EOL suite in
+   Debian's own metadata invites an objection that would stall the urgent
+   URI fix behind a policy argument. Two follow-ups this leaves open:
+
+   - Decide whether to add bullseye (with a `suite-bullseye-Architectures:`
+     line dropping `armel`) or retire it everywhere. Retiring it also ends
+     Ubuntu 22.04 support — jammy is an alias of bullseye and the only suite
+     with old-enough glibc (2.31, against jammy's 2.35).
+   - `SERVICE.md` tells prospective upstreams that "a suite retires
+     automatically once its Debian LTS window ends." There is no such
+     implementation anywhere in `scripts/` or `.github/`, and bullseye going
+     EOL is the first case that would have exercised it. Either build it or
+     correct the claim.
+
    Keep the old origin's `dists/` published until the MR is merged *and* a
    release of `extrepo-data` carrying it has propagated — an apt client that
    has not refreshed its policy is still pointed at the old base URI, and a
    working `apt update` there is what keeps `apt search` honest while the
    install path is broken. Only retire it after that.
+
+## Usage analytics
+
+`MARKET-ANALYSIS.md`'s blocking finding is that 51,760 release-asset
+downloads cannot be told apart from crawlers, and that nothing anywhere
+records *which suite or architecture* is actually pulled. GitHub's asset
+counter only ever sees the 302 target. This Worker sees the real apt
+request, so it is the only place that breakdown can come from.
+
+Every request writes one Analytics Engine data point (binding `AE`, dataset
+`latest_debs_requests`), in `ctx.waitUntil` so a download never waits on a
+metric, and inside a `try`/`catch` so instrumentation can never break
+package serving:
+
+| Field | Contents |
+|---|---|
+| `blob1` | `pool` (a package download), `index` (a `dists/` fetch), or `other` |
+| `blob2` | suite — `trixie`, `sid`, … (also `index1`, the sampling key) |
+| `blob3` | architecture — `amd64`, `riscv64`, `source`, … |
+| `blob4` | package name, for `pool` hits |
+| `blob5` | country (`request.cf.country`) |
+| `blob6` | daily-rotating salted digest of IP + User-Agent |
+| `double1` | constant `1`, so `SUM` reads as a hit count under sampling |
+| `double2` | response status |
+
+**Cost.** Free plan covers 100,000 data points written and 10,000 read
+queries per day, and Cloudflare does not currently bill for Analytics
+Engine at all — so this stays inside `PLATFORM-EVALUATION.md`'s founding
+zero-cost constraint. At present traffic the daily write cap is not close;
+it is worth re-checking if a suite ever goes viral, since the cap is per
+day and silently drops writes past it. Retention is 90 days, so anything
+meant to be a long-run series has to be rolled up and stored elsewhere
+before it ages out.
+
+**Set the salt before trusting `blob6`.** It is a SHA-256 of
+`<UTC date> <CLIENT_SALT> <IP> <User-Agent>`, truncated to 8 bytes and
+rotated daily. Without the secret, only the date salts it, and the whole
+IPv4 space is cheap to brute-force against a known digest:
+
+```sh
+wrangler secret put CLIENT_SALT   # any long random string, rotate freely
+```
+
+Rotating the salt only resets distinct-client continuity across the
+rotation; it costs nothing else.
+
+**Querying.** Analytics Engine has no dashboard — use the SQL API with an
+account token holding *Account Analytics: Read*:
+
+```sh
+curl -s "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/analytics_engine/sql" \
+  -H "Authorization: Bearer $CF_API_TOKEN" \
+  -d "SELECT blob2 AS suite, blob3 AS arch, SUM(_sample_interval * double1) AS hits
+      FROM latest_debs_requests
+      WHERE timestamp > NOW() - INTERVAL '7' DAY AND blob1 = 'pool'
+      GROUP BY suite, arch ORDER BY hits DESC"
+```
+
+The number that settles positioning — is this project's real audience the
+exotic-arch fleets its differentiation claims? — is that query's `arch`
+column. Weekly distinct clients:
+
+```sh
+... -d "SELECT COUNT(DISTINCT blob6) AS clients
+        FROM latest_debs_requests
+        WHERE timestamp > NOW() - INTERVAL '7' DAY"
+```
+
+Read that as an upper bound on humans and a lower bound on machines: a NAT
+'d fleet collapses to one digest, and a client that changes User-Agent
+between `apt update` and `apt install` counts twice.
 
 ## Local development
 
