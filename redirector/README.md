@@ -299,6 +299,55 @@ Read that as an upper bound on humans and a lower bound on machines: a NAT
 'd fleet collapses to one digest, and a client that changes User-Agent
 between `apt update` and `apt install` counts twice.
 
+## External liveness watchdog
+
+Every other alarm this project has — `rebuild.yml`, `staleness.yml`,
+`report-workflow-failure.sh` — runs inside the same GitHub org as the thing
+it watches, so they all go dark together. And a green pipeline is not the
+same claim as a healthy archive: `build-repo.sh` can publish a suite whose
+`Filename:` fields 302 to release assets upstream has since deleted, and
+every `apt install` fails while `apt update` and CI stay green.
+
+`scheduled()` closes that gap. It runs on Cloudflare's cron (a different
+account, a different platform) every 6 hours and checks the published
+archive the way apt does:
+
+1. the origin's `dists/<suite>/Release` exists and was stamped inside the
+   48h window — a silently stopped rebuild shows up here;
+2. this Worker still serves it end to end, requested as `//dists/...`, the
+   double-slash form apt and extrepo actually send (that path 404'd in
+   production once already);
+3. the first `Filename:` in the index really is downloadable — our 302
+   resolves *and* the GitHub asset behind it still exists.
+
+Failures open one `origin-unhealthy` tracking issue on `apt-repo`, and a
+recovery closes it. That label is deliberately not `pipeline-failure`: that
+issue is shared by the two in-org workflows and its all-clear is computed
+from their run status, which says nothing about whether the archive serves.
+
+Filing findings needs a token:
+
+```sh
+wrangler secret put ALERT_TOKEN   # fine-grained PAT, apt-repo only,
+                                  # Issues: read and write
+```
+
+Without it the check still runs and logs its verdict; it just cannot open
+the issue. `WATCHDOG_SUITE`, `WATCHDOG_ARCH` and `WATCHDOG_STALE_HOURS`
+override the defaults (`trixie`, `amd64`, 48).
+
+Run the checks against live production without waiting for the cron:
+
+```sh
+node -e 'import("./src/worker.js").then(async (m) =>
+  console.log(await m.checkOrigin({
+    ORIGIN_BASE: "https://latest-debs.github.io/apt-repo/",
+    PUBLIC_BASE: "https://latest-debs.ranjithraj.workers.dev",
+  })))'
+```
+
+`test-watchdog.mjs` covers each failure mode against a stubbed fetch.
+
 ## Local development
 
 ```sh

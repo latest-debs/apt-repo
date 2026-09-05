@@ -6,7 +6,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "dry-run": "wrangler deploy --dry-run",
-    "test": "node test-classify.mjs"
+    "test": "node test-classify.mjs && node test-watchdog.mjs"
   },
   "devDependencies": {
     "wrangler": "^4"

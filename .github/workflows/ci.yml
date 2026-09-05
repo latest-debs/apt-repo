@@ -68,6 +68,22 @@ jobs:
             .github/workflows/*.sh \
             templates/package-scaffold/.github/scripts/*.sh
 
+  redirector:
+    name: Redirector unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Run the redirector's tests
+        # `npm test`, not the two files by name, so adding a third test
+        # file needs no change here. No `npm ci`: the tests import
+        # src/worker.js directly and use node:assert - wrangler is the only
+        # dependency and it is dev-only, so installing it would add a
+        # minute to every run to test nothing.
+        working-directory: redirector
+        run: npm test
+
   catalog:
     name: Catalog (every registered tool has a published release)
     runs-on: ubuntu-latest

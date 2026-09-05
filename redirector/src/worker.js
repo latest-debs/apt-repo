@@ -28,6 +28,10 @@ const DEB_ARCH = /_([a-z0-9]+)\.deb$/;
 const SOURCE_EXT = /\.(dsc|tar\.[gx]z)$/;
 
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(runWatchdog(env));
+  },
+
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
@@ -244,4 +248,198 @@ async function recordHit(request, pathname, env, poolMatch, status) {
   } catch {
     // Instrumentation must never break package serving.
   }
+}
+
+/* -------------------------------------------------------------------
+ * External liveness watchdog
+ *
+ * Everything else that watches this project runs inside the same GitHub
+ * org as the thing it watches: rebuild.yml, staleness.yml and
+ * report-workflow-failure.sh all go dark together. A green pipeline is
+ * also not the same claim as a healthy archive - build-repo.sh can publish
+ * a suite whose Filename: fields 302 to assets upstream has since deleted,
+ * and every `apt install` fails while `apt update` and CI stay green.
+ *
+ * This runs on Cloudflare's cron, on a different account, on a different
+ * platform, and checks the published archive the way apt does:
+ *
+ *   1. the origin's signed Release exists and was stamped recently,
+ *   2. this Worker still serves it end to end - via "//dists/...", the
+ *      double-slash form apt and extrepo actually send, which 404'd in
+ *      production once already,
+ *   3. the first Filename: in the index really is downloadable: our 302
+ *      resolves, and the GitHub asset behind it still exists.
+ *
+ * A failure opens (and a recovery closes) one `origin-unhealthy` tracking
+ * issue. That label is deliberately NOT `pipeline-failure`: that issue is
+ * shared by the two in-org workflows and its all-clear is computed from
+ * their run status, which says nothing about whether the archive serves.
+ * ------------------------------------------------------------------- */
+
+const WATCHDOG_SUITE = "trixie";
+const WATCHDOG_ARCH = "amd64";
+const WATCHDOG_STALE_HOURS = 48;
+const WATCHDOG_LABEL = "origin-unhealthy";
+const WATCHDOG_TITLE = "External watchdog: the published apt origin is unhealthy";
+
+/**
+ * Run the three checks. Returns a list of human-readable failures - empty
+ * means healthy. Exported, with `fetchImpl` injectable, for tests.
+ */
+export async function checkOrigin(env, fetchImpl = fetch) {
+  const failures = [];
+  const suite = env.WATCHDOG_SUITE || WATCHDOG_SUITE;
+  const staleHours = Number(env.WATCHDOG_STALE_HOURS || WATCHDOG_STALE_HOURS);
+  const publicBase = (env.PUBLIC_BASE || "").replace(/\/$/, "");
+  const releasePath = `dists/${suite}/Release`;
+
+  // 1. The origin's Release, and how old the archive says it is.
+  let release = null;
+  try {
+    const resp = await fetchImpl(new URL(releasePath, env.ORIGIN_BASE).toString());
+    if (!resp.ok) {
+      failures.push(`origin ${releasePath} -> HTTP ${resp.status}`);
+    } else {
+      release = await resp.text();
+      const stamped = release.match(/^Date:\s*(.+)$/m);
+      const at = stamped ? Date.parse(stamped[1]) : NaN;
+      if (Number.isNaN(at)) {
+        failures.push(`origin ${releasePath} has no parsable Date: field`);
+      } else {
+        const ageHours = (Date.now() - at) / 3600000;
+        if (ageHours > staleHours) {
+          failures.push(
+            `origin ${releasePath} was stamped ${Math.round(ageHours)}h ago ` +
+              `(window ${staleHours}h) - the rebuild has stopped publishing`,
+          );
+        }
+      }
+    }
+  } catch (err) {
+    failures.push(`origin ${releasePath} threw: ${err.message}`);
+  }
+
+  if (!publicBase) return failures;
+
+  // 2. This Worker, end to end, in the double-slash form apt sends.
+  try {
+    const resp = await fetchImpl(`${publicBase}//${releasePath}`);
+    if (!resp.ok) failures.push(`worker //${releasePath} -> HTTP ${resp.status}`);
+  } catch (err) {
+    failures.push(`worker //${releasePath} threw: ${err.message}`);
+  }
+
+  // 3. The index's own first Filename:, fetched the way apt would.
+  try {
+    const arch = env.WATCHDOG_ARCH || WATCHDOG_ARCH;
+    const idxPath = `dists/${suite}/main/binary-${arch}/Packages`;
+    const idx = await fetchImpl(new URL(idxPath, env.ORIGIN_BASE).toString());
+    if (!idx.ok) {
+      failures.push(`origin ${idxPath} -> HTTP ${idx.status}`);
+    } else {
+      const named = (await idx.text()).match(/^Filename:\s*(.+)$/m);
+      if (!named) {
+        failures.push(`origin ${idxPath} lists no Filename: - the suite is empty`);
+      } else {
+        const filename = named[1].trim();
+        const hop = await fetchImpl(`${publicBase}/${filename}`, { redirect: "manual" });
+        const target = hop.headers.get("location");
+        if (hop.status !== 302 || !target) {
+          failures.push(`worker /${filename} -> HTTP ${hop.status}, expected a 302`);
+        } else {
+          // The 302 resolving is only half the promise: apt install fails
+          // just as hard when the release asset behind it is gone.
+          const asset = await fetchImpl(target, { method: "HEAD" });
+          if (!asset.ok) {
+            failures.push(`/${filename} 302s to ${target} -> HTTP ${asset.status}`);
+          }
+        }
+      }
+    }
+  } catch (err) {
+    failures.push(`pool check threw: ${err.message}`);
+  }
+
+  return failures;
+}
+
+async function runWatchdog(env) {
+  const failures = await checkOrigin(env);
+
+  // Fail soft, and loudly in the log: an unset token must never turn a
+  // real outage into a thrown scheduled event that reports nothing.
+  if (!env.ALERT_TOKEN) {
+    console.log(
+      failures.length
+        ? `watchdog: UNHEALTHY, no ALERT_TOKEN to report with: ${failures.join("; ")}`
+        : "watchdog: healthy",
+    );
+    return;
+  }
+
+  const repo = env.ALERT_REPO || "latest-debs/apt-repo";
+  const gh = (path, init) =>
+    fetch(`https://api.github.com/repos/${repo}${path}`, {
+      ...init,
+      headers: {
+        authorization: `Bearer ${env.ALERT_TOKEN}`,
+        accept: "application/vnd.github+json",
+        "user-agent": "latest-debs-external-watchdog",
+        ...(init?.body ? { "content-type": "application/json" } : {}),
+      },
+    });
+
+  const open = await gh(`/issues?state=open&labels=${WATCHDOG_LABEL}`)
+    .then((r) => (r.ok ? r.json() : []))
+    .catch(() => []);
+  const existing = open.find((i) => !i.pull_request);
+
+  if (failures.length === 0) {
+    if (existing) {
+      await gh(`/issues/${existing.number}/comments`, {
+        method: "POST",
+        body: JSON.stringify({ body: "External watchdog: the origin is serving again." }),
+      });
+      await gh(`/issues/${existing.number}`, {
+        method: "PATCH",
+        body: JSON.stringify({ state: "closed" }),
+      });
+    }
+    console.log("watchdog: healthy");
+    return;
+  }
+
+  const body =
+    `The external liveness check (Cloudflare cron, outside this org) failed at ` +
+    `${new Date().toISOString()}:\n\n` +
+    failures.map((f) => `- ${f}`).join("\n") +
+    `\n\nThis watches the published archive, not the pipeline - CI can be ` +
+    `green while this is red. Source: \`redirector/src/worker.js\`, ` +
+    `\`checkOrigin()\`.\n`;
+
+  if (existing) {
+    await gh(`/issues/${existing.number}/comments`, {
+      method: "POST",
+      body: JSON.stringify({ body }),
+    });
+  } else {
+    // 422 = the label already exists, which is the normal case.
+    await gh("/labels", {
+      method: "POST",
+      body: JSON.stringify({
+        name: WATCHDOG_LABEL,
+        color: "d93f0b",
+        description: "The published apt origin failed an external liveness check",
+      }),
+    }).catch(() => {});
+    await gh("/issues", {
+      method: "POST",
+      body: JSON.stringify({
+        title: WATCHDOG_TITLE,
+        labels: [WATCHDOG_LABEL],
+        body,
+      }),
+    });
+  }
+  console.log(`watchdog: UNHEALTHY - ${failures.join("; ")}`);
 }

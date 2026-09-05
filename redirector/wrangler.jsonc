@@ -22,6 +22,20 @@
     "enabled": true
   },
 
+  // External liveness watchdog (scheduled() in src/worker.js). Every other
+  // alarm this project has runs inside the same GitHub org as the thing it
+  // watches, so they all go dark together; this one runs on Cloudflare's
+  // cron, on a different account and platform, and checks the published
+  // archive the way apt does. Every 6h, offset from the ~6h rebuild so it
+  // never samples mid-publish. Needs ALERT_TOKEN to file its findings:
+  //   wrangler secret put ALERT_TOKEN   # fine-grained PAT, apt-repo only,
+  //                                     # Issues: read+write
+  // Without the secret it still runs and logs; it just cannot open the
+  // origin-unhealthy issue.
+  "triggers": {
+    "crons": ["17 */6 * * *"]
+  },
+
   // Usage analytics. This Worker is the only point in the stack that sees a
   // real apt request, so it is the only place a per-suite/per-arch breakdown
   // can come from - GitHub's release-asset counter sees the 302 target and
@@ -50,6 +64,10 @@
   // backing index store either way).
   "vars": {
     "ORIGIN_BASE": "https://latest-debs.github.io/apt-repo/",
-    "MANIFEST_URL": "https://latest-debs.github.io/apt-repo/dists/pkg-repo-map.json"
+    "MANIFEST_URL": "https://latest-debs.github.io/apt-repo/dists/pkg-repo-map.json",
+    // PUBLIC_BASE: this Worker's own public URL. The watchdog fetches it to
+    // check the redirect path end to end, which ORIGIN_BASE alone cannot
+    // cover - the "//dists/..." 404 lived entirely in this hop.
+    "PUBLIC_BASE": "https://latest-debs.ranjithraj.workers.dev"
   }
 }
