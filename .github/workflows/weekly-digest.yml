@@ -81,6 +81,7 @@ jobs:
             disc_id="$(gh api graphql -f query="query{repository(owner:\"latest-debs\",name:\"apt-repo\"){discussion(number:$existing){id author{login}}}}" \
               --jq 'if .data.repository.discussion.author.login == "github-actions[bot]" then .data.repository.discussion.id else empty end' 2>/dev/null || true)"
             if [ -n "$disc_id" ]; then
+              # shellcheck disable=SC2016  # GraphQL variables, not shell
               gh api graphql -f query='mutation($id:ID!,$body:String!){updateDiscussion(input:{discussionId:$id, body:$body}){discussion{number}}}' \
                 -f id="$disc_id" \
                 -f body="$body" >/dev/null
@@ -90,6 +91,7 @@ jobs:
             fi
           fi
           if [ -z "$existing" ]; then
+            # shellcheck disable=SC2016  # GraphQL variables, not shell
             gh api graphql -f query='mutation($repo:ID!,$cat:ID!,$title:String!,$body:String!){createDiscussion(input:{repositoryId:$repo, categoryId:$cat, title:$title, body:$body}){discussion{number url}}}' \
               -f repo="$repo_id" -f cat="$cat_id" -f title="$title" -f body="$body" \
               --jq '.data.createDiscussion.discussion.url' | { read -r url; echo "created digest discussion $url"; }
