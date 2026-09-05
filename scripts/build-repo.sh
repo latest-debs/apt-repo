@@ -113,9 +113,10 @@ done
 # See README.md#debian-parity--when-we-step-aside.
 #
 # Applied per-suite, for ANY suite at parity (released or rolling). The
-# prune runs AFTER the Ubuntu alias copy (noble<-trixie, jammy<-bullseye)
-# precisely so an alias keeps the package: an Ubuntu user gains nothing from
-# Debian trixie reaching parity, so only the Debian suite is handed back.
+# prune runs AFTER the Ubuntu alias fallback (noble<-trixie, jammy<-bullseye)
+# precisely so an alias-filled package keeps shipping: an Ubuntu user gains
+# nothing from Debian trixie reaching parity, so only the Debian suite is
+# handed back.
 #
 # Source is the daily parity.json published by staleness.yml, not a live
 # madison sweep: 50+ synchronous qa.debian.org lookups do not belong in the
@@ -158,7 +159,9 @@ is_parity_drop() {
 }
 
 # Remove handed-back package/suite pairs from the pool. MUST run after the
-# Ubuntu alias copy, so aliases keep the package (see the note above).
+# Ubuntu alias fallback, so alias-filled packages keep shipping (see the
+# note above): an Ubuntu user gains nothing from Debian trixie reaching
+# parity, so only the Debian suite is handed back.
 prune_parity_drops() {
   local pkg suite dir pruned=0
   [ -s "$PARITY_DROPS" ] || return 0
@@ -601,25 +604,45 @@ fi
 
 mkdir -p "$APT_CACHE_DIR"
 
-# Ubuntu suites without a dedicated build are served as an alias of a Debian
-# suite whose glibc is older-or-equal, so its binaries also run there: copy
-# pool/<src> -> pool/<alias> (no extra docker build). Source of truth for the
-# mapping is suites.json's "aliases" map.
+# Ubuntu suites are native builds where the builder produced them (a
+# pkg_...+jammy_amd64.deb asset lands in pool/jammy/<pkg>/ directly, keyed by
+# the suite token in the filename). Where a tool has NO native build for an
+# Ubuntu suite, we fall back to an alias of a Debian suite whose glibc is
+# older-or-equal, so its binaries also run there: copy pool/<src>/<pkg> ->
+# pool/<alias>/<pkg> per package - and ONLY per package, never the whole
+# suite. A wholesale cp -a would clobber or duplicate native builds and, worse,
+# would skip the fallback entirely the moment even one tool in the suite is
+# built natively, dropping every other tool from the suite. Source of truth
+# for the mapping is suites.json's "aliases" map.
 #
-# Filenames keep the SOURCE suite token (+trixie, not +noble). They used to be
-# rewritten, which was fine while pool/ was real files on gh-pages, but pool/
-# is now served by the redirector: it matches /pool/<suite>/<pkg>/<filename>,
-# ignores <suite>, and appends <filename> verbatim to that tool's GitHub
-# Release download URL (redirector/src/worker.js). Only the Debian-suite asset
-# exists there, so a rewritten +<alias> filename 302s to a 404 - apt update
-# succeeds and every apt install fails. The token also has to stay to match
-# the .deb's own Version: field, which dpkg-deb stamped at build time and
-# no rename can change.
+# Filenames keep the SOURCE suite token (+trixie, not +noble) on alias-copied
+# packages. They used to be rewritten, which was fine while pool/ was real
+# files on gh-pages, but pool/ is now served by the redirector: it matches
+# /pool/<suite>/<pkg>/<filename>, ignores <suite>, and appends <filename>
+# verbatim to that tool's GitHub Release download URL
+# (redirector/src/worker.js). Only the Debian-suite asset exists there, so a
+# rewritten +<alias> filename 302s to a 404 - apt update succeeds and every
+# apt install fails. The token also has to stay to match the .deb's own
+# Version: field, which dpkg-deb stamped at build time and no rename can
+# change. Native Ubuntu builds carry their own +<ubuntu-suite> token and so
+# are self-consistent.
 while IFS=$'\t' read -r alias_suite alias_src; do
   [[ -n "$alias_suite" ]] || continue
-  if [[ -d "$POOL/$alias_src" && ! -e "$POOL/$alias_suite" ]]; then
-    log "== alias $alias_suite -> $alias_src (pool copy, no separate build) =="
-    cp -a "$POOL/$alias_src" "$POOL/$alias_suite"
+  [[ -d "$POOL/$alias_src" ]] || continue
+  mkdir -p "$POOL/$alias_suite"
+  local_copied=0
+  for src_pkg in "$POOL/$alias_src"/*/; do
+    [[ -d "$src_pkg" ]] || continue
+    dest_pkg="$POOL/$alias_suite/$(basename "$src_pkg")"
+    if [[ ! -e "$dest_pkg" ]]; then
+      cp -a "$src_pkg" "$dest_pkg"
+      local_copied=$((local_copied + 1))
+    fi
+  done
+  if [[ "$local_copied" -gt 0 ]]; then
+    log "== alias $alias_suite <- $alias_src: filled in $local_copied package(s) with no native build =="
+  else
+    log "== alias $alias_suite <- $alias_src: fully native, nothing to fill in =="
   fi
 done < <(jq -r '.aliases | to_entries[] | [.key, .value] | @tsv' "$ROOT/suites.json")
 

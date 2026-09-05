@@ -7,9 +7,11 @@ served over `apt`.
 
 - **Debian:** Bullseye (11), Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)
 - **Ubuntu:** Jammy (22.04 LTS), Noble (24.04 LTS), Questing (25.10), Resolute
-  (26.04 LTS) — all served as aliases of a Debian suite with older-or-equal
-  glibc (Jammy from Bullseye; Noble/Questing/Resolute from Trixie), so no
-  separate Ubuntu build is needed (see `suites.json`'s `aliases` map)
+  (26.04 LTS) — **native builds** wherever the builder produced an
+  `+<ubuntu-suite>` package; packages without a native build fall back to an
+  alias of a Debian suite with older-or-equal glibc (Jammy from Bullseye;
+  Noble/Questing/Resolute from Trixie) — see `suites.json`'s `aliases` map
+  and the per-package fallback in `scripts/build-repo.sh`
 - **Architectures:** amd64, arm64, armhf, ppc64el, s390x, riscv64, loong64 (plus i386 and armel on bullseye/bookworm/trixie)
 - **Updates:** near-instant — publishing a release in a `*-debian` repo
   triggers an immediate rebuild via webhook, with a ~6h scheduled run as the
@@ -297,12 +299,12 @@ copy. Nobody loses a route to the current version; we just stop duplicating
 the one route that already exists.
 
 The per-suite drop is applied at build time by `scripts/build-repo.sh` from
-the daily `parity.json`. It runs *after* the Ubuntu alias copy on purpose:
-an alias (noble←trixie, jammy←bullseye) keeps the package even when the
-Debian suite it was copied from is handed back, because an Ubuntu user gains
-nothing from Debian trixie reaching parity. If the report is missing or
-unreadable the build fails open and publishes everything — shipping a
-redundant package is cheaper than silently withholding one.
+the daily `parity.json`. It runs *after* the Ubuntu alias fallback on purpose:
+an alias-filled package (noble←trixie, jammy←bullseye) keeps shipping even
+when the Debian suite it was copied from is handed back, because an Ubuntu
+user gains nothing from Debian trixie reaching parity. If the report is
+missing or unreadable the build fails open and publishes everything —
+shipping a redundant package is cheaper than silently withholding one.
 
 **These drops are wins, and the dashboard counts them as such.** Every suite
 handed back is one this channel no longer has to carry, reached by the
