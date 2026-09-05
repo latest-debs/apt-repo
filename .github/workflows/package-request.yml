@@ -175,21 +175,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
 
-      - name: Check GitHub App credentials
+      - name: Check deploy credentials
         id: check-token
+        # Prefer the GitHub App (short-lived token minted per run). Fall back
+        # to the org-restricted fine-grained ORG_ADMIN_TOKEN that README.md
+        # documents when the App isn't set up - otherwise an approved request
+        # stalls on "set APP_ID/APP_PRIVATE_KEY" even though a perfectly good
+        # deploy credential is already stored.
         env:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
         run: |
-          if [ -n "$APP_ID" ] && [ -n "$APP_PRIVATE_KEY" ]; then
-            echo "has_token=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_token=false" >> "$GITHUB_OUTPUT"
-          fi
+          use_app=false
+          [ -n "$APP_ID" ] && [ -n "$APP_PRIVATE_KEY" ] && use_app=true
+          has_token=false
+          { [ "$use_app" = true ] || [ -n "$ORG_ADMIN_TOKEN" ]; } && has_token=true
+          echo "use_app=$use_app" >> "$GITHUB_OUTPUT"
+          echo "has_token=$has_token" >> "$GITHUB_OUTPUT"
 
       - name: Mint org deploy token
         id: org-token
-        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'true'
+        if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.use_app == 'true'
         # Short-lived (~1h) installation token scoped to whatever the App
         # installation grants - used ONLY by the deploy step to create the
         # org repo and dispatch its first build. Everything else in this job
@@ -228,7 +235,7 @@ jobs:
         env:
           # Deploy needs the org token to create the repo; TRIGGER_TOKEN is
           # copied onto the new repo so its releases can dispatch rebuilds.
-          GH_TOKEN: ${{ steps.org-token.outputs.token }}
+          GH_TOKEN: ${{ steps.org-token.outputs.token || secrets.ORG_ADMIN_TOKEN }}
           TRIGGER_TOKEN: ${{ secrets.TRIGGER_TOKEN }}
           RUNNER_TEMP: ${{ runner.temp }}
           PKG_NAME: ${{ steps.fields.outputs.name }}
@@ -267,7 +274,7 @@ jobs:
           echo "conclusion=$conclusion" >> "$GITHUB_OUTPUT"
           echo "run_url=https://github.com/$repo/actions/runs/$run_id" >> "$GITHUB_OUTPUT"
         env:
-          GH_TOKEN: ${{ steps.org-token.outputs.token }}
+          GH_TOKEN: ${{ steps.org-token.outputs.token || secrets.ORG_ADMIN_TOKEN }}
           PKG_NAME: ${{ steps.fields.outputs.name }}
 
       - name: Comment and close on build success
@@ -312,7 +319,7 @@ jobs:
       - name: Comment when admin token is missing
         if: always() && steps.scaffold.outcome == 'success' && steps.check-token.outputs.has_token == 'false'
         run: |
-          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **APP_ID** and **APP_PRIVATE_KEY** secrets in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) (see the deploy GitHub App setup in README.md) to enable one-click deployment — then reply \`/approve\` again."
+          gh issue comment "$NUMBER" --repo "$REPO" --body "✅ Validated and ready. A maintainer needs to set the **APP_ID** and **APP_PRIVATE_KEY** secrets (or an **ORG_ADMIN_TOKEN**) in [apt-repo settings]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/settings/secrets/actions) (see the deploy GitHub App setup in README.md) to enable one-click deployment — then reply \`/approve\` again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ github.event.inputs.issue_number }}

@@ -58,6 +58,8 @@ jobs:
       should_build: ${{ steps.detect.outputs.should_build }}
       smoke_glob: ${{ steps.policy.outputs.smoke_glob }}
       min_glibc: ${{ steps.policy.outputs.min_glibc }}
+      smoke_arch: ${{ steps.policy.outputs.smoke_arch }}
+      smoke_runner: ${{ steps.policy.outputs.smoke_runner }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -83,9 +85,24 @@ jobs:
           read_val() {
             awk -v k="$1" -F': *' '$1==k { v=$2; gsub(/["'\'' ]/, "", v); sub(/#.*/, "", v); print v; exit }' package.yaml
           }
+          # Smoke runs natively on an architecture the release actually
+          # covers: arm64 whenever upstream ships it (the Pi audience this
+          # channel serves), amd64 otherwise. Without this an amd64-only
+          # upstream failed the gate with "all-suites-exhausted" - there was
+          # simply no arm64 .deb for the arm64-only smoke job to test, so
+          # such a package could never be released at all.
+          archs="$(awk '/^architectures:/{f=1;next} f&&/^  [a-z0-9]+:/{gsub(/[ :]/,"");print;next} f&&/^[^ #]/{exit}' package.yaml)"
+          [ -n "$archs" ] || archs="$(jq -r '.architectures.covered[]?' .github/vet-report.json 2>/dev/null || true)"
+          if [ -z "$archs" ] || printf '%s\n' "$archs" | grep -qx arm64; then
+            smoke_arch=arm64; smoke_runner=ubuntu-24.04-arm
+          else
+            smoke_arch=amd64; smoke_runner=ubuntu-latest
+          fi
           {
             printf 'smoke_glob=%s\n' "$(read_val smoke_skip || true)"
             printf 'min_glibc=%s\n' "$(read_val min_glibc || true)"
+            printf 'smoke_arch=%s\n' "$smoke_arch"
+            printf 'smoke_runner=%s\n' "$smoke_runner"
           } >> "$GITHUB_OUTPUT"
 
       - name: Recheck upstream license
@@ -170,10 +187,11 @@ jobs:
     name: Smoke Test
     needs: [prepare, build]
     if: needs.build.result == 'success'
-    # Runs the packaged arm64 binaries on native arm64 hardware (same
-    # architecture as Raspberry Pi), so the smoke gate exercises exactly what
-    # the Pi audience runs - no emulation, real runtime coverage.
-    runs-on: ubuntu-24.04-arm
+    # Runs the packaged binaries on native hardware (no emulation, real
+    # runtime coverage) - arm64 by default, same architecture as Raspberry
+    # Pi, falling back to an amd64 runner for upstreams that publish no
+    # arm64 build at all (see the smoke_arch policy in prepare).
+    runs-on: ${{ needs.prepare.outputs.smoke_runner || 'ubuntu-24.04-arm' }}
     steps:
       - name: Download packages
         uses: actions/download-artifact@v4
@@ -195,6 +213,7 @@ jobs:
           #               GLIBC-cliff failure (bullseye ships 2.31)
           SKIP_GLOB="${{ needs.prepare.outputs.smoke_glob }}"
           MIN_GLIBC="${{ needs.prepare.outputs.min_glibc }}"
+          SMOKE_ARCH="${{ needs.prepare.outputs.smoke_arch || 'arm64' }}"
           [ -n "$SKIP_GLOB" ] || SKIP_GLOB='__no_smoke_skip_configured__'
           # Suite -> its glibc version; keep in sync with suites.yaml order.
           suite_glibc() {
@@ -218,7 +237,7 @@ jobs:
               echo "Skipping $SUITE (glibc $(suite_glibc "$SUITE") < min_glibc $MIN_GLIBC)"
               continue
             fi
-            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${SUITE}_arm64.deb")
+            mapfile -t debs < <(compgen -G "__PKG_NAME___*+${SUITE}_${SMOKE_ARCH}.deb")
             if [ -z "${debs[0]:-}" ]; then continue; fi
             DEB="${debs[0]}"
             echo "Trying $SUITE: $DEB (expected $EXPECTED)"
@@ -311,7 +330,7 @@ jobs:
           sm "|-------|------------|--------|"
           while read -r U SUITE; do
             [ -n "$U" ] || continue
-            mapfile -t udebs < <(compgen -G "__PKG_NAME___*+${SUITE}_arm64.deb")
+            mapfile -t udebs < <(compgen -G "__PKG_NAME___*+${SUITE}_${SMOKE_ARCH}.deb")
             if [ -z "${udebs[0]:-}" ]; then
               sm "| ubuntu:$U | $SUITE | skip (no $SUITE .deb built) |"
               continue
