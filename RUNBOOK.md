@@ -48,6 +48,13 @@ Fixes, cheapest first:
 The Worker code is not at risk — anyone with an account can redeploy it with
 `npx wrangler deploy` from `redirector/`. The *hostname* is the asset.
 
+One thing does move with the account, though: the Worker's cron also runs
+the **external liveness watchdog** (`redirector/README.md`), the only alarm
+that does not live inside this GitHub org. Losing the account loses the
+alarm *silently* — nothing else notices it stopped running. A redeploy
+restores it, but the `ALERT_TOKEN` secret is per-account and has to be set
+again (`wrangler secret put ALERT_TOKEN`). Fix 1 above covers this too.
+
 ## 2. GPG signing key
 
 Used by `scripts/sign-repo.sh` in the `Sign repository` step of

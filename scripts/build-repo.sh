@@ -658,6 +658,48 @@ for suite in "$POOL"/*/; do
   build_suite "$suite"
 done
 
+# coverage.json - how many packages each suite ACTUALLY carries, per
+# architecture, counted from the indexes generated immediately above. The
+# catalogue size is not the per-suite size: a tool only lands in a suite if
+# the builder produced an asset for it (or an alias filled it in), so
+# bullseye and jammy carry a fraction of what trixie does. Nothing else in
+# the stack publishes that number, which let the public pitch quote the
+# catalogue total for every suite. status.html renders this table so the
+# claim and the archive cannot drift apart again.
+log "== writing coverage.json =="
+{
+  for sdir in "$DISTS"/*/main; do
+    [[ -d "$sdir" ]] || continue
+    suite="$(basename "$(dirname "$sdir")")"
+    for adir in "$sdir"/binary-*; do
+      [[ -f "$adir/Packages" ]] || continue
+      printf '%s\t%s\t%s\n' "$suite" "${adir##*/binary-}" \
+        "$(grep -c '^Package: ' "$adir/Packages" || true)"
+    done
+    # Unique packages in the suite across every architecture - the number a
+    # user asking "what can I install on bullseye?" actually gets.
+    printf '%s\t%s\t%s\n' "$suite" "_total" \
+      "$(cat "$sdir"/binary-*/Packages 2>/dev/null | grep '^Package: ' | sort -u | wc -l)"
+  done
+} > "$TMP/coverage.tsv"
+
+jq -R -s -c \
+  --arg now "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+  --argjson catalogue "$(wc -l < "$PKG_REPO_MANIFEST")" \
+  --argjson distros "$(jq -c '[.distro_suites[] | {(.suite): .distro}] | add' "$ROOT/suites.json")" '
+  split("\n") | map(select(length > 0) | split("\t"))
+  | group_by(.[0])
+  | map({
+      suite:    .[0][0],
+      distro:   ($distros[.[0][0]] // "debian"),
+      packages: ((map(select(.[1] == "_total")) | first | .[2] | tonumber) // 0),
+      arches:   (map(select(.[1] != "_total"))
+                 | map({(.[1]): (.[2] | tonumber)}) | add // {})
+    })
+  | sort_by(-.packages, .suite)
+  | { generated_at: $now, catalogue: $catalogue, suites: . }
+' "$TMP/coverage.tsv" > "$DISTS/coverage.json"
+
 log "== writing pkg-repo-map.json =="
 jq -R -s -c '
   split("\n") | map(select(length > 0) | split("\t"))
