@@ -15,6 +15,8 @@ on:
 permissions:
   contents: write
   issues: write
+  # gh run list, for the --recovered all-clear check
+  actions: read
 
 concurrency:
   group: staleness
@@ -79,3 +81,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/report-workflow-failure.sh "Upstream staleness watchdog"
+
+      - name: Clear a resolved pipeline-failure issue
+        # The failure path above deliberately never closed its issue, so a
+        # recovered pipeline left a stale alarm open until someone noticed -
+        # #20 sat open ~11h past the fix. Closes only when the latest run of
+        # BOTH critical workflows is green.
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/report-workflow-failure.sh --recovered "Upstream staleness watchdog"
