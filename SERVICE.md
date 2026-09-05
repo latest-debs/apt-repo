@@ -39,6 +39,12 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
 - **All five Debian suites** — Bullseye (11), Bookworm (12), Trixie (13),
   Forky (14/testing), Sid (unstable). A suite retires automatically once its
   Debian LTS window ends.
+- **Native Ubuntu builds** — Jammy (22.04 LTS), Noble (24.04 LTS), and
+  Resolute (26.04 LTS) are built in Ubuntu containers, not copied from
+  Debian: correct dependencies, correct suite metadata, and an install path
+  that works on the two distros most of your users actually run. (Questing,
+  25.10, is served from the Trixie build until its short support window is
+  worth its own build.)
 - **Every architecture you actually publish a Linux binary for** — amd64,
   arm64, armhf, i386, armel, loong64, ppc64el, riscv64, s390x, and we verify
   exactly which ones your release covers at vet time rather than assuming
@@ -74,6 +80,25 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
 Publishing a release triggers an immediate apt-repo rebuild via webhook, with
 a scheduled fallback — so users see new versions in minutes, not at the next
 Debian release.
+
+## Already publishing .debs on GitHub Releases?
+
+Then your users who want `apt` are downloading a bare asset by hand: no
+signature on the index, no `apt update`, no dependency metadata, no source
+package, no policy check — and often only one or two architectures. Your
+release page says "download this file and `dpkg -i` it".
+
+latest-debs takes the same upstream binaries you already build and serves
+them as what they want to be: a signed apt repository with native builds for
+five Debian suites and three Ubuntu LTS/interim suites, lintian-gated,
+smoke-tested, provenance-pinned, and attested. You keep building exactly
+what you build today; your users get `apt install`, `apt upgrade`, and
+`apt-get source`.
+
+This is also our graduation path: if you later run your own apt repository,
+we record it in `graduated.json`, stop publishing our copy for the suites
+you cover, and point your users at yours. Replacing us is a feature, not a
+failure.
 
 ## Why this is a product, not a packaging job
 
@@ -169,11 +194,15 @@ default to, and it costs you one paragraph. Suggested copy for a "Debian /
 Ubuntu" section in your install docs:
 
 ```markdown
-### Debian (unofficial, via latest-debs)
+### Debian & Ubuntu (unofficial, via latest-debs)
 
 Signed, test-gated .deb packages, rebuilt automatically on every release:
 
-    sudo extrepo enable latest-debs
+    sudo install -d -m 0755 /etc/apt/keyrings
+    curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc \
+      | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" \
+      | sudo tee /etc/apt/sources.list.d/latest-debs.list
     sudo apt update
     sudo apt install yourtool
 
