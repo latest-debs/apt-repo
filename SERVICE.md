@@ -37,10 +37,11 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
 ### Real coverage
 
 - **All five Debian suites** — Trixie and Bookworm carry essentially the full
-  catalogue (61 and 59 of 61); Forky (51), Sid (49), and Bullseye (12) trail
+  catalogue (61 and 59 of 61); Forky (50), Sid (48), and Bullseye (12) trail
   where an upstream's older-build constraints or the suite's toolchain make a
-  build unreliable. Every suite's exact count, per architecture, is published
-  on the [status page](https://latest-debs.github.io/status.html) — generated
+  build unreliable. Counts are of 5 September 2026 — every suite's exact,
+  current count, per architecture, is published on the
+  [status page](https://latest-debs.github.io/status.html) — generated
   from the archive, not asserted. A suite retires automatically once its
   Debian LTS window ends.
 - **Native Ubuntu builds** — Noble (24.04 LTS) and Resolute (26.04 LTS) are
