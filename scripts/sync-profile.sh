@@ -23,14 +23,11 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 . "$SCRIPT_DIR/lib.sh"
-TOOLS_YAML="$ROOT/tools.yaml"
 PROFILE_REPO="latest-debs/.github"
 PROFILE_PATH="profile/README.md"
 START="<!-- packages:start -->"
 END="<!-- packages:end -->"
-SAMPLE_N=12   # names shown inline before "and N more"
 
 command -v jq >/dev/null || { echo "jq required" >&2; exit 1; }
 
@@ -42,44 +39,19 @@ case "$MODE" in
 esac
 
 generate_summary() {
-  python3 - "$TOOLS_YAML" "$LIVE_MAP" "$SAMPLE_N" <<'PYEOF'
-import sys, json
-try:
-    import yaml
-except ImportError:
-    sys.exit("python3 yaml module missing")
-data = yaml.safe_load(open(sys.argv[1]))
-live = json.load(open(sys.argv[2]))  # pkg -> has_published_release
-n = int(sys.argv[3])
-# Installable tools only - registered-but-unpublished isn't user-facing yet.
-pkgs = [p for p in data if live.get(p)]
-names = [(data[p].get("display") or p) for p in pkgs[:n]]
-rest = len(pkgs) - len(names)
-tail = f", and {rest} more" if rest > 0 else ""
-print(f"**{len(pkgs)} tools**, each a signed, test-gated `.deb` rebuilt automatically on every "
-      f"upstream release — {', '.join(f'`{x}`' for x in names)}{tail}.")
-print()
-print("Browse the full catalogue live — searchable, with the version we ship next to what Debian "
-      "and Ubuntu ship — at **[latest-debs.github.io](https://latest-debs.github.io/#packages)**.")
-PYEOF
+    # Deliberately number-free: a tools count (or sample list) here drifts on
+    # every tools.yaml change and forces manual edits to the profile repo.
+    # The live catalogue at latest-debs.github.io is the source of truth.
+    cat <<'BLOCK'
+Every tool is a signed, test-gated `.deb`, rebuilt automatically on every
+upstream release.
+
+Browse the full catalogue live — searchable, with the version we ship next to what Debian and Ubuntu ship — at **[latest-debs.github.io](https://latest-debs.github.io/#packages)**.
+BLOCK
 }
 
-# Which tools have a published release? (Missing/404 → not listed.)
-TMPD="$(mktemp -d)"
-trap 'rm -rf "$TMPD"' EXIT
-LIVE_MAP="$TMPD/live.json"
-echo '{}' > "$LIVE_MAP"
-while IFS=$'\t' read -r pkg repo; do
-  [ -n "$pkg" ] || continue
-  if api_json "$API/repos/$repo/releases/latest" >/dev/null 2>&1; then
-    jq --arg p "$pkg" '.[$p] = true' "$LIVE_MAP" > "$LIVE_MAP.new" && mv "$LIVE_MAP.new" "$LIVE_MAP"
-  fi
-done < <(python3 - "$TOOLS_YAML" <<'PYEOF'
-import sys, yaml
-for pkg, meta in yaml.safe_load(open(sys.argv[1])).items():
-    print(f"{pkg}\t{meta.get('source','').removeprefix('https://github.com/')}")
-PYEOF
-)
+# NOTE: no live-release API lookups anymore - the summary no longer embeds a
+# count or sample list, so there is nothing here to query or drift.
 
 SUMMARY="$(generate_summary)"
 
