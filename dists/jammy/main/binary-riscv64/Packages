@@ -1,0 +1,48 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_riscv64.deb
+Size: 1487584
+MD5sum: db1dd0236850d9396e34b7cbb0e69ee1
+SHA1: d26b0a5a12ede107cb2a0e277c55a3d9180cb9aa
+SHA256: 424e3e9b544e2447e90d0b33539fb715a325d02360de94b31bfb66ff96aec253
+SHA512: 4b8a39b8b060d9aed1aad161579837e02062845ddf1bb7e79bf86b98c17a0030a91dfc0be7c40f22592299bd0c1e29b558d544785be4bbe33a5ae63b099ac8a6
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: riscv64
+Version: 1.72.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/buf/buf_1.72.0-1+bullseye_riscv64.deb
+Size: 24485944
+MD5sum: 353c3cc686c717500d87b6ae5b6a0c67
+SHA1: 636de3332077b7aed625688bef7759e5ae34de87
+SHA256: 5400d94947789918a92d6704392e7140e7ff452a19224ecbb17c3ad17530d3c6
+SHA512: 5cc01877f7f1d3571460b917c57b2a63ccd41444cadac9c0fce158a844140f51bb4eecb1b90312637fedfefa4c57a6ed2bfb4de42b9fce207f7b84a5fb21250a
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: riscv64
+Version: 0.115.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/nushell/nushell_0.115.1-1+bullseye_riscv64.deb
+Size: 52105028
+MD5sum: 2d9fd216d21e82e28eb08918c548085d
+SHA1: 460dbf5d5edbb3a475802252202195e6282793f3
+SHA256: d353bbe8c01ce8aea036640aab0d73069cb9f68e2431b15c179bdac095ed80cd
+SHA512: 888a6c246695b59ef6c804f850dc7a509247d003a82237491923d3953e452503ccac47c33169c054ef14434f8ce53d2fe23b90b343a607749873fb349ab8bf7f
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+

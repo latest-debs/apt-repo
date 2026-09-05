@@ -1,0 +1,822 @@
+{
+  "generated_at": "2026-09-05T09:20:07Z",
+  "suites_checked": [
+    "bullseye",
+    "bookworm",
+    "trixie",
+    "forky",
+    "sid"
+  ],
+  "rolling_suites": [
+    "forky",
+    "sid"
+  ],
+  "retire_count": 0,
+  "advisory_count": 13,
+  "packages": [
+    {
+      "package": "uv",
+      "upstream_version": "0.12.10",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "0.9.17+ds1-6",
+        "sid": "0.9.17+ds1-6"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "vite-plus",
+      "upstream_version": "v0.3.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "eza",
+      "upstream_version": "v0.23.5",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.21.0-1+b1",
+        "forky": "0.23.5-5",
+        "sid": "0.23.5-5"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "lazygit",
+      "upstream_version": "v0.64.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.50.0+ds1-1",
+        "forky": "0.57.0+ds1-1",
+        "sid": "0.57.0+ds1-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "ruff",
+      "upstream_version": "0.16.6",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "0.0.291+dfsg1-4"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "bun",
+      "upstream_version": "bun-v1.4.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "deno",
+      "upstream_version": "v2.9.6",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "duckdb",
+      "upstream_version": "v1.5.5",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "1.5.5-3",
+        "sid": "1.5.5-3"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "lazydocker",
+      "upstream_version": "v0.25.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "ripgrep",
+      "upstream_version": "15.2.0",
+      "suites": {
+        "bullseye": "12.1.1-1+b1",
+        "bookworm": "13.0.0-4+b2",
+        "trixie": "14.1.1-1+b4",
+        "forky": "15.2.0-1",
+        "sid": "15.2.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "fd",
+      "upstream_version": "v10.5.0",
+      "suites": {
+        "bullseye": "8.2.1-1+b1",
+        "bookworm": "8.6.0-3",
+        "trixie": "10.2.0-1+b5",
+        "forky": "10.4.2-1+b1",
+        "sid": "10.5.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "sid"
+      ]
+    },
+    {
+      "package": "fzf",
+      "upstream_version": "v0.74.3",
+      "suites": {
+        "bullseye": "0.24.3-1",
+        "bookworm": "0.38.0-1",
+        "trixie": "0.60.3-1",
+        "forky": "0.74.3-1",
+        "sid": "0.74.3-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "starship",
+      "upstream_version": "v1.26.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "1.22.1-5",
+        "forky": "1.26.0-1",
+        "sid": "1.26.0-2"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "just",
+      "upstream_version": "1.58.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "1.40.0-1+b1",
+        "forky": "1.58.0-1",
+        "sid": "1.58.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "hyperfine",
+      "upstream_version": "v1.20.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "1.15.0-2",
+        "trixie": "1.19.0-1+b3",
+        "forky": "1.20.0-1",
+        "sid": "1.20.0-3"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "k9s",
+      "upstream_version": "v0.51.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "atuin",
+      "upstream_version": "v18.21.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "18.6.1-1",
+        "forky": "18.20.0+ds-1",
+        "sid": "18.20.0+ds-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "xh",
+      "upstream_version": "v0.26.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.24.0-1+b1",
+        "forky": "0.26.2-1",
+        "sid": "0.26.2-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "yq",
+      "upstream_version": "v4.53.6",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "4.53.3+ds-2",
+        "sid": "4.53.3+ds-2"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "du-dust",
+      "upstream_version": "v1.2.5",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "1.2.0-2",
+        "forky": "1.2.4-5+b1",
+        "sid": "1.2.4-5+b1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "procs",
+      "upstream_version": "v0.14.12",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.14.10-2",
+        "forky": "0.14.11-2",
+        "sid": "0.14.11-2"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "bottom",
+      "upstream_version": "0.14.9",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "bat",
+      "upstream_version": "v0.26.1",
+      "suites": {
+        "bullseye": "0.12.1-6+b2",
+        "bookworm": "0.22.1-4",
+        "trixie": "0.25.0-2+b2",
+        "forky": "0.26.1+ds-1",
+        "sid": "0.26.1+ds-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "zoxide",
+      "upstream_version": "v0.10.0",
+      "suites": {
+        "bullseye": "0.4.3-2+b1",
+        "bookworm": "0.4.3-5+b2",
+        "trixie": "0.9.7-1+b1",
+        "forky": "0.9.8-1+b1",
+        "sid": "0.10.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "sid"
+      ]
+    },
+    {
+      "package": "git-delta",
+      "upstream_version": "0.19.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.18.2-4",
+        "forky": "0.19.2+ds-2",
+        "sid": "0.19.2+ds-2"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "jj",
+      "upstream_version": "v0.45.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "gitui",
+      "upstream_version": "v0.28.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "fresh-editor",
+      "upstream_version": "v0.4.10",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "nushell",
+      "upstream_version": "0.115.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "dive",
+      "upstream_version": "v0.13.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "superfile",
+      "upstream_version": "v1.6.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "pnpm",
+      "upstream_version": "v11.25.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "act",
+      "upstream_version": "v0.2.89",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "zed",
+      "upstream_version": "v1.18.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "rclone",
+      "upstream_version": "v1.75.1",
+      "suites": {
+        "bullseye": "1.53.3-1",
+        "bookworm": "1.60.1+dfsg-2",
+        "trixie": "1.60.1+dfsg-4",
+        "forky": "not-in-forky",
+        "sid": "1.69.3+dfsg-3"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "k6",
+      "upstream_version": "v2.2.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "difftastic",
+      "upstream_version": "0.70.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "vhs",
+      "upstream_version": "v0.11.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "yazi",
+      "upstream_version": "v26.9.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "zellij",
+      "upstream_version": "v0.45.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "neovim",
+      "upstream_version": "v0.12.5",
+      "suites": {
+        "bullseye": "0.4.4-1",
+        "bookworm": "0.7.2-7",
+        "trixie": "0.10.4-8",
+        "forky": "0.12.4-1",
+        "sid": "0.12.4-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "gh",
+      "upstream_version": "v2.100.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "2.23.0+dfsg1-1",
+        "trixie": "2.46.0-3",
+        "forky": "not-in-forky",
+        "sid": "2.46.0-4"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "mise",
+      "upstream_version": "v2026.9.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "gum",
+      "upstream_version": "v2.0.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "0.14.4-1",
+        "forky": "0.17.0-1",
+        "sid": "0.17.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "fastfetch",
+      "upstream_version": "2.68.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "2.40.4+dfsg-1",
+        "forky": "2.66.0+dfsg-1",
+        "sid": "2.66.0+dfsg-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "buf",
+      "upstream_version": "v1.72.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "sd",
+      "upstream_version": "v1.1.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "0.80.really.0.7.6-1+deb12u1",
+        "trixie": "1.0.0-3+b6",
+        "forky": "1.0.0-4+b2",
+        "sid": "1.0.0-4+b2"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "scc",
+      "upstream_version": "v4.0.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "helix",
+      "upstream_version": "25.07.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "fish",
+      "upstream_version": "4.9.1",
+      "suites": {
+        "bullseye": "3.1.2-3+deb11u1",
+        "bookworm": "3.6.0-3.1+deb12u1",
+        "trixie": "4.0.2-1",
+        "forky": "4.7.1-2.1",
+        "sid": "4.7.1-2.1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "hexyl",
+      "upstream_version": "v0.17.0",
+      "suites": {
+        "bullseye": "0.8.0-2+b1",
+        "bookworm": "0.8.0-2+b5",
+        "trixie": "0.8.0-2+b13",
+        "forky": "not-in-forky",
+        "sid": "0.16.0-4+b1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "lf",
+      "upstream_version": "r42",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "28-1",
+        "trixie": "34+ds-2",
+        "forky": "42+ds-1",
+        "sid": "42+ds-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "watchexec",
+      "upstream_version": "v2.7.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "herdr",
+      "upstream_version": "v0.8.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "oh-my-posh",
+      "upstream_version": "v31.1.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "uncloud",
+      "upstream_version": "v0.20.0",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "workmux",
+      "upstream_version": "v0.1.255",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    },
+    {
+      "package": "dasel",
+      "upstream_version": "v3.11.2",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "2.8.1-1",
+        "forky": "3.11.2-2",
+        "sid": "3.11.2-2"
+      },
+      "parity_suites": [],
+      "advisory_suites": [
+        "forky",
+        "sid"
+      ]
+    },
+    {
+      "package": "vicinae",
+      "upstream_version": "v0.28.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "not-in-forky",
+        "sid": "not-in-sid"
+      },
+      "parity_suites": [],
+      "advisory_suites": []
+    }
+  ]
+}

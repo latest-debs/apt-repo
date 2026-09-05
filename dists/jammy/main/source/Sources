@@ -1,0 +1,493 @@
+Package: bottom
+Format: 3.0 (quilt)
+Binary: bottom
+Architecture: any
+Version: 0.14.9-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ClementTsang/bottom
+Directory: pool/jammy/bottom
+Package-List:
+ bottom deb utils optional arch=any
+Files:
+ 4897c0999f4877fb72f224c7ca694bcc 883 bottom_0.14.9-1+bullseye.dsc
+ 8b99a03e29acdf047e32cd2293186c3e 1499952 bottom_0.14.9.orig.tar.xz
+ fb51c1506d5404b3d605343e90f05b1d 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ e339d10569701c1d68d4ba343cd5b0d0b96bae0a 883 bottom_0.14.9-1+bullseye.dsc
+ 1870848dca877be70efa6d8945cc8cc2519f5c3c 1499952 bottom_0.14.9.orig.tar.xz
+ 9996b6c273e6fb74a48084f13fc6316ba6ee8c92 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ 595ce832d394a2456b7612661e033656e7e430833ef1e22f0d61be93cf29929e 883 bottom_0.14.9-1+bullseye.dsc
+ e66414fcadeee260ef086e564d298c6010bbb916f37aa4cf47627fe58d53f4d9 1499952 bottom_0.14.9.orig.tar.xz
+ e28ac6a2e5a16a9c28b5a39d836804307e1486b19b6754d037ed3b2ddf6dbb8a 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 9a0c564305a58507b9ff29b9bac1cf5283e5c71918a6d573c1f634df59c7e438a7ad08b110ec6f3e4078e41136cad3f6e661744581c86f68b546f7615c2bdf80 883 bottom_0.14.9-1+bullseye.dsc
+ 1c098146199ea3bd96b1d01088b3b15c0c5550049b24dbdede191106221898464dd98b763eff7005c304dc02da5766143b1b13ce0f6f2036883cc9c4f090abca 1499952 bottom_0.14.9.orig.tar.xz
+ 398177477ebacb887d0f52bb23874ecad80b7b7aed5757382fa040512ff99189c1e8c8385380c62613f7bb2e8bb7785a6adcadd2c07a2cb4eb26f215d4ee103e 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+
+Package: buf
+Format: 3.0 (quilt)
+Binary: buf
+Architecture: any
+Version: 1.72.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bufbuild/buf
+Directory: pool/jammy/buf
+Package-List:
+ buf deb utils optional arch=any
+Files:
+ a5e690c5acd8eb45f132548a8144c786 852 buf_1.72.0-1+bullseye.dsc
+ bc639d647c6b6b33d74846dd2df16c3a 27034892 buf_1.72.0.orig.tar.xz
+ 4b7f57ca6d0f483ded26b939cfd367b7 4640 buf_1.72.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 922555a9939eadaeead6b1d2d7914ad79b01acc1 852 buf_1.72.0-1+bullseye.dsc
+ 1a2209d77a69b81cd4689cfb90b5a28ec0ff55a3 27034892 buf_1.72.0.orig.tar.xz
+ 94e2e959f7bafad3db44236c56962887c3ad5f7d 4640 buf_1.72.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ a7d26da4040c0cb70183b41e3600dbdc7e277477439d1dced111669f72770176 852 buf_1.72.0-1+bullseye.dsc
+ 7d5eca24a7c99327c49d3363d6b18c77a8f73b51b9b5c0594a0716441b09df94 27034892 buf_1.72.0.orig.tar.xz
+ 0d25a816848daee181ef607f5061a2b14609f51caccc7e23581fcef330233551 4640 buf_1.72.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 8649416e7e72f733ead314d4bbce3b1833ac5f16093a2ccf85d604f02eec193bbaf89b07156aae2cd103b1b62dd4c2cddc23a54c7c3bbf5ee792ac5a17c8e2bf 852 buf_1.72.0-1+bullseye.dsc
+ ed61c045887075d1d6018633b9d54977c480d75ad3f64c1f7f5ce82f0abe0cb00a18cb729a3ec0de96d457c406393b789eac219ee2a39160e6b5a248a74bb3bb 27034892 buf_1.72.0.orig.tar.xz
+ 41b8477017e222ab4726c967fc0952b6fe438bdedcc75d4eefde953c935267cb63a8fbecf88ae5b72706cf119c23fa84a648771b22ccbe5af56cdd9908f625f0 4640 buf_1.72.0-1+bullseye.debian.tar.xz
+
+Package: bun
+Format: 3.0 (quilt)
+Binary: bun
+Architecture: any
+Version: 1.4.2-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/oven-sh/bun
+Directory: pool/jammy/bun
+Package-List:
+ bun deb utils optional arch=any
+Files:
+ ca1d19a347bac0d63a847cecade45436 832 bun_1.4.2-1+jammy.dsc
+ b8763ca33fbce768e0dabd4d152c1b9c 28323772 bun_1.4.2.orig.tar.xz
+ 0d6a62433b84341a792b5409331cba80 2696 bun_1.4.2-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 2c1aa8f435db2eb856ce822a13b33a6097762d2b 832 bun_1.4.2-1+jammy.dsc
+ 35395331641c005a6689a8840336a4c424e5d2ec 28323772 bun_1.4.2.orig.tar.xz
+ ba929b6c0196b87c6c98ab00b5f354313dc45b31 2696 bun_1.4.2-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ bbef5f0a3c40e1a1f0d98ca1248d558c3a3914e0957426f4d4d6b0f7d9930e02 832 bun_1.4.2-1+jammy.dsc
+ 68789ee23d0632329b2be6c7423778c3377d18b8277d32b9c31d8cdf317e25d7 28323772 bun_1.4.2.orig.tar.xz
+ aca8399dd7933816625ef8187dd6e6e07a62703c801b86b1269d26e6b894dc4a 2696 bun_1.4.2-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 38f6bc6b41b64ef004e4adb3b60a4094941b224ca8198c995ea2a6bbf097a54c9e5dd9ddc5cf69d90b1ef4e4b3af9597c34225ef4b2c23d46f18a8fb04e66b99 832 bun_1.4.2-1+jammy.dsc
+ 2d3ba1aa289a8c71743c93b64ad419eb65dcd1ae5997c1e81a13f22cf2e987a33eede711ed5c217ef75579201d30526f61c4569d41ef7e75be9a6001b43571d0 28323772 bun_1.4.2.orig.tar.xz
+ c4ae7c164ba8b4fe26a2bb9ddcc9340a32578381c370a3a241bd7400d914045ba9e13651e2d8b802d3601f40f1c05a571e12d1effaa3adaf7119b8c927e9c177 2696 bun_1.4.2-1+jammy.debian.tar.xz
+
+Package: deno
+Format: 3.0 (quilt)
+Binary: deno
+Architecture: any
+Version: 2.9.6-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/denoland/deno
+Directory: pool/jammy/deno
+Package-List:
+ deno deb utils optional arch=any
+Files:
+ 67f708f9cba0e03a4dacb0a27a479e65 855 deno_2.9.6-1+bullseye.dsc
+ 43a192c14a3fc3f0ea595855781c0597 30520732 deno_2.9.6.orig.tar.xz
+ 90be4a55bc747b19189b8d10d257dd52 1504 deno_2.9.6-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ dcf118c3062031540e52bb47015d75ebbb040129 855 deno_2.9.6-1+bullseye.dsc
+ 3f8bc973d2c95db40db1f39a5fc387c8ca8b734a 30520732 deno_2.9.6.orig.tar.xz
+ b37b4033e6eca032f9b93537223802cb8a78b899 1504 deno_2.9.6-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ 2ef00bd4afa6fe972b7aa3c868d231f1a3e2bcd2d79e1e491ad356f306ee3a1b 855 deno_2.9.6-1+bullseye.dsc
+ 1d1c37f901be4dcb661269b07589bac97627f63226e74f8828ace9808c78f847 30520732 deno_2.9.6.orig.tar.xz
+ 135142fb85fd3ef7269f71085f610465b0d4b78e95b28dd332adbfc9a5f2f8da 1504 deno_2.9.6-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ bac99c562012d0ad6ac9897de45101d485217c2b2241fe92722ef09d95fbe2ec004f307aa8b0a0e48194a4390e4321b998a84bf3b2e708c3d1399b5e3ade3ffc 855 deno_2.9.6-1+bullseye.dsc
+ 9d33c1442b0abe1be92a1a1edddb4bea67264356c6980e3d52a0b195ce179ed1df8ec3f34c1ad5b4551950257fe9336e3f50d011f51e8006fe333645ec35f7ef 30520732 deno_2.9.6.orig.tar.xz
+ 8e5435ca8510ee16c1e5bd568ee47f07e0afb4eda52feb49d709695621feab8af7f17ce05244f82599f6aba96773ffa1fb353fc258d9b87e212072eaa9ba6c27 1504 deno_2.9.6-1+bullseye.debian.tar.xz
+
+Package: eza
+Format: 3.0 (quilt)
+Binary: eza
+Architecture: any
+Version: 0.23.5-3+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/eza-community/eza
+Directory: pool/jammy/eza
+Package-List:
+ eza deb utils optional arch=any
+Files:
+ 369ad006a7cb801ffe3cd91e1cf20cb2 839 eza_0.23.5-3+jammy.dsc
+ 54552fc8935a845a0cd4f7dd06b7ce1f 990064 eza_0.23.5.orig.tar.xz
+ 339dc59378df71876c7ce0727a7a80a5 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha1:
+ dd9d2205f6d310115ac9cc18970c65db201a1a54 839 eza_0.23.5-3+jammy.dsc
+ 218af2ed965a084a807778b4846c68cdeebbfa5c 990064 eza_0.23.5.orig.tar.xz
+ d85ee9fecce3017166ad9f0454ab3985375527b3 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha256:
+ 40ebd12cf0a3f9879c8c8f4975903e01b35c9fe5f059eb2fce152e7f8640e815 839 eza_0.23.5-3+jammy.dsc
+ f9f453250c78ac468cd085804d122321280abc32b426bb8abfdf65cf11745034 990064 eza_0.23.5.orig.tar.xz
+ 3c7b8c0915a119ec0ae8da60fbaafbc14f9a2ff8531e147701c6fcf5e524fd0b 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha512:
+ 0f89e6d4e64b36eb5f96b33cf5daad5f2df102bf0340ddd73a225fa45f9c08c9e57cabe5d9d04a46fc6583fdc649b160f3b465ad723e4e27d6e1c772c94ca615 839 eza_0.23.5-3+jammy.dsc
+ 7dd0ddf5d1f4448eef90281cb36fb535715c007ac4305e1452a0899dd94f06c82daf79c64d4f35184ddf5df3561d99fe066f49c662f39eab5100ef820b52776c 990064 eza_0.23.5.orig.tar.xz
+ 53590999ea95e1215c215ae0fe3c111afa841a83d71729373b3d99f3ffde7554639f4867102193828dbecdae981eb38ce035695e4998bbb36b663d24eb3568d3 5476 eza_0.23.5-3+jammy.debian.tar.xz
+
+Package: fd
+Format: 3.0 (quilt)
+Binary: fd
+Architecture: any
+Version: 10.5.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/fd
+Directory: pool/jammy/fd
+Package-List:
+ fd deb utils optional arch=any
+Files:
+ 2b0378c98c4c6a41c72f1f17635526a8 838 fd_10.5.0-1+bullseye.dsc
+ 334a6178e92dcee30a9c5c1041ec5093 1092688 fd_10.5.0.orig.tar.xz
+ b6a4c26477c74560ac814c6beaf078a1 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 2afad43c25cf828524f3d67cf31326b63309b954 838 fd_10.5.0-1+bullseye.dsc
+ 7116ec8ff365d246ee2b637a73c13751d71001c9 1092688 fd_10.5.0.orig.tar.xz
+ 31f68989ed4514c061e6d9fc71a57a5bfda454d7 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ ff9cf5c124294afbdb423ed3594d6bbde15eb6de151218ccf37b2e9385318c9f 838 fd_10.5.0-1+bullseye.dsc
+ bf718fcb14772bb462896b74065c161bfb97f524c14879e484852fb2a26f69a0 1092688 fd_10.5.0.orig.tar.xz
+ 45c1748b449c1efe42e7a07e5c08ddf386243d5dc51d7473e6f65a7fb4cd5ca0 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 6f1b3771ba33c0dc16af5b1ba1accba352fef50ae8c14bd7f95918cc80ed7eb1cb934fb0f93381c7f80e8f33f6eef8dea2b82bca896449d8e05a99f3db5c0056 838 fd_10.5.0-1+bullseye.dsc
+ 405aa12a39b60228ac76833a643695eccfea8d10371411205f4526b2fb1478ed7bd330cf2219b39e7c5d813029aee46782b77fc565eaa97ca66d9f35c43bfd03 1092688 fd_10.5.0.orig.tar.xz
+ 89f7ed3bf7e11673b3ac7eb06e34205f4c198a7a1dcf594b1f2682af7c6ce7d347745b1fcf10a81aee29bebc4c5e935b69d91333d3fd61650ebb8bf6365d7c8c 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+
+Package: fish
+Format: 3.0 (quilt)
+Binary: fish
+Architecture: any
+Version: 4.9.2-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fish-shell/fish-shell
+Directory: pool/jammy/fish
+Package-List:
+ fish deb utils optional arch=any
+Files:
+ ac211df499e9add946f6f33387c230fb 848 fish_4.9.2-1+jammy.dsc
+ 02beef6401f8c3da7ebb7d0c2242b7eb 3213832 fish_4.9.2.orig.tar.xz
+ f642c034d34b4dfb377cb2db9de71892 1300 fish_4.9.2-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 968cdfbfd4d325a50dc5af07a3c034357c3d7b3a 848 fish_4.9.2-1+jammy.dsc
+ 1cf74c3e2bed6dc92a3f54639264ab708cd5425c 3213832 fish_4.9.2.orig.tar.xz
+ 3c23d540bbca5fb796687317317e5164d8332493 1300 fish_4.9.2-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 8e957882c47640bfe53cf54779e0c9cdfc27134513633b742e9fa7e2a4505988 848 fish_4.9.2-1+jammy.dsc
+ 3654b3c279f4aaa25f02eb63456bf2dfb4ca371889ef2f61775b3f4c767ee718 3213832 fish_4.9.2.orig.tar.xz
+ 4acc641efed840b562017f381c45dbb0f9d99aac78b652fc1c9cbc5f4ace6433 1300 fish_4.9.2-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 873252378c199acbdf27d9136c9993ee9e1f04e92252176c48bb00d9e47a2e0933e028fcb06875d6ad1df975733ff53edbc7bc8b0f415d35605391a751c546a3 848 fish_4.9.2-1+jammy.dsc
+ f89d9d3b31424a0ece2967a5255e68e15d8b17bc1b4c2f07997a5b4fe358096f03253c290489798b211eef2b8b60f5773729f3ace388e1d0fba86ea744ee414f 3213832 fish_4.9.2.orig.tar.xz
+ cdf40f0a7712ec3d2fc55f4c6d843e48265ed2cf702e4c13fe4a47764bfecc7993317e4f2c471b062b1b8990f53d5afaa8de17c184d06f092b5072d003e4a4b6 1300 fish_4.9.2-1+jammy.debian.tar.xz
+
+Package: gum
+Format: 3.0 (quilt)
+Binary: gum
+Architecture: any
+Version: 2.0.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/gum
+Directory: pool/jammy/gum
+Package-List:
+ gum deb utils optional arch=any
+Files:
+ d5aeac98860e66d765c8d046c4d1ad81 847 gum_2.0.0-1+bullseye.dsc
+ dd7a1f66484f8a4ae603df468445512c 3715848 gum_2.0.0.orig.tar.xz
+ 9a49508ee2472950ab72e6d47a7f6812 1512 gum_2.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 317655610d3383716bccef6fe29a5899dc6de410 847 gum_2.0.0-1+bullseye.dsc
+ a14c4579374cfcd77bfc25967e9b7badd210ea9d 3715848 gum_2.0.0.orig.tar.xz
+ 79eed6733b9c5a5ae63579620c392de115a232a2 1512 gum_2.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ c3b0061a2c0a106a88f50084258f694394b5eb0c57e08e92938dbf0a801201b7 847 gum_2.0.0-1+bullseye.dsc
+ fe18a0162eb83e50ea5ac3ed60d1ef9f57c4333b22a9745fb31283f92f57ff2f 3715848 gum_2.0.0.orig.tar.xz
+ b0ed49e05f69ed29eee5082b35634fae13c847c114f949d473b0c1d7922d80cd 1512 gum_2.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ de82d8f3c8e5529cd335a9e946ca763a293d90b8a35bf421ef3974558ad923f02f90aae520f10020d2b935cfa56e6c06b7cc6c5d1ca120b7768df7a865068dc9 847 gum_2.0.0-1+bullseye.dsc
+ f5bbe7d515c11e8bbc78083df198292b51393d630ffd04052afebbb762fb328fe419f9551518e3999f71b89d6c0008d2d7ae8434c151bdf346b86a9edb514929 3715848 gum_2.0.0.orig.tar.xz
+ 1b02b0feeea42028e435c20376202f9cd78178c3e4ff63b7cd837e52a54a686b1e50d3393047d9ed629edf5d84a6dc2bf1d4f160cc700ac80c9c3adc3cbd2f35 1512 gum_2.0.0-1+bullseye.debian.tar.xz
+
+Package: helix
+Format: 3.0 (quilt)
+Binary: helix
+Architecture: any
+Version: 25.07.1-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/helix-editor/helix
+Directory: pool/jammy/helix
+Package-List:
+ helix deb utils optional arch=any
+Files:
+ ecbdcfa8618f5be057332ee419d39e36 883 helix_25.07.1-1+bullseye.dsc
+ f1265595f268a9b3b6e7188bcaa44e19 16626744 helix_25.07.1.orig.tar.xz
+ 92faea736e49dc6cc8f99809c4e817e6 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 1ef12ad62a0ec36692fe858d770fac80d695b009 883 helix_25.07.1-1+bullseye.dsc
+ f5b72284e8e8dc920109a04c63a4c1ba8e82902e 16626744 helix_25.07.1.orig.tar.xz
+ 2d2c0ad92b13d59678e4d21d8d4cf3ef3242a930 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ a9c0aeef719f736820e8595a03174f5764389548317aeef2775374176318d217 883 helix_25.07.1-1+bullseye.dsc
+ 48a5f56b2107e64bf97d98d2252906864422e47b5a1af200f8d71ffd61a47cf8 16626744 helix_25.07.1.orig.tar.xz
+ 31742efa6186dd003af68114e698095366dc722c886a1eaff27126158946036c 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ e5009bde3e09d3e2e34f9d93893be6d5869d6d52f3a7a55ae6dc8cd40f1f7cd1bc00d38f8dc336cb120a4cfb92c5ee58471ce5e24536dad6959f58dac606e552 883 helix_25.07.1-1+bullseye.dsc
+ 2124c182824b82d7de4369123dbc40c53ccdd0c7c3aae5dafe3e7b6958216c9313fb933e60ab07c558393041ccbd122ecce6bdd52365c74eca3c3b03092cb9b4 16626744 helix_25.07.1.orig.tar.xz
+ 94ca122b31e59cedc3b776d30dc8e9e44eb4321b0a87f16722c5b07f2d0fc0bbcb2eec455557ffdb7de1681eddcc16a30ece96fbfff8382fa2a9eab59babc053 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.115.1-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/jammy/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ 925a8d4f276a19e3f1778f871aa364be 898 nushell_0.115.1-1+bullseye.dsc
+ f46d1f6109e383a22fc3518c6d01ef5c 50595664 nushell_0.115.1.orig.tar.xz
+ 32f63d6575da92be70bc8553f65540f3 1508 nushell_0.115.1-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ d34b45194844793dc92c5c4c0dd1ab5ff14852f2 898 nushell_0.115.1-1+bullseye.dsc
+ 7b16ba426e4fc2f8e4ec1e44b7d6c55a000acd34 50595664 nushell_0.115.1.orig.tar.xz
+ 1f378f9b06c9c6a694f646814766723b544e5c55 1508 nushell_0.115.1-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ f3d6bd426656d5c138a087f9c25ad38bc4b43fb98eb7862e139a0907aaa6fe35 898 nushell_0.115.1-1+bullseye.dsc
+ 6f9f6b3622c9ef6bca5214dfa41fb437a50de7e52c621f5e661783bcf3224549 50595664 nushell_0.115.1.orig.tar.xz
+ 2240a1fca91e5508e6ea8d7c5c90da49d7c4bdf4b6550c48e2c1b18709227119 1508 nushell_0.115.1-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ eda028e7fdf41af303c24ebf04874ae32fb2d18d5e195b86d2bf018ee8ba0b8d7df317df1dcba8903978af551381f5f1bb8e3b47df94c33898bc9cdf1adbf92c 898 nushell_0.115.1-1+bullseye.dsc
+ edfcc258007532b8b6ac6c507ca6211a7849e82b6409d13189333de84131f517242b9dd58a96404647a106476c437df73591fc6b4f6b7868366e9ab5803d5fe4 50595664 nushell_0.115.1.orig.tar.xz
+ bd9f3223ce3ebf9c0e5387f9d97d0cabd3c90c1037a75d67171084eade439f14871458dff7ec2c4246414be529d4aa533c39234c37c8b2f6aacff23306465f8f 1508 nushell_0.115.1-1+bullseye.debian.tar.xz
+
+Package: oh-my-posh
+Format: 3.0 (quilt)
+Binary: oh-my-posh
+Architecture: any
+Version: 31.1.3-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Directory: pool/jammy/oh-my-posh
+Package-List:
+ oh-my-posh deb utils optional arch=any
+Files:
+ 376371598f15dedf70a883371bf03781 913 oh-my-posh_31.1.3-1+jammy.dsc
+ 419949298c381c11f33ff9d5383610b8 4317272 oh-my-posh_31.1.3.orig.tar.xz
+ ef4ddb846c05ba4fcf7eb8de362dc4cd 1500 oh-my-posh_31.1.3-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 225cc5f15db14a4ee521721294d6311daaa79a42 913 oh-my-posh_31.1.3-1+jammy.dsc
+ 2ac76d43e9a83b1828ca1fb0a418f1dd37d3ede9 4317272 oh-my-posh_31.1.3.orig.tar.xz
+ bf23bcb74ed12257409ea8a26d146977027fa1b1 1500 oh-my-posh_31.1.3-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ d3e544347898520e7df8eaf0059b6ce6a6686c981d62aff7a000c8867f8578d4 913 oh-my-posh_31.1.3-1+jammy.dsc
+ 359bcd773d341fee54e8ed3af471a9fe3627645b70b2e26c6ce72c98a2913df8 4317272 oh-my-posh_31.1.3.orig.tar.xz
+ 2e7ae9afce82d228e7185f3650dd527c9d7bf318b5cfeeaebc246e99cbd892df 1500 oh-my-posh_31.1.3-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 2d2cdfe5c4299fa5ab346ed7932d96637fac4467bc6aeb2b46440888caf42215ceca2253b8c4f9af158baea04530497fe28aa2181e9dd65781797d84aa3722c3 913 oh-my-posh_31.1.3-1+jammy.dsc
+ fdd0828548e6d3603399fdabbe31426a26fcf74eba5d1584bab852eaa94a7aa04659e9a4aa6cc275fabe22038c8ef630f23049ff460ffa2715e54ae3f8cf9217 4317272 oh-my-posh_31.1.3.orig.tar.xz
+ 7ada40a0f9c4db3dd5b922b7cc2f22e4cd89f7ad6006bb6a5b2ceb311c288a3711ca39beef0fdd13f1fa98b861f6f75c69915f5867851f11113be2aec541a5d3 1500 oh-my-posh_31.1.3-1+jammy.debian.tar.xz
+
+Package: pnpm
+Format: 3.0 (quilt)
+Binary: pnpm
+Architecture: any
+Version: 11.25.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/pnpm/pnpm
+Directory: pool/jammy/pnpm
+Package-List:
+ pnpm deb utils optional arch=any
+Files:
+ 4f7ab4a5e542cf038ae4607319c86977 865 pnpm_11.25.0-1+bullseye.dsc
+ 7b1874eb647298fbf1f93ce51110a113 33497872 pnpm_11.25.0.orig.tar.xz
+ 2ff388a192da54c7dcb38bdae1e1a944 1596 pnpm_11.25.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ ca7d63fc71319da6fab0c05ff17184a92dbf6b3c 865 pnpm_11.25.0-1+bullseye.dsc
+ e6baa43e26337f3e6bd145a38609c0e8afe8943d 33497872 pnpm_11.25.0.orig.tar.xz
+ 4143b2c8152dd08c0b55c14fa1c86760f5a226fd 1596 pnpm_11.25.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ b031260412ec70925ab074bec243100d530f6ff99a53aa5cc836ed183262d31f 865 pnpm_11.25.0-1+bullseye.dsc
+ e6bc1b133596f06ea7c9ef55e7612e11ed39dbd4727d04a774e1755c6f71f201 33497872 pnpm_11.25.0.orig.tar.xz
+ 8009a5dc7730931dd22ea306e0427fd42c4287d8bb90aa29ddda1686bffa7148 1596 pnpm_11.25.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 51a1735eaa8ba71376559d107c2996fd88c83aafa49120289be57c8bc46d36986e72a7b017bde1d0ff783974290df6570217881c6a612cb9362befca87141a3f 865 pnpm_11.25.0-1+bullseye.dsc
+ c91b57948791a0798b179f509c54c8698b193f5431e1ad0157b43ff26ecb310693722eff32c20343fe9710bb916ff02b1217795c5996e091d76ab4f4c7da269d 33497872 pnpm_11.25.0.orig.tar.xz
+ e02416e13d974ca2425fe7702e428776a78e870c9d543f063998aede7ae53ab7724ecb48db2978481bc2adeda835100d6eab12026b4cbf3af38eb59451993167 1596 pnpm_11.25.0-1+bullseye.debian.tar.xz
+
+Package: scc
+Format: 3.0 (quilt)
+Binary: scc
+Architecture: any
+Version: 4.0.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/boyter/scc
+Directory: pool/jammy/scc
+Package-List:
+ scc deb utils optional arch=any
+Files:
+ c3ce0f7da0ff31c37ed982323e019c47 840 scc_4.0.0-1+bullseye.dsc
+ 0c0b62102856f0133e2c9cb3a204c854 5224452 scc_4.0.0.orig.tar.xz
+ ad71eb354b4d638b7322d58d9621b121 1556 scc_4.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 9e54ff1a04393fadc01e7854f6d8ff53309b2d1c 840 scc_4.0.0-1+bullseye.dsc
+ 394f8b41d6f95ba1f46a758846680e87451b68cd 5224452 scc_4.0.0.orig.tar.xz
+ 90b14bf2f3935d77b58c4a6f891fcade2c926a4b 1556 scc_4.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ 8001587a09e5099b9dfb8a9035ebb82f2fedfbab9b1913f96ff979e1fa04319c 840 scc_4.0.0-1+bullseye.dsc
+ 814556f119344efa785ceeb0b569316e3b2bd75888a2e409aa7c104da31db005 5224452 scc_4.0.0.orig.tar.xz
+ 1254e6e14c2c91114f2e7000e234952504f4ae95b67a1f97fdcf1ed874af00e8 1556 scc_4.0.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 9a3643263c212c2e270af458ea7ef38565bb6bfb4830d8c73e8c25e7de3d1414c19a4f1223efc66b19b911ed6ec166671155aeeecba6172ee010b23517a0c067 840 scc_4.0.0-1+bullseye.dsc
+ a391d6d335d985200d6a4220dba1b495ff4bbf84f7f4114f2cea0f8d76469a028ad944ee4eedd59209f4056d582770fb627e0d2443457655bc694d3d94b33403 5224452 scc_4.0.0.orig.tar.xz
+ 1ba34787761eeef33a6b129f24d4e47427bc88521a556f806c05051d696eada040f74592bcc1c8a33d18bb73058276029c4eac72979abb106d70baeedd325475 1556 scc_4.0.0-1+bullseye.debian.tar.xz
+
+Package: sd
+Format: 3.0 (quilt)
+Binary: sd
+Architecture: any
+Version: 1.1.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/chmln/sd
+Directory: pool/jammy/sd
+Package-List:
+ sd deb utils optional arch=any
+Files:
+ dd61f435d597da6bbe369a3e21215de7 826 sd_1.1.0-1+bullseye.dsc
+ d58c50fbacda8f3d5187f38d1b466b0e 733380 sd_1.1.0.orig.tar.xz
+ 621b67877799f742669f153f6e9fd5e4 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ a44c8726b463e88def97dd9528b0ec336a4f906b 826 sd_1.1.0-1+bullseye.dsc
+ f50a278120e84e14908e257cfaf446a44e4f8631 733380 sd_1.1.0.orig.tar.xz
+ 44ecd64bd2eaf01b7500c3110d6199e43ddc3baf 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ f719fa2950cf411fbc8ce9e0029d9f22b134b0d40d6dc6943f0579e10a9bf2ce 826 sd_1.1.0-1+bullseye.dsc
+ 1a67c719d6f001a41a1eb315696f25eda2b02aa8830b794fdcc493cdcd3318ac 733380 sd_1.1.0.orig.tar.xz
+ adc09311cac5a6a16b4fceaf7707cbc1c1eb02ff6f796db5581dc6bc2fb5b73c 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 6a659b567e1f8c998e9d80c02bc23e4c3e0828cf664546abb0b08e32ac22f639466ca7d051a139034d2498323a9b8805bf22a388f0d3481669414530e569f74e 826 sd_1.1.0-1+bullseye.dsc
+ 4b49a08fc20e472e38fe90f920c4afd971dcee19f97886e4fdbe323ea725c35b01ac805cf2134b81d950646f20b9ed16fe5b916a4f77330820d4ea42f812a867 733380 sd_1.1.0.orig.tar.xz
+ 617bd5600b122a22740b9ee040993a54d01a46f70e59a8256ad605936970ea55b3b0feef5f8f46b7bf9c85a76f5c894d1b9e710d8594ced33c86c28be56c77fd 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+
+Package: vite-plus
+Format: 3.0 (quilt)
+Binary: vite-plus
+Architecture: any
+Version: 0.3.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/voidzero-dev/vite-plus
+Directory: pool/jammy/vite-plus
+Package-List:
+ vite-plus deb utils optional arch=any
+Files:
+ 166bbae3a69efefee4c849bdeb87699b 906 vite-plus_0.3.0-1+bullseye.dsc
+ 8028693df601b68111aad7227c8f7c66 3535140 vite-plus_0.3.0.orig.tar.xz
+ b5638e61e00635af9f6391c22bf5e693 1524 vite-plus_0.3.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ ae6984fc37d098021fec5b809b21086d400fe128 906 vite-plus_0.3.0-1+bullseye.dsc
+ b215237a90fd89917e7ca298e9716e518bf1a153 3535140 vite-plus_0.3.0.orig.tar.xz
+ fb6cf17adce5cabae192e8f2624cc2002e76d12f 1524 vite-plus_0.3.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ 848087ecc4085adb4b59c753ad08cdf83035181428b40d8a03bd710bf66302e5 906 vite-plus_0.3.0-1+bullseye.dsc
+ 4f0637d0675403f0be1ea4e8f047468843ab3b987ddc51583ac4bc7b2800b328 3535140 vite-plus_0.3.0.orig.tar.xz
+ eeac317a2b7b3986d0c629a928ae3a7299cb1f7289a0de08877030bb314c1142 1524 vite-plus_0.3.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 7bd44daa0977e5aef47e41f09fd692d14bb8c15ddd69ddd101817be5625bb967c4ea93812ffb682141306e07baa4925369a01dd231ec4b5f1697d9d53649e6b8 906 vite-plus_0.3.0-1+bullseye.dsc
+ ed70d591d8194b789a941929fa1436af3644817ddd9faaa1fd2e4e144b1916cbd64fae383201f4347e7dc476ec8041f1f44f93ffcfdacbac3f7023f618a49964 3535140 vite-plus_0.3.0.orig.tar.xz
+ 07cd4b532266185ccda07310584d03de1cbdd6f7113eabaca478b147924b2a8d619c8836f41f6a8c3a4a315e6048f241e8ff6d237748485f4e16723662b993b5 1524 vite-plus_0.3.0-1+bullseye.debian.tar.xz
+
+Package: workmux
+Format: 3.0 (quilt)
+Binary: workmux
+Architecture: any
+Version: 0.1.255-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/raine/workmux
+Directory: pool/jammy/workmux
+Package-List:
+ workmux deb utils optional arch=any
+Files:
+ c0c212b0c6c26000edd6d4edddccd32e 881 workmux_0.1.255-1+jammy.dsc
+ eb55e89d193f29008b463668ed5e65cb 4260936 workmux_0.1.255.orig.tar.xz
+ 0178c81d5f5a47ab80b9ca6e97b0db42 1512 workmux_0.1.255-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ fb728271e4e84d5f268395a75431f6f1d8ee855c 881 workmux_0.1.255-1+jammy.dsc
+ 5214b273d0cbf2b8e446ec84ad2c853bf0ea6ba0 4260936 workmux_0.1.255.orig.tar.xz
+ f253b2f3c4c103ca26066f04f17013518ff5ae31 1512 workmux_0.1.255-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 7bb006f5da1ec313285bf0d1bc745704a4d5a7c22dc5c8c38c44c7839d655366 881 workmux_0.1.255-1+jammy.dsc
+ 5a8b47acb6f24e4923c46d0a102d2141d30c291c6736c38219a3d7a92992b0c9 4260936 workmux_0.1.255.orig.tar.xz
+ 01fec80249600323b45718f6354c6df7724b319a2073d6ce22445dc456128346 1512 workmux_0.1.255-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ eca4aad003040470a3abc291f6c501ac231b319f52e4a8bf73a3b33ad6d71610e52e4131c63b6cdb7fba4e5a67a1d2df06d81fbb1eb1e06296e68b0879955c98 881 workmux_0.1.255-1+jammy.dsc
+ 1a8f534adee431037ee764f80fa6b1d66180f5ff17807610e5b5e9d55fa9e020235ca96093f752dda08d358c60f99b3adcd2381fa311efc977df1b3ba853cce2 4260936 workmux_0.1.255.orig.tar.xz
+ bb9332e08a1d75061f3b47caba75c67bc38ec793dfca1ca8e50da13b6bd67eaa469f2e80106fae52bbc1ef7947d154117139b93bbd7e627f5a86bf219136f7c6 1512 workmux_0.1.255-1+jammy.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.45.1-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/jammy/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 9605012e0b70327ddcda9f99a7d702cf 881 zellij_0.45.1-1+bullseye.dsc
+ aa657ed4532371922e77c125d549775c 8054396 zellij_0.45.1.orig.tar.xz
+ 5a33668d1373c56466e155a09d10908f 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 9766c71dc759d9a9166b99c9884096e1e1fb942e 881 zellij_0.45.1-1+bullseye.dsc
+ 87ade7297dba2e9c4992532717f9b9b3ed77d10a 8054396 zellij_0.45.1.orig.tar.xz
+ e8f76ce21f25c0edfd8186487fc7be433daf65f9 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ b87e38d17b53f60ed651277c774367e6df97bdb2282816aef8d7b8625df75e7c 881 zellij_0.45.1-1+bullseye.dsc
+ e1e0ec5831257c49ba9133bb111f8053aac1b58d76d3aa6f5ae01b3219af3140 8054396 zellij_0.45.1.orig.tar.xz
+ 644b1fa27d06c5deee2f66fb25d01ac0e107906fc224b608a5b71677555426e4 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 20d132e36f25b06f8b8e2bfdf2cb3912f5a7e8785b303ac5c2f255b24cb13b028afaad282f20daf09a37e47d88044b3cbd9e1acc8cbd95ce125e5fcb6a5b1315 881 zellij_0.45.1-1+bullseye.dsc
+ 81a20bb2aeccb82fff52dd3b5fe38680011c9298a1e54ad7db5619fa53358c615aea8712eb10db7062d8db8c7e7d9a5317db7a9bbe56428e4fbd73de23709f4b 8054396 zellij_0.45.1.orig.tar.xz
+ bcdbc745a1074d13364e20e014b23859cd6c5a71506b3088e6b8b4b58ad9fece30ec1826a97fad7e8ad555ad9a02814d508c5a818e14590b287358649072aa81 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+

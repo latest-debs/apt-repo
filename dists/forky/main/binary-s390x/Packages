@@ -1,0 +1,144 @@
+Package: buf
+Architecture: s390x
+Version: 1.72.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/buf/buf_1.72.0-1+forky_s390x.deb
+Size: 23753572
+MD5sum: 94c4edaa46fac90300e41412619571e5
+SHA1: da62c4306b1ae002a1af0b59ed8174b0a138f1da
+SHA256: ad43795566858a770ef10092b54e328da7a34c1d524554da8bef749fbdd1d9b3
+SHA512: a677d19dc4595b1fb67e5d59526ee93194a888c96f3072887881c9189a386e75b638d82b8c01741c0111d8be7b54737f7613cdf0f919a774f4d3c3ac3cee90a3
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.68.1-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/fastfetch/fastfetch_2.68.1-1+forky_s390x.deb
+Size: 4635140
+MD5sum: d8bedba2a0ce18f865f5136e196b0d8d
+SHA1: b6f533211a11baee7663b6f2799b7c70d203211d
+SHA256: 789b40d8ab99fa4a18243dc60497516b1f30429e71f0d1eaac95c7c353f4b6e0
+SHA512: f200e30b9e5d6f24daab7deb21eed74d8d533582017d78d0797450bb696cdc9464c172f53c36c1e4c87d3b1e50a61a7746e1641877e938bdb7af85efd34eb7fc
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/k9s/k9s_0.51.0-1+forky_s390x.deb
+Size: 25121888
+MD5sum: 7ab1199891aa17e5b9fb68d92a0c790d
+SHA1: abd7a8a8a72e267b70ee3bc1bc4b22db45c15a79
+SHA256: 9dc5d2336da21c26edeef8c7c0ea189cfcdc5fc3b26351fea1d24f90d2ff261f
+SHA512: 58d520c0761744ffebbcff426309367a465f86909bca8d2ac03a55453d1810ec0857a483f859fe15696f97b9b5e99cb3825036a8408d6e89892fee6e6d20bc0e
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/lf/lf_42-1+forky_s390x.deb
+Size: 1651000
+MD5sum: 0c32c747c37e4c2e8a55a705f85e7f37
+SHA1: ceff8cb8ee012c5b193c82d15edea2918a3faf93
+SHA256: c32e4d6cd56df54e6284ae69cc7493c08679bf46b41d8da7a93b8f965edc0905
+SHA512: efc2bce98729cc89ee9dd11260769d7e9e064777a8b233f3c852278b80ed1acf7b5b052e8358f60a73da9946a0e27f541cb2ad69cf5985e8678dc9c2f476664b
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.6-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/ruff/ruff_0.16.6-1+forky_s390x.deb
+Size: 6727140
+MD5sum: d63638a800a9898638875a02f4787b19
+SHA1: 2b7df9840dc4daed9dad367e7f07f158bdb93793
+SHA256: 848ff71a9c3ed86e6adb0ed2d3030f5cce364d077b74335df1830589ed520a46
+SHA512: 4d1c06a61a615afcb263db956891a7842b900d034e4bf52df11105b91453a7b91931e39772a884b7d0751c87085a2c516dd6f27a8abdca4b449e4db7a4291cc5
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.74.0-2+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/trivy/trivy_0.74.0-2+forky_s390x.deb
+Size: 30343580
+MD5sum: b2b191b1755b1aa0b04b4052c77b4489
+SHA1: 5cc82d41116f78853e5c393ee802fade4b935d76
+SHA256: ab9773b3b5c142fcf40312477498626a8eee7cbaed2641a641ed16846776e7e0
+SHA512: 4a513d0ed917818679e85d29d591ede5fb5341ae4d03cc0960e32d920079fd91a1840af067ba083c1aa383771b129d1a5a3fcadc3f186794266f4c725ea57175
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.12.10-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/uv/uv_0.12.10-1+forky_s390x.deb
+Size: 13764176
+MD5sum: 9a0a36913f48246ccc423134fafee70e
+SHA1: 6355b914ecd5556335138f390c8b91b40542d405
+SHA256: b03863457e144b2f34a25d1f3cb7eb33d720e5d616a551d17cb3266485da9c3e
+SHA512: 4bc9231bc2553ed21a6c2e41380987c7e503243c1440a0805e7787a1c5e6413c92e517990205db8d35a9b9c4fc8f6a7a6742323f1d351b334a19056a4a7189a4
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.7.1-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/watchexec/watchexec_2.7.1-1+forky_s390x.deb
+Size: 2742748
+MD5sum: be7f6071233447058f7d5e6ea4e180c6
+SHA1: b0d58275384ac7c98bef095fe370bc8fb0b251b6
+SHA256: f60dcc5a0b102a328339746b522f998d80a3c62e5654f76fab1ce0572aec038e
+SHA512: ba334aa9d2566ba69e071945180a93e6371d25cde77eabe5a0fb344caf994aea3227a4388e9b63131e6af91fa9b68abb2fa70f5f69e65f3f9639b6a1b9b25ac5
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.6-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq/yq-go_4.53.6-1+forky_s390x.deb
+Size: 3945852
+MD5sum: c8bd733a1616eb75fed1b4ab4894823d
+SHA1: 1ca79e75bfae51cc82f208ac51afb09889046c38
+SHA256: 315b6bfa206b4da7ee09e6c785e9ad269b15fafce2a17bdbca3e9dbcd8ba5b0f
+SHA512: 877370d9390f33643ee21f4824e7427111a743fa12288dcf24642b26448b8d2165f6837ca6dc064e2338204ccca3cad6dd74df455920f2a4a400828ad1bb186d
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

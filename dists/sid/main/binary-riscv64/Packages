@@ -1,0 +1,176 @@
+Package: act
+Architecture: riscv64
+Version: 0.2.89-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/act/act_0.2.89-1+sid_riscv64.deb
+Size: 5334428
+MD5sum: e6312929cf8c576592ec2f31f583abe8
+SHA1: 74627b133842adda75968b094d0ab111fc04ad94
+SHA256: a932751b8df0a42b71b55a1446ec495899c6c943d015ef53015df1b8c04cfb13
+SHA512: f5db3fe701e85e43c98bdabf9f717c0fbc3221a47a0ccfe8423530b4d69ac8505c87e67fd61bc7f704de6f788a984838e8b859b370e9b32b0f37af61bf5933b3
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bottom
+Architecture: riscv64
+Version: 0.14.9-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/bottom/bottom_0.14.9-1+sid_riscv64.deb
+Size: 1487908
+MD5sum: 58ad025332c79ec3182ade81bc131059
+SHA1: 213b517087d2f6ad71f2c8961875280e828b0f6e
+SHA256: 627d79735a686cf0441bf98eae70dffab2a91222db4841e73c7327351801ea08
+SHA512: 6e164ab2904e322f2f99296e7aa6fd40120ed69b69b41eab7943da64e8d847bcac7485f59222e3e58ee68da2f61d1bd0dcfe0b41eedc8b7b06d83c6c4c0c6e3d
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: riscv64
+Version: 1.72.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/buf/buf_1.72.0-1+sid_riscv64.deb
+Size: 24477488
+MD5sum: 7cf2316204e594eeace6283b2e97719f
+SHA1: 33cb0c8b8804a7e7b2b01ab1b05beb7177910961
+SHA256: bc11f4151050358c3f46f7f7a907ac5aa8a182348cbf891dc6e621ca77bbb73e
+SHA512: 1293b24b7b45b780f09d5b6a2e323f246e01a3cb153c9079b8e2aee913afb38ed599f045b0c0f42f885e1933a301d2d8d7477c5616235c6688870af6e1cb7e55
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: riscv64
+Version: 1.2.5-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/du-dust/du-dust_1.2.5-1+sid_riscv64.deb
+Size: 861324
+MD5sum: a502de4555bdfc5f925faabe24fc3803
+SHA1: 5a42d3762df8321d439523249b882b4a73c498b0
+SHA256: bb0bce1be49b7e31f8986fdb2f8e36bc34de787d6b90dcdb6cb98a95695b8ebe
+SHA512: f687083b831f9fd38c883b5cb1a99559783d90a058c3be2ed072a23709bd0f51ec6cc9c6768175bf784b152897c3dfc8bacc378ddc68e86b90f91e8806af7846
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: riscv64
+Version: 2.68.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fastfetch/fastfetch_2.68.1-1+sid_riscv64.deb
+Size: 4423832
+MD5sum: 902dec2bebed70fd9ec6d50153e684d8
+SHA1: e82654d19c15d3b089b5a0173b6775953102c6d8
+SHA256: 04e5e8c20cbf82f9b79b6397174acca972ac9ee032ae8d8bddd708ed0a44628c
+SHA512: 7d78ff1a17bf2cc6a1d51e6880ecd9753812cb3c074243415267eb8183db1bccc507e5cf33e000e500a90c9c2dc399b14f8a275fc3cf7d21aa2778ba24833ad6
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: riscv64
+Version: 0.115.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/nushell/nushell_0.115.1-1+sid_riscv64.deb
+Size: 52107776
+MD5sum: e1e93b7d92be5f23d0a7f7b7eef2edc4
+SHA1: 6e349d58b5b818c780f695308c295fb4a13b2ff2
+SHA256: ddf9fe12c537e3d2e9a151d1ded1214765f3f10780f6c13ec8ba8b85091c9c5f
+SHA512: 7f16297b3ac641fb6f97635e9ebb3be3a687f8e634975cf6b2b181d409904311d07bd4793b56a7be49ce3c987585abfe23bade7ff3f8c16da01fcd06cefe3e77
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.6-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.6-1+sid_riscv64.deb
+Size: 7205660
+MD5sum: 2914f0970751941bfe0a567e37c52bcb
+SHA1: aae1880d33e6ac0da23c02e0a451165175e5654d
+SHA256: d1893a63d0ecb7024a1b815aeeebcf72ae4ce2da4c019bda13e22d41e9422753
+SHA512: 942c5c2ebd2b7002d3e741c8f51c2a8a432e801360199bc901972ac1fe183d7fb11c5115669b0bc826507d80142f15573b2ea24b9cd97759216893ebe7f97723
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: riscv64
+Version: 0.12.10-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/uv/uv_0.12.10-1+sid_riscv64.deb
+Size: 14533352
+MD5sum: 0214be12f22b124c3b636735ff101c65
+SHA1: 72a40dba48d0b42c4ea9898b44f3d24f27b62c16
+SHA256: 0502d689512d3f646fcd7f049b60c2dfb6b0a04fec3bb0765738955a42ee8376
+SHA512: 7eb317aa6398ad48d17fb6d22f00640f3838e9e06afc6becc979e0883123b1484c92b7f102ee303d252a117de5dda8e5a401afe17de41bd82b6f0c5374a67366
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: riscv64
+Version: 2.7.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/watchexec/watchexec_2.7.1-1+sid_riscv64.deb
+Size: 2907576
+MD5sum: 285f5b009002366f0de6fbbd9f4cc08a
+SHA1: 4ea9a6dd55f6eca10f3eee00d81b38c4fce7dbb2
+SHA256: ecdff16950ad9147e05db04c9ea3cf4317f35eb8f21b0a53e8c96ad3afdc29e4
+SHA512: a24dfc1c893e84b441c6efbdb331a5450d970a7ec8bf925e2167128fa69fcd28843d2f5aa096def504bc5c59aebc990b3b35a4d21c5b15dcdacb5ee58984002b
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yazi
+Architecture: riscv64
+Version: 26.9.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/yazi/yazi_26.9.1-1+sid_riscv64.deb
+Size: 10944112
+MD5sum: 693be8c8c7b817fcbbf1647c4f699871
+SHA1: c7f0f7b4ec6d2775b2644ae734043bb8c459eeea
+SHA256: 0756c586727bb20d1673b0e988a6dbdf1881f7c29753168bd7b129107f1c452d
+SHA512: f8e09359edf6a70a58f3149b02422f0fa6682a7e1666c7f0e7b6bb9e78c066d70956e9f84b61604d2cecd52372e22776a678d93f47014cc08db80895f9577731
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.6-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/yq/yq-go_4.53.6-1+sid_riscv64.deb
+Size: 4083876
+MD5sum: 47d8ecda53139aa96a2c9f4200b334b6
+SHA1: c303bc7132ac20469ca110d87d7ace2f00ab26fb
+SHA256: af8d6716a494283ed4bbdabc1630b5f3e19b8710e1f9c07c100c27dc831248d4
+SHA512: dc85d962480a1e097e8d6fb9407d6c0c218b5fab5780d37e175cd58a38a1f89528bcc476a2b4b66d12ee505564887c872d2199d4c4eb882b28f552510d88cf23
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

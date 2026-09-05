@@ -1,0 +1,144 @@
+Package: buf
+Architecture: s390x
+Version: 1.72.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/buf/buf_1.72.0-1+sid_s390x.deb
+Size: 23752972
+MD5sum: 61b7ae65ae7d73e01bc85b6db3cad223
+SHA1: e998c05c699666006373767e635fee6c9079ec51
+SHA256: c71fecc1f30a308acb92919bfc0ddcfbd113132eddcb1068ce2224974f547833
+SHA512: 91249dc48967fbbbdfdaa5dd9e296df26a4737b824c24734e5683ebdae71ede889717f4d47bf0e83dbb361a3b2faefa348676bba12b9a8947e880d99d4578163
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.68.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/fastfetch/fastfetch_2.68.1-1+sid_s390x.deb
+Size: 4634836
+MD5sum: 1cb079eaf4f97ff8c63427a6f871bae0
+SHA1: 8ac3ea7af0e30f314d8a6868558e375832e4cffb
+SHA256: 5c5f8b4700d569f3180d72ebe850f3746d38612e10957f217736f2e36ce2911d
+SHA512: 8e43bb46d9ea42a5eec23820c30db130062155188df2cdd561c8bc6091b341b5c1250ad99d480f5e3b379122b21a51a61700da6848d540919f59cbcad1523bb4
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+sid
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/sid/k9s/k9s_0.51.0-1+sid_s390x.deb
+Size: 25122672
+MD5sum: 81c52c1882011cffb52803fb742d61be
+SHA1: e7e33a1f475911b293b8d048edd7bceccce2f4ec
+SHA256: ae57a23bb4d54ee8462191f3384ecac5deb2b97af0745a2af3fe805f36bbe992
+SHA512: e57525f6f2707119d0b3a0685c4c743feaa846690ffe24d532f68b7c11d4c004f9a633d8009123e1264342eb8df5b1c0b44cb124128d74c1f771b7fedd5cf656
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/lf/lf_42-1+sid_s390x.deb
+Size: 1650392
+MD5sum: 0044bd3811f6c7760f66bff645f1e8e9
+SHA1: 3e6de159f5415001313f8fe62209aaf8491e4fcb
+SHA256: a7e52dcc84bf8c63f18c6bb5e6570db45055e2214c65a0b13862501c9c58e483
+SHA512: 42f5e3400ec4548ba149fe66ea0ea7613d6cb74c5f4864105509cfe87bb77fbe570f35fa7d27ec7b8c25c3a0d4826a80c91509009d265856e43286b9307e31c3
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.6-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/ruff/ruff_0.16.6-1+sid_s390x.deb
+Size: 6728748
+MD5sum: f57ec5b69d9a402b7ca3ec89c2e38429
+SHA1: 8f06841d9bc41758d6f6a87de6dcbc5066115c2e
+SHA256: d2522b2f3fd8889c2ebe104ff5a7778b725d053beff4f8c696976e1df45ceed3
+SHA512: 14432020a9e89981a4e912325433f9ced903615eeb8cdd5aea86e4a03a0fd6f92bb057afb2d0c0f2c9f8282aabb160f10a060e3e688f8233fd20aaa7c53f87a9
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.74.0-2+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/trivy/trivy_0.74.0-2+sid_s390x.deb
+Size: 30343572
+MD5sum: b20035b389ce800337cc0a9486e0ebb7
+SHA1: 01c6bb9d023199a008cc0d93cab4d34701668d7e
+SHA256: b0cda27828cf531c4066a3b60020069e6cf7482131112b6286d51400001674bc
+SHA512: 1d93ec3458fc369869211b1683fea88a6a4a9c77c7fecb56c4ab80ec579a03a96c5a1e4ee2ad8234099f17dbdcda0cf4828a7497947bff46336cf84bbad26764
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.12.10-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/uv/uv_0.12.10-1+sid_s390x.deb
+Size: 13766540
+MD5sum: 3cb3d0d1244bd262efe6882b3aad1c0a
+SHA1: 1de91da8fe131341768f82f675260c19cdf9335c
+SHA256: 42f8a14a116c7bbbcfed200161dd450a692c65991c6a2c3d08abd2e9e0f52876
+SHA512: 52b1e705c2c1716eb686875e870e40d4de4a02392406f33aa50331cc279d83618e36faa38d0acfb61f7b6e66e7d01166b2740ee38768bc6b09ce36829b367772
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.7.1-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/watchexec/watchexec_2.7.1-1+sid_s390x.deb
+Size: 2741664
+MD5sum: c4d9c6ed2b472968c871d74112f94648
+SHA1: c6716db9aff77ba57aa10bc7ec89f336c00a0e53
+SHA256: a08a860bb873f4b272fd9152de632d33890ccea0c7e4ace1f1a3e442976a47d5
+SHA512: 6948c863c4e69dea28234612bcc64dd6bf0d100bfc8b1dd71d255295d0d578d53c724f6add1c54e3db87af66e73bea7d20f9d0ac7623b0389eed4e522ad4bfbc
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.6-1+sid
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/sid/yq/yq-go_4.53.6-1+sid_s390x.deb
+Size: 3946324
+MD5sum: 8dddfd186c8e880be0fe9eee1233cac7
+SHA1: 07eadc7a2d82e7dc93e8987f3d89e46998173688
+SHA256: fedf47549a9bca214feccaa4653c3f3d9458436738fa0544cf72cb3d55cad273
+SHA512: 620afe5de81d9cd04403211d119333d2e63774f3f93e5ca793c99355b94f248099fe61277dd04a4a861f87cf958a0fbc3ae507dd6f00d0e9a18837906327a97d
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

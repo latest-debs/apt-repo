@@ -1,0 +1,96 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.9-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/bottom/bottom_0.14.9-1+bookworm_loong64.deb
+Size: 1296496
+MD5sum: cd91f874fe176dc7fac0b90e0e977867
+SHA1: c70ec3961a975d162806684684dbeca9c5f8e712
+SHA256: 53757b387b83c0b56a60ff6bb571afd29659a5811d3fca18a518c4a446a8c08c
+SHA512: 6f5685e87193eba47f9bbf8875f600fee20877a5139f369564b8cf268f92946ba26557ad08256b74493efce99f39dcebd454c37090286b6b5b0dcbffb75930b4
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: loong64
+Version: 2.68.1-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fastfetch/fastfetch_2.68.1-1+bookworm_loong64.deb
+Size: 4612136
+MD5sum: 4db076fad20bcaf4d95492105965bb29
+SHA1: e324de7e295f7d007d0cb558a273f7eb4a2a4427
+SHA256: a5966f664619a6272ee5fa82124573eb48fba43de5d8af5d21572bde0e5e1cdf
+SHA512: 68157a9a7487f9ddc44ab7ce9179ec318d34cf78b7d8ae2b15dd4af173f6a55966543143eafef6ee69fb15c625e0783f2e0754ebfcba9ca69488a641e52f1be0
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/fzf/fzf_0.74.3-1+bookworm_loong64.deb
+Size: 1393008
+MD5sum: 373d7df530dc4eb7b82267d585548da5
+SHA1: cd128eff85e68711dd799c20684339b6ebcce98e
+SHA256: 9ddc90278b4115d0c4295a480ccc1ca5fbbaeca37badd59d7da8696f0d78dd15
+SHA512: 7eaa3fd64d77915daea82c4820e93546e24b7a266754590463e2154a5402da82fcb74fa57db5c9caee5c0fdd26890cadcb1ab902f041b85aa173dc934e1afc47
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.58.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/just/just_1.58.0-1+bookworm_loong64.deb
+Size: 1538536
+MD5sum: d008391b9e264aa416bd3c7fb05f5976
+SHA1: e702fe6196f79fe587a49230e9dc1986aa89a041
+SHA256: 29e09a3614f728cff26fe77c81ae32bbe633cc76f48bb7c2357b2d3a02a79219
+SHA512: 484845822d626fad9b0e0e51894fbe6815625deae9b1d6ada184b7244e95d8dcf123b6b78d21c0f3a4e3864ae6a2a81cf0d8d93c4626e0add40b45ebef361982
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: loong64
+Version: 0.115.1-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/nushell/nushell_0.115.1-1+bookworm_loong64.deb
+Size: 42137256
+MD5sum: c22803d1485b3acd3660d7f0ad2a394b
+SHA1: 3ba1871c695dfdaca4484d98298abee0cecaa75b
+SHA256: 92ab2f74944a97c2ff9b72eb54a148ce4c4133dd9235548f2e4b39618e9de967
+SHA512: f9078b0f1f9055b12318ae9712829c8b526c2cb0c31351ca5fb54910cfe324e072c85ac74f0c8912d26d213c8e0b3ef7975a1fa242da991ef9a2b11868d599b4
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.53.6-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/yq/yq-go_4.53.6-1+bookworm_loong64.deb
+Size: 3830852
+MD5sum: a4a1de199a4eabf7767fb7a7ec27f262
+SHA1: 04632bbaba5c2df8e87328dc72c37b3a7f5f5216
+SHA256: 337e2374a169831c8a40b3b8c55fcaf1b6d2fe1c78ae419c2338e23b1c0f0cb2
+SHA512: 7c0d1a8742be881dfaf74eb831f2033cc1eb2e3fd7f4c6daf1b57d808aa99c4159c074ae7f3d27c72debf8a72f0d6b2f969d7ab24c35c4d6a6e5c742db0ad779
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
