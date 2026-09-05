@@ -36,15 +36,21 @@ built and rebuilds new versions automatically. You ship a tag; we ship a
 
 ### Real coverage
 
-- **All five Debian suites** — Bullseye (11), Bookworm (12), Trixie (13),
-  Forky (14/testing), Sid (unstable). A suite retires automatically once its
+- **All five Debian suites** — Trixie and Bookworm carry essentially the full
+  catalogue (61 and 59 of 61); Forky (51), Sid (49), and Bullseye (12) trail
+  where an upstream's older-build constraints or the suite's toolchain make a
+  build unreliable. Every suite's exact count, per architecture, is published
+  on the [status page](https://latest-debs.github.io/status.html) — generated
+  from the archive, not asserted. A suite retires automatically once its
   Debian LTS window ends.
-- **Native Ubuntu builds** — Jammy (22.04 LTS), Noble (24.04 LTS), and
-  Resolute (26.04 LTS) are built in Ubuntu containers, not copied from
-  Debian: correct dependencies, correct suite metadata, and an install path
-  that works on the two distros most of your users actually run. (Questing,
-  25.10, is served from the Trixie build until its short support window is
-  worth its own build.)
+- **Native Ubuntu builds** — Noble (24.04 LTS) and Resolute (26.04 LTS) are
+  built in Ubuntu containers, not copied from Debian: correct dependencies,
+  correct suite metadata, and an install path that works on the two distros
+  most of your users actually run. Jammy (22.04 LTS) carries a smaller
+  catalogue (13 of 61 — its old toolchain rules out several modern builds);
+  the [status page](https://latest-debs.github.io/status.html) shows exactly
+  which. (Questing, 25.10, is served from the Trixie build until its short
+  support window is worth its own build.)
 - **Every architecture you actually publish a Linux binary for** — amd64,
   arm64, armhf, i386, armel, loong64, ppc64el, riscv64, s390x, and we verify
   exactly which ones your release covers at vet time rather than assuming
