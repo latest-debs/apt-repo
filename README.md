@@ -298,6 +298,33 @@ we simply stop building it *for sid*, and point sid users at Debian's own
 copy. Nobody loses a route to the current version; we just stop duplicating
 the one route that already exists.
 
+### Upstream parity — when we don't start
+
+**Policy: if an upstream already publishes `.deb` packages itself, we don't
+package that tool.** Upstream is the highest-trust source for its own
+software; a repack of its artifacts through our pipeline would be a second,
+lower-trust copy of exactly the same bytes — the same redundancy Debian
+parity removes, one level down. The gap we fill is *packaging*, not
+*distribution*: a tool whose releases ship no Linux artifact we can build
+from (bare binaries or binary archives) is out of scope for the same reason
+we don't repackage upstream `.deb`s.
+
+What we do instead:
+
+- **Point users upstream.** If the upstream `.deb`s are downloadable and
+  maintained, that's the honest answer — the package request gets closed
+  with a link, not a duplicate.
+- **Pitch the builder, not a repack.** If upstream wants an apt index or
+  wider architecture coverage around the artifacts it already builds, the
+  offer is SERVICE.md's: run our builder upstream and publish your own
+  signed channel — which is a graduation (`reason: own-repo` in
+  `graduated.json`), never a copy here.
+
+This is the intake analogue of Debian parity, and it applies at
+scaffolding time: an upstream release whose only Linux artifacts are
+`.deb`/AppImage doesn't get scaffolded, and a tracked tool that starts
+shipping its own `.deb`s gets flagged for the same step-aside review.
+
 The per-suite drop is applied at build time by `scripts/build-repo.sh` from
 the daily `parity.json`. It runs *after* the Ubuntu alias fallback on purpose:
 an alias-filled package (noble←trixie, jammy←bullseye) keeps shipping even
