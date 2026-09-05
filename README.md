@@ -325,6 +325,27 @@ scaffolding time: an upstream release whose only Linux artifacts are
 `.deb`/AppImage doesn't get scaffolded, and a tracked tool that starts
 shipping its own `.deb`s gets flagged for the same step-aside review.
 
+**For tools already in the catalogue, upstream parity graduates through the
+same handoff ledger as every other step-aside.** When a tracked tool's
+latest upstream release ships its own `.deb` packages, we open a handoff:
+append an entry to [`graduated.json`](graduated.json) with `reason:
+own-deb`, `destination` pointing at the upstream release/download page,
+drop the tool from `tools.yaml`, and let the coverage table and status page
+show users where to go. Same human-gated review as an `own-repo`
+graduation — one entry per tool, dated, in the PR that removes it. The
+count of these entries is the count of packaging gaps that no longer exist,
+which is the metric this channel is actually optimizing.
+
+Two flags before any individual handoff lands (review them per tool):
+
+- **Does upstream cover the user's bases?** An upstream `.deb` that exists
+  only for amd64 handsoffs a user holding an arm64 board. Check the arch
+  spread and say so in the ledger entry's `note`.
+- **Is upstream's channel actually installable and current?** A `.deb`
+  attachment on a release is a download, not a distribution channel. If
+  upstream's release cadence or asset naming looks unmaintained, say that
+  instead and keep the entry off the ledger until it's real.
+
 The per-suite drop is applied at build time by `scripts/build-repo.sh` from
 the daily `parity.json`. It runs *after* the Ubuntu alias fallback on purpose:
 an alias-filled package (noble←trixie, jammy←bullseye) keeps shipping even
