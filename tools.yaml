@@ -335,16 +335,14 @@ vicinae:
   source: https://github.com/latest-debs/vicinae-debian
   homepage: https://github.com/vicinaehq/vicinae
 
-# quickshell (source-build pilot) - enable AFTER latest-debs/quickshell-debian
-# is deployed and has published its first release. check-catalog.sh fails CI
-# for a registered-but-unpublished tool, so this stays commented until then;
-# the normal flow appends it via `scripts/add-package.sh register-tools`.
-# Genuinely a new value of the registry shape: homepage is Forgejo, so
-# github_repo points version detection/parity/staleness at the mirror.
-#
-# quickshell:
-#   description: "Flexible QtQuick based desktop shell toolkit"
-#   source: https://github.com/latest-debs/quickshell-debian
-#   homepage: https://git.outfoxxed.me/quickshell/quickshell
-#   github_repo: quickshell-mirror/quickshell
-#   parity_exception: true
+quickshell:
+  description: "Flexible QtQuick based desktop shell toolkit"
+  source: https://github.com/latest-debs/quickshell-debian
+  homepage: https://git.outfoxxed.me/quickshell/quickshell
+  # Canonical upstream is Forgejo; the GitHub mirror is what version detection,
+  # parity and staleness read (homepage is not GitHub).
+  github_repo: quickshell-mirror/quickshell
+  # Guard, not a current blocker: Debian is behind (0.3.0-1 on forky/sid,
+  # trixie only via backports) but the pilot is kept for backports/Ubuntu
+  # coverage. See parity-exceptions.json.
+  parity_exception: true
