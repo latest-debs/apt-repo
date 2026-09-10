@@ -99,6 +99,7 @@ yaml_val() {
 
 GITHUB_REPO="$(yaml_val github_repo)"
 PACKAGE_NAME="$(yaml_val package_name)"
+UPSTREAM_URL="$(yaml_val upstream_url || true)"
 
 [ -n "$GITHUB_REPO" ] || { echo "::error::github_repo not found in package.yaml"; exit 1; }
 [ -n "$PACKAGE_NAME" ] || { echo "::error::package_name not found in package.yaml"; exit 1; }
@@ -136,6 +137,20 @@ if [ -z "$UPSTREAM_TAG" ]; then
 fi
 if [ -z "$UPSTREAM_TAG" ]; then
   echo "::notice::No upstream releases found for $GITHUB_REPO; nothing to build"
+  # Forgejo-first upstreams (e.g. quickshell): package.yaml carries
+  # `upstream_url: https://git.outfoxxed.me/<owner>/<repo>`; fall back to the
+  # Forgejo tags API (public, no auth) before giving up. Tags have no
+  # draft/prerelease flag, so take the highest semver tag.
+  if [ -n "${UPSTREAM_URL:-}" ]; then
+    echo "detect: trying Forgejo tags fallback at $UPSTREAM_URL" >&2
+    forgejo_api="$(printf '%s' "$UPSTREAM_URL" | sed -E 's|https?://([^/]+)/([^/]+)/([^/]+).*|https://\1/api/v1/repos/\2/\3/tags|')"
+    if forgejo_tags="$(curl -sSL --connect-timeout 5 --max-time 30 "$forgejo_api" 2>/dev/null)"; then
+      UPSTREAM_TAG="$(printf '%s' "$forgejo_tags" | jq -r '.[].name // empty' 2>/dev/null | grep -E '^v?[0-9]+\.[0-9]+' | sort -V | tail -n1 || true)"
+      [ -n "$UPSTREAM_TAG" ] && echo "detect: Forgejo fallback tag: $UPSTREAM_TAG" >&2
+    fi
+  fi
+fi
+if [ -z "$UPSTREAM_TAG" ]; then
   out should_build false
   exit 0
 fi

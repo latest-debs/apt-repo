@@ -298,6 +298,31 @@ we simply stop building it *for sid*, and point sid users at Debian's own
 copy. Nobody loses a route to the current version; we just stop duplicating
 the one route that already exists.
 
+**Parity exceptions.** `parity-exceptions.json` lists packages that
+deliberately override the released-suite RETIRE stop, each with a `reason`,
+a `review` date, and an `expiry`. `check-suite-parity.sh` reports them as
+`EXCEPT` (and writes `gate: except`) instead of failing vetting, and
+`build-repo.sh`'s `is_parity_drop` skips them so the per-suite hand-back
+does not remove them either. Exceptions are time-boxed on purpose: once
+`expiry` passes, the package reverts to ordinary parity handling. The
+current entry is the quickshell source-build pilot (below).
+
+### Source-build pilot (`build_mode: source`)
+
+Every other package here repacks an upstream **binary**. `quickshell` has no
+upstream binaries, so its repo carries `build_mode: source` and compiles the
+Forgejo source tag per suite (see `BUILD-SOURCE.md` in that repo). Two
+consequences for the shared tooling:
+
+- `rollout-autowatch.sh` skips any repo whose `package.yaml` sets
+  `build_mode: source` — its `release.yml` is bespoke and must not be
+  clobbered by the binary template.
+- Intake supports Forgejo-first upstreams via `add-package.sh --source
+  --upstream-url <repo-url>`, which vets the source tarball
+  (`scripts/vet-source.sh`) instead of a release asset. `tools.yaml` may
+  then carry `github_repo:` to point version detection, parity, and
+  staleness at the GitHub mirror when `homepage` is not GitHub.
+
 ### Upstream parity — when we don't start
 
 **Policy: if an upstream already publishes `.deb` packages itself, we don't
@@ -596,15 +621,17 @@ tools.yaml                  registry of tracked tools
 templates/package-scaffold  template for new <tool>-debian repos
 scripts/add-package.sh      validate + vet (checksum) + scaffold + deploy + register tool
 scripts/vet-release.sh      vet-time checksum verification + release metadata capture
+scripts/vet-source.sh       source-only upstream vetting (tarball SHA-256 pin)
 scripts/build-repo.sh       fetch releases + generate pool/ and dists/
 scripts/run-in-debian.sh    run build-repo.sh in a Debian container
 scripts/sign-repo.sh        GPG-sign dists (run on a Debian machine)
 scripts/set-trigger-secret.sh  backfill TRIGGER_TOKEN onto *-debian repos
-scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos
+scripts/rollout-autowatch.sh   one-command template rollout to all *-debian repos (skips build_mode: source)
 scripts/fetch-licenses.sh   regenerate licenses.json from tools.yaml
 scripts/check-upstream-staleness.sh  flag tools whose upstream release outran the channel (--update-issue syncs the tracking issue)
 scripts/promote-drafts.sh   list/publish pending draft releases across all *-debian repos (dry-run by default)
 scripts/check-suite-parity.sh flag tools already at latest-upstream parity in any Debian suite (default: all)
+parity-exceptions.json      time-boxed overrides of the released-suite parity RETIRE stop
 extrepo/latest-debs.yaml    extrepo metadata (contributed upstream)
 latest-debs.asc             public signing key
 licenses.json               per-package SPDX license audit (generated, committed)

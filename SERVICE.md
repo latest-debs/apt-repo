@@ -126,7 +126,8 @@ if already current. That means:
 ## The offer
 
 For projects that publish a Linux binary (`.tar.gz`, `.tgz`, `.tar.xz`, or
-`.zip`) on GitHub:
+`.zip`) on GitHub — and, as a newer pilot, source-only projects built per
+suite (`build_mode: source`, as used for quickshell):
 
 1. We scaffold your `<tool>-debian` repo from the template.
 2. Vet time runs the checksum pin + license/SPDX scan + asset validation +

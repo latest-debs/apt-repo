@@ -49,12 +49,16 @@ EOF
 }
 
 candidates=0
-while IFS=$'\t' read -r pkg homepage; do
+while IFS=$'\t' read -r pkg ghrepo; do
   [ -n "$pkg" ] || continue
-  repo="${homepage#https://github.com/}"
-  if [ -z "$repo" ] || [ "$repo" = "$homepage" ]; then
-    continue # no GitHub homepage on record; can't check its README
-  fi
+  # `github_repo` may be a bare owner/repo (Forgejo-canonical upstreams);
+  # fall back to a GitHub homepage URL when present.
+  case "$ghrepo" in
+    https://github.com/*) repo="$(printf '%s' "${ghrepo#https://github.com/}" | cut -d/ -f1,2)";;
+    *://*) continue ;;  # non-GitHub homepage with no github_repo; can't check its README
+    */*) repo="$(printf '%s' "$ghrepo" | cut -d/ -f1,2)";;
+    *) continue ;;
+  esac
 
   # /readme resolves whatever the project actually calls its README -
   # README.md, README.rst (fish-shell), README.adoc, docs/README.md - on the
@@ -79,6 +83,6 @@ while IFS=$'\t' read -r pkg homepage; do
     snippet "$pkg"
     echo
   fi
-done < <(parse_tools "$TOOLS_YAML" | cut -f1,4)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,6)
 
 [ "$MODE" = "repos-only" ] || echo "$candidates candidate(s) — none of these link back yet." >&2

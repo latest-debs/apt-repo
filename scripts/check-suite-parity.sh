@@ -95,6 +95,16 @@ fi
 
 log() { printf '[suite-parity] %s\n' "$*" >&2; }
 
+# Parity exceptions (e.g. the quickshell source-build pilot): packages listed
+# in parity-exceptions.json with a future expiry bypass the RETIRE hard-stop
+# and are reported as EXCEPTED instead. Advisory (rolling-only) parity never
+# needed an exception; this only downgrades released-suite parity.
+is_excepted() {
+  local pkg="$1" exp
+  exp="$(jq -r --arg p "$pkg" '.exceptions[]? | select(.package == $p) | .expiry // empty' "$ROOT/parity-exceptions.json" 2>/dev/null || true)"
+  [ -n "$exp" ] && [[ "$exp" > "$(date +%F)" ]]
+}
+
 # Raw madison text for a Debian package name (every suite, one request).
 # NONE = tools.yaml has documented that Debian's same-named package is
 # unrelated (e.g. "zed" is a 1980s Unix editor, not zed-industries/zed) -
@@ -193,6 +203,10 @@ if [ -n "$name" ] && [ -n "$repo" ]; then
     detail="no live Debian suite is at parity yet"
     [ -n "$advisory_suites" ] && detail="at parity only in rolling suite(s): $advisory_suites - pin advised, still packaged here"
     [ -n "$parity_suites" ] && detail="already at parity in released suite(s): $parity_suites"
+    if [ -n "$parity_suites" ] && is_excepted "$name"; then
+      gate="except"
+      detail="at parity in released suite(s) $parity_suites but an unexpired exception in parity-exceptions.json applies - still packaged here"
+    fi
     jq -n \
       --arg gate "$gate" \
       --arg package "$name" \
@@ -211,12 +225,16 @@ if [ -n "$name" ] && [ -n "$repo" ]; then
   fi
 
   if [ -n "$parity_suites" ]; then
+    if is_excepted "$name"; then
+      echo "  EXCEPTED: '$name' at parity in $parity_suites but listed in parity-exceptions.json — proceeding." >&2
+    else
     echo "  Per policy (README.md#debian-parity--when-we-step-aside) we do not" >&2
     echo "  package tools already current in a RELEASED Debian suite. Debian" >&2
     echo "  already carries '$name' at the latest version in: $parity_suites." >&2
     echo "  That's the suite the requester already runs, so a plain" >&2
     echo "  'apt install $name' already gets them the current version." >&2
     exit 3
+    fi
   fi
   if [ -n "$advisory_suites" ]; then
     echo "  NOTE: '$name' is already current in rolling suite(s): $advisory_suites." >&2
@@ -258,13 +276,17 @@ fi
 
 retire_count=0
 advisory_count=0
-while IFS=$'\t' read -r pkg dname homepage; do
+while IFS=$'\t' read -r pkg dname _ pexc ghrepo_raw; do
   [ -n "$pkg" ] || continue
-  ghrepo="${homepage#https://github.com/}"
-  if [ -z "$ghrepo" ] || [ "$ghrepo" = "$homepage" ]; then
-    log "skip $pkg: no github homepage"
-    continue
-  fi
+  # Normalize to owner/repo. tools.yaml may carry an explicit `github_repo:`
+  # (for Forgejo-canonical upstreams like quickshell) that overrides homepage.
+  case "$ghrepo_raw" in
+    https://github.com/*) ghrepo="$(printf '%s' "${ghrepo_raw#https://github.com/}" | cut -d/ -f1,2)";;
+    *://*) log "skip $pkg: no github repo (homepage is not GitHub and no github_repo:)"; continue;;
+    */*) ghrepo="$(printf '%s' "$ghrepo_raw" | cut -d/ -f1,2)";;
+    *) log "skip $pkg: no github homepage"; continue;;
+  esac
+  [ -n "$ghrepo" ] && [ "$ghrepo" != "/" ] || { log "skip $pkg: no github repo"; continue; }
   rel="$(api_json "$API/repos/$ghrepo/releases/latest" 2>/dev/null || true)"
   up_ver="$(printf '%s' "$rel" | jq -r '.tag_name // empty' 2>/dev/null || true)"
   if [ -z "$up_ver" ]; then
@@ -287,8 +309,15 @@ while IFS=$'\t' read -r pkg dname homepage; do
   parity_suites="${parity_suites%,}"
   advisory_suites="${advisory_suites%,}"
   # VERDICT column: released-suite parity is the actionable one; rolling-suite
-  # parity is shown as "pin:<suites>" so it reads as advice, not a to-do.
-  if [ -n "$parity_suites" ]; then
+  # parity is shown as "pin:<suites>" so it reads as advice, not a to-do. A
+  # package carrying an unexpired parity exception is annotated, not counted.
+  excepted=""
+  if [ -n "$parity_suites" ] && [ "$pexc" = "true" ] && is_excepted "$pkg"; then
+    excepted="yes"
+  fi
+  if [ -n "$excepted" ]; then
+    cols+=("except:$parity_suites")
+  elif [ -n "$parity_suites" ]; then
     cols+=("$parity_suites")
   elif [ -n "$advisory_suites" ]; then
     cols+=("pin:$advisory_suites")
@@ -299,17 +328,19 @@ while IFS=$'\t' read -r pkg dname homepage; do
   # shellcheck disable=SC2059
   printf "$fmt" "${cols[@]}"
 
-  [ -n "$parity_suites" ] && retire_count=$((retire_count + 1))
+  [ -n "$parity_suites" ] && [ -z "$excepted" ] && retire_count=$((retire_count + 1))
   [ -n "$advisory_suites" ] && advisory_count=$((advisory_count + 1))
   if [ -n "$SCAN_JSONL" ]; then
     jq -nc --arg pkg "$pkg" --arg upstream "$up_ver" --argjson suites "$suites_json" \
       --argjson parity "$(printf '%s' "$parity_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
       --argjson advisory "$(printf '%s' "$advisory_suites" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -s .)" \
+      --arg excepted "${excepted:-}" \
       '{package:$pkg, upstream_version:$upstream, suites:$suites,
-        parity_suites:$parity, advisory_suites:$advisory}' >> "$SCAN_JSONL"
+        parity_suites:$parity, advisory_suites:$advisory,
+        excepted:($excepted == "yes")}' >> "$SCAN_JSONL"
   fi
   sleep 0.5 # be polite to qa.debian.org and the GitHub API across many tools
-done < <(parse_tools "$TOOLS_YAML" | cut -f1,3,4)
+done < <(parse_tools "$TOOLS_YAML" | cut -f1,3,4,5,6)
 
 echo
 if [ "$retire_count" -gt 0 ]; then

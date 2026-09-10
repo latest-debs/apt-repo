@@ -91,13 +91,18 @@ skipped=0
 STALE_JSONL="$TMP/stale.jsonl"
 : > "$STALE_JSONL"
 
-while IFS=$'\t' read -r pkg homepage; do
+while IFS=$'\t' read -r pkg upstream_repo; do
   [ -n "$pkg" ] || continue
-  upstream_repo="${homepage#https://github.com/}"
-  if [ -z "$upstream_repo" ] || [ "$upstream_repo" = "$homepage" ]; then
-    skipped=$((skipped + 1))
-    continue
-  fi
+  # Normalize to owner/repo. `github_repo` (for Forgejo-canonical upstreams
+  # like quickshell) may be a bare owner/repo; homepage is a full URL. An
+  # explicit non-GitHub homepage with no github_repo is untrackable here.
+  case "$upstream_repo" in
+    https://github.com/*) upstream_repo="$(printf '%s' "${upstream_repo#https://github.com/}" | cut -d/ -f1,2)";;
+    *://*) skipped=$((skipped + 1)); continue;;
+    */*) upstream_repo="$(printf '%s' "$upstream_repo" | cut -d/ -f1,2)";;
+    *) skipped=$((skipped + 1)); continue;;
+  esac
+  [ -n "$upstream_repo" ] && [ "$upstream_repo" != "/" ] || { skipped=$((skipped + 1)); continue; }
 
   ours_tag="$(jq -r --arg pkg "$pkg" '.[$pkg].tag // empty' "$TMP/map.json")"
   if [ -z "$ours_tag" ]; then
@@ -140,7 +145,8 @@ try:
 except ImportError:
     sys.exit("python3 yaml module missing")
 for pkg, meta in yaml.safe_load(open(sys.argv[1])).items():
-    print(f"{pkg}\t{(meta.get('homepage') or '').strip()}")
+    repo = (meta.get('github_repo') or meta.get('homepage') or '').strip()
+    print(f"{pkg}\t{repo}")
 PYEOF
 )
 

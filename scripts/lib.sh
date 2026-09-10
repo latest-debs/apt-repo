@@ -21,9 +21,15 @@ API="https://api.github.com"
 BOT_NAME='github-actions[bot]'
 BOT_EMAIL='41898282+github-actions[bot]@users.noreply.github.com'
 
-# parse_tools <tools.yaml> - emit one "pkg<TAB>source<TAB>debian_name<TAB>
-# homepage" line per package. debian_name defaults to pkg when tools.yaml
-# doesn't override it; source/homepage are raw (empty when absent).
+# parse_tools <tools.yaml> - emit one
+# "pkg<TAB>source<TAB>debian_name<TAB>homepage<TAB>parity_exception<TAB>github_repo"
+# line per package. debian_name defaults to pkg when tools.yaml doesn't
+# override it; source/homepage are raw (empty when absent). parity_exception is
+# "true" only when the entry sets `parity_exception: true` (the quickshell
+# source-build pilot); empty otherwise. github_repo is the explicit
+# `github_repo:` field when present (for upstreams whose canonical homepage is
+# not GitHub, e.g. quickshell on Forgejo), else it falls back to homepage so
+# every existing entry keeps its current behaviour.
 #
 # The single parser for tools.yaml's flat "name:\n  field: value\n" format -
 # every script that needs a subset of these fields should call this and
@@ -32,15 +38,17 @@ BOT_EMAIL='41898282+github-actions[bot]@users.noreply.github.com'
 parse_tools() {
   awk '
     /^[a-zA-Z0-9_.-]+:/ {
-      if (pkg != "") print pkg "\t" src "\t" (dname != "" ? dname : pkg) "\t" homepage
+      if (pkg != "") print pkg "\t" src "\t" (dname != "" ? dname : pkg) "\t" homepage "\t" pexc "\t" (ghrepo != "" ? ghrepo : homepage)
       pkg = $0; sub(/:.*/, "", pkg); gsub(/[[:space:]]/, "", pkg)
-      src = ""; dname = ""; homepage = ""
+      src = ""; dname = ""; homepage = ""; pexc = ""; ghrepo = ""
       next
     }
-    /^  source:/      { src = $0; sub(/^  source:[[:space:]]*/, "", src); gsub(/"/, "", src) }
-    /^  debian_name:/ { dname = $0; sub(/^  debian_name:[[:space:]]*/, "", dname); gsub(/"/, "", dname) }
-    /^  homepage:/    { homepage = $0; sub(/^  homepage:[[:space:]]*/, "", homepage) }
-    END { if (pkg != "") print pkg "\t" src "\t" (dname != "" ? dname : pkg) "\t" homepage }
+    /^  source:/         { src = $0; sub(/^  source:[[:space:]]*/, "", src); gsub(/"/, "", src) }
+    /^  debian_name:/    { dname = $0; sub(/^  debian_name:[[:space:]]*/, "", dname); gsub(/"/, "", dname) }
+    /^  homepage:/       { homepage = $0; sub(/^  homepage:[[:space:]]*/, "", homepage) }
+    /^  github_repo:/    { ghrepo = $0; sub(/^  github_repo:[[:space:]]*/, "", ghrepo); gsub(/"/, "", ghrepo) }
+    /^  parity_exception:/ { pexc = $0; sub(/^  parity_exception:[[:space:]]*/, "", pexc); gsub(/["[:space:]]/, "", pexc); if (pexc != "true") pexc = "" }
+    END { if (pkg != "") print pkg "\t" src "\t" (dname != "" ? dname : pkg) "\t" homepage "\t" pexc "\t" (ghrepo != "" ? ghrepo : homepage) }
   ' "$1"
 }
 

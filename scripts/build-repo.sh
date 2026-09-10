@@ -154,7 +154,14 @@ load_parity_drops() {
 }
 
 # True when this package's build for this suite is redundant with Debian's.
+# Packages in parity-exceptions.json (unexpired) are never dropped — e.g. the
+# quickshell source-build pilot, kept deliberately despite trixie/sid parity.
 is_parity_drop() {
+  local pkg="$1"
+  if jq -e --arg p "$pkg" '.exceptions[]? | select(.package == $p and .expiry > (now | strftime("%Y-%m-%d")))' \
+      "$ROOT/parity-exceptions.json" >/dev/null 2>&1; then
+    return 1
+  fi
   grep -qxF "$1 $2" "$PARITY_DROPS" 2>/dev/null
 }
 
@@ -256,9 +263,14 @@ classify_asset() {
 # a 404 on both candidates (prerelease-only upstreams, exotic tag shapes)
 # yields "" and the metric is simply absent for that tool.
 upstream_time() {
-  local pkg="$1" tag="$2" homepage="$3"
+  local pkg="$1" tag="$2" ghrepo="$3"
 
-  local uprepo="${homepage#https://github.com/}"
+  local uprepo="$ghrepo"
+  case "$uprepo" in
+    https://github.com/*) uprepo="${uprepo#https://github.com/}" ;;
+    *://*) return 0 ;;  # non-GitHub homepage with no github_repo: untrackable
+  esac
+  uprepo="$(printf '%s' "$uprepo" | cut -d/ -f1,2)"
   [ -n "$uprepo" ] && [[ "$uprepo" == */* ]] || return 0
 
   local base="${tag%+*}"
@@ -302,7 +314,7 @@ upstream_time() {
 # tool before the actual, much more expensive download pass starts.
 # ---------------------------------------------------------------------------
 resolve_repo() {
-  local pkg="$1" url="$2" homepage="$3" dname="${4:-$1}"
+  local pkg="$1" url="$2" ghrepo="$3" dname="${4:-$1}"
   local repo="${url##https://github.com/}"
   local api="https://api.github.com/repos/$repo/releases/latest"
   log "== $pkg  ($repo) =="
@@ -335,7 +347,7 @@ resolve_repo() {
   # freshness badges measure age against, not our build time.
   published="$(jq -r '.published_at // ""' <<<"$json")"
   log "   tag: $tag"
-  printf '%s\t%s\t%s\t%s\t%s\n' "$pkg" "$repo" "$tag" "$published" "$(upstream_time "$pkg" "$tag" "$homepage")" >> "$PKG_REPO_MANIFEST"
+  printf '%s\t%s\t%s\t%s\t%s\n' "$pkg" "$repo" "$tag" "$published" "$(upstream_time "$pkg" "$tag" "$ghrepo")" >> "$PKG_REPO_MANIFEST"
 
   # Same tag as last run's cached pool/? Then the on-disk files should
   # already be correct - each one gets a cheap existence+nonzero-size check
@@ -572,10 +584,10 @@ else
   # keeps log output in tools.yaml order for free, and 41 small API calls
   # in series cost seconds, not minutes.
   log "== resolving releases =="
-  while IFS=$'\t' read -r pkg url dname homepage; do
+  while IFS=$'\t' read -r pkg url dname ghrepo; do
     [[ -n "$pkg" ]] || continue
-    resolve_repo "$pkg" "$url" "$homepage" "$dname"
-  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2,3,4)
+    resolve_repo "$pkg" "$url" "$ghrepo" "$dname"
+  done < <(parse_tools "$TOOLS_YAML" | cut -f1,2,3,6)
 
   # Now that pool/ persists across runs instead of being wiped every time,
   # a tool dropped from tools.yaml would otherwise linger in the index

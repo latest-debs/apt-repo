@@ -8,6 +8,9 @@
 #                   from the template (embedding the vet-time provenance pin).
 #                   Add --version <tag> to vet a specific release instead of
 #                   latest (also used by CI's deterministic template dry-run).
+#                   Source-only upstreams (no release assets, e.g. Forgejo):
+#                   add --source --upstream-url <repo-url>; the source
+#                   tarball is pinned by SHA-256 instead of a binary asset.
 #   deploy-repo     Create the GitHub repo, push the scaffold, dispatch the
 #                   first auto build. Requires GH_TOKEN (org-restricted
 #                   fine-grained PAT with Administration/Contents/Workflows
@@ -26,7 +29,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE="$(cd "$SCRIPT_DIR/.." && pwd)/templates/package-scaffold"
 
 usage() {
-  sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'
+  sed -n '2,21p' "$0" | sed 's/^# \{0,1\}//'
   exit 1
 }
 die() { echo "ERROR: $*" >&2; exit 1; }
@@ -35,7 +38,7 @@ die() { echo "ERROR: $*" >&2; exit 1; }
 # scaffold
 # ---------------------------------------------------------------------------
 scaffold() {
-  local name="" repo="" description="" out="." version="" license=""
+  local name="" repo="" description="" out="." version="" license="" upstream_url="" source_mode=false
   while [ $# -gt 0 ]; do
     case "$1" in
       --name) name="$2"; shift 2;;
@@ -44,10 +47,15 @@ scaffold() {
       --version) version="$2"; shift 2;;
       --license) license="$2"; shift 2;;
       --out) out="$2"; shift 2;;
+      --upstream-url) upstream_url="$2"; shift 2;;
+      --source) source_mode=true; shift;;
       *) die "unknown scaffold arg: $1";;
     esac
   done
   [ -n "$name" ] && [ -n "$repo" ] || die "scaffold requires --name and --repo"
+  # Forgejo-first upstreams (e.g. quickshell on git.outfoxxed.me): --repo
+  # points at the GitHub mirror used for tag detection, --upstream-url records
+  # the canonical Forgejo repo that source tarballs are fetched from.
 
   # Sanitize the package name (lowercase, hyphen-separated).
   name="$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]' | tr -c 'a-z0-9' '-' | sed -E 's/-+/_/g; s/_/-/g; s/-+/-/g; s/^-|-$//g')"
@@ -86,16 +94,29 @@ scaffold() {
   # (a specific tag when --version is given, otherwise latest). vet-release.sh
   # is told the same tag so the asset it downloads is the one we detected.
   local release assets asset fmt
+  local release_tag=""
   if [ -n "$version" ]; then
+    # A source-only upstream (e.g. Forgejo mirror with no GitHub release)
+    # may have no release object at all; the tag itself is what we build.
     release="$(api_json "$API/repos/$repo/releases/tags/$version" || true)"
-    [ -n "$release" ] || die "upstream $repo has no release tagged $version"
+    if [ -n "$release" ]; then
+      release_tag="$(printf '%s' "$release" | jq -r '.tag_name // empty')"
+    elif [ "$source_mode" = true ]; then
+      release_tag="$version"
+    else
+      die "upstream $repo has no release tagged $version"
+    fi
   else
     release="$(api_json "$API/repos/$repo/releases/latest" || true)"
-    [ -n "$release" ] || die "upstream $repo has no (non-prerelease) release — nothing to package"
+    if [ -z "$release" ] && [ "$source_mode" != true ]; then
+      die "upstream $repo has no (non-prerelease) release — nothing to package"
+    fi
+    release_tag="$(printf '%s' "${release:-{}}" | jq -r '.tag_name // empty')"
+    if [ -z "$release_tag" ] && [ "$source_mode" = true ]; then
+      die "source mode needs --version <tag> when the upstream has no latest release"
+    fi
   fi
-  local release_tag
-  release_tag="$(printf '%s' "$release" | jq -r '.tag_name // empty')"
-  assets="$(printf '%s' "$release" | jq -r '.assets[]?.name' || true)"
+  assets="$(printf '%s' "${release:-{}}" | jq -r '.assets[]?.name' || true)"
   # Prefer a Linux archive; fall back to any non-mac/windows archive; then
   # fall back to a bare, unarchived Linux binary - some goreleaser/cargo-dist
   # configs skip archiving a single-binary release (e.g.
@@ -121,7 +142,8 @@ scaffold() {
       | grep -viE 'darwin|macos|windows|win32|msvc|apple|sha256|checksum|\.asc$|source|sums' \
       | head -n1 || true)"
   fi
-  [ -n "$asset" ] || die "no Linux .tar.gz/.tgz/.tar.xz/.zip or bare-binary asset found in the latest release of $repo"
+  [ -n "$asset" ] || { if [ "$source_mode" = true ]; then fmt="source"; release_tag="${release_tag:-$version}"; echo "→ Source mode: no binary asset required (upstream: ${upstream_url:-$repo} @ $release_tag)"; else die "no Linux .tar.gz/.tgz/.tar.xz/.zip or bare-binary asset found in the latest release of $repo (hint: source-only upstreams need --source --upstream-url <forgejo-url>)"; fi; }
+  if [ "$source_mode" != true ]; then
   case "$asset" in
     *.tar.gz) fmt="tar.gz";;
     *.tgz) fmt="tgz";;
@@ -130,6 +152,7 @@ scaffold() {
     *) fmt="raw";;
   esac
   echo "→ Asset: $asset (format: $fmt)"
+  fi
 
   # DEBIAN PARITY: don't package a tool that any live Debian suite
   # (bookworm/trixie/forky/sid) already carries at this upstream version -
@@ -147,43 +170,52 @@ scaffold() {
     --name "$name" --repo "$repo" --upstream-version "$release_tag" --out "$out" \
     || die "already at parity in a released Debian suite — see README.md#debian-parity--when-we-step-aside"
 
-  # VET TIME: verify the upstream asset's SHA-256 against the release's
-  # published checksum file and capture the release identity + digest as a
-  # provenance pin. The builder re-verifies against this pin when building
-  # the vetted version, so a release altered after this point is caught.
-  echo "→ Verifying upstream asset checksum and capturing release metadata"
+  # VET TIME: capture the provenance pin for the exact bytes this build will
+  # consume. Binary upstreams verify the release asset's SHA-256 against the
+  # published checksum file (vet-release.sh); source-only upstreams pin the
+  # downloaded source tarball's SHA-256 (vet-source.sh) and skip the
+  # binary-only pre-checks.
   local vet_dir="$out/vet-release"
-  mkdir -p "$vet_dir"
-  bash "$(dirname "$0")/vet-release.sh" \
-    --repo "$repo" --name "$name" --asset "$asset" --version "$release_tag" \
-    --license "$license" --out "$vet_dir"
-  # A failed cross-check is a warning, not a scaffold blocker: the digest is
-  # still pinned from the bytes we downloaded, and the admin reviews the
-  # summary before approving. A mismatch is called out above in the log.
-  [ -f "$vet_dir/release-metadata.json" ] || die "vet-release.sh produced no release-metadata.json"
-
-  # VET PRE-CHECKS: license/SPDX scan + asset validation against the exact
-  # vetted bytes, plus a per-arch asset-map check that yields the PRECISE
-  # architecture set this release covers (instead of the coarse "all"). The
-  # gate (pass/warn/fail) is the prerequisite to widening the approval
-  # funnel: gate==pass requests are eligible for lower-friction approval.
-  echo "→ Running vet pre-checks (license/SPDX scan, asset validation, arch coverage)"
   local precheck_out="$out/vet-prechecks"
-  mkdir -p "$precheck_out"
-  local pri_ext="$fmt"
-  bash "$(dirname "$0")/vet-prechecks.sh" \
-    --asset "$vet_dir/primary.$pri_ext" --format "$fmt" \
-    --license "$license" \
-    --release-json "$vet_dir/release.json" --out "$precheck_out" \
-    || die "vet-prechecks.sh failed"
-  [ -f "$precheck_out/vet-report.json" ] || die "vet-prechecks.sh produced no vet-report.json"
-  local vet_gate
-  vet_gate="$(jq -r '.gate' "$precheck_out/vet-report.json")"
-  case "$vet_gate" in
-    pass) echo "→ ✅ Pre-checks PASSED — request is eligible for lower-friction approval";;
-    warn) echo "→ ⚠ Pre-checks WARNED — admin review recommended (see vet-report.json)";;
-    fail) echo "→ ❌ Pre-checks FAILED — needs human review before any approval";;
-  esac
+  mkdir -p "$vet_dir"
+  if [ "$source_mode" = true ]; then
+    [ -n "$upstream_url" ] || die "source mode requires --upstream-url <forgejo-repo-url>"
+    echo "→ Vetting source upstream and pinning tarball checksum"
+    bash "$(dirname "$0")/vet-source.sh" \
+      --upstream-url "$upstream_url" --tag "$release_tag" --name "$name" \
+      --github-repo "$repo" --license "$license" --out "$vet_dir"
+  else
+    echo "→ Verifying upstream asset checksum and capturing release metadata"
+    bash "$(dirname "$0")/vet-release.sh" \
+      --repo "$repo" --name "$name" --asset "$asset" --version "$release_tag" \
+      --license "$license" --out "$vet_dir"
+    # A failed cross-check is a warning, not a scaffold blocker: the digest is
+    # still pinned from the bytes we downloaded, and the admin reviews the
+    # summary before approving. A mismatch is called out above in the log.
+    [ -f "$vet_dir/release-metadata.json" ] || die "vet-release.sh produced no release-metadata.json"
+
+    # VET PRE-CHECKS: license/SPDX scan + asset validation against the exact
+    # vetted bytes, plus a per-arch asset-map check that yields the PRECISE
+    # architecture set this release covers (instead of the coarse "all"). The
+    # gate (pass/warn/fail) is the prerequisite to widening the approval
+    # funnel: gate==pass requests are eligible for lower-friction approval.
+    echo "→ Running vet pre-checks (license/SPDX scan, asset validation, arch coverage)"
+    mkdir -p "$precheck_out"
+    local pri_ext="$fmt"
+    bash "$(dirname "$0")/vet-prechecks.sh" \
+      --asset "$vet_dir/primary.$pri_ext" --format "$fmt" \
+      --license "$license" \
+      --release-json "$vet_dir/release.json" --out "$precheck_out" \
+      || die "vet-prechecks.sh failed"
+    [ -f "$precheck_out/vet-report.json" ] || die "vet-prechecks.sh produced no vet-report.json"
+    local vet_gate
+    vet_gate="$(jq -r '.gate' "$precheck_out/vet-report.json")"
+    case "$vet_gate" in
+      pass) echo "→ ✅ Pre-checks PASSED — request is eligible for lower-friction approval";;
+      warn) echo "→ ⚠ Pre-checks WARNED — admin review recommended (see vet-report.json)";;
+      fail) echo "→ ❌ Pre-checks FAILED — needs human review before any approval";;
+    esac
+  fi
 
   # Scaffold from template.
   local dest="$out/$name-debian"
@@ -204,8 +236,24 @@ scaffold() {
   # upstream bytes against the pinned SHA-256 for the vetted version.
   cp "$vet_dir/release-metadata.json" "$dest/.github/release-metadata.json"
   # Embed the vet pre-check report (license/SPDX + asset + arch coverage) so
-  # approvers and the build can inspect what was validated at vet time.
-  cp "$precheck_out/vet-report.json" "$dest/.github/vet-report.json"
+  # approvers and the build can inspect what was validated at vet time. Source
+  # mode has no binary asset to pre-check, so the report is absent by design.
+  if [ -f "$precheck_out/vet-report.json" ]; then
+    cp "$precheck_out/vet-report.json" "$dest/.github/vet-report.json"
+  fi
+
+  # Source-only upstreams need the extra build fields the binary template
+  # omits; append them rather than putting placeholder keys in the shared
+  # template (which the constrained multiarch builder would reject).
+  if [ "$source_mode" = true ]; then
+    cat >> "$dest/package.yaml" <<EOF
+
+# Source-build pilot (Forgejo-first upstream). See BUILD-SOURCE.md.
+build_mode: source
+upstream_url: "$upstream_url"
+upstream_ref: "$release_tag"
+EOF
+  fi
 
   ( cd "$dest" && git init -q -b main && git add -A && \
     git -c user.name="$BOT_NAME" -c user.email="$BOT_EMAIL" \
