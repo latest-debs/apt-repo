@@ -159,6 +159,16 @@ apply_to_dir() {
   changed_files=()
   [ -f "$pkg_yaml" ] || { echo "  skip $dir: no package.yaml"; return; }
 
+  # Source-build repos (build_mode: source, e.g. quickshell) carry a bespoke
+  # release.yml that compiles from an upstream tag. The scaffold template can
+  # now drive source builds, but the builder's build_mode: source has no
+  # per-suite apt override yet - quickshell's trixie build needs forky's
+  # wayland-protocols - so those repos stay bespoke until that lands.
+  if grep -qE '^build_mode:[[:space:]]*source' "$pkg_yaml"; then
+    echo "  skip $dir: build_mode=source (bespoke workflow, not template-managed)"
+    return
+  fi
+
   local name fmt upstream desc
   name="$(awk '/^package_name:/{print $2}' "$pkg_yaml")"
   fmt="$(awk '/^artifact_format:/{print $2}' "$pkg_yaml")"
