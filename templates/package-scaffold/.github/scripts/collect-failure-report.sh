@@ -40,7 +40,7 @@ done < <(jq -r '.[].check_run_url // empty' <<<"$jobs_json")
 
 # Merge the builder's own structured summary when the failed run uploaded one.
 builder_json="{}"
-if gh run download "$RUN_ID" --repo "$REPO" -n build-summary --dir "$OUT/.builder" >/dev/null 2>&1; then
+if gh run download "$RUN_ID" --repo "$REPO" -p 'build-summary*' --dir "$OUT/.builder" >/dev/null 2>&1; then
   local_bs="$(find "$OUT/.builder" -name build-summary.json | head -n1 || true)"
   [ -n "$local_bs" ] && builder_json="$(cat "$local_bs")"
 fi
