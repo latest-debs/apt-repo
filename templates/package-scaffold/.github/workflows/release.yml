@@ -56,6 +56,9 @@ jobs:
       version: ${{ steps.detect.outputs.version }}
       build_version: ${{ steps.detect.outputs.build_version }}
       should_build: ${{ steps.detect.outputs.should_build }}
+      build_mode: ${{ steps.policy.outputs.build_mode }}
+      matrix: ${{ steps.policy.outputs.matrix }}
+      smoke_matrix: ${{ steps.policy.outputs.smoke_matrix }}
       smoke_glob: ${{ steps.policy.outputs.smoke_glob }}
       min_glibc: ${{ steps.policy.outputs.min_glibc }}
       smoke_arch: ${{ steps.policy.outputs.smoke_arch }}
@@ -74,31 +77,87 @@ jobs:
           AUTO: ${{ github.event_name == 'schedule' || inputs.auto }}
           IS_SCHEDULE: ${{ github.event_name == 'schedule' }}
 
-      - name: Read smoke policy from package.yaml
+      - name: Read build mode + smoke policy from package.yaml
         # Policy as data, read at runtime (not scaffold-time substitution):
-        # a per-tool smoke_skip glob and a minimum glibc floor are ordinary
-        # package.yaml edits - no workflow change needed to teach the smoke
-        # gate about plugin binaries or a glibc-cliff upstream.
+        # a per-tool smoke_skip glob, a minimum glibc floor, and the build
+        # mode are ordinary package.yaml edits - no workflow change needed to
+        # teach the smoke gate about plugin binaries or a glibc-cliff upstream.
         id: policy
+        env:
+          REQUESTED_ARCH: ${{ inputs.architecture }}
         run: |
           set -euo pipefail
           read_val() {
             awk -v k="$1" -F': *' '$1==k { v=$2; gsub(/["'\'' ]/, "", v); sub(/#.*/, "", v); print v; exit }' package.yaml
           }
-          # Smoke runs natively on an architecture the release actually
-          # covers: arm64 whenever upstream ships it (the Pi audience this
-          # channel serves), amd64 otherwise. Without this an amd64-only
-          # upstream failed the gate with "all-suites-exhausted" - there was
-          # simply no arm64 .deb for the arm64-only smoke job to test, so
-          # such a package could never be released at all.
-          archs="$(awk '/^architectures:/{f=1;next} f&&/^  [a-z0-9]+:/{gsub(/[ :]/,"");print;next} f&&/^[^ #]/{exit}' package.yaml)"
+          # Architectures declared in package.yaml, accepting both the list
+          # form ("- amd64") and the map form ("amd64: {release_pattern: ...}").
+          configured_arches() {
+            awk '
+              /^architectures:/ {f=1; next}
+              f && /^  - / {gsub(/^  - */,""); print; next}
+              f && /^  [a-z0-9]+:/ {gsub(/[ :]/,""); print; next}
+              f && /^[^ #]/ {exit}
+            ' package.yaml
+          }
+
+          build_mode="$(read_val build_mode)"; [ -n "$build_mode" ] || build_mode=binary
+          requested="${REQUESTED_ARCH:-all}"
+          archs="$(configured_arches)"
           [ -n "$archs" ] || archs="$(jq -r '.architectures.covered[]?' .github/vet-report.json 2>/dev/null || true)"
+
+          # Smoke runs natively on an architecture the release actually covers:
+          # arm64 whenever upstream ships it (the Pi audience this channel
+          # serves), amd64 otherwise. Without this an amd64-only upstream
+          # failed the gate with "all-suites-exhausted" - there was simply no
+          # arm64 .deb for the arm64-only smoke job to test, so such a package
+          # could never be released at all. Source mode derives a native cell
+          # per architecture below instead.
           if [ -z "$archs" ] || printf '%s\n' "$archs" | grep -qx arm64; then
             smoke_arch=arm64; smoke_runner=ubuntu-24.04-arm
           else
             smoke_arch=amd64; smoke_runner=ubuntu-latest
           fi
+
+          # Build/smoke matrices. Binary repack needs one cell: it packages
+          # every architecture from a single host. A source build compiles on
+          # the host architecture, so it needs one NATIVE runner per arch -
+          # building amd64+arm64 cells on one arm64 runner would mislabel
+          # arm64 output as amd64.
+          native_runner() {
+            case "$1" in
+              arm64) echo ubuntu-24.04-arm ;;
+              amd64) echo ubuntu-latest ;;
+              *) return 1 ;;
+            esac
+          }
+          if [ "$build_mode" = "source" ]; then
+            if [ "$requested" != "all" ]; then arches="$requested"; else arches="$archs"; fi
+            if [ -z "$arches" ]; then
+              echo "::error::build_mode: source requires an architectures: list in package.yaml"
+              exit 1
+            fi
+            matrix="["; smoke_matrix="["; first=1
+            for a in $arches; do
+              if ! runner="$(native_runner "$a")"; then
+                echo "::error::build_mode: source has no native runner for architecture '$a' (only amd64, arm64 are supported)"
+                exit 1
+              fi
+              [ "$first" -eq 1 ] || { matrix="$matrix,"; smoke_matrix="$smoke_matrix,"; }
+              first=0
+              matrix="$matrix{\"arch\":\"$a\",\"runner\":\"$runner\"}"
+              smoke_matrix="$smoke_matrix{\"test_arch\":\"$a\",\"runner\":\"$runner\"}"
+            done
+            matrix="$matrix]"; smoke_matrix="$smoke_matrix]"
+          else
+            matrix="[{\"arch\":\"$requested\",\"runner\":\"ubuntu-24.04-arm\"}]"
+            smoke_matrix="[{\"test_arch\":\"$smoke_arch\",\"runner\":\"$smoke_runner\"}]"
+          fi
+
           {
+            printf 'build_mode=%s\n' "$build_mode"
+            printf 'matrix=%s\n' "$matrix"
+            printf 'smoke_matrix=%s\n' "$smoke_matrix"
             printf 'smoke_glob=%s\n' "$(read_val smoke_skip || true)"
             printf 'min_glibc=%s\n' "$(read_val min_glibc || true)"
             printf 'smoke_arch=%s\n' "$smoke_arch"
@@ -118,11 +177,15 @@ jobs:
     name: Build
     needs: prepare
     if: needs.prepare.outputs.should_build == 'true'
-    # Native arm64 runner: arm64 is the Raspberry Pi audience's architecture
-    # and the bulk of this channel's consumers. Building on arm64 hardware
-    # (instead of cross-packaging on x64) is faster and validates arm64
-    # natively; the builder packages every architecture either way.
-    runs-on: ubuntu-24.04-arm
+    # One cell per architecture for source builds (native runners; a source
+    # build compiles on the host architecture), and a single arm64 cell for
+    # binary repack (the builder emits every architecture from one host).
+    # prepare computes the matrix so both modes share this job.
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.prepare.outputs.matrix || '[]') }}
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -142,7 +205,7 @@ jobs:
           restore-keys: apt-${{ runner.os }}-
 
       - name: Build __PKG_NAME__
-        uses: ranjithrajv/debian-multiarch-builder@7df44acd35d720c0442320f4535d481f72251ecc # v.0.1a30
+        uses: ranjithrajv/debian-multiarch-builder@7a70294d9ec9645de64e722f9d0888872087699f # v.0.1a31
         env:
           # Authenticate GitHub API calls from the builder; anonymous calls
           # from shared runner IPs are rate-limited (60/h) and caused
@@ -152,7 +215,7 @@ jobs:
           config-file: 'package.yaml'
           version: ${{ needs.prepare.outputs.version }}
           build-version: ${{ needs.prepare.outputs.build_version }}
-          architecture: ${{ inputs.architecture }}
+          architecture: ${{ matrix.arch }}
           lintian-check: ${{ inputs.enable_lintian }}
           # Provenance pin recorded at vet time (add-package.sh scaffold).
           # The builder verifies the downloaded upstream bytes against the
@@ -168,14 +231,14 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: build-summary
+          name: build-summary-${{ matrix.arch }}
           path: build-summary.json
           if-no-files-found: ignore
 
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: __PKG_NAME__-debian-packages
+          name: __PKG_NAME__-debian-packages-${{ matrix.arch }}
           path: |
             __PKG_NAME___*.deb
             *.dsc
@@ -187,16 +250,21 @@ jobs:
     name: Smoke Test
     needs: [prepare, build]
     if: needs.build.result == 'success'
-    # Runs the packaged binaries on native hardware (no emulation, real
-    # runtime coverage) - arm64 by default, same architecture as Raspberry
-    # Pi, falling back to an amd64 runner for upstreams that publish no
-    # arm64 build at all (see the smoke_arch policy in prepare).
-    runs-on: ${{ needs.prepare.outputs.smoke_runner || 'ubuntu-24.04-arm' }}
+    # One native cell per architecture (see prepare's smoke_matrix): the built
+    # binaries are run on real hardware (no emulation) - arm64 for the Pi
+    # audience, amd64 where arm64 isn't built. For source builds this is one
+    # cell per built architecture.
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.prepare.outputs.smoke_matrix || '[]') }}
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Download packages
         uses: actions/download-artifact@v4
         with:
-          name: __PKG_NAME__-debian-packages
+          pattern: __PKG_NAME__-debian-packages-*
+          merge-multiple: true
 
       - name: Run binaries from the built package
         run: |
@@ -213,7 +281,7 @@ jobs:
           #               GLIBC-cliff failure (bullseye ships 2.31)
           SKIP_GLOB="${{ needs.prepare.outputs.smoke_glob }}"
           MIN_GLIBC="${{ needs.prepare.outputs.min_glibc }}"
-          SMOKE_ARCH="${{ needs.prepare.outputs.smoke_arch || 'arm64' }}"
+          SMOKE_ARCH="${{ matrix.test_arch }}"
           [ -n "$SKIP_GLOB" ] || SKIP_GLOB='__no_smoke_skip_configured__'
           # Suite -> its glibc version; keep in sync with suites.yaml order.
           suite_glibc() {
@@ -385,7 +453,8 @@ jobs:
       - name: Download packages
         uses: actions/download-artifact@v4
         with:
-          name: __PKG_NAME__-debian-packages
+          pattern: __PKG_NAME__-debian-packages-*
+          merge-multiple: true
 
       - name: Generate build provenance
         # Nix-style build-provenance: records the builder action ref, the
