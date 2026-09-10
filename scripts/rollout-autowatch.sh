@@ -159,15 +159,6 @@ apply_to_dir() {
   changed_files=()
   [ -f "$pkg_yaml" ] || { echo "  skip $dir: no package.yaml"; return; }
 
-  # Source-build repos (build_mode: source, e.g. quickshell) carry a bespoke
-  # release.yml that compiles from an upstream tag instead of driving the
-  # binary-repack builder. Rolling the binary template over it would clobber
-  # that workflow, so they are deliberately not template-managed.
-  if grep -qE '^build_mode:[[:space:]]*source' "$pkg_yaml"; then
-    echo "  skip $dir: build_mode=source (bespoke workflow, not template-managed)"
-    return
-  fi
-
   local name fmt upstream desc
   name="$(awk '/^package_name:/{print $2}' "$pkg_yaml")"
   fmt="$(awk '/^artifact_format:/{print $2}' "$pkg_yaml")"
