@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-09-12T09:34:08Z",
+  "suites_checked": [
+    "bullseye",
+    "bookworm",
+    "trixie",
+    "forky",
+    "sid"
+  ],
+  "rolling_suites": [
+    "forky",
+    "sid"
+  ],
+  "retire_count": 0,
+  "advisory_count": 0,
+  "packages": [
+    {
+      "package": "quickshell",
+      "upstream_version": "v0.3.1",
+      "suites": {
+        "bullseye": "not-in-bullseye",
+        "bookworm": "not-in-bookworm",
+        "trixie": "not-in-trixie",
+        "forky": "0.3.0-1",
+        "sid": "0.3.0-1"
+      },
+      "parity_suites": [],
+      "advisory_suites": [],
+      "excepted": false
+    }
+  ]
+}

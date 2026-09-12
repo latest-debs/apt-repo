@@ -1,0 +1,112 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_riscv64.deb
+Size: 1487584
+MD5sum: db1dd0236850d9396e34b7cbb0e69ee1
+SHA1: d26b0a5a12ede107cb2a0e277c55a3d9180cb9aa
+SHA256: 424e3e9b544e2447e90d0b33539fb715a325d02360de94b31bfb66ff96aec253
+SHA512: 4b8a39b8b060d9aed1aad161579837e02062845ddf1bb7e79bf86b98c17a0030a91dfc0be7c40f22592299bd0c1e29b558d544785be4bbe33a5ae63b099ac8a6
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: riscv64
+Version: 1.72.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/buf/buf_1.72.0-1+bullseye_riscv64.deb
+Size: 24485944
+MD5sum: 353c3cc686c717500d87b6ae5b6a0c67
+SHA1: 636de3332077b7aed625688bef7759e5ae34de87
+SHA256: 5400d94947789918a92d6704392e7140e7ff452a19224ecbb17c3ad17530d3c6
+SHA512: 5cc01877f7f1d3571460b917c57b2a63ccd41444cadac9c0fce158a844140f51bb4eecb1b90312637fedfefa4c57a6ed2bfb4de42b9fce207f7b84a5fb21250a
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.4-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.4-1+jammy_riscv64.deb
+Size: 1833918
+MD5sum: 18745dd713378f6ac545db2ad2cc01f3
+SHA1: 95f5230f78175beddf38ba268a16a3a744a563d7
+SHA256: 85f972f12896af19cc382269383e91e09ecf8704ed4650ddac8e08c04757dd69
+SHA512: 4ee2e838c47e512dccee781111efb5bff94dbf6680a2e8cde59269941c846685a86073f1bbca4a94d4322e7e794a74026e332219cd91db500f8286e1ac4aae81
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: riscv64
+Version: 0.115.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/nushell/nushell_0.115.1-1+bullseye_riscv64.deb
+Size: 52105028
+MD5sum: 2d9fd216d21e82e28eb08918c548085d
+SHA1: 460dbf5d5edbb3a475802252202195e6282793f3
+SHA256: d353bbe8c01ce8aea036640aab0d73069cb9f68e2431b15c179bdac095ed80cd
+SHA512: 888a6c246695b59ef6c804f850dc7a509247d003a82237491923d3953e452503ccac47c33169c054ef14434f8ce53d2fe23b90b343a607749873fb349ab8bf7f
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.7-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.16.7-1+jammy_riscv64.deb
+Size: 8120424
+MD5sum: 7db41f27d96784748ea41f60ccde87a5
+SHA1: 9e62537978dfdd0b97a58a3872a1eae143dfb45f
+SHA256: 39405fe27f97229b834cb71a7b659f30c26b53fac008a78ca3eb95368cee88a1
+SHA512: 72d0f1904a692ca9a4c703d6916d0b978f6b78d6f6b36bd2ac6975142b328496cbc3b1e9b367379f88d491c1e22c8e2ed0e60d2383dfca1699eb7584c6da70a0
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: riscv64
+Version: 0.12.13-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.12.13-1+jammy_riscv64.deb
+Size: 16291200
+MD5sum: 3239e5685818b36a51e19d9e04486032
+SHA1: c2ef94ebe559c92ec1c57615dce2af23584f3854
+SHA256: a15360912305dd297d2b16f5d5f0905dcdc126c707394c004cc5fba9c53fe877
+SHA512: 32add1d05bf0311c9ce3a55a2e92c88960cd213b13da7cce867845ec47b4fe82837595aa4b2663a0553718d978317ff60c9e5a981a29dd4515b4b1ca792364c7
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: riscv64
+Version: 2.7.2-1+jammy
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/watchexec/watchexec_2.7.2-1+jammy_riscv64.deb
+Size: 3243308
+MD5sum: 8051f026b731f71c7de9ff63ade0726c
+SHA1: e394b8dc8d5c3acec10eeed2274aceea75d7080b
+SHA256: d4fa8b252316283801571063cbd7aff7245aed08446a94bc9db1d93ba9a20247
+SHA512: 650e88a8686fa85fd0aab0189f4843c1e891bcde7a553cd05a1e4c2884516bd9c9c2b7c8f2f3fbc7870ee1dd42e9eb3a18789f805a928cf4f4c07e459aad9e65
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+

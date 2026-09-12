@@ -1,0 +1,96 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.9-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/noble/bottom/bottom_0.14.9-1+trixie_loong64.deb
+Size: 1296952
+MD5sum: a3767423986965d2c92871b5f80da603
+SHA1: daf60ed69c3f71ec40f255071707a30596c07095
+SHA256: b0e193f68f20b29da997e3d238478db891805793d02c4bab5e598a4f5b2dffba
+SHA512: 790f0923b91d83a0d917c48fd349e9c173f243d9bcea81c4bc5c145522594baf41ed525d6d43c3cfcfddc7973b64d6ebfe547ce08010dbe9945e6d58e308a276
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: loong64
+Version: 2.68.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/noble/fastfetch/fastfetch_2.68.1-1+trixie_loong64.deb
+Size: 4615532
+MD5sum: fb0679630d27f038719537854c021f68
+SHA1: ab31a1d32ae232f142ed237c89f645711de57dd2
+SHA256: af434b87f6c446ad182ebbfc843822c49b3f752896b8003e4877357f3d1260c4
+SHA512: cbf47f1a67011f0a9d0b047b2eb451d602cb381f001b217f5bf78753d7b85cf1f50c9fc8f4a33f31616399f3e296af066f3aa8de9c17e092d1f030f76103f2a4
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.4-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/fzf/fzf_0.74.4-1+noble_loong64.deb
+Size: 1802590
+MD5sum: 64710556ca93f40098c49ab963e709fa
+SHA1: 27045ee37cfa13ead4eeb1ee9c6f9a9301b5eca2
+SHA256: 75c92e90b16a9e7f32dba8131920ae087bedf5e8bc96edefde62ad4aa3232611
+SHA512: 6118fa7250d1fb9536e05868ab71748efe67e87d17af20ddb5b36334ee8a4a663b5efc7fb721c9c973b27464ced419c77022be3ca9222e59f99384075c6ea020
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.58.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/noble/just/just_1.58.0-1+trixie_loong64.deb
+Size: 1538676
+MD5sum: 6b3823b62a0d92c1cacf30065bd3451f
+SHA1: c0eca5c60e75da0a993d77a588aabee39af12427
+SHA256: f20ac7c712a6c9abcc68ff46bc0381a1d6cbf32b564d9e3828b2a62d9c7ae25a
+SHA512: 2c5e7ca170d8206eb66063f219744f2c786321d806b547fa8bbeec16eed2fadd78ddb21703ec114181dcee100bd00939ddd4c3dd8fcf1535b91d7dbe5a248578
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: loong64
+Version: 0.115.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/noble/nushell/nushell_0.115.1-1+trixie_loong64.deb
+Size: 42137852
+MD5sum: b31e353f54ef89136e719ac8d1d27db5
+SHA1: e446126fe1a8768ffc8dafe0088758b96d2c7201
+SHA256: fe6368f102bd5af3f79b0bcd5e475c74864ab1f867094b7172dab68ee611478b
+SHA512: 12ed7b40fa84bbed30eb625b2e76d2f450d054d7b9c6bedf0caac2a9ae5b5959eec9fe715771da1aadbe64bb27634086eef61f554d306bf94b5253d87503814f
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.53.6-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/noble/yq/yq-go_4.53.6-1+trixie_loong64.deb
+Size: 3830716
+MD5sum: 1cbaf39a2552f6e92749dcea6745fed5
+SHA1: 37fbef9a97219f552b3c7a4a93dc15c6aca28bae
+SHA256: d8c3931bbb2a12a90ff3c7729612b2b866c34a98f53654332e83059aa0d7fa1c
+SHA512: 523064785a5e3fc453e92b568d3918cedebc3a3c8f40f22f0c5a83dded180f8a40947aa445a6f93b90cd2649f2e060fc28164b2999d954a87ada08e4aae81323
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

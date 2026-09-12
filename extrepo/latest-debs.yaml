@@ -1,0 +1,63 @@
+---
+# extrepo metadata for the latest-debs aggregate repository.
+#
+# This file is intended to be contributed upstream to
+# https://salsa.debian.org/extrepo-team/extrepo-data as
+# repos/debian/latest-debs.yaml so that users can run:
+#
+#     sudo extrepo enable latest-debs
+#
+# Already merged upstream; this copy is the staging area for the next MR.
+# Keep it mergeable: extrepo-data is Debian-only by construction. Its
+# generator globs repos/debian/*.yaml into a hardcoded `debian` dist and
+# validates every entry in `suites:` against Debian::DistroInfo
+# (tools/lib/ExtRepoData.pm: `croak "Unknown Debian release"`), so an
+# Ubuntu codename here does not degrade gracefully - it fails the upstream
+# publish pipeline. Ubuntu users are already served without one: the
+# extrepo package pins dist/version in /etc/extrepo/config.yaml rather than
+# reading os-release, and Ubuntu's universe builds ship `dist: debian` with
+# a Debian codename (jammy's 0.9 -> bookworm; noble's 0.13 and questing's
+# 0.15 -> trixie), so `extrepo enable latest-debs` on Ubuntu resolves a
+# Debian suite of ours. Ubuntu suite aliases live in suites.json and are
+# served over apt directly; they are not expressible here.
+#
+# See https://salsa.debian.org/extrepo-team/extrepo-data for the full
+# metadata format and the rules external repositories must follow.
+
+latest-debs:
+  description: Latest stable releases of developer tools, packaged for Debian. Tracks uv, eza, lazygit and more.
+  source:
+    Types: deb
+    # Cloudflare Worker: serves dists/ and redirects pool/ to each
+    # tool's own GitHub Release assets.
+    URIs: https://latest-debs.ranjithraj.workers.dev/
+    Suites: <SUITE>
+    Components: main
+    # Verified against each suite's live dists/*/Release Architectures
+    # field. armel and i386 are bookworm/trixie only; forky and sid ship
+    # neither.
+    Architectures: amd64 arm64 armhf armel i386 loong64 ppc64el riscv64 s390x
+    suite-forky-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
+    suite-sid-Architectures: amd64 arm64 armhf loong64 ppc64el riscv64 s390x
+  suites:
+    - bookworm
+    - trixie
+    - forky
+    - sid
+  policy: main
+  contact: latest-debs@users.noreply.github.com
+  bugs: https://github.com/latest-debs/apt-repo/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mDMEanxCLxYJKwYBBAHaRw8BAQdAX7ic9BXE14qAcAhDEEVi32fU6cVzP9hbpAho
+    ZlKEnaG0MmxhdGVzdC1kZWJzIDxsYXRlc3QtZGVic0B1c2Vycy5ub3JlcGx5Lmdp
+    dGh1Yi5jb20+iJAEExYKADgWIQSTKcSOrsACSVYZUNTDTUIpUYq5agUCanxCLwIb
+    IwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRDDTUIpUYq5akTQAQCceSEO3xUi
+    WitrFSztU7Mq1zuRXcAO5qNPIDeCRYfEMwD9EJdAYXHmr2IZV76UTUboDloTKrbV
+    8qlDztaK/76A2Qi4OARqfEIvEgorBgEEAZdVAQUBAQdAIN8HzDZnjLoJc1NtKgqj
+    XXrhHsGE6P8ZW1OA8AoOlXMDAQgHiHgEGBYKACAWIQSTKcSOrsACSVYZUNTDTUIp
+    UYq5agUCanxCLwIbDAAKCRDDTUIpUYq5au8rAP9/yach6k+wkA1eSKpdOH++lu51
+    bGSkcO6zxTIs4E+7wQEA3YnbF1I9QWDbVYHiXWOcSOiNpQ2gemcI1Jk9QkE/LAc=
+    =KFsD
+    -----END PGP PUBLIC KEY BLOCK-----

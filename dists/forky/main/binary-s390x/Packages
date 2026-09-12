@@ -1,0 +1,176 @@
+Package: buf
+Architecture: s390x
+Version: 1.72.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/buf/buf_1.72.0-1+forky_s390x.deb
+Size: 23753572
+MD5sum: 94c4edaa46fac90300e41412619571e5
+SHA1: da62c4306b1ae002a1af0b59ed8174b0a138f1da
+SHA256: ad43795566858a770ef10092b54e328da7a34c1d524554da8bef749fbdd1d9b3
+SHA512: a677d19dc4595b1fb67e5d59526ee93194a888c96f3072887881c9189a386e75b638d82b8c01741c0111d8be7b54737f7613cdf0f919a774f4d3c3ac3cee90a3
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.68.1-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/fastfetch/fastfetch_2.68.1-1+forky_s390x.deb
+Size: 4635140
+MD5sum: d8bedba2a0ce18f865f5136e196b0d8d
+SHA1: b6f533211a11baee7663b6f2799b7c70d203211d
+SHA256: 789b40d8ab99fa4a18243dc60497516b1f30429e71f0d1eaac95c7c353f4b6e0
+SHA512: f200e30b9e5d6f24daab7deb21eed74d8d533582017d78d0797450bb696cdc9464c172f53c36c1e4c87d3b1e50a61a7746e1641877e938bdb7af85efd34eb7fc
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.74.4-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/fzf/fzf_0.74.4-1+forky_s390x.deb
+Size: 1608084
+MD5sum: 8bc58eb701d10886100c7520afa20941
+SHA1: 99b352c8f997bc78d5e40c7995a295ab4ad7a810
+SHA256: 23b0f7ea1693220c9b20ce99157bbcf67a903f3fb82257b95f455b77c29ed333
+SHA512: 664585111585b873f1da3be04298373e8d435a88d6e7ba11a1ae355b7314f42b7746490cd235b9ec87534e074fa36af12cef710b972ce13e6e336ff4c2f4b490
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/k9s/k9s_0.51.0-1+forky_s390x.deb
+Size: 25121888
+MD5sum: 7ab1199891aa17e5b9fb68d92a0c790d
+SHA1: abd7a8a8a72e267b70ee3bc1bc4b22db45c15a79
+SHA256: 9dc5d2336da21c26edeef8c7c0ea189cfcdc5fc3b26351fea1d24f90d2ff261f
+SHA512: 58d520c0761744ffebbcff426309367a465f86909bca8d2ac03a55453d1810ec0857a483f859fe15696f97b9b5e99cb3825036a8408d6e89892fee6e6d20bc0e
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/lf/lf_42-1+forky_s390x.deb
+Size: 1651000
+MD5sum: 0c32c747c37e4c2e8a55a705f85e7f37
+SHA1: ceff8cb8ee012c5b193c82d15edea2918a3faf93
+SHA256: c32e4d6cd56df54e6284ae69cc7493c08679bf46b41d8da7a93b8f965edc0905
+SHA512: efc2bce98729cc89ee9dd11260769d7e9e064777a8b233f3c852278b80ed1acf7b5b052e8358f60a73da9946a0e27f541cb2ad69cf5985e8678dc9c2f476664b
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+forky
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/forky/ripgrep/ripgrep_15.2.0-1+forky_s390x.deb
+Size: 1408200
+MD5sum: d0c68d49b0671904695d6b963bbee928
+SHA1: 8f2bfa8a57c8d6f02594346af924c6b3d7df8fcc
+SHA256: 76a220010b020504f3b1ee3d7303de4ed99a5b3602c34ef9aa1d2b9b80f5212b
+SHA512: 15b5c9b3800a02b3b50ff7474cf2a05fd7e195ba66a6547c27ea556e1a72282840c473244bc4d05a0cc1784048e76c96545819af679834edff12018203991bad
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.7-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/ruff/ruff_0.16.7-1+forky_s390x.deb
+Size: 6749904
+MD5sum: bf7abbdc9d8b4f6a6bfb32bcd0e2e46b
+SHA1: e30b6dcb0ecf21d0c050465e036c5202ab6fc21e
+SHA256: 419339af4cd633415a975b96fb2452463c3cb54e841d5d3d8d819cb9912fb6e8
+SHA512: 6cf5a379acfb1ce2077fa8dbac3dd6e949cb4b9d7c3050852e2f31b19377690373ccbfc60af1b1621c620c78935890b51655086c39192f15bd6f2db207f8b2ae
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.74.0-2+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/trivy/trivy_0.74.0-2+forky_s390x.deb
+Size: 30343580
+MD5sum: b2b191b1755b1aa0b04b4052c77b4489
+SHA1: 5cc82d41116f78853e5c393ee802fade4b935d76
+SHA256: ab9773b3b5c142fcf40312477498626a8eee7cbaed2641a641ed16846776e7e0
+SHA512: 4a513d0ed917818679e85d29d591ede5fb5341ae4d03cc0960e32d920079fd91a1840af067ba083c1aa383771b129d1a5a3fcadc3f186794266f4c725ea57175
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.12.13-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/uv/uv_0.12.13-1+forky_s390x.deb
+Size: 13977324
+MD5sum: b53c6f83485d748b279e922c486fba83
+SHA1: cf7427291ef4ca1de2869e5af8904fe0444be367
+SHA256: da883cb82b26981028d4c85f94e0070bfab8a7074d383c9c8cd790558cfe00e7
+SHA512: 010a0d4b13cda68c79e2d28e9ce2df75da567252196fe6039a29e0b570822f966db82582080db6b79d2d4bd16cdac1713ad152dda6f0327348b03f5ef29ebe89
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.7.2-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/watchexec/watchexec_2.7.2-1+forky_s390x.deb
+Size: 2741976
+MD5sum: 716efc00508c87ad6924e3586bfb22f6
+SHA1: 7b337fdeed2cf467a7d984f93b33d78f09b6feab
+SHA256: e7f609f1de5240ffd9282d9a6a17f8d3c34867f3b8a0845e16da5c68454bf445
+SHA512: 90659b67bede979f4943371ae38e33a1ddce2dcb9b6fa17899b15a937c30bd0c44539409ef36afcea1e3e2f05b163792d7020fc03805cd81d3fa52d7a5f77082
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.53.6-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/yq/yq-go_4.53.6-1+forky_s390x.deb
+Size: 3945852
+MD5sum: c8bd733a1616eb75fed1b4ab4894823d
+SHA1: 1ca79e75bfae51cc82f208ac51afb09889046c38
+SHA256: 315b6bfa206b4da7ee09e6c785e9ad269b15fafce2a17bdbca3e9dbcd8ba5b0f
+SHA512: 877370d9390f33643ee21f4824e7427111a743fa12288dcf24642b26448b8d2165f6837ca6dc064e2338204ccca3cad6dd74df455920f2a4a400828ad1bb186d
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
