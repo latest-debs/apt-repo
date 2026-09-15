@@ -1,0 +1,16 @@
+Package: du-dust
+Architecture: armel
+Version: 1.2.5-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/du-dust/du-dust_1.2.5-1+bookworm_armel.deb
+Size: 801040
+MD5sum: b0b176868f5a608fc90624ad19d30621
+SHA1: 02d2e86b02cc756d507acb3ce5bb43d51f5d3e56
+SHA256: af7ec3efd932f35085de25a960f417d46d03e100f4ac5583c7c7a972374aa96e
+SHA512: 624bba44e80f2b58e9e74e6b3bd9172241b089c595f1aac51244f9c29a3646948e7f18503bcd1567b84c7226ef29b3cd242217471e29d137602c73afb57bb126
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
