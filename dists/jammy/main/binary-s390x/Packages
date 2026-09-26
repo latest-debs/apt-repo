@@ -1,0 +1,96 @@
+Package: buf
+Architecture: s390x
+Version: 1.72.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/buf/buf_1.72.0-1+bullseye_s390x.deb
+Size: 23752604
+MD5sum: 110e5b8c21a9773f10db376e2bd70fe1
+SHA1: ab2c5443f181009ea7d42987b1baaa80ba6776b3
+SHA256: b2c9d1453660dd3a661623cd39efc7768777d8643bd4fa790110f3cc8394abd5
+SHA512: 20a042413f7b43e68239ac72dbc0e95865d0afb299b3330fd4100c6176500e8d7cd78a63d8e88dbc9670c2d7b43d95651853c6aff2b0e95ed42cced1b85dfa5d
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.69.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.69.0-1+jammy_s390x.deb
+Size: 5366634
+MD5sum: b0f84b633d5923c63496e804aae0f6b8
+SHA1: ddfd11688507879961e0c22589be372097e1292e
+SHA256: d99fe14b90494d053d8424ffad9d9d32ea988672e5443152dd8f4f1ca333359d
+SHA512: c069e152d4b693e847c504799a24fde5bad4f80859544b4c48e22351ea70bc3acfb72168b8201083e914a9fb9835b5358801b2cdf461e0bca675c21c94af4675
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.74.4-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.4-1+jammy_s390x.deb
+Size: 1834136
+MD5sum: 42877d28dc604715feee0b161edc04dc
+SHA1: c83eaee57b4f37864cfaa5a3dd67b52d0d94097a
+SHA256: 3ecea55e9634101dfbe79b706a67ecbe6a9eb7faf56f070e6d4b9a1b790bb43c
+SHA512: 5fc98c84bdb25a6131c64379bbfa55b48a8b600e30c1e0d58435b248e47dcb8fee51b6a464a37779b0b4d53e1619ea62444e95a074162c557a81e28b7ec71aa0
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.16.9-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.16.9-1+jammy_s390x.deb
+Size: 7896748
+MD5sum: 182c13f63078bc3b508b8a0f9445fd0b
+SHA1: 5cfd190da9232a67630c7e7de9c1b0352707c6f3
+SHA256: a0de03d5cdac1c089803a62408a99eab744dfc960bfbb61253b43bc3d00554d9
+SHA512: eb4a1d89ac28da5611033e9581145baf3d33ccdd38fe63ddd1e39ec696d55ea2598af49af8ba26b00db34193b4aab2d2cd127c4ebd5a28440bcfd58924a715d3
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.12.19-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.12.19-1+jammy_s390x.deb
+Size: 16312750
+MD5sum: 1f2d92e6372e86ea66af604edba3aee1
+SHA1: 7f6edcbd87ec4f0e67c85449122aa57e12def5d0
+SHA256: 5a8e64532a2de3918438bac2718e2f7ec1835aa68377a13a2f0c9a92ecd909bf
+SHA512: da622f1f14d59d9974b2931511806edb75749c013b612e7c7b270fec39003de6dabe343c3196636daef371a88061608e267951f7126d92d734ad2fce15860f56
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.7.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/watchexec/watchexec_2.7.3-1+jammy_s390x.deb
+Size: 3177622
+MD5sum: cdabf6f3ea3ce5f3cab9ffedde9eeff7
+SHA1: b2f66c3c7b54e6d149dca5f0ae9698ab288aa3b6
+SHA256: 66535440afe53ef69f066ebc7c373c7bcff799b2429736da509d5b22b18e0a66
+SHA512: c19fb8d15a88f9b7fbbc031e6c847c05c100f2635c827e319ebd00f4e466027dc8321ec72e3176ecada2f4718b8ff9e4cd39ee097d07236d0a05c84618355702
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+

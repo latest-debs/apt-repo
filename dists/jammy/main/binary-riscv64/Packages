@@ -1,0 +1,144 @@
+Package: bottom
+Architecture: riscv64
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_riscv64.deb
+Size: 1487584
+MD5sum: db1dd0236850d9396e34b7cbb0e69ee1
+SHA1: d26b0a5a12ede107cb2a0e277c55a3d9180cb9aa
+SHA256: 424e3e9b544e2447e90d0b33539fb715a325d02360de94b31bfb66ff96aec253
+SHA512: 4b8a39b8b060d9aed1aad161579837e02062845ddf1bb7e79bf86b98c17a0030a91dfc0be7c40f22592299bd0c1e29b558d544785be4bbe33a5ae63b099ac8a6
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: riscv64
+Version: 1.72.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/buf/buf_1.72.0-1+bullseye_riscv64.deb
+Size: 24485944
+MD5sum: 353c3cc686c717500d87b6ae5b6a0c67
+SHA1: 636de3332077b7aed625688bef7759e5ae34de87
+SHA256: 5400d94947789918a92d6704392e7140e7ff452a19224ecbb17c3ad17530d3c6
+SHA512: 5cc01877f7f1d3571460b917c57b2a63ccd41444cadac9c0fce158a844140f51bb4eecb1b90312637fedfefa4c57a6ed2bfb4de42b9fce207f7b84a5fb21250a
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: riscv64
+Version: 1.2.6-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/du-dust/du-dust_1.2.6-1+jammy_riscv64.deb
+Size: 977630
+MD5sum: a61c24780c6e1a0491fd59e0f9b09698
+SHA1: ef96a6340cd78a53ef99f7de18829b4e13662ba7
+SHA256: 1628e3b5dc63d0cf5413d92f9db98df2d00194745f84e45a1015a73d30402b52
+SHA512: 23c37cdd0f9b098211c3a42060b1f5bea582bed47486c5e8a00a8b00961839cdb0d37501b2da29e48d4d86cac6abaee00c9e4fdc153de54791e22ce9ad422a44
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: riscv64
+Version: 2.69.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.69.0-1+jammy_riscv64.deb
+Size: 4909272
+MD5sum: 7cebdc04a7d68b73c9bc0e70dda4acae
+SHA1: d9926e1bedce229167d89ccb1b8cc33dcb2cc10b
+SHA256: 75cf82ec3602a919bd035fea435c39c0266b3bb4f259fe7ce38d76a5dbeb512c
+SHA512: d6f6fd6936274dd54bfa698eea031b66142b3c6d1191b8f0f67eb722d5896153d70e70fef45535a9427487ef5c275aa6480a627b73f65295acb1c8b998a4768c
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.4-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.4-1+jammy_riscv64.deb
+Size: 1833918
+MD5sum: 18745dd713378f6ac545db2ad2cc01f3
+SHA1: 95f5230f78175beddf38ba268a16a3a744a563d7
+SHA256: 85f972f12896af19cc382269383e91e09ecf8704ed4650ddac8e08c04757dd69
+SHA512: 4ee2e838c47e512dccee781111efb5bff94dbf6680a2e8cde59269941c846685a86073f1bbca4a94d4322e7e794a74026e332219cd91db500f8286e1ac4aae81
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: riscv64
+Version: 0.115.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/nushell/nushell_0.115.1-1+bullseye_riscv64.deb
+Size: 52105028
+MD5sum: 2d9fd216d21e82e28eb08918c548085d
+SHA1: 460dbf5d5edbb3a475802252202195e6282793f3
+SHA256: d353bbe8c01ce8aea036640aab0d73069cb9f68e2431b15c179bdac095ed80cd
+SHA512: 888a6c246695b59ef6c804f850dc7a509247d003a82237491923d3953e452503ccac47c33169c054ef14434f8ce53d2fe23b90b343a607749873fb349ab8bf7f
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.9-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.16.9-1+jammy_riscv64.deb
+Size: 8141746
+MD5sum: aca1303548adccaa53fd2b6315b941d8
+SHA1: cf631f19ec0132228adb6850036580840e522e72
+SHA256: fc15e6564810a1977d21ed7c0a78944d5b7f44468809c254d331d7caf0ae0532
+SHA512: 87a4c9d84b7c31f2d82debab07173c642ba077dee995016b4c58141e585054e764e3308564fea54c498326b5ce5d25b0bfb3c5c34a0ee8913f44c672ae1804de
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: riscv64
+Version: 0.12.19-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.12.19-1+jammy_riscv64.deb
+Size: 16575410
+MD5sum: c0e803b009e2baedb63964882c0c1923
+SHA1: 2384e5208c4c8317fc4dd91a4f7877149ce42701
+SHA256: d253b41b3835f7149cb4141e8ab371c24841eda87b6c2c7f15a30fd8f1184b5b
+SHA512: 32ee59f34b491a5e87165e2bb88401c1f5fdffadcea7a15c07a0459fad50465a999b464536be3b09e1006b3e4ba824ab1d01cc2044fd148f6a1aab28e4be6402
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: riscv64
+Version: 2.7.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/watchexec/watchexec_2.7.3-1+jammy_riscv64.deb
+Size: 3248104
+MD5sum: 7db6b6eb794f37089f88fb43da6c4087
+SHA1: 4ad3d4ce7fe220901dd51a44854c937791c39aca
+SHA256: ba1fa60dbf0ecde2a91240495c2a238f571538e3d4d4915a477114e7bcf6fa63
+SHA512: 0fc346151b7bb75af17ba5a544a10c629fe9e2c0b09d9669854c73b0e613bb1601b5a8e1343727d33a89c66eedb3381980f17e3f479254d01cdc7e97203d141c
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
