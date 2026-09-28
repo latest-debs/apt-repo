@@ -88,7 +88,40 @@ jobs:
         run: |
           set -euo pipefail
           read_val() {
-            awk -v k="$1" -F': *' '$1==k { v=$2; gsub(/["'\'' ]/, "", v); sub(/#.*/, "", v); print v; exit }' package.yaml
+            # Accepts both package.yaml shapes: a same-line scalar
+            # (min_glibc: "2.36") and a block list
+            # (smoke_skip:
+            #   - "protoc-gen-*").
+            # List items are joined with "|" because the smoke script consumes
+            # the value as a case-glob. Reading only same-line scalars made a
+            # block list look empty, so every plugin binary the policy meant to
+            # skip (buf's protoc-gen-*, nushell's nu_plugin_*) reached the
+            # --version probe and failed the gate on every run. rollout-autowatch.sh
+            # has always parsed the list form; keep the two in sync.
+            awk -v k="$1" '
+              function clean(s) {
+                sub(/[ \t]*#.*$/, "", s)
+                gsub(/^[ \t]+|[ \t]+$/, "", s)
+                gsub(/^["'\'']|["'\'']$/, "", s)
+                return s
+              }
+              $0 ~ "^" k "[ \t]*:" {
+                line = $0; sub("^" k "[ \t]*:[ \t]*", "", line)
+                if (line != "") { print clean(line); exit }
+                joined = ""
+                while ((getline nxt) > 0) {
+                  if (nxt ~ /^[ \t]*-[ \t]*/) {
+                    sub(/^[ \t]*-[ \t]*/, "", nxt)
+                    v = clean(nxt)
+                    if (v != "") joined = (joined == "" ? v : joined "|" v)
+                    continue
+                  }
+                  break
+                }
+                if (joined != "") print joined
+                exit
+              }
+            ' package.yaml
           }
           # Architectures declared in package.yaml, accepting both the list
           # form ("- amd64") and the map form ("amd64: {release_pattern: ...}").
