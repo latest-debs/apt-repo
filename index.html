@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>latest-debs apt repository</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.55; color: #1a1a1a; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  pre { background: #f4f4f4; padding: 0.9rem; border-radius: 6px; overflow-x: auto; }
+  h1 { font-size: 1.6rem; }
+  .meta { color: #555; }
+  a { color: #0552b5; }
+</style>
+</head>
+<body>
+<h1>latest-debs apt repository</h1>
+<p class="meta">Latest stable releases of developer tools, packaged for Debian and served over <code>apt</code>.</p>
+
+<ul>
+  <li><strong>Debian:</strong> Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)</li>
+  <li><strong>Architectures:</strong> amd64, arm64, armel, armhf, i386, ppc64el, s390x, riscv64</li>
+  <li><strong>Updates:</strong> every ~6 hours, automatically</li>
+</ul>
+
+<h2>Install</h2>
+<pre>sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
+echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
+sudo apt update</pre>
+
+<p><a href="https://github.com/latest-debs/apt-repo">Source, tool registry, and package requests on GitHub</a></p>
+</body>
+</html>

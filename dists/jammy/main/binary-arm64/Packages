@@ -1,0 +1,400 @@
+Package: atuin
+Architecture: arm64
+Version: 18.23.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/atuin/atuin_18.23.0-1+jammy_arm64.deb
+Size: 11662240
+MD5sum: fc695878578b3ff98e96a9b8ff294edc
+SHA1: 38716dc5f02b04a99eec9c7c332ff33038765ad4
+SHA256: 90d65a7be8ebe3854c91ae3fca91ca7f5812355d0ad4ee9a6e00f40f037c7d26
+SHA512: 7e67ce3f7f2574992c089de5db0a14a0d45466bcb9da786f8b485c206452860903c9db4fdd771e6575c0abd36de69b9f10402cf692da6e81ee390feabe9d8106
+Homepage: https://github.com/atuinsh/atuin
+Description: Magical shell history
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bottom
+Architecture: arm64
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_arm64.deb
+Size: 1284524
+MD5sum: 3fdc605409887bd578e3e8d80eb8404d
+SHA1: ad15ec7951444c35f5d324056e1f4300ee6c6ea7
+SHA256: 48d58d978eff7e0b702da6989e946f99075d192200316d5dfe76173afb7ff84f
+SHA512: 836d00efa28e29e6201c4a52f85b4076cc983386fdc67940630cae544ce81561ce4640f4c5b78a56e6be6e18ce72c08785bb9de60ddc866ba6f23b469f12c839
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: arm64
+Version: 1.73.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/buf/buf_1.73.0-1+jammy_arm64.deb
+Size: 23860692
+MD5sum: a77691154ee0769128911893bc424b86
+SHA1: 217d43245c1352e917a9c54d47e92376cb11d26b
+SHA256: b4757254be328129e02289e5c8fdbfd9555441c6525dce54f86547c072fc1c12
+SHA512: 354f6267aecf55f528cf9e4dbc6c7b6ad26b9fbc2eef566b8bbebf99cefbc092a9e3368fba7e1fdf42bdb53fdde46ece5f8dc0cfa1ff1b97dc72f50a6d008b9c
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bun
+Architecture: arm64
+Version: 1.4.2-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/bun/bun_1.4.2-1+jammy_arm64.deb
+Size: 29535526
+MD5sum: c397f19b472a9e1b4e768ce8b003b03b
+SHA1: 4e057e6571257ee11fa43d20ca48212f9f40f92a
+SHA256: 5747e3a7d7a2d45393b0d1b30976ae53f2e8e994225ed72d2cce759453783be7
+SHA512: e2b110ddb40200a043af845a0e27b2afe24ee244ec898039054e61353999669fc9122011e3bc071f4d7bfb8c4429be09b387d0cee378f44c6fe965a9eb3b949d
+Homepage: https://github.com/oven-sh/bun
+Description: ${DESCRIPTION}
+ Packaged from the upstream GitHub release for Debian.
+
+Package: deno
+Architecture: arm64
+Version: 2.9.7-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/deno/deno_2.9.7-1+jammy_arm64.deb
+Size: 32416756
+MD5sum: 6d3d9bace1001ee30b9fb4e94ca48a6c
+SHA1: 3e69c542e80110022e98b24c811ae5ca35870795
+SHA256: 3d34f0f61472eb3b57fa4bd18b943e540ae71796ceca02c0c5af65daea041e42
+SHA512: 76075e7f67b631279020a67f921a1877668f83fa1068dda58cccb9a1d5ae26f6d4ce995bfd662f837e8bb9cc482b8371feae48bcfed8f50c5654f11759525bdc
+Homepage: https://github.com/denoland/deno
+Description: A modern runtime for JavaScript and TypeScript.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: arm64
+Version: 1.2.6-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/du-dust/du-dust_1.2.6-1+jammy_arm64.deb
+Size: 920062
+MD5sum: 0c84d742a6856ebaf2bad3eb543b9231
+SHA1: c3d0b8b490ef4973a5d5189323553eb5abf350cc
+SHA256: 28fb58f85814b7cee61843e8e14088c903066c6e7385d3f58fd2f70b2adbbb8f
+SHA512: f825fd6c72a40f9d0f445b9bf0bf16fc6351e835b1c452b777b11068f7de93b9bd1032a8f5f753e0ad17ea1a7f3f5550f02f533e07b26dd085666aefb4ea59d1
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: duckdb
+Architecture: arm64
+Version: 1.5.6-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/duckdb/duckdb_1.5.6-1+jammy_arm64.deb
+Size: 14817858
+MD5sum: f2a3fae0f996b098c4a956ec323bebc0
+SHA1: 32e94cda64e47ae1d29e7a839dfa1def92196904
+SHA256: ca6b8a160c5f0b83c1c37611318f576de1a6f4fba9f5356e442c7853c00ad200
+SHA512: f1809d6b390a3e3ee68acd6da1dd3d7a1ea608960a571e04f4df4604fd720c096af6fdaf0248d0db862539d41dad1769ac5515a058bc85dec8405c3e37dae1ba
+Homepage: https://github.com/duckdb/duckdb
+Description: DuckDB is an analytical in-process SQL database management system
+ Packaged from the upstream GitHub release for Debian.
+
+Package: eza
+Architecture: arm64
+Version: 0.23.5-3+jammy
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/eza/eza_0.23.5-3+jammy_arm64.deb
+Size: 990272
+MD5sum: c199feec4f5c8d9903289e10ebe0ad2f
+SHA1: 441d8a6885c702119aa75433cbb8975d3350d868
+SHA256: 648144164d21c5a0102fc2cbba1be29020f93d5e848530df435d493b546ebb61
+SHA512: 212a2b4fb4652e6a73cba463f4bfe93e4b0d3deff8ccd8e1fb002bdf33ca2bf565383d78ab927319dff96ee1b788ec4dd9e82d6966f7ea9c0369d2e9d203ef89
+Homepage: https://github.com/eza-community/eza
+Description: A modern alternative to ls
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: arm64
+Version: 2.69.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.69.0-1+jammy_arm64.deb
+Size: 991662
+MD5sum: 633dd09424904b61c2b7ad300b5e0eab
+SHA1: 80ee3c0b59fc59288726de64593f841af1050fb7
+SHA256: 79c0fc54b3f56e17ee204528cf503cb40a1c428ef39782d1aeb9156f2220d903
+SHA512: 7e239c27a42f71cbb9b039f042754cea01275ffffc29b10dee0f9b413b5a40c1e7be852cad1ce7bd20a948a4402e7ad0fffa0edf64746a0bcc28d451fd9ed829
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fd
+Architecture: arm64
+Version: 10.5.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/fd/fd_10.5.0-1+bullseye_arm64.deb
+Size: 933396
+MD5sum: 77795a3b6c012cf9dd6439cf84ce4be1
+SHA1: 62d1d7aac92076dea6c1af89e0313073f1fa4e35
+SHA256: 66a8a69ac8039ed735ac799cf4ac7f942febc2b1d28623625f0977d90a5a059a
+SHA512: e36c2287ad4b90a419512142f8617e5844a07aaa70add4a7583765661ba517ee7cff16a66247f928cb7016f4731a89340ca238dd7816c1f4641050a4e7738013
+Homepage: https://github.com/sharkdp/fd
+Description: A simple, fast and user-friendly alternative to find
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fish
+Architecture: arm64
+Version: 4.9.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fish/fish_4.9.3-1+jammy_arm64.deb
+Size: 3237378
+MD5sum: beedc7e8bc598b559fbbce184be915de
+SHA1: 75a0f0596209d8df0e344c77fd0776b866251b21
+SHA256: 7d3654d88b92e3433f8cb5132d04f501b5c4d05b33d7374b51a64cd1958489a9
+SHA512: 75586a65c115dfbce4f7af2cd800a947f31f013c5c6b6e5ea5f1ff52d23f0a64e96fbd0dc476767fa3182df20c0afcc5aacfc915bdd8e5da044e1eb38dc367dd
+Homepage: https://github.com/fish-shell/fish-shell
+Description: The user-friendly command line shell.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: arm64
+Version: 0.74.4-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.4-1+jammy_arm64.deb
+Size: 1733508
+MD5sum: f089f856ec513251d105706f33f99bb9
+SHA1: 05685d91f51070fb43dbed740b2ef99ed975b67b
+SHA256: d702c971a4896b71c9fe4a44dd1598137c01a23473ff9ca5629c47db7f7e4ad7
+SHA512: d833d1159d2e7592871a3f43ba8ad7bb5bf02b07fe0d7dd7938e12095b09cdac6477d8f475c7e2f6f194f3ea200b5f15b1ea5615ca4924202bbfc7e0a5d5f01d
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: helix
+Architecture: arm64
+Version: 25.07.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/helix/helix_25.07.1-1+bullseye_arm64.deb
+Size: 15677716
+MD5sum: 9f0678b484977344ad1401ea63193837
+SHA1: b8f3f6d2a526e80aa7d1c7de63dc0fc4216519a5
+SHA256: b3ada33a1c228a3c03f7463a1daa9f70ec22ce132c18f8fa51055693456fae99
+SHA512: e96f5399c76e9ec197d28f937ef84d719a1b6f80b4ea9c9b29833e44d9c7774145838ec24675f347395bde53d3b574b2ee31f9ecd4aa1acea797b15c1bb4e535
+Homepage: https://github.com/helix-editor/helix
+Description: A post-modern modal text editor.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: herdr
+Architecture: arm64
+Version: 0.9.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/herdr/herdr_0.9.3-1+jammy_arm64.deb
+Size: 7740950
+MD5sum: 229c7895fd592678e4fb52aa4612f7b6
+SHA1: 179692cbacb1d0a1884f07f5804b8345a10321c7
+SHA256: e9e18d7544e3cf092e8a4fca250e8597b03da27a91a34e34db3dce6057c2426f
+SHA512: e366d8f6bd0466171f61f1505adabe4ee00cc4078b523b1e4738ac3cb6376b4c4c74ebc41a749ed81c542d70d6ae61bfa79b55b55d6e627c2b10245b8f81078f
+Homepage: https://github.com/herdrdev/herdr
+Description: Terminal workspace manager for coding agents
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lazygit
+Architecture: arm64
+Version: 0.65.1-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/lazygit/lazygit_0.65.1-1+jammy_arm64.deb
+Size: 5016384
+MD5sum: 4a70ba0a0754dc6e397ec8a7bf8bfdc1
+SHA1: 24090f18bf4d25e75322da39f344f6e944d4ad66
+SHA256: 85e4e8b85bb876814c5420bd462f231b8c1b8a87135b09ea9f6069385f59052e
+SHA512: e9f109b9aec1d4f8f12b4bce095563202d69d66b3a19a4e66179dfe2f44a5b9f8515aa48594250de5e84aba1e782205979d26ee7775eb3b29bfa627040064fcf
+Homepage: https://github.com/jesseduffield/lazygit
+Description: simple terminal UI for git commands
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: arm64
+Version: 0.116.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/nushell/nushell_0.116.0-1+jammy_arm64.deb
+Size: 57531356
+MD5sum: c72aaa2b7b75c48669146dc8f2b4d52f
+SHA1: 037d46045f4e57446865ac9c82d74e7895538d1b
+SHA256: 5a9aa42482b299276b9a5d3a5bee78cac90335095ec76d1b817308ac3fd4a12f
+SHA512: 27d60df0f790f763124327e67bfe4e2c88c4dcec22ffaeb59c34bb8ac0d74e72f01878557ad87452f14820240dd9c92fe5a698657900e2928ef50351a68de6cd
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: oh-my-posh
+Architecture: arm64
+Version: 31.4.1-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/oh-my-posh/oh-my-posh_31.4.1-1+jammy_arm64.deb
+Size: 4192300
+MD5sum: c04f13ef09658e183f2c4222487d8a94
+SHA1: 36c2813e0294e31b2aa19724cedf0fbaa05aa950
+SHA256: e98b564cb9073936bb924901328acee1719733352ad6a3d04a20a53efca653be
+SHA512: 5372948646339698745580970873403df246628cef0b39efed27f372657a4cbe686ecb4330f2c90a7ca4de8d0fc65c99921e7d936da28069f75edbde9bcd88dc
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Description: Cross-platform/shell prompt renderer
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: arm64
+Version: 0.16.10-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.16.10-1+jammy_arm64.deb
+Size: 7379542
+MD5sum: ebd2c2d82f3807a04061d291c0ae92b2
+SHA1: 94eacd664f88b98f75997cdce801a698ad8021a3
+SHA256: fee1ab2bff230ddd91eb6d1bd2646c72872974396710e90cb4cb45a3ecd8c93b
+SHA512: 9502646972158fd9e4ff3f8d6472913f44c5a0f85b3eee6a0e1ee48435b8a620573a67880caf24c3b4d7c553118dd5c4e5c810b849c0c520d11a2b69c8a5a41b
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: sd
+Architecture: arm64
+Version: 1.1.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/sd/sd_1.1.0-1+bullseye_arm64.deb
+Size: 641972
+MD5sum: 4f5235609f11b6a7e203c4abcd48ef71
+SHA1: 5ae1c8c92297b486b2162837cd1701adb562ff7e
+SHA256: 932b7cb980dc490866615cd1d93a7af62fbd277bb8f113ad97eda79d5e55d007
+SHA512: ac409dac99c18c1bf2f054ff129969d6faf126b7bf7d6c67b3b175affa8778f0918a5432dc80059102b18187689e6bec0679433f04c2a396266afedf40fadd8b
+Homepage: https://github.com/chmln/sd
+Description: Intuitive find __DESCRIPTION__ replace CLI (sed alternative)
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uncloud
+Architecture: arm64
+Version: 0.21.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uncloud/uncloud_0.21.0-1+jammy_arm64.deb
+Size: 18229956
+MD5sum: 407f958efa9943f0fa3d8154bf6996de
+SHA1: 2b3473d6458d348004cc0387101d530d45c833a3
+SHA256: a46ccd6fd01636a88eca2a9da0091fb4ead1588e49106735d06973dfc1638315
+SHA512: f57c8859d23a792a453af7f6de5d33ef9a1d93c15037527ee2fd5644184356a9927f22d990ee6275672623e79cf33e93ac898d3b74a9ee194035c0f93706f210
+Homepage: https://github.com/psviderski/uncloud
+Description: Lightweight clustering and container orchestration tool
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: arm64
+Version: 0.12.22-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.12.22-1+jammy_arm64.deb
+Size: 13958486
+MD5sum: 5b8869b1f4c2b51d386e8742bbd24efc
+SHA1: e04ed18d67b82dafc794ccedcf1407b9dd1d4ee2
+SHA256: b8d74a904357271e260cb67f179441ef57f034d5971225a0d1c1ea1d18a4331b
+SHA512: 6db54eb8a5d0c40e7254db04c8cfbcc46530d5982114596ad2216f3d87691fcbb5ad5ea8b14a50c9a4a1c8226bb87faedd6cfd200b000f1267588eabd2fb5109
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: vite-plus
+Architecture: arm64
+Version: 1.0.0-rc.1-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/vite-plus/vite-plus_1.0.0-rc.1-1+jammy_arm64.deb
+Size: 3769316
+MD5sum: f7c3df30c23a057e293e8548cceb0b65
+SHA1: fd7f6e38812ace9ca8b90fc43c912af6b6230240
+SHA256: 7eb1b291bcc90e4d64be5dd003c709d505621dba06bb89b5c5112974357c3e85
+SHA512: 9f9e47792a6d7982eb44f1e6824382b0a5c90d059a83c1d585d818c454cc4c99b9c91d9e4a2af09e837912629e2f65637cd00df29b9082581e7762701135aee1
+Homepage: https://github.com/voidzero-dev/vite-plus
+Description: The unified toolchain for the web (vp CLI)
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: arm64
+Version: 2.7.4-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/watchexec/watchexec_2.7.4-1+jammy_arm64.deb
+Size: 2933754
+MD5sum: 1dfa93678c25bbe5c1946166f9ffc579
+SHA1: a58ec2670a64eda7778c8c77522703b76a18a61c
+SHA256: 213454bc629c6bf3a292ecdb6203e9dd812de3945bbb0bd40403084b154ea83b
+SHA512: 10523664adfc280b83ab4bc67c8060330efbeef3a13380a7e3b474762cc9a009cf9524c1f8064fa12c947dda539acc6772d7b03af8c01eeb7e51054b9b92fcb4
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: workmux
+Architecture: arm64
+Version: 0.1.269-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/workmux/workmux_0.1.269-1+jammy_arm64.deb
+Size: 4392416
+MD5sum: 099564125280e9df8b49066ff7faf329
+SHA1: 07e2d2dceaa39bd47373524e72d4998f89f51de7
+SHA256: eea41835d1b4cab2dbd29bd6abd1ed8e79feb9988af1a0bf212536e47dde8dc8
+SHA512: 75b3d65d2b110a6d361f9a813b0f62d71035793f0f7fc4b1fd0ae7b65738da8f7605dcaed552aeb4579c1dc68494e0b53541a51416190b1550181135e9f79401
+Homepage: https://github.com/raine/workmux
+Description: Git worktrees + tmux windows for zero-friction parallel dev
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zellij
+Architecture: arm64
+Version: 0.45.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/zellij/zellij_0.45.1-1+bullseye_arm64.deb
+Size: 10172752
+MD5sum: b66dba22edf75721f86e14d79fd920d3
+SHA1: 0e7479afdb4441ed7332558e29083b5ba69b1fd0
+SHA256: 2b8a8b7e611cbc4213fba9c099d1be86cc22200b83f60e6ece75d583142c33d2
+SHA512: dba324b06882511c0a0f5c76d9d00788c9770d7c4c7583f47de6cfa02c3794a42b905f1223c9ec15af0c794a678f88aaf39a298925839529b8f7b234e9d2daf1
+Homepage: https://github.com/zellij-org/zellij
+Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
+ Packaged from the upstream GitHub release for Debian.
+

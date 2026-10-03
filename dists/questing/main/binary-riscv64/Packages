@@ -1,0 +1,240 @@
+Package: act
+Architecture: riscv64
+Version: 0.2.89-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/questing/act/act_0.2.89-1+trixie_riscv64.deb
+Size: 5334064
+MD5sum: ba77004b2f6ca16f1b45905165c2f28f
+SHA1: 256378120b58a993a2dadbe4057ed3cf5c368766
+SHA256: bf49a5345e50e940de1c6747a89e2a1390454bf43c5c90706860db603b782e89
+SHA512: 434d2ce7f4ed482e244ecaa20e9abecf238ea01305e36bc1c9195f3a6180f3ac8160466a320ad21e84ebde970fc0488d3a4a74457a5569a1c211a37e69a2f875
+Homepage: https://github.com/nektos/act
+Description: Runs GitHub Actions workflows locally in Docker containers, letting developers test CI changes without pushing to GitHub.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: bottom
+Architecture: riscv64
+Version: 0.14.9-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/questing/bottom/bottom_0.14.9-1+trixie_riscv64.deb
+Size: 1487636
+MD5sum: 4f501b2187e1c8a768bc6c26dd6d9b39
+SHA1: dae903301ee4b61684643f0d6ab8fa12923384d3
+SHA256: ced1c8387fc83cec4037b3066b71940877c545c14fe08553dc168fd721d5de95
+SHA512: 9ce2763be8582a936e4324331d313ff951de63d10702c14364f72cfe6cecc53b67d733b6b2fe5efbfe93dfd4d0688a30dadc9455a81c2afc1232e7eacf31de93
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: riscv64
+Version: 1.73.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/buf/buf_1.73.0-1+trixie_riscv64.deb
+Size: 21858292
+MD5sum: 7bb604b71e5003ab418182a1a2dd55f5
+SHA1: 75b799fd5de3c6f15309d171b76c7437fa76da89
+SHA256: 228d7d1c6b23bde6d58818531fc3e7d622a85d8a9eab921e1af03e4ab9762394
+SHA512: 01e48335f83cfa760c7f790a5b05a1d4231e78fae3e6133fc4813fe54b5778e436248aec9fe263227dfe7f69662ce26ab872926c840881698cde652832918061
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: du-dust
+Architecture: riscv64
+Version: 1.2.6-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/du-dust/du-dust_1.2.6-1+trixie_riscv64.deb
+Size: 866128
+MD5sum: d2c349d371f11cfbf1f44ebe430a2c1c
+SHA1: a618fc0f3f801ad3a9c40d659e34636e870851e3
+SHA256: 54a2197b9f36d32784ab0f4d6e0ef5c66ab36c7c02bdc56234c92bee4b0e5de7
+SHA512: efd51bdced9ce3cd6205ae38d44f6f7d5a8d2cee2764e673eca38076c261128d252e68116dcb8f800e5119674ce7baf9921ad6f17c9180a7694ba3c3af2f2843
+Homepage: https://github.com/bootandy/dust
+Description: A more intuitive version of du in rust
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: riscv64
+Version: 2.69.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/fastfetch/fastfetch_2.69.0-1+trixie_riscv64.deb
+Size: 4453148
+MD5sum: 4a9048202e38ef9e8f28985a830f1c18
+SHA1: 883829dc3ba59141cc824a41c603e6ae409c2469
+SHA256: 3c5fd108f2f1f520fc7f92ac002dcda645511eaf2a403a0209507581d9c9a891
+SHA512: 7ff7e42b34268dc769c4dcfad98b2ec6f8b2eb81267b66e5c0dc704769aaa214c04d83e40303441ffc0acc898685fc28dc36648e7fe6e4ea188d8c33abc2f81d
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: riscv64
+Version: 0.74.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/fzf/fzf_0.74.4-1+trixie_riscv64.deb
+Size: 1647336
+MD5sum: a8b8341bfd42a18a3ebdfbb8e9a82f0f
+SHA1: 844f827cc2291d3c81a2476b44e1e0fee6681d80
+SHA256: 7686795dd0ab29f1a6a654929770fee376cbf0a87ea02c6ff92bd2536e2b6d05
+SHA512: b703f00fc68ea56b04ba4d8e79cdc8a6f9c483dc42ec403734103a46463cd02c70c4f859be7aef36c087dd3976205e493b16ee1b3cb8604b7f79aff7c562660e
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: riscv64
+Version: 1.58.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/questing/just/just_1.58.0-1+trixie_riscv64.deb
+Size: 1748184
+MD5sum: a0f6d121b8169a875835bcf7b6a42a15
+SHA1: ae5e700eb89acc7e41aedfa9d0cb08b5594ad338
+SHA256: 0c286931fc27313b0387bfca937e3998d8ceb520bef34178d130dc3417f9dd98
+SHA512: b3ff2ceab678962083e9c7ea982e8a42fdd4ae0850c9e8979d35e49e646a36338157ef0eff00994352566eaa3a194c7042f1fc23d9a2635614efef5b561d9676
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: riscv64
+Version: 0.116.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/nushell/nushell_0.116.0-1+trixie_riscv64.deb
+Size: 53510168
+MD5sum: 99b11febcdff95c6958c62689872ae04
+SHA1: 814e8089d58d5dc02b2c572113978738ad448d05
+SHA256: 39acaf637d593282c31173155b3a8b942fbe608db39ca9f1a762467a32d8edb2
+SHA512: 3b2e656b09b766f42bcdda3985aeab96fee982d5739bcca28ddefdc388c165516ddeaf399464d9694011ef267e13a5585e7cf1f79ef2cb9d32c430a488431912
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: riscv64
+Version: 0.16.10-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/ruff/ruff_0.16.10-1+trixie_riscv64.deb
+Size: 7155772
+MD5sum: ce169aefa1af0471e66960a5dc283c4e
+SHA1: f13ef0e46b8dc5cadb4ecaac955d3116402c9567
+SHA256: 568c13e1ece12fc9ca2b9aa98bce3828464b648cf9cf1d7f3700f9144eb829fc
+SHA512: 2a7d58f6e2618cf0094b80df3c46399810187aad03e3237c33bd62f85d0a5e46044b5542a79e2a354b730ccb1835c9b705be079f457af081afc0517a113da838
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: starship
+Architecture: riscv64
+Version: 1.26.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/questing/starship/starship_1.26.0-1+trixie_riscv64.deb
+Size: 3681236
+MD5sum: 62606028bd8b4debd25c0c10f2aa359c
+SHA1: 4b037acf7ece61d4407fbfb92b1659aeb862e28c
+SHA256: 9f6f05aabc7ad038cf086f1620d9941cfc8a91a5e4da0ad89f0db48d4be12f62
+SHA512: b6d86767ead7185ab8ca0cad618051ba97564c521b96cf9917ec8eb8ede0e339dc6c9f7f110562b83ae597be0250c27980eba8ae6c10ca37cd8bc34a5e448936
+Homepage: https://github.com/starship/starship
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: riscv64
+Version: 0.12.22-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/uv/uv_0.12.22-1+trixie_riscv64.deb
+Size: 14625000
+MD5sum: 5c02dc6abd6d7c2fbb399e379e8dc4de
+SHA1: f8c584b0fc5e3dbbfb57982312e398ae1f0fd08d
+SHA256: 690c4a5aa554e21b4fc00b45bdd435c189f44ca61a506d4ae7a24a94bd87e1bf
+SHA512: 8f96ed70cf99cc619d1d2550f40e66ebc1dd659af1f66de07c9a49e9dae5c6b0a3a6317a55813dcdfebcd2446a14b97e8dcf4e07704439c759b1402308d7b9fa
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: riscv64
+Version: 2.7.4-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/questing/watchexec/watchexec_2.7.4-1+trixie_riscv64.deb
+Size: 2850700
+MD5sum: 83fe5d1f8d6fbbbb51599eb482045bbb
+SHA1: 6e48e85f365307924e46860a9e35fd68144f67cf
+SHA256: e0c4f9cc8fd28abf7e73171528f311c7bef70ca418bd74587b7f15c7b2dd9800
+SHA512: 546285ad8418a224821fcaaac537204e91865b352ea2bf6e815349f35138c4a23bd820873ee46c41c65f60b26149a4aa88607c3ed3d5084a3c7502c118b0e62a
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yazi
+Architecture: riscv64
+Version: 26.9.1-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/questing/yazi/yazi_26.9.1-1+trixie_riscv64.deb
+Size: 10945204
+MD5sum: 7ca765cf56f2f4beea5f91d29dfcbac5
+SHA1: 7e618e9b023c4e26abb75298043bf737c7e5b677
+SHA256: d45193b5369ddfcd8805f339677ddffe0018eb279181a434db043e63fc5e0f56
+SHA512: 3ad87578f7aef46c069ea5101474824c40df9bc9fb3aba3995e8e16f30fa1298def7bb49d9ad9601c716f9ee5d0740cc33ade4b589f41015fa85a9974a739404
+Homepage: https://github.com/sxyazi/yazi
+Description: A blazing fast terminal file manager written in Rust, based on async I/O.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: riscv64
+Version: 4.53.6-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/questing/yq/yq-go_4.53.6-1+trixie_riscv64.deb
+Size: 4080060
+MD5sum: c8e87592a27c03b48c72004c4a3072e6
+SHA1: 321b9cca46b806476fa54f90a4cc2cb7eca2db7d
+SHA256: 1e8b6df533cd73565c22db6538ed2bd9114999008b133545d877d5690e914ca4
+SHA512: 140401f060bb5222cbcca229b799209252aaa03ad2459d99a93b25f94866fca85b1d86588e9dfcd535600c4e44c39473512a3f1d6df8977e4a4a5561062f8288
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zoxide
+Architecture: riscv64
+Version: 0.10.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/questing/zoxide/zoxide_0.10.0-1+trixie_riscv64.deb
+Size: 408628
+MD5sum: dc567eaabce32dc7734a615fecb100d2
+SHA1: 864485894d69af3da15cf4a477005ff93cbc1edc
+SHA256: 995ba2f9815aff209bbcd9b8f3e4fe901bd56661eab96248f1031c4b070a63ff
+SHA512: 0f37e4e941c9e0fc07413fac0391c8ea6567c92bdbf9eb10c0701ee379e3e3f91a15b503b174756124f8e804b1a0afa9c885e0516944f60bcf3fb06ca368b769
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: A smarter cd command for your terminal
+ Packaged from the upstream GitHub release for Debian.
+
