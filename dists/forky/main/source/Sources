@@ -1,0 +1,1537 @@
+Package: act
+Format: 3.0 (quilt)
+Binary: act
+Architecture: any
+Version: 0.2.89-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nektos/act
+Directory: pool/forky/act
+Package-List:
+ act deb utils optional arch=any
+Files:
+ 671e05de8e97e3c083a0d05255cd79f5 835 act_0.2.89-1+forky.dsc
+ 6392161888bc814e8e8eb0ab3473006d 6023400 act_0.2.89.orig.tar.xz
+ 1c90df2a0f5304c3fd297cc48d9fd9b1 1536 act_0.2.89-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3c4636bc23c0a1b87185bfa589e87de12e08ac2a 835 act_0.2.89-1+forky.dsc
+ c1e7116c55d2d590e925715cdb32c51470d85b45 6023400 act_0.2.89.orig.tar.xz
+ 5a62fafdc740830787286aaa65028ced80b274e4 1536 act_0.2.89-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 5704a4fb42fb107705eca8e1b9b0a44eb735e43bfe0610757afd45c6dc8d4bee 835 act_0.2.89-1+forky.dsc
+ b0d9c2f88f26073b18494122518ac49515251daf72f580bf0e784cf26b9191ee 6023400 act_0.2.89.orig.tar.xz
+ ebf9715b00efe03b008c42f9f6da67a504e21a5cf1a91f8a68fb05968c6c9e28 1536 act_0.2.89-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 8a412c04643165ed6d4f6cd91a44eed47d2f5a0508168180db9d42538a6488f973d802470782e54fae691f8ff02bce67d5c11000e08703606d7ba986175f6424 835 act_0.2.89-1+forky.dsc
+ 1d62a2e122bc26d2e1bb64bb9b991acae886d9db77a1c1870af65e476dad10e588187e12c43b84e59e92efc69b8410a57476c775b5e98ec6d5a10a83979753e0 6023400 act_0.2.89.orig.tar.xz
+ 81d879ad1307b00c906dbb7dcd2acaeeed9247ceaf5c7902dec1ef9d4d571910f8a81fd7ca36b508a6cd91b77af45ba3916a2720da06ccbb16419eee892d23f2 1536 act_0.2.89-1+forky.debian.tar.xz
+
+Package: atuin
+Format: 3.0 (quilt)
+Binary: atuin
+Architecture: any
+Version: 18.23.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/atuinsh/atuin
+Directory: pool/forky/atuin
+Package-List:
+ atuin deb utils optional arch=any
+Files:
+ 17879fe069ec6a7bc668baec31bfeab2 866 atuin_18.23.0-1+forky.dsc
+ d4edcc0ddd8009e2a6242169b998a2eb 11198176 atuin_18.23.0.orig.tar.xz
+ 85a2ce9f71c8a782a25b32f9245f1e48 1496 atuin_18.23.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 56124816f217cedb38de7799889363e4dfc6aabc 866 atuin_18.23.0-1+forky.dsc
+ 32053abc1bdd790939972a9ee102c452d9632fc4 11198176 atuin_18.23.0.orig.tar.xz
+ 10d4b1249926c781fedaf3d96b7c86300d6027e7 1496 atuin_18.23.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 40b6f659faeeb2b2b2f561259454f2d03d3c43cc506a2b393f27507afded94b7 866 atuin_18.23.0-1+forky.dsc
+ bf31b9d32d17dca0a90fc6ff8ed4223d93e7faeec24866f931502d5748597678 11198176 atuin_18.23.0.orig.tar.xz
+ a5e0df2317036cd1ea68827d7cda1537132dbdf2468ec1285705862c653e995e 1496 atuin_18.23.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ efc731dc0d3087d2f18f6c991c61bb20dd50e6870460e9b2443c6d165ca221b54904c1698c1eb79702bbc8eaa2d30ca6846f5266176a9e007e88ee9093377782 866 atuin_18.23.0-1+forky.dsc
+ d55519a2f16e395c5783da5c6b0f5358d5eb1c109b56c52f5108ec299b6239509307e591429be1e41cd1a6cb35b60268eeff220d46616f28387b8565673111c9 11198176 atuin_18.23.0.orig.tar.xz
+ 02d191b0aaff51b35cb7f484ee35e671876b278c0b0d1487b71e7170cf42dfdbb96f9a328db1a8244e080d1fb03ce52822271cbd0c31f239573c79d5f4659878 1496 atuin_18.23.0-1+forky.debian.tar.xz
+
+Package: bottom
+Format: 3.0 (quilt)
+Binary: bottom
+Architecture: any
+Version: 0.14.9-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ClementTsang/bottom
+Directory: pool/forky/bottom
+Package-List:
+ bottom deb utils optional arch=any
+Files:
+ aa36147d4761232a1ac022617da70bb2 871 bottom_0.14.9-1+forky.dsc
+ 8b99a03e29acdf047e32cd2293186c3e 1499952 bottom_0.14.9.orig.tar.xz
+ 3247b8fa6f7696b0f12306e4ca0bbd31 1536 bottom_0.14.9-1+forky.debian.tar.xz
+Checksums-Sha1:
+ a02afffaad99ca9ac51e5a9811d4afdd6821d19f 871 bottom_0.14.9-1+forky.dsc
+ 1870848dca877be70efa6d8945cc8cc2519f5c3c 1499952 bottom_0.14.9.orig.tar.xz
+ 73a7d3ef448d5ea172e46276c207f0e4974c9b95 1536 bottom_0.14.9-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 63e1c1127a4b504685e6c105360361d288d38f024fb5edd19ef72b12f084c42c 871 bottom_0.14.9-1+forky.dsc
+ e66414fcadeee260ef086e564d298c6010bbb916f37aa4cf47627fe58d53f4d9 1499952 bottom_0.14.9.orig.tar.xz
+ 03cc55f970617a03758903aee9cc92b5b8384b7b8500d4afdda18e014c475524 1536 bottom_0.14.9-1+forky.debian.tar.xz
+Checksums-Sha512:
+ f78ae1ab1e7530970aba6b2236b2156d70fc9484c1adc68d8a6a22346ebe387b57df6ef45b60d4ee3ab88e70ff823b6c67b7a5ab3d4cb96dc48a9be4e5ae8799 871 bottom_0.14.9-1+forky.dsc
+ 1c098146199ea3bd96b1d01088b3b15c0c5550049b24dbdede191106221898464dd98b763eff7005c304dc02da5766143b1b13ce0f6f2036883cc9c4f090abca 1499952 bottom_0.14.9.orig.tar.xz
+ f69829cc3390fb418c111b3d93b9b8f15df8ef29bfe2e70e76b71ed031efba51c55b97392b71d51a9849faa12a0d97639eadeceafdf4404cdceb8f46a9851f48 1536 bottom_0.14.9-1+forky.debian.tar.xz
+
+Package: buf
+Format: 3.0 (quilt)
+Binary: buf
+Architecture: any
+Version: 1.73.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bufbuild/buf
+Directory: pool/forky/buf
+Package-List:
+ buf deb utils optional arch=any
+Files:
+ 8f280c546bd61d6b62429d6afff11dfc 840 buf_1.73.0-1+forky.dsc
+ 658b690efa809cc7ae74bdcde14cc4d6 24269448 buf_1.73.0.orig.tar.xz
+ 576d98b7a97dc79610be174645488c09 4640 buf_1.73.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 85f657da3fd647d88bcab5ff8f461841f99671f0 840 buf_1.73.0-1+forky.dsc
+ e94255218a4b7edd47122f1378a01191b223b8bb 24269448 buf_1.73.0.orig.tar.xz
+ eab6b1a720c44bb7c7cc26a40b3a814e7cf822d4 4640 buf_1.73.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ ae4a7a6e503102a091d720b3d65986102f601e8f9c3795547cc5e7a6f7952a6c 840 buf_1.73.0-1+forky.dsc
+ 2926a66a9c8e7d465d0f687491249cb471c40714c22569c1c3d4f5d44d0531f4 24269448 buf_1.73.0.orig.tar.xz
+ 16ded4634ad7388af51eb4961771217ad4a25f67b7b15658ad59e136e151aa9a 4640 buf_1.73.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 82ff11c9dfd5e064a88e58acf6911fcc47295223e0bfcefc46e6689c8397c81ab516914d8676843dd59360c89c2d5866f78f4b957eda92dee286b245ad2b5e28 840 buf_1.73.0-1+forky.dsc
+ 61ed9450957a786cd86158b53c73c2ca3c2bdc521588a7335da4d4532251bec0c33ea0af9d2e0069c6782a9b3a93c56accfb2739b0d23cc438616e4d98841eab 24269448 buf_1.73.0.orig.tar.xz
+ 5ccb1894364bca97e596c6a11658c63fbb833f1fa38b5b301a911b6959e115e84d283272b41a23124a0c9cc5f45840bd98814466e8191558ee3518d05b54920f 4640 buf_1.73.0-1+forky.debian.tar.xz
+
+Package: bun
+Format: 3.0 (quilt)
+Binary: bun
+Architecture: any
+Version: 1.4.3-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/oven-sh/bun
+Directory: pool/forky/bun
+Package-List:
+ bun deb utils optional arch=any
+Files:
+ 61d5dbabae1453f52c753efe84ae830b 832 bun_1.4.3-1+forky.dsc
+ c08d76cfe2bb9702b83310bed373af68 32152752 bun_1.4.3.orig.tar.xz
+ 44b5d50d7a6d36c162d54dbf5cade1a0 2768 bun_1.4.3-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 904df5f7fb2d3e9f6e16137e30a60a72ad1b1072 832 bun_1.4.3-1+forky.dsc
+ f7398910c079e959400358f67e15f27c7394c565 32152752 bun_1.4.3.orig.tar.xz
+ b9b16ccdc334f52388aa52847f83e68ed0eeb7fa 2768 bun_1.4.3-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 870b5fcaf070efc60f724b23d9f9727abe400c526c746b60fcbf47dc70d26956 832 bun_1.4.3-1+forky.dsc
+ c29656180deb9788aae66ae5cdbd1146c72ac4da1d2de6c42ad6accd2bbb0267 32152752 bun_1.4.3.orig.tar.xz
+ 6ab84f0a88e071ff3fcf6a3bde5edf4cf1a1ca8f3c558776fd3fb9ef63af0933 2768 bun_1.4.3-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 1a31c50c748669a1d0e282d175ae3add3f3afe6f21bf12992d4ec27d9980f6a1d392efce040473b8f6ff985c124782ab7bfa0280eb2a557a45e602f3c13c4134 832 bun_1.4.3-1+forky.dsc
+ efe256e5f1729a9facd5adeafc73bfe143d05cad317892144bf9eaeb0c937823ea5b4748ebde30bc8826d0b9b52ffb51c602f5446d3802453fbfcfe36a32b9d0 32152752 bun_1.4.3.orig.tar.xz
+ 207402316e08a4bcbf980fa297d5ea419fbf965324a89aebad836b4130c004636661dc8ba29ff47223d267690c47aebba286d8c6a3bf62747a89d29e337f07c1 2768 bun_1.4.3-1+forky.debian.tar.xz
+
+Package: dasel
+Format: 3.0 (quilt)
+Binary: dasel
+Architecture: any
+Version: 3.11.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/TomWright/dasel
+Directory: pool/forky/dasel
+Package-List:
+ dasel deb utils optional arch=any
+Files:
+ a673430a3e93176bd536a87aec991192 858 dasel_3.11.2-1+forky.dsc
+ e716947f9a5c9752338a421531c165b8 3049000 dasel_3.11.2.orig.tar.xz
+ bdaf7af919a03bee09f172c0f7fe7f33 1508 dasel_3.11.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 837de0798e094db24c141370f084fa7ab55daea0 858 dasel_3.11.2-1+forky.dsc
+ bdb76e5e6532100910c27df2afaee39072cc70a1 3049000 dasel_3.11.2.orig.tar.xz
+ e60fad6dead7afe54469d9a200bcd7f8e219d452 1508 dasel_3.11.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 868f542e74bd13b73efe5a51ec12b657bda1773638f4b1086a34fa751f49b44c 858 dasel_3.11.2-1+forky.dsc
+ 2037ca5d1cfe67165b4c54a8530b15557760fea7af735baff7aad9172da7d9b1 3049000 dasel_3.11.2.orig.tar.xz
+ 1c428f98bd4f8114f65364f74b0e7f8e601400dc4500b0991b45b90674d7d2fe 1508 dasel_3.11.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ bc1c93d3954fe3dfd8de013e18c98c696f99f197e98a7208d1349ea4e02a38b68e9c1a1a6a2bc2085ce20e5f777995dc5676d3a73462b5d647aef8fb6159f80d 858 dasel_3.11.2-1+forky.dsc
+ 54fc23130b5d54a33ac09cabcc479658b8382fcfef8f4fb489b85549555f0fd2c81261a195cc187699445e0ff24fc63d8db727dcffca9b8be0736e588fa68b60 3049000 dasel_3.11.2.orig.tar.xz
+ 557110cb0d1fe584aa835af1550009a7269d736efb64bc258fbedf3b055506fb5f1a0698795ec6b22d3c8ba9a5deb9f82e77dabf98050e85928bff2c33e78cda 1508 dasel_3.11.2-1+forky.debian.tar.xz
+
+Package: deno
+Format: 3.0 (quilt)
+Binary: deno
+Architecture: any
+Version: 2.9.7-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/denoland/deno
+Directory: pool/forky/deno
+Package-List:
+ deno deb utils optional arch=any
+Files:
+ 091ae5a182097a59a11fbd36aa7aa648 843 deno_2.9.7-1+forky.dsc
+ cc27a4ea34a079947e6f9c0c91c5ca93 30596016 deno_2.9.7.orig.tar.xz
+ 620e07f866f3ab0ab5ee327130638c9d 1504 deno_2.9.7-1+forky.debian.tar.xz
+Checksums-Sha1:
+ eef792f8cd25ecd3360e6e2e356f5cf93a505e90 843 deno_2.9.7-1+forky.dsc
+ b208a5a5fefefed0dc738cacc487176982ced418 30596016 deno_2.9.7.orig.tar.xz
+ e8976ae115a115d4d8bf3a9412376cc8b12c02d1 1504 deno_2.9.7-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 75ca7393919bec023b3b5ade55850c603c00198952521d6f9c8cd09dd6089d59 843 deno_2.9.7-1+forky.dsc
+ e6147e9693049d9eec88398be5213fc75edcad66bba70fe0f13a6725781709dc 30596016 deno_2.9.7.orig.tar.xz
+ 192e7579e0853be06add05be00b5bea406e376d4ca831e34daba9d5c37829527 1504 deno_2.9.7-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 7b4dce72f047e5d424b6122760aa43a481a3eb5059759cff4b8202e220d14f523d0b3ce20eec201f5c06fcca2a795a0e89feb903614ffff6a2d033a71d083190 843 deno_2.9.7-1+forky.dsc
+ 1d20d031ee1e1662450d331040a4854cae7f9b62078af06e67df7a1905581a33f4698d7f60a71e5e2f0062d7ab6550c0604e91aa5ec5a69b20c5de0e36f73701 30596016 deno_2.9.7.orig.tar.xz
+ ba28cc4bb8e3ac1a254e76b69639b19ffc3289eb355fcf7cf5729023cbf4e5cfea75e7fef39c9d0d4301a576299d21be9daec608f46b2b609f0eceb5e0bdb346 1504 deno_2.9.7-1+forky.debian.tar.xz
+
+Package: difftastic
+Format: 3.0 (quilt)
+Binary: difftastic
+Architecture: any
+Version: 0.71.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/Wilfred/difftastic
+Directory: pool/forky/difftastic
+Package-List:
+ difftastic deb utils optional arch=any
+Files:
+ d88bb7e3c8c4c4a21eceb634a0d73c0f 906 difftastic_0.71.0-1+forky.dsc
+ 0d174cb76cce3a34fe3cbb6f3a50834b 6807352 difftastic_0.71.0.orig.tar.xz
+ 4f384d375badf362a4c88d026b51108a 1560 difftastic_0.71.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ a94f991a8a52fac10c43675d110c4d7845c7bb40 906 difftastic_0.71.0-1+forky.dsc
+ c0908a60fa07f7955f15ad72c09b7c5f1e146f90 6807352 difftastic_0.71.0.orig.tar.xz
+ cf3abf572cd1afc942e77ed22426552b611d1867 1560 difftastic_0.71.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ cc1f2f974a4c6a7f239529a933ce94ef2edbc331a65bc81dcd882cc265b469b0 906 difftastic_0.71.0-1+forky.dsc
+ df79a4597a629180846df60af88afca16bab53d0e296b61cf2aac83753838e46 6807352 difftastic_0.71.0.orig.tar.xz
+ a7036e827fa4b17d74f90c4da61a8f113a4669203a43f0852677eaf44dcf237d 1560 difftastic_0.71.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 0551477c1f765f39380dfb433f2356a74dd51df492592a6617fb849cecc3bc4e88eac345f78ea020d1fa5f395b4432fa7f6109f1852f1e8cd4885757ff694786 906 difftastic_0.71.0-1+forky.dsc
+ fee6d33963e8fedeedd7fa9cfd0a75ecfb22b3e160b762ddeb8b3598aadaf1119d3a9786925c3d24e22956db51e888ac5d62c4333cc0cddca1537e70ad4262ef 6807352 difftastic_0.71.0.orig.tar.xz
+ b8acf2e62c0412e9013187bb0a2f12119d00fdfdc9487c2337e9965fd3a7348cf637079c19bc38002f1fb37e37f691f98dcce1f0567e024ab63ec98a083168be 1560 difftastic_0.71.0-1+forky.debian.tar.xz
+
+Package: dive
+Format: 3.0 (quilt)
+Binary: dive
+Architecture: any
+Version: 0.13.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/wagoodman/dive
+Directory: pool/forky/dive
+Package-List:
+ dive deb utils optional arch=any
+Files:
+ 1e415116a6ef977e414b0172a8b9becc 848 dive_0.13.1-1+forky.dsc
+ 2ede6672c8387396f396162582071441 3073748 dive_0.13.1.orig.tar.xz
+ 106d5ffd7dbe3540e53bbeb1ff05153c 1532 dive_0.13.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 62941018169e21ef724e31c7810761e84eede9c4 848 dive_0.13.1-1+forky.dsc
+ e1ac8b3ce3eaa306a90f62b14730f6a21d2a2d94 3073748 dive_0.13.1.orig.tar.xz
+ 0f740d021329a99063f19e59aa8b25f833ffd3ad 1532 dive_0.13.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 5c0db9a3e38dae530ce41cfe950c4b3f7fa588efdcfe939adbc4e0d14c95999b 848 dive_0.13.1-1+forky.dsc
+ ac8075d4513288b156b857c05ae75bc75e2d9dc82a2a8827b32a01b8e9135ac9 3073748 dive_0.13.1.orig.tar.xz
+ eb2fb6b11fc588797701a967dbf85537ffc995fa8bb0e96ed381b0620ff14198 1532 dive_0.13.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 08d72867b3acf7bc39ef0c8f915645549b40f787b556dff97529b0fd6339d32f3b9bc1f05dc3bc626415a72c19c959936108b60e6e5ddb87438709b66f0f9b3a 848 dive_0.13.1-1+forky.dsc
+ 253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
+ ac1496204c9576ef9864e9bcccb81d4863fa35d6e48837433890bd73664dfa6aa76041bce479be7d38fa2eb602e978519b283a62230a6caf7364e346e0284c05 1532 dive_0.13.1-1+forky.debian.tar.xz
+
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.6-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/forky/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ e79fe524b596daa75952f7dd67f417bc 864 du-dust_1.2.6-1+forky.dsc
+ 88cd8385ddf87152a0607290df3691db 895512 du-dust_1.2.6.orig.tar.xz
+ 07b6928ff5b90fcc1603b6ba30e8c10b 4628 du-dust_1.2.6-1+forky.debian.tar.xz
+Checksums-Sha1:
+ d6024ab4b6f31b08aa1b9c4f21607f77960d01bf 864 du-dust_1.2.6-1+forky.dsc
+ 80534b1bbdcda5b433104f965e36219d7b0b38e5 895512 du-dust_1.2.6.orig.tar.xz
+ d82a601a46dedfb6e4a63ce546837ad12baa66d8 4628 du-dust_1.2.6-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 774ea02eefb5b724b04488813853b42175e389ce9483d2c867943cc2389932b2 864 du-dust_1.2.6-1+forky.dsc
+ 4ede0731c637000406c440d1e9a3a567cff7773cc54f13f2c7b01f2775f5ea43 895512 du-dust_1.2.6.orig.tar.xz
+ d54721a8160ea938c41f6f43864685609c2f42a369641c77eb524ac2617e9e09 4628 du-dust_1.2.6-1+forky.debian.tar.xz
+Checksums-Sha512:
+ f88b4f490d247e3d675c71a5f766373ef87c19102f9eb8f2584c3c225cfd1602b959179a496d068858521825a097e763b1e9f179eff61885d6386aa684b3c374 864 du-dust_1.2.6-1+forky.dsc
+ b2e519716430cf1062f44fb4aef96fe71fec8f62aebc2ccc5aa8051b6f56367c0dfee7e19501de6426ea504ebd0585b3c18941935d7d6deb98cd7ae5eb24a674 895512 du-dust_1.2.6.orig.tar.xz
+ 080e41bc6c8be5b9aed304fd4ba7e40eba69ac9e8b9b62f31877b883c9731516fc4d654063405364d67818c0f8b57c47a875129a06d790b5aec9c46e1ed6050f 4628 du-dust_1.2.6-1+forky.debian.tar.xz
+
+Package: duckdb
+Format: 3.0 (quilt)
+Binary: duckdb
+Architecture: any
+Version: 1.5.6-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/duckdb/duckdb
+Directory: pool/forky/duckdb
+Package-List:
+ duckdb deb utils optional arch=any
+Files:
+ 7ffdb74704f7e01c01914c6b2a66dd42 861 duckdb_1.5.6-1+forky.dsc
+ ad4a47846be5e4ecfe100bba77c520d4 14734172 duckdb_1.5.6.orig.tar.xz
+ d6ef969fe51ff4820f6cea692c727023 1504 duckdb_1.5.6-1+forky.debian.tar.xz
+Checksums-Sha1:
+ d5107ce9b1f63a87fc1ffcb7b5b789690c3162df 861 duckdb_1.5.6-1+forky.dsc
+ 8cf4527eea04fa71482825a23fb7efc725b2ba3d 14734172 duckdb_1.5.6.orig.tar.xz
+ 8be8dadbb146bd56c3f48809035b955e28922fed 1504 duckdb_1.5.6-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 083bde2bfc8c2ce9408045e2ef6ba17373e3c2b12f392e9c69cfc388b1445919 861 duckdb_1.5.6-1+forky.dsc
+ f3447995c7ecb38f43ae783219c478ac81395fc305f493be4465d96f35104793 14734172 duckdb_1.5.6.orig.tar.xz
+ 4ced231efc59fecae75b31fd28133f4bb0c06219340b7e8cc4d86239bfcf3c96 1504 duckdb_1.5.6-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 15c8385278b7fc694760bc245b543b2665514c019c48205b5f8b8ed5c84f25099780bacc4a216e94249cc0a56106b2e5e0480e0acf99648e73e6894da0aeb087 861 duckdb_1.5.6-1+forky.dsc
+ 129be9a529b4a06595d07d1b58fcfe3d5a1d605a6a4567dbffc77f27be5a87188793ee49573b37cfcad9bf4acc3481fcea7b9e2ffb48cb7e02cb03302cc9468a 14734172 duckdb_1.5.6.orig.tar.xz
+ 38afb7521bd4e45d63818339054f4bafd749627449b19b888da9a773f49f7e5d3280b931521fcfc3a764d06584ea20b3715cf54a433e4c3a40914370eb2a03b5 1504 duckdb_1.5.6-1+forky.debian.tar.xz
+
+Package: eza
+Format: 3.0 (quilt)
+Binary: eza
+Architecture: any
+Version: 0.23.5-3+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/eza-community/eza
+Directory: pool/forky/eza
+Package-List:
+ eza deb utils optional arch=any
+Files:
+ e20de1cc054d61f9f96674d379bf7598 839 eza_0.23.5-3+forky.dsc
+ 54552fc8935a845a0cd4f7dd06b7ce1f 990064 eza_0.23.5.orig.tar.xz
+ d3a01b42aea39bc956003773cb4f1d1c 5476 eza_0.23.5-3+forky.debian.tar.xz
+Checksums-Sha1:
+ 42dd3acb4465c9b798404b7aa71b995172b92373 839 eza_0.23.5-3+forky.dsc
+ 218af2ed965a084a807778b4846c68cdeebbfa5c 990064 eza_0.23.5.orig.tar.xz
+ 2c829c78f43fcfa3dfb2c73892753ce2f34575e0 5476 eza_0.23.5-3+forky.debian.tar.xz
+Checksums-Sha256:
+ ce089e1477b9ccf389a416b4f940db28cff35e150c4d55e1f005bcdeef4b1398 839 eza_0.23.5-3+forky.dsc
+ f9f453250c78ac468cd085804d122321280abc32b426bb8abfdf65cf11745034 990064 eza_0.23.5.orig.tar.xz
+ 9cf91a0b261b062631ad7a4fc093eb8864e08a3e4d44188f75f114336d31c0bb 5476 eza_0.23.5-3+forky.debian.tar.xz
+Checksums-Sha512:
+ 68c51772c629d2d6f5a2611a6db92714a910df1810c7bf9f169ec8aae8a617d46bfa39ca734fe792708fec262aa74f4dc02b71d49580a63e1f3b1fb7ccf8495c 839 eza_0.23.5-3+forky.dsc
+ 7dd0ddf5d1f4448eef90281cb36fb535715c007ac4305e1452a0899dd94f06c82daf79c64d4f35184ddf5df3561d99fe066f49c662f39eab5100ef820b52776c 990064 eza_0.23.5.orig.tar.xz
+ 2a7a2e67f00a5d71e741e710e1d75c19e94ca5160a6417e05aec6fa1738f7fc446ddb6cdf50259c57313bcba8113c1b00cbb3fe0a8acc38e524e62ef90d6a6dc 5476 eza_0.23.5-3+forky.debian.tar.xz
+
+Package: fastfetch
+Format: 3.0 (quilt)
+Binary: fastfetch
+Architecture: any
+Version: 2.69.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Directory: pool/forky/fastfetch
+Package-List:
+ fastfetch deb utils optional arch=any
+Files:
+ b394bc0cbb41f5a4017e454ce4c72554 899 fastfetch_2.69.0-1+forky.dsc
+ 00edaa94a7e3445682c21f3da6722992 919972 fastfetch_2.69.0.orig.tar.xz
+ 46a855a6b72ece83887e5bc6afa218db 1544 fastfetch_2.69.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 06012f49d272ee96ccb4205cdbbba96148938e45 899 fastfetch_2.69.0-1+forky.dsc
+ d9218aff88801c91b47eb5a227615d314857f313 919972 fastfetch_2.69.0.orig.tar.xz
+ d6496b261871f1058d12653f54a293c45966d386 1544 fastfetch_2.69.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 283f9f690d0fe20892c387e0cbd39046fe509e65bafd726abd2191b1cff703bc 899 fastfetch_2.69.0-1+forky.dsc
+ 358a58dc3773843a4158dbdb306f99c492809aa19c86f6a8e9b6bf0641965725 919972 fastfetch_2.69.0.orig.tar.xz
+ 8be34908e21e230887961be25130e348bd353edf343fd024d9896c163266b671 1544 fastfetch_2.69.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ cc9a90a5ba1337410e1c90720ea989d1daab9538ad6c647cf32557b291039a8178bdf6850ad431f9b2b0a0d4a40a172edec359baa602ffa19884a622bf6b63ba 899 fastfetch_2.69.0-1+forky.dsc
+ 05e8f63d9ea52136281e16595bc4d715282ea43e814d6533f1662e90a39e2e65cac19c705f814f2b46552529ebfa0140b1982af54b00290402d92a27b681cca9 919972 fastfetch_2.69.0.orig.tar.xz
+ ce975ad560e3e5dad44df19e2eb456755dfddefc9497b6bd504f34dc0732e9a9fb580fbb7a2f453e129652125415d45bc0fd1d3040a393e9bcc1637a1b260396 1544 fastfetch_2.69.0-1+forky.debian.tar.xz
+
+Package: fd
+Format: 3.0 (quilt)
+Binary: fd
+Architecture: any
+Version: 10.5.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/fd
+Directory: pool/forky/fd
+Package-List:
+ fd deb utils optional arch=any
+Files:
+ 9d10f67b2400bfa969d2bee8f38332cc 826 fd_10.5.0-1+forky.dsc
+ 334a6178e92dcee30a9c5c1041ec5093 1092688 fd_10.5.0.orig.tar.xz
+ 07423ab87d887eba8ead8524c628fa98 5052 fd_10.5.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 8c6e6cf7df1b8f4b75130b28b5af04714bdc8c54 826 fd_10.5.0-1+forky.dsc
+ 7116ec8ff365d246ee2b637a73c13751d71001c9 1092688 fd_10.5.0.orig.tar.xz
+ baaef46f59803bb127deb122e5e6894d80ab35a1 5052 fd_10.5.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 22fc1311831cac654ceeae6fa687d389323c726a4a68600e0e203cfb826d5e71 826 fd_10.5.0-1+forky.dsc
+ bf718fcb14772bb462896b74065c161bfb97f524c14879e484852fb2a26f69a0 1092688 fd_10.5.0.orig.tar.xz
+ fff3d056776234412f086f2566069375a11d4e67b2b3804168855d5ee401cac1 5052 fd_10.5.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 068802954a5e873e91fafca110aa10c54b126b15384d070ba9fa65bbfca0fd847f228bcee7c9d0ca5ea84bf844b1b91519a236712eb6bdb8539640091c2226fe 826 fd_10.5.0-1+forky.dsc
+ 405aa12a39b60228ac76833a643695eccfea8d10371411205f4526b2fb1478ed7bd330cf2219b39e7c5d813029aee46782b77fc565eaa97ca66d9f35c43bfd03 1092688 fd_10.5.0.orig.tar.xz
+ 498826d8cb55ed1e129967eb065c47ed41d6daeea78f5609692e702f993c8ae3d0404ad894b2b45b82cb2dab99cf75c7cb28868c76da085be3388727b109545c 5052 fd_10.5.0-1+forky.debian.tar.xz
+
+Package: fish
+Format: 3.0 (quilt)
+Binary: fish
+Architecture: any
+Version: 4.9.3-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fish-shell/fish-shell
+Directory: pool/forky/fish
+Package-List:
+ fish deb utils optional arch=any
+Files:
+ 988ace6a2096fb9dc0723a40f12ada00 848 fish_4.9.3-1+forky.dsc
+ fd941ff8dc98e8a932cf23daee004552 3216356 fish_4.9.3.orig.tar.xz
+ bcbe2164f5f432772de9b0f3931c0c1a 1300 fish_4.9.3-1+forky.debian.tar.xz
+Checksums-Sha1:
+ e3e0fd9387ed2860799c05753f638ce2245ca6cd 848 fish_4.9.3-1+forky.dsc
+ 0304d271135dcdf919104002ff4f428484b180a4 3216356 fish_4.9.3.orig.tar.xz
+ aa48d78ad24f769927ff8b8ca474229f2cb5b45c 1300 fish_4.9.3-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 29f415ef72d2aa2033ca997c1b5ea23dd334381bf9d05a51d5d00bce21e8cc59 848 fish_4.9.3-1+forky.dsc
+ 522fe794b1f0988555cee2b84f4db0be52810bf8e85727a24c90999c07a139c7 3216356 fish_4.9.3.orig.tar.xz
+ b2a2c94971fccf0b32d06bdd050dbe2876fb1c98b846b61d671f351beb88ff78 1300 fish_4.9.3-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 582c68272b51e51744f97314e67aaf83bb6fa1bda7b5f222b03a656d92a9285fc004b90fe10cce19d9a0ad87066333492808c8e84ba171d3cee1f9cfe9dc6a96 848 fish_4.9.3-1+forky.dsc
+ 5cb1f2614d38169a261007e9c2e944f5eb56ed2ccccdfddd3f457a3079948910ed5b9f11fbe354db362c31d2b40d2a2f65c9d7c91ef41841e94d5af94f4ab278 3216356 fish_4.9.3.orig.tar.xz
+ dcd221a3e329e4b01e46a7d4ad7aad4af7f2f80c0222656e227c476adfa06ac13f8fe5c22a226a8192f50465817d7061b57dd3f5108ba5a679518c4113f02443 1300 fish_4.9.3-1+forky.debian.tar.xz
+
+Package: fresh-editor
+Format: 3.0 (quilt)
+Binary: fresh-editor
+Architecture: any
+Version: 0.5.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sinelaw/fresh
+Directory: pool/forky/fresh-editor
+Package-List:
+ fresh-editor deb utils optional arch=any
+Files:
+ 8d9aa0dc58fda5d786075115f0dd6ed2 918 fresh-editor_0.5.2-1+forky.dsc
+ 0ea27ce49af831c4afe52dc4efa12649 10509088 fresh-editor_0.5.2.orig.tar.xz
+ 86ed1eaf136517ed8c7a64c8d6222527 12232 fresh-editor_0.5.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ c9f89a9904d2f4d70ebcf1b17bec05aa19aea144 918 fresh-editor_0.5.2-1+forky.dsc
+ 894eaccaaba0f6b4129376c5323b7bd3b8031f1f 10509088 fresh-editor_0.5.2.orig.tar.xz
+ 27fbd7ac908c31ab14ee48602c0a338f339a0251 12232 fresh-editor_0.5.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ e963c5f8053f9248560bca66a6804fc5f1a7ef59d1731b8abef202f537f6af1a 918 fresh-editor_0.5.2-1+forky.dsc
+ 838868617788656fbb1a1c72ac1ba00c3beebde4b2397f6addc544ae4cdfac32 10509088 fresh-editor_0.5.2.orig.tar.xz
+ 9a29e9eb8d73cb1c9be1dd723103fdf50b5ca831c6893ec2ff8e8162aefe242b 12232 fresh-editor_0.5.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ f44c0a4397017e10da27be5d2135d47a6b7e7ef862e1f6f44f4148ea00cd7ebfbfefe1819d86589d94d5a9d7437d78070084693b26c5a7dba7ecc71209bd9b3c 918 fresh-editor_0.5.2-1+forky.dsc
+ 4206c3dc29f76b3c0ec90ac1b39dfa44d5fa729ca9438b5d5dd44c7a8c4b77f791d727a15ba5c0e46dff91dd51d919a739d18774e12b12b74075fe6df13381a2 10509088 fresh-editor_0.5.2.orig.tar.xz
+ 794efa166bf94ed3f501e148ea9afe87ee46a125b36c23d1aa4f28fb7e15df039149dbbfd861fa9810ed71b409a9a02104ab61523bdd16177b23efd9c48f9120 12232 fresh-editor_0.5.2-1+forky.debian.tar.xz
+
+Package: fzf
+Format: 3.0 (quilt)
+Binary: fzf
+Architecture: any
+Version: 0.74.4-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/junegunn/fzf
+Directory: pool/forky/fzf
+Package-List:
+ fzf deb utils optional arch=any
+Files:
+ 508823fb6fa526698a99dcfea7e6a757 837 fzf_0.74.4-1+forky.dsc
+ 842dc9fd159fd725058343be992d517e 1766088 fzf_0.74.4.orig.tar.xz
+ ac13a3b42c23266a2cbc1d4adc25f2cc 1508 fzf_0.74.4-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 6e98e82a33f7349a6e2f7385a220535aa063c424 837 fzf_0.74.4-1+forky.dsc
+ bc81f5a48a39184bc322fca6f27f34095ee9b1f8 1766088 fzf_0.74.4.orig.tar.xz
+ 2034711eda6501d18b16bdc2a12e906a8978b510 1508 fzf_0.74.4-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 7ecca0701a7764064fc59e35a83a1f7804bccf8f66c74ae3fa34aa07ee1e7814 837 fzf_0.74.4-1+forky.dsc
+ 32130ff4a84459c4972a0e2a3f8a1de97c85466056d1e49be25c07c60db17a29 1766088 fzf_0.74.4.orig.tar.xz
+ b34712895f51b53d313a3d09539c3de1b194cc4ce55a64087464986d8f62b2f0 1508 fzf_0.74.4-1+forky.debian.tar.xz
+Checksums-Sha512:
+ acc46b42ae8c47953b5cca107126580fc8f85b9a72f254ed90879191d5b8d119105595bdaf49b5ec42b23c37cf9d289b0fcd634417ff1322f4e5bbba93593f23 837 fzf_0.74.4-1+forky.dsc
+ db53b3407ee41cbbfbf8b1330671653e5d7c277571733572f8e0672030a530a60ac1041b9f58606a6829b695f0c7470d0c657ed6f8b6744caf6d16342c5b1d23 1766088 fzf_0.74.4.orig.tar.xz
+ b7deafaa40509cb8f5fcb9f8ef00f4cac678afc5fe4db17426439e44a691d1dec12a3754353dee6c29483058424f82e4e3810ea5191c5d96520b01c6991f5059 1508 fzf_0.74.4-1+forky.debian.tar.xz
+
+Package: gh
+Format: 3.0 (quilt)
+Binary: gh
+Architecture: any
+Version: 2.102.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/cli/cli
+Directory: pool/forky/gh
+Package-List:
+ gh deb utils optional arch=any
+Files:
+ adc1ff780e6d3ad8577a64616d703bed 833 gh_2.102.0-1+forky.dsc
+ e4e11629d241c04d90563c891074bade 11134772 gh_2.102.0.orig.tar.xz
+ 813b3480a4307ca038a3697c944ac78c 1500 gh_2.102.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 35b74f8627ee8815a6aa5c9021804c8af3461cf4 833 gh_2.102.0-1+forky.dsc
+ 13f8807fda75f3801d20dfdb51053becb68bfa63 11134772 gh_2.102.0.orig.tar.xz
+ d9b96c2abbf44ba4e8f87154c79dc582c9650395 1500 gh_2.102.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ d5b30a18c227ec67ccc802a20a2b42172ac72dfee232d763012da1934100a33c 833 gh_2.102.0-1+forky.dsc
+ 19d34581ee0dc58fa8a9586936edc3fe80c6a67fac825d0de89d4cb2c047f438 11134772 gh_2.102.0.orig.tar.xz
+ 8d21d4cb1f5aa8d9859ea2bd351a6c6e7ee357643643b2029526906663fc4374 1500 gh_2.102.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ d6cc59d7535f74a897bfd50ae32239724fc691f70b5ef009bdc52a6c431e8feccc7427279fdd69d846914f39c5730cfef16c8298463bb251d9cabdb3014ec887 833 gh_2.102.0-1+forky.dsc
+ 1f2749b369329ce1974d2ff74b8a947a2c88cb0a1cba7eff4b2806a423ceccadd71ffa21820cc6948ec9c329b39baac0f6297e2a2cacb3d2fb2883956f550cf6 11134772 gh_2.102.0.orig.tar.xz
+ 7555e793bf42f7bdc3678ce4ea2309cafcd897446ebc56b660b8e1fdad5f8099c62279f9b574ec8f1fb85d0524fcc8c7252ab0680a2671447dae4e5bc0c3b3d3 1500 gh_2.102.0-1+forky.debian.tar.xz
+
+Package: git-delta
+Format: 3.0 (quilt)
+Binary: git-delta
+Architecture: any
+Version: 0.20.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/dandavison/delta
+Directory: pool/forky/git-delta
+Package-List:
+ git-delta deb utils optional arch=any
+Files:
+ 19ed489698d166e48f9c493958503377 895 git-delta_0.20.1-1+forky.dsc
+ a7dbedf54e1f00e0cf527cd5e1d68cb2 2632804 git-delta_0.20.1.orig.tar.xz
+ cb469a10ab7148027689f239cf411908 1500 git-delta_0.20.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 6ee3e4067e640d5a664d9c9c2c7ecb7dc6e622b1 895 git-delta_0.20.1-1+forky.dsc
+ 7d1bf4ba401c21e574feeed6f14bed39046859b8 2632804 git-delta_0.20.1.orig.tar.xz
+ 5543fee1b9333ee1562acc5d1a60d252b6f918f1 1500 git-delta_0.20.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 53db344fe2ba0ec878a3c286e4be4bb244b7abc4ef02b10e3f00076879427954 895 git-delta_0.20.1-1+forky.dsc
+ 21a8342bf0c5ac090c7f63f8b3d834bac7894e94c51f8c789a768dc0fd600391 2632804 git-delta_0.20.1.orig.tar.xz
+ 998058b6935430c49c5a1fc106cd65244b713f588954540914c1a5ec3dff99d1 1500 git-delta_0.20.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 2373fe6977a0f339088f00d73d81ddc057efc7537f1cdb8bda053c75abbcd807c7c73d6216b8ed82af41748fff672f12dfcfcab323d6a3efc779cfe3b59c5e81 895 git-delta_0.20.1-1+forky.dsc
+ 849ac33fe37d85e6c5e5eccb3f11ff046385a92b9a30ccc7d5afebaf77011f0ff469e061c26211ffd4093e68b0cb351374867c3d48b4cb81b1e24926be6352e9 2632804 git-delta_0.20.1.orig.tar.xz
+ f2936f455fa9862893e622261cd0749498495419e981eadda06d0e74920f56b6ab20af7eac6038edd16ec81f9e2ba20a6c9e50e870e188bd21242359d02ce21b 1500 git-delta_0.20.1-1+forky.debian.tar.xz
+
+Package: gitui
+Format: 3.0 (quilt)
+Binary: gitui
+Architecture: any
+Version: 0.28.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gitui-org/gitui
+Directory: pool/forky/gitui
+Package-List:
+ gitui deb utils optional arch=any
+Files:
+ 317d145f24f6b0ae9f9033be4fda503f 858 gitui_0.28.1-1+forky.dsc
+ 196477a63be033085efad1b2930ea219 5410300 gitui_0.28.1.orig.tar.xz
+ 3cccef973bf90d43539c1648eebbb5ca 1496 gitui_0.28.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ f8fe2afb38f53f1909e2d3353a19d7398155a2b5 858 gitui_0.28.1-1+forky.dsc
+ 1310de9399d8177f6841532b7cb1a12fb077052c 5410300 gitui_0.28.1.orig.tar.xz
+ 678974db4d58cb202dc3eace4dfa1209bc305d51 1496 gitui_0.28.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 9ffd9567f213010f375edc46bc6bf8332af0950b46a20a43404c0b0d2c5ce616 858 gitui_0.28.1-1+forky.dsc
+ 65d069197b3d88fbcfc3af3e7d6c377f73fd07516acee7b0d7c79a3988cdc68b 5410300 gitui_0.28.1.orig.tar.xz
+ 3bb382527803b2d0ba7d8b16efef1b24b75e18d26199a4d930461cfe1c3d7444 1496 gitui_0.28.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 80c2c9b96365f53d6cec6e525a86a57818fa3ca0b253bd43cf7fc7d88e0bf219d13bce0ae8b3cf28b66922a128195a1f4cb88d290d06f949d30004467c2608a4 858 gitui_0.28.1-1+forky.dsc
+ 13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
+ 5a85488eb9cec84781cd06b3ad5f277b8263eb5b2a58f5d1eb8254662c8ba64e4d25f27f4e1a9e83fb2d01b56eba8b6e01a9c747fe081fddec0afe0d03e66245 1496 gitui_0.28.1-1+forky.debian.tar.xz
+
+Package: gum
+Format: 3.0 (quilt)
+Binary: gum
+Architecture: any
+Version: 2.0.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/gum
+Directory: pool/forky/gum
+Package-List:
+ gum deb utils optional arch=any
+Files:
+ c1abb143b2830b14cc2fe801226cd325 835 gum_2.0.2-1+forky.dsc
+ acd2847071193b9e2d50bc5068e65a77 3716380 gum_2.0.2.orig.tar.xz
+ ac9c6a93a20464c008c93cadb19569b0 1508 gum_2.0.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ c3250aca0a4eea7431d39e12805a2117ac936d76 835 gum_2.0.2-1+forky.dsc
+ d85da27594f39310992cee10080070a93c619362 3716380 gum_2.0.2.orig.tar.xz
+ 48176d2fda63c9f604822b86d7a79f2307407823 1508 gum_2.0.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 865508135966273c9a1f47f046b7af738edf08ef6c18bddc8f237d7860ecd44c 835 gum_2.0.2-1+forky.dsc
+ 27ffbd26418ce73e609076de00198144075dd40d7d33d8dfdbb358b02e7c607e 3716380 gum_2.0.2.orig.tar.xz
+ 1f5b22d384e41eac8793f69edfdd14ee9d6782813da26a6368481ac50cadbd86 1508 gum_2.0.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 02e5d902dcbf800f2e182534e03e7d5d45c807491410fbe2799c66437c341dd8398ac56c1e27eca4769d8e91e6fe5f6f3e3397c80300c35e6dfc4cb1f15342f5 835 gum_2.0.2-1+forky.dsc
+ 8ef8723f7bfa6b0bf88f06c182f4a4c383eefda75dc5a60a63cde7224a4acc7169bd899d448aa26db0164c35c8a0bfe4eff080c20839f4faa8b74748ef6443e8 3716380 gum_2.0.2.orig.tar.xz
+ a7ac82492615859d55f2e92262157beb9ea5dd22fa34eb4c74bde1bb6ac47ac2a6cb7a314c5484df369ca9dec7cba7e60bae693979bd72c3f3a777187e42c0a5 1508 gum_2.0.2-1+forky.debian.tar.xz
+
+Package: helix
+Format: 3.0 (quilt)
+Binary: helix
+Architecture: any
+Version: 25.07.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/helix-editor/helix
+Directory: pool/forky/helix
+Package-List:
+ helix deb utils optional arch=any
+Files:
+ f9a00bbea035c16718f48eb539349c01 871 helix_25.07.1-1+forky.dsc
+ f1265595f268a9b3b6e7188bcaa44e19 16626744 helix_25.07.1.orig.tar.xz
+ 776e4578b01601228cf191bed0c21996 5940 helix_25.07.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 14871f55f43baf7dcdd69b46255881bda79add45 871 helix_25.07.1-1+forky.dsc
+ f5b72284e8e8dc920109a04c63a4c1ba8e82902e 16626744 helix_25.07.1.orig.tar.xz
+ 9150d731a6ff1ac45f4d45e563c5d9714d05a8fa 5940 helix_25.07.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 51b26888df138f6ba797c79c19c58272ad65aed6cf9b25f4175ea906de27b3f4 871 helix_25.07.1-1+forky.dsc
+ 48a5f56b2107e64bf97d98d2252906864422e47b5a1af200f8d71ffd61a47cf8 16626744 helix_25.07.1.orig.tar.xz
+ ead8c806715ee63319f11e7b23ddf7c6f1c194c8fa581d5a9c7db642d121ff18 5940 helix_25.07.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 185ed7c9bbedde60a8c0fc406bb69e80c2934b405ce5e6ec478175fe47d2c041c99be2894af5a799da34ae5d1efabd36ff4a9b6e58ff6c9df532e036449c3348 871 helix_25.07.1-1+forky.dsc
+ 2124c182824b82d7de4369123dbc40c53ccdd0c7c3aae5dafe3e7b6958216c9313fb933e60ab07c558393041ccbd122ecce6bdd52365c74eca3c3b03092cb9b4 16626744 helix_25.07.1.orig.tar.xz
+ c10e524c66afdd06c4cc1f4e9aa9be73216c3e00554b35f1a8529dc1fb196b467d4ebe400147b864c71ddb2c57b65b9aa4d69a026561128e48068875a2ac80c9 5940 helix_25.07.1-1+forky.debian.tar.xz
+
+Package: herdr
+Format: 3.0 (quilt)
+Binary: herdr
+Architecture: any
+Version: 0.9.3-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/herdrdev/herdr
+Directory: pool/forky/herdr
+Package-List:
+ herdr deb utils optional arch=any
+Files:
+ 20fb4b8a8079ea73ffd823ff3853b267 850 herdr_0.9.3-1+forky.dsc
+ 6d5350cc08c3f34d9f097f3e93ddd0e6 7423348 herdr_0.9.3.orig.tar.xz
+ 0f56649ae5d1e6f26cd8eeef14ac5a9b 4628 herdr_0.9.3-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 01939588d7797875ff6c50919d667bd7907c0ed5 850 herdr_0.9.3-1+forky.dsc
+ e3ab7d522d78eefcb22d60926abba4191c77d8fd 7423348 herdr_0.9.3.orig.tar.xz
+ afcc97740238173b185e0323bf21310133a2af24 4628 herdr_0.9.3-1+forky.debian.tar.xz
+Checksums-Sha256:
+ ec137f2368349b1755c7df45c55d36f18f09a74661026d53600c99e4157ea4d1 850 herdr_0.9.3-1+forky.dsc
+ 7ff25e79a577ad9a9deaae3485b4c0f6ee3202e4faec805ea2e701f73716e7c5 7423348 herdr_0.9.3.orig.tar.xz
+ 8477bd16aaacd062ec0f1ef12d83b539025475a0217f8e6dc3031e96645068ce 4628 herdr_0.9.3-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 9356240dcaadc481a2f97dd32db798c78fb24dadcd652cb31c8aa8d148f171cceaccc38e8ffc0e3bb758a29708fc6c8a11f8930f65c62a5bba87a0908497c5bc 850 herdr_0.9.3-1+forky.dsc
+ c283bdc268bebd0a0955d037537f427d8ed27df7429c445613da4f90c7513e735bc4baa34351e447e554b40c8f7e2044300bcd7b66468f084cdd502db7a49c68 7423348 herdr_0.9.3.orig.tar.xz
+ c6c44f52f9bde279b8650055337be2e33eb9b14121deda983e1e520fc2c7611c1e2aa1f6dfe84c030590626d5a6d2d21e6673e220f62f91cef37e79638b61b4e 4628 herdr_0.9.3-1+forky.debian.tar.xz
+
+Package: hexyl
+Format: 3.0 (quilt)
+Binary: hexyl
+Architecture: any
+Version: 0.17.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hexyl
+Directory: pool/forky/hexyl
+Package-List:
+ hexyl deb utils optional arch=any
+Files:
+ 6f1e7fc62133dccb92a9e46f81591acb 853 hexyl_0.17.0-1+forky.dsc
+ aded8e65d4faf9f64eb01372296600c2 426480 hexyl_0.17.0.orig.tar.xz
+ 45cba63acc2b02db616128bd88f0b1ad 5040 hexyl_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 192d30d60190ad8e911a30adfa643af1eef7a57b 853 hexyl_0.17.0-1+forky.dsc
+ 9eb039c1656092373c46223e1def0ef0e7871459 426480 hexyl_0.17.0.orig.tar.xz
+ 0cf301a872c130f8206ccccaa5b7e76b369763f7 5040 hexyl_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ c1c8bb10b78deb2428b5c6ff560afebc6e060dec56ee57bec3d7af9c68e117a2 853 hexyl_0.17.0-1+forky.dsc
+ b5b1d9627cee4c43eb426992e07f3aa6f23ed64b0e7047b06e6a8db768878977 426480 hexyl_0.17.0.orig.tar.xz
+ 22e4420ff1f7ce6c8cee4649533e658351028edb39c84af882a4f799375ab976 5040 hexyl_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 680dcaff5c0368473fee3a9c24b80069e5884d9edd8970c11b3e92a4c0a96f04577dd251b39b7bc2f29fcc6e636a2c15cf4fbdd9a1444a68c1e97ed24311deb3 853 hexyl_0.17.0-1+forky.dsc
+ 2e9ca6f0ae52a475c2ce89c8f05cdd6636d1f81d647d7d7f4b4421825f48b5a187b8a758c67e0833a84adb07cd089420661b97848d9e4e2e578e4fbb81d87921 426480 hexyl_0.17.0.orig.tar.xz
+ 0a3b58bb3c31c412811631ad8915dd3ae82e3c0a2a9cc6f6321f4b8340512b08a0de8fc974c24d1ffa7b46dee279f53fedae12ab547bc3905983e4b548cf6829 5040 hexyl_0.17.0-1+forky.debian.tar.xz
+
+Package: hyperfine
+Format: 3.0 (quilt)
+Binary: hyperfine
+Architecture: any
+Version: 2.0.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hyperfine
+Directory: pool/forky/hyperfine
+Package-List:
+ hyperfine deb utils optional arch=any
+Files:
+ c7d2f3a9d782a0cef82b1ea75fab4a62 886 hyperfine_2.0.0-1+forky.dsc
+ 63d5e6fabd9b0f654a27e5aa7c2bbf98 516428 hyperfine_2.0.0.orig.tar.xz
+ 29ebc360b4a3f12863e358d6c28c0483 5084 hyperfine_2.0.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ eb80b5865e458b4ba0613547d90a1cabd620c6fb 886 hyperfine_2.0.0-1+forky.dsc
+ de01c1c7f870d48186f508f76700a868ebeaa248 516428 hyperfine_2.0.0.orig.tar.xz
+ eb364d54dd34163aa34e80ff5d755afbc7b1a652 5084 hyperfine_2.0.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 0fd6507307ac8a67c539d6c8af52746e5b1f73147283cc792157cea5504e005d 886 hyperfine_2.0.0-1+forky.dsc
+ 34541ccfb2fe402dcdf1182a1658bb986a62a206dd91e940ce51680e9effd90b 516428 hyperfine_2.0.0.orig.tar.xz
+ b9d441fd46436ed3b4c2db5da2178c13d1cc8671864b0214d96b42c420edf13f 5084 hyperfine_2.0.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 5efff895a6a136c96aece01bd8ad8d2a45c105cad9dc3c5ef4ccbfa23626f7d7d0b691453f24186a779b317dff0f1581db9f5c7b56fa881bb01c786f01e97473 886 hyperfine_2.0.0-1+forky.dsc
+ 5ed1e1c001002793eeb504e6fda49dd145228b539a2b98d782c0c00352ea8109fb23bdef216a29e5646f1193ab281e0a500e96f5e39bc2f0eab8b12a20838f3c 516428 hyperfine_2.0.0.orig.tar.xz
+ eacd4f3a39588a3640ddff7342181433e6c8f59d595c95aedfde3084ffe5f2360ae300e8cc932321a3f6222640a4193c5603288b4a9873e2e926349fa38ca2bb 5084 hyperfine_2.0.0-1+forky.debian.tar.xz
+
+Package: jj
+Format: 3.0 (quilt)
+Binary: jj
+Architecture: any
+Version: 0.46.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jj-vcs/jj
+Directory: pool/forky/jj
+Package-List:
+ jj deb utils optional arch=any
+Files:
+ 9f71b585268cc3f94e4997734f6109f7 825 jj_0.46.0-1+forky.dsc
+ 402ca0ef48984f417e88e79f0914f78b 7699460 jj_0.46.0.orig.tar.xz
+ 52bbdfbf1a26580275ef3ebdf2f1420e 4628 jj_0.46.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 7498f05192526a57a509a1578812ec4ab6f5d9f3 825 jj_0.46.0-1+forky.dsc
+ ed92f74e1eeae32666a76cf2096d31c49b8949d7 7699460 jj_0.46.0.orig.tar.xz
+ 383d7ce46feda6964eb99083fe3b991cea579d0a 4628 jj_0.46.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ c4ffe2f790887907590f07c1947e5ae8af1e37742363b3ac264c5f9b5292a39a 825 jj_0.46.0-1+forky.dsc
+ 38bc18efd02cf3d4d9cb82926291c5e8a5eb0c837c6611f0e72ab0f75f1afc16 7699460 jj_0.46.0.orig.tar.xz
+ 868d646f6e54377a18d38f478a5d5a1ebdca635f8f3f015256af3866b7dab10a 4628 jj_0.46.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ a325457eb684575f87d0a8ddfc0c88c8941911d0ee77cce22145e82c0de5815f6686c7da8d273c0ac0fa1ed2b85bb45988b973a23168c4dd2abf261874a6de62 825 jj_0.46.0-1+forky.dsc
+ f639655686a8074be164beec99467cdd17c99de9100ecea3207dc8d5ece03177463dd069f3c19568947db5a8b33ca0285d7b561bd2041d13c709580918d8f8aa 7699460 jj_0.46.0.orig.tar.xz
+ 7fd19feef1b01d5801bafd7f5f6008452bed4412ba0eebc0702befd1040c537431e3422b3be520eeca1826e534c0398ea63ef68b52048e4191906c975ef1b90f 4628 jj_0.46.0-1+forky.debian.tar.xz
+
+Package: joshuto
+Format: 3.0 (quilt)
+Binary: joshuto
+Architecture: any
+Version: 0.9.9-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/kamiyaa/joshuto
+Directory: pool/forky/joshuto
+Package-List:
+ joshuto deb utils optional arch=any
+Files:
+ b7f3e3717c548e686b5e38fc0cc6feef 869 joshuto_0.9.9-1+forky.dsc
+ d543d48e311dab96a863cbd4e7741731 2512856 joshuto_0.9.9.orig.tar.xz
+ e88cb42c98a1dc360c7f1ea42efa64fb 3432 joshuto_0.9.9-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3fc5a9f95afabb42b42d068b592026acbcd5c20d 869 joshuto_0.9.9-1+forky.dsc
+ c4851a6f903f5891b3b1d6e3f63017e1fc014c05 2512856 joshuto_0.9.9.orig.tar.xz
+ e3be392700e54db8c5aad3ecc726a80aadec4db5 3432 joshuto_0.9.9-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 586c637db68e36e378e0a90994ea5c963eddb055d10f4bcc9bb80a76d8b0af33 869 joshuto_0.9.9-1+forky.dsc
+ 9d489fad1a36977b532ae03ab1ff484ff87eaf681a5c8198f182ae0a96512ee7 2512856 joshuto_0.9.9.orig.tar.xz
+ e7c2a6511dad1df5d55246b1d011461b0b6d0537362c80e786e345bb2db5b9d3 3432 joshuto_0.9.9-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 422d9106b7d094b6badb83789099f0718e93e27e9c61058749973d7cf686085d6c8162c9ecea4f5b4c09de5a08f38061a808d3adfb1d45b06248d54553c3fe03 869 joshuto_0.9.9-1+forky.dsc
+ 70c70c154c3e9eb76d350beac70c5c1e9b4fd565e2abc9a6b43223b146006ff3363ac71dcf4b046f2716c5e87016a2b686b9d116bff29e1a6e9381530be14d3f 2512856 joshuto_0.9.9.orig.tar.xz
+ 1715acf713a452419972612607033de3b67e4b8ddab89694f4ea9929831a6bd253028aeeaf7a8263a42bdc80baffa6adfbde54eb706542a15bad5c53f533e927 3432 joshuto_0.9.9-1+forky.debian.tar.xz
+
+Package: k6
+Format: 3.0 (quilt)
+Binary: k6
+Architecture: any
+Version: 2.3.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/grafana/k6
+Directory: pool/forky/k6
+Package-List:
+ k6 deb utils optional arch=any
+Files:
+ f525d4a9a4d4b0121f8e35973d2b475c 825 k6_2.3.0-1+forky.dsc
+ a8ee328d4a0d70b01ca62c07b25d23a5 26117836 k6_2.3.0.orig.tar.xz
+ 73ac3e764d5683628ca6289332507856 11900 k6_2.3.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 598acc05f148fd0782d345c2b96f13f81955bbb2 825 k6_2.3.0-1+forky.dsc
+ f9c04d759bc8c99541c3c947630e6f4b075b20d7 26117836 k6_2.3.0.orig.tar.xz
+ 63f8e58bb1fe32eb89bcbb77438bfa80ce610b9a 11900 k6_2.3.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ e23c8b79bdc5622f5f52986640a608e9c9bd4071e0e3d2afece5f289e9be23b1 825 k6_2.3.0-1+forky.dsc
+ 32577d408abf91bcf1ba8734a4a2e2f745f1c156f1ef689a6549e6816e6b88e7 26117836 k6_2.3.0.orig.tar.xz
+ 039eafb30b39bcefee3cae9f6b0210119387ffc48cfd1cf14d26d4679bedfb55 11900 k6_2.3.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ d918c2109b476018611a6f282c1db4fa46432307aafbdd037646f2faf0e960248477f284871af68d52ab375a29b52eacf87832e02318d53dd91f0129bcd3222f 825 k6_2.3.0-1+forky.dsc
+ ce80b20dc45ee783171619372e5be67a6ef19715d56e3a6017927c9cef33287ef3a7278367463e32baf22649a9b260c0351dbfeb61a09f8c4c0aee2407bc7776 26117836 k6_2.3.0.orig.tar.xz
+ b58add750034b62e8d7d5a75ac2ff0b41dd3e0f87156c80f988e6e4172eecb1c39f5dbea5a881808c899871375ed2e77afbb3835b6e3e042499ab2c3d105d3bd 11900 k6_2.3.0-1+forky.debian.tar.xz
+
+Package: lazygit
+Format: 3.0 (quilt)
+Binary: lazygit
+Architecture: any
+Version: 0.66.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jesseduffield/lazygit
+Directory: pool/forky/lazygit
+Package-List:
+ lazygit deb utils optional arch=any
+Files:
+ 48d101730bd690b8d1a63c0903a13f89 882 lazygit_0.66.0-1+forky.dsc
+ 3203fba4a167da4234fbe66e11c8199c 5289444 lazygit_0.66.0.orig.tar.xz
+ 179a53c0cd1e1e4ac24763b4aec10ec8 1508 lazygit_0.66.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ b253828fe680b97288c8c8e7b211e217830f3725 882 lazygit_0.66.0-1+forky.dsc
+ 939cf37d80f050d2e8db8b3f416a9ab307e31e08 5289444 lazygit_0.66.0.orig.tar.xz
+ 4e919cd0e9b49a2f2809554dee67f4bc1b4b244d 1508 lazygit_0.66.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 5e6f18c1e4ab8f9e91fd16ed96edd646e79b761fa32d57aea296ab53332f9647 882 lazygit_0.66.0-1+forky.dsc
+ 3bfc504e94db44063c601ff87f66230aa743cbed892a770afbef7ebcec643cd6 5289444 lazygit_0.66.0.orig.tar.xz
+ 1efaa8816319f10b82bcb8c2bf211feb2fa1002f31610db3065c9a2bc658d068 1508 lazygit_0.66.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 50d07839202b1158c05a81b3f0abd334166da2df599d47e2550bc7b1ec02c7d8ef045b78a289ccbf522c9dc13036aac05d47e218cab88f476621194173fe23c3 882 lazygit_0.66.0-1+forky.dsc
+ 743e53fc167752f0e19f0514b5466af82a74eae580dfe87c9153f23e0fc2f6d5eb28d8b6ce1577b05e2a05ad9fbb35483cd3792b768603c45fc7145a8fb5a0ce 5289444 lazygit_0.66.0.orig.tar.xz
+ 1d1201f9c75c0e4888bd584e3a1125e2fafd8dca22e6e7e979adcaf3405e05ae0f94c8a0426403e9733c5115b908f49eb46d41eb5151765d6942fc15d0451d59 1508 lazygit_0.66.0-1+forky.debian.tar.xz
+
+Package: lf
+Format: 3.0 (quilt)
+Binary: lf
+Architecture: any
+Version: 42-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gokcehan/lf
+Directory: pool/forky/lf
+Package-List:
+ lf deb utils optional arch=any
+Files:
+ 5dce868d5f51a8e52e68250d459b0c91 799 lf_42-1+forky.dsc
+ df6b204542e2d44930f35f516c4771cc 1815876 lf_42.orig.tar.xz
+ b0d45522065df1f1d365a69c5bcd6c7b 1496 lf_42-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 683ae053419cac1df61011b8d78c44a1e87b876f 799 lf_42-1+forky.dsc
+ 86dac4b93f8bdd305d349033f4173d853e0c3b81 1815876 lf_42.orig.tar.xz
+ 52961ad53a175259d1058c67e348ba619c238647 1496 lf_42-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 71055240ae4ec9485d379a7d33e4aa14f7a8bf515b94fdad9fd2d44b7a2688d2 799 lf_42-1+forky.dsc
+ 3f479b85724e7bc9845ddabe1c7890d1b4daa6404d287ef6e70e64e94b341fd9 1815876 lf_42.orig.tar.xz
+ 70b104b568e098a72dd2f4e1bcada2af0ad6e354646e5bb75af80761cd828c59 1496 lf_42-1+forky.debian.tar.xz
+Checksums-Sha512:
+ ac00560ed36ad33c8534f6b08000484e9f477e19da0dd2d1c77a6886b26ca9c09ea248bf9221c4e8885b1643e3813c8d9ec42c2be73cd10c17e28e11d9922cc1 799 lf_42-1+forky.dsc
+ 582597d854991498145e9fb3559e9da25671a16d1e3cfbfbba3dcd3be5c4dce6be76db77dfd253cb121731dacc8bea99dbd5c6ccddab163d2170b41685e4f0bd 1815876 lf_42.orig.tar.xz
+ 1004bbdfa55e63bd27ceabb9995685bf13f3fb8a189b1611c3b8ac76aafae2ab9322181996fff8e4115694eba4c5f5a12fb75074afca7fdaad96472caadaac30 1496 lf_42-1+forky.debian.tar.xz
+
+Package: mise
+Format: 3.0 (quilt)
+Binary: mise
+Architecture: any
+Version: 2026.10.7-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jdx/mise
+Directory: pool/forky/mise
+Package-List:
+ mise deb utils optional arch=any
+Files:
+ 4c5c343b5ef39465183671f662083518 866 mise_2026.10.7-1+forky.dsc
+ dc45ed50a81eebbcac5870027871e1d0 32364328 mise_2026.10.7.orig.tar.xz
+ 71f4b676e229a1209091813bb4910a19 1500 mise_2026.10.7-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3e92185c31ba4e26513bc8c8091022cb1ebc62ea 866 mise_2026.10.7-1+forky.dsc
+ 5807bb8409d136a4fc57be8d6f2dca1470c834c5 32364328 mise_2026.10.7.orig.tar.xz
+ ab67498d6ed51ee9befc6d0545403d6b055ae1a2 1500 mise_2026.10.7-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 4cd2c2d8f666ab1deb654743ede634339dc28590f968259040f0847ef68e6a30 866 mise_2026.10.7-1+forky.dsc
+ 17c8b78fc09f26c39bd18a27f3265061b11da8973bdd6b059b666582bf1d9b4b 32364328 mise_2026.10.7.orig.tar.xz
+ 16bbd04e945ec694d913401886a1c8d516bbd380ba01e4379b69123f22e2ad21 1500 mise_2026.10.7-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 4581467b0ded12177c984fe78d8e521ee0f9af4d19db9cbf210e6dd2e3a7393afeb0a59ad982a0fec217dde04befe3e8c9ccc7932ec614bc1adfe4ea0a5e4fb0 866 mise_2026.10.7-1+forky.dsc
+ b1ce882e9d91455cd388ade71f3686b8195dbd5ea306753ffd962e4d518127acea1b0752dadbba2bc9ee64183eed0242f10fdda7affcb7260152e34d43f633f8 32364328 mise_2026.10.7.orig.tar.xz
+ 48b33dd62bf80898c7d4037b0f55b1f214c9797ab5b5ef2ebbdaa415b54aee3eebd4b59f933aeebf1b569b6f56c623b5d952abadf69d4561ae75d3d918a8b641 1500 mise_2026.10.7-1+forky.debian.tar.xz
+
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.6-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/forky/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ b63189ae52daa602f16c87ca2672a8b9 865 neovim_0.12.6-1+forky.dsc
+ 7ab8b37842adf9be70cbfbdb2e40b8bd 8526068 neovim_0.12.6.orig.tar.xz
+ 4dee467e77a23eed8f7643b5217f1d46 6260 neovim_0.12.6-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3274d540f7d6c479a588c33f3becd101fa46210e 865 neovim_0.12.6-1+forky.dsc
+ d97ffb7eef1f5be224e11ecf06c8d8abdf9d2a62 8526068 neovim_0.12.6.orig.tar.xz
+ 0871e4b4f6f515f42be6b73b31b69399eb047bdd 6260 neovim_0.12.6-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 41e888f219ba518fba6674d0bd7bdd17072bd609a5de41a9e3682f2175cc6b49 865 neovim_0.12.6-1+forky.dsc
+ f0e771948dea269f564dcd2153a2968847ed76447a30b1f07c21cf56d4b1c17a 8526068 neovim_0.12.6.orig.tar.xz
+ 850b2444b4f46e079e19b435d2166a41ed9737a13aaeb00ad7102c9113996609 6260 neovim_0.12.6-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 5c49455dbcfc04d8735a5e281136ab35a57fbc0f27c2d6655639bdc9154f4972107003b5329c8fe98272f99eddcc191a6a25e191a969a9f7a069fa8a992535b8 865 neovim_0.12.6-1+forky.dsc
+ 4334c172a5d7130df28c598934b866094164aec63b73adc19c1098e53ccbb15a2dd838369d449571183bc7190740c633e1a4287a42e5f8b6d1ab4cf34f8b62c6 8526068 neovim_0.12.6.orig.tar.xz
+ 97708188bc32b4c4691040c0bcce7d877eea7bf10a235d15b055264ade0e9e45f029ee4dbe199ee8c4c7840069c1426710ecc20a389c3eb60f33c4570940265a 6260 neovim_0.12.6-1+forky.debian.tar.xz
+
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.116.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/forky/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ 7ae0b651cf1c6359333c4e21b2ca2042 886 nushell_0.116.1-1+forky.dsc
+ b6f8dd36291ea8ff89a5f87d221b9e53 52286600 nushell_0.116.1.orig.tar.xz
+ 5d813a4a60e3484fa116262adff945ef 1504 nushell_0.116.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ fd6a9ec36a22ee930e9a9c64d05c3f93d8417b29 886 nushell_0.116.1-1+forky.dsc
+ c698c1683312abff3612d514a970f61f4812a052 52286600 nushell_0.116.1.orig.tar.xz
+ bd60692f75c87926f44ecbd38b2004c5f203e128 1504 nushell_0.116.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 83ef411114a73f3bf54b0733659bfe9eea8b47f38d7052fb01ad0636ddef9aa7 886 nushell_0.116.1-1+forky.dsc
+ abbcca95c94e78e8ee65b81f8387b7f1fe9b48c12980601d70d7a54d14d5e1f4 52286600 nushell_0.116.1.orig.tar.xz
+ ef4ca9dec66ebcba4f57cd1859f02941b622072164ddd993b6e2eef24742293f 1504 nushell_0.116.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 2ff2ed6b0c24b6475eefbf14f018a1aa513b1be18e58e2e7ae10791d4ebddb74e94427d998d8f108a8a988a850aa7d85c1aedb3560578204a76b2c9ad2ca6c01 886 nushell_0.116.1-1+forky.dsc
+ 00389bbec80d1c8719a89a956f985aab6cefd378640b170a36cab6dd155bbf529373d5b3d3d4315c8a8452468cf95f773fd762d83e463418dd4afdc117f049f4 52286600 nushell_0.116.1.orig.tar.xz
+ 74b2fd193c4df1a87f900da9d22aecd7934f1b6631aa21c94a1266d6f6d9f7ef66feca2a73e7b7e846cdfc497a7584afd9e3a7f382058cbfd0c3bf054389569d 1504 nushell_0.116.1-1+forky.debian.tar.xz
+
+Package: oh-my-posh
+Format: 3.0 (quilt)
+Binary: oh-my-posh
+Architecture: any
+Version: 31.7.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Directory: pool/forky/oh-my-posh
+Package-List:
+ oh-my-posh deb utils optional arch=any
+Files:
+ c134a8c51897dc62b3839912f2920df4 913 oh-my-posh_31.7.0-1+forky.dsc
+ ae14d00ab085363a331c5e575adb8135 4333212 oh-my-posh_31.7.0.orig.tar.xz
+ f9ad01e3e09282e7f58d4ddbd5af5312 1500 oh-my-posh_31.7.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 8cfec7556c6749a55266db99dd06afa1883b730c 913 oh-my-posh_31.7.0-1+forky.dsc
+ 39f21ea90886cedf7970e8634a8aa1132b86f9f3 4333212 oh-my-posh_31.7.0.orig.tar.xz
+ a834d742939a397e6fc62ab985f8c20d6c4824f4 1500 oh-my-posh_31.7.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 438e8ad0cd9bf244f8162563574ca42412cdcbb0c0521e8d3b81a122b795320f 913 oh-my-posh_31.7.0-1+forky.dsc
+ 0be74a1392de85fb02b4e9b7ec3442e23cf90dd79db442b55be9f41fb65379fc 4333212 oh-my-posh_31.7.0.orig.tar.xz
+ 541fb5268ffd2d305faa2f53d6abf957fde05a34fe14bcb9e9ac8e0c3f3c91a9 1500 oh-my-posh_31.7.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ af212bd49018581e52b65526608e55cca12aca7b11af914aadb399f9c4c831d0db97fe1313d5e3bc422d89243f34f30b14fdf061bbc1685cdc74b2dcc492ed6c 913 oh-my-posh_31.7.0-1+forky.dsc
+ 70038f8b45604ab90851796f461a224d112605b51d353c260c5bd90e617f69e4c43849d301186c8ad72d8cd695e8c6f283aef90e0ca6bcc680cf8c29eb4c34f5 4333212 oh-my-posh_31.7.0.orig.tar.xz
+ 3c52a27acf343470519f119a7e0731959d4badbc039ba5e8c8d44d1581f335b14dd39c0a3dcc89de948087c31e2034796e4d45417aff3d41549a031cbf71da8a 1500 oh-my-posh_31.7.0-1+forky.debian.tar.xz
+
+Package: pnpm
+Format: 3.0 (quilt)
+Binary: pnpm
+Architecture: any
+Version: 12.11.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/pnpm/pnpm
+Directory: pool/forky/pnpm
+Package-List:
+ pnpm deb utils optional arch=any
+Files:
+ 170eb161a8cc2c8c1fe1da0948b85fd9 853 pnpm_12.11.2-1+forky.dsc
+ 47834141321b54c79c6a208e12f398cf 15669732 pnpm_12.11.2.orig.tar.xz
+ 115b809559e426cf3365e78dde0771ba 1596 pnpm_12.11.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 4bc371bcd75136dfbffa8ecf678089b4d83da89f 853 pnpm_12.11.2-1+forky.dsc
+ c4121cc24fb6b4ef8424b779678fbef753e57220 15669732 pnpm_12.11.2.orig.tar.xz
+ d0994714df76809527977bad43e69308dc667503 1596 pnpm_12.11.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 477c0900aab5e1e15799250f1ae884f4cae982cecfa5c953308c9291881b84e3 853 pnpm_12.11.2-1+forky.dsc
+ a6d3d78fb06f5f579581769e97e7b5c71ac9d71142befe8d92565513ee5a5f85 15669732 pnpm_12.11.2.orig.tar.xz
+ 0d7e8152a26680c47fb7be4e933020cd9c43b47fd1b200286ca71f7e12f2b57c 1596 pnpm_12.11.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 37b73ad7a634860b7e512e9237fcecca7fd996e63d8a790ca32c286cc4a224d202de334cb69cdef4f600babe7c65d96080b8cdc3b300f727c828593a765d5225 853 pnpm_12.11.2-1+forky.dsc
+ a5a22955388ea436ee67a0b299318cf43fc72430e71612d50ecec7c3ddce287e1e462366bbd7949c31f6fc4468fb9aa211ae0d06ac64cbedb44f0698098d9e81 15669732 pnpm_12.11.2.orig.tar.xz
+ 1cdb3c256fa99d1f9677e0d06151764121746db67604d49c73daf32fca52ed1391c343da752afe2f3fe153240b20b2c3a70ce6f9f5b9d9d47aeef630de407aa0 1596 pnpm_12.11.2-1+forky.debian.tar.xz
+
+Package: quickshell
+Format: 3.0 (quilt)
+Binary: quickshell
+Architecture: any
+Version: 0.3.1-2+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/quickshell-mirror/quickshell
+Directory: pool/forky/quickshell
+Package-List:
+ quickshell deb utils optional arch=any
+Files:
+ fa8bd3df192f54906169a70779e51039 909 quickshell_0.3.1-2+forky.dsc
+ b7a078254702b561d9eff91b1f948744 1783032 quickshell_0.3.1.orig.tar.xz
+ fcc41987faee6d2a18a91bf5ed00fb9e 3428 quickshell_0.3.1-2+forky.debian.tar.xz
+Checksums-Sha1:
+ 165abd44a16643ecb36a9b42e2137a23f680b6f0 909 quickshell_0.3.1-2+forky.dsc
+ 2f6dfaaf4c4dc88a342d77a7565fa026f14a2cc6 1783032 quickshell_0.3.1.orig.tar.xz
+ f87869dfaacf9971e01f984503d3647b4ab15d36 3428 quickshell_0.3.1-2+forky.debian.tar.xz
+Checksums-Sha256:
+ 549acf5b83a3a38e08f68ba14f0a8376ad3123400856a84b6c991e5d902f3b80 909 quickshell_0.3.1-2+forky.dsc
+ 8063e4b7b963b4be2c812534d8d646d370d92cc6b649d7d827c2b5778a630ce3 1783032 quickshell_0.3.1.orig.tar.xz
+ 7bb6c992aa517024fb6c5843a637f7a40c95609cb05eb2359dd843add4d0e197 3428 quickshell_0.3.1-2+forky.debian.tar.xz
+Checksums-Sha512:
+ c840c36ff81749ddc923b8251179218d53107f5d3101e985d3559a0a6f1156f5cbadb3508312a90e3ba8a263c0da65105ff6cfebcdc36bf465ac21b1c2b71b63 909 quickshell_0.3.1-2+forky.dsc
+ f26df39f2add9c1be40172d72255ac36c529e8a9140b7cec499ced7a5a2ea8fbbd5996934fdcb7c6f195e06bf8af1fe2b345c90577d38b307d69ae6f17b5dd17 1783032 quickshell_0.3.1.orig.tar.xz
+ 7af07ac8e5efa052cdab5744b2a57b5455a96b1361bc14d122122b34ca2f6fbf01b9fae0e38b539bec64c14cb327246145b182bfb7750171e5abeee971f27b92 3428 quickshell_0.3.1-2+forky.debian.tar.xz
+
+Package: rclone
+Format: 3.0 (quilt)
+Binary: rclone
+Architecture: any
+Version: 1.75.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/rclone/rclone
+Directory: pool/forky/rclone
+Package-List:
+ rclone deb utils optional arch=any
+Files:
+ 69174c07d65c8912b413b8062559a735 868 rclone_1.75.2-1+forky.dsc
+ e5df60f4e129a53537b2bce0acb5f5df 20837504 rclone_1.75.2.orig.tar.xz
+ 327017813d30d9690acc65c6f31ef6d9 1564 rclone_1.75.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 18b37b1059138d20db846952e437d82c12ab93a8 868 rclone_1.75.2-1+forky.dsc
+ d20e9309c6220dd3ed5db7391ba55c42b1e3694c 20837504 rclone_1.75.2.orig.tar.xz
+ 993c8769152f01f138b6efaf3dcbcbedc8ea5dc7 1564 rclone_1.75.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 79cf291a46ac4d29383114e15572bc1fece8381d00f965aa6c4b47d76ddbbc26 868 rclone_1.75.2-1+forky.dsc
+ c93ff24cd639899259ec960a2f035f8d23042af3ca8d4ac1d21673bf3b0f541a 20837504 rclone_1.75.2.orig.tar.xz
+ ddbf2728dc7869d89ba80c2ec97148c5efe937afad906b4fb501f74fe8d72f99 1564 rclone_1.75.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 4bf4fb230d26805834e5e6ba02f5d84cfb2496b487b6633834f4aa7cdbb5792afef576ae533a4e2f23bbf1e7c614d0d317973cf63075baa0232b564f8edf3159 868 rclone_1.75.2-1+forky.dsc
+ 3c2adbc29f3d795e1b0345d80907f77d7415dc939cbd45d8dc25b23b1fe86fc8f2f238cca25f99fca313c41d912d2352300b3e2aec202eccb0f1df5a821e6392 20837504 rclone_1.75.2.orig.tar.xz
+ f137ed5803210259252bedf20fe6ce7ce8f2b4795c5821d99b681fe291878feab3fe036696a521959c3479265c379e8a9ed66c874cc4bd895669a6879f103839 1564 rclone_1.75.2-1+forky.debian.tar.xz
+
+Package: ruff
+Format: 3.0 (quilt)
+Binary: ruff
+Architecture: any
+Version: 0.17.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/ruff
+Directory: pool/forky/ruff
+Package-List:
+ ruff deb utils optional arch=any
+Files:
+ a6a4b90b74b54d31bb33349b9f3ea4fd 848 ruff_0.17.0-1+forky.dsc
+ 8d4fd0ebd52a3df1a4709eb98d861136 7174616 ruff_0.17.0.orig.tar.xz
+ 5f95c2cd079f6737a7b13aeb291c86a4 2620 ruff_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 6c8788db57ef67b3d2c03753eef61d41aea47852 848 ruff_0.17.0-1+forky.dsc
+ 6a515f5b61eaf9bb1a236398dc18d659c017956e 7174616 ruff_0.17.0.orig.tar.xz
+ f57a202ea85e7587eb1251d16eb09bbd7b26f559 2620 ruff_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 2be1f10a8ab138d1a3424be6ef03e28ee656fb34ba707ceb687126e026ba08e1 848 ruff_0.17.0-1+forky.dsc
+ bbbdd016359b13059ab69b510d93f58314409d037a1ad0f4de1e74427567d3a4 7174616 ruff_0.17.0.orig.tar.xz
+ d579479a633ca6489d31ba6411703d00db62f3d5e3dd5ba98ebfddcdd1121631 2620 ruff_0.17.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ d6efe5e04bf04fd09fcac284df96fc574e1654e53975eae26d61f0fe3267e53a50a03e2b6926fd9acc0f66caf2805362bd89395f8f87972e9e7d068d5c5b6c38 848 ruff_0.17.0-1+forky.dsc
+ ced25414772200450830d465db7b4db2f2d3191dfd8dc69aedba2d4eb74930a6113abe5a614417db3f76ac581ad0afdf3c8b41814ca3a9d71f5021eed185f734 7174616 ruff_0.17.0.orig.tar.xz
+ e88af7a85e72fd44c7468113da9ceb9fcaa5707193ca69bee9a64243a0a3bcd3f95ef7bffd1a8f390cdd9b43615d5cf6e0ea2f8e2655be712e240752048bd3f9 2620 ruff_0.17.0-1+forky.debian.tar.xz
+
+Package: scc
+Format: 3.0 (quilt)
+Binary: scc
+Architecture: any
+Version: 4.1.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/boyter/scc
+Directory: pool/forky/scc
+Package-List:
+ scc deb utils optional arch=any
+Files:
+ b36680a6e8e180c53bcdda4f5709624a 828 scc_4.1.0-1+forky.dsc
+ d22aba192ad7cf4b4693f9c006c1dd9c 5248316 scc_4.1.0.orig.tar.xz
+ 33da5ba44463a4d6caed72f61ba80943 1552 scc_4.1.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 1600e3b6071cc1e80f31f1fd85677f4903d33eb2 828 scc_4.1.0-1+forky.dsc
+ 60e85ce96cd0822dbdf98fc09bbdf30b8932acf7 5248316 scc_4.1.0.orig.tar.xz
+ bdd4b8dc0f548993be87e760d65f0c13669409f5 1552 scc_4.1.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 09731b8ae4a74dd51163ab14bb043d4841a4914f6097b1b4499309bd41b0a023 828 scc_4.1.0-1+forky.dsc
+ 5dbf5126510f07fc5f1d1c5db312087d6ac5b62189ce5b6a14644d0ad653cdec 5248316 scc_4.1.0.orig.tar.xz
+ 3cc0ca4cdfcc7ba671e2dcd9e57a130cd87af7e28050e0e8d39333905b258181 1552 scc_4.1.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ a0561100939bcb1c7ee1233bde15ad70f2067410bac49529ace3a38decbce2888bb44b6aafaad278b970a86d2a065ea9048c20643ecc4bf453b5d9097624c4f8 828 scc_4.1.0-1+forky.dsc
+ 5da1f17346e3d9f17c3f7832bbfcdae802c6a4ff4df45346c866f1354f9ab9acdc436f01db2516a82c69bad59ac8850f2b671da9cc9997d6c3161482f9d42385 5248316 scc_4.1.0.orig.tar.xz
+ 2169031271d40e8923b73e85a5364a1376fe59bbce9224d632eabaca425285f3a81d72f7ad2d5f018181ee6382c99800d8e4e5452a784c5db9e1554c40915561 1552 scc_4.1.0-1+forky.debian.tar.xz
+
+Package: sd
+Format: 3.0 (quilt)
+Binary: sd
+Architecture: any
+Version: 1.1.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/chmln/sd
+Directory: pool/forky/sd
+Package-List:
+ sd deb utils optional arch=any
+Files:
+ 94dfebe8ce4269ad20a8b9175e7c89ab 814 sd_1.1.0-1+forky.dsc
+ d58c50fbacda8f3d5187f38d1b466b0e 733380 sd_1.1.0.orig.tar.xz
+ a4f1e519952cb6419fabd1739e1a5438 1512 sd_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 98d867f6d48a63e0962882b3cdb2ad6de48df3c8 814 sd_1.1.0-1+forky.dsc
+ f50a278120e84e14908e257cfaf446a44e4f8631 733380 sd_1.1.0.orig.tar.xz
+ 9927a163c434028e22bd5429832109c8b597badb 1512 sd_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 2fd8bbf2ce20da1cb4b686f4cbb9f680aa8b5aeaa95b7ab7cfc0b0f7a514e907 814 sd_1.1.0-1+forky.dsc
+ 1a67c719d6f001a41a1eb315696f25eda2b02aa8830b794fdcc493cdcd3318ac 733380 sd_1.1.0.orig.tar.xz
+ e399a57c747751e407abc37cca2b8f93e7d15fbac2c4f3e9edb006384c702d2a 1512 sd_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ bb8d7a46a315a158d1c8964638951b934716755271a98ba7883d858a6e29c485d6c71d59603a466cd641c83a1d4b6f3bf61a99f46a5d06aae507e4dadd83ff70 814 sd_1.1.0-1+forky.dsc
+ 4b49a08fc20e472e38fe90f920c4afd971dcee19f97886e4fdbe323ea725c35b01ac805cf2134b81d950646f20b9ed16fe5b916a4f77330820d4ea42f812a867 733380 sd_1.1.0.orig.tar.xz
+ 17292c91649e51b4926614025545c8fee6ba4b5c36d83369e72a527ce0240f617d8d0b953740d4f03f71048dd45d1a671e2e5a2ee06b344bc0fa04411032fffd 1512 sd_1.1.0-1+forky.debian.tar.xz
+
+Package: superfile
+Format: 3.0 (quilt)
+Binary: superfile
+Architecture: any
+Version: 1.6.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/yorukot/superfile
+Directory: pool/forky/superfile
+Package-List:
+ superfile deb utils optional arch=any
+Files:
+ 1a302858f0ef57ca6f33f200fc0daeae 892 superfile_1.6.0-1+forky.dsc
+ 56b7815f7309902dee750b3b46cd38c9 11618916 superfile_1.6.0.orig.tar.xz
+ 2d68d8c773af288dac6dc06ca195e741 1544 superfile_1.6.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3e112ae96a090783d22a5c6a60ba448afc706605 892 superfile_1.6.0-1+forky.dsc
+ 20e665724c2692751239db75534b9929b9e4ee76 11618916 superfile_1.6.0.orig.tar.xz
+ d733901327c9dec1932738aa37ee6ee2dfcdcdc0 1544 superfile_1.6.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 7436c91bc446c64371df85c631f743bbea77da541ca4d3e4f1dc8bc5fabfc2a2 892 superfile_1.6.0-1+forky.dsc
+ 8687ef07bbd9faa3a8ce4153029da8a4ea9878c13e1b8b4f65ecd668cc5ea7f2 11618916 superfile_1.6.0.orig.tar.xz
+ 3ab46c517ac0239f71a3df0d51c6aa446a4e542112f7360b3c5ba81fa95d76fd 1544 superfile_1.6.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 3e3731332dfb648797786e158692ef83386097bb31eb11e42327522d251c69e7314c5e052c1dd2f5034f186bd0b5da1cfc46b6c2453e3017e4e00a8f66b0bcc6 892 superfile_1.6.0-1+forky.dsc
+ be3f7089bd31e57c8fbff1900368026131d1e4adda8950540590c03bde6da7ec9f07005410c9ef087a7d142e7b62f8c42ba951e07345485709733e79547a57b8 11618916 superfile_1.6.0.orig.tar.xz
+ 9518ff06e827f9211b9bde638ef7680a79e77e3dbab27af624f290184c7c0e173844814a2fefda5ac8ddaeac2c123ba8c6c98118090d139cf4083124d45a27bd 1544 superfile_1.6.0-1+forky.debian.tar.xz
+
+Package: trivy
+Format: 3.0 (quilt)
+Binary: trivy
+Architecture: any
+Version: 0.75.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/aquasecurity/trivy
+Directory: pool/forky/trivy
+Package-List:
+ trivy deb utils optional arch=any
+Files:
+ 3934c49a512437b0f942f03be44ef831 864 trivy_0.75.0-1+forky.dsc
+ 5935bcc2fbc67467bcf1e9dfdb7b8d29 34678748 trivy_0.75.0.orig.tar.xz
+ 591e8355c5feb65dfd388e5dd5197507 1012 trivy_0.75.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 37c52d458bddb069bfb4c8dee8b604fb8b4f9884 864 trivy_0.75.0-1+forky.dsc
+ e06241b1bb9e1361473cf8a10e8887a67d2d4679 34678748 trivy_0.75.0.orig.tar.xz
+ 7607a34fee16cfaab834229545cc9860984b5571 1012 trivy_0.75.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ c6ef9b13a3e4cb6f65f010a153f3a0fa88f16f3abb74fa58acf82b498a9b6db0 864 trivy_0.75.0-1+forky.dsc
+ 8f2861da30b7916f12742169343e86b6e370bbe4212ea18ec15c9451feaef2d9 34678748 trivy_0.75.0.orig.tar.xz
+ f1ca53383a3431e4af44196010c484d48ca97ca439313b912c29719f6a2dd44a 1012 trivy_0.75.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ e2faa6464492e8e76669ae1c10635cda5108fe0b6afcf6b130e3cf625cf7af39c573e777fbf673d945b03050b545bbb57e430bc8b3a218626d15f9f5421b624a 864 trivy_0.75.0-1+forky.dsc
+ 4170c49f35eefc344c6907a8c2d81271a9a94fb57cd4def28cc3dd3f33941e6d23e0594d1a144f71eaeb32398b9a550d948073df7de8eed3fca30d1ae3e2eade 34678748 trivy_0.75.0.orig.tar.xz
+ 2055e4c03ed1f4349c81787fc34537cf560e89f82899a7ccc7f7324ac61d9d290a5c65cb64f8c0143202640834089f6e6863995fa2b8a7d080e0d53859ada1e7 1012 trivy_0.75.0-1+forky.debian.tar.xz
+
+Package: uncloud
+Format: 3.0 (quilt)
+Binary: uncloud
+Architecture: any
+Version: 0.21.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/psviderski/uncloud
+Directory: pool/forky/uncloud
+Package-List:
+ uncloud deb utils optional arch=any
+Files:
+ 482e06dfa8159baace4cdc7bf1232bf8 882 uncloud_0.21.0-1+forky.dsc
+ 43e635cf252bfc22251e62c7435644ba 18594064 uncloud_0.21.0.orig.tar.xz
+ e5d95beb5b503e3a043aa19c4b39caca 4636 uncloud_0.21.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 08a944f86e0733e8c45814f50d624cb12672beac 882 uncloud_0.21.0-1+forky.dsc
+ d6f808156fb05a750746bf5c119dbb3a7d88465f 18594064 uncloud_0.21.0.orig.tar.xz
+ 4f19f244ddf7ccd787bef67ecac12f2e1f437422 4636 uncloud_0.21.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 06589a6dc7f98d3bdda93e8d54877a22804e6fcf2c67c4651e878ebe50ffa5dd 882 uncloud_0.21.0-1+forky.dsc
+ c172e1a9f05644118b1af81caa813cb21c46181df5ba2543d4787d401c577aae 18594064 uncloud_0.21.0.orig.tar.xz
+ d7c5a99ca9f810d81119192e366e2e541ebb44f0859d1c1215821bc42e0f13d3 4636 uncloud_0.21.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ b08192c4d1aab8eddc43bdc832dab7ec845fc57dc35a2adbf53b0f7307b16d37f660456f8e9a2dc8183519440b44d23a30306bd03b982aaa5cc7b1e9842c082a 882 uncloud_0.21.0-1+forky.dsc
+ 11fdf880112c1d9dd2dc8d5303bf6c55e54017a318678086c406c93b20b462bf3e5c4c338f92db11f8e17f0f370689295b3fe5743250d6076e38e84586c506e4 18594064 uncloud_0.21.0.orig.tar.xz
+ 4662ae953e15a9a8cf0448461855eaa40b0bfd7e400026e1b02cd4c9a90bc27d8af9cd81f97475091dacb639c8ed64a5de424ab3aea9f45b40bd3c4f572f0b69 4636 uncloud_0.21.0-1+forky.debian.tar.xz
+
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.13.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/forky/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ de97cec0543bbde71f92aecc49b1d42f 831 uv_0.13.0-1+forky.dsc
+ 2d0c2d1abaded0a03569b4ffb146bce0 12107764 uv_0.13.0.orig.tar.xz
+ 57ee31fb5416ed904ebcd70a05c897c1 5096 uv_0.13.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 6d29cfcc2d31240f2011dfe9ce852785d67abe5c 831 uv_0.13.0-1+forky.dsc
+ 5cea3ec2003b8b8a2b003a9d8a8931f8978a4120 12107764 uv_0.13.0.orig.tar.xz
+ bde4cb21297a1322e8e8c5976b833ac80acc56dc 5096 uv_0.13.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ bbb5c1c00a9e4708d766bc303f9369d989110c17f7a69dfdc7977899109ae4d4 831 uv_0.13.0-1+forky.dsc
+ 22ebfa5843f2452255f7df3e06305951901d5b4e54357f6067a6c7b2e0474576 12107764 uv_0.13.0.orig.tar.xz
+ 2094edbc05648edeb4980ecf43d31ce676d28e396e3bbb96775211be24c467e6 5096 uv_0.13.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 163becb7099f83c637a85be7418c0085e1f1173ebaf8e065613ab2657b03843f3c6bc966d3c168fb14ce8528957587768e49d034b928916a3647f044ceda85f8 831 uv_0.13.0-1+forky.dsc
+ fe73927e285f81d8514bf590b0254ba98089a055a01918f044746f2aefdc0f6b20400de866a8946831f9d8486d0d5832be6cfaded93fb9d22724a1b28b37b1a5 12107764 uv_0.13.0.orig.tar.xz
+ 350ff27cc0ec046f79765d41d959a0cba3413a3cbb234257f1e742b696429cd816cd3ccf0ab9063c01932b89bf32248808dee3acd8d9c4bcb7b98dbe7581ca16 5096 uv_0.13.0-1+forky.debian.tar.xz
+
+Package: vhs
+Format: 3.0 (quilt)
+Binary: vhs
+Architecture: any
+Version: 0.12.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/vhs
+Directory: pool/forky/vhs
+Package-List:
+ vhs deb utils optional arch=any
+Files:
+ 9d5ee08b7eefb938552137e865ddceca 842 vhs_0.12.1-1+forky.dsc
+ 97093731c1a7c3f38fc3fec7076931aa 7566560 vhs_0.12.1.orig.tar.xz
+ bde4f486661e93707a3d079e1f821fdd 1536 vhs_0.12.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ e7647b03be85b7cd92d4377abb3b1c9c8c99e768 842 vhs_0.12.1-1+forky.dsc
+ a0b7f3e06d9d444096885146672f8058cfc5c48e 7566560 vhs_0.12.1.orig.tar.xz
+ 778293fcbf933d98dd5f2df1eadf1d4e06c8caba 1536 vhs_0.12.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 329eceeff040b9f4131fda0ad040453027bdf4b3f7249e2666e70969facc13f8 842 vhs_0.12.1-1+forky.dsc
+ a48a9d59bc1daa9256942777c93123ccf7d137b04ce47bed0e7e5cf19b87ec57 7566560 vhs_0.12.1.orig.tar.xz
+ d58db0eabfdf1ffbcfa2db93bb9d652273853cb28118d0954a70659bbfad4bb1 1536 vhs_0.12.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ a6aeaa1348fb0334cc9091c1a2e90117ef5cd8dda1452abb0fdad0cfba202822e38f05ba3e6681d0f550ce066766bd5977f3204819d5de789076ff7aaed29ef9 842 vhs_0.12.1-1+forky.dsc
+ 011f3e9e1300391cbc3438df1365fee6686d835fa41db80126c7b83357c168c3c77d32d87e8989d04821d046a427e5648b76b663ba93b05aaca0a4979478f1a0 7566560 vhs_0.12.1.orig.tar.xz
+ 3dce2a8127206000f8abb11f1a92b2b40bd09e7bcbab0af6512f6e3a25b0b6c57462fe16a4bb0153598374af6a0359895436f5f4080b768f0ed3b1a7f7af01f3 1536 vhs_0.12.1-1+forky.debian.tar.xz
+
+Package: vicinae
+Format: 3.0 (quilt)
+Binary: vicinae
+Architecture: any
+Version: 0.29.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/vicinaehq/vicinae
+Directory: pool/forky/vicinae
+Package-List:
+ vicinae deb utils optional arch=any
+Files:
+ e005db588abc69e2c99a13728d3eb7a2 884 vicinae_0.29.1-1+forky.dsc
+ 071ff02390ee88f3a600cf79c83f6517 18779116 vicinae_0.29.1.orig.tar.xz
+ d1f2787ddfca3dece86ec1ced314f8f8 12228 vicinae_0.29.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ a4d79a9ed363e2d95703abe46c264c1c84db22ee 884 vicinae_0.29.1-1+forky.dsc
+ 5bdb91d0b2b9549f42707780618e5ada50f544b5 18779116 vicinae_0.29.1.orig.tar.xz
+ 36f19564b808486c8b79eb67f66be610f4e017c9 12228 vicinae_0.29.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 6d8966d792fbabda86f64d39da26de900446362d843d1e8eb2aac5e4c02bd9b7 884 vicinae_0.29.1-1+forky.dsc
+ f0a2fd7c7c66b0f74450bddd91e71df34e5fcbabbcff2c92271f2e3f45e0318c 18779116 vicinae_0.29.1.orig.tar.xz
+ 0d57a6c3b8fd29dcdb4ee8f83ef310f9144b9233c21057799baecf9e68c6e3d2 12228 vicinae_0.29.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 5ba7ccba99786cb8c04db98550bb328f705b5f6dcdea56f2f81c05760e72be6ef615879e68beac52f85bd052706946d3069af5ed09de90c8aee70563327234a7 884 vicinae_0.29.1-1+forky.dsc
+ 072b15d08f9e30760e200bb93037c18071fd62875572901b1225b3df1024457009389ee13df08f3a1ae29ab4f33f552f30b616d4c0ce54abf5db1b7dad78f639 18779116 vicinae_0.29.1.orig.tar.xz
+ 31abd1b2a5a1d976eee57c853b0e888def320447c5117e26b30be1ede3748de80d6f791ecce01c017edf33aa3741af12d95e1f1c1efa9aa6fd94a1322b55c12d 12228 vicinae_0.29.1-1+forky.debian.tar.xz
+
+Package: vite-plus
+Format: 3.0 (quilt)
+Binary: vite-plus
+Architecture: any
+Version: 1.1.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/voidzero-dev/vite-plus
+Directory: pool/forky/vite-plus
+Package-List:
+ vite-plus deb utils optional arch=any
+Files:
+ 83c069cdd5ce3a7fb3cb73288ebe7ee8 894 vite-plus_1.1.0-1+forky.dsc
+ fa3baf7ae25a02f3a2f3417c07ac7276 3721528 vite-plus_1.1.0.orig.tar.xz
+ 537656ea4e0c76c471997cb82f07e85c 1524 vite-plus_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ b22c0111f984e6e1aa971f967e58a44d67d1739d 894 vite-plus_1.1.0-1+forky.dsc
+ 0b9dd1a963cc957263ca1541aa3601c3896a6b16 3721528 vite-plus_1.1.0.orig.tar.xz
+ a2e6fb6e69c6bc13c593dcab00c22d68933de5b5 1524 vite-plus_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ dceda15b42cd263457f90645c09714ff42ea85c756ad797021fbf0d6a18c4d6e 894 vite-plus_1.1.0-1+forky.dsc
+ b598dbadbb6bc0cd810a0f36a094e53e5918d842c2dadba7b8b2773f5b0b2fc9 3721528 vite-plus_1.1.0.orig.tar.xz
+ cd4109d422b251f24e0334f6b2d95276f18dcf808d7232dcddc63ef4bdb0d711 1524 vite-plus_1.1.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 6710b7386f595a37ad3264b1f49d4130f473caaff69d45cd1b2ff0116940081e4eb31b9f332630b886c7022067efd2f0fc225d0c6004193cba35326278eb7d3c 894 vite-plus_1.1.0-1+forky.dsc
+ 8cd44cb2815c5a5383a55ab8b204a7c8a1f59b501b523b5912a824547e05e6270f2c69584ebbf6e74c8d7c9ca916af7bdafc3afba3f99e14e9519c431a8c8946 3721528 vite-plus_1.1.0.orig.tar.xz
+ 496d2ab25699fe761fb2a070b255c81f7c9725ab31120ff4cd945357a56e7fd0c5e6edcec136a232c15c7fda3de9391227a1f682bce246ffd4b5c45c37c0de88 1524 vite-plus_1.1.0-1+forky.debian.tar.xz
+
+Package: watchexec
+Format: 3.0 (quilt)
+Binary: watchexec
+Architecture: any
+Version: 2.8.0-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/watchexec/watchexec
+Directory: pool/forky/watchexec
+Package-List:
+ watchexec deb utils optional arch=any
+Files:
+ a4d18673ac4d1941aa2c800f71eb0f0b 891 watchexec_2.8.0-1+forky.dsc
+ 713a891ff2a50aa05908cba96e41650f 2913648 watchexec_2.8.0.orig.tar.xz
+ e752efd574613883b8effa53b1b90940 4632 watchexec_2.8.0-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 8fc10354a0a9ea6a7497eb116e3f48e6df6e6247 891 watchexec_2.8.0-1+forky.dsc
+ 15891d021e7c203322ad5cc4896e92b6a18741a7 2913648 watchexec_2.8.0.orig.tar.xz
+ d96fb225c0757acae9d4709f430fa94cfa49660c 4632 watchexec_2.8.0-1+forky.debian.tar.xz
+Checksums-Sha256:
+ ad825d39fec2fe7610b57c18c7999287b6a22516d1ae9ae6fc8914aecf3fc5b7 891 watchexec_2.8.0-1+forky.dsc
+ 89e815c453f955ffd63b2acc1f908461ac4f9e151774382a6474e89d595ca3e8 2913648 watchexec_2.8.0.orig.tar.xz
+ 3361136dd569ac371af41115a8c52ba4b6e3cb01756ae82151d871ce8bc3beae 4632 watchexec_2.8.0-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 3a2916b2695bf444de21b0cab8e42e2a83937b4b10f13df9857998a7a8a1a845ee8aa987be029b8e434f6262349ee900ed2e9713f1e97912df0df2a829b01c5e 891 watchexec_2.8.0-1+forky.dsc
+ 3682504b694e6643705a726d0b15024367c0a6674e836bcd8ee4329b3d92b31bde0235c3e1896672564ed4b1094ed801c33b3e73510721f4803a06f87175f3b5 2913648 watchexec_2.8.0.orig.tar.xz
+ 78fc1aa753b4f62c28d9f5a9d2a5f4ab4bed52587628f13c9a3d9ddeac9f889ce2e5b3f5894c9b8d49b569bf90badaffeb91e7b07418a266950cf3543be8ea26 4632 watchexec_2.8.0-1+forky.debian.tar.xz
+
+Package: workmux
+Format: 3.0 (quilt)
+Binary: workmux
+Architecture: any
+Version: 0.1.272-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/raine/workmux
+Directory: pool/forky/workmux
+Package-List:
+ workmux deb utils optional arch=any
+Files:
+ 273db28bb198ab69240d7fb1921b4399 881 workmux_0.1.272-1+forky.dsc
+ aab0c59da30b19bd74cb839652e2b436 4423968 workmux_0.1.272.orig.tar.xz
+ f9fec2294d5d80258233a7309aa7e7a9 1512 workmux_0.1.272-1+forky.debian.tar.xz
+Checksums-Sha1:
+ ad12d12241679a94278ed9e6970cc9307bf4d74b 881 workmux_0.1.272-1+forky.dsc
+ dac72e32cc0d6a4b262de1dfdcdc03c607b52b90 4423968 workmux_0.1.272.orig.tar.xz
+ 440340f0f91e3b32b9c6eb0f31837434228011c4 1512 workmux_0.1.272-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 79537a2bd79a5f3b69d4653ca274dc13062d5e706e70946b51b4472cccdd713c 881 workmux_0.1.272-1+forky.dsc
+ 255a56d075a142c356fdc0acffaab1c2d091bc45d87bdec5966870ced78da775 4423968 workmux_0.1.272.orig.tar.xz
+ cfcda9bfaa8decad54dabfed9364ab79be64016c0d8244c847800abc5ed4b825 1512 workmux_0.1.272-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 5385a6df1169d1ba97e8825a4307dd53d946eb31508a860be038aee2e94653a53a19c5b4e8fbabc1f67d037d0ddccc1b56018d5792c47a05ea8b17f439e0e4cf 881 workmux_0.1.272-1+forky.dsc
+ 2b1ad30b0366b2401143aac4a1112164b076527f3425512c888ab6bb99ba4cdbc842ad465556f0e4d70104e46c835a81def6660126e5223969ac77b662eb42f9 4423968 workmux_0.1.272.orig.tar.xz
+ b1b21ab8a4b580c2558efaf08d528d503122bc2a91851213e325e7c1cf45bb952b5c8a3d539c766d1a64d3c75f37f9c22cc366d13e2756a9cb699c16fd9838e9 1512 workmux_0.1.272-1+forky.debian.tar.xz
+
+Package: yazi
+Format: 3.0 (quilt)
+Binary: yazi
+Architecture: any
+Version: 26.9.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sxyazi/yazi
+Directory: pool/forky/yazi
+Package-List:
+ yazi deb utils optional arch=any
+Files:
+ efd2c195bdb52eaf6f91abe907d6788a 848 yazi_26.9.1-1+forky.dsc
+ e005d2c42179cd82ea5fef32690d3fbd 10301888 yazi_26.9.1.orig.tar.xz
+ 591f8be98852eeb898621047e97e8c9c 1520 yazi_26.9.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ ea9289267e2b2fbe493c6ccaebbd36fbf75d9e1d 848 yazi_26.9.1-1+forky.dsc
+ 6f94af913bf0ddef0b739ef39937a663e3ebefb1 10301888 yazi_26.9.1.orig.tar.xz
+ de0b8c54a9b27ab876de28429aa1677b082c3036 1520 yazi_26.9.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 4902257c4aa8f9e71d564e48d18f47cb3251441ce28c9b4cb2b6d9b450888419 848 yazi_26.9.1-1+forky.dsc
+ d2c6a0d0157a5563f575c998a82e16779a2ddc3c916bcb11e4375c338991ea30 10301888 yazi_26.9.1.orig.tar.xz
+ 9d532208eaaa94415933680d78a5432d7dd9fcf221be5d02dd16281ef08ef0dc 1520 yazi_26.9.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 7525028381c2f25060fec9ca53e58f8939dba6b21864ea2747559bbcf623d39cb019156baf30a9f20f6c2635e976300a3bc93033e43c8f8bc8f6f8a4f12fd698 848 yazi_26.9.1-1+forky.dsc
+ da9c27bfda09d0bd5c87ae9185dfccc691ceb0e53a732dc51f64a260971b829985c52e4de8f9158dce1e86df698286faa174cb43b029f93916c1bc27c1d3258c 10301888 yazi_26.9.1.orig.tar.xz
+ d1ae1858fd9b23d105686c25658d862353f9f4d36e1f649dff18b6e22a659f0ec164740f95086cf605e9132d772f1ec5dc44e060018a67cd847985878902d32f 1520 yazi_26.9.1-1+forky.debian.tar.xz
+
+Package: yq-go
+Format: 3.0 (quilt)
+Binary: yq-go
+Architecture: any
+Version: 4.53.6-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/mikefarah/yq
+Directory: pool/forky/yq
+Package-List:
+ yq-go deb utils optional arch=any
+Files:
+ 13e5620fc397cfe4e1cbccd6e0725d9e 855 yq-go_4.53.6-1+forky.dsc
+ 1ef99782f8222b9b72c2c44338886e13 4338340 yq-go_4.53.6.orig.tar.xz
+ 0ad0f54f942862e5d83f2c57b4c2a88e 1532 yq-go_4.53.6-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 7634830d85cdc8b81d3f1e7d8fd2b5440b51d744 855 yq-go_4.53.6-1+forky.dsc
+ b707a1aa13649e6164f10c5109ddb3c57eeb71b2 4338340 yq-go_4.53.6.orig.tar.xz
+ bd1d906bc59816333664c18b4b4fba9a456dfb8a 1532 yq-go_4.53.6-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 572f1ca579c8815dff49e7635a670f5fc691519ec8a15ddfd2fa8b30b829b9c1 855 yq-go_4.53.6-1+forky.dsc
+ 0f4d43ec1717fd93f20b0409943c1022b8e6bffe216d745f1bd38cf9c5788981 4338340 yq-go_4.53.6.orig.tar.xz
+ dfde6363f89cb312e6c3577090c6b6bb72700e2b15aab1df2c138cecbb7deb0e 1532 yq-go_4.53.6-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 0beea11215e8b8b72d9e2cc59354178e9127307704e6b6d7c00fd2759495dcab8b00d6dd75fae9e1705129971ed564fbcc589489e468a176af9d0462b499caea 855 yq-go_4.53.6-1+forky.dsc
+ 538acd5a67936d1b6585829eea13abc9e09c15ca568c44e9bc94d9e929f470c6d41b476c4c5a8c381790a647773dd7a00da98f11ef5f7a0c70211781943239c9 4338340 yq-go_4.53.6.orig.tar.xz
+ f5b19767d54791d64f3519cc326aa7f56394a87e3e091c3b7422beebec17d8755cfa5c69e901c1101ffcdf1ddaf826ab9e3b10bd5b82d423f74a11c61cd029e8 1532 yq-go_4.53.6-1+forky.debian.tar.xz
+
+Package: zed
+Format: 3.0 (quilt)
+Binary: zed
+Architecture: any
+Version: 1.23.2-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zed-industries/zed
+Directory: pool/forky/zed
+Package-List:
+ zed deb utils optional arch=any
+Files:
+ 1ead922bc781e7f31b4d4e7e56399a82 846 zed_1.23.2-1+forky.dsc
+ 3f07b013b987704e1ea99fd52e57a9dc 83729628 zed_1.23.2.orig.tar.xz
+ 48cecca2076cc30364e86ca30588da10 4472 zed_1.23.2-1+forky.debian.tar.xz
+Checksums-Sha1:
+ f68e81e7b09ec4220b6afd29a3753d0c5aec21a4 846 zed_1.23.2-1+forky.dsc
+ 06356dbb4606b4d5389a9b858cf68b03dd46abe1 83729628 zed_1.23.2.orig.tar.xz
+ 14c1d819d33a2e732faa9cf603e27e368c5988cf 4472 zed_1.23.2-1+forky.debian.tar.xz
+Checksums-Sha256:
+ b57ec1bb2ad27af14b417b59ab4de5f3bcfb92dd1159a9f19244f4d769f8b593 846 zed_1.23.2-1+forky.dsc
+ e82bcc598daf8a3ce5c30e0b542532806cf7a0c51702f247cb7610439e328853 83729628 zed_1.23.2.orig.tar.xz
+ a7a03883040057a7d95acd4311a5da12094a6d07d3e104b861d6e971ff1c4804 4472 zed_1.23.2-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 2ab6fb17a06e120c2225e6a8dd5b0fe844522f94fe1836956d8e562a5f413dc39db594f839abac01910f514773e145cc9f3793a6cc91a80b439088395e4e1f4e 846 zed_1.23.2-1+forky.dsc
+ bff34db43aca9a77d2950e5aa7bd66b625e255272b67f6c6647c4dab9b3c53ee8b282ddbb8712a17feb566ac1af2dd5d6bf0f2d23f6e7b0012f72b59e7fc994f 83729628 zed_1.23.2.orig.tar.xz
+ 27d1b78128cbdef10fe00c9f697a3023a2f3357066ccacdb0289a494cc0c88ad81c37f4b9bc8f7107e88d833ae877c526f0752118069a7ea482b564de766d730 4472 zed_1.23.2-1+forky.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.45.1-1+forky
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/forky/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 7ecc9ea9f330bcc7f03408cf2c8fc367 869 zellij_0.45.1-1+forky.dsc
+ aa657ed4532371922e77c125d549775c 8054396 zellij_0.45.1.orig.tar.xz
+ 7305115e44ad793da22d85d99750b1d3 1540 zellij_0.45.1-1+forky.debian.tar.xz
+Checksums-Sha1:
+ 3145338814ae53edc31e09e5846dfaa60eb59c3b 869 zellij_0.45.1-1+forky.dsc
+ 87ade7297dba2e9c4992532717f9b9b3ed77d10a 8054396 zellij_0.45.1.orig.tar.xz
+ 7acb054e65141c449a7d7e54866aac6d3b66a395 1540 zellij_0.45.1-1+forky.debian.tar.xz
+Checksums-Sha256:
+ 25a9b2d37ee8c09b2e074fdc70191fe0a5d61bfac938db4d6c46e2d7fd7d0051 869 zellij_0.45.1-1+forky.dsc
+ e1e0ec5831257c49ba9133bb111f8053aac1b58d76d3aa6f5ae01b3219af3140 8054396 zellij_0.45.1.orig.tar.xz
+ 8cc0e33bac9e87faf9917c58e0e411d98c781ec84a080965c6248d503e4b25c4 1540 zellij_0.45.1-1+forky.debian.tar.xz
+Checksums-Sha512:
+ 3522748a848b5d98dbba93a6c04acd9c44bbf72c5bf3c926290c3670effdc5c995351ad604a8d13d30a6cb12e89877afd3ffa32b3ff73c20cef2d0fefe282997 869 zellij_0.45.1-1+forky.dsc
+ 81a20bb2aeccb82fff52dd3b5fe38680011c9298a1e54ad7db5619fa53358c615aea8712eb10db7062d8db8c7e7d9a5317db7a9bbe56428e4fbd73de23709f4b 8054396 zellij_0.45.1.orig.tar.xz
+ f0dc31f72677db7525ce2590f14ead0f643220f944497d3de20cd50fe38d78e54562d3ad22d9cf9020567d8d693fcfae17bea42296abdc8fb3721fc1f9419d47 1540 zellij_0.45.1-1+forky.debian.tar.xz
+

@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-10T11:21:34Z",
+  "grace_hours": 48,
+  "checked": 60,
+  "skipped": 2,
+  "stale": [
+    {
+      "package": "yq",
+      "ours": "4.53.6",
+      "upstream": "4.54.1",
+      "age_hours": 270
+    },
+    {
+      "package": "quickshell",
+      "ours": "0.3.1",
+      "upstream": "0.3.2",
+      "age_hours": 49
+    }
+  ]
+}
