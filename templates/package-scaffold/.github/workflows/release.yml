@@ -585,6 +585,42 @@ jobs:
             sbom.spdx.json
           fail_on_unmatched_files: true
 
+      - name: Notify apt-repo of release
+        # The separate notify-apt-repo.yml workflow cannot do this job. It
+        # triggers on `release: published`, but this job publishes the release
+        # with the repo's GITHUB_TOKEN, and GitHub does not create workflow
+        # runs for events raised by GITHUB_TOKEN (the only exceptions are
+        # workflow_dispatch and repository_dispatch). So notify-apt-repo.yml
+        # has never fired for an automated release - it only ever fires for a
+        # release a human publishes by hand. Every release has therefore
+        # waited on apt-repo's ~6h scheduled run.
+        #
+        # Dispatch from here instead: it runs inside this job, so no event
+        # needs to survive GitHub's recursion guard. GITHUB_TOKEN cannot be
+        # used either - it is scoped to *this* repo and apt-repo is a
+        # different one - so this uses TRIGGER_TOKEN, a PAT with rights on
+        # apt-repo. Without it the scheduled rebuild still picks the release
+        # up, so this is best-effort and must never fail the run.
+        if: steps.dup-gate.outputs.exists == 'false' && inputs.release_mode != 'draft'
+        run: |
+          set -euo pipefail
+          if [ -z "$TRIGGER_TOKEN" ]; then
+            echo "::notice::TRIGGER_TOKEN not set on this repo; apt-repo's ~6h scheduled rebuild will pick the release up."
+            exit 0
+          fi
+          tag="${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}"
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $TRIGGER_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/latest-debs/apt-repo/dispatches" \
+            -d "$(jq -nc --arg repo "$GITHUB_REPOSITORY" --arg tag "$tag" \
+                 '{event_type:"release-published", client_payload:{repo:$repo, tag:$tag}}')" \
+            && echo "::notice::Dispatched latest-debs/apt-repo rebuild for $GITHUB_REPOSITORY @ $tag" \
+            || echo "::warning::apt-repo dispatch failed; the ~6h scheduled rebuild will pick the release up."
+        env:
+          TRIGGER_TOKEN: ${{ secrets.TRIGGER_TOKEN }}
+
       - name: Clear failure marker
         # This run got the current tag through build + smoke + release, so
         # any scheduled-retry dedup marker for it is stale - clear it.
