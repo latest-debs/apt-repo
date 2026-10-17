@@ -1,0 +1,899 @@
+Package: atuin
+Format: 3.0 (quilt)
+Binary: atuin
+Architecture: any
+Version: 18.24.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/atuinsh/atuin
+Directory: pool/jammy/atuin
+Package-List:
+ atuin deb utils optional arch=any
+Files:
+ 0b0187c6b72a31dbacd6fa571f8f695b 866 atuin_18.24.1-1+jammy.dsc
+ 05c499d7cbc476e9003ae62ecd0023cd 13507556 atuin_18.24.1.orig.tar.xz
+ 64031faa202a3bafb3505727c8c2477d 1496 atuin_18.24.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 84b4998f12a69befdff1940b7391d0487b8beb2d 866 atuin_18.24.1-1+jammy.dsc
+ 5dafde7536b6df6e5ea70ea5acc014cb71272a30 13507556 atuin_18.24.1.orig.tar.xz
+ 6ce0296042d499fb5c416274d496b4e4bf29982f 1496 atuin_18.24.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 9c0f90ff2be216c838211c03bff313f1c4856752cb78abcb791e4d2b7f0a300a 866 atuin_18.24.1-1+jammy.dsc
+ f4474c5b075beb2b64b4833b2a6b002962811ebdeb3b20b8e4e44f72de35ba22 13507556 atuin_18.24.1.orig.tar.xz
+ d4f0490d8e7b3b2ef3861445df2bfb58f3a5ee73593806f07a5be9a9a2710776 1496 atuin_18.24.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ a884a15c12bebfb8fbe04a27366ec9b70e086bfd62b5a19bebe4936783876ee8dffb5d507a4bc7bc6032fb12c66e354647a19ea83c29619f03a9b3e0d95aa227 866 atuin_18.24.1-1+jammy.dsc
+ 6f63eb1dafeff64054f1e571aed626efde689eac19137214b8c3488bcff686d620006267d49281deda7ff95d8085d945e82048b3947af3d62fd44ad20258dfd1 13507556 atuin_18.24.1.orig.tar.xz
+ bda6de2f98131ffcdfcc7e0e294df7ac09db22a8fbf5072d5558866cfa326831acb09af8b4e815c809cd2a29395f244b08f31e40f5902cc00318a25b92a9ba9e 1496 atuin_18.24.1-1+jammy.debian.tar.xz
+
+Package: bottom
+Format: 3.0 (quilt)
+Binary: bottom
+Architecture: any
+Version: 0.14.9-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ClementTsang/bottom
+Directory: pool/jammy/bottom
+Package-List:
+ bottom deb utils optional arch=any
+Files:
+ 4897c0999f4877fb72f224c7ca694bcc 883 bottom_0.14.9-1+bullseye.dsc
+ 8b99a03e29acdf047e32cd2293186c3e 1499952 bottom_0.14.9.orig.tar.xz
+ fb51c1506d5404b3d605343e90f05b1d 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ e339d10569701c1d68d4ba343cd5b0d0b96bae0a 883 bottom_0.14.9-1+bullseye.dsc
+ 1870848dca877be70efa6d8945cc8cc2519f5c3c 1499952 bottom_0.14.9.orig.tar.xz
+ 9996b6c273e6fb74a48084f13fc6316ba6ee8c92 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ 595ce832d394a2456b7612661e033656e7e430833ef1e22f0d61be93cf29929e 883 bottom_0.14.9-1+bullseye.dsc
+ e66414fcadeee260ef086e564d298c6010bbb916f37aa4cf47627fe58d53f4d9 1499952 bottom_0.14.9.orig.tar.xz
+ e28ac6a2e5a16a9c28b5a39d836804307e1486b19b6754d037ed3b2ddf6dbb8a 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 9a0c564305a58507b9ff29b9bac1cf5283e5c71918a6d573c1f634df59c7e438a7ad08b110ec6f3e4078e41136cad3f6e661744581c86f68b546f7615c2bdf80 883 bottom_0.14.9-1+bullseye.dsc
+ 1c098146199ea3bd96b1d01088b3b15c0c5550049b24dbdede191106221898464dd98b763eff7005c304dc02da5766143b1b13ce0f6f2036883cc9c4f090abca 1499952 bottom_0.14.9.orig.tar.xz
+ 398177477ebacb887d0f52bb23874ecad80b7b7aed5757382fa040512ff99189c1e8c8385380c62613f7bb2e8bb7785a6adcadd2c07a2cb4eb26f215d4ee103e 1536 bottom_0.14.9-1+bullseye.debian.tar.xz
+
+Package: buf
+Format: 3.0 (quilt)
+Binary: buf
+Architecture: any
+Version: 1.74.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bufbuild/buf
+Directory: pool/jammy/buf
+Package-List:
+ buf deb utils optional arch=any
+Files:
+ 2f6dc861d4eb97a7952b12633b91d9b6 840 buf_1.74.0-1+jammy.dsc
+ 26ecbb5bb35aa46f16568d9ab7eca309 23844648 buf_1.74.0.orig.tar.xz
+ 81a4b97f822f5831100bc1e77b1f2d42 4640 buf_1.74.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 1f89c9ce0ca6407ac99ed02211d201d91149f179 840 buf_1.74.0-1+jammy.dsc
+ 95fc12fe8e2c597c134ff9ac0d08ec16a6b6ad9f 23844648 buf_1.74.0.orig.tar.xz
+ b9cec43c2df113931a9333a8de4dca49c9734280 4640 buf_1.74.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 2a49ba3a687ac21b86fc2dc77fb2c2e4a1af127f9e651d3d5a21e2ddb4cb8a1a 840 buf_1.74.0-1+jammy.dsc
+ f20ea4a86e486cbc4e69bde220a2aea6bb5be176c99221d92a81e24680d5dd78 23844648 buf_1.74.0.orig.tar.xz
+ 8e97a0877e18421f60cf5fd217af5390d89d75d72ce852a754f7a370953fff0e 4640 buf_1.74.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ d82b57b3d506de21dcb84fad3057c080a735a223757791e916642d554d496e0c0de262acc3fe19d2378be8a85dc499464a4b295b21ae0a3fe43e61a39227add8 840 buf_1.74.0-1+jammy.dsc
+ b9b5e03b826127902fbe9a26315d1aeaffe02580d100d3b78ff0984d34ba093782f581422f5cbe6326776699b0da651d8d2f8076300dd7fb537059a64ca64a9f 23844648 buf_1.74.0.orig.tar.xz
+ 6cb25126dcbb473068323d2800634d2e71e4877c447932996823b24009370b84e26c1c75ab7cca6a94eb99189780a7537eb89b4ebaca0a84488ba26f84d3a265 4640 buf_1.74.0-1+jammy.debian.tar.xz
+
+Package: bun
+Format: 3.0 (quilt)
+Binary: bun
+Architecture: any
+Version: 1.4.3-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/oven-sh/bun
+Directory: pool/jammy/bun
+Package-List:
+ bun deb utils optional arch=any
+Files:
+ f2d35331097238d114ad2b999adae776 832 bun_1.4.3-1+jammy.dsc
+ c08d76cfe2bb9702b83310bed373af68 32152752 bun_1.4.3.orig.tar.xz
+ 595793c9cd9298037c9dd834a15397bd 2768 bun_1.4.3-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 44fe6e340b82a1db6c7cce5fc570c7540e757d2b 832 bun_1.4.3-1+jammy.dsc
+ f7398910c079e959400358f67e15f27c7394c565 32152752 bun_1.4.3.orig.tar.xz
+ 84c4b16e49a32be618d12fba7387b17f85096273 2768 bun_1.4.3-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 6f879bbf7a5e91dfe8d0a44a7d90cdae5a3873ac9cea010f82e9c8b6b2895a3f 832 bun_1.4.3-1+jammy.dsc
+ c29656180deb9788aae66ae5cdbd1146c72ac4da1d2de6c42ad6accd2bbb0267 32152752 bun_1.4.3.orig.tar.xz
+ c19bc59eed3708f23ec73832ef61ff2cef4ec770efc84b71a312a110293eaa7f 2768 bun_1.4.3-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 2ebe4931a46bb8233cb25821a3134ddf8d858a8c1902c766844731139d01da1e0b99785f75b5687bdd8252248df4e1acb2d6073ecb1a35c2c77594418666ced1 832 bun_1.4.3-1+jammy.dsc
+ efe256e5f1729a9facd5adeafc73bfe143d05cad317892144bf9eaeb0c937823ea5b4748ebde30bc8826d0b9b52ffb51c602f5446d3802453fbfcfe36a32b9d0 32152752 bun_1.4.3.orig.tar.xz
+ 6c0c11f0b6d2b9e45db1c3cc43418995e51e133da723dfb2bfa5618a2ec00e521caa44b66b6a9be15bd74e2ad31383557d412dc79e97f7d909cc259dfa872290 2768 bun_1.4.3-1+jammy.debian.tar.xz
+
+Package: deno
+Format: 3.0 (quilt)
+Binary: deno
+Architecture: any
+Version: 2.9.7-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/denoland/deno
+Directory: pool/jammy/deno
+Package-List:
+ deno deb utils optional arch=any
+Files:
+ 1a2f269a84d39b15e4904a0c1ec36044 843 deno_2.9.7-1+jammy.dsc
+ cc27a4ea34a079947e6f9c0c91c5ca93 30596016 deno_2.9.7.orig.tar.xz
+ 4150f9e109d2cf1f18995fe09a871775 1504 deno_2.9.7-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ a5e9c08615f1463f2228786c019ed0c202bd0e29 843 deno_2.9.7-1+jammy.dsc
+ b208a5a5fefefed0dc738cacc487176982ced418 30596016 deno_2.9.7.orig.tar.xz
+ 10473a5b0fdf35d57652849d4bc47dcd80392f32 1504 deno_2.9.7-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 1b8ef9e5be6415246b7c398d86db20a761db75b9ec20bb8bbdf495db87febe34 843 deno_2.9.7-1+jammy.dsc
+ e6147e9693049d9eec88398be5213fc75edcad66bba70fe0f13a6725781709dc 30596016 deno_2.9.7.orig.tar.xz
+ d5491acead2883c07c150fe09e75fe6daee08fc0023d286189be184264d57239 1504 deno_2.9.7-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ e61fdb13d3c5c6e9fe37c39a5cb30c36ba6f42308150b7ec33a57fc253a150a70239231f7e462c443aa32106b43739410e181a9cc990d894695ca872e703163e 843 deno_2.9.7-1+jammy.dsc
+ 1d20d031ee1e1662450d331040a4854cae7f9b62078af06e67df7a1905581a33f4698d7f60a71e5e2f0062d7ab6550c0604e91aa5ec5a69b20c5de0e36f73701 30596016 deno_2.9.7.orig.tar.xz
+ 814e7941c4d017e822a3e824397beffaf1efe89602e2ffd3a3d15540e512c1c71e22b0aa1ab2c9850c4acd06ccfff0e6b122189a1e940710a9ff14be2bb03d47 1504 deno_2.9.7-1+jammy.debian.tar.xz
+
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.6-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/jammy/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ e3ffe307f3d2e0cfecb65fc1fac227df 864 du-dust_1.2.6-1+jammy.dsc
+ 88cd8385ddf87152a0607290df3691db 895512 du-dust_1.2.6.orig.tar.xz
+ 40564e8d0906979d1c6a2398695eae89 4628 du-dust_1.2.6-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ b6167768350a7f0c23d15ee64d23e358091671e4 864 du-dust_1.2.6-1+jammy.dsc
+ 80534b1bbdcda5b433104f965e36219d7b0b38e5 895512 du-dust_1.2.6.orig.tar.xz
+ 805d7305fec625bccf26fde5d76589da3df47d2a 4628 du-dust_1.2.6-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ a2367f326c5e7f25fdb4000a1a04ce5b2f4dfbcfbf53011e0fd765bfd804cbb0 864 du-dust_1.2.6-1+jammy.dsc
+ 4ede0731c637000406c440d1e9a3a567cff7773cc54f13f2c7b01f2775f5ea43 895512 du-dust_1.2.6.orig.tar.xz
+ f367da5c06951297d7020e908d8d585301a4a3bbe5db443b169a94d5e6c355e5 4628 du-dust_1.2.6-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 1e2ae8baa4e6b6e73f4b5a2918703d3370e4d7f1da8acdc94f480fdb2bd1fba60842e9f9ffd1cfcd2ae5dfd27d4dd49b4cc8a6ded25470817a9dd0c65c5e5747 864 du-dust_1.2.6-1+jammy.dsc
+ b2e519716430cf1062f44fb4aef96fe71fec8f62aebc2ccc5aa8051b6f56367c0dfee7e19501de6426ea504ebd0585b3c18941935d7d6deb98cd7ae5eb24a674 895512 du-dust_1.2.6.orig.tar.xz
+ fe23b044a1e3f52ffdb6166bd46038f118755e8456df68c13e576775958af5acac00e75f9a3905cfeeea161b514b240f39addcc399748ddfdc6552689a8a429b 4628 du-dust_1.2.6-1+jammy.debian.tar.xz
+
+Package: duckdb
+Format: 3.0 (quilt)
+Binary: duckdb
+Architecture: any
+Version: 1.5.6-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/duckdb/duckdb
+Directory: pool/jammy/duckdb
+Package-List:
+ duckdb deb utils optional arch=any
+Files:
+ 692886765c6346c55513e1a36565fc2b 861 duckdb_1.5.6-1+jammy.dsc
+ ad4a47846be5e4ecfe100bba77c520d4 14734172 duckdb_1.5.6.orig.tar.xz
+ cef8239f8460161e5be23d25656bd4b7 1504 duckdb_1.5.6-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 5e138561871b7e1c249e80ca65407924306a0b1f 861 duckdb_1.5.6-1+jammy.dsc
+ 8cf4527eea04fa71482825a23fb7efc725b2ba3d 14734172 duckdb_1.5.6.orig.tar.xz
+ 516cac0d197f74b847c335f6f5909327a4716c15 1504 duckdb_1.5.6-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ c6cfa33dfd667b59634cf82f1f76ece095a981a90c6c2395f044f1c3c211cbb7 861 duckdb_1.5.6-1+jammy.dsc
+ f3447995c7ecb38f43ae783219c478ac81395fc305f493be4465d96f35104793 14734172 duckdb_1.5.6.orig.tar.xz
+ 0a74330f98abbfa6143c5ab2a827bece9366126d8535391c7c8fcbf4c45e1a85 1504 duckdb_1.5.6-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ e21aedf9801711aadb9133ea4dc5506258dac1a85dbe2fcb3cfe9e632e125a30e3c93a10d1f002f18ba385f7fc18e73c5535eb5b90bfc89577eaa1bf980f8459 861 duckdb_1.5.6-1+jammy.dsc
+ 129be9a529b4a06595d07d1b58fcfe3d5a1d605a6a4567dbffc77f27be5a87188793ee49573b37cfcad9bf4acc3481fcea7b9e2ffb48cb7e02cb03302cc9468a 14734172 duckdb_1.5.6.orig.tar.xz
+ d42d5450319c22f1f43c374e5c219d7e225eb504d8d41e6be80c4c0908a236482d250a9f488614f0a964c6c7007db23b3638c1b21dd907fdf65de9f30800c793 1504 duckdb_1.5.6-1+jammy.debian.tar.xz
+
+Package: eza
+Format: 3.0 (quilt)
+Binary: eza
+Architecture: any
+Version: 0.23.5-3+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/eza-community/eza
+Directory: pool/jammy/eza
+Package-List:
+ eza deb utils optional arch=any
+Files:
+ 369ad006a7cb801ffe3cd91e1cf20cb2 839 eza_0.23.5-3+jammy.dsc
+ 54552fc8935a845a0cd4f7dd06b7ce1f 990064 eza_0.23.5.orig.tar.xz
+ 339dc59378df71876c7ce0727a7a80a5 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha1:
+ dd9d2205f6d310115ac9cc18970c65db201a1a54 839 eza_0.23.5-3+jammy.dsc
+ 218af2ed965a084a807778b4846c68cdeebbfa5c 990064 eza_0.23.5.orig.tar.xz
+ d85ee9fecce3017166ad9f0454ab3985375527b3 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha256:
+ 40ebd12cf0a3f9879c8c8f4975903e01b35c9fe5f059eb2fce152e7f8640e815 839 eza_0.23.5-3+jammy.dsc
+ f9f453250c78ac468cd085804d122321280abc32b426bb8abfdf65cf11745034 990064 eza_0.23.5.orig.tar.xz
+ 3c7b8c0915a119ec0ae8da60fbaafbc14f9a2ff8531e147701c6fcf5e524fd0b 5476 eza_0.23.5-3+jammy.debian.tar.xz
+Checksums-Sha512:
+ 0f89e6d4e64b36eb5f96b33cf5daad5f2df102bf0340ddd73a225fa45f9c08c9e57cabe5d9d04a46fc6583fdc649b160f3b465ad723e4e27d6e1c772c94ca615 839 eza_0.23.5-3+jammy.dsc
+ 7dd0ddf5d1f4448eef90281cb36fb535715c007ac4305e1452a0899dd94f06c82daf79c64d4f35184ddf5df3561d99fe066f49c662f39eab5100ef820b52776c 990064 eza_0.23.5.orig.tar.xz
+ 53590999ea95e1215c215ae0fe3c111afa841a83d71729373b3d99f3ffde7554639f4867102193828dbecdae981eb38ce035695e4998bbb36b663d24eb3568d3 5476 eza_0.23.5-3+jammy.debian.tar.xz
+
+Package: fastfetch
+Format: 3.0 (quilt)
+Binary: fastfetch
+Architecture: any
+Version: 2.70.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Directory: pool/jammy/fastfetch
+Package-List:
+ fastfetch deb utils optional arch=any
+Files:
+ b18a6f37ab8cc4ab6530673fe72e7969 899 fastfetch_2.70.0-1+jammy.dsc
+ 65221dfa95162db0ffdb0649777993d8 887912 fastfetch_2.70.0.orig.tar.xz
+ 0edf2b5539aab69484862d04c8a95beb 1544 fastfetch_2.70.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 6fa9fbb2932ad967024906ef646d7f0c675ae026 899 fastfetch_2.70.0-1+jammy.dsc
+ d1570e0108b8a9fdb96a164d5c3542c4bbfe8cb2 887912 fastfetch_2.70.0.orig.tar.xz
+ e1cea60c87be712481e3b2a8b526a2bcef5b2281 1544 fastfetch_2.70.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ eab98e66a1664b0fbca89c70477d838eb13f7e0c2c9827ac8797e8e8feb0722e 899 fastfetch_2.70.0-1+jammy.dsc
+ 8e8e80094939af7eaa5fbda6c320b1263d1d6c3f7758b8ec2c776bfd0ac45b2b 887912 fastfetch_2.70.0.orig.tar.xz
+ b2695d63424eab25d3757593e31475356fc56efad3665e3455d517eb1c8fb511 1544 fastfetch_2.70.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 9566cf7a8e4aa32b43def982f30b6ecc26f22580e09bcb5c308a359a5626b8b5ae65877d5ec7f221fd31c375a58c8c89e9f1efa4b83c424341fc443fe9d4a3f9 899 fastfetch_2.70.0-1+jammy.dsc
+ b4c388d3a888b16b228f3006c005acc3589ed2f7fd6e2c33aaf598232e9e6142750669e96e92c31dab131d77fae6a9ae173f885107828fdd0d99ffc1fdd4d1d0 887912 fastfetch_2.70.0.orig.tar.xz
+ a8811f1b610db69cc6942501e90e9bbd9f589a20eb5f288bb3c337fedcd146b368852602d1198ddff698b685ef1c0b0b9dae686d25d696dcb4553f667cf43fe4 1544 fastfetch_2.70.0-1+jammy.debian.tar.xz
+
+Package: fd
+Format: 3.0 (quilt)
+Binary: fd
+Architecture: any
+Version: 10.5.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/fd
+Directory: pool/jammy/fd
+Package-List:
+ fd deb utils optional arch=any
+Files:
+ 2b0378c98c4c6a41c72f1f17635526a8 838 fd_10.5.0-1+bullseye.dsc
+ 334a6178e92dcee30a9c5c1041ec5093 1092688 fd_10.5.0.orig.tar.xz
+ b6a4c26477c74560ac814c6beaf078a1 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 2afad43c25cf828524f3d67cf31326b63309b954 838 fd_10.5.0-1+bullseye.dsc
+ 7116ec8ff365d246ee2b637a73c13751d71001c9 1092688 fd_10.5.0.orig.tar.xz
+ 31f68989ed4514c061e6d9fc71a57a5bfda454d7 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ ff9cf5c124294afbdb423ed3594d6bbde15eb6de151218ccf37b2e9385318c9f 838 fd_10.5.0-1+bullseye.dsc
+ bf718fcb14772bb462896b74065c161bfb97f524c14879e484852fb2a26f69a0 1092688 fd_10.5.0.orig.tar.xz
+ 45c1748b449c1efe42e7a07e5c08ddf386243d5dc51d7473e6f65a7fb4cd5ca0 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 6f1b3771ba33c0dc16af5b1ba1accba352fef50ae8c14bd7f95918cc80ed7eb1cb934fb0f93381c7f80e8f33f6eef8dea2b82bca896449d8e05a99f3db5c0056 838 fd_10.5.0-1+bullseye.dsc
+ 405aa12a39b60228ac76833a643695eccfea8d10371411205f4526b2fb1478ed7bd330cf2219b39e7c5d813029aee46782b77fc565eaa97ca66d9f35c43bfd03 1092688 fd_10.5.0.orig.tar.xz
+ 89f7ed3bf7e11673b3ac7eb06e34205f4c198a7a1dcf594b1f2682af7c6ce7d347745b1fcf10a81aee29bebc4c5e935b69d91333d3fd61650ebb8bf6365d7c8c 5052 fd_10.5.0-1+bullseye.debian.tar.xz
+
+Package: fish
+Format: 3.0 (quilt)
+Binary: fish
+Architecture: any
+Version: 4.9.3-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fish-shell/fish-shell
+Directory: pool/jammy/fish
+Package-List:
+ fish deb utils optional arch=any
+Files:
+ 9e625d02bc99000e23e64810e4bde08e 848 fish_4.9.3-1+jammy.dsc
+ fd941ff8dc98e8a932cf23daee004552 3216356 fish_4.9.3.orig.tar.xz
+ b3af52f15055380ae6add0770b8978f7 1300 fish_4.9.3-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 2c9a3ffdb0b310f63325c6006b173fa724a3d0cc 848 fish_4.9.3-1+jammy.dsc
+ 0304d271135dcdf919104002ff4f428484b180a4 3216356 fish_4.9.3.orig.tar.xz
+ 36e5a5ce524cf6d5abdd849cc9e1c0c7416ffee3 1300 fish_4.9.3-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 24d1eecbd905db34308df6d52403e287c3c4bb421967146a9a760695a911b63e 848 fish_4.9.3-1+jammy.dsc
+ 522fe794b1f0988555cee2b84f4db0be52810bf8e85727a24c90999c07a139c7 3216356 fish_4.9.3.orig.tar.xz
+ d854884969ac434150b975687eb6be6f4d443a3f389dba4e6014b8a4a11b0095 1300 fish_4.9.3-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ a4ac9c7ec08f88b8bedd18b93cbfa6a2673fe7593bfb713a97b868f9fb3ec98df6fd2ad743b0c33c53619a6280c3f1d6f2102327dadb8867b2cc2859bfa1d365 848 fish_4.9.3-1+jammy.dsc
+ 5cb1f2614d38169a261007e9c2e944f5eb56ed2ccccdfddd3f457a3079948910ed5b9f11fbe354db362c31d2b40d2a2f65c9d7c91ef41841e94d5af94f4ab278 3216356 fish_4.9.3.orig.tar.xz
+ 2efbaac5900855bba0d32c5757b844ce4032619da3ea70666d2ad86d252c30424fbda1836238ce7b899e1ef24a1c35a014f1acba0551011356b9cde8423bcd2f 1300 fish_4.9.3-1+jammy.debian.tar.xz
+
+Package: fzf
+Format: 3.0 (quilt)
+Binary: fzf
+Architecture: any
+Version: 0.74.5-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/junegunn/fzf
+Directory: pool/jammy/fzf
+Package-List:
+ fzf deb utils optional arch=any
+Files:
+ d3ab9dcdcab8bd0f9779f8e7b6eed51b 837 fzf_0.74.5-1+jammy.dsc
+ f95e688548351e62858787e74b9b34dd 1770516 fzf_0.74.5.orig.tar.xz
+ fa84e3cdb629d5053494eaf548a87d89 1508 fzf_0.74.5-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 20b45571aa130f0258b19079eded108654010daa 837 fzf_0.74.5-1+jammy.dsc
+ 8e2d99753611b080cee7f2b0c1ecec67fb838088 1770516 fzf_0.74.5.orig.tar.xz
+ bf28b22a629b8ef721a22db0d7a6f41128285d0e 1508 fzf_0.74.5-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 4faec1475434db527da244d53c6f87a2b521f508fbe09ad295a072200f36ff8e 837 fzf_0.74.5-1+jammy.dsc
+ 4da9d30e1c7ce3d1060027397685c115aca832b0a1f551f4926e236797812971 1770516 fzf_0.74.5.orig.tar.xz
+ 7937d7909a58c78c79e2757d8c8b7b62520dc0a32a492f08674ee63a3fe002b2 1508 fzf_0.74.5-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 0211c7317ee8b58515949b367357465b2e9ede06da0707f26054129b4f78bd05a4181cc4adc6fadd55f1084dd4147b8ffc7c6501044e3a2e44d3a37ad876e311 837 fzf_0.74.5-1+jammy.dsc
+ bacbd9ecdcc039a2f762d470d707350bc5ee501ba5fa7e6ce57bd500dcbe4f8fbe2db90c18d43fa2acbbf9758fedb57c8c5556d668a60fb573d5e635951f6135 1770516 fzf_0.74.5.orig.tar.xz
+ f18aa5bf97f56eaf0e6cd064dec885a3efbaa9121716f32a820fe9432626e4f6494bafb3414ebc0e283b14cf0a64a8102c761c9cb3b4ebb0bc702d9666aff303 1508 fzf_0.74.5-1+jammy.debian.tar.xz
+
+Package: git-delta
+Format: 3.0 (quilt)
+Binary: git-delta
+Architecture: any
+Version: 0.20.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/dandavison/delta
+Directory: pool/jammy/git-delta
+Package-List:
+ git-delta deb utils optional arch=any
+Files:
+ a55733bdb7049476d29116d648037243 895 git-delta_0.20.1-1+jammy.dsc
+ a7dbedf54e1f00e0cf527cd5e1d68cb2 2632804 git-delta_0.20.1.orig.tar.xz
+ 04d5c43cf7742d4dd4ee8ea73fcae666 1500 git-delta_0.20.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 6e44fca70362d091a584c42774104931af94ae62 895 git-delta_0.20.1-1+jammy.dsc
+ 7d1bf4ba401c21e574feeed6f14bed39046859b8 2632804 git-delta_0.20.1.orig.tar.xz
+ 38890a63fab5cb6f4a5c3158b6017103eaa78c54 1500 git-delta_0.20.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 9824163e223977171f30276f442f0e12b5b53980f551d5536d8a6554b956faf2 895 git-delta_0.20.1-1+jammy.dsc
+ 21a8342bf0c5ac090c7f63f8b3d834bac7894e94c51f8c789a768dc0fd600391 2632804 git-delta_0.20.1.orig.tar.xz
+ 9b78b718504965e21cf8cb221c874558c6e02ab16b63a9dd3fdf0118c61453d3 1500 git-delta_0.20.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ a09fec755bd3548d1738b40a180c98aa395f36ddc5fad01eff024b4d1a410d03b994031ebcbdfef466a5aa4fdbe9ba3955d658f5589f20db61b1766f75f12af5 895 git-delta_0.20.1-1+jammy.dsc
+ 849ac33fe37d85e6c5e5eccb3f11ff046385a92b9a30ccc7d5afebaf77011f0ff469e061c26211ffd4093e68b0cb351374867c3d48b4cb81b1e24926be6352e9 2632804 git-delta_0.20.1.orig.tar.xz
+ c24c6e3d621ec549481cf22d8c8acc78d2e5b928ab7d152fb8c089255ea8a89b6661413086795b6d570b849fded1fbbf14242bd91806548502428800f3a5528d 1500 git-delta_0.20.1-1+jammy.debian.tar.xz
+
+Package: helix
+Format: 3.0 (quilt)
+Binary: helix
+Architecture: any
+Version: 25.07.1-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/helix-editor/helix
+Directory: pool/jammy/helix
+Package-List:
+ helix deb utils optional arch=any
+Files:
+ ecbdcfa8618f5be057332ee419d39e36 883 helix_25.07.1-1+bullseye.dsc
+ f1265595f268a9b3b6e7188bcaa44e19 16626744 helix_25.07.1.orig.tar.xz
+ 92faea736e49dc6cc8f99809c4e817e6 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 1ef12ad62a0ec36692fe858d770fac80d695b009 883 helix_25.07.1-1+bullseye.dsc
+ f5b72284e8e8dc920109a04c63a4c1ba8e82902e 16626744 helix_25.07.1.orig.tar.xz
+ 2d2c0ad92b13d59678e4d21d8d4cf3ef3242a930 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ a9c0aeef719f736820e8595a03174f5764389548317aeef2775374176318d217 883 helix_25.07.1-1+bullseye.dsc
+ 48a5f56b2107e64bf97d98d2252906864422e47b5a1af200f8d71ffd61a47cf8 16626744 helix_25.07.1.orig.tar.xz
+ 31742efa6186dd003af68114e698095366dc722c886a1eaff27126158946036c 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ e5009bde3e09d3e2e34f9d93893be6d5869d6d52f3a7a55ae6dc8cd40f1f7cd1bc00d38f8dc336cb120a4cfb92c5ee58471ce5e24536dad6959f58dac606e552 883 helix_25.07.1-1+bullseye.dsc
+ 2124c182824b82d7de4369123dbc40c53ccdd0c7c3aae5dafe3e7b6958216c9313fb933e60ab07c558393041ccbd122ecce6bdd52365c74eca3c3b03092cb9b4 16626744 helix_25.07.1.orig.tar.xz
+ 94ca122b31e59cedc3b776d30dc8e9e44eb4321b0a87f16722c5b07f2d0fc0bbcb2eec455557ffdb7de1681eddcc16a30ece96fbfff8382fa2a9eab59babc053 5948 helix_25.07.1-1+bullseye.debian.tar.xz
+
+Package: herdr
+Format: 3.0 (quilt)
+Binary: herdr
+Architecture: any
+Version: 0.9.5-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/herdrdev/herdr
+Directory: pool/jammy/herdr
+Package-List:
+ herdr deb utils optional arch=any
+Files:
+ be48184f2f4f7365361420654213968b 850 herdr_0.9.5-1+jammy.dsc
+ b90306ec4085a8ce9af8e9d585e9f551 7509304 herdr_0.9.5.orig.tar.xz
+ e6e8233744622ddb22b09da1adac00f9 4628 herdr_0.9.5-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 1171f9f5fce4432684a27801b2769af64ccda7c3 850 herdr_0.9.5-1+jammy.dsc
+ 2008893f13fa1dbb596abc9e1f07d18c42ef7177 7509304 herdr_0.9.5.orig.tar.xz
+ fd0a5072cddcb71edc355897849e40d9467daf6f 4628 herdr_0.9.5-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 6844a16aa07fbb55da25b67f5aad102424c9daf3440e1f4e82952cbb5d6acf7d 850 herdr_0.9.5-1+jammy.dsc
+ 0256a692ae2ac32bf45eede3fd359757726fac74b4319aa7847bcc29486a02f8 7509304 herdr_0.9.5.orig.tar.xz
+ 9461093e8a509c85a7f15a6f69a66edd7af208d878fdf39ebe742283ed13e79f 4628 herdr_0.9.5-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 0d40376b069adec3c5d463322bc890e8aba459a873c32bd056fed788685e99271d0feb1b5ea948d799f11dbcfbb5e3b4f4ab79cdcb303d524d9ef699a46eedb9 850 herdr_0.9.5-1+jammy.dsc
+ d9283fcb665ec9d599efe309bfb62ed08b3ec699da960f2421d351cfa35f9c4cf87c486ddb3c2fd77daa5b177575a2f533945391a9f88dca35f18ada25542d93 7509304 herdr_0.9.5.orig.tar.xz
+ 5aba531dc080624006e165294037c5d7fe60ee576e40a8eff0abde2853a76e0d32f79f8926d90c654b117235d215e4251979583cada2fdb1900bafa2ea3116a3 4628 herdr_0.9.5-1+jammy.debian.tar.xz
+
+Package: hyperfine
+Format: 3.0 (quilt)
+Binary: hyperfine
+Architecture: any
+Version: 2.0.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hyperfine
+Directory: pool/jammy/hyperfine
+Package-List:
+ hyperfine deb utils optional arch=any
+Files:
+ 1809e8f940cbe77b7339df1d4e004cea 886 hyperfine_2.0.0-1+jammy.dsc
+ 63d5e6fabd9b0f654a27e5aa7c2bbf98 516428 hyperfine_2.0.0.orig.tar.xz
+ 44bf6b5e64a707cbfd8fda6f02735db8 5084 hyperfine_2.0.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 0feb56db780a7e93cbac2b29495a0485b1abbf18 886 hyperfine_2.0.0-1+jammy.dsc
+ de01c1c7f870d48186f508f76700a868ebeaa248 516428 hyperfine_2.0.0.orig.tar.xz
+ a4ddb2504c2902b28bce3b4bbc5454aeca1cc48c 5084 hyperfine_2.0.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ fd8248c6b23a42672e27844cbbd6a928d9587fb1bf73dcd8e5b813f3fe155dff 886 hyperfine_2.0.0-1+jammy.dsc
+ 34541ccfb2fe402dcdf1182a1658bb986a62a206dd91e940ce51680e9effd90b 516428 hyperfine_2.0.0.orig.tar.xz
+ 775bedecc9c5a66a97d06ef0ded0e5c6afcf91581dc4ecd0e53ba1b41bfbe9ff 5084 hyperfine_2.0.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 73a749b2768f0846ac006693e7da444d5aeeafe289cd5a9d1348b1d2f886490cd44a8a55193c5d2ec2ed018228a566aed907ca45c3332112b1053aaf8610d80f 886 hyperfine_2.0.0-1+jammy.dsc
+ 5ed1e1c001002793eeb504e6fda49dd145228b539a2b98d782c0c00352ea8109fb23bdef216a29e5646f1193ab281e0a500e96f5e39bc2f0eab8b12a20838f3c 516428 hyperfine_2.0.0.orig.tar.xz
+ 638f9ed5d0c3ae0aadb5d52415e47728105a73223127d2a4546501c88976eaee3d3d5dd384ed28fddde4a80a59dc9cfb07038a744b64e1d677d1b581c70b8ec2 5084 hyperfine_2.0.0-1+jammy.debian.tar.xz
+
+Package: just
+Format: 3.0 (quilt)
+Binary: just
+Architecture: any
+Version: 1.59.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/casey/just
+Directory: pool/jammy/just
+Package-List:
+ just deb utils optional arch=any
+Files:
+ bdd5dbb8b09f4d133c0d686c8ede5d65 844 just_1.59.0-1+jammy.dsc
+ 722f7f535e38569e0910ffc05332cfae 1842448 just_1.59.0.orig.tar.xz
+ f2c3cfac2df6e34211990f9e38c9a2a0 3572 just_1.59.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 290d2888b9e12223dc7be46891317396badb9b58 844 just_1.59.0-1+jammy.dsc
+ 6e19e73cee432d5965c49c71ada93f3701f72e23 1842448 just_1.59.0.orig.tar.xz
+ 2b146582c36b2a41672c2208b9c1ba73fdb4bd20 3572 just_1.59.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ f59de55fba0f478a8a79fef88cec904297ffeec318f4a5c1fa942bdb4bc8929e 844 just_1.59.0-1+jammy.dsc
+ 49af341aef3210f6780a3a0834591077d9db0cb528872df19e960e1241c682fb 1842448 just_1.59.0.orig.tar.xz
+ 4be1448cd1aa91c36db521bce6ad8efded96a57b0133009121a2e7029ec6aefa 3572 just_1.59.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ e6cccbb5590c31633ba730a90dd35273a337a4d3478d54c090343abdc86b97becf93ce7a3f07094cb0ee25b3ea3cb3d58f46c13a9a8e8313b3450daa85409c5a 844 just_1.59.0-1+jammy.dsc
+ 69423cb9b500bf1f114c9e01ccafedf4dba380577bcc201b0433870dd79bfb4e8823102dfacbcf005fe1be7c748e5c981af0d26d6e335830fa773869872aa7dc 1842448 just_1.59.0.orig.tar.xz
+ 744b030455223bc525ee51a25a8bdeb796b18325fc57b01541b179b408bbda82ba35c67bc7a5d98d00bac40b1818721e60df16c25c7be13ce26c16eb8f35ed7f 3572 just_1.59.0-1+jammy.debian.tar.xz
+
+Package: lazygit
+Format: 3.0 (quilt)
+Binary: lazygit
+Architecture: any
+Version: 0.66.2-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jesseduffield/lazygit
+Directory: pool/jammy/lazygit
+Package-List:
+ lazygit deb utils optional arch=any
+Files:
+ d995c6c211e7cee4e0c4beb6af86310b 882 lazygit_0.66.2-1+jammy.dsc
+ dc550ebd922c4143667fadfe570d6c07 5366976 lazygit_0.66.2.orig.tar.xz
+ 805ab978af47476c1936a3e9f452f6fd 1508 lazygit_0.66.2-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 334a1ae860891d3cdf56518bc4cdad2da41d8024 882 lazygit_0.66.2-1+jammy.dsc
+ 1b32d8e9c9743ce24b0a93ddb5225c6753f267c1 5366976 lazygit_0.66.2.orig.tar.xz
+ 2275abfe03e6bc5a80606c07de63a758c385c220 1508 lazygit_0.66.2-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 15ca4f47420553dfb92d2368a2589880e293f289165febdc99dacac0c1fc0b28 882 lazygit_0.66.2-1+jammy.dsc
+ 2b6f3d1dce711859fa8c74d3feebc30c331c7023b88d68693f9a887ce6d67bf4 5366976 lazygit_0.66.2.orig.tar.xz
+ 8a2625fe4322c60a360a895f49a9888587d6ae452cf434d2e870e340a6421859 1508 lazygit_0.66.2-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 546cd70e1dcba56959e6b388c594dcaabcc066defa67b5019b4b09b50eb5e92495634da198756161ebc29aafb2c2f4d705a30d25c8ee7cf6c6f23c930e5db4d8 882 lazygit_0.66.2-1+jammy.dsc
+ b6b0ec750fc470fd40c06e51d43bbd4879d262f10b015db2ee56b728bf64452098e4863c93e8a180a0bfbf222644b41b71e8ed40f4761203b5d001811326c6f2 5366976 lazygit_0.66.2.orig.tar.xz
+ 91ab5da0ac61737bd943351f048c8797523f78a6ebb8c68c15e6a35194e769fada59d342d13f2ccaa4f5754a8f3bab0c2b05c7bb7916133aa7bc7e8bb878504a 1508 lazygit_0.66.2-1+jammy.debian.tar.xz
+
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.116.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/jammy/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ 8ce09c76de656a908778f3439e8e0e52 886 nushell_0.116.1-1+jammy.dsc
+ b6f8dd36291ea8ff89a5f87d221b9e53 52286600 nushell_0.116.1.orig.tar.xz
+ 1899177e25370c2744045507012d8ce6 1504 nushell_0.116.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ da716bcea7f0460cc53158bb2fb202d1c0b8a9e2 886 nushell_0.116.1-1+jammy.dsc
+ c698c1683312abff3612d514a970f61f4812a052 52286600 nushell_0.116.1.orig.tar.xz
+ 9136ef0c87e6ae2f26317c37334452890ff73a53 1504 nushell_0.116.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ c1ec210c0af670422e68f559ebf1ae555de2793c0ef36692febc6cb3a4d2532d 886 nushell_0.116.1-1+jammy.dsc
+ abbcca95c94e78e8ee65b81f8387b7f1fe9b48c12980601d70d7a54d14d5e1f4 52286600 nushell_0.116.1.orig.tar.xz
+ b5436c6496377874277de2d8973b78d30e15f792dc103fb6a06398a54daaed60 1504 nushell_0.116.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 00dd8047746b6863db7d9a2e4f797eb0645fc5b86a5436ae1bc6e99622eec20f604a1b9560ebdaedb7abaf86b8694aafde4861d3c3661f6af0de795928ddfad3 886 nushell_0.116.1-1+jammy.dsc
+ 00389bbec80d1c8719a89a956f985aab6cefd378640b170a36cab6dd155bbf529373d5b3d3d4315c8a8452468cf95f773fd762d83e463418dd4afdc117f049f4 52286600 nushell_0.116.1.orig.tar.xz
+ 4d0e74fe4b34142f0184af337a8d3f34fd0614d70aa6b2f28348c6e2dcbc3e60eda8ddd0b0eed8fc6157ae707e8725511a62f0dc8b68a1a7794712a47492290e 1504 nushell_0.116.1-1+jammy.debian.tar.xz
+
+Package: oh-my-posh
+Format: 3.0 (quilt)
+Binary: oh-my-posh
+Architecture: any
+Version: 31.8.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Directory: pool/jammy/oh-my-posh
+Package-List:
+ oh-my-posh deb utils optional arch=any
+Files:
+ 8ba086869f41286756c5de94b4afbf9b 913 oh-my-posh_31.8.0-1+jammy.dsc
+ 64b92e73dc7ec26f2b8883dd9b4a6f44 4333212 oh-my-posh_31.8.0.orig.tar.xz
+ ac124292c35c0fa66ead68a9b46e29af 1500 oh-my-posh_31.8.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ edd33bce705a506ea541af891fb5570814d140dc 913 oh-my-posh_31.8.0-1+jammy.dsc
+ 6f348281453fca8409c0ca302832072e07acfc48 4333212 oh-my-posh_31.8.0.orig.tar.xz
+ b22f5da451adf87a88bdc6c808ae3038d078c985 1500 oh-my-posh_31.8.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 28e969d3616af7c003cbe7ce7d3b6680fc4c935d5f79e651d4e4aa2ae57554a0 913 oh-my-posh_31.8.0-1+jammy.dsc
+ ce595a6bd7c45dda515ce781b91ed544f235bae47d3738ed4d88103e9cc3bedc 4333212 oh-my-posh_31.8.0.orig.tar.xz
+ fdde4ca74cb8262ff72ef32931dba6ba03ad39cb74be6b458ac8bcdac4f0d5bb 1500 oh-my-posh_31.8.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ b054343ed5af4b5d3e34d7e9b3d74cb13b7e2a143d7028bbef8cf98e0e08f5c4aa3bef488ad9c7057ff288a35b11c0b7d8f70b9eb7bc4747b6b2b52a9982ef27 913 oh-my-posh_31.8.0-1+jammy.dsc
+ eaefbaa700ed94b7094d05ad7a594879341c5728ef86a035af147d72f7ba29604b652c47dfc8158524913f3e01747726006b294a2c618fd98218cafcecdb0c91 4333212 oh-my-posh_31.8.0.orig.tar.xz
+ 8a820625da42c893ab20abaa7151b46ef86351ae8acc1bdfa3d92d1b1979203aa56b9a49903af7a401adc376ed676bcd5f3f43544cc9203afc820bd687dae363 1500 oh-my-posh_31.8.0-1+jammy.debian.tar.xz
+
+Package: ruff
+Format: 3.0 (quilt)
+Binary: ruff
+Architecture: any
+Version: 0.17.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/ruff
+Directory: pool/jammy/ruff
+Package-List:
+ ruff deb utils optional arch=any
+Files:
+ 2345a04724fa14a02fd6bfa0ec60f0cb 848 ruff_0.17.1-1+jammy.dsc
+ a2c76d1cafb0e409009bedc45b05528e 7150376 ruff_0.17.1.orig.tar.xz
+ 804048c7ba7687a0e2a8d11d55ddeb56 2620 ruff_0.17.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 928056c347d3daba38bbf53b3b73351c949834c5 848 ruff_0.17.1-1+jammy.dsc
+ 6e5aa058421adeeb1cce4d12ca28c62662da4034 7150376 ruff_0.17.1.orig.tar.xz
+ 5f063facd71a999472153a035c8f417bf50edc5b 2620 ruff_0.17.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ d41367dd9737b98b943306cfd35260107768d65e7065dd1587dc61348cfe7c4f 848 ruff_0.17.1-1+jammy.dsc
+ 62fe0ebb25c256e06ac4ad1ee6d90bb8eaf8d96016daa86e6180ebe714c354c7 7150376 ruff_0.17.1.orig.tar.xz
+ dae902d32bb691127ff6748abda30c9971c56b05cbc7f893842f2df6435dcbeb 2620 ruff_0.17.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 863b0c10d1cc2828f23465714d425939a943242b5fa1dfa4f1e096addc7b6bf3afb4432a89b0a38c9661766544c5f612d0cbc89c1269f2a298b72188319c9935 848 ruff_0.17.1-1+jammy.dsc
+ d7d787d591da6fbb4191e6cf51e8fa205bb0b048837ad4f860c17f0e096295cb8d59777d8cadd710265ced22d92ba77e5ee776750fe2b2aa2f5578a06b23d7b4 7150376 ruff_0.17.1.orig.tar.xz
+ 7feddf2bbc0286c382cbb28e13d7f571383dd11153f81c1eabbbd89939605742cc03e469eece55f5536a3588b1dc00dc091ca93ddf75a3b7bf195587d309654a 2620 ruff_0.17.1-1+jammy.debian.tar.xz
+
+Package: sd
+Format: 3.0 (quilt)
+Binary: sd
+Architecture: any
+Version: 1.1.0-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/chmln/sd
+Directory: pool/jammy/sd
+Package-List:
+ sd deb utils optional arch=any
+Files:
+ dd61f435d597da6bbe369a3e21215de7 826 sd_1.1.0-1+bullseye.dsc
+ d58c50fbacda8f3d5187f38d1b466b0e 733380 sd_1.1.0.orig.tar.xz
+ 621b67877799f742669f153f6e9fd5e4 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ a44c8726b463e88def97dd9528b0ec336a4f906b 826 sd_1.1.0-1+bullseye.dsc
+ f50a278120e84e14908e257cfaf446a44e4f8631 733380 sd_1.1.0.orig.tar.xz
+ 44ecd64bd2eaf01b7500c3110d6199e43ddc3baf 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ f719fa2950cf411fbc8ce9e0029d9f22b134b0d40d6dc6943f0579e10a9bf2ce 826 sd_1.1.0-1+bullseye.dsc
+ 1a67c719d6f001a41a1eb315696f25eda2b02aa8830b794fdcc493cdcd3318ac 733380 sd_1.1.0.orig.tar.xz
+ adc09311cac5a6a16b4fceaf7707cbc1c1eb02ff6f796db5581dc6bc2fb5b73c 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 6a659b567e1f8c998e9d80c02bc23e4c3e0828cf664546abb0b08e32ac22f639466ca7d051a139034d2498323a9b8805bf22a388f0d3481669414530e569f74e 826 sd_1.1.0-1+bullseye.dsc
+ 4b49a08fc20e472e38fe90f920c4afd971dcee19f97886e4fdbe323ea725c35b01ac805cf2134b81d950646f20b9ed16fe5b916a4f77330820d4ea42f812a867 733380 sd_1.1.0.orig.tar.xz
+ 617bd5600b122a22740b9ee040993a54d01a46f70e59a8256ad605936970ea55b3b0feef5f8f46b7bf9c85a76f5c894d1b9e710d8594ced33c86c28be56c77fd 1516 sd_1.1.0-1+bullseye.debian.tar.xz
+
+Package: starship
+Format: 3.0 (quilt)
+Binary: starship
+Architecture: any
+Version: 1.27.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/starship/starship
+Directory: pool/jammy/starship
+Package-List:
+ starship deb utils optional arch=any
+Files:
+ 6bbb97a4c5c21a573c7f2a03087980e9 887 starship_1.27.0-1+jammy.dsc
+ abebb6f3795dbfe2d57eb3b89e692eef 3598936 starship_1.27.0.orig.tar.xz
+ 5cf3a497c4ce2b0495d930cffaafb6a9 1364 starship_1.27.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 6876f6de4f4efda1f7e003e4e7ba4a15e1654870 887 starship_1.27.0-1+jammy.dsc
+ 44bf530cae953ff25633541eedb0d8643370b9a0 3598936 starship_1.27.0.orig.tar.xz
+ ed5ca6523ec6c488c8ba03fead62b7db5f85fd6c 1364 starship_1.27.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 37333ea06284c2d2a42617ffda52c8cd999319761800149d2a60fdb94e5a1b03 887 starship_1.27.0-1+jammy.dsc
+ feec74b682856eedd9504d2e4b5bf65cb702bb3886c9b5b92c9353454aea79c5 3598936 starship_1.27.0.orig.tar.xz
+ 81fbe64899ac432ca4eb52bb8289fab3c363c60ea7129e726a34ecac4fa4b937 1364 starship_1.27.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ fe8e324f39130e4a17a43f5345a0e87604a777fe2a428ee03057dc9d6e9ac3cc1ce97abfdac0a1a7155be8c1f47a914ada2e40529faac6d2a660c0e978c59cfd 887 starship_1.27.0-1+jammy.dsc
+ f501dd8fe51e672db2c01542be04125ef7f0e312fd672f9ba1fa6cb2c753c71a5acfc129ab90b151cd6100afc62cfd0025d1d87684b156d6c3dcc35e820c54fa 3598936 starship_1.27.0.orig.tar.xz
+ b6f7696f8e6515763168e7ce1513048d9b81d24a77cff5b9d96f8c456daad05af6dd1fd882c42b2b0ad80e746839cfb3a368ab7fd1a110ed538b3b89302075d9 1364 starship_1.27.0-1+jammy.debian.tar.xz
+
+Package: uncloud
+Format: 3.0 (quilt)
+Binary: uncloud
+Architecture: any
+Version: 0.21.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/psviderski/uncloud
+Directory: pool/jammy/uncloud
+Package-List:
+ uncloud deb utils optional arch=any
+Files:
+ d7b6c5374feab447a7879544238da719 882 uncloud_0.21.0-1+jammy.dsc
+ 43e635cf252bfc22251e62c7435644ba 18594064 uncloud_0.21.0.orig.tar.xz
+ 62e615a9e17edcb6b4e189bd0c5eb068 4640 uncloud_0.21.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 33bbdd835c36f51fe6d40e82042403de730dc951 882 uncloud_0.21.0-1+jammy.dsc
+ d6f808156fb05a750746bf5c119dbb3a7d88465f 18594064 uncloud_0.21.0.orig.tar.xz
+ b060e35cc0ebb2e690e83fd5e9f10e9ced34ea8c 4640 uncloud_0.21.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 5fed677d3297b76d9f83b52e9edef38c09221d4220346bd8705cc5d243bbb5ba 882 uncloud_0.21.0-1+jammy.dsc
+ c172e1a9f05644118b1af81caa813cb21c46181df5ba2543d4787d401c577aae 18594064 uncloud_0.21.0.orig.tar.xz
+ 1768e58b32b9b5b11c670b7d15ed4cd17693ea0d8aedd38a27ffefda418b3426 4640 uncloud_0.21.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 29940df251c3fe954a564c7f37efa3bbde84f41000298341bcc8f470aed31d91854828f959b5b6089a7011b97f1b969fd65270fb589181a5af35a61dff33135a 882 uncloud_0.21.0-1+jammy.dsc
+ 11fdf880112c1d9dd2dc8d5303bf6c55e54017a318678086c406c93b20b462bf3e5c4c338f92db11f8e17f0f370689295b3fe5743250d6076e38e84586c506e4 18594064 uncloud_0.21.0.orig.tar.xz
+ cf36de60de381dac1907a9142f55d7252962c5f72b8f321a4068d77c81bb1570f116817585d633af15bab38415f32a3a6e5d39bcb80b93c34c82de1bda181e21 4640 uncloud_0.21.0-1+jammy.debian.tar.xz
+
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.13.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/jammy/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ b3590f284788d47687555a6147018db5 831 uv_0.13.1-1+jammy.dsc
+ e967254411947b02c8a8f2139a67cd55 11740400 uv_0.13.1.orig.tar.xz
+ 4aad7d38992f69f30448ff49121cfe84 5096 uv_0.13.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 9f974ec04cbf29f6f12eff25c9af5a88802a5e0c 831 uv_0.13.1-1+jammy.dsc
+ 98c686f32566d3ebe54ac6c60389a22cb82b77f0 11740400 uv_0.13.1.orig.tar.xz
+ 32311e3e8f20773780bd74ef6fc86947f112a62e 5096 uv_0.13.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ b6c0c5baad3adc6d97296ea163651dae9bb3d06b4b4dcb8ec0b4550453dd3904 831 uv_0.13.1-1+jammy.dsc
+ 3d07982efff5a28d5fb419c78e6884fc857bdcfafedb7089c56016477c53bb0f 11740400 uv_0.13.1.orig.tar.xz
+ 31a77834bdf5160b02e79d1771bf2f0715cf6d716fa30584ccd1b579ed43b60b 5096 uv_0.13.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 6418a3de3e929543a9abe7bc5d0cb7e32478b13317686e7a2342f1bda6b7a4c559971fe9a48920f808a525c05d2458904efe82026c466be0187996b522a9f822 831 uv_0.13.1-1+jammy.dsc
+ 06d26c6d415cf4de59472f02bbe2f23817155a8a815a229a58d7af724caa4925beb9603252db3e941d7a69bcd634ac623d27f88bf505384bbc933becccf524eb 11740400 uv_0.13.1.orig.tar.xz
+ e2a4a7e7cd889cc1897237b52f0937cfdf19ffdec37aebcbea84f5aa22dd3dda18091bba178f311e9f85dc25add1f5137000568483e7199df1a9e3d4c1cb0c58 5096 uv_0.13.1-1+jammy.debian.tar.xz
+
+Package: vicinae
+Format: 3.0 (quilt)
+Binary: vicinae
+Architecture: any
+Version: 0.29.1-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/vicinaehq/vicinae
+Directory: pool/jammy/vicinae
+Package-List:
+ vicinae deb utils optional arch=any
+Files:
+ 7b168c00fe05fe46b5d6fb704d4bd798 884 vicinae_0.29.1-1+jammy.dsc
+ 071ff02390ee88f3a600cf79c83f6517 18779116 vicinae_0.29.1.orig.tar.xz
+ acb0b1bb9b0218498c69a097b59c2e27 12228 vicinae_0.29.1-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 88098cec43aa3f0872d27099936648f70f39264a 884 vicinae_0.29.1-1+jammy.dsc
+ 5bdb91d0b2b9549f42707780618e5ada50f544b5 18779116 vicinae_0.29.1.orig.tar.xz
+ 217698d0f297fac7ce90b0646a6c3cb83114d555 12228 vicinae_0.29.1-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ d7b470628ffb17d29bbc3cbcbde51695bcd10d48257b2a0e15cb013d522e4c79 884 vicinae_0.29.1-1+jammy.dsc
+ f0a2fd7c7c66b0f74450bddd91e71df34e5fcbabbcff2c92271f2e3f45e0318c 18779116 vicinae_0.29.1.orig.tar.xz
+ ea359ed85496315c231d5d3f73e64e25c4684d0340525701f2e5b94789136db4 12228 vicinae_0.29.1-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ ef060dc9415be3f59477c8e595c32a640acc5bb19d5e9a1e173c4fc900c151c45947ea982648d68811145d3cbcdc9293f3f81a9ee1ff2565881868558dc5d709 884 vicinae_0.29.1-1+jammy.dsc
+ 072b15d08f9e30760e200bb93037c18071fd62875572901b1225b3df1024457009389ee13df08f3a1ae29ab4f33f552f30b616d4c0ce54abf5db1b7dad78f639 18779116 vicinae_0.29.1.orig.tar.xz
+ af9dbca7b3d2eb8be5d0f5443f7271163650f7ad6229305bf09482ef76901d1d0e37bc25df90b2208be168f71f8359950d64627ea94371b7f751f6216d038f9a 12228 vicinae_0.29.1-1+jammy.debian.tar.xz
+
+Package: vite-plus
+Format: 3.0 (quilt)
+Binary: vite-plus
+Architecture: any
+Version: 1.3.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/voidzero-dev/vite-plus
+Directory: pool/jammy/vite-plus
+Package-List:
+ vite-plus deb utils optional arch=any
+Files:
+ 63a114ca07c353bad4dfacb11d7f19b0 894 vite-plus_1.3.0-1+jammy.dsc
+ 7461316e6b4aca92f367412483e69aab 3464056 vite-plus_1.3.0.orig.tar.xz
+ a01c4219e043f77be7d9b3a2f6fcded6 1524 vite-plus_1.3.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 21b77527f211654c27ec862daf7d2fd693060638 894 vite-plus_1.3.0-1+jammy.dsc
+ b6966aae504f27d3efc1af5d3e0559571a97139b 3464056 vite-plus_1.3.0.orig.tar.xz
+ 76dad80ac96db6a9bdba04d26aec81c990487886 1524 vite-plus_1.3.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ 4c6245d3140986582f08aa8e661b3f7920c6f7fd37b3e21f167da82a1996cb75 894 vite-plus_1.3.0-1+jammy.dsc
+ 031b6e380ee0d58381506ddecf1c2251c4ac174efde4e7254bd670183192ce6c 3464056 vite-plus_1.3.0.orig.tar.xz
+ 97a5e647272cb702d1e0301ebfd561904ca6cfc078e5ab4675d4b0b0149dc68e 1524 vite-plus_1.3.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 000425a65d982d8a5feb81b3a44831291141438a2134a88fc94614003298a1b3e49df24386a9215793a12cbf840f6b4dd1e96c7334d0173a09d6fc9166308e59 894 vite-plus_1.3.0-1+jammy.dsc
+ 76c96cf35820e63058eac272d8bbc13641e516ac2f0dbe563bf0905fd190667e91aec092016e0eddcb1b32f981696dc3e40473ede773295838abf0838ff50cf6 3464056 vite-plus_1.3.0.orig.tar.xz
+ 0dd2a638e19de072afe12fadb6a092b0bc7e22eb861578b7e94e7d9bd12cde6cfc62149a4f44f4a04dc0916c0a480b87c91dec066cee076262d3c5e8f7bb2dc1 1524 vite-plus_1.3.0-1+jammy.debian.tar.xz
+
+Package: watchexec
+Format: 3.0 (quilt)
+Binary: watchexec
+Architecture: any
+Version: 2.8.0-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/watchexec/watchexec
+Directory: pool/jammy/watchexec
+Package-List:
+ watchexec deb utils optional arch=any
+Files:
+ 472bbc5b62071d908635285aa648e2e4 891 watchexec_2.8.0-1+jammy.dsc
+ 713a891ff2a50aa05908cba96e41650f 2913648 watchexec_2.8.0.orig.tar.xz
+ 48cd7bbfb8072d9a98c70671e4b87d3e 4632 watchexec_2.8.0-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ 82c78caeb801b33bf7b9c3f7749d1a6f394c7112 891 watchexec_2.8.0-1+jammy.dsc
+ 15891d021e7c203322ad5cc4896e92b6a18741a7 2913648 watchexec_2.8.0.orig.tar.xz
+ fbfeef8908634070bbbebe118a21118c2adec049 4632 watchexec_2.8.0-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ f6526409726018675af42208dd422ccf9696d62292540731695109207c7f7ddb 891 watchexec_2.8.0-1+jammy.dsc
+ 89e815c453f955ffd63b2acc1f908461ac4f9e151774382a6474e89d595ca3e8 2913648 watchexec_2.8.0.orig.tar.xz
+ bad38ab9fecec9e3e39be53e994abea72b5848b5783b3f6898ac0e5ddeb1f402 4632 watchexec_2.8.0-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ 0c8281b59221d5c2b85ed34172da3645666ad93b99a1ac6791499498f806c7913fff7bdc10baebc5923a8ce9f847082499ccb44034afa59cc9fe6115a843d7c6 891 watchexec_2.8.0-1+jammy.dsc
+ 3682504b694e6643705a726d0b15024367c0a6674e836bcd8ee4329b3d92b31bde0235c3e1896672564ed4b1094ed801c33b3e73510721f4803a06f87175f3b5 2913648 watchexec_2.8.0.orig.tar.xz
+ 5f71ddca36d628fb5313bad8df9d17d1e4b467acb077bd3c251f3b81dd0c1b4dcc59053e67352bf4212ad55c44a37f010c9a48f44cecd3526af280c9aad46c2c 4632 watchexec_2.8.0-1+jammy.debian.tar.xz
+
+Package: workmux
+Format: 3.0 (quilt)
+Binary: workmux
+Architecture: any
+Version: 0.1.276-1+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/raine/workmux
+Directory: pool/jammy/workmux
+Package-List:
+ workmux deb utils optional arch=any
+Files:
+ 6fc29932f69feb0ff9bac1cf9b710624 881 workmux_0.1.276-1+jammy.dsc
+ 84d3900a07b76353b2d82fe45e478bcf 4460244 workmux_0.1.276.orig.tar.xz
+ dc81d3cd612d1b72c32319437bc8034d 1512 workmux_0.1.276-1+jammy.debian.tar.xz
+Checksums-Sha1:
+ ffbff45a4b5a9c2d02c06a2def93620316f93663 881 workmux_0.1.276-1+jammy.dsc
+ b3888e0c99b4f774e0ecb93d668e101cd61f4f41 4460244 workmux_0.1.276.orig.tar.xz
+ 93095f534f09688357b81ed45e83947cf5a0f7c7 1512 workmux_0.1.276-1+jammy.debian.tar.xz
+Checksums-Sha256:
+ c7e4deb5920426979dd7bc2f8a66f57a9aa323a00c17b9c79c71655d81e2fb57 881 workmux_0.1.276-1+jammy.dsc
+ 0b917e5cc32d651a77422a14c8226449d2b7dabc42ee743aeb8a7813f76c6dcc 4460244 workmux_0.1.276.orig.tar.xz
+ 2a02013d4a808847312c325e577762f4779f0bf2488266893e573699b3cb36cb 1512 workmux_0.1.276-1+jammy.debian.tar.xz
+Checksums-Sha512:
+ b9dffad8dccb8d5695aca48f840d2effa7fc2af31e4e49a0c3b4b4e1e6b8334412b65f475fe67135063200b09efc8b3be4016ca33aecb943f3e12633ab0f8c6c 881 workmux_0.1.276-1+jammy.dsc
+ 34d3238899728b984125ad561e4088e16b0415a04d7f68bcac4e76399e4cfecd32d867744776015d980f361ec55b50c9af7caa54fa1c57e68492cbb47983d0fb 4460244 workmux_0.1.276.orig.tar.xz
+ aba4c2beb530fed0c3a87b48d6e1c76c3b75c5ea1b97351990746b1ea04e1dd86d9092f742ca3ff5b18d1394c4afeb98f9a367bd99f6ccfeb5264244837c3af4 1512 workmux_0.1.276-1+jammy.debian.tar.xz
+
+Package: yq-go
+Format: 3.0 (quilt)
+Binary: yq-go
+Architecture: any
+Version: 4.54.1-5+jammy
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/mikefarah/yq
+Directory: pool/jammy/yq
+Package-List:
+ yq-go deb utils optional arch=any
+Files:
+ 31143f57988fded9c71b2b8384e262bf 855 yq-go_4.54.1-5+jammy.dsc
+ 45f253285a9099c90e037ec891bbb356 4336912 yq-go_4.54.1.orig.tar.xz
+ 7a3c18bc01ba873c6eb2fe5b6e82a7a5 1532 yq-go_4.54.1-5+jammy.debian.tar.xz
+Checksums-Sha1:
+ 5efb441f4010bd04a1f8cd076b450f6673bb9765 855 yq-go_4.54.1-5+jammy.dsc
+ e9198b04797e5f05ce6850c7c0624fe789946edf 4336912 yq-go_4.54.1.orig.tar.xz
+ d4e14beea396904ea8c11ac26b542e3cc6c633bc 1532 yq-go_4.54.1-5+jammy.debian.tar.xz
+Checksums-Sha256:
+ 3f302377ada4a2f9d1ac211e78980bb447d4b4951db988b5ede4f6df78bafeb8 855 yq-go_4.54.1-5+jammy.dsc
+ 11b2485861b0b55746426034b3c6b8b5c6f94eae3c731101367de9b869388c96 4336912 yq-go_4.54.1.orig.tar.xz
+ 8965e4f0a6b6251b4c619ee4211433d957168bb48cfe06998796e73ab69b9e91 1532 yq-go_4.54.1-5+jammy.debian.tar.xz
+Checksums-Sha512:
+ 07d53213ee4ffdd74778ac8ab006b147d7ae2744f6743fdfdffd72e37a7ac8a38328c8577fe519e3d4b697b65165ca991841df740190fdd2060a7ca5d9d3b64c 855 yq-go_4.54.1-5+jammy.dsc
+ a78fa0deff2878300afc086f76ff2c30a255d7bfacb4d33ccdf0b645b10d94d8dc979c3866728a2909182723b5af20a4dd6f35a2960866de490a4e03a59edca3 4336912 yq-go_4.54.1.orig.tar.xz
+ 92d27e6bd5db46ba35617ac36b4f20bc6eb7cb6c459aebe26cb3a43885b44bf321b9efea7e99f9d085e703e8a50c1a752a1bee7859bc597ee6014722535f95f0 1532 yq-go_4.54.1-5+jammy.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.45.1-1+bullseye
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/jammy/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 9605012e0b70327ddcda9f99a7d702cf 881 zellij_0.45.1-1+bullseye.dsc
+ aa657ed4532371922e77c125d549775c 8054396 zellij_0.45.1.orig.tar.xz
+ 5a33668d1373c56466e155a09d10908f 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha1:
+ 9766c71dc759d9a9166b99c9884096e1e1fb942e 881 zellij_0.45.1-1+bullseye.dsc
+ 87ade7297dba2e9c4992532717f9b9b3ed77d10a 8054396 zellij_0.45.1.orig.tar.xz
+ e8f76ce21f25c0edfd8186487fc7be433daf65f9 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha256:
+ b87e38d17b53f60ed651277c774367e6df97bdb2282816aef8d7b8625df75e7c 881 zellij_0.45.1-1+bullseye.dsc
+ e1e0ec5831257c49ba9133bb111f8053aac1b58d76d3aa6f5ae01b3219af3140 8054396 zellij_0.45.1.orig.tar.xz
+ 644b1fa27d06c5deee2f66fb25d01ac0e107906fc224b608a5b71677555426e4 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+Checksums-Sha512:
+ 20d132e36f25b06f8b8e2bfdf2cb3912f5a7e8785b303ac5c2f255b24cb13b028afaad282f20daf09a37e47d88044b3cbd9e1acc8cbd95ce125e5fcb6a5b1315 881 zellij_0.45.1-1+bullseye.dsc
+ 81a20bb2aeccb82fff52dd3b5fe38680011c9298a1e54ad7db5619fa53358c615aea8712eb10db7062d8db8c7e7d9a5317db7a9bbe56428e4fbd73de23709f4b 8054396 zellij_0.45.1.orig.tar.xz
+ bcdbc745a1074d13364e20e014b23859cd6c5a71506b3088e6b8b4b58ad9fece30ec1826a97fad7e8ad555ad9a02814d508c5a818e14590b287358649072aa81 1540 zellij_0.45.1-1+bullseye.debian.tar.xz
+
