@@ -1,0 +1,96 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_loong64.deb
+Size: 1296704
+MD5sum: 26c2974e25732e7e1a6deee442d9c9ab
+SHA1: f46864188128fb441535b65ac2fc4e697718754f
+SHA256: 384ad42c1aa1868d622565e1250219babc83b6d9602246b990cc7db5e690e70c
+SHA512: 4b87a6be2dc66d473cd3664e976e97019772638cf5558239adef66647694c0ce4104fb0aad84b17585668d0532715baf06bf2cafc03eecc6686b2b6e7b608bb1
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: loong64
+Version: 2.70.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.70.0-1+jammy_loong64.deb
+Size: 5146626
+MD5sum: a36f3457088b99e45a4bf4cbad8bd266
+SHA1: 3e6e18809030a8dd493969da6dce4555f44add5e
+SHA256: e252c7b63a5fe12cc1c3b3603777f04500d83944794ea2dc2e32fc0ba95e925a
+SHA512: e174cdf4b2bb73ac5e3b5505442b9ee4872fcb11ba7d60263b027e48c1e8ee213ea6b1c11d19036cd123cdbe70dc13e3efbc68d6805e0224fa8ca61e3bd69d81
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.5-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.5-1+jammy_loong64.deb
+Size: 1821320
+MD5sum: 6dd88b5febaf0bd6764118e1777d4afa
+SHA1: ff3a1821e564d4a316f0ef23a227fc30adb05d97
+SHA256: d968d8fc89e74e1ba3e61f691ae4bf02cd24e3eade7a6b5c341cdea04e663326
+SHA512: 6ccb64184e1bc429e9e9856ce7221acd1a3d34ea86cd1fc28d01aeee989b7d79b8415ec16dc523366a8a4cdd35a7a8632b81a1ab581426c0e76e880c41f53c6d
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.59.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/just/just_1.59.0-1+jammy_loong64.deb
+Size: 1851902
+MD5sum: 980941bbd164d13475326b4dc510ce2f
+SHA1: c8539626d85c6fa3f3ea9b593d8c2829d0159596
+SHA256: 3bc3d8745df103ef5ca00bb3e8d675e6074c7b03123680c11328638aa7624f1f
+SHA512: 02926c4d059fbe29db9f6f6cbc650bafc26c498137eb5ce390d687314b239848148bd5ec6b7c51312f8cd7bf652157a884d1d9beed56b6820e12e84792a59046
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: loong64
+Version: 0.116.1-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/nushell/nushell_0.116.1-1+jammy_loong64.deb
+Size: 49396140
+MD5sum: a38e73ad77673a607cca585ef04fe92d
+SHA1: ec5c2eb9c2d501d3883ea21363125994de4aa5dc
+SHA256: 3690b50a4983834abbdd031f55c97863cd4d93f88a814f7cfdd87e093c743727
+SHA512: b403778c2d604fc3fb8a3c1e79ed2c1db215753bbe5a654b2ffcb0994a9c35bb5ab54e668873793b1ca09d2c2b7ae495f4bea27ff5ae54d0ef86525833aa42f7
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.54.1-5+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/yq/yq-go_4.54.1-5+jammy_loong64.deb
+Size: 4462226
+MD5sum: e88a296204670bfa3726ab538c04e8c7
+SHA1: 838b4030961bce9a0439decf7d67f741e9a9f4a9
+SHA256: a4d9c633d804d0e943a3ed8b97042fb03af7cfb94835c5decd0d38d68b4f774e
+SHA512: ff0c403c386658142805b1dfb1480df1b594a26bcba60b2eca5a1fb93c424799a9cea1987700b3b12c0476f9fff456b28d336ece13a35493837d5e9178dec616
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

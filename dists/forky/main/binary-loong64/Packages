@@ -1,0 +1,96 @@
+Package: bottom
+Architecture: loong64
+Version: 0.14.9-1+forky
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/forky/bottom/bottom_0.14.9-1+forky_loong64.deb
+Size: 1297048
+MD5sum: a24c1ac4ef4dadb722244393b200dc7a
+SHA1: c95eb8c8e2ac159101ea53b27988bc67886c14a3
+SHA256: c5b5e4aa1436b4649e8387f2775e2e9e56523300e13d8998b8d624a3c65fa65c
+SHA512: 8130079defc1573cfcb02ccd08a0f1cfb7458a014867c18510d9d20b8ecaf67caa6020e04977e4e10e1b1a825ffbf7974e8817a9a67a30f217cec6eaad4b8a83
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: loong64
+Version: 2.70.0-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/fastfetch/fastfetch_2.70.0-1+forky_loong64.deb
+Size: 4599904
+MD5sum: db4b585e7dc564cbafd436e54298270b
+SHA1: 82bb4944ab0dd4acc1d29676eb849d30934a7c90
+SHA256: 34ef5633d73883f88ce6bd2143c46c1d4e44780279a89fbbf473abd1dc975c1d
+SHA512: 644867c669bff5851064c9398dcdf08b0c231d9d78566d07d3d56ed92d2f25227b10e26be1c2ac483ac773910b4ae1377d630fc90a7c51255922ac6ac7984e15
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.74.5-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/fzf/fzf_0.74.5-1+forky_loong64.deb
+Size: 1572220
+MD5sum: 56812d8543b32591bc5534b1291b965c
+SHA1: 8cbebb15ea4320fb24769d2b12757679c838ade8
+SHA256: 804743293a43e2cf1f6bac10952b11015d1044b78038cd2bda2b64f099a15932
+SHA512: 2b84cb06990be4ec8e586e7628588b81eef8afb45369f1b7ea5d1650f63b7d4e761f104a4b1d149bc44e05054ed14b0648030dd718a90abf4badbd2f5b235949
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.59.0-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/just/just_1.59.0-1+forky_loong64.deb
+Size: 1560708
+MD5sum: d8dcf9f89a319f885d53562261c45157
+SHA1: 4152919116bf3ab36a3a7bcd5ce9a9e79982f689
+SHA256: c4f763d822ce5269fa5b15edb8a2fd083295804f8b236c5237b1705e52d9a7fb
+SHA512: fcd6fbf116b53cd3b098a88488e2c580cc8b26c395b6663937060ecff5f2ea9b2d967d21a1d247b77f36f8252eb44cc12b6d3660367979753e7e69bce4f2ff02
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: loong64
+Version: 0.116.1-1+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/nushell/nushell_0.116.1-1+forky_loong64.deb
+Size: 42702220
+MD5sum: 02ac242d11b788ddc6d368a9ba9eea86
+SHA1: 27ea7f51ba65ae26d3d4d5fa2b73f22ea542c491
+SHA256: 7c7cc455d4c790bc1299ac26d21a8427a7ee3988c8162856c1582fb7a07781fe
+SHA512: 42b5b2f9fa54375ce9d4be2cd27f699fdff667eae041d2e08b8aebbaa7cdf6e6e0c7a8b30f4ec8862512bee928ab7bd82d0b26bf3d28fd6fdc6474716e5b35f6
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.54.1-5+forky
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/forky/yq/yq-go_4.54.1-5+forky_loong64.deb
+Size: 3831324
+MD5sum: 646d9ff809d899286a45f05c1c4f290f
+SHA1: e43c3764b559451476a1aad531c95424f9a7cfb3
+SHA256: 2ae1871b9049c74851f302d0aa76bdea0bb267a2feb9f74f44d24ab261513b99
+SHA512: 9b388f400a90e633c9acfd2082dc395fc81e4ce6edb8107b6071d15dbfd010ec98b49d05ac41be1c831fce06d52b52f5bb52128d7544490ff72b67d54d65fdeb
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
