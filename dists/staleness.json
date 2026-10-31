@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-31T11:11:27Z",
+  "grace_hours": 48,
+  "checked": 60,
+  "skipped": 2,
+  "stale": [
+    {
+      "package": "duckdb",
+      "ours": "1.5.6",
+      "upstream": "2.0.0",
+      "age_hours": 238
+    },
+    {
+      "package": "quickshell",
+      "ours": "0.3.1",
+      "upstream": "0.3.2",
+      "age_hours": 553
+    }
+  ]
+}

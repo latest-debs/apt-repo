@@ -1,0 +1,1537 @@
+Package: act
+Format: 3.0 (quilt)
+Binary: act
+Architecture: any
+Version: 0.2.92-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nektos/act
+Directory: pool/bookworm/act
+Package-List:
+ act deb utils optional arch=any
+Files:
+ a1a02afcbe784a86a7839775be5673c9 847 act_0.2.92-1+bookworm.dsc
+ 58b1ad7d3f4c116ab13fb5986783e5cf 6242144 act_0.2.92.orig.tar.xz
+ 8aa25317610118b41fda69823791d323 1536 act_0.2.92-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 85f914d850b267a1ffd2dec6670924d8ceb9a77a 847 act_0.2.92-1+bookworm.dsc
+ a99ad15d3688a942538ad2edbd4d6d7c2c22c9c5 6242144 act_0.2.92.orig.tar.xz
+ 17cb7fb1204423d04a0b79a8ff99a5e231f4f11e 1536 act_0.2.92-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 6239de6cb983a72c93d1a1238b7acf0425a88521c31e95c289a9cde933e4ab71 847 act_0.2.92-1+bookworm.dsc
+ 9e0116d6c61d2e70fa77dab96eb0dab9327cbbd341e7fea42b54c83923782dff 6242144 act_0.2.92.orig.tar.xz
+ 0aab116c3cfcaa8dd95d165de6b085e3854f08ed77a1f6ffcedf4b5a912d3647 1536 act_0.2.92-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 1f0a886e6bf8cf881306b26735e2cbf3707d8ee5cf2db3fec5292fca88d8775e53fa4893163cd359dea45a3726b857d29747b80d1df69f94fc97489881f83e89 847 act_0.2.92-1+bookworm.dsc
+ 358a80e3701d783317a98b7aa5bd00e8b80a0b6ef37f61828c8330fa24e8036d6c6c13d999ada3f79d5d05a2bcdd2c02fc7ba065682e36105c425d157e81e1e0 6242144 act_0.2.92.orig.tar.xz
+ f05b886cd124db076257ece88e4e70a04e295ae46ac0c699707a9d9ecc89c0f85f08238db80eb2ad5b6dfbf77b9339557baa34175c767435b676fbb59f78f92c 1536 act_0.2.92-1+bookworm.debian.tar.xz
+
+Package: bottom
+Format: 3.0 (quilt)
+Binary: bottom
+Architecture: any
+Version: 0.14.9-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ClementTsang/bottom
+Directory: pool/bookworm/bottom
+Package-List:
+ bottom deb utils optional arch=any
+Files:
+ 9a9282f2671805db1002b1d8f36be0f7 883 bottom_0.14.9-1+bookworm.dsc
+ 8b99a03e29acdf047e32cd2293186c3e 1499952 bottom_0.14.9.orig.tar.xz
+ 34396b0420c7161d41b2bdfbffe49035 1540 bottom_0.14.9-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 30ddcb829b12f3eb7901381080e0690b5bc71616 883 bottom_0.14.9-1+bookworm.dsc
+ 1870848dca877be70efa6d8945cc8cc2519f5c3c 1499952 bottom_0.14.9.orig.tar.xz
+ 55b40e6ba3f06b4dcdef60e3455ed304c8f6ee2a 1540 bottom_0.14.9-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 153db790eab0c80832324a69ca8570cfc8dac3f17c76f98b274e240133c70485 883 bottom_0.14.9-1+bookworm.dsc
+ e66414fcadeee260ef086e564d298c6010bbb916f37aa4cf47627fe58d53f4d9 1499952 bottom_0.14.9.orig.tar.xz
+ 0f03e26bed426b22beaeecc72b23d5403eaf1c460b806c2e8fd1f700def462f1 1540 bottom_0.14.9-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 70092b527038a79825bf3e66665759432a301084babe39a33ae35a091d086247ae0dc5b6b29f9807baf093989760de6272ffcf966fccc861683251e153b8c578 883 bottom_0.14.9-1+bookworm.dsc
+ 1c098146199ea3bd96b1d01088b3b15c0c5550049b24dbdede191106221898464dd98b763eff7005c304dc02da5766143b1b13ce0f6f2036883cc9c4f090abca 1499952 bottom_0.14.9.orig.tar.xz
+ bfd4f8de27192ba64bf6dcedc845622193bb647c4d977001614dd08224da7a98515516119e54ea3fbdbe0853473ffa5fb511460d795a7c235a008494286ec4ef 1540 bottom_0.14.9-1+bookworm.debian.tar.xz
+
+Package: buf
+Format: 3.0 (quilt)
+Binary: buf
+Architecture: any
+Version: 1.75.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bufbuild/buf
+Directory: pool/bookworm/buf
+Package-List:
+ buf deb utils optional arch=any
+Files:
+ 185bd4f57e41e81dfea3333dbb1e4be8 852 buf_1.75.0-1+bookworm.dsc
+ 3d1f4fc2052b2a2debc1c9e28e7537fd 24171656 buf_1.75.0.orig.tar.xz
+ 74f57fd1c4ef1ebba246cea963c7d2fd 4640 buf_1.75.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 8b240fe19a8b6c14d368bd9f75eb2c4a64757f18 852 buf_1.75.0-1+bookworm.dsc
+ 19895c4b68a199693ab6af31f6c2f626f97b0c54 24171656 buf_1.75.0.orig.tar.xz
+ 2a56ea62f88d94b0b8972cae06749707b1492df7 4640 buf_1.75.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 9e965d847f9560d063082012688eed8d1382b9fa382146b211f74f1205f2cb3d 852 buf_1.75.0-1+bookworm.dsc
+ c7753c0b5ae19ce6dd55f34d4c1ad547373cee7bd43c35c0eadcc741ad89b6d8 24171656 buf_1.75.0.orig.tar.xz
+ bc4f4e1f71124350b3fb774dd14d17332f38acd6b3d428e4937aef89e040b197 4640 buf_1.75.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 3ed4f8c2ef11460f0ddd8ab9383d931e1f297df882e2570e1d010a0bc8a69d9cbbcf50dd91dd50ac6b87bf24bd11c5d80d93226ac66abdf4e1bab5e35faf6caa 852 buf_1.75.0-1+bookworm.dsc
+ f3ca01e4a9cfec7384661e38798400140559c173694d0791a65fe4a997f9dd3fc7237dfc2718fcb765c7148767fbe0d3b82c58759d211c4ce7a30fa63efc78f1 24171656 buf_1.75.0.orig.tar.xz
+ b5bd6be8c079f0dd8fdacf4296192075783a82ee152fb7f20b136f09daf30b571bcffda34a1b2d0f38c3bc57c7a15308ee4b710efbb531a38fb5513c7d88e371 4640 buf_1.75.0-1+bookworm.debian.tar.xz
+
+Package: bun
+Format: 3.0 (quilt)
+Binary: bun
+Architecture: any
+Version: 1.4.4-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/oven-sh/bun
+Directory: pool/bookworm/bun
+Package-List:
+ bun deb utils optional arch=any
+Files:
+ 07221c9139034bf80df3424fe79bd751 844 bun_1.4.4-1+bookworm.dsc
+ 77d93549ac36cf7ba2bb18395da91485 39351836 bun_1.4.4.orig.tar.xz
+ 5fdc426542ac8de1a1ae7d002a429dbd 5072 bun_1.4.4-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ c327c368374eb58f1240cbe14228dfc4bd7fb4c6 844 bun_1.4.4-1+bookworm.dsc
+ 6d55fada26e5c00128dccb01a2f92cd2b331053d 39351836 bun_1.4.4.orig.tar.xz
+ 9ba7a297879add92e1b830398b31da99af806a05 5072 bun_1.4.4-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ e1f0855b098a91a8cff43ce67928bb785e6a8244714927a76eae909c6f2503bc 844 bun_1.4.4-1+bookworm.dsc
+ 51d606565958b60c66effcc0849113e22b6728778c157502234b3c73af789867 39351836 bun_1.4.4.orig.tar.xz
+ 5acf42f3a4d06794efcb2beb659818f328af1d5bb2608739b45c990588106223 5072 bun_1.4.4-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ ac7a52f25ce0f3999bb40e8ed00bf12d0b58131e008d40e8409937b17a7423e6f9b147adb8082e4fd1875f521c19e97951259c47c6ce5666a6c2d2217e5f13d6 844 bun_1.4.4-1+bookworm.dsc
+ bbbcbd2e4d883acc65c673b7eec5bf8635420ad52eae3cda05adddcaa10a49ec8525526021db2b44680791732abd9ee82a303032ed8fb72a277df7352c179c07 39351836 bun_1.4.4.orig.tar.xz
+ dbf6c580e363cf0f6b651153f55392339832004f0188432246c18fa440a280b6ff266d74ff3763a7b27cd42cef76d8c89bd1ef6cc945a0e6bd59b2b9967c91e8 5072 bun_1.4.4-1+bookworm.debian.tar.xz
+
+Package: dasel
+Format: 3.0 (quilt)
+Binary: dasel
+Architecture: any
+Version: 3.11.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/TomWright/dasel
+Directory: pool/bookworm/dasel
+Package-List:
+ dasel deb utils optional arch=any
+Files:
+ c28cbe09e8b651415efc7f62f27a346a 870 dasel_3.11.2-1+bookworm.dsc
+ e716947f9a5c9752338a421531c165b8 3049000 dasel_3.11.2.orig.tar.xz
+ d0b7924a82268db44327bc5a38815a74 1508 dasel_3.11.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 596089c670c6d3b3c151ecbf991d184edccbcb29 870 dasel_3.11.2-1+bookworm.dsc
+ bdb76e5e6532100910c27df2afaee39072cc70a1 3049000 dasel_3.11.2.orig.tar.xz
+ c5360b74bd48bee8b15b53664b3ce6ece57327dc 1508 dasel_3.11.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ b16166c3d26e6d76bdb13fc2612973bdc24eb58efed61716fe301ca85c9499ba 870 dasel_3.11.2-1+bookworm.dsc
+ 2037ca5d1cfe67165b4c54a8530b15557760fea7af735baff7aad9172da7d9b1 3049000 dasel_3.11.2.orig.tar.xz
+ f899d6d47115f7bbddbb3fd0f8423ee64a5a43eb1119a8286ec83d4409749f03 1508 dasel_3.11.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ f35ab5a9db7db62d277937e4a91a04e8cffe6bf66a739a6f3f64a407a3024d580a43d76746ec6616198d6ac1135285b3426feab2a0761b655ba6cbb707cae9d0 870 dasel_3.11.2-1+bookworm.dsc
+ 54fc23130b5d54a33ac09cabcc479658b8382fcfef8f4fb489b85549555f0fd2c81261a195cc187699445e0ff24fc63d8db727dcffca9b8be0736e588fa68b60 3049000 dasel_3.11.2.orig.tar.xz
+ 7f601294953cc43cd7c65dec3d11f847f07d2e637b403ffc435f5f28146a36db674320f1b6cdd0273ed681ebdfddc12bf5fd6a0a473d885fe475d262e50aef3f 1508 dasel_3.11.2-1+bookworm.debian.tar.xz
+
+Package: deno
+Format: 3.0 (quilt)
+Binary: deno
+Architecture: any
+Version: 2.9.8-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/denoland/deno
+Directory: pool/bookworm/deno
+Package-List:
+ deno deb utils optional arch=any
+Files:
+ 2471729521a3813f062341be697b537a 855 deno_2.9.8-1+bookworm.dsc
+ 375b3e3db274b619360e49a328ee9074 30630868 deno_2.9.8.orig.tar.xz
+ 845f86ff71cee2902405d84c4e3b81f2 1504 deno_2.9.8-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ dc917cfe7b8b5d53206f4a8a0fdfc112b3312bb8 855 deno_2.9.8-1+bookworm.dsc
+ db443595812dcf32ab400d2ff14ecb0513b41374 30630868 deno_2.9.8.orig.tar.xz
+ 58450362e056879c39a8cfbd26d9c6f054fc6a41 1504 deno_2.9.8-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 0de048bd8f0b9caa500093ce98393945653e90aadcfcc79e330a20bae5f4afe9 855 deno_2.9.8-1+bookworm.dsc
+ da098345544dddc64218bd3ee7b34107fa2b8d5013d2efa132804fa12306b368 30630868 deno_2.9.8.orig.tar.xz
+ c2d6b61f32990e8ca78983a87f21e6fd80c42093f0839fb174bbac131fce58ee 1504 deno_2.9.8-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 22fc980d872aeff55f8d889e3229a2f7eed7840adebd9d1f8811f600875d22b77a39c1ba7f818d75520c6acb3c4a9121dbbd59ae063b5fb0e8dbce5a327140fd 855 deno_2.9.8-1+bookworm.dsc
+ 39611be50b9a1cb2b31204d9b811530bb481df950dff25a22e08ad65809a55ffa69a425763b17c608e816d52fd0dc6d0faf924dd2e380e6b971bd08c304c9b10 30630868 deno_2.9.8.orig.tar.xz
+ 6a5d1f11bf96ccf2df9f5bdef5827c70c1316e4b689ccd4c3efe1c0e823f7d24d8f3c3b43d509aab8413bd3bb0144a75f9fdc5f3352e745bc617369ab2676164 1504 deno_2.9.8-1+bookworm.debian.tar.xz
+
+Package: difftastic
+Format: 3.0 (quilt)
+Binary: difftastic
+Architecture: any
+Version: 0.72.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/Wilfred/difftastic
+Directory: pool/bookworm/difftastic
+Package-List:
+ difftastic deb utils optional arch=any
+Files:
+ 49c7dfb40024b3b4db048396f6f51453 918 difftastic_0.72.0-1+bookworm.dsc
+ 97601abbe85c7f393193d7702391fe2c 6054392 difftastic_0.72.0.orig.tar.xz
+ 756731226b2b11ed93e2f68e98f1f05f 1564 difftastic_0.72.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 83f20ab09d094744a07675a91adf8d86aa617c93 918 difftastic_0.72.0-1+bookworm.dsc
+ 3f62ad38a25647e08e46588deb4e07b7f42aeae2 6054392 difftastic_0.72.0.orig.tar.xz
+ 64e18f40ec23bd1000d311dc726db5bc1ff0f69c 1564 difftastic_0.72.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ e8a0a439b9d373a206b79bc8c9e0618b2ad2aaeda6b6302d5c69d326f008b1a1 918 difftastic_0.72.0-1+bookworm.dsc
+ 6694b8aae25969ea808a036ac01074721240067edabf80d0f4205e88af429848 6054392 difftastic_0.72.0.orig.tar.xz
+ 7239adc3cabb9b32e0e6c0b97cb13cc4ee4ef4f08d1da253d8b18adb99e21f2a 1564 difftastic_0.72.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 2fcf47cc96a44fce7045bab6fb8f9d7d5ab6ccb608a61620336a53be10c4145448d960957396b657f6885db37d3ee8d25f88bcfcdeb1387d0af07c9f265c6c59 918 difftastic_0.72.0-1+bookworm.dsc
+ ed63c219d238ac617a6843a21d3dd8d3fb38cd66bdc2d79f443ea716f1cb24da047f4bbdd3d033290fa668677b3f9ae20267f8a7892af12c7d328851db187b96 6054392 difftastic_0.72.0.orig.tar.xz
+ fcd8da5f50acd72720c6d6361297289c0806c8c7578e126e4f6628eeede2324ec5b01bdd793bc122ddfed9c21e92aac0cdce7ea6a7bc90811f7137784522bc16 1564 difftastic_0.72.0-1+bookworm.debian.tar.xz
+
+Package: dive
+Format: 3.0 (quilt)
+Binary: dive
+Architecture: any
+Version: 0.13.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/wagoodman/dive
+Directory: pool/bookworm/dive
+Package-List:
+ dive deb utils optional arch=any
+Files:
+ 58737bb330f59d5cc983ea157cf7aaab 860 dive_0.13.1-1+bookworm.dsc
+ 2ede6672c8387396f396162582071441 3073748 dive_0.13.1.orig.tar.xz
+ 1eb64368d188a7e9fc9ced3ebea62cac 1532 dive_0.13.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 197be3424469a5d99de9c3eb0bdfcad3c15645a3 860 dive_0.13.1-1+bookworm.dsc
+ e1ac8b3ce3eaa306a90f62b14730f6a21d2a2d94 3073748 dive_0.13.1.orig.tar.xz
+ 7eacbc51c34405bad9167dd782dd8bd1cab92537 1532 dive_0.13.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 86d8837dd4f987f2148788e800e85fb09803d51ae9d2da6082dde26e965fc3a7 860 dive_0.13.1-1+bookworm.dsc
+ ac8075d4513288b156b857c05ae75bc75e2d9dc82a2a8827b32a01b8e9135ac9 3073748 dive_0.13.1.orig.tar.xz
+ 3c099a68b13245623844206ae67c7ab5a6d5169e31049335743a9e7dc407e19d 1532 dive_0.13.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 39491ad7348bf083d615bf2232b86c7828cbcfbdefb927497ccb1cc43d981874909989c959dad2da586ffcf3d93f61111eda817ee1c1d9bdf9bc5b318d0a903a 860 dive_0.13.1-1+bookworm.dsc
+ 253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
+ 3d141af7169f964085d7075a91769891320adb40c23f028fe18d6df852aeac6be1876f8523797ff0abba7b178b603bd8ec274ad5ccbf41b2304abd55b2b5758c 1532 dive_0.13.1-1+bookworm.debian.tar.xz
+
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.6-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/bookworm/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ 9fdf48496354d90343e438b1b0204b10 876 du-dust_1.2.6-1+bookworm.dsc
+ 88cd8385ddf87152a0607290df3691db 895512 du-dust_1.2.6.orig.tar.xz
+ e761de618de3b933211e1477dc94d9b2 4628 du-dust_1.2.6-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 42c0b3e2bd7999dafb7fd9693b80a1fa2b396ae8 876 du-dust_1.2.6-1+bookworm.dsc
+ 80534b1bbdcda5b433104f965e36219d7b0b38e5 895512 du-dust_1.2.6.orig.tar.xz
+ 269da38bfd791115c8f0afc3f588a14164197d41 4628 du-dust_1.2.6-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ e0c9ca82edb7029ae19b58c4c25c4cd32862cc55352ec51e4a857c5e3a28dc99 876 du-dust_1.2.6-1+bookworm.dsc
+ 4ede0731c637000406c440d1e9a3a567cff7773cc54f13f2c7b01f2775f5ea43 895512 du-dust_1.2.6.orig.tar.xz
+ ec7a45c0bf7216d30739049fe8cee88f2e88e6a2b11886423e221a89b66f7549 4628 du-dust_1.2.6-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 75dabd93f2242a32f985ab23e3fb129db51d26d9c702d4313e34195d8907135e53f0a1032a3eeecd66ef8678417c6acbe87bac40e569fab5d51c186da719fede 876 du-dust_1.2.6-1+bookworm.dsc
+ b2e519716430cf1062f44fb4aef96fe71fec8f62aebc2ccc5aa8051b6f56367c0dfee7e19501de6426ea504ebd0585b3c18941935d7d6deb98cd7ae5eb24a674 895512 du-dust_1.2.6.orig.tar.xz
+ b1bc728ce2fcdd6c4018198d416ae38f273ca3ec40d9ba2db18bb571a147ed553c215fa615176a1edfe27cf1b501a988ce46915397816945b0dd547ef6a2c82a 4628 du-dust_1.2.6-1+bookworm.debian.tar.xz
+
+Package: duckdb
+Format: 3.0 (quilt)
+Binary: duckdb
+Architecture: any
+Version: 1.5.6-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/duckdb/duckdb
+Directory: pool/bookworm/duckdb
+Package-List:
+ duckdb deb utils optional arch=any
+Files:
+ ecf99b343f7f06792159d12623221c83 873 duckdb_1.5.6-1+bookworm.dsc
+ ad4a47846be5e4ecfe100bba77c520d4 14734172 duckdb_1.5.6.orig.tar.xz
+ 931a313196e210e86e129c45a4f9ec2a 1504 duckdb_1.5.6-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 0f40e7409115d0d6ef2f48d57ce061b475095c4f 873 duckdb_1.5.6-1+bookworm.dsc
+ 8cf4527eea04fa71482825a23fb7efc725b2ba3d 14734172 duckdb_1.5.6.orig.tar.xz
+ 9fa718d279a046fb8adbafe5c70653981529f253 1504 duckdb_1.5.6-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 146e6c6c42c41114ec580a7d32c8d734d254a838c9c6eff023c54cabea375d32 873 duckdb_1.5.6-1+bookworm.dsc
+ f3447995c7ecb38f43ae783219c478ac81395fc305f493be4465d96f35104793 14734172 duckdb_1.5.6.orig.tar.xz
+ 5d190e575c725a399f01055fd4750d5770d3b265e1d6cd6cfd8cd0d34270eda4 1504 duckdb_1.5.6-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 7bf6b43088a7c446dd3789701fc334e762b1671235d53f47380c3e68ead6cd82e50909c48ab1accac62ee68b3095291aebea8ac0562749836f21f72ba25e103e 873 duckdb_1.5.6-1+bookworm.dsc
+ 129be9a529b4a06595d07d1b58fcfe3d5a1d605a6a4567dbffc77f27be5a87188793ee49573b37cfcad9bf4acc3481fcea7b9e2ffb48cb7e02cb03302cc9468a 14734172 duckdb_1.5.6.orig.tar.xz
+ f1eb8d2f1815b65673123c780c21af218f5730f0bbd0c324fd686d6bba3891d7bb65d36932bfe86e2e01533cbf9e92ee1f359757f15d8c2634b20407129a3239 1504 duckdb_1.5.6-1+bookworm.debian.tar.xz
+
+Package: eza
+Format: 3.0 (quilt)
+Binary: eza
+Architecture: any
+Version: 0.23.5-3+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/eza-community/eza
+Directory: pool/bookworm/eza
+Package-List:
+ eza deb utils optional arch=any
+Files:
+ 03ea13abe06192b4fb3b678fd9bc250d 851 eza_0.23.5-3+bookworm.dsc
+ 54552fc8935a845a0cd4f7dd06b7ce1f 990064 eza_0.23.5.orig.tar.xz
+ 00509360555ae997fb29de83dc83178d 5480 eza_0.23.5-3+bookworm.debian.tar.xz
+Checksums-Sha1:
+ b2bef1eb8316be034848112ef0368925ba5a1572 851 eza_0.23.5-3+bookworm.dsc
+ 218af2ed965a084a807778b4846c68cdeebbfa5c 990064 eza_0.23.5.orig.tar.xz
+ d2a3dc8dd31e29b194a923047a3de91f73967f59 5480 eza_0.23.5-3+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 7ff9e2c7718eae1010964e83bd6d3abef4c0bd2ad0c4008a88392fa473b3f0f1 851 eza_0.23.5-3+bookworm.dsc
+ f9f453250c78ac468cd085804d122321280abc32b426bb8abfdf65cf11745034 990064 eza_0.23.5.orig.tar.xz
+ 2fda3dc312f4c167ffdc6329a2166894b45198ffc9b4bd6153ab2eaa3fd6040e 5480 eza_0.23.5-3+bookworm.debian.tar.xz
+Checksums-Sha512:
+ f870d4c0d09e42dba7d21dc5ea1096c61291ac721922f0af8561e153a1b744bdebfbf38cb2cebb4235932ef18b75d61fc8eef48a328cad664d59d7057f2b7a1d 851 eza_0.23.5-3+bookworm.dsc
+ 7dd0ddf5d1f4448eef90281cb36fb535715c007ac4305e1452a0899dd94f06c82daf79c64d4f35184ddf5df3561d99fe066f49c662f39eab5100ef820b52776c 990064 eza_0.23.5.orig.tar.xz
+ aeb010de4f11138f6ffc841cf38f21d85a274e3f5fc811c1cbe8fc7f5ca38cda66e926cf8f9a3e864de4088038b94aca9573c42f846922ee20b3cc2c2c5b02ca 5480 eza_0.23.5-3+bookworm.debian.tar.xz
+
+Package: fastfetch
+Format: 3.0 (quilt)
+Binary: fastfetch
+Architecture: any
+Version: 2.70.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Directory: pool/bookworm/fastfetch
+Package-List:
+ fastfetch deb utils optional arch=any
+Files:
+ bed25f6a46af8847f5e8ba9e37943070 911 fastfetch_2.70.0-1+bookworm.dsc
+ 65221dfa95162db0ffdb0649777993d8 887912 fastfetch_2.70.0.orig.tar.xz
+ f0e69573d2b7be1ac3863a665d2a68b3 1548 fastfetch_2.70.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 1d567eb9357ffa3426aa0cb5cd66557581cb02d3 911 fastfetch_2.70.0-1+bookworm.dsc
+ d1570e0108b8a9fdb96a164d5c3542c4bbfe8cb2 887912 fastfetch_2.70.0.orig.tar.xz
+ 8cef59ada4251b2c627354b567da591090a610b8 1548 fastfetch_2.70.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 79515c9aad417f8cfd63208d704f1bf71ecc24ec4982e7eb709c54945d472d1a 911 fastfetch_2.70.0-1+bookworm.dsc
+ 8e8e80094939af7eaa5fbda6c320b1263d1d6c3f7758b8ec2c776bfd0ac45b2b 887912 fastfetch_2.70.0.orig.tar.xz
+ 36d753a0d3ea22ba4dabfbfc996bce95e90d6ff29e32656ac3e34c3e11a5da1f 1548 fastfetch_2.70.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 1d6e1724772be76bf0563af4ca22b2c91fa6fd172c66f642b8cc9bdfc52ee0088820a74c93868ea0d969f2c48bbeb97d2e15a8c1c98ce29a8cddcb9b17f262dc 911 fastfetch_2.70.0-1+bookworm.dsc
+ b4c388d3a888b16b228f3006c005acc3589ed2f7fd6e2c33aaf598232e9e6142750669e96e92c31dab131d77fae6a9ae173f885107828fdd0d99ffc1fdd4d1d0 887912 fastfetch_2.70.0.orig.tar.xz
+ f3da5a59e2e21c2e1a4b1e2374cd92568d99642afe4f25304611311e204c71ccd500a5f0ef65373c210bc1fcd5fc4a7b6f8f711ec06b561da08149dd323870f0 1548 fastfetch_2.70.0-1+bookworm.debian.tar.xz
+
+Package: fd
+Format: 3.0 (quilt)
+Binary: fd
+Architecture: any
+Version: 10.5.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/fd
+Directory: pool/bookworm/fd
+Package-List:
+ fd deb utils optional arch=any
+Files:
+ bcc9dd7480e527dffb62215652c415f2 838 fd_10.5.0-1+bookworm.dsc
+ 334a6178e92dcee30a9c5c1041ec5093 1092688 fd_10.5.0.orig.tar.xz
+ 9efd3fc6987626fb2eab2d4036b9e2de 5056 fd_10.5.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ a7f1519f468d619ae9fbcc1318ed786ff33549ab 838 fd_10.5.0-1+bookworm.dsc
+ 7116ec8ff365d246ee2b637a73c13751d71001c9 1092688 fd_10.5.0.orig.tar.xz
+ b1dda149a5c62e08758f35e7b93963c37fff7981 5056 fd_10.5.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ b73267dfba27216d9d5780715da6537f53d53ba0b2db401c18933625b6506f1b 838 fd_10.5.0-1+bookworm.dsc
+ bf718fcb14772bb462896b74065c161bfb97f524c14879e484852fb2a26f69a0 1092688 fd_10.5.0.orig.tar.xz
+ 6ca644b4e4708a254968fb3a7ae21907463ce38ed70564c420325b79c22ef8fb 5056 fd_10.5.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 74cd9f40ca8ed11d53e7b745122fefe3ea7c5a9141b40ed5bf7b0e6f30cb456b6a2f357f678f167d089a6f6381a7edfe661d4268be75e63ab48a40865b2bfe7e 838 fd_10.5.0-1+bookworm.dsc
+ 405aa12a39b60228ac76833a643695eccfea8d10371411205f4526b2fb1478ed7bd330cf2219b39e7c5d813029aee46782b77fc565eaa97ca66d9f35c43bfd03 1092688 fd_10.5.0.orig.tar.xz
+ bec5ac3ff6a1b40a18acf739c4ac5cb6a4aa5ac70d02aa3c6beb8a25f77cfe085fe5c66720ab9a22d945bc2766c5ad28d4591602d6a18b0ba87a25226d405a57 5056 fd_10.5.0-1+bookworm.debian.tar.xz
+
+Package: fish
+Format: 3.0 (quilt)
+Binary: fish
+Architecture: any
+Version: 4.9.3-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fish-shell/fish-shell
+Directory: pool/bookworm/fish
+Package-List:
+ fish deb utils optional arch=any
+Files:
+ a1e92cc4aff4f7169f31e5f56f478418 860 fish_4.9.3-1+bookworm.dsc
+ fd941ff8dc98e8a932cf23daee004552 3216356 fish_4.9.3.orig.tar.xz
+ 8a98bcce455a35f7c394e9f0a3021a63 1300 fish_4.9.3-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 82f8b4936f43dcf393677cdead9e87528eb01f6b 860 fish_4.9.3-1+bookworm.dsc
+ 0304d271135dcdf919104002ff4f428484b180a4 3216356 fish_4.9.3.orig.tar.xz
+ 578cffb30ba0f2863009df641a7e7578a66a3e3f 1300 fish_4.9.3-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 2b559450cd13c416a578cdca1acc7e0c878a475a5ce78f21b307200f76e2a618 860 fish_4.9.3-1+bookworm.dsc
+ 522fe794b1f0988555cee2b84f4db0be52810bf8e85727a24c90999c07a139c7 3216356 fish_4.9.3.orig.tar.xz
+ 07646117c30a8227bbe32a6234fdef310170a6af2a45299176e06abd7c41181d 1300 fish_4.9.3-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ ff5c68b2ce3982f2bc5f6208ed829b5691f7cb4dd8a2fa730bb662c5c83498a86c847226bc0227a93aca277a24720a4029ae9ef44ddddda00b7913c0ba61e959 860 fish_4.9.3-1+bookworm.dsc
+ 5cb1f2614d38169a261007e9c2e944f5eb56ed2ccccdfddd3f457a3079948910ed5b9f11fbe354db362c31d2b40d2a2f65c9d7c91ef41841e94d5af94f4ab278 3216356 fish_4.9.3.orig.tar.xz
+ 0c433b61907d4e138e051f4937bc0d37131c6de5bfbdc42445535e846dd5def1847f2d4ae3fa35463da8b78be954dc81e0142a07ac644faf44c3470b6b599707 1300 fish_4.9.3-1+bookworm.debian.tar.xz
+
+Package: fresh-editor
+Format: 3.0 (quilt)
+Binary: fresh-editor
+Architecture: any
+Version: 0.5.4-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sinelaw/fresh
+Directory: pool/bookworm/fresh-editor
+Package-List:
+ fresh-editor deb utils optional arch=any
+Files:
+ 78d2e960137ee0a73e52ede25752f0e7 930 fresh-editor_0.5.4-1+bookworm.dsc
+ 2b6f9be582a505885b13a81cc6c259dc 10967128 fresh-editor_0.5.4.orig.tar.xz
+ 071961f3ab4c7080885f99b97e25e227 12244 fresh-editor_0.5.4-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 92c52b2d9f0ec5efb7d22b16910a9771360eda7f 930 fresh-editor_0.5.4-1+bookworm.dsc
+ 025c9fc263f5b7f4152d50c8026c787131d1d33c 10967128 fresh-editor_0.5.4.orig.tar.xz
+ 2b09e8539a6bc22cba6978f026176a983ac603b3 12244 fresh-editor_0.5.4-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 918a9c02447592148e06f4ad87f890644345e9aa3d2b6889c297b51cbb93ff5f 930 fresh-editor_0.5.4-1+bookworm.dsc
+ 5a1f001d36d95a655dc559c825d8be1ba468cb6854c3159619adafa72a85da07 10967128 fresh-editor_0.5.4.orig.tar.xz
+ 8bb269d727f6df7438ebde4a43f08c0f5356cfb4616bc87b29525afefe590183 12244 fresh-editor_0.5.4-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 66ce0e8f05ae260711b7552dcf978deb6eb4e9a6905b5617dfe2d846180333ae94449858f06bc65f5b9ad1a44f7c346adb886db3809bf94f28f61e98c6d1548b 930 fresh-editor_0.5.4-1+bookworm.dsc
+ b4b19088f4d6fd712de3b83b62d1f6d9d99c86ee51c19f900856bff665946b22c264dd8c7324e721f9ca1f871e307782802535c2d7d3ea1c710a66b85ac1041a 10967128 fresh-editor_0.5.4.orig.tar.xz
+ d75de065506c457d64435339eef84cf71a39fbeacb7089a52a397ebd14d1b3eb4aa908b7afd411d300c41847a3cd13d7bd759d0a1aa1860f8cc287066a5531df 12244 fresh-editor_0.5.4-1+bookworm.debian.tar.xz
+
+Package: fzf
+Format: 3.0 (quilt)
+Binary: fzf
+Architecture: any
+Version: 0.74.5-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/junegunn/fzf
+Directory: pool/bookworm/fzf
+Package-List:
+ fzf deb utils optional arch=any
+Files:
+ 55abe958f6091c1f4061f7f874a94365 849 fzf_0.74.5-1+bookworm.dsc
+ f95e688548351e62858787e74b9b34dd 1770516 fzf_0.74.5.orig.tar.xz
+ 4951c858fb4b995087c8382326a12b36 1508 fzf_0.74.5-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ cd749bc681c07216051dd51e455113f38f9a50bc 849 fzf_0.74.5-1+bookworm.dsc
+ 8e2d99753611b080cee7f2b0c1ecec67fb838088 1770516 fzf_0.74.5.orig.tar.xz
+ 8420d75796c0d8d988ed6f23b69a069cba26536f 1508 fzf_0.74.5-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 77424d40b9ed39a3f432f2b8ca429e134358c10c95bdfae72a703bf3105519dc 849 fzf_0.74.5-1+bookworm.dsc
+ 4da9d30e1c7ce3d1060027397685c115aca832b0a1f551f4926e236797812971 1770516 fzf_0.74.5.orig.tar.xz
+ b79ace26bac5ec5ab3a6c6ec259e5cdbefc5396dff8a5821d0d3adef64ef2944 1508 fzf_0.74.5-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 4c10fddaa54b639e871654552699305969196b7c1cf5870f37927ac07fbcfedd43cb50a395734f2a3261f1c845f7c82fac86842164e89031a22ca4d2b2e48d50 849 fzf_0.74.5-1+bookworm.dsc
+ bacbd9ecdcc039a2f762d470d707350bc5ee501ba5fa7e6ce57bd500dcbe4f8fbe2db90c18d43fa2acbbf9758fedb57c8c5556d668a60fb573d5e635951f6135 1770516 fzf_0.74.5.orig.tar.xz
+ 1c82ddb15889ffaaaa23e71e90d68b5a4ffee1a242ec2dfcc3df4ccaa1e868537caeb6714af26176f23075d0f8760870237abb29f573c077b67dec58b39bbb26 1508 fzf_0.74.5-1+bookworm.debian.tar.xz
+
+Package: gh
+Format: 3.0 (quilt)
+Binary: gh
+Architecture: any
+Version: 2.103.3-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/cli/cli
+Directory: pool/bookworm/gh
+Package-List:
+ gh deb utils optional arch=any
+Files:
+ 5c84308317c6dc272c42230b1ed2bab3 845 gh_2.103.3-1+bookworm.dsc
+ 003dc6aa9e53cb4cffb86e3f23aea9b0 10920000 gh_2.103.3.orig.tar.xz
+ 770d2b37ec1d64864f5a32e9ae843680 1504 gh_2.103.3-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 381d14ae491924c0096b0f24c9ec0a913ed3afcb 845 gh_2.103.3-1+bookworm.dsc
+ 2115c86633351fa65ca5e1034d7bb89f89b5f99e 10920000 gh_2.103.3.orig.tar.xz
+ ebbd26dea631f001512c2b85fdd186cfb5d6402b 1504 gh_2.103.3-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ ccea14b34407703fc38ee3b6f7aca8ee9cd56d5fa0527168535924ff809674f8 845 gh_2.103.3-1+bookworm.dsc
+ 426a8062ae3748cf730d46e688038525e5054bf915e29024151a1ac757b6e705 10920000 gh_2.103.3.orig.tar.xz
+ f5a030b1c8d807acc22039aed1972478e20179eb2c0b108d50c5a8b1a65cec58 1504 gh_2.103.3-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ a46dc0d2d3fdd6706adc4e718450b9c7aa87cebf9819c0343978a7f6abb3f405ec1b853b721e7ee4358f64cbc3717a11769d3aaf0a60d08d0a55921fd1165351 845 gh_2.103.3-1+bookworm.dsc
+ db635e07a9f65d4a585cc1e5e808d4aef4d0d4de4ec7b2f8195cbf31e9ac73d5502046c1cca9c75c66a28de32f821428f370e0940c33d72957f7cb9f79edbb1e 10920000 gh_2.103.3.orig.tar.xz
+ c6ab1a2f52b3e88721832e1863a40b8287489c427e492b7d861048f6e9c82f3f9d80637a6cbf1e60ed76b03a40fc6218c252418f36d9b87d6065ebe03bafce46 1504 gh_2.103.3-1+bookworm.debian.tar.xz
+
+Package: git-delta
+Format: 3.0 (quilt)
+Binary: git-delta
+Architecture: any
+Version: 0.20.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/dandavison/delta
+Directory: pool/bookworm/git-delta
+Package-List:
+ git-delta deb utils optional arch=any
+Files:
+ 3f3511629762310d4c9b149685296486 907 git-delta_0.20.1-1+bookworm.dsc
+ a7dbedf54e1f00e0cf527cd5e1d68cb2 2632804 git-delta_0.20.1.orig.tar.xz
+ 0890da7011dcfdf2902e5118dfd759f1 1500 git-delta_0.20.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ a94da75dd0c31d83c05b22b96007a86ac6089081 907 git-delta_0.20.1-1+bookworm.dsc
+ 7d1bf4ba401c21e574feeed6f14bed39046859b8 2632804 git-delta_0.20.1.orig.tar.xz
+ 827526f63fae04d6c7a51c8b994a5d25bbf4edb8 1500 git-delta_0.20.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ ef220192267c82855edcc15dc191b7640348a74c2a361cd840b2e8e819a623d7 907 git-delta_0.20.1-1+bookworm.dsc
+ 21a8342bf0c5ac090c7f63f8b3d834bac7894e94c51f8c789a768dc0fd600391 2632804 git-delta_0.20.1.orig.tar.xz
+ b5aa495def568085291e9b24ca568a63af1a4503deef268c6426e0bae9f3b590 1500 git-delta_0.20.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ a1934f8a6e2656afdff79c993a61413fa5cc7b586914151b6ed7df27b1e52b6ad27a4748d3466fe2bbf1021b59c610dbeb532d86c6f898cc3e8d0ce8f9305d8e 907 git-delta_0.20.1-1+bookworm.dsc
+ 849ac33fe37d85e6c5e5eccb3f11ff046385a92b9a30ccc7d5afebaf77011f0ff469e061c26211ffd4093e68b0cb351374867c3d48b4cb81b1e24926be6352e9 2632804 git-delta_0.20.1.orig.tar.xz
+ 482b831810d1cc2c24c6528de8c2da63948ccff9dccb14861630922a069a5aaae3472f8b0b2d60ce6f3d2151e0a399094b5ad425c8cf9f7ef11900caae7e3f38 1500 git-delta_0.20.1-1+bookworm.debian.tar.xz
+
+Package: gitui
+Format: 3.0 (quilt)
+Binary: gitui
+Architecture: any
+Version: 0.28.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gitui-org/gitui
+Directory: pool/bookworm/gitui
+Package-List:
+ gitui deb utils optional arch=any
+Files:
+ 65f4616865ca3fdd54e0e95c536e29eb 870 gitui_0.28.1-1+bookworm.dsc
+ 196477a63be033085efad1b2930ea219 5410300 gitui_0.28.1.orig.tar.xz
+ f8995fb3f04becb568ad2139e6c16fab 1496 gitui_0.28.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 7520e3d21af92316ef0a0ed958b0f5fc0b362a40 870 gitui_0.28.1-1+bookworm.dsc
+ 1310de9399d8177f6841532b7cb1a12fb077052c 5410300 gitui_0.28.1.orig.tar.xz
+ 78be818d2d9afe0fa31a38f6d47d5fc690a3c1ba 1496 gitui_0.28.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ b1579cbab5eac12e58ff277f049f8338b4090521aae33108fcd4e47c0ada90f2 870 gitui_0.28.1-1+bookworm.dsc
+ 65d069197b3d88fbcfc3af3e7d6c377f73fd07516acee7b0d7c79a3988cdc68b 5410300 gitui_0.28.1.orig.tar.xz
+ 1d726ce675131a36e6d57d05a1e439605bf64a95f376fde5bcb5fb2b36aae055 1496 gitui_0.28.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 82fb5fd2a9169bc8817e849c92f1c232325c6f29d3b77ff883774301736d63aaa314607e9d5508a2b247266b61139e6e5c377958df72d53ac4bf6b57999aeba7 870 gitui_0.28.1-1+bookworm.dsc
+ 13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
+ ddaeb98c654f953eedfab37d64a0d62daad597e0209074a7ca6f30cef739cde88e33a13a5d3fe51a1f3d9bed17890d39cdf43dbfaf2f1d3809c2ade87b6f937d 1496 gitui_0.28.1-1+bookworm.debian.tar.xz
+
+Package: gum
+Format: 3.0 (quilt)
+Binary: gum
+Architecture: any
+Version: 2.0.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/gum
+Directory: pool/bookworm/gum
+Package-List:
+ gum deb utils optional arch=any
+Files:
+ f0fd390989b9a0bf35969a97d65299d3 847 gum_2.0.2-1+bookworm.dsc
+ acd2847071193b9e2d50bc5068e65a77 3716380 gum_2.0.2.orig.tar.xz
+ 9d27b997153426536c0e1c16a925e2d8 1512 gum_2.0.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 87097530a2c8fe92350d55607eeb8c6d570edf93 847 gum_2.0.2-1+bookworm.dsc
+ d85da27594f39310992cee10080070a93c619362 3716380 gum_2.0.2.orig.tar.xz
+ c1f52a5d9b40f642b5958263ab77330f72bd6365 1512 gum_2.0.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 75c89afe42578b4afffe11b08f2b63c541eb3e49bc772d5b970b82422397b597 847 gum_2.0.2-1+bookworm.dsc
+ 27ffbd26418ce73e609076de00198144075dd40d7d33d8dfdbb358b02e7c607e 3716380 gum_2.0.2.orig.tar.xz
+ b8a26b478a890a97df9654cf16b664b56a02c6810d98ed9ed5e8638eb27fd2b3 1512 gum_2.0.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 9fefdc7fd8f645c73e71768d0174cbfe2e01cf9cf191a14fe6ff907ecfd1da00b0bcfa0fdda4655e713c446cd1e0157987fd991d40b3cdf3faa4952eaa55549e 847 gum_2.0.2-1+bookworm.dsc
+ 8ef8723f7bfa6b0bf88f06c182f4a4c383eefda75dc5a60a63cde7224a4acc7169bd899d448aa26db0164c35c8a0bfe4eff080c20839f4faa8b74748ef6443e8 3716380 gum_2.0.2.orig.tar.xz
+ cf217ce900147db28ba4160ac2128ce69610e858f43930d93485d6b38b6c92f9ee72a79a5fbfcf744f169d08a0b485a0e0d4dc5c526e26d06a36c696c4e58e6e 1512 gum_2.0.2-1+bookworm.debian.tar.xz
+
+Package: helix
+Format: 3.0 (quilt)
+Binary: helix
+Architecture: any
+Version: 25.07.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/helix-editor/helix
+Directory: pool/bookworm/helix
+Package-List:
+ helix deb utils optional arch=any
+Files:
+ c8a7bf587fe1255c405246f028669a17 883 helix_25.07.1-1+bookworm.dsc
+ f1265595f268a9b3b6e7188bcaa44e19 16626744 helix_25.07.1.orig.tar.xz
+ bae123761327dde622a6cf21bfdccb82 5948 helix_25.07.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 08574f19a337ee67f0ddc3a2b254e73f94fba140 883 helix_25.07.1-1+bookworm.dsc
+ f5b72284e8e8dc920109a04c63a4c1ba8e82902e 16626744 helix_25.07.1.orig.tar.xz
+ 4474781e1196454d731194410933d9f2c5743714 5948 helix_25.07.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ b3fea641eb1a1f7284693e8c5d9e96d148b87fc6cfc8c6b14c805c40e20f530b 883 helix_25.07.1-1+bookworm.dsc
+ 48a5f56b2107e64bf97d98d2252906864422e47b5a1af200f8d71ffd61a47cf8 16626744 helix_25.07.1.orig.tar.xz
+ 385cf689ecec196b053df54c28a2dbd7d23a218ec416ffe1fda05ee79ed31322 5948 helix_25.07.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 5fd6a9318063daba287a5b74bb41514ac2e1a4800e81d503fe34eb3495b0c1e59b48439a063de4665174c17309848b4f968840730cc333b6825eb2f1d2687672 883 helix_25.07.1-1+bookworm.dsc
+ 2124c182824b82d7de4369123dbc40c53ccdd0c7c3aae5dafe3e7b6958216c9313fb933e60ab07c558393041ccbd122ecce6bdd52365c74eca3c3b03092cb9b4 16626744 helix_25.07.1.orig.tar.xz
+ 0c912b8562eb5306bf9cce6a4c7dee24869f8eed83699ff03169ce32764f3eb9cb2105bde157b2e90c0c3875aa65d2547a22f87e0f1e2be3bd9c9b193a33ac64 5948 helix_25.07.1-1+bookworm.debian.tar.xz
+
+Package: herdr
+Format: 3.0 (quilt)
+Binary: herdr
+Architecture: any
+Version: 0.9.5-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/herdrdev/herdr
+Directory: pool/bookworm/herdr
+Package-List:
+ herdr deb utils optional arch=any
+Files:
+ 9159431127f7b4b90738ea317773accd 862 herdr_0.9.5-1+bookworm.dsc
+ b90306ec4085a8ce9af8e9d585e9f551 7509304 herdr_0.9.5.orig.tar.xz
+ dccada82420d33287b9096e56947a7ae 4632 herdr_0.9.5-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 0afa16378674a720f041723dbb3eaf28768d72e2 862 herdr_0.9.5-1+bookworm.dsc
+ 2008893f13fa1dbb596abc9e1f07d18c42ef7177 7509304 herdr_0.9.5.orig.tar.xz
+ b113948127fd4bf75bce073df0cd6c3ce1ea5bbd 4632 herdr_0.9.5-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 19901edf33d4f1c58ed6826d0fb5dc371fe91438abb576e1c67c7ab945624bfa 862 herdr_0.9.5-1+bookworm.dsc
+ 0256a692ae2ac32bf45eede3fd359757726fac74b4319aa7847bcc29486a02f8 7509304 herdr_0.9.5.orig.tar.xz
+ ce27c70ffbc45092de6e1f964a42e86f12c772032158e31e9b66f430f2974490 4632 herdr_0.9.5-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ c82550ee8262a7ac6bf7ce85a90eab1e28a4f331ed92e5196a0e6ca7e0e4417a9d7d70c4fe1226d960a89938eed22af1ba15a120a79292992dec893b027b013b 862 herdr_0.9.5-1+bookworm.dsc
+ d9283fcb665ec9d599efe309bfb62ed08b3ec699da960f2421d351cfa35f9c4cf87c486ddb3c2fd77daa5b177575a2f533945391a9f88dca35f18ada25542d93 7509304 herdr_0.9.5.orig.tar.xz
+ 1f61d925555be055c62b878b92683edd0e9d2a189d352cdf126900c5c6282247e1db47a3967685d5ff01f881dbcd94b2541022b7c83ac5969c1900b76125b586 4632 herdr_0.9.5-1+bookworm.debian.tar.xz
+
+Package: hexyl
+Format: 3.0 (quilt)
+Binary: hexyl
+Architecture: any
+Version: 0.17.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hexyl
+Directory: pool/bookworm/hexyl
+Package-List:
+ hexyl deb utils optional arch=any
+Files:
+ 92078b28a1ed8b485e88c4353b7c5249 865 hexyl_0.17.0-1+bookworm.dsc
+ aded8e65d4faf9f64eb01372296600c2 426480 hexyl_0.17.0.orig.tar.xz
+ b56efa67dbcf77a63371b2bdd25630d5 5040 hexyl_0.17.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ bc1834642457122fe777b99dc17337d6528a833e 865 hexyl_0.17.0-1+bookworm.dsc
+ 9eb039c1656092373c46223e1def0ef0e7871459 426480 hexyl_0.17.0.orig.tar.xz
+ ac9a2f5bafd2c6bad7471a3dc9375109999b3b53 5040 hexyl_0.17.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ ebabbd0b728a17cde27e3fbc68e8a8e90aa78e9fd224f87bc32aab43767c2087 865 hexyl_0.17.0-1+bookworm.dsc
+ b5b1d9627cee4c43eb426992e07f3aa6f23ed64b0e7047b06e6a8db768878977 426480 hexyl_0.17.0.orig.tar.xz
+ 7beab3cbb89a1859a95245f2f5df4cec21380198dbc5f6fdf1bed6f7d24a24cd 5040 hexyl_0.17.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ bf9f69f91841af439de0f5f86d25d11aafe7133b5f3ecdeaa609367cd36dbf347f5a10d03473bbfd575681d7e1db7092ee893367e6355388318319057859ed96 865 hexyl_0.17.0-1+bookworm.dsc
+ 2e9ca6f0ae52a475c2ce89c8f05cdd6636d1f81d647d7d7f4b4421825f48b5a187b8a758c67e0833a84adb07cd089420661b97848d9e4e2e578e4fbb81d87921 426480 hexyl_0.17.0.orig.tar.xz
+ b3c68dcb92e130a4b406eab6f14a7904fc2de6b320193317ebd2a123ff7e0962744bd967552996a73d7f7e14383022b4605f0c038b11ed77089a57fa3d8743ce 5040 hexyl_0.17.0-1+bookworm.debian.tar.xz
+
+Package: hyperfine
+Format: 3.0 (quilt)
+Binary: hyperfine
+Architecture: any
+Version: 2.0.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hyperfine
+Directory: pool/bookworm/hyperfine
+Package-List:
+ hyperfine deb utils optional arch=any
+Files:
+ 003fff86fb05661b56d7c899b3ecf69e 898 hyperfine_2.0.0-1+bookworm.dsc
+ 63d5e6fabd9b0f654a27e5aa7c2bbf98 516428 hyperfine_2.0.0.orig.tar.xz
+ b35bbd8e28a16353a3c3b1c5f95a0773 5088 hyperfine_2.0.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 90bb3575935c403618e56b79bed81c912f5fd199 898 hyperfine_2.0.0-1+bookworm.dsc
+ de01c1c7f870d48186f508f76700a868ebeaa248 516428 hyperfine_2.0.0.orig.tar.xz
+ d2151ea62ed686c4d0cf8e5cb1e1623098bf5357 5088 hyperfine_2.0.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 1f682e5f84f653f16e431ffa97014834da10c88b52168c341ab053dcec438f6b 898 hyperfine_2.0.0-1+bookworm.dsc
+ 34541ccfb2fe402dcdf1182a1658bb986a62a206dd91e940ce51680e9effd90b 516428 hyperfine_2.0.0.orig.tar.xz
+ a8ef8909a516b9e507476d85538ff30fe7072bebb098fa1a9c2b731dd7d9e91f 5088 hyperfine_2.0.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 3309bd503bb3ae25bdc131422397ca78bb51494fcde92763066626d0135b5f60db9e22afec6879b61b3d223a20aa966d5ca8757ce9e45031a3e2980e1fc651b6 898 hyperfine_2.0.0-1+bookworm.dsc
+ 5ed1e1c001002793eeb504e6fda49dd145228b539a2b98d782c0c00352ea8109fb23bdef216a29e5646f1193ab281e0a500e96f5e39bc2f0eab8b12a20838f3c 516428 hyperfine_2.0.0.orig.tar.xz
+ fade37760a22dc48bbcb2a3dceb7462908f15745e242e8c86288157e7663c2ab3b20c40efd289b3eb5204cc123385f2e73dcd55129ca3520f6d85c1e7b0f1a70 5088 hyperfine_2.0.0-1+bookworm.debian.tar.xz
+
+Package: jj
+Format: 3.0 (quilt)
+Binary: jj
+Architecture: any
+Version: 0.46.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jj-vcs/jj
+Directory: pool/bookworm/jj
+Package-List:
+ jj deb utils optional arch=any
+Files:
+ a22108c5334189738854cc3bfb92c2de 837 jj_0.46.0-1+bookworm.dsc
+ 402ca0ef48984f417e88e79f0914f78b 7699460 jj_0.46.0.orig.tar.xz
+ 936441c0b2165f81877edcf923aed236 4624 jj_0.46.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 242b1ed0b00c08e51ac095a73e8111d5d6f12a7d 837 jj_0.46.0-1+bookworm.dsc
+ ed92f74e1eeae32666a76cf2096d31c49b8949d7 7699460 jj_0.46.0.orig.tar.xz
+ 20397f07a15dbfee69c164a9eeccaed5ceb6a1ae 4624 jj_0.46.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 90b76dc9ff9ea23e01a7bbfce4c5c659a01ad1f1c9320c151dcadc070bb4a05f 837 jj_0.46.0-1+bookworm.dsc
+ 38bc18efd02cf3d4d9cb82926291c5e8a5eb0c837c6611f0e72ab0f75f1afc16 7699460 jj_0.46.0.orig.tar.xz
+ ad2407ff01ab90d4365324d951ebb0c424740cbc2e047902c64066ae7d1f7d65 4624 jj_0.46.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ fb2a00a6b6601f04628304b09882970524720b0edc8241093c1b9b823f942f7197294ce5fdee4ebdc004dc409d22165568c596dd7a133a71d3a6907feb239490 837 jj_0.46.0-1+bookworm.dsc
+ f639655686a8074be164beec99467cdd17c99de9100ecea3207dc8d5ece03177463dd069f3c19568947db5a8b33ca0285d7b561bd2041d13c709580918d8f8aa 7699460 jj_0.46.0.orig.tar.xz
+ a77736cd39b121906ffb97c3eebeb5e1579ee248b5b12f6973609eef6f5923d2e9f314f8bcbce546472aae8868c23f8de7aa12715402dd4d6bf3cdef41c60741 4624 jj_0.46.0-1+bookworm.debian.tar.xz
+
+Package: joshuto
+Format: 3.0 (quilt)
+Binary: joshuto
+Architecture: any
+Version: 0.9.9-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/kamiyaa/joshuto
+Directory: pool/bookworm/joshuto
+Package-List:
+ joshuto deb utils optional arch=any
+Files:
+ 90858bf95adc20681a272f76b15d0348 881 joshuto_0.9.9-1+bookworm.dsc
+ d543d48e311dab96a863cbd4e7741731 2512856 joshuto_0.9.9.orig.tar.xz
+ 541da6d7d4579f1167121427438776fe 3436 joshuto_0.9.9-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 35d560640eb415293adfcbf5d45cff543007141b 881 joshuto_0.9.9-1+bookworm.dsc
+ c4851a6f903f5891b3b1d6e3f63017e1fc014c05 2512856 joshuto_0.9.9.orig.tar.xz
+ a7b5201aeab0b91c8388dfa0ec4aed9414bfb4aa 3436 joshuto_0.9.9-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ d7a8872d174add3d6d8fb81f96332c00a4789f0e10b807bdb04fb1f61df9a950 881 joshuto_0.9.9-1+bookworm.dsc
+ 9d489fad1a36977b532ae03ab1ff484ff87eaf681a5c8198f182ae0a96512ee7 2512856 joshuto_0.9.9.orig.tar.xz
+ 13a6f8df32e5b2b93c72b9fd589ff11215346dca0aa3b9054be3eea35e6fdaba 3436 joshuto_0.9.9-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 43fbafca0970e1f97617b2fdf73e17cfe54d52d90cdd3c0b905197659d58a83dc38a0b457864baef576fb785d972ee70f2e995a3cc3ea94d32432b8833e9035f 881 joshuto_0.9.9-1+bookworm.dsc
+ 70c70c154c3e9eb76d350beac70c5c1e9b4fd565e2abc9a6b43223b146006ff3363ac71dcf4b046f2716c5e87016a2b686b9d116bff29e1a6e9381530be14d3f 2512856 joshuto_0.9.9.orig.tar.xz
+ 8898f031cb48f7b10eee23449b3256bd23cddce65e336773e2240b34d55be3331fc7784f4e26e0a3a851f4fa54aa0b4188b397db2a4a170bc4576c37cffc44e8 3436 joshuto_0.9.9-1+bookworm.debian.tar.xz
+
+Package: just
+Format: 3.0 (quilt)
+Binary: just
+Architecture: any
+Version: 1.59.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/casey/just
+Directory: pool/bookworm/just
+Package-List:
+ just deb utils optional arch=any
+Files:
+ 796817f2568eaab37f8b7fc0cf0cc170 856 just_1.59.0-1+bookworm.dsc
+ 722f7f535e38569e0910ffc05332cfae 1842448 just_1.59.0.orig.tar.xz
+ 32898faf6c29ff5124172bf2cd0b5f1d 3576 just_1.59.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ c70f124aa10665c7b03c1a5d5d79d8d69bf607ad 856 just_1.59.0-1+bookworm.dsc
+ 6e19e73cee432d5965c49c71ada93f3701f72e23 1842448 just_1.59.0.orig.tar.xz
+ 647cddd13bce57e7f67dc29411f88ed0d1391712 3576 just_1.59.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 9534d4a8e561017f450931d37504ebe86fc295428502917edc15bd88e0109be2 856 just_1.59.0-1+bookworm.dsc
+ 49af341aef3210f6780a3a0834591077d9db0cb528872df19e960e1241c682fb 1842448 just_1.59.0.orig.tar.xz
+ 69b19f9529036fbf92fde4d46f58d235bd082ed45e2722abd31576b747d8ce8e 3576 just_1.59.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ c1e65ca154c0411fa517148257c0877a2b5fb9f8693fa592c32867bd94d062f38899021c3f68aafd29fae92918a955fe3fd366c3a7786a50f13e2e29f612f133 856 just_1.59.0-1+bookworm.dsc
+ 69423cb9b500bf1f114c9e01ccafedf4dba380577bcc201b0433870dd79bfb4e8823102dfacbcf005fe1be7c748e5c981af0d26d6e335830fa773869872aa7dc 1842448 just_1.59.0.orig.tar.xz
+ 83b0971013d64fbe7d38628f0e520d7e68d68c754e8b75178f51d7e2c92b84a50f225032d43d3489c9fef4b3ccd39f3bf2adfa61b1fe3d7156e77c170e19e220 3576 just_1.59.0-1+bookworm.debian.tar.xz
+
+Package: k6
+Format: 3.0 (quilt)
+Binary: k6
+Architecture: any
+Version: 2.3.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/grafana/k6
+Directory: pool/bookworm/k6
+Package-List:
+ k6 deb utils optional arch=any
+Files:
+ 2e072cfc1f2be604c17229956a67a954 837 k6_2.3.0-1+bookworm.dsc
+ a8ee328d4a0d70b01ca62c07b25d23a5 26117836 k6_2.3.0.orig.tar.xz
+ 4e499242d6c09c79aebb6e9d80f508b1 11908 k6_2.3.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ e1e5e75dc36e8537222376a755ebff3a4e0733c3 837 k6_2.3.0-1+bookworm.dsc
+ f9c04d759bc8c99541c3c947630e6f4b075b20d7 26117836 k6_2.3.0.orig.tar.xz
+ 90d70179b94f0b07f3a755aff5686c23e7731ee6 11908 k6_2.3.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ f9a3825e76dbfef51cebd67dd0c9b6f4f8d14f29e67267fc9c653c7f5efa1b26 837 k6_2.3.0-1+bookworm.dsc
+ 32577d408abf91bcf1ba8734a4a2e2f745f1c156f1ef689a6549e6816e6b88e7 26117836 k6_2.3.0.orig.tar.xz
+ 40cf0da6f2fdce187abf92753ff33ceb9cfa4274619aad0375ecd290ae0d7ce6 11908 k6_2.3.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 7696cb3aa4c8f2546c9d50902ba4932877c895e082e64ac498e9bee4647ff3b90dab39fd88c659fac4abe2fa9d94c3f76f391b1b06e52b0aae73c4de1e5f4116 837 k6_2.3.0-1+bookworm.dsc
+ ce80b20dc45ee783171619372e5be67a6ef19715d56e3a6017927c9cef33287ef3a7278367463e32baf22649a9b260c0351dbfeb61a09f8c4c0aee2407bc7776 26117836 k6_2.3.0.orig.tar.xz
+ bdf5c06dc85340aa62f1e640e7efeed0773a4461cbe430a8ad36973be3a450e2d85ef0ee8cc0b5dbe008d43eae9de3839679e7fb8e3e4d606024dca969ba2085 11908 k6_2.3.0-1+bookworm.debian.tar.xz
+
+Package: lazygit
+Format: 3.0 (quilt)
+Binary: lazygit
+Architecture: any
+Version: 0.66.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jesseduffield/lazygit
+Directory: pool/bookworm/lazygit
+Package-List:
+ lazygit deb utils optional arch=any
+Files:
+ 6a674afa1c830f1dd1159576d2945d48 894 lazygit_0.66.2-1+bookworm.dsc
+ dc550ebd922c4143667fadfe570d6c07 5366976 lazygit_0.66.2.orig.tar.xz
+ 2f009855ec43539cc9a92cc2eca4f857 1508 lazygit_0.66.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ ed38b8e7a1d9a68b93fed39949441c7b6717ff44 894 lazygit_0.66.2-1+bookworm.dsc
+ 1b32d8e9c9743ce24b0a93ddb5225c6753f267c1 5366976 lazygit_0.66.2.orig.tar.xz
+ eeaf0f4b7bdda819e8cbce48b40e2b830e005ef2 1508 lazygit_0.66.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 698ce445d2da67173a8031f5055f94d175bf507f81566c6eee09986bd5370673 894 lazygit_0.66.2-1+bookworm.dsc
+ 2b6f3d1dce711859fa8c74d3feebc30c331c7023b88d68693f9a887ce6d67bf4 5366976 lazygit_0.66.2.orig.tar.xz
+ 4367eb2dd98b900cbe9866e832dc3011f335f7eaa0b931cd7bce9b201d062621 1508 lazygit_0.66.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 52e7341233a2170accedfbe1c5c405f7e26a1c2ff12dac7579850ab2e131786a78f97a00562ed02971792738ff032353634d0786acd3171b637415d7b551a119 894 lazygit_0.66.2-1+bookworm.dsc
+ b6b0ec750fc470fd40c06e51d43bbd4879d262f10b015db2ee56b728bf64452098e4863c93e8a180a0bfbf222644b41b71e8ed40f4761203b5d001811326c6f2 5366976 lazygit_0.66.2.orig.tar.xz
+ ffcd80fbf65c75f9085383c55e93c39ce5ac5bc65d6132488c43a0523ce428772b0621ae4786a03646d6188a5925ab65828a0b6c2f05bb191ff6634164902b00 1508 lazygit_0.66.2-1+bookworm.debian.tar.xz
+
+Package: lf
+Format: 3.0 (quilt)
+Binary: lf
+Architecture: any
+Version: 42-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gokcehan/lf
+Directory: pool/bookworm/lf
+Package-List:
+ lf deb utils optional arch=any
+Files:
+ 5e5b93ce9a9f14a5c0b7b9fbcbe8f028 811 lf_42-1+bookworm.dsc
+ df6b204542e2d44930f35f516c4771cc 1815876 lf_42.orig.tar.xz
+ 4f3c1741d4ca6acddeff38025a7c29f3 1496 lf_42-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 9102b19b4a499c5ebedfcaf7f75b9d82f5e77e91 811 lf_42-1+bookworm.dsc
+ 86dac4b93f8bdd305d349033f4173d853e0c3b81 1815876 lf_42.orig.tar.xz
+ 783c4c046fcb03ea55e18ca60827796c1429210e 1496 lf_42-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ e9a100fef98ac57809681502838fe979b5bcf1f1e9405fa03bd24d93551a369a 811 lf_42-1+bookworm.dsc
+ 3f479b85724e7bc9845ddabe1c7890d1b4daa6404d287ef6e70e64e94b341fd9 1815876 lf_42.orig.tar.xz
+ 990ae568749b8ee36e7e4ad7fa490bfbed406e2ec0686747516e6d8eb8111d66 1496 lf_42-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ d4a7060aaf996ea0585c75beb9c22b04cf580aaf9792cad8460f89f02795b6c1764b5e66a60147e51df21a8941a584adc9e4db7b5571646898195e03836931bd 811 lf_42-1+bookworm.dsc
+ 582597d854991498145e9fb3559e9da25671a16d1e3cfbfbba3dcd3be5c4dce6be76db77dfd253cb121731dacc8bea99dbd5c6ccddab163d2170b41685e4f0bd 1815876 lf_42.orig.tar.xz
+ 985e064d2df0e33a28f855dc2e199a7ba1bd6ea816729bd4574dbd144028f94570adc0b1f37989561f652d4ae7752dfdaf695da399c3142fd5801976a2d848a2 1496 lf_42-1+bookworm.debian.tar.xz
+
+Package: mise
+Format: 3.0 (quilt)
+Binary: mise
+Architecture: any
+Version: 2026.10.24-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jdx/mise
+Directory: pool/bookworm/mise
+Package-List:
+ mise deb utils optional arch=any
+Files:
+ 97442051831b292339face6502762196 885 mise_2026.10.24-1+bookworm.dsc
+ 9bdf6edc5db60c07c504ecb2a17b845f 36184220 mise_2026.10.24.orig.tar.xz
+ 4a9185b100bc9994b1d63d8e2be4bbff 1504 mise_2026.10.24-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 34889f95537018b20cd85399151286c4a58402f6 885 mise_2026.10.24-1+bookworm.dsc
+ b62b55f8232a30264780d8d7e1e32b7297259fae 36184220 mise_2026.10.24.orig.tar.xz
+ 6b5193110d2343e10dffd008db84b3d78621e9a9 1504 mise_2026.10.24-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 3ede0d4058055fc6511302a72291f79b5104223cac5d544b65b1baaf65852b94 885 mise_2026.10.24-1+bookworm.dsc
+ 2f13eaeaf47b62136b725310531443585c2d5cc4ee8f9cfef7b54d1895d03aee 36184220 mise_2026.10.24.orig.tar.xz
+ ae472d77ee11903be16dbd41a97c45a4ee995fa0101292b93bf178c5612e4a53 1504 mise_2026.10.24-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 563dca643ea5754ce38eaa4ce954eeb5c04d47bf5f8e0dcc29350b4941689d047f114136f655127e5a31cf4d07c6d7a6b721e8f7b8c28ed573c5b9e842561146 885 mise_2026.10.24-1+bookworm.dsc
+ 3e8f800ca26fcbc4443a29772bf31bad51d13410bcbc90c622fdfab7ee37ff82be2f5e4a46a3746a5241d9d1cdee9e1d1d67f9d08f0642c07aee67fa7525b64c 36184220 mise_2026.10.24.orig.tar.xz
+ cbb5b0f18f93cbcf3804b6b73e37089ef6ed56b0471b32ec929827862a7b2a35a62d0c6f0bad3294f72b1bbb7ff3cfe7fafeda15066e75d6f0401b1e1a262202 1504 mise_2026.10.24-1+bookworm.debian.tar.xz
+
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.6-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/bookworm/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ 5a518a8bce72d0584efe8d82609094ff 877 neovim_0.12.6-1+bookworm.dsc
+ 7ab8b37842adf9be70cbfbdb2e40b8bd 8526068 neovim_0.12.6.orig.tar.xz
+ 3c551ed78e72884d47ee2a4312abd7c0 6260 neovim_0.12.6-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 9749779d30ba461a4225bd2e2c58bfcd491e3668 877 neovim_0.12.6-1+bookworm.dsc
+ d97ffb7eef1f5be224e11ecf06c8d8abdf9d2a62 8526068 neovim_0.12.6.orig.tar.xz
+ 0edc5720e7edcfc74d8e27c7fa1e61397765d1cc 6260 neovim_0.12.6-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 91ee4f10f162311598936131d24f8c6c8522ead6c73d3010c37f57b42fac3745 877 neovim_0.12.6-1+bookworm.dsc
+ f0e771948dea269f564dcd2153a2968847ed76447a30b1f07c21cf56d4b1c17a 8526068 neovim_0.12.6.orig.tar.xz
+ aec2a155a5d33255b489d4be1562ce23a73bee5821efc2a4d0466ee6c7908ee4 6260 neovim_0.12.6-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ e566e6beb9a22ba8b8f21b8284fd0b26041793c755f9d0008455e8e74408fd912ceb5dd1a9b017f729ad1d6a1cd3879b93d3fe5e27856c9d512bd9e96d241007 877 neovim_0.12.6-1+bookworm.dsc
+ 4334c172a5d7130df28c598934b866094164aec63b73adc19c1098e53ccbb15a2dd838369d449571183bc7190740c633e1a4287a42e5f8b6d1ab4cf34f8b62c6 8526068 neovim_0.12.6.orig.tar.xz
+ a2031522d323f2703c5a667280ef92da31da08acae2cb972834b04ee6edde60a9dee83644118ba2b38a4813906755cb31b185cebffb4dddd42fea1af31b68b29 6260 neovim_0.12.6-1+bookworm.debian.tar.xz
+
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.116.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/bookworm/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ 7b7eab76cacae4e7ee7f97e7ccf2622c 898 nushell_0.116.1-1+bookworm.dsc
+ b6f8dd36291ea8ff89a5f87d221b9e53 52286600 nushell_0.116.1.orig.tar.xz
+ a756b5584da27a0d82b9a89069704c13 1512 nushell_0.116.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 601942d06115c30abfa08a9282ecbbe95a031b37 898 nushell_0.116.1-1+bookworm.dsc
+ c698c1683312abff3612d514a970f61f4812a052 52286600 nushell_0.116.1.orig.tar.xz
+ fcca55d67f1fcdce77e40d11f45a61b2fa46e3a1 1512 nushell_0.116.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 5718c1bf67216454f6bfacc7bd27c59596f740b3b79de2e17abf818a3644d489 898 nushell_0.116.1-1+bookworm.dsc
+ abbcca95c94e78e8ee65b81f8387b7f1fe9b48c12980601d70d7a54d14d5e1f4 52286600 nushell_0.116.1.orig.tar.xz
+ 096fca49a06930cc98a465d022a44f08680b97e4fea66f7ea017fbaaa5c9a039 1512 nushell_0.116.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 30f61f2e69df5120da76adfcc7a1f0ce848bf3b5b80e2d287155119f1e4115de427390f91fd71d832880df3a36dee2baaa68e1ef12459cd67ee173e7b8423049 898 nushell_0.116.1-1+bookworm.dsc
+ 00389bbec80d1c8719a89a956f985aab6cefd378640b170a36cab6dd155bbf529373d5b3d3d4315c8a8452468cf95f773fd762d83e463418dd4afdc117f049f4 52286600 nushell_0.116.1.orig.tar.xz
+ ffc456f9ed7281592ca8e4ce48817d37323ee3f7fefcfc2df468ccf4248d1779c6bde1aa72b51e8a2a59841aead9982a3f5892447517c8af2410411dcacdea14 1512 nushell_0.116.1-1+bookworm.debian.tar.xz
+
+Package: oh-my-posh
+Format: 3.0 (quilt)
+Binary: oh-my-posh
+Architecture: any
+Version: 31.9.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Directory: pool/bookworm/oh-my-posh
+Package-List:
+ oh-my-posh deb utils optional arch=any
+Files:
+ 24a4ea7673cbd588564acded7d61dcbe 925 oh-my-posh_31.9.1-1+bookworm.dsc
+ aac9b1e663377d602bcc5907f5344b2f 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ 8d42a8a69c7a3d071c92164568753289 1500 oh-my-posh_31.9.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ d0347d8ccd42e8c722a81d9b6d96a650c38506b6 925 oh-my-posh_31.9.1-1+bookworm.dsc
+ 9f382e0d8e11d54c559c945766049176560f8b8c 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ 7dfe788f78486a8608c6017c5d6fab5dd663e2c1 1500 oh-my-posh_31.9.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 4eeb1084da344031193242c70e47ac342182ba5617a1c5f7f307769bf0a870b8 925 oh-my-posh_31.9.1-1+bookworm.dsc
+ 6df878e7a28c10edec97d334aae4d92a574cbcd8eca7f0c969588ade64fbfd44 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ 85e4db3b5ad8ec7155c711c3b285ab52ecbdbc093138d6f7b6287958af382a98 1500 oh-my-posh_31.9.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ af021d22b4e3015c4ec74b80719c493e7416470965ddc175fa031194dd91de2bc168861f8ad4862d34ebf71a66328057279c0a4496880b13cdff7774d4115cc8 925 oh-my-posh_31.9.1-1+bookworm.dsc
+ 5c330f8c1ad5e6760e48e84dbca8cfb33d024d4a1c69364adfe29b6ddbca4f9b4106659d79fee0320d3794f2a77b9e14c3dc0a12c4edfa0433e524fd3f10f166 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ c40116f9641c990487e0270f0986d7da94522b809bf73517b930ad50e7138e990cb30a42eb058707d1452a9b93f73f4b7b35777dfba1eefeb076dfa3d8ff446a 1500 oh-my-posh_31.9.1-1+bookworm.debian.tar.xz
+
+Package: pnpm
+Format: 3.0 (quilt)
+Binary: pnpm
+Architecture: any
+Version: 12.16.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/pnpm/pnpm
+Directory: pool/bookworm/pnpm
+Package-List:
+ pnpm deb utils optional arch=any
+Files:
+ a3279d67a66251c60451825543e47836 865 pnpm_12.16.1-1+bookworm.dsc
+ 8bc4747d56fd518e551a3560fe095683 16834132 pnpm_12.16.1.orig.tar.xz
+ 7ebb41cdcee0156f61634650beb40bb7 1600 pnpm_12.16.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 8994a1acadccace71d2b9bef55022274a48cf8e3 865 pnpm_12.16.1-1+bookworm.dsc
+ 4c154c190748640d93645a1efdd51610e56f3e6d 16834132 pnpm_12.16.1.orig.tar.xz
+ 70acea0cf37b58f49dbddbca1bc1e9cb9254fe51 1600 pnpm_12.16.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ d734e9cd8f241fe6edd43972e1e2534db9935010706d3e1b612a1b15f6e21837 865 pnpm_12.16.1-1+bookworm.dsc
+ ef03684616b2f66df7adfaa74c0bcc58b89b3cd512cd8baf85d8ae52d01d6cf6 16834132 pnpm_12.16.1.orig.tar.xz
+ f48a04267a67d4a663dbed4d0eb505270fd9b41eaa63383e39ae5f86eb094fd5 1600 pnpm_12.16.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ fd948edbc30b71a480af45becc9fd666cbeb008fd83ebbb7d5a36f279c12e4eec3202e9080bfffca1e39872a6647041aeaa5f264f8bfcf80846574f8cf6f7d21 865 pnpm_12.16.1-1+bookworm.dsc
+ 0b7782580645e2203e459ccc02f610e8f801066080374fcf0d3b308d92c17136c33f227fd96f2eff26cc0386d8f1f1824f9336d857c9e7476b3410cce8822914 16834132 pnpm_12.16.1.orig.tar.xz
+ 2d5ab61b33496bb39a5b4e5c1696e4611d6ae0e2a073aa55b562d2d8d36baca753c37648adbd7e0c6764145c27e391a4352e0aab161b64cee56856efb8ccce27 1600 pnpm_12.16.1-1+bookworm.debian.tar.xz
+
+Package: rclone
+Format: 3.0 (quilt)
+Binary: rclone
+Architecture: any
+Version: 1.75.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/rclone/rclone
+Directory: pool/bookworm/rclone
+Package-List:
+ rclone deb utils optional arch=any
+Files:
+ 8fc1554027ab976b698408ad6db68f7d 880 rclone_1.75.2-1+bookworm.dsc
+ e5df60f4e129a53537b2bce0acb5f5df 20837504 rclone_1.75.2.orig.tar.xz
+ a2de5ea9957a6a52f43c4ccd2c598e79 1564 rclone_1.75.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ aec8a272f06c630561a82f10fdbfe2a65b1a9d53 880 rclone_1.75.2-1+bookworm.dsc
+ d20e9309c6220dd3ed5db7391ba55c42b1e3694c 20837504 rclone_1.75.2.orig.tar.xz
+ 7966cf228ccaf3667a73ca5b00d2b7d52257c16d 1564 rclone_1.75.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ deabd12b585ad85e9ba14c12ad8415abda28efb52c06691d3a04f87bbafc7a45 880 rclone_1.75.2-1+bookworm.dsc
+ c93ff24cd639899259ec960a2f035f8d23042af3ca8d4ac1d21673bf3b0f541a 20837504 rclone_1.75.2.orig.tar.xz
+ eaa35e36717ef4733baa2280ddf8c726ef4a80c8bc70711cb1ca9e528a426f8d 1564 rclone_1.75.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 11d7b399e8346e0f601984e0677ae019baa25af2bd67b2b82f9beee7c57c29812e0f0997a6f6a0f83ef8258f3bb4c4c08976d736dc9a43239e0669c59973e057 880 rclone_1.75.2-1+bookworm.dsc
+ 3c2adbc29f3d795e1b0345d80907f77d7415dc939cbd45d8dc25b23b1fe86fc8f2f238cca25f99fca313c41d912d2352300b3e2aec202eccb0f1df5a821e6392 20837504 rclone_1.75.2.orig.tar.xz
+ 53293dd020236ff0354a9ffae7f218d9619174ef2a7c041016d1f6da518b93b37369531566b55a76e851f38e765c18f8959eac541e12b440f1113886f03cc281 1564 rclone_1.75.2-1+bookworm.debian.tar.xz
+
+Package: ruff
+Format: 3.0 (quilt)
+Binary: ruff
+Architecture: any
+Version: 0.17.3-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/ruff
+Directory: pool/bookworm/ruff
+Package-List:
+ ruff deb utils optional arch=any
+Files:
+ ec7efed33cfc35fd317fec830c72caf1 860 ruff_0.17.3-1+bookworm.dsc
+ 91e03ed9888af0ef00afbf3ca960f1fa 7292692 ruff_0.17.3.orig.tar.xz
+ 1475e67a24f95c33b51276e79f5ecf52 2620 ruff_0.17.3-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ e69537bdff1e62eb926fa02520b9829f6d0ecba6 860 ruff_0.17.3-1+bookworm.dsc
+ 1aa7d78445967056eed20b0bad947784e6f16526 7292692 ruff_0.17.3.orig.tar.xz
+ d9a121e10fc2dfeb526adc58a447ab0e1da071c1 2620 ruff_0.17.3-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ dcb6d1496ba30e9168e20e16c71ff1bceb9434687e9c079a0f96f74273cb4e30 860 ruff_0.17.3-1+bookworm.dsc
+ 647fdcabaf0fca8d1174dac82aa9e5d12eed8c48a05858ec2429855d2b93b486 7292692 ruff_0.17.3.orig.tar.xz
+ a78a54729cc007733ab83c154156f0c91864c42b93e712220c898ed9622ba87b 2620 ruff_0.17.3-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 76b3296bbee95d18a7872aab0f67902a7c85ded071b55086d59a6969cdc674e2d580b0a578cf7ac2a310dd8726f24c7612de0ced5a7d2e88dbb1e03d2fadc355 860 ruff_0.17.3-1+bookworm.dsc
+ 2edde65f04c50e1ee8283120626f2bef41617550c2ed921ce759b7e15261a3ab630eec3769ca3b5569a8bf723936caed6e77fa61a53a64a21822cdf054351cd8 7292692 ruff_0.17.3.orig.tar.xz
+ e20ef7372ac9adf9d6dcb7d9d72eefb9f2c7c6ffbf3259a18fc4e3d5fc594197d84496baf1cfb049fb5686537932287e23853b4ecc003bd738b4de4f4fb9beb0 2620 ruff_0.17.3-1+bookworm.debian.tar.xz
+
+Package: scc
+Format: 3.0 (quilt)
+Binary: scc
+Architecture: any
+Version: 4.1.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/boyter/scc
+Directory: pool/bookworm/scc
+Package-List:
+ scc deb utils optional arch=any
+Files:
+ 61697b4bb4a60c8954ea38987b405519 840 scc_4.1.0-1+bookworm.dsc
+ d22aba192ad7cf4b4693f9c006c1dd9c 5248316 scc_4.1.0.orig.tar.xz
+ a280ee0fd66c373dbcad3316a14887b8 1560 scc_4.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 11db75a9d487218ba57832079720a1106229ad4a 840 scc_4.1.0-1+bookworm.dsc
+ 60e85ce96cd0822dbdf98fc09bbdf30b8932acf7 5248316 scc_4.1.0.orig.tar.xz
+ d7232e77ad5149874eda84b46412d1abcce5c291 1560 scc_4.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 25829da67d943f28baf3c3692fa7efbd9d3cb24a359a0b70a56ce1047249f47b 840 scc_4.1.0-1+bookworm.dsc
+ 5dbf5126510f07fc5f1d1c5db312087d6ac5b62189ce5b6a14644d0ad653cdec 5248316 scc_4.1.0.orig.tar.xz
+ 8adc6907d6aa96aafdac16c2446d0fa278a159402c188c944771a9cf03d88d79 1560 scc_4.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 04fa673e8a08bafc21075441d5ce3c663e6416ef81b338e96a5042a4af2eae3ec37f8a98b373574dd558d39d9d42f48f904d386a65fabed33b79cd3b6a253dc9 840 scc_4.1.0-1+bookworm.dsc
+ 5da1f17346e3d9f17c3f7832bbfcdae802c6a4ff4df45346c866f1354f9ab9acdc436f01db2516a82c69bad59ac8850f2b671da9cc9997d6c3161482f9d42385 5248316 scc_4.1.0.orig.tar.xz
+ d7db0386e3632d96d232f517f2c629529be8a8fa77c08a37040b2d70f441716628c06850053e74304c358359cc2cb1cf88fce06ffcd8b72010b081bdf2b1de1b 1560 scc_4.1.0-1+bookworm.debian.tar.xz
+
+Package: sd
+Format: 3.0 (quilt)
+Binary: sd
+Architecture: any
+Version: 1.1.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/chmln/sd
+Directory: pool/bookworm/sd
+Package-List:
+ sd deb utils optional arch=any
+Files:
+ 5b6736029a238e09ceb5e2fbe20c2326 826 sd_1.1.0-1+bookworm.dsc
+ d58c50fbacda8f3d5187f38d1b466b0e 733380 sd_1.1.0.orig.tar.xz
+ d428f66734e05d08d141dad33934d42d 1516 sd_1.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 87adece04d84b68614263e7d7c59ce0ccc7eb291 826 sd_1.1.0-1+bookworm.dsc
+ f50a278120e84e14908e257cfaf446a44e4f8631 733380 sd_1.1.0.orig.tar.xz
+ cf28eb1fa36aa09663273ff92f64f98c34ab7ea7 1516 sd_1.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 7f8a8c0657429e106be2987c49c00d65854ba1935fcf44a79444fcc58fe3fc88 826 sd_1.1.0-1+bookworm.dsc
+ 1a67c719d6f001a41a1eb315696f25eda2b02aa8830b794fdcc493cdcd3318ac 733380 sd_1.1.0.orig.tar.xz
+ 6802f38c983a6061b87f250b0d23f7dd9867bcca3cf3bcbb84adba8c30087052 1516 sd_1.1.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 73857b3a47bacd7b188e6f73d63e37f6f15b4a5fc18a1c88167128609ff5af2538c9ee51d6c7d68ddd19a87f453c824a12c25b361ca09e8105604cc39f99f0b4 826 sd_1.1.0-1+bookworm.dsc
+ 4b49a08fc20e472e38fe90f920c4afd971dcee19f97886e4fdbe323ea725c35b01ac805cf2134b81d950646f20b9ed16fe5b916a4f77330820d4ea42f812a867 733380 sd_1.1.0.orig.tar.xz
+ 5978b03834c64c85ab94c26d4708e16d469f12e80bbcc1d64a8da3d2e031d2e7c063d7594e290a7ec60ea5d8999803b2c616fc99c260e75fd8c799b54d064390 1516 sd_1.1.0-1+bookworm.debian.tar.xz
+
+Package: starship
+Format: 3.0 (quilt)
+Binary: starship
+Architecture: any
+Version: 1.27.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/starship/starship
+Directory: pool/bookworm/starship
+Package-List:
+ starship deb utils optional arch=any
+Files:
+ c146de75bfaf88a08fe2524c907a3cef 899 starship_1.27.0-1+bookworm.dsc
+ abebb6f3795dbfe2d57eb3b89e692eef 3598936 starship_1.27.0.orig.tar.xz
+ ff22f3544ceec14b843b2a5b6f12a509 1364 starship_1.27.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 0b8bebf5fbc6d5ff78f76a510a18d76e156af556 899 starship_1.27.0-1+bookworm.dsc
+ 44bf530cae953ff25633541eedb0d8643370b9a0 3598936 starship_1.27.0.orig.tar.xz
+ 58122bc5f772cf58f0fb7149382caaad3f28d4fb 1364 starship_1.27.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 7938f86474d40b707f538a4733f90274ccd0871517bb50fc1fdaf8352bbbfde8 899 starship_1.27.0-1+bookworm.dsc
+ feec74b682856eedd9504d2e4b5bf65cb702bb3886c9b5b92c9353454aea79c5 3598936 starship_1.27.0.orig.tar.xz
+ 7f4b6ee9ca47728e20631fa2d9834adca5ab9fe2ac954121a8ca132891316a27 1364 starship_1.27.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ a01a602710477f052821d5d69564e465f742a8e0d2db983ced41a7525c70dff7c8b9044a791da73f83c12e782545cfd7513afa3b8c8c9f03ac964b17daa68cd2 899 starship_1.27.0-1+bookworm.dsc
+ f501dd8fe51e672db2c01542be04125ef7f0e312fd672f9ba1fa6cb2c753c71a5acfc129ab90b151cd6100afc62cfd0025d1d87684b156d6c3dcc35e820c54fa 3598936 starship_1.27.0.orig.tar.xz
+ 4ee8c10ec40ddabf8f454acc4663232cb893ae35b49c412d06ec67bdc6f292cf4ac5f5d68f93108624601d87bad11c27c48359d2da75d55e6f090df5e6104108 1364 starship_1.27.0-1+bookworm.debian.tar.xz
+
+Package: superfile
+Format: 3.0 (quilt)
+Binary: superfile
+Architecture: any
+Version: 1.6.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/yorukot/superfile
+Directory: pool/bookworm/superfile
+Package-List:
+ superfile deb utils optional arch=any
+Files:
+ 166e6a40461c408691c2226388fbadbe 904 superfile_1.6.0-1+bookworm.dsc
+ 56b7815f7309902dee750b3b46cd38c9 11618916 superfile_1.6.0.orig.tar.xz
+ 58ef1d21e19986be48e843ed50155a23 1548 superfile_1.6.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 746f9688cf33b98fdbaa951fe6b760f1a6903dd2 904 superfile_1.6.0-1+bookworm.dsc
+ 20e665724c2692751239db75534b9929b9e4ee76 11618916 superfile_1.6.0.orig.tar.xz
+ c858dedaa22473862f5fe722828bcc371cb9312b 1548 superfile_1.6.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 9e2580fb2e736eb50df67f6a52faea02765c663507af6b401ccea82a9f1f947d 904 superfile_1.6.0-1+bookworm.dsc
+ 8687ef07bbd9faa3a8ce4153029da8a4ea9878c13e1b8b4f65ecd668cc5ea7f2 11618916 superfile_1.6.0.orig.tar.xz
+ 5bd7943cd8c96aff3ff22611578eae83b55656cb7b55836029b215476bae17c4 1548 superfile_1.6.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ eb10dc4a7ce83f3d0c42392eac8d7068f2f0b45a5eececa504a6f6c51558625b72809ff272cae4c365af630984f88c61a906e2c8344b525ef775854f8f61cefd 904 superfile_1.6.0-1+bookworm.dsc
+ be3f7089bd31e57c8fbff1900368026131d1e4adda8950540590c03bde6da7ec9f07005410c9ef087a7d142e7b62f8c42ba951e07345485709733e79547a57b8 11618916 superfile_1.6.0.orig.tar.xz
+ 2748be035255601b866e7d20d36659f0777121845382ae9bd4cf9578a3ca25a3a08af7c46b1b782d56b6273a39560482f6e36aa613257f916f89dd3713a0abb2 1548 superfile_1.6.0-1+bookworm.debian.tar.xz
+
+Package: trivy
+Format: 3.0 (quilt)
+Binary: trivy
+Architecture: any
+Version: 0.76.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/aquasecurity/trivy
+Directory: pool/bookworm/trivy
+Package-List:
+ trivy deb utils optional arch=any
+Files:
+ b2b5fe3803dc11130bccb9663fbbfb26 876 trivy_0.76.1-1+bookworm.dsc
+ f2fbc22f9c1c455bbd210de59d9bf426 35369580 trivy_0.76.1.orig.tar.xz
+ 6c5ff014818a5c8359ede6dc59af90fc 1012 trivy_0.76.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 2851a1c0b5698f3fd035b19b21077a368e8e407c 876 trivy_0.76.1-1+bookworm.dsc
+ 7534342f3a427d6935ec646afaac1448795905e8 35369580 trivy_0.76.1.orig.tar.xz
+ 4592b4edcc3aa96b6297499588e58c38aa378e3e 1012 trivy_0.76.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 5142c05778097b5341d824b7d6ac0df7338d6acc9822c5ea1b287033aec998f0 876 trivy_0.76.1-1+bookworm.dsc
+ d0926133bcbbb6908452ebee458517e46d078a4f39f8418a9602c4a835b9250e 35369580 trivy_0.76.1.orig.tar.xz
+ d6dcc3624f8ac5f10efa57337a40ef37c625568b3620eb973f6141136299313f 1012 trivy_0.76.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ da11b6e0efdaa49c085912c2810a794d90c3ecb075fed100a7da3ca0cc598b8a379e571282fc54ffb052929075176c77dca80e227f7d8af6adeda699fcb08714 876 trivy_0.76.1-1+bookworm.dsc
+ d5ef005f9e851bebfcc6b1bd20525537bb1ffaa626591d4734e3c8191c91e62883450caa5174a9a428c459bb81754cd4fcbb69aa0ef10d34167d9395b13226a9 35369580 trivy_0.76.1.orig.tar.xz
+ 498efe10a141cf34dbb0ad6a0a788fa9f8ceccd3fdb8760df64298f9681d5317974c292e12e85daf5e05c744e67b906255faa0705d65d143cbf420cd47fc5190 1012 trivy_0.76.1-1+bookworm.debian.tar.xz
+
+Package: uncloud
+Format: 3.0 (quilt)
+Binary: uncloud
+Architecture: any
+Version: 0.21.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/psviderski/uncloud
+Directory: pool/bookworm/uncloud
+Package-List:
+ uncloud deb utils optional arch=any
+Files:
+ 171965c86caffefde2072bff3797f4bf 894 uncloud_0.21.0-1+bookworm.dsc
+ 43e635cf252bfc22251e62c7435644ba 18594064 uncloud_0.21.0.orig.tar.xz
+ c46c45b262aaf1a220c88bdc30060631 4640 uncloud_0.21.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 1a901cd353b8c5c0881e2bd4ffc86d9a945e8c07 894 uncloud_0.21.0-1+bookworm.dsc
+ d6f808156fb05a750746bf5c119dbb3a7d88465f 18594064 uncloud_0.21.0.orig.tar.xz
+ f489e03f389f5e3320d6742b39ec10409909decc 4640 uncloud_0.21.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ d2003c7b5fa7a59fa7c9d93e84afc8351bcec622874402ce67d968e109665c49 894 uncloud_0.21.0-1+bookworm.dsc
+ c172e1a9f05644118b1af81caa813cb21c46181df5ba2543d4787d401c577aae 18594064 uncloud_0.21.0.orig.tar.xz
+ 7f592e8bf0f08714203dc265878c7f2ca0d663af7a26094fba91d06525604d3f 4640 uncloud_0.21.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ ac41973190a56ff85c62d7f2ae2e118a9dc45569ef96ba665fbbccbb80bbe461ec8a8106ccfefc36bf443e2318f33f5be4d08247acbfd46e5fe7d4df07451cf9 894 uncloud_0.21.0-1+bookworm.dsc
+ 11fdf880112c1d9dd2dc8d5303bf6c55e54017a318678086c406c93b20b462bf3e5c4c338f92db11f8e17f0f370689295b3fe5743250d6076e38e84586c506e4 18594064 uncloud_0.21.0.orig.tar.xz
+ ac8dfed8a7af53ee4606973c28a5d100d305d0f1fb1d0d76599b184560f803c54a569a984e870bfc44c8f4342feb40e5e26c348e5f5a0e7dcc8a34e5d8d9f195 4640 uncloud_0.21.0-1+bookworm.debian.tar.xz
+
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.13.6-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/bookworm/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ 2ca4727a2d3036b4b339ed1a96f93fbb 843 uv_0.13.6-1+bookworm.dsc
+ 66f26c87889d933e0c936ba4eb61a8ce 11786004 uv_0.13.6.orig.tar.xz
+ 067d9a3ce42182ad4939f1dd65843540 5096 uv_0.13.6-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ c0308ee02579f79ab46bd4e5b657d02ee03f31fb 843 uv_0.13.6-1+bookworm.dsc
+ a704e84b5845022abeea44dc3d86bebd5eb92b8a 11786004 uv_0.13.6.orig.tar.xz
+ 4f1c63529612ff202032f38b2db0b8e87d52bf71 5096 uv_0.13.6-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 7a40227728655b661a7f61616ef9883260cfc0ac7ee18d9efa36705980fff1c6 843 uv_0.13.6-1+bookworm.dsc
+ 18221072d16a8369a06db234af49e6144f9cb0bbcac8328dabbb43bbac825749 11786004 uv_0.13.6.orig.tar.xz
+ 107f7206f010cab30fbbe2f87ff65f92e527379f3d690247a3f160b2ad408e9d 5096 uv_0.13.6-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 96604f23b7b112e11d1b173135fed924fb36e3f0c43004f9f41a029a0f878bd8868440fe222ea22696bd8c2a138cb0c9667d52d2434cb28fc4ed8f5a243928a8 843 uv_0.13.6-1+bookworm.dsc
+ d85c721def6ac4d8e1e464f467eb0fcb0bd6e63c2eb7f855364a6d9823afa5b09dba7d82b6abbb398e257aafe97367a8f9eb61f46e0241d1a606084da93275ec 11786004 uv_0.13.6.orig.tar.xz
+ af7dc20e674b4695b8d7e6ba03fe1eb501bcd0e0e5e24047ea8f163802d4e1e555fd3b5ccc2158d8d4c7d1d846490f6d0c543fd6bb257126aa16b46cdf2193d6 5096 uv_0.13.6-1+bookworm.debian.tar.xz
+
+Package: vhs
+Format: 3.0 (quilt)
+Binary: vhs
+Architecture: any
+Version: 0.12.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/vhs
+Directory: pool/bookworm/vhs
+Package-List:
+ vhs deb utils optional arch=any
+Files:
+ 53ab6d8f346c95aea62ba0a733900b2f 854 vhs_0.12.1-1+bookworm.dsc
+ 97093731c1a7c3f38fc3fec7076931aa 7566560 vhs_0.12.1.orig.tar.xz
+ 784fcac6cdd9ac16f3e2df5d42438967 1540 vhs_0.12.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 94e2cc7031af2931ebf811e530cedd03972ed938 854 vhs_0.12.1-1+bookworm.dsc
+ a0b7f3e06d9d444096885146672f8058cfc5c48e 7566560 vhs_0.12.1.orig.tar.xz
+ 741138a9267be3c6158446f3437093c73fbb72a1 1540 vhs_0.12.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 04b936c7cd0332cb46d30fc8133c7791b9ef0e4e124aa368e86d58f6106ec03a 854 vhs_0.12.1-1+bookworm.dsc
+ a48a9d59bc1daa9256942777c93123ccf7d137b04ce47bed0e7e5cf19b87ec57 7566560 vhs_0.12.1.orig.tar.xz
+ a28d146920d56bced77dce123580a1b978e556459a8731f81b0a3e9e200ff2d2 1540 vhs_0.12.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 634b0966dddc75e852ee202dd1b2c3a46382ee66f745af1f5da04c70ffd131b1bc17ae6b1cd628f7b9da53718b9b0477e2c0a7d5a97e539e897d3778048b1362 854 vhs_0.12.1-1+bookworm.dsc
+ 011f3e9e1300391cbc3438df1365fee6686d835fa41db80126c7b83357c168c3c77d32d87e8989d04821d046a427e5648b76b663ba93b05aaca0a4979478f1a0 7566560 vhs_0.12.1.orig.tar.xz
+ cdf6220f90740bc085bb9b7969a4af1e06e55121c1bdee1c86ef9fd2a2bf9b6f072356d6e787a02666b61a3eab9c0378d80d28dfc2349bdbf2fc464bba6aa6d6 1540 vhs_0.12.1-1+bookworm.debian.tar.xz
+
+Package: vicinae
+Format: 3.0 (quilt)
+Binary: vicinae
+Architecture: any
+Version: 0.29.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/vicinaehq/vicinae
+Directory: pool/bookworm/vicinae
+Package-List:
+ vicinae deb utils optional arch=any
+Files:
+ ca5de3e28267bf3518fb510a18ca338b 896 vicinae_0.29.2-1+bookworm.dsc
+ 255353984fc1abe30a95474d8bcbc8e2 19322180 vicinae_0.29.2.orig.tar.xz
+ 5d382b3a7b740c58106b5460fa337673 12228 vicinae_0.29.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 055e107bf67f8d5d69e371cf4dce633f170079d4 896 vicinae_0.29.2-1+bookworm.dsc
+ 22b2dfb2c476b4c9e730f9157308e513d870177f 19322180 vicinae_0.29.2.orig.tar.xz
+ 9b7142af3e5f449cc3c738a242be5729ef89a192 12228 vicinae_0.29.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 581d38c35fc1133f3373ac9d05ef7a168ed408642ec66689152576693603cf62 896 vicinae_0.29.2-1+bookworm.dsc
+ 1f2d4aef754589cb758c86592e78735ad93bb1541755d9cc2b4db904c1452e4a 19322180 vicinae_0.29.2.orig.tar.xz
+ e4a1b21476166fafdd678f9110b3804298d43971af3c0d076fedaf42a5edb489 12228 vicinae_0.29.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 95ab1ad3485fd17c44904399646ac1d3bb4b300fac1ef5284e989f4e25bd280c86b7ef32700bb4036c021feb30a39ea3aac745d4f1095ec49aea411f93f1ae91 896 vicinae_0.29.2-1+bookworm.dsc
+ eacec0db44e89cdb49f5d73c3bedacaaf76020073acf860651baa6189d3612cd36d7e9146d4299ab36d72c7fe0a313464f4fa39aa36163207af7f7c51602fbbd 19322180 vicinae_0.29.2.orig.tar.xz
+ 67bba7208b72427d03043dd360654f189a965ea3d5afd8c53be1241e02d58cf327c01ebb1dd783368f742aec5ac698a241209668ef138ff377eef665333604f3 12228 vicinae_0.29.2-1+bookworm.debian.tar.xz
+
+Package: vite-plus
+Format: 3.0 (quilt)
+Binary: vite-plus
+Architecture: any
+Version: 1.4.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/voidzero-dev/vite-plus
+Directory: pool/bookworm/vite-plus
+Package-List:
+ vite-plus deb utils optional arch=any
+Files:
+ f6bd1a8d4c14e97a0d9df9cdc76f67aa 906 vite-plus_1.4.0-1+bookworm.dsc
+ 895e088bde11fc78d1309afacd4b256b 2954204 vite-plus_1.4.0.orig.tar.xz
+ a046cdfa5e650a32bda2251c1bdeffde 1524 vite-plus_1.4.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 4c3095b6e5771007e37604972810640f19d7e3ce 906 vite-plus_1.4.0-1+bookworm.dsc
+ 24dd66c0e35f9075307d70e54b5854d81050b318 2954204 vite-plus_1.4.0.orig.tar.xz
+ 40ba7117bc1441fa3285131ef79f95f6a43e587c 1524 vite-plus_1.4.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ d97d6c26360b195d25807a726202bfb7a6a21a66372a0f43d34eb9cb97a6a973 906 vite-plus_1.4.0-1+bookworm.dsc
+ c5dea87ece97a652886c7f7e87256a2a00499c259a344c342d72813136dffb68 2954204 vite-plus_1.4.0.orig.tar.xz
+ 489321738d71403281a8461d8941cb041cb121f3be5a7263dc1634dab549c467 1524 vite-plus_1.4.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 4bb4f18e064d3c4c8c9ddd3fb28329bc043ee286ef2317640b5d5c57a52efd746f2696016761d12849e399bf3ddc2abb3bb0e5219f3b1f433d064317afca68b2 906 vite-plus_1.4.0-1+bookworm.dsc
+ cec440d846605e43d60690d18853ca094724ed34b8caf62f5ff48be863eec642f3edfbcf02b7690347d77b6b4421a497088746eea7b401750e3c165ded33acf1 2954204 vite-plus_1.4.0.orig.tar.xz
+ afa6f6bcd3612682c45470a1c86ebbd07f8c85c250e1107eeafcfcc31f629fb3d1219a22275fff8d8c01fbede369fea9a60128307fe20ccd56060687c199c487 1524 vite-plus_1.4.0-1+bookworm.debian.tar.xz
+
+Package: watchexec
+Format: 3.0 (quilt)
+Binary: watchexec
+Architecture: any
+Version: 2.8.0-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/watchexec/watchexec
+Directory: pool/bookworm/watchexec
+Package-List:
+ watchexec deb utils optional arch=any
+Files:
+ 4983a6c2e919fb395864fc4309aa0f78 903 watchexec_2.8.0-1+bookworm.dsc
+ 713a891ff2a50aa05908cba96e41650f 2913648 watchexec_2.8.0.orig.tar.xz
+ a37891457ab84e488cb523a153d27192 4636 watchexec_2.8.0-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 3b1a0daeff7bfb769c75a1952830ea6cd3788e89 903 watchexec_2.8.0-1+bookworm.dsc
+ 15891d021e7c203322ad5cc4896e92b6a18741a7 2913648 watchexec_2.8.0.orig.tar.xz
+ 70af919cde8327555092e901cfe93b5cdd7b721c 4636 watchexec_2.8.0-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 144fab617d1d5e3cfe9395a7b62a2a287e0272bcc535664a1035cfd0a5064bcc 903 watchexec_2.8.0-1+bookworm.dsc
+ 89e815c453f955ffd63b2acc1f908461ac4f9e151774382a6474e89d595ca3e8 2913648 watchexec_2.8.0.orig.tar.xz
+ 73004eadafd77311eb18cb78a8dd1732a0c22b58faad3860398d2295a99cd910 4636 watchexec_2.8.0-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 2bbe4dd78cbab8e6793514527c6bfbc1f233f54b324b3698c484e40f72d076ebe6d76d2a6c47778598cf974caecb1dfa15c9b11ae489e3cec13a727829056e61 903 watchexec_2.8.0-1+bookworm.dsc
+ 3682504b694e6643705a726d0b15024367c0a6674e836bcd8ee4329b3d92b31bde0235c3e1896672564ed4b1094ed801c33b3e73510721f4803a06f87175f3b5 2913648 watchexec_2.8.0.orig.tar.xz
+ 7d90392fcc1e1d296d0c8ca8e84ff585ed6fbdb8e8d80cad3eeb5741a139340b8ca0e170a1915867e7e77b2c17ef902d99a81533029ebfbbf3f716f76325c1f8 4636 watchexec_2.8.0-1+bookworm.debian.tar.xz
+
+Package: workmux
+Format: 3.0 (quilt)
+Binary: workmux
+Architecture: any
+Version: 0.1.277-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/raine/workmux
+Directory: pool/bookworm/workmux
+Package-List:
+ workmux deb utils optional arch=any
+Files:
+ 7e984b504a8270ed2fb7535055df422c 893 workmux_0.1.277-1+bookworm.dsc
+ 7ca5c61fe4b2698497e12e787cfb4020 4501832 workmux_0.1.277.orig.tar.xz
+ 0a1600b714060831e02711597b64527e 1516 workmux_0.1.277-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ ae94f089b777db6e4b297a3f62e93ecb68ac3804 893 workmux_0.1.277-1+bookworm.dsc
+ 4320444c382c513312c706a6b3587bd4ddc92ccc 4501832 workmux_0.1.277.orig.tar.xz
+ 1c528a445c89ff02e99a5ad0c768ac223a5114ed 1516 workmux_0.1.277-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ d8fb3fdb475ad65458928fd0f0066308c439992b194647d5e28765f86b2cb7e2 893 workmux_0.1.277-1+bookworm.dsc
+ c670857822d7c55ae9593700b87c4eadc7ed1a8034be2434008badc997b9f732 4501832 workmux_0.1.277.orig.tar.xz
+ e8bae1ef8840232bfa865732deaeb368e8e63b6952cce64059cd79c36b937358 1516 workmux_0.1.277-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ c3451ee1253447c392cd7b92694fe1ded090d0f00f6898bb7b9674af671312aa10bc005c31ba1f049b30e4117111836cfb382590cf1f4567ec8c1566af1d32a5 893 workmux_0.1.277-1+bookworm.dsc
+ a71511a651d0d5ca622e663d20304b997c65a6a9dd13f46cfddbcd4bb6bad2895c3fbc32e50b390eb9e8d805ea69253e485e8ebe224851f6a8841af7224a3b86 4501832 workmux_0.1.277.orig.tar.xz
+ 45409dd469cf35b8c872b732187bfde06bb15f5654eca7bce1ad9153b39ed7614691b9be55be0d4dd8f7ab4cd5230cfe609c81945f353ebfcc365b46780d071e 1516 workmux_0.1.277-1+bookworm.debian.tar.xz
+
+Package: xh
+Format: 3.0 (quilt)
+Binary: xh
+Architecture: any
+Version: 0.26.3-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ducaale/xh
+Directory: pool/bookworm/xh
+Package-List:
+ xh deb utils optional arch=any
+Files:
+ 2f41735e9058a8e2d56e563d81cc76c2 838 xh_0.26.3-1+bookworm.dsc
+ f4f24a54b5d4499af87967127e81f211 3340280 xh_0.26.3.orig.tar.xz
+ 7187e0fd1c49eb9f80176fbf1e5c833c 1516 xh_0.26.3-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 71ee385a11180be5fee208b15aaec92c474c0ec7 838 xh_0.26.3-1+bookworm.dsc
+ e546c305db6a4898e82ad2c2473f86cd92f2f18c 3340280 xh_0.26.3.orig.tar.xz
+ 7d1e8c854b0da799cf4217ea82d01fcf959a641b 1516 xh_0.26.3-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 45880434141271378d6edaad621925b98cb5687494aab58fa48183a9a96d29aa 838 xh_0.26.3-1+bookworm.dsc
+ ebd8a7af00b9e7f2318620bb9ecbd080f40c5b58498139b46845759e8ff44433 3340280 xh_0.26.3.orig.tar.xz
+ 99169f77fcbe7297d6ba5fb01910b3b46805a5a6ff03c5580ce0e7de0760de10 1516 xh_0.26.3-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ ec95d3e57e3fff06d66a2353a5c40fe3c33c1977ac353fe3c4bff60e3dd77b4ba20596a09cd601f5fe37c6cb048cb723cc3fbdd5bb60d2cc58881aff72b639a3 838 xh_0.26.3-1+bookworm.dsc
+ 52c263ca319806287f052c4bc4995a5e8edec113cda3602a94cf066ef92d3817638db95b54f9393aa91e3abd4686a6b232e090044b89699b950b9e12cbe67449 3340280 xh_0.26.3.orig.tar.xz
+ 60f12d4d9f19da7ddd3b0859aaa84bdb95af7137e92b1f9a10df7dbebd7eecc4251b2824d6a237275163082458b45657c10a59ae42e1609fbe3d62147a37631c 1516 xh_0.26.3-1+bookworm.debian.tar.xz
+
+Package: yq-go
+Format: 3.0 (quilt)
+Binary: yq-go
+Architecture: any
+Version: 4.54.1-5+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/mikefarah/yq
+Directory: pool/bookworm/yq
+Package-List:
+ yq-go deb utils optional arch=any
+Files:
+ 2b8c6255a33757d9cb19f67ecd2bdc6b 867 yq-go_4.54.1-5+bookworm.dsc
+ 45f253285a9099c90e037ec891bbb356 4336912 yq-go_4.54.1.orig.tar.xz
+ b2f336df1b9182120d3a4cbef0481dff 1532 yq-go_4.54.1-5+bookworm.debian.tar.xz
+Checksums-Sha1:
+ ae30c0d5debb69027393ca055429c4e9c54dac07 867 yq-go_4.54.1-5+bookworm.dsc
+ e9198b04797e5f05ce6850c7c0624fe789946edf 4336912 yq-go_4.54.1.orig.tar.xz
+ 2c31724789a4d714e42021b6d86252df96d62877 1532 yq-go_4.54.1-5+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 8c35d5fa1ce3b13e2f625b427431ceb7a0766dfcc4c755251b16f89a32469124 867 yq-go_4.54.1-5+bookworm.dsc
+ 11b2485861b0b55746426034b3c6b8b5c6f94eae3c731101367de9b869388c96 4336912 yq-go_4.54.1.orig.tar.xz
+ 02227cd1dff8e17c9f8fde72c61acb64ea36cbe01df6bcb07cfc6a8c86fadca6 1532 yq-go_4.54.1-5+bookworm.debian.tar.xz
+Checksums-Sha512:
+ c5697b8ebd47f56a97f19cf835dd1f8533b0af4d4df35ce6bfa480ae9295b7c6ddbe036eded5ff66068e59944de6b2ca2d2b873bf767c580cefc0384afc783df 867 yq-go_4.54.1-5+bookworm.dsc
+ a78fa0deff2878300afc086f76ff2c30a255d7bfacb4d33ccdf0b645b10d94d8dc979c3866728a2909182723b5af20a4dd6f35a2960866de490a4e03a59edca3 4336912 yq-go_4.54.1.orig.tar.xz
+ f3c7bcf7104609117bf69474bf22a5e575ae56a870b18a3b51565c88600819e3bbf5e666512b9f1748692a95c51dae2fabfd4a4a2cdc2a890d81d9c9ffa4b00d 1532 yq-go_4.54.1-5+bookworm.debian.tar.xz
+
+Package: zed
+Format: 3.0 (quilt)
+Binary: zed
+Architecture: any
+Version: 1.26.2-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zed-industries/zed
+Directory: pool/bookworm/zed
+Package-List:
+ zed deb utils optional arch=any
+Files:
+ 41b6ee571e296344aa352a5f1ad84ea3 858 zed_1.26.2-1+bookworm.dsc
+ a087f311c9d6e563d166be51fb9bd886 64965480 zed_1.26.2.orig.tar.xz
+ 1b7bb67ebd4e5a0ec3d417c6cd3d1c9f 4476 zed_1.26.2-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 56d4b204b78a6d718f3cd28a9f8db47eb9d206ed 858 zed_1.26.2-1+bookworm.dsc
+ b243d2c789b61c0be3052a9b6701ef2a38b9d2c3 64965480 zed_1.26.2.orig.tar.xz
+ 49e85a64acd2a91239f80c3ef4a34955e35d4f65 4476 zed_1.26.2-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ eb9a63a6f780f6b9e4ab1d7d8d9fcd3908b5886a3906be01d60796bce86be8cf 858 zed_1.26.2-1+bookworm.dsc
+ 7de4f9cff492ae21f5aa62dea3736ad762bb3d0448db09ba73c540eb7a51989c 64965480 zed_1.26.2.orig.tar.xz
+ ea6787b24b117c34f5d363ad2bbfe25bd9b50a37fc647855b25621e6754db456 4476 zed_1.26.2-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 08abbb4c5795b7df23a6c45dce3bd7c67f969332a8cd3461bd3bef2eb656c11d671efcac05861ec44e79f28e290c5cd0172680d8f2a58b8215d9cbea7e87f79c 858 zed_1.26.2-1+bookworm.dsc
+ 43a55e4d27af40cab4ad9a9d30f75291d0e06aa0a1d21588134513b3b258c0b1c9a6b6a80b6046d3bf3445d85974a139b0e01fa9745ee5c368f71200ba1b9e20 64965480 zed_1.26.2.orig.tar.xz
+ 6487afadb4172cb3bdb83994982d0b6329f89619560e957737e8456d8b83ef75b2c60c7093f85b04e286ea811022fa8d76fa86104c9af40cface372ef7985b39 4476 zed_1.26.2-1+bookworm.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.45.1-1+bookworm
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/bookworm/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 76339adf070ff12ebe8ad40a906d6cef 881 zellij_0.45.1-1+bookworm.dsc
+ aa657ed4532371922e77c125d549775c 8054396 zellij_0.45.1.orig.tar.xz
+ ef87e1c043d02ed4bcb371e4af2581da 1540 zellij_0.45.1-1+bookworm.debian.tar.xz
+Checksums-Sha1:
+ 4f0a8009a3b6aca52ef96c303d71ca70af4bf369 881 zellij_0.45.1-1+bookworm.dsc
+ 87ade7297dba2e9c4992532717f9b9b3ed77d10a 8054396 zellij_0.45.1.orig.tar.xz
+ 92de62ac31b9a4ffb1fe38d14ff4fe884818da27 1540 zellij_0.45.1-1+bookworm.debian.tar.xz
+Checksums-Sha256:
+ 944669d6870ff3e03e026fb88dd2bbb335c8821ea52c5810085d6b3f95078ec5 881 zellij_0.45.1-1+bookworm.dsc
+ e1e0ec5831257c49ba9133bb111f8053aac1b58d76d3aa6f5ae01b3219af3140 8054396 zellij_0.45.1.orig.tar.xz
+ 4c248395480c6e7491caee2e324d194eb8f4d325c79656949b6818164ce78129 1540 zellij_0.45.1-1+bookworm.debian.tar.xz
+Checksums-Sha512:
+ 1e06ccec8dcc7b7c4ece7e99200bec95d857eeb8acee5b3211c952c93772b7607c0421585c89dbdffa7d653d11d76e4a17f23c17350dbcd6da306125b208dfbc 881 zellij_0.45.1-1+bookworm.dsc
+ 81a20bb2aeccb82fff52dd3b5fe38680011c9298a1e54ad7db5619fa53358c615aea8712eb10db7062d8db8c7e7d9a5317db7a9bbe56428e4fbd73de23709f4b 8054396 zellij_0.45.1.orig.tar.xz
+ 3f931b58b3875491f46a246f785f203b158d3c3c1018e6be8e8093871eaf8509b957df83d885a89e0d3aeaaa6427bb9920791f8ef4f35363e304cd40e215d7df 1540 zellij_0.45.1-1+bookworm.debian.tar.xz
+

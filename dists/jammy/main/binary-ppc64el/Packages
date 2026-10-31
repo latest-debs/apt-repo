@@ -1,0 +1,128 @@
+Package: bottom
+Architecture: ppc64el
+Version: 0.14.9-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/jammy/bottom/bottom_0.14.9-1+bullseye_ppc64el.deb
+Size: 1453840
+MD5sum: 66de997b1e7377890bb86525f41b3c40
+SHA1: 70660a0b68f65e95e3d494a3c8f323f302f05be0
+SHA256: c360c14702e322e7107feda3bd9e059627edb79fe2890078ac31f521aabe1452
+SHA512: 98e2fc97c12041e21c59a6e4b34e8bae35ac1795aa68182a662bac32f2892e3cbe256d6d3a47407f4eee51ee93d2628bacc7a81cc4403d226cc5f6c4cd312a45
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: buf
+Architecture: ppc64el
+Version: 1.75.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/buf/buf_1.75.0-1+jammy_ppc64el.deb
+Size: 22541608
+MD5sum: 2cfaae3d44f71906cd1cd8a8814343be
+SHA1: facaa28baa7d070efca3bed043b01132bb4c2268
+SHA256: f833967b2254930b18bd7a87c6a4ff81ec1a066b257a4e79df9d793062e86597
+SHA512: 9e9bf185574c7620da47745dc23017bcf192853e38afe22221dca5eaacb80c258a36ef112cf1f037dc4640632b7fdba998aa852115dd6c6b0e8ffd800fe434a0
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: ppc64el
+Version: 2.70.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.70.0-1+jammy_ppc64el.deb
+Size: 5234592
+MD5sum: de6ecf1c9ddb2164eb7471c052fc8585
+SHA1: 905f1f61de93f4708c178698e00ff8cc91ec6d61
+SHA256: 1e3b6136da7e276b9b0f2ee456900577dc0079b9964ce9eaccf92f489d16bf34
+SHA512: daa4e127cca27597a8fa1c31186d72ac79544de407102fe0c4864c5bc6831f823fdd0bc4f4d5e5cdae16b06ffe6d6b45d9fe541e07ee15bd3acc8cd22241b019
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: ppc64el
+Version: 0.74.5-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.74.5-1+jammy_ppc64el.deb
+Size: 1746030
+MD5sum: f2b2cc6c38273062dba663a77c37db06
+SHA1: 9276ee29d412ef5fcdc8d919606f3d376948f8d6
+SHA256: b3809d5db815dd00e607154184355ebb4a2d5605e68e9d3da96a4e9325f724e4
+SHA512: 1b1e2789ecf6dc0b4b01509e49bbb70dfd99c454154e20b82f73f05ceeea7ad057ca229af7fb0201569b0840f16643605595a78fbbf0b705286c7356b142dcf8
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: ppc64el
+Version: 0.17.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.17.3-1+jammy_ppc64el.deb
+Size: 8173806
+MD5sum: b752fbc1478fb80ce23c84b0756144e4
+SHA1: e907343f7bc51c3eab895fc5a6c81bf557168bfb
+SHA256: bce7fd1c078abe35900c54d33c0dd8ae9c47ca543e8e09a03c982cf62c9a33b2
+SHA512: a8ae8c45ac114e02d59600a6e5aca24674093a78d21680d3b3f961cdd772650066c3130ba0f028a003796061a3d67ded01eb3c1d2a490cf149b33b4c910194fa
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: ppc64el
+Version: 0.13.6-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.13.6-1+jammy_ppc64el.deb
+Size: 13628112
+MD5sum: 735accdf91925c253588cfb0a87cd72e
+SHA1: 81dc90d4c5d6343f56f7076aefb08aa8c0899c01
+SHA256: d95a6a26c0c959e4e9d203599e2bbcd56ada6c0236c844c7de15d8a66e462d9a
+SHA512: 02f7028df380a448f07679619f9649f9fe968cb5b599befcb7171c547f4f0b5babf0e6e57111b25d52a34820119126c5d50fbd9a4cc54cfb8cdc8379433dfd13
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: ppc64el
+Version: 2.8.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/watchexec/watchexec_2.8.0-1+jammy_ppc64el.deb
+Size: 3226364
+MD5sum: 67e19fe9e59055e26c8c0723400f1924
+SHA1: 2cf867d142ceca592ad0ddcf87cc808d335e32db
+SHA256: aba1d4d2f33a407c9be02b5eb46a2c5944defd6eb69818229c629386866e0759
+SHA512: cfd2ea35c2a9ad7e600cebf151cafa57fdd21b1eba9e537aee13875e7e266e7c6da525a3b8879ae492b3c76c35cb2b2d756c7d57dfa086134ca5d69a10e73734
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: ppc64el
+Version: 4.54.1-5+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/yq/yq-go_4.54.1-5+jammy_ppc64el.deb
+Size: 4275072
+MD5sum: 4b4da104c1267998a4f2975e7e9ec46e
+SHA1: 78729b4441ad2478ed2fd144e6ace4d717efc7ed
+SHA256: a46a3fd9a542190897cde6a51b44ea2a89fff9a79f5e3be30514fa527432f6a0
+SHA512: 73af137d6e3fe76dbc528c3d3dd97ccd39a041cd3fada5a9534cdbba4b943b93cf2b1926906ef67785e98a3a5b6c09fc5be3429a57baa14790088cb70b2870de
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
