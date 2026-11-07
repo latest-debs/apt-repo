@@ -1,0 +1,1624 @@
+Package: act
+Format: 3.0 (quilt)
+Binary: act
+Architecture: any
+Version: 0.2.97-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nektos/act
+Directory: pool/noble/act
+Package-List:
+ act deb utils optional arch=any
+Files:
+ dded547aad8b6d5e1076b6e3aefe1353 839 act_0.2.97-1+trixie.dsc
+ 34699aae322dcf3896d3ac183054a0ab 6252560 act_0.2.97.orig.tar.xz
+ 0c9fc30af3a71fde8954b3dc2f2ceefd 1536 act_0.2.97-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ a300688282db83bd5661e7c3f5c8e04df03a9788 839 act_0.2.97-1+trixie.dsc
+ c9fdde8e773340cd7d369ef83a8e780d3c020f63 6252560 act_0.2.97.orig.tar.xz
+ c478cffa7dca13b0044304a137d47e36ceb37906 1536 act_0.2.97-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 6725285fd0f1433d2314f8934d01fd4c096667031dfbe087018eef172d49c05c 839 act_0.2.97-1+trixie.dsc
+ 1bb517f9a84e2e9ae32b707eb68d4eed7413edeb5fbd70bb3da3a2223ef58152 6252560 act_0.2.97.orig.tar.xz
+ 0d6edbaa72eb941c707df6432d0f0d6233e04ef1397343f7fa88e93ecba653d4 1536 act_0.2.97-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 7a0a636166b3e0748ee1312b8dd0e07d59423cd2eb730cb6ebeaf6bee6bc8b5d49b963f70175fb17c781f87d4ad81a366faaf8b22fcc7d860fff5ec941eb7cc1 839 act_0.2.97-1+trixie.dsc
+ f97590b25586b6d4ba55808d73c87cbb90f85400e0d00754f17e37591da8075784f045e1b2f3cb8581d1f4b763662b8ef483a06793789c7dc30ae629221c2b6d 6252560 act_0.2.97.orig.tar.xz
+ ce90f59dff43943b7864a65c337b8ec492f8b01d9de73d6781197819a4e446893c81af1590cd6d0cac1f79d644122937f23645b92f9cc5e373000ce1e1694a01 1536 act_0.2.97-1+trixie.debian.tar.xz
+
+Package: atuin
+Format: 3.0 (quilt)
+Binary: atuin
+Architecture: any
+Version: 18.24.5-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/atuinsh/atuin
+Directory: pool/noble/atuin
+Package-List:
+ atuin deb utils optional arch=any
+Files:
+ a852a14e1fd55e3b632b44c552d21d6d 866 atuin_18.24.5-1+noble.dsc
+ 410e0b4af4124bf2fff790956bcf263a 14385320 atuin_18.24.5.orig.tar.xz
+ 255f6fd9e63580b27672388b4524ee93 1492 atuin_18.24.5-1+noble.debian.tar.xz
+Checksums-Sha1:
+ b4a205f1b1104a13169a92ad9e572d27f2341db2 866 atuin_18.24.5-1+noble.dsc
+ 3daba3b2c5ba78e1207c391c4d182714d1fbe75c 14385320 atuin_18.24.5.orig.tar.xz
+ 843f39890de4afbc93b2dfad928347d7982e0059 1492 atuin_18.24.5-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 4ae05d42e72bdcbc19fddfd22547066701f9cd5455e8d02e613aef038d553ae8 866 atuin_18.24.5-1+noble.dsc
+ 7cefe2aa27ea1fe0e7e15d224622af6334d81ce14902b1cfc903964332e8f84f 14385320 atuin_18.24.5.orig.tar.xz
+ 8e0f48195d2dd69a6897bfecab57c285b80c6b87fa69bd72d5c782de2c7fdba7 1492 atuin_18.24.5-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 94c5054ac0fde130427b4fdb8a2acfc187b86b6fb9ac7d771a20a44abd1427c33e2f64a56d5efd2ab3cadfbd81a7b00dd7ddc0f5e7103b1e2fef6e3cba97bbea 866 atuin_18.24.5-1+noble.dsc
+ 1316248feabef194db1da23d84af6d3db6bb861aa121392a2ad1725569263f12f7cd2f889b33d72a147d6d0b8e568d31fc36fcfcb21eeb16e8b75113c7fac308 14385320 atuin_18.24.5.orig.tar.xz
+ e252a67f887d75b1fda7e5680ea12f58c59659aa7ad3da83124ae98db21e8b5efaac956cfa565b667fb4b51495bbe3485bf2767a2625acbe870eb54c2fbba7e8 1492 atuin_18.24.5-1+noble.debian.tar.xz
+
+Package: bottom
+Format: 3.0 (quilt)
+Binary: bottom
+Architecture: any
+Version: 0.15.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ClementTsang/bottom
+Directory: pool/noble/bottom
+Package-List:
+ bottom deb utils optional arch=any
+Files:
+ cc1d5a6affd7944594b456a5ce582e6c 871 bottom_0.15.0-1+noble.dsc
+ 20479fefc3d443dde2d3f8a65ecfde66 1508912 bottom_0.15.0.orig.tar.xz
+ 2abfad61d6aaddb6cfa1925396e5c60e 1536 bottom_0.15.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ a18787a168bdbd51b5d1d1d7dd85350adc4d2a46 871 bottom_0.15.0-1+noble.dsc
+ a4430f1490fd9d620bf1aa7a00978e1f5273b34b 1508912 bottom_0.15.0.orig.tar.xz
+ 9ba4b550e36c1f27850276491616dc064e82421b 1536 bottom_0.15.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ b156077968110e95ee30642d52e38d9336ff1fdd7134659bd5fb5411b0905376 871 bottom_0.15.0-1+noble.dsc
+ 4335137ea6daebd341ece130c5d1def5fb1b7ccb763be230300e2d2989267f27 1508912 bottom_0.15.0.orig.tar.xz
+ 42afabd4b4785c208f5a58ff4fb50edcf41568ba6543b5ea736518c0eaa6586d 1536 bottom_0.15.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 15f24d19404413f68e824fc6f7778b2eafce0b3d4437da010afc4eeaed85bc5f0bae625cabbf2a9e622082fb00db9df42603c6278340fee3b43d5d853c58bd14 871 bottom_0.15.0-1+noble.dsc
+ 041156a0dd148ec64d29d89c10f02c4b4c68b36ad765809844b5846d079b59af86b4b6c3bb0ba281787e0227f75181358737d46c0dfe7a26c47bd67f3714dcb3 1508912 bottom_0.15.0.orig.tar.xz
+ 4919ad8377bab054ecc0aadc6fac2e4b3e2c4989e79abba08b603e06374bce35ca74ad5fa023bf244c2985df511259e2c8c1f595e4f8b806f37109b4ff884de9 1536 bottom_0.15.0-1+noble.debian.tar.xz
+
+Package: buf
+Format: 3.0 (quilt)
+Binary: buf
+Architecture: any
+Version: 1.75.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bufbuild/buf
+Directory: pool/noble/buf
+Package-List:
+ buf deb utils optional arch=any
+Files:
+ ffc4dc2de8ae9ede11c9166bd71debb2 840 buf_1.75.0-1+noble.dsc
+ 3d1f4fc2052b2a2debc1c9e28e7537fd 24171656 buf_1.75.0.orig.tar.xz
+ d76f6f0d975bccbb6c1ce74cded9bbf5 4640 buf_1.75.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 9ccdaa81759d0dee7994a7396f1efaad89cc106a 840 buf_1.75.0-1+noble.dsc
+ 19895c4b68a199693ab6af31f6c2f626f97b0c54 24171656 buf_1.75.0.orig.tar.xz
+ 4924d36adf85b15937db169272b44fe077de36a8 4640 buf_1.75.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ b0bbfabb9384d5dc3a94790ba410463b5276dc0b6e9fd4a0bb4a7867dfe85e14 840 buf_1.75.0-1+noble.dsc
+ c7753c0b5ae19ce6dd55f34d4c1ad547373cee7bd43c35c0eadcc741ad89b6d8 24171656 buf_1.75.0.orig.tar.xz
+ 67170b354835380d1700ead309043efeafb2c6f24b4b6ac595113f19f2c513fc 4640 buf_1.75.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 0c1a9e5bc56bf279a1427c28a597e3c2fdfb420c9d710a593fe508249e94bd050b7d01265413dbc57a16411963762aec6da9789eb13742c4e85394d3742cc199 840 buf_1.75.0-1+noble.dsc
+ f3ca01e4a9cfec7384661e38798400140559c173694d0791a65fe4a997f9dd3fc7237dfc2718fcb765c7148767fbe0d3b82c58759d211c4ce7a30fa63efc78f1 24171656 buf_1.75.0.orig.tar.xz
+ e9e7c6127d1d1693f7f3fc492cf25565c1f51507d0b3d965852d3769068857ffdf000e006b0bac31e7788f5dc5bf128ee96ac048718d513fba02d8d3a1ab966a 4640 buf_1.75.0-1+noble.debian.tar.xz
+
+Package: bun
+Format: 3.0 (quilt)
+Binary: bun
+Architecture: any
+Version: 1.4.4-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/oven-sh/bun
+Directory: pool/noble/bun
+Package-List:
+ bun deb utils optional arch=any
+Files:
+ 9fc608c4e9204d77bb906467683ace6e 832 bun_1.4.4-1+noble.dsc
+ 77d93549ac36cf7ba2bb18395da91485 39351836 bun_1.4.4.orig.tar.xz
+ 609609d88af4f30167f33f3ebd9d6aea 5068 bun_1.4.4-1+noble.debian.tar.xz
+Checksums-Sha1:
+ e41a40d82c8e3edf043f39c7c0889a8f155c5cba 832 bun_1.4.4-1+noble.dsc
+ 6d55fada26e5c00128dccb01a2f92cd2b331053d 39351836 bun_1.4.4.orig.tar.xz
+ dab2a8fd533c1f4189273885089d66b78d95d351 5068 bun_1.4.4-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 84cd5a42f8193c4a222b7b21bd819ef7e1ead5f5ad603be45612a5429fa9d37d 832 bun_1.4.4-1+noble.dsc
+ 51d606565958b60c66effcc0849113e22b6728778c157502234b3c73af789867 39351836 bun_1.4.4.orig.tar.xz
+ 893518354acb65be6acb0de3f5fcd3f0909ceabe51170e388a6e5c7c0735ae6a 5068 bun_1.4.4-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 24b6f3ea1ba4ad7b3c7bb7565c1af9517946684c0c1669507df5d18f59a74f3f235a4b7eee9746b85afe37b158fa46a39c00856063d42d38461ad0603a3ee294 832 bun_1.4.4-1+noble.dsc
+ bbbcbd2e4d883acc65c673b7eec5bf8635420ad52eae3cda05adddcaa10a49ec8525526021db2b44680791732abd9ee82a303032ed8fb72a277df7352c179c07 39351836 bun_1.4.4.orig.tar.xz
+ a5af1c6f6c591b742bb7031ef0f1473183707dff838c41bc9766d33135f17952e22dafdd738640b56dfaf209d98ee5d6d00612222804d9337e6b19d4d6c7bbde 5068 bun_1.4.4-1+noble.debian.tar.xz
+
+Package: dasel
+Format: 3.0 (quilt)
+Binary: dasel
+Architecture: any
+Version: 3.11.2-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/TomWright/dasel
+Directory: pool/noble/dasel
+Package-List:
+ dasel deb utils optional arch=any
+Files:
+ a7a90d2a8aa183d4cd79ef9063ca27b3 862 dasel_3.11.2-1+trixie.dsc
+ e716947f9a5c9752338a421531c165b8 3049000 dasel_3.11.2.orig.tar.xz
+ 5bf91fbb16d97fc64434c47b7246808e 1512 dasel_3.11.2-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 96fb5bffe13446c6760d899fb834184ce893bdb4 862 dasel_3.11.2-1+trixie.dsc
+ bdb76e5e6532100910c27df2afaee39072cc70a1 3049000 dasel_3.11.2.orig.tar.xz
+ 55726f30367e0ec1230f013853c74dcc3ee64103 1512 dasel_3.11.2-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 429025b029fb0036f807d810491f4ea4389bb46d53ce3e9a18d67724384c487e 862 dasel_3.11.2-1+trixie.dsc
+ 2037ca5d1cfe67165b4c54a8530b15557760fea7af735baff7aad9172da7d9b1 3049000 dasel_3.11.2.orig.tar.xz
+ f2993cccdfedfbf9a3afc140738b9b3495b3e31b4185cbdb0fdb6a8c4a36ab4d 1512 dasel_3.11.2-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ e7c5dea226389cbe030a0b55bf567cc91d437e5221473c9f8b13daf0797cc310d0800fab440a2020d6e40fe3033917e0a91434bd346753404c4ec083c477565e 862 dasel_3.11.2-1+trixie.dsc
+ 54fc23130b5d54a33ac09cabcc479658b8382fcfef8f4fb489b85549555f0fd2c81261a195cc187699445e0ff24fc63d8db727dcffca9b8be0736e588fa68b60 3049000 dasel_3.11.2.orig.tar.xz
+ 26d01eb5e1567b3aca3cc644159ddb9ec4ccdf06164bdb6a8cec5b493b0f8ce5616a9c2faacb9b563a64c5eb4187a999d03acbcef5b61a9eeff9f27dee66ecc9 1512 dasel_3.11.2-1+trixie.debian.tar.xz
+
+Package: deno
+Format: 3.0 (quilt)
+Binary: deno
+Architecture: any
+Version: 2.9.8-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/denoland/deno
+Directory: pool/noble/deno
+Package-List:
+ deno deb utils optional arch=any
+Files:
+ 331f7a4d194894381089ae3bfb0e5298 843 deno_2.9.8-1+noble.dsc
+ 375b3e3db274b619360e49a328ee9074 30630868 deno_2.9.8.orig.tar.xz
+ baab1f51c6f2b652873c1f7e06defd1a 1504 deno_2.9.8-1+noble.debian.tar.xz
+Checksums-Sha1:
+ dc6c91219cdcac08d3c964bd334c89a44a289d22 843 deno_2.9.8-1+noble.dsc
+ db443595812dcf32ab400d2ff14ecb0513b41374 30630868 deno_2.9.8.orig.tar.xz
+ 5909abd1d1ddddd20d78072094fbc2b187e1e3f0 1504 deno_2.9.8-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 53ef053014ea239ba8309a6d2e0c7f5cd4eb2bf106a297d3db7bc4670d08a56c 843 deno_2.9.8-1+noble.dsc
+ da098345544dddc64218bd3ee7b34107fa2b8d5013d2efa132804fa12306b368 30630868 deno_2.9.8.orig.tar.xz
+ 54fb96f5df787c77dd6959a7b2e1bf9d94884b56df0267531faad79b6a6fd241 1504 deno_2.9.8-1+noble.debian.tar.xz
+Checksums-Sha512:
+ cafe80d42ebd3c0a0b95a84c5819608057587453923283b1a4f02fb7d4dd94c2a2080f6b9f14309a79ed7e58043508bf5767971a94934095461257ba63df9e62 843 deno_2.9.8-1+noble.dsc
+ 39611be50b9a1cb2b31204d9b811530bb481df950dff25a22e08ad65809a55ffa69a425763b17c608e816d52fd0dc6d0faf924dd2e380e6b971bd08c304c9b10 30630868 deno_2.9.8.orig.tar.xz
+ 5fc9cc9602b67b9dcba92b4a64d9e1d9efd9e8bd69387ec66d80dde44dd6a764dcb62d176e817963f635281013918fab988292ace594575ddb6ba5aa556c7633 1504 deno_2.9.8-1+noble.debian.tar.xz
+
+Package: difftastic
+Format: 3.0 (quilt)
+Binary: difftastic
+Architecture: any
+Version: 0.72.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/Wilfred/difftastic
+Directory: pool/noble/difftastic
+Package-List:
+ difftastic deb utils optional arch=any
+Files:
+ e5e6c48219e57ff62ceb36a4025681b3 910 difftastic_0.72.0-1+trixie.dsc
+ 97601abbe85c7f393193d7702391fe2c 6054392 difftastic_0.72.0.orig.tar.xz
+ 200afbb7a20e081ac9aef5e39454d7a3 1560 difftastic_0.72.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 99bfd3918ac4f64211d190dc1bee318214cdfed1 910 difftastic_0.72.0-1+trixie.dsc
+ 3f62ad38a25647e08e46588deb4e07b7f42aeae2 6054392 difftastic_0.72.0.orig.tar.xz
+ d6f937883be6f9a23f5065ba20743b1441b66183 1560 difftastic_0.72.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 1727cdd6bf4026589d703c31e621950d20cc5ddafd7275164937a5dd0a49baec 910 difftastic_0.72.0-1+trixie.dsc
+ 6694b8aae25969ea808a036ac01074721240067edabf80d0f4205e88af429848 6054392 difftastic_0.72.0.orig.tar.xz
+ e8ee6225b752a924e04c47a352ef07ffbfa0af49600b16f8cce6b453f6c1e92b 1560 difftastic_0.72.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 78ad735d6a3cafd2b20dda1871064d420b78776875ceb38cd00bc66e73afb590003647134181293d009d9afc83378af469789f85e8db4f8c815d5918ee8f355d 910 difftastic_0.72.0-1+trixie.dsc
+ ed63c219d238ac617a6843a21d3dd8d3fb38cd66bdc2d79f443ea716f1cb24da047f4bbdd3d033290fa668677b3f9ae20267f8a7892af12c7d328851db187b96 6054392 difftastic_0.72.0.orig.tar.xz
+ 9cccc3bdb728d1c91a5ffa7dc571e7d7d8247cb6c13206d659c5fe54e059f808747eac37c31730a16fdd55573a730c73f96d44a60d875d737418d14c5521b06d 1560 difftastic_0.72.0-1+trixie.debian.tar.xz
+
+Package: dive
+Format: 3.0 (quilt)
+Binary: dive
+Architecture: any
+Version: 0.13.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/wagoodman/dive
+Directory: pool/noble/dive
+Package-List:
+ dive deb utils optional arch=any
+Files:
+ 99fd3f6aede439279d81d57e45cae2dc 852 dive_0.13.1-1+trixie.dsc
+ 2ede6672c8387396f396162582071441 3073748 dive_0.13.1.orig.tar.xz
+ cf856591ef4dea8ed4354284e5f981ae 1532 dive_0.13.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 82b1f865022b7703c6f31a476c1857993050783f 852 dive_0.13.1-1+trixie.dsc
+ e1ac8b3ce3eaa306a90f62b14730f6a21d2a2d94 3073748 dive_0.13.1.orig.tar.xz
+ b655c48e32d00305ba91d4f8c348459fc7431a4b 1532 dive_0.13.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ f4a8f4e963af9c1f273ecf3416ee3e5cc7a0e2bce9f54e48c474552ca42883fb 852 dive_0.13.1-1+trixie.dsc
+ ac8075d4513288b156b857c05ae75bc75e2d9dc82a2a8827b32a01b8e9135ac9 3073748 dive_0.13.1.orig.tar.xz
+ 368ea3454f97d02040e2545243c76bbe5d7bd29f30eeac07cd2c01650c310c92 1532 dive_0.13.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 1d73e29f2b211d0183fadb8c83949997eca5780f46133f6d46706c485acfa92517bd26832222fae3d7296028bcdee1a5ba7a862ce85b60a3028df5d52f7b592c 852 dive_0.13.1-1+trixie.dsc
+ 253e386c8f590b4c9839dd03cb71e9d12550d00dfa2d8cea408b5dafbd0e86e839b622549fafa1423f43b3e867fdcf2d218748aa8539f4128e14490147af1c72 3073748 dive_0.13.1.orig.tar.xz
+ 688f98dff1535c802626288631830c123a23f29589447a2993983f3dd557ce7fc147a873a79ed2dde3b73546cce7b8ba923ceb082434b24982892ad1c4f4fff5 1532 dive_0.13.1-1+trixie.debian.tar.xz
+
+Package: du-dust
+Format: 3.0 (quilt)
+Binary: du-dust
+Architecture: any
+Version: 1.2.7-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/bootandy/dust
+Directory: pool/noble/du-dust
+Package-List:
+ du-dust deb utils optional arch=any
+Files:
+ 2726ae3ff954fc39df8773e224420f08 864 du-dust_1.2.7-1+noble.dsc
+ 2bf98e79f1b98191e96ebe0a8ac7f509 896620 du-dust_1.2.7.orig.tar.xz
+ 794c3d32611d5e82018424d677e1827d 4632 du-dust_1.2.7-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 0533293210e80602145f0d2abec600b5fdb40147 864 du-dust_1.2.7-1+noble.dsc
+ 14948b2ef95bd3aae7d32336503e539801bf841b 896620 du-dust_1.2.7.orig.tar.xz
+ 95d67fe36761417a079a9bf99110e6acccb4a412 4632 du-dust_1.2.7-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 125ff83d65d607721412ae298514d78bc3fb582d12e610dd5a703953414d578d 864 du-dust_1.2.7-1+noble.dsc
+ 3b14a36e31705b8946387f71894fdd00755450f27499e203c849ec391d3a0c6a 896620 du-dust_1.2.7.orig.tar.xz
+ 63a5ae879d221f2827b70f994518722447b50053b49f2613ecbf5e5b99ee148d 4632 du-dust_1.2.7-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 242e26437274c23e3f541052767d1a7fa0bfdc492653b6c6ea035a36e2da2118b14d909a8dc502f1ba23f5ace96460efd7e42556355d8584d8259fe306a3d178 864 du-dust_1.2.7-1+noble.dsc
+ ff9fe233d64bcec59bad946a8ed564b0c3cf236793219488ef765da07bf3fb77be616c271552f9e02f11f93970a79ffdcfe8452c8a538d810cb3351dc17a218f 896620 du-dust_1.2.7.orig.tar.xz
+ ceb95513e1295249b170b78823bc5f5a4cf22792026b027c9d3afb2aa554c7c6a83232e6a0199de9a4fe2d7865d1698319afab1e8de2810339478f6c7902877c 4632 du-dust_1.2.7-1+noble.debian.tar.xz
+
+Package: duckdb
+Format: 3.0 (quilt)
+Binary: duckdb
+Architecture: any
+Version: 1.5.6-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/duckdb/duckdb
+Directory: pool/noble/duckdb
+Package-List:
+ duckdb deb utils optional arch=any
+Files:
+ 4fe979b4f08491aac58a207798077636 861 duckdb_1.5.6-1+noble.dsc
+ ad4a47846be5e4ecfe100bba77c520d4 14734172 duckdb_1.5.6.orig.tar.xz
+ 8c78002112878844351a8cdfa7e45f98 1504 duckdb_1.5.6-1+noble.debian.tar.xz
+Checksums-Sha1:
+ fd35cce4948cf243eb72a1f07be9cc6a8196e6dc 861 duckdb_1.5.6-1+noble.dsc
+ 8cf4527eea04fa71482825a23fb7efc725b2ba3d 14734172 duckdb_1.5.6.orig.tar.xz
+ abb35c21df1ce9ce6bdd7d01a3c1d0f6e1ee0ea7 1504 duckdb_1.5.6-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 4003f86b8e05835b672054e8bf2fa326ffbc29bc86d2fd8adc4a931e0eff02e1 861 duckdb_1.5.6-1+noble.dsc
+ f3447995c7ecb38f43ae783219c478ac81395fc305f493be4465d96f35104793 14734172 duckdb_1.5.6.orig.tar.xz
+ 387ba449ea686b7361b76780b329836d4a1b0adbf18f7b0b6b0ff703703b4741 1504 duckdb_1.5.6-1+noble.debian.tar.xz
+Checksums-Sha512:
+ dd5dffc1a9ad47331074f0d8ec23b35d5d01a24b6792d68f8ca6209035afa73a2dde6bbb6bb89112263918ce435fc9126e0164c48eddece0f73118aa2be9b48f 861 duckdb_1.5.6-1+noble.dsc
+ 129be9a529b4a06595d07d1b58fcfe3d5a1d605a6a4567dbffc77f27be5a87188793ee49573b37cfcad9bf4acc3481fcea7b9e2ffb48cb7e02cb03302cc9468a 14734172 duckdb_1.5.6.orig.tar.xz
+ 1dcabc27016e0d2400eb45addf260ec2b2bc6eaef203fe206e310bfbbe22f4d8da5fa1c6cfa3f7daec8aac765e13ec3f97e5b1863ee1d2f6db430d6e6c02db2a 1504 duckdb_1.5.6-1+noble.debian.tar.xz
+
+Package: eza
+Format: 3.0 (quilt)
+Binary: eza
+Architecture: any
+Version: 0.23.5-3+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/eza-community/eza
+Directory: pool/noble/eza
+Package-List:
+ eza deb utils optional arch=any
+Files:
+ 6281f78c5c3a1948cbd5d177225f03b8 839 eza_0.23.5-3+noble.dsc
+ 54552fc8935a845a0cd4f7dd06b7ce1f 990064 eza_0.23.5.orig.tar.xz
+ 7692b535c6b129a86cbf2d5f99e97b76 5480 eza_0.23.5-3+noble.debian.tar.xz
+Checksums-Sha1:
+ f6f6d06d6717ad7a2f1bdc13053ade8a741feaae 839 eza_0.23.5-3+noble.dsc
+ 218af2ed965a084a807778b4846c68cdeebbfa5c 990064 eza_0.23.5.orig.tar.xz
+ aeda4f11cb1e3a5e4ec541e01a1e89553dc9663a 5480 eza_0.23.5-3+noble.debian.tar.xz
+Checksums-Sha256:
+ 5ac138034a0aca2ef167008d4dfeafe11ec5d4c3949553a0f5ac52cc1a02bda1 839 eza_0.23.5-3+noble.dsc
+ f9f453250c78ac468cd085804d122321280abc32b426bb8abfdf65cf11745034 990064 eza_0.23.5.orig.tar.xz
+ c7ff1cbad213fd6312c48f9f9179d9146aad7e64158f4793ec085d97d47c7204 5480 eza_0.23.5-3+noble.debian.tar.xz
+Checksums-Sha512:
+ ec55ee0115f1d97a77a71d34ff235b6a800093282b5bbe12a657dab2716c04d8798ee6663f23964c8f140f7f29d967cfb6e5abce33ce7f8e12e1118a69257199 839 eza_0.23.5-3+noble.dsc
+ 7dd0ddf5d1f4448eef90281cb36fb535715c007ac4305e1452a0899dd94f06c82daf79c64d4f35184ddf5df3561d99fe066f49c662f39eab5100ef820b52776c 990064 eza_0.23.5.orig.tar.xz
+ 827d7425fa894310449e0108baa0b20061a7749f80627985111150cf6806f257334918b84fe7555620de7163a91a20535d2327184febf6246e8930699b4191ae 5480 eza_0.23.5-3+noble.debian.tar.xz
+
+Package: fastfetch
+Format: 3.0 (quilt)
+Binary: fastfetch
+Architecture: any
+Version: 2.71.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Directory: pool/noble/fastfetch
+Package-List:
+ fastfetch deb utils optional arch=any
+Files:
+ 8caa744ec446703a85fee5f0a9b898e3 899 fastfetch_2.71.0-1+noble.dsc
+ 0ef829dfe93c3d3d50cc2359357e23f4 909436 fastfetch_2.71.0.orig.tar.xz
+ 8844d761b7e06aa3b5d28650950968e2 1544 fastfetch_2.71.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 50c4480b12f41c038604022b75798591e91f7a79 899 fastfetch_2.71.0-1+noble.dsc
+ 7aed326484512d251c07898f2c8986837d3ba043 909436 fastfetch_2.71.0.orig.tar.xz
+ 0fad9a51d840a2c5a2579e0194729b3ffbbb4419 1544 fastfetch_2.71.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 4f25bb4e22f31dfee506cf77017da5da4cce120a47b2aef473d41d80250b2010 899 fastfetch_2.71.0-1+noble.dsc
+ 5acde8f1fd77131160661402b2d4b4611560d1419a4a329aa6b58bed87d3ff72 909436 fastfetch_2.71.0.orig.tar.xz
+ 62ad178a66bda2064e8b2cbabe4352512ee91dcd53cefc75e94d668edc9ac1d0 1544 fastfetch_2.71.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 20cdb1f2b2a61f33153198b5ae1002661c2a549a023bd723a7b071b50768843f5b5b5d6b6f44da0c611b8a26136d042b93211a5ee1414806ae38e5f2c3ea957d 899 fastfetch_2.71.0-1+noble.dsc
+ 3cd2139ab7fb310afd9a7ced373490cc1cce622f04a5801c56b4fcd1f0608e22e2fa75d6f3ee68c6e5b9af03080d05cddc9286e0f14b6f729e93d1b46c193c41 909436 fastfetch_2.71.0.orig.tar.xz
+ 13a13237a198b95080ca4d847019a296733f57b383b6f0e4922559a37e98de819702ad9f723f30b8cfd489d602f41d5314ab4b24b03d1719d6589d0b083e8005 1544 fastfetch_2.71.0-1+noble.debian.tar.xz
+
+Package: fd
+Format: 3.0 (quilt)
+Binary: fd
+Architecture: any
+Version: 10.5.2-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/fd
+Directory: pool/noble/fd
+Package-List:
+ fd deb utils optional arch=any
+Files:
+ 8b71fc61370b27f807b45299d5718ca4 826 fd_10.5.2-1+noble.dsc
+ 0474992702f0462a321b63fd88e571d3 1274196 fd_10.5.2.orig.tar.xz
+ b8b08018c8eed32e6a689d1f100a713a 5056 fd_10.5.2-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 362db8a0d3edffbed59b5b40a0351b41dffaedc5 826 fd_10.5.2-1+noble.dsc
+ 6f4e24f4ef8d44f93dce243ec348e0d7b850fe2b 1274196 fd_10.5.2.orig.tar.xz
+ b7f8f2e67fe92145c4bf6783ef09f557b3861990 5056 fd_10.5.2-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 77acaa87b29b885c9215a3f633d00d695b8fc3fc7997523b5fd405112bef2727 826 fd_10.5.2-1+noble.dsc
+ f1dc53e715c4dcc67a01c8c8faacb7782a69026efe29d3673419cba73269a9f7 1274196 fd_10.5.2.orig.tar.xz
+ 482043f7efde414e667c389cba4dc4f8eea783dbffeda4437e87a856e26e81a9 5056 fd_10.5.2-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 8176fe845ca7c74dc49e3ba8410bf68d6f287ab1c2d907cf226bc6a1554f6e532b9433d3a6d00de917d0ace0075f94d342bbaa42477e30a01c82a89a339b73f9 826 fd_10.5.2-1+noble.dsc
+ fe7803f6d4f31b53ce267de9c29095a0fccc74fb1d7e8a211bc41ed8a3bcf72187e1d7b6416399261e264e0c9eb7e35a57804a11c7520f08fd60dc4a1b02c968 1274196 fd_10.5.2.orig.tar.xz
+ 73f5cac20466e2dbf8663927ce61b6df73cfe36c8c57d6e5148825dbe423183187e512f8638230c18c95e45efd95dc07cf6f46501ae43da315e65978893c4c10 5056 fd_10.5.2-1+noble.debian.tar.xz
+
+Package: fish
+Format: 3.0 (quilt)
+Binary: fish
+Architecture: any
+Version: 4.9.3-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/fish-shell/fish-shell
+Directory: pool/noble/fish
+Package-List:
+ fish deb utils optional arch=any
+Files:
+ bd7eb99b7f3cb918e93788b3ee0a3b7a 848 fish_4.9.3-1+noble.dsc
+ fd941ff8dc98e8a932cf23daee004552 3216356 fish_4.9.3.orig.tar.xz
+ e9109de9866b12017fdc888057a4efd9 1300 fish_4.9.3-1+noble.debian.tar.xz
+Checksums-Sha1:
+ ed0f22436a6fc1fd6bfc10de8e9ae48ecb1c3a57 848 fish_4.9.3-1+noble.dsc
+ 0304d271135dcdf919104002ff4f428484b180a4 3216356 fish_4.9.3.orig.tar.xz
+ d36deb9b5b8c91165c88d915a284de7d72bb6757 1300 fish_4.9.3-1+noble.debian.tar.xz
+Checksums-Sha256:
+ f98e730d895dc3dfe90def390da378c8107eaedea608e4f40531145d566a6f6c 848 fish_4.9.3-1+noble.dsc
+ 522fe794b1f0988555cee2b84f4db0be52810bf8e85727a24c90999c07a139c7 3216356 fish_4.9.3.orig.tar.xz
+ be08dc948082997b00a2047437007308121c188c979b394a18eda5eef55620fc 1300 fish_4.9.3-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 6238ffa08f17e1dd36e9582bf77fae2cfcf91ef19aaf7a25fa306722119d0515c078b7b07db74d15f72b04b63c3762c89290819be177c5db9422b00e6e68a937 848 fish_4.9.3-1+noble.dsc
+ 5cb1f2614d38169a261007e9c2e944f5eb56ed2ccccdfddd3f457a3079948910ed5b9f11fbe354db362c31d2b40d2a2f65c9d7c91ef41841e94d5af94f4ab278 3216356 fish_4.9.3.orig.tar.xz
+ af1dcc6f0d5d83423c8e79a1e4b08056884db27fb129d9bc4f96275593a12bb7959128dc910e1bfd8f04a97c62f3daa703c5005a9a01e3bf5486dbc4c55ff54f 1300 fish_4.9.3-1+noble.debian.tar.xz
+
+Package: fresh-editor
+Format: 3.0 (quilt)
+Binary: fresh-editor
+Architecture: any
+Version: 0.5.8-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sinelaw/fresh
+Directory: pool/noble/fresh-editor
+Package-List:
+ fresh-editor deb utils optional arch=any
+Files:
+ c5b3057b7bd106d743dd875e7624a50d 922 fresh-editor_0.5.8-1+trixie.dsc
+ c9d72b28f8d6bb605e6057ed9215409e 11348696 fresh-editor_0.5.8.orig.tar.xz
+ 473f7029c145a358c68295f09a1ed65b 12236 fresh-editor_0.5.8-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 22252e5fbb8b4338eddc002f68b54fdc8eed53ef 922 fresh-editor_0.5.8-1+trixie.dsc
+ 6b087ca6ea236dabc2b074c3a61b2e577e2c6153 11348696 fresh-editor_0.5.8.orig.tar.xz
+ bdb5e71cea5c03ea87d01e0dfbe4c48a7583156d 12236 fresh-editor_0.5.8-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 951dd12c1fe9da0a53d87a21b29e10b10e9a25414a8ae5ccf4d5acf400ba1eab 922 fresh-editor_0.5.8-1+trixie.dsc
+ 5b26c80043cd5a298da80e7440ce06152e674b4f0ec0fa011c690fa036bce59a 11348696 fresh-editor_0.5.8.orig.tar.xz
+ 297214d1ab50a53896a0f6b6b51cc00b79dd5ce68ad11bd931d1b149c0dbd97d 12236 fresh-editor_0.5.8-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 6a5d0ee913534cbf6c946626129f46a1ad43633eae7d8306255fdf53dbd7cb831f83131c1b844278e596341c62182ee74506e229b6b06dfb05b80839a23f1006 922 fresh-editor_0.5.8-1+trixie.dsc
+ 5ccc5ec8761fc7a352fcecbf7ecdffd867341c55f7b08316c3c840c82340b7fbefee51496d68a7810b275f5dd62671cf7188b8c09c7df15955da199ba148bb5c 11348696 fresh-editor_0.5.8.orig.tar.xz
+ b380ff6c82b661a641a49392194694f915303e0932a3a457d907c7a8d3ffff3e1d2159dfb30c4b03208c884583252e3044732b7e379bd35869a643f0ab1071e3 12236 fresh-editor_0.5.8-1+trixie.debian.tar.xz
+
+Package: fzf
+Format: 3.0 (quilt)
+Binary: fzf
+Architecture: any
+Version: 0.74.5-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/junegunn/fzf
+Directory: pool/noble/fzf
+Package-List:
+ fzf deb utils optional arch=any
+Files:
+ 31d8af41737ddec007dff33dc63cfe89 837 fzf_0.74.5-1+noble.dsc
+ f95e688548351e62858787e74b9b34dd 1770516 fzf_0.74.5.orig.tar.xz
+ fd570be19cf863ed9da74bc14917a05b 1508 fzf_0.74.5-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 4bf30c92fdc221056daf8e5849799a739c329c64 837 fzf_0.74.5-1+noble.dsc
+ 8e2d99753611b080cee7f2b0c1ecec67fb838088 1770516 fzf_0.74.5.orig.tar.xz
+ 75b74cabe702261d55ba9d4563a78eb0c707c7a7 1508 fzf_0.74.5-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 20e95def189c5645136a717eed3cadc3772b58e77bd58587295cd425ba204fe2 837 fzf_0.74.5-1+noble.dsc
+ 4da9d30e1c7ce3d1060027397685c115aca832b0a1f551f4926e236797812971 1770516 fzf_0.74.5.orig.tar.xz
+ 0b2c853178fa4d69783ef367efda040efbdc38ef3681f3e71d1ac94890f777fb 1508 fzf_0.74.5-1+noble.debian.tar.xz
+Checksums-Sha512:
+ bf8e2861a7f39912d8617078ac514bc8566401ade1e40706fa85b4e0892b89d90681ec09d5b40b519a29ee682690a5dba66e5824145f301f3e553c5e33f4861a 837 fzf_0.74.5-1+noble.dsc
+ bacbd9ecdcc039a2f762d470d707350bc5ee501ba5fa7e6ce57bd500dcbe4f8fbe2db90c18d43fa2acbbf9758fedb57c8c5556d668a60fb573d5e635951f6135 1770516 fzf_0.74.5.orig.tar.xz
+ e2d722bafa6233b675cea07dddbda9abc1c5cd12528f7482eba4c4dfb3c784b5975774630c3c0cb006f944443d829fa773ebbeeaf193f2c083e965d2068d628b 1508 fzf_0.74.5-1+noble.debian.tar.xz
+
+Package: gh
+Format: 3.0 (quilt)
+Binary: gh
+Architecture: any
+Version: 2.103.3-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/cli/cli
+Directory: pool/noble/gh
+Package-List:
+ gh deb utils optional arch=any
+Files:
+ 768e249f1ff0da5e93d1a5942ce88a79 837 gh_2.103.3-1+trixie.dsc
+ 003dc6aa9e53cb4cffb86e3f23aea9b0 10920000 gh_2.103.3.orig.tar.xz
+ f73b8ed73a292d43782a83f84f1d6b36 1504 gh_2.103.3-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 0fc29f80f39f68157ba820c590ca6e1cb508ae92 837 gh_2.103.3-1+trixie.dsc
+ 2115c86633351fa65ca5e1034d7bb89f89b5f99e 10920000 gh_2.103.3.orig.tar.xz
+ 95b9ed84878355a1c247e34b29eee74d37a7f9d6 1504 gh_2.103.3-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 3c3c53aef44ad0d6b86aefc0b1133b861bb745bcb7b6067f609b97831ddb13fa 837 gh_2.103.3-1+trixie.dsc
+ 426a8062ae3748cf730d46e688038525e5054bf915e29024151a1ac757b6e705 10920000 gh_2.103.3.orig.tar.xz
+ 73604bfde093564d6e58afe2b5a291b3960061950740d7c2aa87c7e585f52d22 1504 gh_2.103.3-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 2e0160e5d3bd15b6cb5080d88af4255b31283de2ade55b7ade3657b074e2cbc9e33521dcfabe25a622f0676274cbdfc7a514eb43fee2278050709e356c28fccd 837 gh_2.103.3-1+trixie.dsc
+ db635e07a9f65d4a585cc1e5e808d4aef4d0d4de4ec7b2f8195cbf31e9ac73d5502046c1cca9c75c66a28de32f821428f370e0940c33d72957f7cb9f79edbb1e 10920000 gh_2.103.3.orig.tar.xz
+ e904f2f426746270e115cdb185610f668f947d5e7a2452388d9a19f9cd91f824e2f3e46317d1e1d1e6590daad7d4aff7480c310306f70ec7d82c95f510a939ee 1504 gh_2.103.3-1+trixie.debian.tar.xz
+
+Package: git-delta
+Format: 3.0 (quilt)
+Binary: git-delta
+Architecture: any
+Version: 0.20.1-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/dandavison/delta
+Directory: pool/noble/git-delta
+Package-List:
+ git-delta deb utils optional arch=any
+Files:
+ 8c757541d2e10498329f615814788a4a 895 git-delta_0.20.1-1+noble.dsc
+ a7dbedf54e1f00e0cf527cd5e1d68cb2 2632804 git-delta_0.20.1.orig.tar.xz
+ fef18953d59e61946d6f9ed353519ae2 1500 git-delta_0.20.1-1+noble.debian.tar.xz
+Checksums-Sha1:
+ c3b2d6dcac324520c9343c08cb833de2dbca1f04 895 git-delta_0.20.1-1+noble.dsc
+ 7d1bf4ba401c21e574feeed6f14bed39046859b8 2632804 git-delta_0.20.1.orig.tar.xz
+ 57feec2e5cd95daf49398667089ecba86e80f1dc 1500 git-delta_0.20.1-1+noble.debian.tar.xz
+Checksums-Sha256:
+ c7d25d5d4e2d81fc4361f5967bf942dd5794f850f09c0f2fbd338061ffd81ff5 895 git-delta_0.20.1-1+noble.dsc
+ 21a8342bf0c5ac090c7f63f8b3d834bac7894e94c51f8c789a768dc0fd600391 2632804 git-delta_0.20.1.orig.tar.xz
+ d6d40f08a100662e65ee8ffe0e5f07c4cebe9b3de6bc8cdd91da779419eab1c2 1500 git-delta_0.20.1-1+noble.debian.tar.xz
+Checksums-Sha512:
+ d975db7759f00ff87cdc818328ce583d26084b9362738d3c8d457456b57404495a5d7d54fda3716db943c602d0beaabfbba49c6220daa60e65b19dca3a3e9757 895 git-delta_0.20.1-1+noble.dsc
+ 849ac33fe37d85e6c5e5eccb3f11ff046385a92b9a30ccc7d5afebaf77011f0ff469e061c26211ffd4093e68b0cb351374867c3d48b4cb81b1e24926be6352e9 2632804 git-delta_0.20.1.orig.tar.xz
+ 00bed1e7825b37fdc79e0d7c2d1e51dd14a5205a8a4c7ec67b384a37664ad03d8da0ac3becdca54b192d96387b1a3686a3a905316fede7eec0741fffa83554ee 1500 git-delta_0.20.1-1+noble.debian.tar.xz
+
+Package: gitui
+Format: 3.0 (quilt)
+Binary: gitui
+Architecture: any
+Version: 0.28.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gitui-org/gitui
+Directory: pool/noble/gitui
+Package-List:
+ gitui deb utils optional arch=any
+Files:
+ b5288e18cfdd7e46e693436284e2172c 862 gitui_0.28.1-1+trixie.dsc
+ 196477a63be033085efad1b2930ea219 5410300 gitui_0.28.1.orig.tar.xz
+ 7bd6e9dee8771144927457e6f914a85c 1500 gitui_0.28.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 39759aa15983e9a111c87d279a95691b148a717b 862 gitui_0.28.1-1+trixie.dsc
+ 1310de9399d8177f6841532b7cb1a12fb077052c 5410300 gitui_0.28.1.orig.tar.xz
+ 901d354b55794670410a1449c55a485a005be74d 1500 gitui_0.28.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 870ae34ba1083e9390ca02baedc9b3639e1b783e8774180b0cad44ac3940ea2a 862 gitui_0.28.1-1+trixie.dsc
+ 65d069197b3d88fbcfc3af3e7d6c377f73fd07516acee7b0d7c79a3988cdc68b 5410300 gitui_0.28.1.orig.tar.xz
+ d3448830c093855807d8e56a7bf72b6816858e8e92e3175c10af04668545702e 1500 gitui_0.28.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 6107bc60d6a941ed57dbecff8cfb6d8170e1ade3228eb29f686734f9073839a67d1e258598cea59fbbeb23b8cdc14d190c1929ac471df03382ab767f6a16c96f 862 gitui_0.28.1-1+trixie.dsc
+ 13d1af268168e0964ec587dcb5b34e8a583360b8ea69b807ea04583007de839352c56fd4d2038a53173df022f272f5c710ada5907522d71388f3c9947ca502ac 5410300 gitui_0.28.1.orig.tar.xz
+ fdc1c6ecb0a4c091ef6c04cdc90ea339a0d77bcb10b3f215813dae4b9ad86fe544f1eccdbb11979705b3fc0044d57d4f0692e42c8bdf6a10059beebe9ced8bf2 1500 gitui_0.28.1-1+trixie.debian.tar.xz
+
+Package: gum
+Format: 3.0 (quilt)
+Binary: gum
+Architecture: any
+Version: 2.0.2-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/gum
+Directory: pool/noble/gum
+Package-List:
+ gum deb utils optional arch=any
+Files:
+ a2841912ae4de03f2b4f4f2340763234 839 gum_2.0.2-1+trixie.dsc
+ acd2847071193b9e2d50bc5068e65a77 3716380 gum_2.0.2.orig.tar.xz
+ 9bf85c4b892d02ab5a9f5c5921c88cf3 1512 gum_2.0.2-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 557939a7c43190dbf403a96d5aed06c8eefddf22 839 gum_2.0.2-1+trixie.dsc
+ d85da27594f39310992cee10080070a93c619362 3716380 gum_2.0.2.orig.tar.xz
+ f0f37975bcc91205f25d5ebf8ddd6f68d9f4a760 1512 gum_2.0.2-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 325fc077e1d31295b29464b4bd661993503c96a0fc685424bd6f17e905194047 839 gum_2.0.2-1+trixie.dsc
+ 27ffbd26418ce73e609076de00198144075dd40d7d33d8dfdbb358b02e7c607e 3716380 gum_2.0.2.orig.tar.xz
+ 81e33acfb1950c489fd9f2f1bc80cceada15daf25e9cc7eef5e1cebd6c96aa74 1512 gum_2.0.2-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ bcbfa3ba0732d02adeabb88d0f36903bf38eb348d13dcb2b36fd0c42ee9236d90701866c61ef2daab239fd3f34e572070703c802bbfade07197ecb9afabed7ad 839 gum_2.0.2-1+trixie.dsc
+ 8ef8723f7bfa6b0bf88f06c182f4a4c383eefda75dc5a60a63cde7224a4acc7169bd899d448aa26db0164c35c8a0bfe4eff080c20839f4faa8b74748ef6443e8 3716380 gum_2.0.2.orig.tar.xz
+ 75838a800bd858c307156a2e73e2e68e65c0ea21c486f93ba5981e880e0dde7bead4dff7a288f7a621b9ed34da8e417b9f8679ae2dbf0353789f51a81105fa30 1512 gum_2.0.2-1+trixie.debian.tar.xz
+
+Package: helix
+Format: 3.0 (quilt)
+Binary: helix
+Architecture: any
+Version: 25.07.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/helix-editor/helix
+Directory: pool/noble/helix
+Package-List:
+ helix deb utils optional arch=any
+Files:
+ c0f6a0dfe7f4cb8412efe39644a46d26 875 helix_25.07.1-1+trixie.dsc
+ f1265595f268a9b3b6e7188bcaa44e19 16626744 helix_25.07.1.orig.tar.xz
+ e6dfe7e0cf4bde8a7fd183a950d6bef6 5944 helix_25.07.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 14fae9850df6c62ecadefaa0c42c65843d37a227 875 helix_25.07.1-1+trixie.dsc
+ f5b72284e8e8dc920109a04c63a4c1ba8e82902e 16626744 helix_25.07.1.orig.tar.xz
+ 7291703209fb9225f83bda247c1a701f5b677999 5944 helix_25.07.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 4bef1377c7489d5a4a5b5df107e3e22a5a78911ebf32ea1fdf32830521d0cbb8 875 helix_25.07.1-1+trixie.dsc
+ 48a5f56b2107e64bf97d98d2252906864422e47b5a1af200f8d71ffd61a47cf8 16626744 helix_25.07.1.orig.tar.xz
+ 05d6830672aebb7bc125c46f098055484503c995d40e1db9e5a9513d76051223 5944 helix_25.07.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 7fd51595305c2c7b01aa05391388a931edc40e9a4784e47b32ea0eeeda4d5bc873bca2974afcd6f823af167e29ca9518f3dc04cc5f8926f81872163d90166f40 875 helix_25.07.1-1+trixie.dsc
+ 2124c182824b82d7de4369123dbc40c53ccdd0c7c3aae5dafe3e7b6958216c9313fb933e60ab07c558393041ccbd122ecce6bdd52365c74eca3c3b03092cb9b4 16626744 helix_25.07.1.orig.tar.xz
+ 7def73e5fb22c508db6716c911a35fa3d57866c8f570fd7545dcfc8700764c227cd6b9468feb2a672b44282d9637de155d84ca1afe4bab0455c46e9b7cfb4372 5944 helix_25.07.1-1+trixie.debian.tar.xz
+
+Package: herdr
+Format: 3.0 (quilt)
+Binary: herdr
+Architecture: any
+Version: 0.9.5-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/herdrdev/herdr
+Directory: pool/noble/herdr
+Package-List:
+ herdr deb utils optional arch=any
+Files:
+ 6967617a64cbb42e8fa72ae6d33f771c 850 herdr_0.9.5-1+noble.dsc
+ b90306ec4085a8ce9af8e9d585e9f551 7509304 herdr_0.9.5.orig.tar.xz
+ d13c5b56cc2fdadbed62e6ce49216373 4632 herdr_0.9.5-1+noble.debian.tar.xz
+Checksums-Sha1:
+ dc69b44767a57749e8fc153d1a9ff2d26ec0687f 850 herdr_0.9.5-1+noble.dsc
+ 2008893f13fa1dbb596abc9e1f07d18c42ef7177 7509304 herdr_0.9.5.orig.tar.xz
+ 171f98a9658445ac518f7fa6b3368c411c3f6253 4632 herdr_0.9.5-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 7a7808c42771f32e27562e751eeff92064f20983dcab243b4f9812526b0b812d 850 herdr_0.9.5-1+noble.dsc
+ 0256a692ae2ac32bf45eede3fd359757726fac74b4319aa7847bcc29486a02f8 7509304 herdr_0.9.5.orig.tar.xz
+ 250ee0b5793965eb40c676889b74de8e092ed38a0eeef2fb5c99d53d4b9da23b 4632 herdr_0.9.5-1+noble.debian.tar.xz
+Checksums-Sha512:
+ baaefd06a0de1cbd280f153c55391aa90437a0522d4ea62aa0fc96d846087b6a1f4326fe28183e76c033fbd74c89958d23bc3ec1df7f284e5c8c4b26c76f0580 850 herdr_0.9.5-1+noble.dsc
+ d9283fcb665ec9d599efe309bfb62ed08b3ec699da960f2421d351cfa35f9c4cf87c486ddb3c2fd77daa5b177575a2f533945391a9f88dca35f18ada25542d93 7509304 herdr_0.9.5.orig.tar.xz
+ b449eb58d303f93a6f12994009003ad0ddccd371b4a2b48261b13b00367d9bb020392748b9981cc7a73df71d4725cb47fbd21a1c0761f69d16543469ca8947ea 4632 herdr_0.9.5-1+noble.debian.tar.xz
+
+Package: hexyl
+Format: 3.0 (quilt)
+Binary: hexyl
+Architecture: any
+Version: 0.17.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hexyl
+Directory: pool/noble/hexyl
+Package-List:
+ hexyl deb utils optional arch=any
+Files:
+ f7cf231a7920e34303aac38b11349df0 857 hexyl_0.17.0-1+trixie.dsc
+ aded8e65d4faf9f64eb01372296600c2 426480 hexyl_0.17.0.orig.tar.xz
+ c1a635d7b91127b0ff013b099e1e1f8b 5044 hexyl_0.17.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 4bad1f18985493d685f837e55704aa4cbe485626 857 hexyl_0.17.0-1+trixie.dsc
+ 9eb039c1656092373c46223e1def0ef0e7871459 426480 hexyl_0.17.0.orig.tar.xz
+ f8f8650e7ba2d9abb3a2df89808c1296c2df89c8 5044 hexyl_0.17.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ d1577865572e0dd58c9ac40259827162249193eb12778d3a9539d078232a0301 857 hexyl_0.17.0-1+trixie.dsc
+ b5b1d9627cee4c43eb426992e07f3aa6f23ed64b0e7047b06e6a8db768878977 426480 hexyl_0.17.0.orig.tar.xz
+ 494ba4c22c9c062eb4e964257e294e6034f201b26f0f5f07e1eb9cc6251e678d 5044 hexyl_0.17.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 733779a9e57fb7f1762ac33af976eb4893fb3dc740ca16c924209db7f2de1dc3e2ee2a6616e865b0b5bd89c1f6b836ffb26083e5d3364a18582a19892823f514 857 hexyl_0.17.0-1+trixie.dsc
+ 2e9ca6f0ae52a475c2ce89c8f05cdd6636d1f81d647d7d7f4b4421825f48b5a187b8a758c67e0833a84adb07cd089420661b97848d9e4e2e578e4fbb81d87921 426480 hexyl_0.17.0.orig.tar.xz
+ 5ec47905443bbce6be9b553983057974a2078fdddea64a467fec8e2c874886eff6a20987f6fa7b0f80087d90643616c30a921df8271e381e91447e90becb7801 5044 hexyl_0.17.0-1+trixie.debian.tar.xz
+
+Package: hyperfine
+Format: 3.0 (quilt)
+Binary: hyperfine
+Architecture: any
+Version: 2.0.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sharkdp/hyperfine
+Directory: pool/noble/hyperfine
+Package-List:
+ hyperfine deb utils optional arch=any
+Files:
+ 9b3ac0921c8e26470890a235edd6f584 886 hyperfine_2.0.0-1+noble.dsc
+ 63d5e6fabd9b0f654a27e5aa7c2bbf98 516428 hyperfine_2.0.0.orig.tar.xz
+ 496abe7fc282bfa0c8c54a59bdb5a2d5 5084 hyperfine_2.0.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ ba3e8ca4a619c244a3383a92afc05dfb0fa67e98 886 hyperfine_2.0.0-1+noble.dsc
+ de01c1c7f870d48186f508f76700a868ebeaa248 516428 hyperfine_2.0.0.orig.tar.xz
+ 14566378c85886b818dbd8e3e9b197cd68792ce9 5084 hyperfine_2.0.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 9bd635c334e04b941425352d67aacd79253e362ccf40d488bac654d55738a886 886 hyperfine_2.0.0-1+noble.dsc
+ 34541ccfb2fe402dcdf1182a1658bb986a62a206dd91e940ce51680e9effd90b 516428 hyperfine_2.0.0.orig.tar.xz
+ ac5964b0bb9be894fdd19fc908bd193800f512d3e7f4a7589bae4b6fbeb9247a 5084 hyperfine_2.0.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 93ceabc983dcdb9296822f6c54a9d433763486cd1ac2123b094dbbb4846fd9f42556851cb4b2c01e3fec0d20e48df992303ea82deaa250c7bbe3298d9d52efc4 886 hyperfine_2.0.0-1+noble.dsc
+ 5ed1e1c001002793eeb504e6fda49dd145228b539a2b98d782c0c00352ea8109fb23bdef216a29e5646f1193ab281e0a500e96f5e39bc2f0eab8b12a20838f3c 516428 hyperfine_2.0.0.orig.tar.xz
+ 74d26fcfa5eb02cd043fd27c637026f3ede31d8a4bc1e03f21980221bce1d69c14abf949214132eb40b0c6061bbf97b5036df813215803265b8ef74b20cc8eb7 5084 hyperfine_2.0.0-1+noble.debian.tar.xz
+
+Package: jj
+Format: 3.0 (quilt)
+Binary: jj
+Architecture: any
+Version: 0.47.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jj-vcs/jj
+Directory: pool/noble/jj
+Package-List:
+ jj deb utils optional arch=any
+Files:
+ 2eafd5f516edae5d3cb152a34d1e390a 829 jj_0.47.1-1+trixie.dsc
+ 87c3ca86b25cbfb3a4a629f505bfe018 8029632 jj_0.47.1.orig.tar.xz
+ c07a65f3a8d4b6bf7a511381c06d2ebc 4628 jj_0.47.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 6c3836a83143c0908394c341247239e692461c21 829 jj_0.47.1-1+trixie.dsc
+ 791654f46eb57270b5409287b6f5a273303d0fc8 8029632 jj_0.47.1.orig.tar.xz
+ dd15cf984075867f766be522760fe0c963a8f0d2 4628 jj_0.47.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ d04e2adf14c170ea4687e9cb3ddd1a6e5557b9305373d881671573c59a030c42 829 jj_0.47.1-1+trixie.dsc
+ a19bce2d44e1efc1dc7c7b878a28e784b6c7a4c2216d329e70bedf5bf35ab5da 8029632 jj_0.47.1.orig.tar.xz
+ cb3de2754e30e8582ff69308c3a7abcb0228ba13f4b9796c7bbb37ad51ada22e 4628 jj_0.47.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 6b9e291b5ee7b835faf9477ecc3facf25b8b0b18e70c4d40ab105908a836cbc0c6245f86c753881160a035ad8dc80acedc3c29f40304e31917d723379246217b 829 jj_0.47.1-1+trixie.dsc
+ 0a41bdf296ee49703387915722985518e68ed7029b0417fd33cfde97ed6013654aec8208fda6bf1a36684257e5d9decd6dfb006f91e67f6f7a47113dfc458b58 8029632 jj_0.47.1.orig.tar.xz
+ 40a80ba3332c5fa5cdf2d92bf135c7382980672559c3e8f2d82e6f0b8ed4a24de1fba8d2d10026955be32eb2c56dfd75a19381e1363921df5c95c769dd2efc35 4628 jj_0.47.1-1+trixie.debian.tar.xz
+
+Package: joshuto
+Format: 3.0 (quilt)
+Binary: joshuto
+Architecture: any
+Version: 0.9.9-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/kamiyaa/joshuto
+Directory: pool/noble/joshuto
+Package-List:
+ joshuto deb utils optional arch=any
+Files:
+ 264a5e9a1a28774cab74a92ef84fe77d 873 joshuto_0.9.9-1+trixie.dsc
+ d543d48e311dab96a863cbd4e7741731 2512856 joshuto_0.9.9.orig.tar.xz
+ 128b409a3a37edf2972149b580429b3c 3436 joshuto_0.9.9-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ bc2e052f97d684fccb8fdc6d88bdefebe63c2d94 873 joshuto_0.9.9-1+trixie.dsc
+ c4851a6f903f5891b3b1d6e3f63017e1fc014c05 2512856 joshuto_0.9.9.orig.tar.xz
+ 2599934cbd963efb6cf126892b7802359db86781 3436 joshuto_0.9.9-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 21c7349148234187565b20d4801f7f2788a62cb80ed8588a41975a4f5ec43e3c 873 joshuto_0.9.9-1+trixie.dsc
+ 9d489fad1a36977b532ae03ab1ff484ff87eaf681a5c8198f182ae0a96512ee7 2512856 joshuto_0.9.9.orig.tar.xz
+ b41c91a320bcdba7617ddb17baab1d84c7fd67b1c72af4bb0b68b36e8ce74099 3436 joshuto_0.9.9-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 6b5bf2f88c797d6b5356c35230a4db866d618ef880209392bb0f5f35cbb3377c26decdcbf327741518c7091fa7ae716f652ee96b19dfb0bb164669b21f6b1211 873 joshuto_0.9.9-1+trixie.dsc
+ 70c70c154c3e9eb76d350beac70c5c1e9b4fd565e2abc9a6b43223b146006ff3363ac71dcf4b046f2716c5e87016a2b686b9d116bff29e1a6e9381530be14d3f 2512856 joshuto_0.9.9.orig.tar.xz
+ a2eda3df4bcbd56c1550a78161b1cd99f875d690cd3b20b64a64688269e6a60a79dedff94d75659a32657b1608175ecf7f810ef2367a190040d04a5795357f13 3436 joshuto_0.9.9-1+trixie.debian.tar.xz
+
+Package: just
+Format: 3.0 (quilt)
+Binary: just
+Architecture: any
+Version: 1.59.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/casey/just
+Directory: pool/noble/just
+Package-List:
+ just deb utils optional arch=any
+Files:
+ 9317c4328b7326398bda391fbf598990 844 just_1.59.0-1+noble.dsc
+ 722f7f535e38569e0910ffc05332cfae 1842448 just_1.59.0.orig.tar.xz
+ f7d17f391b928ae8123f52f0abe9dac7 3572 just_1.59.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 6fdd0a4782a45c97239474662c68b98f4116d901 844 just_1.59.0-1+noble.dsc
+ 6e19e73cee432d5965c49c71ada93f3701f72e23 1842448 just_1.59.0.orig.tar.xz
+ e20237b67027da84d95b09927ff7fb8eb754d48b 3572 just_1.59.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ b4ff846b0584cd3ecc2bd3f5efd8a556ff0337b8505e2eec8c82f2142f38b328 844 just_1.59.0-1+noble.dsc
+ 49af341aef3210f6780a3a0834591077d9db0cb528872df19e960e1241c682fb 1842448 just_1.59.0.orig.tar.xz
+ 968cdcae9a8a9939bca3c9f176e203ab68f7c327c7a508cd6f3efc9a3edc9fd0 3572 just_1.59.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 0ca0e272cfa8e41d1bf78a6d0400a37bd7a7c1e5a3a8bb29a77272fb39b886a52c8fcd6647398cbfb8582a3d524b41666d5eae52ecb3d28f6372e6a2f06bc535 844 just_1.59.0-1+noble.dsc
+ 69423cb9b500bf1f114c9e01ccafedf4dba380577bcc201b0433870dd79bfb4e8823102dfacbcf005fe1be7c748e5c981af0d26d6e335830fa773869872aa7dc 1842448 just_1.59.0.orig.tar.xz
+ 3f96839677ed611582522787bf1a4da20c3891e73eb92a72bd624e9d1dae3595e7009cdeee5e0f9fd3a4d5fbd7e8f99a03de4d5c3737a060e5ca70fc94e97da2 3572 just_1.59.0-1+noble.debian.tar.xz
+
+Package: k6
+Format: 3.0 (quilt)
+Binary: k6
+Architecture: any
+Version: 2.3.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/grafana/k6
+Directory: pool/noble/k6
+Package-List:
+ k6 deb utils optional arch=any
+Files:
+ 94488e1359957644111938b877fc90b4 829 k6_2.3.0-1+trixie.dsc
+ a8ee328d4a0d70b01ca62c07b25d23a5 26117836 k6_2.3.0.orig.tar.xz
+ f0f0bf1b7a03595a50aef765b963534a 11908 k6_2.3.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ c7021101107dda78aa3af180a374f3d843536680 829 k6_2.3.0-1+trixie.dsc
+ f9c04d759bc8c99541c3c947630e6f4b075b20d7 26117836 k6_2.3.0.orig.tar.xz
+ 65170b1f51abaff82d657159d3f993832109da8e 11908 k6_2.3.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 121fca70b2552d15955d5ed453b85312ec5f248dec59d3d10c2cad078253c580 829 k6_2.3.0-1+trixie.dsc
+ 32577d408abf91bcf1ba8734a4a2e2f745f1c156f1ef689a6549e6816e6b88e7 26117836 k6_2.3.0.orig.tar.xz
+ 1d02cca9fdca1586cd840badcde46dbb4abfd67663120f7a94aa0ce1b98d81a9 11908 k6_2.3.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ f5fe55422eb174c6018c7e8968553480183d85490cdb871d11baa62be18b5dd09cc251d0346b3f9228890e028092c5fcce85c209e95a8e52d8228101ea8dfa6f 829 k6_2.3.0-1+trixie.dsc
+ ce80b20dc45ee783171619372e5be67a6ef19715d56e3a6017927c9cef33287ef3a7278367463e32baf22649a9b260c0351dbfeb61a09f8c4c0aee2407bc7776 26117836 k6_2.3.0.orig.tar.xz
+ 17047351170e91c41d1b1abb860c647aad73945511eaf64f748c4ff3859730f7e23c4d280b5a28f7f46996279e9f168ebd98827a76410afe6b33f70cd7416087 11908 k6_2.3.0-1+trixie.debian.tar.xz
+
+Package: lazygit
+Format: 3.0 (quilt)
+Binary: lazygit
+Architecture: any
+Version: 0.66.2-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jesseduffield/lazygit
+Directory: pool/noble/lazygit
+Package-List:
+ lazygit deb utils optional arch=any
+Files:
+ ee8810703fb0fcaa4fe973844e5ec875 882 lazygit_0.66.2-1+noble.dsc
+ dc550ebd922c4143667fadfe570d6c07 5366976 lazygit_0.66.2.orig.tar.xz
+ 899b15cbae0693eaa9c7fa7df6bd447c 1508 lazygit_0.66.2-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 0599e916c593ec86ff95981e859f8b936be7acc9 882 lazygit_0.66.2-1+noble.dsc
+ 1b32d8e9c9743ce24b0a93ddb5225c6753f267c1 5366976 lazygit_0.66.2.orig.tar.xz
+ f27f2a4cf6f8da04d37e598b0569deb2432c07d9 1508 lazygit_0.66.2-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 0891a090a81421d28d5a8739e7fc490c069b4094c910e640a973c574a8aeb38d 882 lazygit_0.66.2-1+noble.dsc
+ 2b6f3d1dce711859fa8c74d3feebc30c331c7023b88d68693f9a887ce6d67bf4 5366976 lazygit_0.66.2.orig.tar.xz
+ 14cd5a119fae5183f9fa36ff7e23e235aa97e84c7111459a916c9d0276f4003d 1508 lazygit_0.66.2-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 664bc7ee0d31ca2491508521c242a366ac3b2f3e77b8783bab0f35f81bf71e7e4d38b4fd3f58d4561c2f2600f05ae3432e1740052867a37b3c58bfd6377c3d9c 882 lazygit_0.66.2-1+noble.dsc
+ b6b0ec750fc470fd40c06e51d43bbd4879d262f10b015db2ee56b728bf64452098e4863c93e8a180a0bfbf222644b41b71e8ed40f4761203b5d001811326c6f2 5366976 lazygit_0.66.2.orig.tar.xz
+ fd2d0100a18d800f2245a2321270ab2c139909888f665a6931d93df0c1afa2e26f9fc5398e359c5a83f40308e8c29ee1dab1b68fcee445910e343eee48273e97 1508 lazygit_0.66.2-1+noble.debian.tar.xz
+
+Package: lf
+Format: 3.0 (quilt)
+Binary: lf
+Architecture: any
+Version: 42-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/gokcehan/lf
+Directory: pool/noble/lf
+Package-List:
+ lf deb utils optional arch=any
+Files:
+ d7313a91ebd6ca90f209cd6cf2e72f74 803 lf_42-1+trixie.dsc
+ df6b204542e2d44930f35f516c4771cc 1815876 lf_42.orig.tar.xz
+ db7874ad54f5bc9a54744fbda967ffd6 1496 lf_42-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ e235e446ff9ff71df1044592b3d7a1c794bd1742 803 lf_42-1+trixie.dsc
+ 86dac4b93f8bdd305d349033f4173d853e0c3b81 1815876 lf_42.orig.tar.xz
+ 7659766fa5a850f7d1668909229019d10afba364 1496 lf_42-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 98f412b8dad78f044a7ffb5b6f659059b9cec8f5583eb78329fb4dfc95bb6431 803 lf_42-1+trixie.dsc
+ 3f479b85724e7bc9845ddabe1c7890d1b4daa6404d287ef6e70e64e94b341fd9 1815876 lf_42.orig.tar.xz
+ 774ae042ff92ceeb8b8128e1bf6704134191ea41ef5d6413927f9743f27f1460 1496 lf_42-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ b2303d270d6af182c09f6460cf55a31286b7e3ff9bbd90f12ba33ef79222d801259b5a64edfcd59373fe3ae685c7031f0364a3d840e6b50f8d9ccf83aaa60e32 803 lf_42-1+trixie.dsc
+ 582597d854991498145e9fb3559e9da25671a16d1e3cfbfbba3dcd3be5c4dce6be76db77dfd253cb121731dacc8bea99dbd5c6ccddab163d2170b41685e4f0bd 1815876 lf_42.orig.tar.xz
+ a947c1ba23448452cc2b08f5e4b73764127782bbb8e55b4530441c89b011e67902bcfa2ad6b099c72a12463e0c4fc2d926b53b25417a690624438b72e67a6839 1496 lf_42-1+trixie.debian.tar.xz
+
+Package: mise
+Format: 3.0 (quilt)
+Binary: mise
+Architecture: any
+Version: 2026.11.3-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/jdx/mise
+Directory: pool/noble/mise
+Package-List:
+ mise deb utils optional arch=any
+Files:
+ fcce31753ea85b558a59e36e2d146c47 870 mise_2026.11.3-1+trixie.dsc
+ 2b2671238969db2ab7228464deaeb63f 36551548 mise_2026.11.3.orig.tar.xz
+ 9f37b64ce86711709503088f2bf7deb8 1500 mise_2026.11.3-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 5f74988f222ef6feb1dd57d1cf149c39a56ce9bf 870 mise_2026.11.3-1+trixie.dsc
+ e004b53fcc26a8bed5cb145b6a86599b67ce8738 36551548 mise_2026.11.3.orig.tar.xz
+ b6a246351505efde611ebd7789b4d4dace936907 1500 mise_2026.11.3-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 16b016d6a58ff08da6649390e9e258422bf355cce432728f0f0c4c42fd4b64aa 870 mise_2026.11.3-1+trixie.dsc
+ 68816e5452d347d2c26425b971d6115be2ec439ac644f85e63132685593381a0 36551548 mise_2026.11.3.orig.tar.xz
+ a4ae2d053ae4815c252b392fd028ef888f97e619584faefe6ae322e7ca52d9bf 1500 mise_2026.11.3-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ de6f0a55112da13f70ba995693b756fccfc88ec4a1fd0eae98e8405d7cbb1d9cba67d97b40b52a678e256b274268448384f7e244f0cfe3d7a3ec2979824bdea4 870 mise_2026.11.3-1+trixie.dsc
+ a87b55d9be804ac6ca3492e37a84056c91097fa4c4e091ca4119b048f09d12bfa7df9d2f8d0399d427e21e96a162fc3d5094693ae1356fed61efadddddba67cf 36551548 mise_2026.11.3.orig.tar.xz
+ 9739a8e66b9a97694540b7d3c1d616f136c349858015f64560309dd3b1e5108068c41a6d71f5ec7def84ed48e626f923fb9e660fa6e8768d32a8ce9d76baf64d 1500 mise_2026.11.3-1+trixie.debian.tar.xz
+
+Package: neovim
+Format: 3.0 (quilt)
+Binary: neovim
+Architecture: any
+Version: 0.12.6-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/neovim/neovim
+Directory: pool/noble/neovim
+Package-List:
+ neovim deb utils optional arch=any
+Files:
+ 014d6ced666971a1e805fb29923f770e 869 neovim_0.12.6-1+trixie.dsc
+ 7ab8b37842adf9be70cbfbdb2e40b8bd 8526068 neovim_0.12.6.orig.tar.xz
+ 46104dd6728ada344c27870fc7a377fa 6260 neovim_0.12.6-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 0e7ea876ba6dcfea9e8f08f2237a2e68d37440f1 869 neovim_0.12.6-1+trixie.dsc
+ d97ffb7eef1f5be224e11ecf06c8d8abdf9d2a62 8526068 neovim_0.12.6.orig.tar.xz
+ 8053f1e7f2322dd12c01e01dfeb8e58b5e80987f 6260 neovim_0.12.6-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 4623d4e8309dfaef8cf2f090ab2ebff7dde63e0e8fbb4c8547f26e3f7bf5a399 869 neovim_0.12.6-1+trixie.dsc
+ f0e771948dea269f564dcd2153a2968847ed76447a30b1f07c21cf56d4b1c17a 8526068 neovim_0.12.6.orig.tar.xz
+ da7c5630b603a379ba945c10b2effcf7d9e0bc5bec33dcc30aab4eb4642d5d6a 6260 neovim_0.12.6-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ f8cb94f9ae66b318a5a2bbe32dbaaa1986f151996d13d617d03af23cac61ec5c4099092d7e04362ebe9ad4b331a54f8ae17af5256a299e970bdec7abdf1d466c 869 neovim_0.12.6-1+trixie.dsc
+ 4334c172a5d7130df28c598934b866094164aec63b73adc19c1098e53ccbb15a2dd838369d449571183bc7190740c633e1a4287a42e5f8b6d1ab4cf34f8b62c6 8526068 neovim_0.12.6.orig.tar.xz
+ c873eff3bfba2fb855860051c1969447a0445b724a0e2c036a4298ca51d93d348804cba7339203cb737c71a91926f441cfe145ca4f1b8da09d34bcf959c2b2ed 6260 neovim_0.12.6-1+trixie.debian.tar.xz
+
+Package: nushell
+Format: 3.0 (quilt)
+Binary: nushell
+Architecture: any
+Version: 0.116.1-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/nushell/nushell
+Directory: pool/noble/nushell
+Package-List:
+ nushell deb utils optional arch=any
+Files:
+ ca8fe02c7f1cf744e246ab7da94d08bd 886 nushell_0.116.1-1+noble.dsc
+ b6f8dd36291ea8ff89a5f87d221b9e53 52286600 nushell_0.116.1.orig.tar.xz
+ f3b0cde9ce50032ddb13ada4ff971e8f 1504 nushell_0.116.1-1+noble.debian.tar.xz
+Checksums-Sha1:
+ fec456c3ed0faaf2d87a574bc0bac9a2efc13783 886 nushell_0.116.1-1+noble.dsc
+ c698c1683312abff3612d514a970f61f4812a052 52286600 nushell_0.116.1.orig.tar.xz
+ f63c371eb3048cc0cc8a966d8f290d877f1b9604 1504 nushell_0.116.1-1+noble.debian.tar.xz
+Checksums-Sha256:
+ d7b1834fa08e8b4c6ccd02211833e7e8d10cb577f7bf58e8ebfe3ed578a10f34 886 nushell_0.116.1-1+noble.dsc
+ abbcca95c94e78e8ee65b81f8387b7f1fe9b48c12980601d70d7a54d14d5e1f4 52286600 nushell_0.116.1.orig.tar.xz
+ 580fd3c32013c242cdb1d96eaeb962bc386efd0a6b9e53c04c58ac691ff0b8ba 1504 nushell_0.116.1-1+noble.debian.tar.xz
+Checksums-Sha512:
+ ccbc76bf9f67e36052fed1a1e45aca546ec6d016886dabd652979a7e92b3b0e47ff9010c350ca7f7df8fdc6251197cecc23b7d2631510b1ac39f5eac386b7215 886 nushell_0.116.1-1+noble.dsc
+ 00389bbec80d1c8719a89a956f985aab6cefd378640b170a36cab6dd155bbf529373d5b3d3d4315c8a8452468cf95f773fd762d83e463418dd4afdc117f049f4 52286600 nushell_0.116.1.orig.tar.xz
+ 2a050d04b707734340dadfe0c2fdb848d1dc1eb4f6e4a60336585bf1d32d82566bfe1e3fa59b94bd8b55550c89c000f79a575472083b9808cc19706f35e945b2 1504 nushell_0.116.1-1+noble.debian.tar.xz
+
+Package: oh-my-posh
+Format: 3.0 (quilt)
+Binary: oh-my-posh
+Architecture: any
+Version: 31.9.1-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/JanDeDobbeleer/oh-my-posh
+Directory: pool/noble/oh-my-posh
+Package-List:
+ oh-my-posh deb utils optional arch=any
+Files:
+ ac3f95c849701b7b4071ccbde2db035b 913 oh-my-posh_31.9.1-1+noble.dsc
+ aac9b1e663377d602bcc5907f5344b2f 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ ae1f52a77c55c13823eecb0a90d115b4 1500 oh-my-posh_31.9.1-1+noble.debian.tar.xz
+Checksums-Sha1:
+ ecf9e85146b372b43531fcbcd2889e2b9f75af08 913 oh-my-posh_31.9.1-1+noble.dsc
+ 9f382e0d8e11d54c559c945766049176560f8b8c 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ 7fb5962c3259ac451aca7a5a441b3bdb6e929c3b 1500 oh-my-posh_31.9.1-1+noble.debian.tar.xz
+Checksums-Sha256:
+ e91602a6fcdb03f3e33dae2626fdf3b6fffc05721ea5eb0a5b397026d8a6aeb8 913 oh-my-posh_31.9.1-1+noble.dsc
+ 6df878e7a28c10edec97d334aae4d92a574cbcd8eca7f0c969588ade64fbfd44 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ d2db5a1e94510af373cdf37256aadf2a9131ce96673e84f219c3ee8e5ea6eb6f 1500 oh-my-posh_31.9.1-1+noble.debian.tar.xz
+Checksums-Sha512:
+ fe8f56eaf71eaeb28e8373d08241f2443a6b1ba77488803e419c511cda196c6eaab6bcb70ffa28d365d2f745df8cd9dcd9ba6771954d297675eeb73ff2dc822d 913 oh-my-posh_31.9.1-1+noble.dsc
+ 5c330f8c1ad5e6760e48e84dbca8cfb33d024d4a1c69364adfe29b6ddbca4f9b4106659d79fee0320d3794f2a77b9e14c3dc0a12c4edfa0433e524fd3f10f166 4336676 oh-my-posh_31.9.1.orig.tar.xz
+ c950cf89749fb1d33f5e4ce0cfe5f70ff71e03c0c6027a18eaa82d9473b0e2936c1ca412b7de455288c9ef0c125cab46e6b9a6e14253cf0802edcf564c76a866 1500 oh-my-posh_31.9.1-1+noble.debian.tar.xz
+
+Package: pnpm
+Format: 3.0 (quilt)
+Binary: pnpm
+Architecture: any
+Version: 12.18.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/pnpm/pnpm
+Directory: pool/noble/pnpm
+Package-List:
+ pnpm deb utils optional arch=any
+Files:
+ c92063dd629aad3518d7dc9144ff384a 857 pnpm_12.18.0-1+trixie.dsc
+ d1d3536d27dc7b226f907a585dd27ef6 17572568 pnpm_12.18.0.orig.tar.xz
+ 882f44cf6262ec549aa67ec8f88c6ce7 1596 pnpm_12.18.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 11b72112a6337ad31ddef93b0e06cf558423cd36 857 pnpm_12.18.0-1+trixie.dsc
+ cfedce916c4fb1e333a2561e2373af8195d0ac28 17572568 pnpm_12.18.0.orig.tar.xz
+ e4c4124e0137dede733b84448aead4a8bffbffac 1596 pnpm_12.18.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 3811beb38268e2123e33da858c4be5248d8348fc4bb589331ede035c7382161a 857 pnpm_12.18.0-1+trixie.dsc
+ 96b4b9ff2bc21abfbb697db5b69a89ce9514f60404e3d59eed4553b21c748c4c 17572568 pnpm_12.18.0.orig.tar.xz
+ a8d88527153c4ac302aed273ea83a478a902745ce30fc7d85b569beed2868979 1596 pnpm_12.18.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 3d3858128e38f0cd693e360a5e3749b2797b57422e74f9eb8c40d63361500dd366858d4703abee89dd8690d707e7ca270d2db0659b5baab4d3e169891d83e6a5 857 pnpm_12.18.0-1+trixie.dsc
+ 8a8324dffb77b65d85796f627e9845a9337d3b333cbc7109d98b2de7bfbe47024cbff575436af06e6e1cfea5087a88f7361886c6573b677019a5a177442a701b 17572568 pnpm_12.18.0.orig.tar.xz
+ 657d25d03517649d5249d7b976eb94d831c819665e965ab032a2988086e1a0397ac7bac7f3b7ea6722a8b244d3be41ae086c091ee7f0e5c2c54db11734f517b1 1596 pnpm_12.18.0-1+trixie.debian.tar.xz
+
+Package: quickshell
+Format: 3.0 (quilt)
+Binary: quickshell
+Architecture: any
+Version: 0.3.1-2+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/quickshell-mirror/quickshell
+Directory: pool/noble/quickshell
+Package-List:
+ quickshell deb utils optional arch=any
+Files:
+ 5501ee33f59a85007544b411fc91b29c 913 quickshell_0.3.1-2+trixie.dsc
+ b7a078254702b561d9eff91b1f948744 1783032 quickshell_0.3.1.orig.tar.xz
+ ce60ff174acf42745e813722aae19726 3432 quickshell_0.3.1-2+trixie.debian.tar.xz
+Checksums-Sha1:
+ cc38f033fe66f154954c3139c4555680815c4a0e 913 quickshell_0.3.1-2+trixie.dsc
+ 2f6dfaaf4c4dc88a342d77a7565fa026f14a2cc6 1783032 quickshell_0.3.1.orig.tar.xz
+ 1815a92d214f1c01d41d739d84226c60f9cfec3d 3432 quickshell_0.3.1-2+trixie.debian.tar.xz
+Checksums-Sha256:
+ f81fccd9489a292889605edd81b940af4bcd649e5f24eabe7ecd5dbd01e7cc9b 913 quickshell_0.3.1-2+trixie.dsc
+ 8063e4b7b963b4be2c812534d8d646d370d92cc6b649d7d827c2b5778a630ce3 1783032 quickshell_0.3.1.orig.tar.xz
+ 67976d0c597fbdd6f7865a319447ca1b980f69758f700e02a4bef3c98dd3d761 3432 quickshell_0.3.1-2+trixie.debian.tar.xz
+Checksums-Sha512:
+ 6d7481d5c664975b5edcb610c67229f53a5cb54ae2cda0c8dcfec8dc43be186d2715299d6df3e81264d38788171c3813f23440e897b34e718287a0034a56848d 913 quickshell_0.3.1-2+trixie.dsc
+ f26df39f2add9c1be40172d72255ac36c529e8a9140b7cec499ced7a5a2ea8fbbd5996934fdcb7c6f195e06bf8af1fe2b345c90577d38b307d69ae6f17b5dd17 1783032 quickshell_0.3.1.orig.tar.xz
+ a2a6bd4c6a336732113e52e8db790d1888a31e8c89be558b44a08deea4c923167d6d7abedffea0d9092c3d2dda842f6e05b9ba8ea7cc3952794b40c85e35a078 3432 quickshell_0.3.1-2+trixie.debian.tar.xz
+
+Package: rclone
+Format: 3.0 (quilt)
+Binary: rclone
+Architecture: any
+Version: 1.76.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/rclone/rclone
+Directory: pool/noble/rclone
+Package-List:
+ rclone deb utils optional arch=any
+Files:
+ aa85d022682816dcf3ce65c511db9c07 872 rclone_1.76.0-1+trixie.dsc
+ f9c65e50c7a73f0ed9c3282eeb3fd167 21280836 rclone_1.76.0.orig.tar.xz
+ cfead313682a4e0c92ea47cecfac58c1 1564 rclone_1.76.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 6e7b537f6b8d0582584c81cd37767ce47083709c 872 rclone_1.76.0-1+trixie.dsc
+ ea97dc4670130120fec84d3f59f6f5837adc3617 21280836 rclone_1.76.0.orig.tar.xz
+ 22dce50022ba450858673e9d92005fa535e4406a 1564 rclone_1.76.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ fbe959a4415b4267cf8414a249256647176375920691b725d3faaeb45f671e0f 872 rclone_1.76.0-1+trixie.dsc
+ 17921a8abc25ee2ec33c7e9ccbda91b57694bfd864b7aace4c26b6909161f89c 21280836 rclone_1.76.0.orig.tar.xz
+ 7b2a9ef668a97e3ca72306b1f385a78acbc48ba0b05d38bbbef72b02136ae525 1564 rclone_1.76.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ cf6fde1a6770765714d7cf1cebd3626a57aeaef4e9ead32cd761d2d0ec178000cd6e95d23b65d403aed7e9325eceda6cd99e9acccaae3692875506edea7385b8 872 rclone_1.76.0-1+trixie.dsc
+ 35aa1390373e71275932f2a2345399fd555559968225a14f7af7e49c5e0e7ffd32b8cf4c03136b3320ba1640e9f570410d8bee3f9690156baeb24e74d3da4b53 21280836 rclone_1.76.0.orig.tar.xz
+ 691e13aad5affbc180dae071d5d94eb59c666db8c3ea66df4460a2ca97f23957d68480277f672669f1d39726a0d7833dba27d013db622508af7861458953509d 1564 rclone_1.76.0-1+trixie.debian.tar.xz
+
+Package: ruff
+Format: 3.0 (quilt)
+Binary: ruff
+Architecture: any
+Version: 0.17.4-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/ruff
+Directory: pool/noble/ruff
+Package-List:
+ ruff deb utils optional arch=any
+Files:
+ 637463169d1f3300f0ce9d846fc7582e 848 ruff_0.17.4-1+noble.dsc
+ 821f3e8f6908f1b08af7f9af69c32b9e 7298336 ruff_0.17.4.orig.tar.xz
+ 8206ec546a849f6032bc0a0313033cc4 2620 ruff_0.17.4-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 07ec7d1047d4e8638cf3f07eb70d1d197882f398 848 ruff_0.17.4-1+noble.dsc
+ ff42b4eba11923e1401623d8b924dbc8e0794bdf 7298336 ruff_0.17.4.orig.tar.xz
+ 60378d5d2077d94de1a2cf6178ca7efbaf556707 2620 ruff_0.17.4-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 70f0ca045a7f5b95c540706596df1a0b19d9d799fc886b7c84f43692962d10e6 848 ruff_0.17.4-1+noble.dsc
+ bfd9d61426ebda6fb472d18da8356ef2443939a9a13dcdeb652e3905cf37b7bf 7298336 ruff_0.17.4.orig.tar.xz
+ 394c90021953f7b39fe59ffca23526a6bba9e64e14f0c3f50f5f652d5ad798ad 2620 ruff_0.17.4-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 8fa09d05562f3592375f2ff8866bcfea6592f505c3205d1424ff976d402c646c00936d15b8c9cb1c3c1abe62fe3d29e753820440dbadad025e9d9a5bfac99e29 848 ruff_0.17.4-1+noble.dsc
+ 6db4dca939adbf62c080817a431c38bc4d0363e11061abb5da21b744b19b803201bc65e29197a52737101fee14aaf43d7752d2077d8737f75412d1a7d82ce6fb 7298336 ruff_0.17.4.orig.tar.xz
+ 26449b8f39218a5cd64491af720280405c609f6356607acf28b05908cc7328ff8fb31f962ca318ee5ca0478ac0ae7dbc318c4f5e6c40d55561f46dd5024b938c 2620 ruff_0.17.4-1+noble.debian.tar.xz
+
+Package: scc
+Format: 3.0 (quilt)
+Binary: scc
+Architecture: any
+Version: 4.1.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/boyter/scc
+Directory: pool/noble/scc
+Package-List:
+ scc deb utils optional arch=any
+Files:
+ dbfcd6201153baa405c19c69fd760ebe 832 scc_4.1.0-1+trixie.dsc
+ d22aba192ad7cf4b4693f9c006c1dd9c 5248316 scc_4.1.0.orig.tar.xz
+ 707a638f955469ead0f1b7cb9e1e69bd 1556 scc_4.1.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 369b10fa6ff2eb8b9009d2e41ce05ab8badcf51e 832 scc_4.1.0-1+trixie.dsc
+ 60e85ce96cd0822dbdf98fc09bbdf30b8932acf7 5248316 scc_4.1.0.orig.tar.xz
+ 466ae5fcdca289ede6de43a6000f0d89fb60ae1c 1556 scc_4.1.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 77a0424f132b31a0e0647b787c3bbf5c6ba2599483c3fa7413f9fab5570702dd 832 scc_4.1.0-1+trixie.dsc
+ 5dbf5126510f07fc5f1d1c5db312087d6ac5b62189ce5b6a14644d0ad653cdec 5248316 scc_4.1.0.orig.tar.xz
+ 8c7e48abdc66df2ab6e838b78d40fab2960b57b6e03f20bb191b26b111b60772 1556 scc_4.1.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 1969f529cbfc3f6fe6934af2b341ca42dda18ed9f285529f1f2cbe284d96f577619433d944439e8d40ca308643540749b1a4b6d4071724c4209423dd34ee9765 832 scc_4.1.0-1+trixie.dsc
+ 5da1f17346e3d9f17c3f7832bbfcdae802c6a4ff4df45346c866f1354f9ab9acdc436f01db2516a82c69bad59ac8850f2b671da9cc9997d6c3161482f9d42385 5248316 scc_4.1.0.orig.tar.xz
+ 4d640ed92f7b1d9ae5eb1911d3ccc38947d0419a06fd1e23481876b9ba08293b10b77a90e8f0dd55128d3beec47e5278e59791dc2849c55f62a7395705e8b85f 1556 scc_4.1.0-1+trixie.debian.tar.xz
+
+Package: sd
+Format: 3.0 (quilt)
+Binary: sd
+Architecture: any
+Version: 1.1.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/chmln/sd
+Directory: pool/noble/sd
+Package-List:
+ sd deb utils optional arch=any
+Files:
+ edce60a5b1fcfaf672647f438782a60c 818 sd_1.1.0-1+trixie.dsc
+ d58c50fbacda8f3d5187f38d1b466b0e 733380 sd_1.1.0.orig.tar.xz
+ 08b772e0e08808a57a5c90ae79a2a435 1516 sd_1.1.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 0e18f71023a6022e135796b34906dc539d1aa874 818 sd_1.1.0-1+trixie.dsc
+ f50a278120e84e14908e257cfaf446a44e4f8631 733380 sd_1.1.0.orig.tar.xz
+ 76b193c62885e02966cf33b7af38e5062c5fa92d 1516 sd_1.1.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 46074bf6708b640f5381fa18ec2e418027c59ea63a3cfd05b20b748d9235f6b3 818 sd_1.1.0-1+trixie.dsc
+ 1a67c719d6f001a41a1eb315696f25eda2b02aa8830b794fdcc493cdcd3318ac 733380 sd_1.1.0.orig.tar.xz
+ 7acd569607392d81b5f3721b128df1709d5c8908b00b744bae890ee60db802c6 1516 sd_1.1.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ eef692a188c9b0bf69d3ac20b0df53ccfed23e7ccb0ffd54cb85b4712f47ce36c7fa781a98f08c2a7c3092c07f3d3094f25982d84878714abb18b3f7c80e76cd 818 sd_1.1.0-1+trixie.dsc
+ 4b49a08fc20e472e38fe90f920c4afd971dcee19f97886e4fdbe323ea725c35b01ac805cf2134b81d950646f20b9ed16fe5b916a4f77330820d4ea42f812a867 733380 sd_1.1.0.orig.tar.xz
+ f7e4095350037cdb7168812495faa2dcae0e97077bc35788d6371d32e053527385fbebbcd1a77d3bb116c6518ba4d126db16079e1bd00e7451ac6bdbb1cafd84 1516 sd_1.1.0-1+trixie.debian.tar.xz
+
+Package: starship
+Format: 3.0 (quilt)
+Binary: starship
+Architecture: any
+Version: 1.27.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/starship/starship
+Directory: pool/noble/starship
+Package-List:
+ starship deb utils optional arch=any
+Files:
+ 343e60eb45b0493c24fbfaefd37c7b39 887 starship_1.27.0-1+noble.dsc
+ abebb6f3795dbfe2d57eb3b89e692eef 3598936 starship_1.27.0.orig.tar.xz
+ 0e2a85a3aaaaa4b95c75897a6efdb9f2 1364 starship_1.27.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ a8cd093d5ce3cf28591108bf9f6da15288fa67d7 887 starship_1.27.0-1+noble.dsc
+ 44bf530cae953ff25633541eedb0d8643370b9a0 3598936 starship_1.27.0.orig.tar.xz
+ 1300d4f42df348ac14501ad97937b9eb4f207956 1364 starship_1.27.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ d9e42a505e4194a8a05172c8caa7f7f658d0809c6dd6ca8fc84caaa7c16f9834 887 starship_1.27.0-1+noble.dsc
+ feec74b682856eedd9504d2e4b5bf65cb702bb3886c9b5b92c9353454aea79c5 3598936 starship_1.27.0.orig.tar.xz
+ 70a4ffe24536c7dcfb524bf7978378ab39d2db8f0e0d68f752882dc1d8eb57e2 1364 starship_1.27.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ db3bda9b1fe2ef22ecf9f842815591d33e5864d3bb07a84ffe333efbcc6eaa082dead0b2595c475b99ad1948adab46578e96f9c2b3261ee1b45d47103e9f212b 887 starship_1.27.0-1+noble.dsc
+ f501dd8fe51e672db2c01542be04125ef7f0e312fd672f9ba1fa6cb2c753c71a5acfc129ab90b151cd6100afc62cfd0025d1d87684b156d6c3dcc35e820c54fa 3598936 starship_1.27.0.orig.tar.xz
+ 39bc92ab30a5bac72271aab69bb65fac46da1b8beeb759a4f26df250587071dc354e8eeca9e76e538bfc5a42d5f8bcd1662cb73c143a35f92e4930bcf4488150 1364 starship_1.27.0-1+noble.debian.tar.xz
+
+Package: superfile
+Format: 3.0 (quilt)
+Binary: superfile
+Architecture: any
+Version: 1.6.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/yorukot/superfile
+Directory: pool/noble/superfile
+Package-List:
+ superfile deb utils optional arch=any
+Files:
+ b8dd68b8db4ba65c2b9317d60b353500 896 superfile_1.6.0-1+trixie.dsc
+ 56b7815f7309902dee750b3b46cd38c9 11618916 superfile_1.6.0.orig.tar.xz
+ ee315da27410bebd086777d96faceaca 1552 superfile_1.6.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ f8c7d909d6a28f0cdaae53012dfb4eae59e12415 896 superfile_1.6.0-1+trixie.dsc
+ 20e665724c2692751239db75534b9929b9e4ee76 11618916 superfile_1.6.0.orig.tar.xz
+ a8567277f98479952c13e6682b0f1e4d894b49bc 1552 superfile_1.6.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 6769d459aa9eaab0b0f0f2f1bee5c1749a3deefa27dbc1b09879250ce72e5f32 896 superfile_1.6.0-1+trixie.dsc
+ 8687ef07bbd9faa3a8ce4153029da8a4ea9878c13e1b8b4f65ecd668cc5ea7f2 11618916 superfile_1.6.0.orig.tar.xz
+ 5e67808197d5e1cd0f2c0ecd978b25a07449387e95f279ec7635b131a57e4d3d 1552 superfile_1.6.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 0f1c01ee7e25e2f60898be780cb526f4980bc17af031f6ccb7a553409a3425a5a5978e500acd45710c456cc32734adfb9846073e1e34fa53c41d45f28532a701 896 superfile_1.6.0-1+trixie.dsc
+ be3f7089bd31e57c8fbff1900368026131d1e4adda8950540590c03bde6da7ec9f07005410c9ef087a7d142e7b62f8c42ba951e07345485709733e79547a57b8 11618916 superfile_1.6.0.orig.tar.xz
+ 1a4aae20a466c5cb9bcc040953600fff0c520c8ac01def8135a24b08cf779cc208debdf760a33942143923bfaaa086b3985fff6a7f9da4d25494fa13671a693b 1552 superfile_1.6.0-1+trixie.debian.tar.xz
+
+Package: trivy
+Format: 3.0 (quilt)
+Binary: trivy
+Architecture: any
+Version: 0.76.2-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/aquasecurity/trivy
+Directory: pool/noble/trivy
+Package-List:
+ trivy deb utils optional arch=any
+Files:
+ f1fda1e087d29a5a8765801247f3544f 868 trivy_0.76.2-1+trixie.dsc
+ efa629fb0fa618de8ff0f723f05c6daf 35353192 trivy_0.76.2.orig.tar.xz
+ 4efbde3d587b3ba444c52caa7fc182d4 1016 trivy_0.76.2-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 6c9bb049e2608172115e76fd93aff9c83648561d 868 trivy_0.76.2-1+trixie.dsc
+ 316ab8c0de691597dde72c7ebc8d3a99bc9544a5 35353192 trivy_0.76.2.orig.tar.xz
+ b8cbd0c2b590050216798a2ec3714bac3aeb7b1d 1016 trivy_0.76.2-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 31c9713532031eaf261001e621e43777aa919ebd41ca051e4c25f02f83484547 868 trivy_0.76.2-1+trixie.dsc
+ 63462f1be70f8bd300bd2f710ae3279a33fd1c68fe497f6d8b14da2e859d8f49 35353192 trivy_0.76.2.orig.tar.xz
+ 1f1a569efef6682f6648c6be0aa60592ec23b676f75cb534d1546c6fc0161601 1016 trivy_0.76.2-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ fb5302eb1e26a041689b742b3e740bc0db18769832bda4385ddfeb775d09b286a3ee9762de5efe225d5193c9817e769e87cd915df6469eb6a56ee300ca8038af 868 trivy_0.76.2-1+trixie.dsc
+ d3aaa9f47ed0b05f080c61873de98a259446fea26c7ee254ecb122830b1a822894f7bd40c256a8e225fb5d5aff82b6a6402dabfa437b44d64d4e1e8e458c7fa3 35353192 trivy_0.76.2.orig.tar.xz
+ 0c300add9fbccc66ead21d7be6bf492aa44b9256070baecc75ee2b2bc8c10c6dbf2e22907a16aeef3d515948d449fd7c0de0efc3c5fdbece449bb2936b7ccd41 1016 trivy_0.76.2-1+trixie.debian.tar.xz
+
+Package: uncloud
+Format: 3.0 (quilt)
+Binary: uncloud
+Architecture: any
+Version: 0.22.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/psviderski/uncloud
+Directory: pool/noble/uncloud
+Package-List:
+ uncloud deb utils optional arch=any
+Files:
+ ef1601b6af82971e644d0316c52c414d 882 uncloud_0.22.0-1+noble.dsc
+ 07df0236b6720a4c7a6a95d074423ba5 18648160 uncloud_0.22.0.orig.tar.xz
+ 54f8beed6088943e03219885ea4c5825 4636 uncloud_0.22.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 34358f98ddef0eb188b4ca6f25e6042544166c83 882 uncloud_0.22.0-1+noble.dsc
+ 56471ac48d4a06937346063db4d78ccad17388e3 18648160 uncloud_0.22.0.orig.tar.xz
+ 1d9244b83a9ae68e981b9797d97b859a0ba7a4db 4636 uncloud_0.22.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 3ea9b54555a52fa18717251fdb4e77206dd690e7d01d3f443d5b7fb1f12ca342 882 uncloud_0.22.0-1+noble.dsc
+ a772e8fd7fa828c65d138ba25268b202a39fe1bdcc1ef79c14ecc983a0f6e329 18648160 uncloud_0.22.0.orig.tar.xz
+ 94b132eccec2e683aef956459c9f4a5d68349966f3618c50bcc0d7998b9dd536 4636 uncloud_0.22.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 709fa6a5b75b131060abc2b249a37f542546e7876d6df7e73394a623b011bdf1752189f3ee1db6eee0ff4baf25c4cf656571a2be32258a540cd75bb06bd0d02c 882 uncloud_0.22.0-1+noble.dsc
+ 3bf51df98d782c799d772b29e15c021261d58ad1525f33667cb43a3a76e0bde661f484d5778b03d90cdcca5831b6c328c7b89b4c71055a292b37947ecf2171fe 18648160 uncloud_0.22.0.orig.tar.xz
+ 923facd84084a1c8ca72bd374b7429950e05523c8ed2df259c8d06b42b4784531809c4fb063350cde96fd581a7ac0abba7d0bc9852f5cb234e90b9251879e56c 4636 uncloud_0.22.0-1+noble.debian.tar.xz
+
+Package: uv
+Format: 3.0 (quilt)
+Binary: uv
+Architecture: any
+Version: 0.13.7-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/astral-sh/uv
+Directory: pool/noble/uv
+Package-List:
+ uv deb utils optional arch=any
+Files:
+ bad39ec1c0808139fb80983bc14d3e09 831 uv_0.13.7-1+noble.dsc
+ 070b61d1c672162a685e0d735cf26d50 11709632 uv_0.13.7.orig.tar.xz
+ 6be74904ebbb4be88ec52f3d572fbf2e 5096 uv_0.13.7-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 3b2168f491b12b1ee98b4910720f19d812370993 831 uv_0.13.7-1+noble.dsc
+ 3342c06e55af3c0a2e21113729c57729d146a3b0 11709632 uv_0.13.7.orig.tar.xz
+ 344ffc10f055dca8b924d45e96576a2c7647932e 5096 uv_0.13.7-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 0024c0e7db62051d021e60dd4799c768338d86579bb2db2c48cd7e2d06e070e9 831 uv_0.13.7-1+noble.dsc
+ c650af51d74b49266c42f901ff734d4985d53c8f21015e8df404c8653a018821 11709632 uv_0.13.7.orig.tar.xz
+ 52d02f8307c1a22edb50b4b5f98858309abc8da95290f41dc393468f215414f5 5096 uv_0.13.7-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 26f1be92a725bbfbd27507569a245ab4a6220484d04bff2fbddffdad580b635ab4176a8567c6f3eda998d1b9f1cfc3a2afe8da24f5a048bd590c18b6db35eaef 831 uv_0.13.7-1+noble.dsc
+ 87fbbe446697c133355edfe40cb902f96c8d13cc8ca6d4ac5b0cb6988184f9ad26a2b5643dcd385443ced5e617898d0742088837ccf7c6eb24e72047e5337f05 11709632 uv_0.13.7.orig.tar.xz
+ ff9f88ff9fa947ad7e5a6258b4f11e6c4a51dee6fdddbae15aa90d5ea685b40a7bf0be032b0afeb1e2b599de2f57159bc01d1f06dae3eb57a3a1ba43d16d596e 5096 uv_0.13.7-1+noble.debian.tar.xz
+
+Package: vhs
+Format: 3.0 (quilt)
+Binary: vhs
+Architecture: any
+Version: 0.12.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/charmbracelet/vhs
+Directory: pool/noble/vhs
+Package-List:
+ vhs deb utils optional arch=any
+Files:
+ 7aec5080b2fb9cdc42f20b7b97772f55 846 vhs_0.12.1-1+trixie.dsc
+ 97093731c1a7c3f38fc3fec7076931aa 7566560 vhs_0.12.1.orig.tar.xz
+ ab27c5529e986d6bfabe67284ff11f0b 1536 vhs_0.12.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 9a7d2be53d21b56ff1aec688f7b0a905cf4b2dbd 846 vhs_0.12.1-1+trixie.dsc
+ a0b7f3e06d9d444096885146672f8058cfc5c48e 7566560 vhs_0.12.1.orig.tar.xz
+ aa641f1515421c6087f6568fe6bfff8a006554be 1536 vhs_0.12.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 14b09f4e53bb038faa45ed2fa772f9fd82f6916f99a1ecdd2eefaefbab957b89 846 vhs_0.12.1-1+trixie.dsc
+ a48a9d59bc1daa9256942777c93123ccf7d137b04ce47bed0e7e5cf19b87ec57 7566560 vhs_0.12.1.orig.tar.xz
+ 60c69aa2d5d96dd25456b5a1b98574346ec8d655095ad50120fa115b9f4b44d3 1536 vhs_0.12.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 420b99014f1f19a1a3bf6f116733726d48a3a709be6240a13b4383dd7cc80f7790ae8e7bbdab4e383b1e2347611c0f92dd7f8153502855df945077bc512ce43e 846 vhs_0.12.1-1+trixie.dsc
+ 011f3e9e1300391cbc3438df1365fee6686d835fa41db80126c7b83357c168c3c77d32d87e8989d04821d046a427e5648b76b663ba93b05aaca0a4979478f1a0 7566560 vhs_0.12.1.orig.tar.xz
+ 019ac76e0035b98485ecb0f9bc5280fa1d3977aef24cb67f37f23b20c3ba48c7b13102c59f13eead3256257e0e3de3fd80e1d9d30e7b40df5b3dc4ea3108bee2 1536 vhs_0.12.1-1+trixie.debian.tar.xz
+
+Package: vicinae
+Format: 3.0 (quilt)
+Binary: vicinae
+Architecture: any
+Version: 0.29.2-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/vicinaehq/vicinae
+Directory: pool/noble/vicinae
+Package-List:
+ vicinae deb utils optional arch=any
+Files:
+ 9aee9f72487949f25256348219cc2514 884 vicinae_0.29.2-1+noble.dsc
+ 255353984fc1abe30a95474d8bcbc8e2 19322180 vicinae_0.29.2.orig.tar.xz
+ 75a5cbd9eca67d1b65dac9ed3e27a110 12224 vicinae_0.29.2-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 389764541dba7dba593fe4df5c1bf9ecb1adde2e 884 vicinae_0.29.2-1+noble.dsc
+ 22b2dfb2c476b4c9e730f9157308e513d870177f 19322180 vicinae_0.29.2.orig.tar.xz
+ 888b31d465926b8253287cdf63c99309bcc4734c 12224 vicinae_0.29.2-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 8d76b26c6e7e0ec155e751b9ddd86b69fb937300d428dd2e555beb46d811fda9 884 vicinae_0.29.2-1+noble.dsc
+ 1f2d4aef754589cb758c86592e78735ad93bb1541755d9cc2b4db904c1452e4a 19322180 vicinae_0.29.2.orig.tar.xz
+ bb9c362b89c4cb5a891c5b5c06c4536f4e2f234bfcae47a1bab41541e87155fc 12224 vicinae_0.29.2-1+noble.debian.tar.xz
+Checksums-Sha512:
+ b0a55ce0929edadaae698aa0f948e4aaedd1d539d27de30976454d71a00123a05406e1c9576c8b73c8d35018a6b6f5ed59b6e550aca55e0b3ee761609e6450ce 884 vicinae_0.29.2-1+noble.dsc
+ eacec0db44e89cdb49f5d73c3bedacaaf76020073acf860651baa6189d3612cd36d7e9146d4299ab36d72c7fe0a313464f4fa39aa36163207af7f7c51602fbbd 19322180 vicinae_0.29.2.orig.tar.xz
+ f8f6ce97d81679d31a308447610616f55b8c2debb8a8bccfd67dfe05726a5f8937849bb8533c068f9bf09e11314e2f7f96c5009fbda89e61d2d8131b631c70cb 12224 vicinae_0.29.2-1+noble.debian.tar.xz
+
+Package: vite-plus
+Format: 3.0 (quilt)
+Binary: vite-plus
+Architecture: any
+Version: 1.5.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/voidzero-dev/vite-plus
+Directory: pool/noble/vite-plus
+Package-List:
+ vite-plus deb utils optional arch=any
+Files:
+ 4a45b2bfbd472d6b8d3c05c283cde79b 894 vite-plus_1.5.0-1+noble.dsc
+ d5eba47a96c23c2a2e7f3d341b9720a9 2980168 vite-plus_1.5.0.orig.tar.xz
+ c028c4dd2b91588570e79091ce45f9d1 1524 vite-plus_1.5.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 4c5d257416770abdb0f7e03338e2d51287f6535f 894 vite-plus_1.5.0-1+noble.dsc
+ 2e5ba350397c1d79d8a2f960b7a3f547a4383259 2980168 vite-plus_1.5.0.orig.tar.xz
+ 592957f03aaada0117ba2840040fde535f9f7f62 1524 vite-plus_1.5.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 86396f24f3ada240d46cc96755fe771d3ca2fde271511e112515c6322db67920 894 vite-plus_1.5.0-1+noble.dsc
+ a7fa9301fa1b875cc5e4bc241359bdf312a4d8492133ec149af3185fc594290b 2980168 vite-plus_1.5.0.orig.tar.xz
+ 0d9c3651becfae32853ebebcefb096dcabf609b64961ad10df63d7ece0576ab3 1524 vite-plus_1.5.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 3cde7b59480c5222e230d1022c3e1cde1439ca7f668f137d7f46bb285e9208e2355137749be4c31936c025d310567bc5b68a53fc0a2c03c5bc59e90045c3576e 894 vite-plus_1.5.0-1+noble.dsc
+ 9e7575df5ddbedb6bbdb30d9f4f12483336773b9d3663a73da5c433bc3ed64b7e248b734794a560c946e64c7e4524d0c297d6bebbdade71ec859c3688d76cc32 2980168 vite-plus_1.5.0.orig.tar.xz
+ faae5e514239329580fbf5fbce43f58885d6aae76de577a6508ba63002a5ea18a14509a582470ef6bf4fc409cda02fa5b61cc69efc4c3b28b07da5f18cf43b71 1524 vite-plus_1.5.0-1+noble.debian.tar.xz
+
+Package: watchexec
+Format: 3.0 (quilt)
+Binary: watchexec
+Architecture: any
+Version: 2.8.0-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/watchexec/watchexec
+Directory: pool/noble/watchexec
+Package-List:
+ watchexec deb utils optional arch=any
+Files:
+ 22a397c4d7c7bbeedba692d7761e88ea 891 watchexec_2.8.0-1+noble.dsc
+ 713a891ff2a50aa05908cba96e41650f 2913648 watchexec_2.8.0.orig.tar.xz
+ ce30e9a228a862b2c532b03a68ce12fb 4632 watchexec_2.8.0-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 9c4a097732e28845cb0fa1128cd3ac975f1099ee 891 watchexec_2.8.0-1+noble.dsc
+ 15891d021e7c203322ad5cc4896e92b6a18741a7 2913648 watchexec_2.8.0.orig.tar.xz
+ 98e909e4cebe6bbf0a89d82655a15c578cc4752d 4632 watchexec_2.8.0-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 41b2a62d704430092ad3caa7b513f84b5d4bf56a223c3b5b71d80e86f867f945 891 watchexec_2.8.0-1+noble.dsc
+ 89e815c453f955ffd63b2acc1f908461ac4f9e151774382a6474e89d595ca3e8 2913648 watchexec_2.8.0.orig.tar.xz
+ 91add54650e51ffd4299b15b3f8b9a38d7a7c62fcfe792e6627b0356fa4bc1de 4632 watchexec_2.8.0-1+noble.debian.tar.xz
+Checksums-Sha512:
+ 243963d47d1789e666ba35b6f1996737fa73d85799a798cb0e3f1057d39605a3741b14920c5a6d09e6d30ac2c2339a5eb244c79a38ca7d1a1c2551aa04849ff1 891 watchexec_2.8.0-1+noble.dsc
+ 3682504b694e6643705a726d0b15024367c0a6674e836bcd8ee4329b3d92b31bde0235c3e1896672564ed4b1094ed801c33b3e73510721f4803a06f87175f3b5 2913648 watchexec_2.8.0.orig.tar.xz
+ 549e92f332a6acabf3f5490443279f02482c0dcfb352964d3323574204724613fde676344248f330089fb798ae0f9dd1039d34af43357d6e641f1b739ffd5360 4632 watchexec_2.8.0-1+noble.debian.tar.xz
+
+Package: workmux
+Format: 3.0 (quilt)
+Binary: workmux
+Architecture: any
+Version: 0.1.279-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/raine/workmux
+Directory: pool/noble/workmux
+Package-List:
+ workmux deb utils optional arch=any
+Files:
+ 27b2c87e1f87748142f5930cdb7eeaef 881 workmux_0.1.279-1+noble.dsc
+ c5f66afa6785d0c77349602a32f45824 5380224 workmux_0.1.279.orig.tar.xz
+ 55b9519a4f2afc3e76bb39f2f5913728 1512 workmux_0.1.279-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 6e257d4594c39fd2909dc7d20a2cf77402f54b74 881 workmux_0.1.279-1+noble.dsc
+ d83d0329076bdf4cb5a363d183751846d4f29fd2 5380224 workmux_0.1.279.orig.tar.xz
+ 51afd3835cb0188bba3a135dc7b64a45a1ab8f35 1512 workmux_0.1.279-1+noble.debian.tar.xz
+Checksums-Sha256:
+ d9fb3c1e2edb0db52cca8dc40593a14ca94f4ca27b51b761f289c0a9190a7cfc 881 workmux_0.1.279-1+noble.dsc
+ 0bfb463aa897e6db93eae11320987c35e6428a192b6faaedb686d3eaaec71e1a 5380224 workmux_0.1.279.orig.tar.xz
+ faed474b77278644fb4f83251abd0d62581063c2f403ff6cd5694f25c7ae27b4 1512 workmux_0.1.279-1+noble.debian.tar.xz
+Checksums-Sha512:
+ c779284418da58ef8f9a177066cee097d00ecd5bbaddd9ac6ad7a06faaf92d51ea2555ea4dc2794ead4be2d702cef46e668fe2f66fdbdb6c12facc16cbce8b5c 881 workmux_0.1.279-1+noble.dsc
+ 1cb91661b5de4abfb86469c75f27d657b0f0a55edf70c90ecb1e9a350696bd6ccf04572dfe0f5187a4584726379de92963cd53138635fbb3e3027ddfb8067403 5380224 workmux_0.1.279.orig.tar.xz
+ 6883008671229785f6896e2275292d2341b5bcee0cc20215a39a262b311ea75d2f01785d526e250d99b6874c81b8b38db174b97d78634913a7ab5b115d8e7d90 1512 workmux_0.1.279-1+noble.debian.tar.xz
+
+Package: xh
+Format: 3.0 (quilt)
+Binary: xh
+Architecture: any
+Version: 0.26.3-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/ducaale/xh
+Directory: pool/noble/xh
+Package-List:
+ xh deb utils optional arch=any
+Files:
+ 9fa0518d99b027d0b1bcbf6a8d6443a3 826 xh_0.26.3-1+noble.dsc
+ f4f24a54b5d4499af87967127e81f211 3340280 xh_0.26.3.orig.tar.xz
+ 5e2085979065fdee6d1693821044e4c8 1512 xh_0.26.3-1+noble.debian.tar.xz
+Checksums-Sha1:
+ b9a220dc5aaabb5c02088f81d9c1cc31abef0f5c 826 xh_0.26.3-1+noble.dsc
+ e546c305db6a4898e82ad2c2473f86cd92f2f18c 3340280 xh_0.26.3.orig.tar.xz
+ a933e97bf8bd4f8ee5243fcacc49aabccbf1c659 1512 xh_0.26.3-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 36c9ce3ce7cc9b8c51a8c8902aa6d97a48f11e71a9a14890b2111e47ee037236 826 xh_0.26.3-1+noble.dsc
+ ebd8a7af00b9e7f2318620bb9ecbd080f40c5b58498139b46845759e8ff44433 3340280 xh_0.26.3.orig.tar.xz
+ b59bd80549a97b4a2500c20a0ba0da659902812f8dadb999305f6951bf485c2a 1512 xh_0.26.3-1+noble.debian.tar.xz
+Checksums-Sha512:
+ df7e2a43ecd0940eef5ce8d13be65c3dca5c8a9a95917322a34ac04f6dddd2f0e559f3bef0284dd1f76210737375a0458c0dda27a45d966fa6828c2ecc83d619 826 xh_0.26.3-1+noble.dsc
+ 52c263ca319806287f052c4bc4995a5e8edec113cda3602a94cf066ef92d3817638db95b54f9393aa91e3abd4686a6b232e090044b89699b950b9e12cbe67449 3340280 xh_0.26.3.orig.tar.xz
+ 1c44884498a8cf472468e1410e4ebe2f67cf1ef808cd1184c8ff479c69c01d6b2672665e0ec1bf7799c43b2b585343ec05c97b96b0e98e816670a80e23006a62 1512 xh_0.26.3-1+noble.debian.tar.xz
+
+Package: yazi
+Format: 3.0 (quilt)
+Binary: yazi
+Architecture: any
+Version: 26.9.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/sxyazi/yazi
+Directory: pool/noble/yazi
+Package-List:
+ yazi deb utils optional arch=any
+Files:
+ d5c73c466e422b6b92a93a04b8000a8c 852 yazi_26.9.1-1+trixie.dsc
+ e005d2c42179cd82ea5fef32690d3fbd 10301888 yazi_26.9.1.orig.tar.xz
+ 41387fb8476b4f2554e4aaccf5f40508 1528 yazi_26.9.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ ce7fa4348e767153c02de9166aad0ae4a81c2a4c 852 yazi_26.9.1-1+trixie.dsc
+ 6f94af913bf0ddef0b739ef39937a663e3ebefb1 10301888 yazi_26.9.1.orig.tar.xz
+ d948747349c2367b5562e6f21198917ec514d299 1528 yazi_26.9.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 6b5f23523be784e669623bb11cb548e273940cfb88c1ee324604e0c35b9e91c5 852 yazi_26.9.1-1+trixie.dsc
+ d2c6a0d0157a5563f575c998a82e16779a2ddc3c916bcb11e4375c338991ea30 10301888 yazi_26.9.1.orig.tar.xz
+ edf68678a3752c658b94e8826d37239698ccafb10904f47be89b7d7d2c8ed988 1528 yazi_26.9.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 49dd8379675a1f9d1051b7e4ce73e2aadff1211fff2edbbc9451d55e8934b3f6fc6a6c0c429a5db63d28f746b4263019379092e9ee8158fe0bb1e069e94d4ec2 852 yazi_26.9.1-1+trixie.dsc
+ da9c27bfda09d0bd5c87ae9185dfccc691ceb0e53a732dc51f64a260971b829985c52e4de8f9158dce1e86df698286faa174cb43b029f93916c1bc27c1d3258c 10301888 yazi_26.9.1.orig.tar.xz
+ 3ab5844e30e1644efea12bd8884132ea31ebb82f6f6e5e6986e9772b40326404e44a5724215c3ad2fa381db03f296962f5778f38a6bcc4ac3266b591a3007b61 1528 yazi_26.9.1-1+trixie.debian.tar.xz
+
+Package: yq-go
+Format: 3.0 (quilt)
+Binary: yq-go
+Architecture: any
+Version: 4.54.2-1+noble
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/mikefarah/yq
+Directory: pool/noble/yq
+Package-List:
+ yq-go deb utils optional arch=any
+Files:
+ 26e2974afeb139ee120d7a59eb45f1aa 855 yq-go_4.54.2-1+noble.dsc
+ 5a788a07978aedb5c95e1e572c259f0f 4772800 yq-go_4.54.2.orig.tar.xz
+ 6307bb4ef33ff11821b0174a9edbed88 1532 yq-go_4.54.2-1+noble.debian.tar.xz
+Checksums-Sha1:
+ 28af635f0d57d2f8f97a578dd3cec8a21e3ddc91 855 yq-go_4.54.2-1+noble.dsc
+ 8fedc6bb6c7edff7c0f72b4b6326b67087870ba0 4772800 yq-go_4.54.2.orig.tar.xz
+ af46855862040b8367950cd9740279323ef6b115 1532 yq-go_4.54.2-1+noble.debian.tar.xz
+Checksums-Sha256:
+ 047925a70e9ca235108207b04963161ca0a1a1a3d756ffe15554aa18aaaf8619 855 yq-go_4.54.2-1+noble.dsc
+ 7f7db2b2940d63e78bd5154de6d4d8d5e46c0eb17a3d2e02118f5f19c753a5d8 4772800 yq-go_4.54.2.orig.tar.xz
+ 171e754db15b4613510a7ed5434042a2c8547deccf26f5d3eb0fb264f70c5bf7 1532 yq-go_4.54.2-1+noble.debian.tar.xz
+Checksums-Sha512:
+ dfd030965c1567af79953ac6ca61f390949abadc76eb0bca23f230fb9f4e3ff771f1742e3b7fd29e92125cbe8b2cff303cc9125dfeefc32c11397dcbb3edf707 855 yq-go_4.54.2-1+noble.dsc
+ 9d10ae4b5c6af81e6c84ecceed0fe69b110181a63f4b12b7620f1fbe2fb534a9340835e3a62d2a3453c7db3f44330d5ed70a5a5c9eb7c708fc554e497f8d5ff6 4772800 yq-go_4.54.2.orig.tar.xz
+ 72fd9146bc4997e488decc41f4e6e4c7ed6b2395d78aade68da25a9c20e7560520445e0493f826d0c0de089ff31e429c1ce0fb1975e0b85df97b2cda6a505fc1 1532 yq-go_4.54.2-1+noble.debian.tar.xz
+
+Package: zed
+Format: 3.0 (quilt)
+Binary: zed
+Architecture: any
+Version: 1.27.0-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zed-industries/zed
+Directory: pool/noble/zed
+Package-List:
+ zed deb utils optional arch=any
+Files:
+ 318d76e6e1a1016ec96b47da47b10894 850 zed_1.27.0-1+trixie.dsc
+ cbf08a2dad879cfa10d7cbf80d4a155f 65063808 zed_1.27.0.orig.tar.xz
+ bf93ce2bd17a6c355df1ac5b20cec0c2 4472 zed_1.27.0-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 37e3bd0166b023a04abdd3f3da100d641e4da844 850 zed_1.27.0-1+trixie.dsc
+ bee63312b387d1126ba30eaf7108be344fbddadb 65063808 zed_1.27.0.orig.tar.xz
+ ec1f8879ba01d76753bebd4072459a57d314f2d6 4472 zed_1.27.0-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ a1f8bb4e91e920179967dafd2b6baa3374288c923b33c783244b802e4e1f04b0 850 zed_1.27.0-1+trixie.dsc
+ ea657967154a2f7f22b64d7b67806b03cf0b254069d3a88eba3d444f870e8966 65063808 zed_1.27.0.orig.tar.xz
+ 6100c0318c0173d7ef9611640196767c2c4a5d9ece08581415f0891fff328dc7 4472 zed_1.27.0-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ a39e81b4af8144f497d1461f8182c10ae6ddb47ad876540afccb9d93871224c54061e14376776f3015f4b69ebfc39a40c3e46bc8951dd6e526744fef50857014 850 zed_1.27.0-1+trixie.dsc
+ 3af66a58fae2af0b70cb895d5b534962683cebd1096886349c16bd4bcd0e406aa66f7222ee57a8098429e2cb855de6d37482f2cf22cfc2a13ae7acbf874bb9fd 65063808 zed_1.27.0.orig.tar.xz
+ 550976a833e6b29e46e5ccaabaeb8a1da1c1cab7ded49e08ef8692e1ffaa8d04e13f0216a198fb6261ecca06f4348eedd13e062f27157eff88ada26ba09f669a 4472 zed_1.27.0-1+trixie.debian.tar.xz
+
+Package: zellij
+Format: 3.0 (quilt)
+Binary: zellij
+Architecture: any
+Version: 0.45.1-1+trixie
+Maintainer: latest-debs maintainers <maintainers@latest-debs.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://github.com/zellij-org/zellij
+Directory: pool/noble/zellij
+Package-List:
+ zellij deb utils optional arch=any
+Files:
+ 9bf91e1ac5723a12f7a38f33abc12592 873 zellij_0.45.1-1+trixie.dsc
+ aa657ed4532371922e77c125d549775c 8054396 zellij_0.45.1.orig.tar.xz
+ 2027eef29f69a99beab7d8ea9d4236b1 1536 zellij_0.45.1-1+trixie.debian.tar.xz
+Checksums-Sha1:
+ 7f45e1d7aac792c6c7a26b91c022234f89df7ad5 873 zellij_0.45.1-1+trixie.dsc
+ 87ade7297dba2e9c4992532717f9b9b3ed77d10a 8054396 zellij_0.45.1.orig.tar.xz
+ a35830d08358962f95760826eeca605a7392f4db 1536 zellij_0.45.1-1+trixie.debian.tar.xz
+Checksums-Sha256:
+ 47b9893ed02f794042e6f73c7e1c889aaa010d35089989aefc0b3a081ae81a63 873 zellij_0.45.1-1+trixie.dsc
+ e1e0ec5831257c49ba9133bb111f8053aac1b58d76d3aa6f5ae01b3219af3140 8054396 zellij_0.45.1.orig.tar.xz
+ aedcf9a9a97f3c8ee0afb6003dec17e87abf8f1da6a2eaace91067d1f5180cce 1536 zellij_0.45.1-1+trixie.debian.tar.xz
+Checksums-Sha512:
+ 8850038e4142153a8b632f358e8ac9b9c5a6a909547704a942df02569ce90ad096019d0ddfdb6959ecba9c2098e20be3673acb68cb69663b7661dc681d2ec7eb 873 zellij_0.45.1-1+trixie.dsc
+ 81a20bb2aeccb82fff52dd3b5fe38680011c9298a1e54ad7db5619fa53358c615aea8712eb10db7062d8db8c7e7d9a5317db7a9bbe56428e4fbd73de23709f4b 8054396 zellij_0.45.1.orig.tar.xz
+ 04b56b1f5b2bd7a23db9ca6f3dc0b2c0aa6335b845dc5501d30d933fc7145564eb9a3a488d63cffb3909c3859b4a57aa9a12e1d1b5dbf2beb397bc17943d56ac 1536 zellij_0.45.1-1+trixie.debian.tar.xz
+

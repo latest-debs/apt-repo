@@ -1,0 +1,176 @@
+Package: buf
+Architecture: s390x
+Version: 1.75.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/buf/buf_1.75.0-1+bookworm_s390x.deb
+Size: 21063596
+MD5sum: a707407551739cf77f0b6c29e06d1819
+SHA1: f4df14289a0f6abfcf14b8fa28b34e6285b82beb
+SHA256: c8610232e06ce425f7397b0074235894ddf421855ebf7c97ed3fd883e30ed14a
+SHA512: 5ad0fc2fddc83b58fc5a27d0f7f2702a7547139b6b1f07f16f8fc85c58a7a07142072673507632ff4b43c14d583ed59d56f9be6efa03fea7daf4bfcb5216b3cc
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.71.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/fastfetch/fastfetch_2.71.0-1+bookworm_s390x.deb
+Size: 4605932
+MD5sum: 999c7ba95114008b7c57217a1e2bb74e
+SHA1: 9592e1b8de443e00686f01cf9188e45122e0a8f2
+SHA256: 259ecf5d6cf0d3dd17cbe5dad9c3015efa7a0d11a346076ff1f3ddf96f347cb7
+SHA512: 9799c4cb783425392eb2d13b1763e33bb9d2f5b6c64786f6d8dc54ddb1ac32be5d927eaa40ee8aca6937b7ab000dc80ef59a567c68408e599d59359add81a8ca
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.74.5-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/fzf/fzf_0.74.5-1+bookworm_s390x.deb
+Size: 1611020
+MD5sum: f8619d180303991025fa36e5a7f6a4d5
+SHA1: cfcdc58f1d1040f14687954603dd753f9eb9f9da
+SHA256: 95cd762fbdfcd6a8afb17fa377b46b11ca61fdae48a87eccf0a10eb7b219b3c8
+SHA512: 3875edb39b1cb8248c913ad06b59bc51ce3996ede8c3c768ef92a4d83c2dac964d3fa3373a4e4d0a5e7bd6f84ea265c213a692f214bc14480f2cfbad301ebbf9
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/k9s/k9s_0.51.0-1+bookworm_s390x.deb
+Size: 25122440
+MD5sum: 6d5eff92a39e5dfb3fe2c7ede9fb3a45
+SHA1: 31dc3ee44b8e42ca323d1bb2e3a61593b75242d6
+SHA256: c6d260eef3034266abb856ce4c6c96df415027df357ee34578f78cc3ae998fb4
+SHA512: 173810b60526bdaaa5b6d491f6594aa358f78af4c365b273a7bbd307223c957bc1e6475626aca7bea32e60e6675483e93fcb86eebc48eaac61fea6b830629050
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bookworm/lf/lf_42-1+bookworm_s390x.deb
+Size: 1650692
+MD5sum: 93fea59e61bc3757fabefdbea46f8fa1
+SHA1: 08ac5982012f2dd7a53fe4071b664806926e854c
+SHA256: cd5783a737cbb3ffeeeec48214e88952b2d95dd2b6f3078db4655872e8df8670
+SHA512: fa49127e4b0c9ad6fc6b66e569b2c4dc2ce8d53ea3a8c5be08813279270fa31304d59c704ef91cc9a1f50e0346921cc6495e4410ac0e908c88ad0436dcd8fbd0
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/bookworm/ripgrep/ripgrep_15.2.0-1+bookworm_s390x.deb
+Size: 1407928
+MD5sum: 738db52031ac71031800b7d0a7659097
+SHA1: 379666611a2cd739207c026916b7f9eacae9a2bc
+SHA256: 0f9529153da54b1b828745a1df3a82282d7a3c8b601034c21ae1f50fd81d77d4
+SHA512: 4157f2e08c9b3fea7efa1c9aa526c9d140f11c6770fca7e3cbe84439cd4836168912d00a4b246ace9c5c5fe3a19b863cfd6873464c15d2e7d603d5827cc573fc
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.17.4-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/ruff/ruff_0.17.4-1+bookworm_s390x.deb
+Size: 6849772
+MD5sum: b0f111d5f5bc9f9975c376d878ec1df3
+SHA1: 567fb8a6bdec84e98e457e912c64c34a541785c5
+SHA256: 8acc099cad9cdf1c6524dafba1d334d1dd923cbb9e27cc2c93dc7907a52f440d
+SHA512: f504020981bc0472ed90eb433c015396b123766f054912cff2a6dcb7034dedd112be2a5dc98b9f340ddb2f5c3756de5aac674adf69bf490ad515d2018fb87925
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.76.2-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/trivy/trivy_0.76.2-1+bookworm_s390x.deb
+Size: 31698556
+MD5sum: b0fd850bd393069429a637e6bcfb1aea
+SHA1: f2411a220bb0451b17710185c79401b1610d2fdb
+SHA256: 0a5a8934cac80e7eb338fca8e280305da93e76f8709d2915f7ebf2b0f0ca18e2
+SHA512: dce4c1a7cf03dc1dddc984d33a1f39cfa9ba94ec27b0e4fbe638f6a295aa59de4dced9835f8573c5e5ad848f1c8a181b6b92cb7d6392a78baa85a40407eec0be
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.13.7-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/uv/uv_0.13.7-1+bookworm_s390x.deb
+Size: 12026980
+MD5sum: b434a939f3fb14ef41fc117cc0127f40
+SHA1: dca982625229621796b716acb859237801269f41
+SHA256: c6e4bac2e5995492003527c6ba9d4c7942ce4f56e6f7a8b41af9c599af54db36
+SHA512: ebf50e73b272bcc5f54720c6a70994cc29c0d1982bbf09bec9cdefa526f14f39b50140912ddc0079dd9e973d3602c8a2bc898c1f509cab9c63e635b97e97e66c
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.8.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/watchexec/watchexec_2.8.0-1+bookworm_s390x.deb
+Size: 2780520
+MD5sum: bc4d0919477d0faf3761575372d82edb
+SHA1: 042853f07b5a1fe69f2dd30e6c03c9d604d89d9b
+SHA256: 7a388c0970f87a47664f4c38b8309e216c7d2c2f3d8c0bf79b58a41ae036744d
+SHA512: 163147248460fb160fe86ff8ae11fd411ce1815f71f8e010140846c3792ab0550582395ce5f52301e9512afa5098c8a0ef344930b287578d2d5f0a0c7bb1f1a0
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.54.2-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/yq/yq-go_4.54.2-1+bookworm_s390x.deb
+Size: 4346164
+MD5sum: 7b03cc6ea0b39be26262ce9b121968ce
+SHA1: d8355bd744d6d50e1453d3ff35be44419327bbb4
+SHA256: 2402de62a61d1ba2eebfc1df2983b7ce1c2b396c80b5045a478e1db6af0b6b1a
+SHA512: 628191bac70136fe99776c5d17395b43e623e911bc5329abb1bf764ad110094b23560b95417b30dc01d4024da1c5219073203c72e9701baaf82bcca7e59cf8ff
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
