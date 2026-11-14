@@ -1,0 +1,48 @@
+Package: helix
+Architecture: amd64
+Version: 25.07.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bullseye/helix/helix_25.07.1-1+bullseye_amd64.deb
+Size: 16703028
+MD5sum: 198f46f867b03117b4b67251f88ef944
+SHA1: addc4a039635a52db94123249410fb3d621a0c18
+SHA256: 4a0e9b9bebf89c1160f3d94cee5eee41b479c4e6508ae8cafa082fa1b13be01d
+SHA512: 4af2b100dfa0d1763228c48a087489c12f57e15d319182786965c9521e24513578d2450647b8ad22a52b06caf427fb5b84ba4ea2ae52873e8f8e04142c8be5b5
+Homepage: https://github.com/helix-editor/helix
+Description: A post-modern modal text editor.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: sd
+Architecture: amd64
+Version: 1.1.0-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bullseye/sd/sd_1.1.0-1+bullseye_amd64.deb
+Size: 734676
+MD5sum: 4ca16fa6b64ad78ff671d837629a6f0a
+SHA1: 959a7689df9d9a87f5571f46cec5744672da73c0
+SHA256: 769eac4ca2fd1408f350fdda5223cc5c88a9e85aa8dcd0c064460aa54c397068
+SHA512: a17017611ff818b059e0fba841198c27b3ea2f5eeb3970d4c3833bc48696c1344cd63182aa072c35959e2105ec52e587b5aa81158add287e547b6f5ef2ed7092
+Homepage: https://github.com/chmln/sd
+Description: Intuitive find __DESCRIPTION__ replace CLI (sed alternative)
+ Packaged from the upstream GitHub release for Debian.
+
+Package: zellij
+Architecture: amd64
+Version: 0.45.1-1+bullseye
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/bullseye/zellij/zellij_0.45.1-1+bullseye_amd64.deb
+Size: 8321560
+MD5sum: 1361670802f23311d2ef54995e700a02
+SHA1: deb7f006e037c779b5a77ce49a390a1e1e46160c
+SHA256: 68ec9cca07519126cbf8a67943000f6cda538a2d4420564302170e81bc1846a2
+SHA512: b654053f4bd44f0b053843f092371f89c6db64c00e26a7467967c895264bf23acc4b5fd39e2c71955eaaa4df6413d5c9c71157ec75111c9e8496de31e634362c
+Homepage: https://github.com/zellij-org/zellij
+Description: A terminal workspace and multiplexer with built-in layouts, session persistence, and a plugin system.
+ Packaged from the upstream GitHub release for Debian.
+

@@ -1,0 +1,176 @@
+Package: buf
+Architecture: s390x
+Version: 1.75.0-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/buf/buf_1.75.0-1+noble_s390x.deb
+Size: 23991410
+MD5sum: ec8092dc94bc46c9eb8b3093e14879d0
+SHA1: c305a7fa563406dce365668e144c2a3cd387626d
+SHA256: b9bb07413383052fb5b6b859a1ea49f588aaa5a6c41445724923fe95ed265674
+SHA512: 6c6114b383e228903a6b762af5fabb01dad8eef27a58aa4ff7be56c8cbed207f1aab427bd4c791cfa9bdebc12ecebf307caaa19287a517c7e7c4fe5a8ce94c97
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.71.0-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/fastfetch/fastfetch_2.71.0-1+noble_s390x.deb
+Size: 5224844
+MD5sum: 929fc673af5316e0d6b13df97487acdb
+SHA1: e387faf66f58d45ecde3996aff06547615308ee0
+SHA256: c781d90792b656ac2f394e9ca2c63b6c50acbf5eb17e73ac8711892f3bcef953
+SHA512: 399b257e6482527a333425d2082035ab04f17290de3bccbdd5847e1fba09117ded9a6c5cea309fde8b2fabd011abe3a135cba93e373e0f5808c715cc2609426e
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.75.0-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/fzf/fzf_0.75.0-1+noble_s390x.deb
+Size: 1825364
+MD5sum: c754e7f07291f697da7a2354efa46e5f
+SHA1: bc82239cab82f094679ed7064392f9ce4e6556d9
+SHA256: 8e51b6c2f434d726a2c7dfdba98b8c1e087d8927f9ce928736060dee6403f1f8
+SHA512: 8254af8305b8fc298a452d53e2a1e3b8392362abfa8d912ad62d60ea3e013207a1982cdbe2628d3fd22fcd5645c947c42e72fdc0bf62535f2c94b11d67063ac5
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/noble/k9s/k9s_0.51.0-1+trixie_s390x.deb
+Size: 25122356
+MD5sum: 7aa4586454171cc928ebc941ffa8889e
+SHA1: e63242bed76377ff0e81396b5e033d75eb637b3d
+SHA256: 78cc2d168ce8036bacf7f09e3fd000c96e10695312689662c56ee6cfaa640ac9
+SHA512: f9004f6049755f9a3c0979eb2b93b61aa43b1a66d09103a7f8a0bf1e298fe8fcd418e7224c1e89393e5adc4d6c859e6f7a7bb59d2cc863b20548ff86068a3ff3
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/noble/lf/lf_42-1+trixie_s390x.deb
+Size: 1651168
+MD5sum: ee724ce3948c2125f207aa56f20eb21c
+SHA1: feda68b78eec044094b3023644f1b26e1fad724b
+SHA256: 7816f0973c8c4f830e18b162520e43441e415ddea3f8f6a9828c46b646a2aa9e
+SHA512: d8de877efccca4df7b72851c23aa5feb6efcb4fff927a7b7213356279e8e79789689c5c7a3b3619e08933492decf1e9c3e8d788bb0c80b104c52a6a8cf7a4c4d
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/noble/ripgrep/ripgrep_15.2.0-1+trixie_s390x.deb
+Size: 1408160
+MD5sum: 6227f19f203e91f9ec76141b0f5fa324
+SHA1: 34561d5382873ad416bf7cc44e0e51f3211f7be8
+SHA256: a22d956619eed796f6548a2f818cd39604b960a83a28c8ab2acaac389451d5b5
+SHA512: 3db86f32759ca1f3a59ce316cc15ca88382e8556a2a7dc954585d7663e5a5e00bb4bb8612d1402847075fc2e0753a01624f7bb43fc69e0de288824a1020cf968
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.17.5-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/ruff/ruff_0.17.5-1+noble_s390x.deb
+Size: 7872042
+MD5sum: 614291e72fe1a05bb0571ffa22539945
+SHA1: 7491cccdc512a410a9d462cb0bcf95c7614d7380
+SHA256: f8cc655d159354506f093d561ec3dbbb2fbdbc5a66d9d6f1632243b665ea011a
+SHA512: 6ed611e0974ce9aae726b2249f4bf31a9b26174c30cedbc8950fca652367f25f274875438cc8ab8e97e7040eab87ee1881aa18c6979e49df815ccf16ac73ff64
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.76.2-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/trivy/trivy_0.76.2-1+trixie_s390x.deb
+Size: 31698376
+MD5sum: 0317ba08edffda914ac4f15648f9efbc
+SHA1: 98f45ab74315d1b38bb8672bb0ed3afbc5f675a7
+SHA256: 531f611becc47e733d7e827bf6d32c01a42d3965416b8d82a8803498e507a25f
+SHA512: ba866e017346e73d18e55a5a626ddfdb0987ef1cb80caf80dd5c51875d732f396bd74b708006fc80f9897db85144761f58c2ecf9f5c3ffd02488b8754fde4a43
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.13.8-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/uv/uv_0.13.8-1+noble_s390x.deb
+Size: 13855890
+MD5sum: 6ee61f138c958393b67a4b5e148062e6
+SHA1: 04d14d7b45b844231a6a043b80087c98cb9d9824
+SHA256: fec04bdbd779c1fb99d4003e1befbdc29cbe2b17e497866ffea54db546aa1695
+SHA512: 9c1a845e8371d64656f75dc2da4172dad701676f23b3bdcd0db6130cc044e5cd9b3bd8c827b1d53774584823789b69899e514b420f3c4df919dde1d098ae037c
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.8.0-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/watchexec/watchexec_2.8.0-1+noble_s390x.deb
+Size: 3199344
+MD5sum: 682866e558b4139b5fca57bd91ded4ca
+SHA1: 6ecb81c7bbf6dba73955684d5d67e05ef0622313
+SHA256: 039c2b4db227b986f5a7796958d1abdaa175c048c3ea619967c42b4073a9a593
+SHA512: a1fced336c25d3e824c643a8e15e4b49111736f08442902ff370ef12412ee1ffaf453b3bc2ae3c1ba173c0eac025fe013c578239b18f0ed2e056f5e536c30a7e
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.54.3-1+noble
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/noble/yq/yq-go_4.54.3-1+noble_s390x.deb
+Size: 4966010
+MD5sum: 3983bae798e15ef0c5571cc3201a0ef7
+SHA1: e69c50dc4f120b46f5b9883f7eda63fcb11fbb40
+SHA256: 2f7d68e8ad627f7be52f037346765eab2e3916603a72fcee0d708007733f108e
+SHA512: 32e7ea7fc3d638079846fba68dd07147f386420db0663ca8e684a409d28560176cef5744f31e7111cb95d589e7f00c538b08fea7b993c9c2f2ef792fb8ddb9fb
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

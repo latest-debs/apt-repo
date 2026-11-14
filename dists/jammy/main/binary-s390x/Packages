@@ -1,0 +1,112 @@
+Package: buf
+Architecture: s390x
+Version: 1.75.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/buf/buf_1.75.0-1+jammy_s390x.deb
+Size: 24086728
+MD5sum: 00c4f65336017132487cf1ea20616b79
+SHA1: 4858815df9e8b0819bd752d2b875607f0cf544f1
+SHA256: 331d758f8d2906f8fabe9a6a6c1900e8950311dd81534bcfe397726ff4e62526
+SHA512: 8d545890a14be815f17500cd9aa91fe320e62c8e798039dca26dbf976271efcf4708b09fd5d21835c8eda01f0f5ababb9ff254563d251cfb4808df06a9c5cab9
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.71.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fastfetch/fastfetch_2.71.0-1+jammy_s390x.deb
+Size: 5250726
+MD5sum: 0ae417f2504aa94cac8c8de72bb21477
+SHA1: 6d3a38f4ed31428675888b7f4095421ed0084cc7
+SHA256: 648d6e2de0f7ebbeef0df9482f2bf292397dc91437bba0f0585193139115f918
+SHA512: 99ae724a6cc015c9e0d10437e6c9bd4708eb398c9fdd44b7aca87e3e3ee7461f4a1f44282e22315da716257fbd69ab045cacc03430b521f2e4f122a254dd3143
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.75.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/fzf/fzf_0.75.0-1+jammy_s390x.deb
+Size: 1840210
+MD5sum: 34627856a085b43c696c04b63a09b7f1
+SHA1: b9c5b052a9e66349b2c296b966aea1c22b25b784
+SHA256: 3132f669f4555a9e9896e33f2438a5fbce67cc479bde1d83f4234a1cdfb0f2b3
+SHA512: c004654f8c912fa9a6de95ee2b13e22d02253940ed8c3e35450d25346dc0710f79066069db61b7ece608b5a61275355e0a91b37c09631f96e151b73c60ecb951
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.17.5-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/ruff/ruff_0.17.5-1+jammy_s390x.deb
+Size: 7938940
+MD5sum: 83a158ea4f81d6f5245d91a1cdcdff90
+SHA1: 10cb2e583a33aa3b9e5346d1a93d7ca0c5a7230d
+SHA256: df220c45f7180aa358b44bb57cd866c6243f0b8650aa4f1ea37be41b25d4803a
+SHA512: a0751acbffded79d44fe3a6d13aba829f052495e14e4da8b3e0505bcd72e92fbd5ddddbb891e2c607c2e3d266a64edeed7e2a2af462c9d8c1bbdb8a0695634ea
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.13.8-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/uv/uv_0.13.8-1+jammy_s390x.deb
+Size: 13904136
+MD5sum: 08ab51fe71e82340a547e14a22d04e05
+SHA1: 574ec4180c70d9cf93e47d5525df7d67d62189e7
+SHA256: ed7952f2fe32c3ebd892be37d94a6d66c7058c89de98c76986e9c7a17ec91146
+SHA512: 242ba0dc1a06e628ade3aa50b435d67617e87a485065249cf68774af7ccb32dea73dc727959b022a4d3fc81b153bf110ae58f7da2db0281e733371799ac10027
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.8.0-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/watchexec/watchexec_2.8.0-1+jammy_s390x.deb
+Size: 3212638
+MD5sum: 28ecb43112442a80e5cb6e0fba0f83c1
+SHA1: e69d22e3a752ef7e0296c151f176b05a3ad6f87a
+SHA256: a0a19be7dd5580858815bb4b26b2b0568621c69a5953d52add2d9768489b3fa3
+SHA512: 56c6b52316b7b6a20a38c2a8114d71c34c58239acc7847d6238f8abdff13dead4d5f168ad359503f22288df3199c0954d1df3102ca8da8c0acff6a89f2974968
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.54.3-1+jammy
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/jammy/yq/yq-go_4.54.3-1+jammy_s390x.deb
+Size: 5006216
+MD5sum: 2f857eca054af315360119e3ce89ffca
+SHA1: 4e40c944ae92c02c4aa514c634ba0d2a2f28ad73
+SHA256: 760004a75551329bbb6d999daeecad42ecfa2e1fb3287f95d44c6634a810f165
+SHA512: da5f058c037d340e00438e49b87a2e9b8274425c75f0c3274137882fe5b87481c13162138eff9a1c36adf3d96995cb0924840119bcfbf53600b4751eea9cf52a
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+

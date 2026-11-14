@@ -1,0 +1,176 @@
+Package: buf
+Architecture: s390x
+Version: 1.75.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/buf/buf_1.75.0-1+trixie_s390x.deb
+Size: 21063984
+MD5sum: f932fec1a2882d13a6eb99767f73750c
+SHA1: ba74801f22d032e61620ebe68c6f6afd0e494832
+SHA256: 7a2c40d7c671d2dd5c2552686bd48bc55de83391d137598c7d09506f7f5f10d2
+SHA512: 29d4a66054e943f5f6c095636dca6ceb8ae4ad3ecd7ac4c9507b31bd1a5b1d6ed4df9f6045c0367d5fc9284a6a307e6040a105f0deb7b07f82c61829f3f17e19
+Homepage: https://github.com/bufbuild/buf
+Description: The best way of working with Protocol Buffers.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: s390x
+Version: 2.71.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/fastfetch/fastfetch_2.71.0-1+trixie_s390x.deb
+Size: 4605460
+MD5sum: 4817ab7e13a4b732f2ec38c1e627d6e4
+SHA1: a3c903ddea75d7589469ec898c3f6a7fd75dafe5
+SHA256: 41d3e88469281cd99b9779aebffee637fea7796ab86a3508faf5797746bc98b1
+SHA512: 669d59d634c62b4f0887eebfa9e94cd91c19bcfe07df63032d3590fe57d4d2a4fb568e71010096f8b6089311c997d029f4a73c1a7841a9fcbf867ad761f7e5d9
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: s390x
+Version: 0.75.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/fzf/fzf_0.75.0-1+trixie_s390x.deb
+Size: 1614268
+MD5sum: cfed8be01f2bd144ea737fafa6ce300f
+SHA1: 5821463907dd26b56493f2631432b23ea18ff987
+SHA256: 39d8b472c3b9a4432020ac20b31cdce8a5e4682b4412d60750dd0837fa04813a
+SHA512: 2284927fa23de07502cc28c143907a78be2cadff3ab43c96ef47dd104b72c038bf40a18428d94061f3dad5be640578fdf4888ece5de7d9ccf5070ce10391106b
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: k9s
+Architecture: s390x
+Version: 0.51.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/k9s/k9s_0.51.0-1+trixie_s390x.deb
+Size: 25122356
+MD5sum: 7aa4586454171cc928ebc941ffa8889e
+SHA1: e63242bed76377ff0e81396b5e033d75eb637b3d
+SHA256: 78cc2d168ce8036bacf7f09e3fd000c96e10695312689662c56ee6cfaa640ac9
+SHA512: f9004f6049755f9a3c0979eb2b93b61aa43b1a66d09103a7f8a0bf1e298fe8fcd418e7224c1e89393e5adc4d6c859e6f7a7bb59d2cc863b20548ff86068a3ff3
+Homepage: https://github.com/derailed/k9s
+Description: Kubernetes CLI to manage your clusters in style
+ Packaged from the upstream GitHub release for Debian.
+
+Package: lf
+Architecture: s390x
+Version: 42-1+trixie
+Priority: optional
+Section: utils
+Maintainer: ${MAINTAINER}
+Filename: pool/trixie/lf/lf_42-1+trixie_s390x.deb
+Size: 1651168
+MD5sum: ee724ce3948c2125f207aa56f20eb21c
+SHA1: feda68b78eec044094b3023644f1b26e1fad724b
+SHA256: 7816f0973c8c4f830e18b162520e43441e415ddea3f8f6a9828c46b646a2aa9e
+SHA512: d8de877efccca4df7b72851c23aa5feb6efcb4fff927a7b7213356279e8e79789689c5c7a3b3619e08933492decf1e9c3e8d788bb0c80b104c52a6a8cf7a4c4d
+Homepage: https://github.com/gokcehan/lf
+Description: Terminal file manager
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ripgrep
+Architecture: s390x
+Version: 15.2.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer: Your Name <your.email@example.com>
+Filename: pool/trixie/ripgrep/ripgrep_15.2.0-1+trixie_s390x.deb
+Size: 1408160
+MD5sum: 6227f19f203e91f9ec76141b0f5fa324
+SHA1: 34561d5382873ad416bf7cc44e0e51f3211f7be8
+SHA256: a22d956619eed796f6548a2f818cd39604b960a83a28c8ab2acaac389451d5b5
+SHA512: 3db86f32759ca1f3a59ce316cc15ca88382e8556a2a7dc954585d7663e5a5e00bb4bb8612d1402847075fc2e0753a01624f7bb43fc69e0de288824a1020cf968
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
+ Packaged from the upstream GitHub release for Debian.
+
+Package: ruff
+Architecture: s390x
+Version: 0.17.5-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/ruff/ruff_0.17.5-1+trixie_s390x.deb
+Size: 6807872
+MD5sum: c06a27a2fa74602452906eff3b3243cd
+SHA1: 575ecd68e62afe512ac42f8ae6f236c89945310f
+SHA256: c5672c56dd4378f8d1cafe3c452b06a8e7204431473deb8e8688d906a2f9f479
+SHA512: 101bf76fe35e478f69d827ad00c86fef7ddf98cc235e486a516e749dd9fbee6ddfaddbfbaa664384b00cfa84b60d00b0a0ada6fedaa6896c6b8688825ca6f879
+Homepage: https://github.com/astral-sh/ruff
+Description: An extremely fast Python linter and code formatter, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: trivy
+Architecture: s390x
+Version: 0.76.2-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/trivy/trivy_0.76.2-1+trixie_s390x.deb
+Size: 31698376
+MD5sum: 0317ba08edffda914ac4f15648f9efbc
+SHA1: 98f45ab74315d1b38bb8672bb0ed3afbc5f675a7
+SHA256: 531f611becc47e733d7e827bf6d32c01a42d3965416b8d82a8803498e507a25f
+SHA512: ba866e017346e73d18e55a5a626ddfdb0987ef1cb80caf80dd5c51875d732f396bd74b708006fc80f9897db85144761f58c2ecf9f5c3ffd02488b8754fde4a43
+Homepage: https://github.com/aquasecurity/trivy
+Description: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+ Packaged from the upstream GitHub release for Debian.
+
+Package: uv
+Architecture: s390x
+Version: 0.13.8-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/uv/uv_0.13.8-1+trixie_s390x.deb
+Size: 12249464
+MD5sum: 73e282fd9d501311120c76401148cb6c
+SHA1: e38723cc86693de0f9f5b9c446de73c4976a047d
+SHA256: 3b933d933f0b8e9ff2232a76c8d288ab6abcc7a37763be990bdb19259b6ea31c
+SHA512: 90894345253caeaf664ca21efa60c1a3b19103bdaeeb2902f00968d81d95a1cba4c3a977dd291f3a512b9b2ee9279a086af7554ca36aed29bc1ced07320dabaa
+Homepage: https://github.com/astral-sh/uv
+Description: An extremely fast Python package and project manager, written in Rust.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: watchexec
+Architecture: s390x
+Version: 2.8.0-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/watchexec/watchexec_2.8.0-1+trixie_s390x.deb
+Size: 2780428
+MD5sum: 892773f2b7cab895dbe966bba6a6c268
+SHA1: 03a012a0584b7294f000ebad9609377d138758ed
+SHA256: 6e937654893922cb36bd71d85b35022412ceb534b4580ef8e3f637d6eb973131
+SHA512: 337e17a76ff25e9ac0b15f1f95d84d9119f4ba2eb3efd247eba5066f868954abce80c35325e4a215ddf1ec08c126ddadece6f069ef9176bb318290875d278992
+Homepage: https://github.com/watchexec/watchexec
+Description: Execute commands in response to file modifications
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: s390x
+Version: 4.54.3-1+trixie
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/trixie/yq/yq-go_4.54.3-1+trixie_s390x.deb
+Size: 4364536
+MD5sum: 5856fd05c3e1f23de7d84eabbead771a
+SHA1: 4e18dbe27a09128aae62054d36edaa3e019648e6
+SHA256: 0430397975e836bf78e41609b6208d5d20ad94bc34bc255a644b8f27fad81b4b
+SHA512: 89c0eae3eec7b75246777ffd742cd171f0892a3c7b7a70db0bed8142d9a488069c7d6486e3e10fa9ce73d7ec5043aac4eb7cddd082bd0e2d01ff986018a46468
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
