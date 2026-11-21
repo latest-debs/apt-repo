@@ -1,0 +1,96 @@
+Package: bottom
+Architecture: loong64
+Version: 0.15.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/bottom/bottom_0.15.0-1+bookworm_loong64.deb
+Size: 1295944
+MD5sum: 7c28b3d2b950c51116e414a73bc30728
+SHA1: eb02b3009e32f832e394ec989c5cde8faf556c5e
+SHA256: bde70afe64e65e140735b14f67cd40b623dc9e75fbab34779b218e9913b8840c
+SHA512: 8e5f2bf7214e31a02f4e0b524bc2b1b871f0402a6edd20e49a244292d3a05167d0e3a5b6bf85cb146a15804bbd868b03606d4abeff18b2bb4165e0bb370394b9
+Homepage: https://github.com/ClementTsang/bottom
+Description: A cross-platform graphical process/system monitor with a customizable interface
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fastfetch
+Architecture: loong64
+Version: 2.71.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/fastfetch/fastfetch_2.71.0-1+bookworm_loong64.deb
+Size: 4629004
+MD5sum: 2e2d8f0e1d9e642ffdf59836c637e59a
+SHA1: 784de45ab7713ce98f214100773804925f49be6d
+SHA256: 67f2f66e592a00d9bbcb070584a7f1e268a827a557dfc9caa431b37aa71fa484
+SHA512: 22c005b38af29e9ed63858576101197a3b87ebcc620e17c0277191547100a75bc8841bc5d336621ab7d9cb71e97dc17296f1ac6170c3a9e1ec5e9861ac4454db
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Description: A maintained, feature-rich and performance oriented, neofetch like system information tool.
+ Packaged from the upstream GitHub release for Debian.
+
+Package: fzf
+Architecture: loong64
+Version: 0.75.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/fzf/fzf_0.75.0-1+bookworm_loong64.deb
+Size: 1575096
+MD5sum: 6f2645a86f92cde529e79a4c0ccf3149
+SHA1: be0129bb001c78c57eae1ee8f160a57c26734ff5
+SHA256: 92c1007d783f94fd8ec8038e777a8b6f28c50e4bb8cea7df1ca4897fd83cd362
+SHA512: 0ae67e1528fe477bcacfa9a9505326c7f0c08da4480edcf74b228a896c3289c92cf10f13e4f99af6a99a8c80833debde16af602771237c906cf7da7dc79096b4
+Homepage: https://github.com/junegunn/fzf
+Description: A command-line fuzzy finder
+ Packaged from the upstream GitHub release for Debian.
+
+Package: just
+Architecture: loong64
+Version: 1.59.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/just/just_1.59.0-1+bookworm_loong64.deb
+Size: 1560800
+MD5sum: 3903722d2cdbebdb891d530bb97ad6be
+SHA1: 29abcc219ea3a66eb3e0b0c0f030c83f80a7dfbe
+SHA256: 6876c510ed50a7df88f43545be9d8956973af71207777761baac6928d0636a56
+SHA512: f7bce3896615b05bc22ed9ccc62e1d210a458d3c0276490348c9b2e96fd9ad226eff4b13ad7ff56221b18247532246b7449276ad719c362c83276552af645d3a
+Homepage: https://github.com/casey/just
+Description: Just a command runner
+ Packaged from the upstream GitHub release for Debian.
+
+Package: nushell
+Architecture: loong64
+Version: 0.117.0-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/nushell/nushell_0.117.0-1+bookworm_loong64.deb
+Size: 43294736
+MD5sum: 41ecaf032885151d1a62318bdb9e1bc8
+SHA1: b535c5c52736b25b3317553df174d1f23bb28a27
+SHA256: 973fcaaf1995528c9f44d95070fec804e4526d7906bdf92ec5bbab3fc9baf05e
+SHA512: f5435b469d674e3c4d2ba9e188f68047977ab0b1d09fad6d4bfb0c0cd9d2fcd2e39e06ac4e21e1e9d3e702c74b0a30be53643bf03f822734adc79dc116bffba0
+Homepage: https://github.com/nushell/nushell
+Description: A new type of shell
+ Packaged from the upstream GitHub release for Debian.
+
+Package: yq-go
+Architecture: loong64
+Version: 4.54.3-1+bookworm
+Priority: optional
+Section: utils
+Maintainer:
+Filename: pool/bookworm/yq/yq-go_4.54.3-1+bookworm_loong64.deb
+Size: 4220716
+MD5sum: 9f0bed571986ecae123363e530451166
+SHA1: 1223de7e499c499923aa8181cc328b3376e47e3d
+SHA256: deb56f5e34f2924b7de91a2b38681e009b7c05ec1fc8f2e29545a8ba83800ed7
+SHA512: f46560f1d4d1b3e39be66b3a8ac4b5a23f08589aece5be7ad2d6c8f17c6a252839d12aeb42829e1e96a9da9c17f39d344c27354b71a773ee6806ce59bcf2cbca
+Homepage: https://github.com/mikefarah/yq
+Description: A lightweight and portable command-line YAML, JSON and XML processor
+ Packaged from the upstream GitHub release for Debian.
+
